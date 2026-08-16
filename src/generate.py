@@ -8,7 +8,7 @@ def load_inputs(path):
     for var in data:
         var["description"] = sanitize_string(var.get("description", ""))
         var["default"] = format_default(var.get("default"))
-    return data
+    return sorted(data, key=lambda x: x.get("name", ""))
 
 
 def load_outputs(path):
@@ -16,7 +16,7 @@ def load_outputs(path):
         data = json.load(f)
     for output in data:
         output["description"] = sanitize_string(output.get("description", ""))
-    return data
+    return sorted(data, key=lambda x: x.get("name", ""))
 
 
 def format_default(val):
@@ -26,9 +26,10 @@ def format_default(val):
         return val
     try:
         parsed = json.loads(val)
-        return json.dumps(parsed)
+        result = json.dumps(parsed)
     except Exception:
-        return f'"{val}"'
+        result = f'"{val}"'
+    return result.replace("${", "$${")
 
 
 def sanitize_string(val):
@@ -92,12 +93,12 @@ def render_submodule_outputs(submodule_env, context, out_dir):
 
 
 def generate_modules(base_dir, module_env, namespace, provider):
-    for module_name in os.listdir(base_dir):
+    for module_name in sorted(os.listdir(base_dir)):
         module_path = os.path.join(base_dir, module_name)
         if not os.path.isdir(module_path):
             continue
 
-        for version_name in os.listdir(module_path):
+        for version_name in sorted(os.listdir(module_path)):
             version_path = os.path.join(module_path, version_name)
             if not os.path.isdir(version_path):
                 continue
@@ -140,12 +141,12 @@ def generate_modules(base_dir, module_env, namespace, provider):
 
 
 def generate_submodules(base_dir, submodule_env, namespace, provider):
-    for module_name in os.listdir(base_dir):
+    for module_name in sorted(os.listdir(base_dir)):
         module_path = os.path.join(base_dir, module_name)
         if not os.path.isdir(module_path):
             continue
 
-        for version_name in os.listdir(module_path):
+        for version_name in sorted(os.listdir(module_path)):
             version_path = os.path.join(module_path, version_name)
             if not os.path.isdir(version_path):
                 continue
@@ -154,7 +155,7 @@ def generate_submodules(base_dir, submodule_env, namespace, provider):
             if not os.path.isdir(submodules_dir):
                 continue
 
-            for submodule_name in os.listdir(submodules_dir):
+            for submodule_name in sorted(os.listdir(submodules_dir)):
                 submodule_path = os.path.join(submodules_dir, submodule_name)
                 if not os.path.isdir(submodule_path):
                     continue

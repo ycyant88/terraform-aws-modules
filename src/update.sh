@@ -7,7 +7,7 @@ source .env
 
 echo "==> Running $(dirname "$(realpath "$0")")/update.sh"
 
-function update_terraform_modules()
+function fetch_terraform_modules()
 {
     local excluded=()
     response="$(curl --retry 3 --retry-delay 3 -fsSL "${tf_modules_base_url}?namespace=${tf_modules_namespace}&provider=${tf_modules_provider}&limit=999")"
@@ -104,7 +104,7 @@ function format_terraform_modules()
     find . -type f \( -name "*.tf" -o -name "*.tfvars" \) -exec terraform fmt {} \; || true
 }
 
-update_terraform_modules
+fetch_terraform_modules
 generate_terraform_modules
 format_terraform_modules
 

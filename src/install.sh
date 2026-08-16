@@ -12,7 +12,7 @@ function cleanup()
     rm -rfv /tmp/terraform
 }
 
-function install_deps()
+function install_apt()
 {
     $(which sudo) apt-get update
     $(which sudo) apt-get install -y curl git gzip tar make
@@ -47,6 +47,6 @@ function install_uv()
     uv python install "${python_version}" --default
 }
 
-install_deps
+install_apt
 install_terraform
 install_uv
