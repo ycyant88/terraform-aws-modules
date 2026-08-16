@@ -100,7 +100,7 @@ function format_terraform_modules()
     terraform --version
 
     echo "  -> Formating terraform..."
-    terraform fmt -recursive .
+    find . -type f \( -name "*.tf" -o -name "*.tfvars" \) -exec terraform fmt {} \; || true
 }
 
 update_terraform_modules
