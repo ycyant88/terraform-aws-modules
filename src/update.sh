@@ -1,4 +1,5 @@
 #!/bin/bash
+# Download and generate Terraform modules from the Terraform Registry
 
 set -e
 
