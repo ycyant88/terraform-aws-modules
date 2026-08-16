@@ -1,77 +1,77 @@
-protocol_type = "HTTP"
-
-api_version = null
-
-subdomain_record_types = ["A", "AAAA"]
-
-stage_variables = {}
-
-stage_tags = {}
-
-deploy_stage = true
-
-cors_configuration = {}
-
-target = null
-
-domain_name_ownership_verification_certificate_arn = null
-
-subdomains = []
-
-create_routes_and_integrations = true
-
-routes = {}
-
-tags = {}
-
-authorizers = {}
-
-create_certificate = true
-
-stage_access_log_settings = {}
-
-stage_default_route_settings = {}
-
-route_selection_expression = null
+api_key_selection_expression = null
 
 api_mapping_key = null
 
-domain_name = ""
+api_version = null
 
-domain_name_certificate_arn = null
+authorizers = {}
 
-api_key_selection_expression = null
+body = null
 
-description = null
+cors_configuration = {}
+
+create = true
+
+create_certificate = true
 
 create_domain_name = true
 
 create_domain_records = true
 
-stage_client_certificate_id = null
-
-disable_execute_api_endpoint = null
-
-route_key = null
+create_routes_and_integrations = true
 
 create_stage = true
 
-create = true
-
 credentials_arn = null
 
-name = ""
+deploy_stage = true
 
-body = null
+description = null
 
-mutual_tls_authentication = {}
+disable_execute_api_endpoint = null
 
-stage_name = "$default"
+domain_name = ""
 
-vpc_link_tags = {}
+domain_name_certificate_arn = null
+
+domain_name_ownership_verification_certificate_arn = null
 
 fail_on_warnings = null
 
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = null
+
+route_selection_expression = null
+
+routes = {}
+
+stage_access_log_settings = {}
+
+stage_client_certificate_id = null
+
+stage_default_route_settings = {}
+
 stage_description = null
+
+stage_name = "$default"
+
+stage_tags = {}
+
+stage_variables = {}
+
+subdomain_record_types = ["A", "AAAA"]
+
+subdomains = []
+
+tags = {}
+
+target = null
+
+vpc_link_tags = {}
 
 vpc_links = {}

@@ -1,39 +1,39 @@
-name = ""
+association_config = {}
 
-rule_json = null
+association_resource_arns = {}
+
+captcha_config = null
 
 challenge_config = null
 
-logging_filter = null
-
 create = true
 
-scope = "REGIONAL"
-
-association_config = {}
-
 create_logging_configuration = false
+
+custom_response_bodies = {}
+
+default_action = "allow"
+
+description = null
+
+logging_filter = null
 
 logging_log_destination_configs = []
 
 logging_redacted_fields = []
 
+name = ""
+
 putin_khuylo = true
 
-tags = {}
+rule_json = null
 
 rules = {}
 
-custom_response_bodies = {}
+scope = "REGIONAL"
+
+tags = {}
 
 token_domains = []
 
-association_resource_arns = {}
-
-description = null
-
-default_action = "allow"
-
 visibility_config = {}
-
-captcha_config = null

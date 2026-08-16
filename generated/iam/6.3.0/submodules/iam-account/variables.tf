@@ -1,3 +1,15 @@
+variable "account_alias" {
+  description = "AWS IAM account alias for this account"
+  type        = string
+  default     = ""
+}
+
+variable "allow_users_to_change_password" {
+  description = "Whether to allow users to change their own password"
+  type        = bool
+  default     = true
+}
+
 variable "create" {
   description = "Determines whether resources will be created (affects all resources)"
   type        = bool
@@ -8,6 +20,12 @@ variable "create_account_password_policy" {
   description = "Whether to create AWS IAM account password policy"
   type        = bool
   default     = true
+}
+
+variable "hard_expiry" {
+  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
+  type        = bool
+  default     = false
 }
 
 variable "max_password_age" {
@@ -34,38 +52,20 @@ variable "require_lowercase_characters" {
   default     = true
 }
 
-variable "require_uppercase_characters" {
-  description = "Whether to require uppercase characters for user passwords"
-  type        = bool
-  default     = true
-}
-
 variable "require_numbers" {
   description = "Whether to require numbers for user passwords"
   type        = bool
   default     = true
 }
 
-variable "account_alias" {
-  description = "AWS IAM account alias for this account"
-  type        = string
-  default     = ""
-}
-
-variable "allow_users_to_change_password" {
-  description = "Whether to allow users to change their own password"
+variable "require_symbols" {
+  description = "Whether to require symbols for user passwords"
   type        = bool
   default     = true
 }
 
-variable "hard_expiry" {
-  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
-  type        = bool
-  default     = false
-}
-
-variable "require_symbols" {
-  description = "Whether to require symbols for user passwords"
+variable "require_uppercase_characters" {
+  description = "Whether to require uppercase characters for user passwords"
   type        = bool
   default     = true
 }

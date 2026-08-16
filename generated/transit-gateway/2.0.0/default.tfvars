@@ -1,41 +1,41 @@
+amazon_side_asn = "64512"
+
 create_tgw = true
 
-amazon_side_asn = "64512"
+description = null
+
+enable_auto_accept_shared_attachments = false
 
 enable_default_route_table_association = true
 
-enable_dns_support = true
-
 enable_default_route_table_propagation = true
+
+enable_dns_support = true
 
 enable_vpn_ecmp_support = true
 
-transit_gateway_route_table_id = null
+name = ""
 
-tags = {}
-
-tgw_route_table_tags = {}
-
-tgw_vpc_attachment_tags = {}
+ram_allow_external_principals = false
 
 ram_name = ""
 
 ram_principals = []
 
-enable_auto_accept_shared_attachments = false
+ram_resource_share_arn = ""
 
-vpc_attachments = {}
-
-tgw_tags = {}
+ram_tags = {}
 
 share_tgw = true
 
-ram_resource_share_arn = ""
+tags = {}
 
-name = ""
+tgw_route_table_tags = {}
 
-description = null
+tgw_tags = {}
 
-ram_allow_external_principals = false
+tgw_vpc_attachment_tags = {}
 
-ram_tags = {}
+transit_gateway_route_table_id = null
+
+vpc_attachments = {}

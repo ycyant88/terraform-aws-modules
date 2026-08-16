@@ -1,5 +1,5 @@
-tags = {}
+include_ssm = false
 
 name = ""
 
-include_ssm = false
+tags = {}

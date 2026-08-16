@@ -1,7 +1,7 @@
-variable "policy" {
-  description = "The path of the policy in IAM (tpl file)"
+variable "description" {
+  description = "The description of the policy"
   type        = string
-  default     = ""
+  default     = "IAM Policy"
 }
 
 variable "name" {
@@ -16,8 +16,8 @@ variable "path" {
   default     = "/"
 }
 
-variable "description" {
-  description = "The description of the policy"
+variable "policy" {
+  description = "The path of the policy in IAM (tpl file)"
   type        = string
-  default     = "IAM Policy"
+  default     = ""
 }

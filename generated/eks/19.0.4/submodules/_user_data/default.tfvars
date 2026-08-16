@@ -1,23 +1,23 @@
-enable_bootstrap_user_data = false
+bootstrap_extra_args = ""
+
+cluster_auth_base64 = ""
 
 cluster_endpoint = ""
 
-post_bootstrap_user_data = ""
-
-user_data_template_path = ""
+cluster_name = ""
 
 cluster_service_ipv4_cidr = null
 
-pre_bootstrap_user_data = ""
-
-bootstrap_extra_args = ""
-
 create = true
 
-platform = "linux"
+enable_bootstrap_user_data = false
 
 is_eks_managed_node_group = true
 
-cluster_name = ""
+platform = "linux"
 
-cluster_auth_base64 = ""
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+user_data_template_path = ""

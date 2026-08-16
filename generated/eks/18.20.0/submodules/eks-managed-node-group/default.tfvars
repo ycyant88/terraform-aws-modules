@@ -1,155 +1,155 @@
-capacity_type = "ON_DEMAND"
-
-credit_specification = null
-
-elastic_gpu_specifications = null
-
-disk_size = null
-
-force_update_version = null
-
-create_launch_template = true
-
-kernel_id = null
-
-use_name_prefix = true
-
-security_group_tags = {}
-
-vpc_security_group_ids = []
-
-taints = {}
-
-iam_role_additional_policies = []
-
-update_launch_template_default_version = true
-
-block_device_mappings = {}
-
-capacity_reservation_specification = null
-
-enable_monitoring = true
-
-iam_role_use_name_prefix = true
-
-launch_template_use_name_prefix = true
-
-cluster_primary_security_group_id = null
-
-license_specifications = null
-
-placement = null
-
-max_size = 3
+ami_id = ""
 
 ami_release_version = null
 
-ebs_optimized = null
+ami_type = null
 
-ram_disk_id = null
+block_device_mappings = {}
 
-enclave_options = null
+bootstrap_extra_args = ""
 
-security_group_description = "EKS managed node group security group"
+capacity_reservation_specification = null
 
-iam_role_tags = {}
+capacity_type = "ON_DEMAND"
 
-launch_template_tags = {}
+cluster_auth_base64 = ""
 
-remote_access = {}
-
-timeouts = {}
-
-security_group_name = null
-
-security_group_use_name_prefix = true
-
-iam_role_name = null
-
-iam_role_permissions_boundary = null
-
-create = true
-
-user_data_template_path = ""
-
-launch_template_description = null
-
-desired_size = 1
-
-launch_template_version = null
+cluster_endpoint = ""
 
 cluster_ip_family = null
 
+cluster_name = null
+
+cluster_primary_security_group_id = null
+
+cluster_security_group_id = null
+
+cluster_service_ipv4_cidr = null
+
+cluster_version = null
+
+cpu_options = null
+
+create = true
+
+create_iam_role = true
+
+create_launch_template = true
+
+create_security_group = true
+
+credit_specification = null
+
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = null
+
+force_update_version = null
+
+iam_role_additional_policies = []
+
 iam_role_arn = null
+
+iam_role_attach_cni_policy = true
 
 iam_role_description = null
 
-pre_bootstrap_user_data = ""
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+instance_market_options = null
+
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
 
 launch_template_name = ""
 
-ami_id = ""
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
 
 min_size = 0
 
 name = ""
 
-vpc_id = null
+network_interfaces = []
 
-subnet_ids = null
-
-instance_types = null
-
-cluster_security_group_id = null
-
-update_config = {}
-
-iam_role_path = null
-
-tags = {}
+placement = null
 
 platform = "linux"
 
-cluster_auth_base64 = ""
-
 post_bootstrap_user_data = ""
 
-elastic_inference_accelerator = null
+pre_bootstrap_user_data = ""
 
-instance_market_options = null
+ram_disk_id = null
 
-cpu_options = null
+remote_access = {}
 
-labels = null
+security_group_description = "EKS managed node group security group"
 
-create_security_group = true
-
-enable_bootstrap_user_data = false
-
-cluster_name = null
-
-network_interfaces = []
+security_group_name = null
 
 security_group_rules = {}
 
-create_iam_role = true
+security_group_tags = {}
 
-cluster_service_ipv4_cidr = null
+security_group_use_name_prefix = true
 
-key_name = null
+subnet_ids = null
 
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+tags = {}
 
-ami_type = null
+taints = {}
 
-cluster_version = null
+timeouts = {}
 
-cluster_endpoint = ""
+update_config = {}
 
-bootstrap_extra_args = ""
+update_launch_template_default_version = true
 
-launch_template_default_version = null
+use_name_prefix = true
 
-disable_api_termination = null
+user_data_template_path = ""
 
-iam_role_attach_cni_policy = true
+vpc_id = null
+
+vpc_security_group_ids = []

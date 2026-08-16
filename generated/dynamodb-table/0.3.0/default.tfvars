@@ -1,37 +1,37 @@
-billing_mode = "PAY_PER_REQUEST"
-
 attributes = []
 
-ttl_attribute_name = ""
+billing_mode = "PAY_PER_REQUEST"
 
-range_key = ""
+create_table = true
 
-point_in_time_recovery_enabled = false
+global_secondary_indexes = []
+
+hash_key = ""
 
 local_secondary_indexes = []
 
-stream_enabled = false
+name = ""
+
+point_in_time_recovery_enabled = false
+
+range_key = ""
+
+read_capacity = ""
 
 server_side_encryption_enabled = false
 
 server_side_encryption_kms_key_arn = ""
 
-tags = {}
-
-name = ""
-
-hash_key = ""
-
-write_capacity = ""
-
-read_capacity = ""
-
-ttl_enabled = false
-
-global_secondary_indexes = []
+stream_enabled = false
 
 stream_view_type = ""
 
+tags = {}
+
 timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
 
-create_table = true
+ttl_attribute_name = ""
+
+ttl_enabled = false
+
+write_capacity = ""

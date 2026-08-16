@@ -1,33 +1,3 @@
-variable "cluster_version" {
-  description = "Kubernetes version to use for the EKS cluster."
-  type        = string
-  default     = "1.10"
-}
-
-variable "workers_group_defaults" {
-  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
-  type        = map(any)
-  default     = {}
-}
-
-variable "kubeconfig_aws_authenticator_command" {
-  description = "Command to use to to fetch AWS EKS credentials."
-  type        = string
-  default     = "aws-iam-authenticator"
-}
-
-variable "kubeconfig_aws_authenticator_additional_args" {
-  description = "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"]."
-  type        = list(any)
-  default     = []
-}
-
-variable "kubeconfig_aws_authenticator_env_variables" {
-  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
-  type        = map(any)
-  default     = {}
-}
-
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
   type        = string
@@ -40,10 +10,64 @@ variable "cluster_security_group_id" {
   default     = ""
 }
 
+variable "cluster_version" {
+  description = "Kubernetes version to use for the EKS cluster."
+  type        = string
+  default     = "1.10"
+}
+
+variable "config_output_path" {
+  description = "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory. Should end in a forward slash / ."
+  type        = string
+  default     = "./"
+}
+
 variable "create_elb_service_linked_role" {
   description = "Whether to create the service linked role for the elasticloadbalancing service. Without this EKS cannot create ELBs."
   type        = bool
   default     = false
+}
+
+variable "kubeconfig_aws_authenticator_additional_args" {
+  description = "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"]."
+  type        = list(any)
+  default     = []
+}
+
+variable "kubeconfig_aws_authenticator_command" {
+  description = "Command to use to to fetch AWS EKS credentials."
+  type        = string
+  default     = "aws-iam-authenticator"
+}
+
+variable "kubeconfig_aws_authenticator_env_variables" {
+  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
+  type        = map(any)
+  default     = {}
+}
+
+variable "kubeconfig_name" {
+  description = "Override the default name used for items kubeconfig."
+  type        = string
+  default     = ""
+}
+
+variable "manage_aws_auth" {
+  description = "Whether to write and apply the aws-auth configmap file."
+  type        = bool
+  default     = true
+}
+
+variable "map_accounts" {
+  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
+  type        = list(any)
+  default     = []
+}
+
+variable "map_roles" {
+  description = "Additional IAM roles to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
+  type        = list(any)
+  default     = []
 }
 
 variable "map_users" {
@@ -70,34 +94,22 @@ variable "vpc_id" {
   default     = ""
 }
 
+variable "worker_group_count" {
+  description = "The number of maps contained within the worker_groups list."
+  type        = string
+  default     = "1"
+}
+
 variable "worker_groups" {
   description = "A list of maps defining worker group configurations. See workers_group_defaults for valid keys."
   type        = list(any)
   default     = [{ "name" : "default" }]
 }
 
-variable "write_kubeconfig" {
-  description = "Whether to write a kubeconfig file containing the cluster configuration."
-  type        = bool
-  default     = true
-}
-
-variable "manage_aws_auth" {
-  description = "Whether to write and apply the aws-auth configmap file."
-  type        = bool
-  default     = true
-}
-
-variable "map_accounts" {
-  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
-  type        = list(any)
-  default     = []
-}
-
-variable "worker_group_count" {
-  description = "The number of maps contained within the worker_groups list."
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster."
   type        = string
-  default     = "1"
+  default     = ""
 }
 
 variable "worker_sg_ingress_from_port" {
@@ -106,26 +118,14 @@ variable "worker_sg_ingress_from_port" {
   default     = "1025"
 }
 
-variable "kubeconfig_name" {
-  description = "Override the default name used for items kubeconfig."
-  type        = string
-  default     = ""
+variable "workers_group_defaults" {
+  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
+  type        = map(any)
+  default     = {}
 }
 
-variable "config_output_path" {
-  description = "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory. Should end in a forward slash / ."
-  type        = string
-  default     = "./"
-}
-
-variable "map_roles" {
-  description = "Additional IAM roles to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
-  type        = list(any)
-  default     = []
-}
-
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster."
-  type        = string
-  default     = ""
+variable "write_kubeconfig" {
+  description = "Whether to write a kubeconfig file containing the cluster configuration."
+  type        = bool
+  default     = true
 }

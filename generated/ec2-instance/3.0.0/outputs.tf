@@ -1,3 +1,23 @@
+output "arn" {
+  value       = module.ec2-instance.arn
+  description = "The ARN of the instance"
+}
+
+output "capacity_reservation_specification" {
+  value       = module.ec2-instance.capacity_reservation_specification
+  description = "Capacity reservation specification of the instance"
+}
+
+output "id" {
+  value       = module.ec2-instance.id
+  description = "The ID of the instance"
+}
+
+output "instance_state" {
+  value       = module.ec2-instance.instance_state
+  description = "The state of the instance. One of: pending, running, shutting-down, terminated, stopping, stopped"
+}
+
 output "outpost_arn" {
   value       = module.ec2-instance.outpost_arn
   description = "The ARN of the Outpost the instance is assigned to"
@@ -23,32 +43,12 @@ output "public_dns" {
   description = "The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC"
 }
 
-output "id" {
-  value       = module.ec2-instance.id
-  description = "The ID of the instance"
-}
-
-output "arn" {
-  value       = module.ec2-instance.arn
-  description = "The ARN of the instance"
-}
-
-output "instance_state" {
-  value       = module.ec2-instance.instance_state
-  description = "The state of the instance. One of: pending, running, shutting-down, terminated, stopping, stopped"
+output "public_ip" {
+  value       = module.ec2-instance.public_ip
+  description = "The public IP address assigned to the instance, if applicable. NOTE: If you are using an aws_eip with your instance, you should refer to the EIP's address directly and not use public_ip as this field will change after the EIP is attached"
 }
 
 output "tags_all" {
   value       = module.ec2-instance.tags_all
   description = "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block"
-}
-
-output "capacity_reservation_specification" {
-  value       = module.ec2-instance.capacity_reservation_specification
-  description = "Capacity reservation specification of the instance"
-}
-
-output "public_ip" {
-  value       = module.ec2-instance.public_ip
-  description = "The public IP address assigned to the instance, if applicable. NOTE: If you are using an aws_eip with your instance, you should refer to the EIP's address directly and not use public_ip as this field will change after the EIP is attached"
 }

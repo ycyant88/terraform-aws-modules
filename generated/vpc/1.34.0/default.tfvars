@@ -1,101 +1,101 @@
-default_vpc_enable_dns_hostnames = false
-
-public_subnets = []
-
-database_subnets = []
-
-one_nat_gateway_per_az = false
-
-propagate_private_route_tables_vgw = false
-
-vpc_tags = {}
-
-dhcp_options_tags = {}
-
-dhcp_options_ntp_servers = []
-
-dhcp_options_netbios_node_type = ""
-
-elasticache_subnets = []
-
-intra_subnets = []
-
 azs = []
-
-enable_nat_gateway = false
-
-external_nat_ip_ids = []
-
-default_route_table_tags = {}
-
-intra_route_table_tags = {}
-
-dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
-
-create_vpc = true
-
-name = ""
-
-enable_dns_support = true
-
-reuse_nat_ips = false
-
-enable_s3_endpoint = false
-
-enable_dhcp_options = false
-
-dhcp_options_domain_name = ""
-
-dhcp_options_netbios_name_servers = []
 
 cidr = "0.0.0.0/0"
 
-redshift_subnets = []
+create_database_subnet_group = true
 
-enable_dns_hostnames = false
-
-single_nat_gateway = false
-
-map_public_ip_on_launch = true
-
-enable_vpn_gateway = false
-
-default_vpc_enable_dns_support = true
-
-default_vpc_enable_classiclink = false
-
-enable_dynamodb_endpoint = false
+create_vpc = true
 
 database_subnet_tags = {}
 
-elasticache_subnet_tags = {}
+database_subnets = []
 
-instance_tenancy = "default"
+default_route_table_tags = {}
 
-private_subnets = []
+default_vpc_enable_classiclink = false
 
-create_database_subnet_group = true
+default_vpc_enable_dns_hostnames = false
 
-vpn_gateway_id = ""
+default_vpc_enable_dns_support = true
 
-tags = {}
-
-redshift_subnet_tags = {}
-
-intra_subnet_tags = {}
-
-manage_default_vpc = false
+default_vpc_name = ""
 
 default_vpc_tags = {}
 
-propagate_public_route_tables_vgw = false
+dhcp_options_domain_name = ""
 
-public_subnet_tags = {}
+dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
-private_subnet_tags = {}
+dhcp_options_netbios_name_servers = []
 
-public_route_table_tags = {}
+dhcp_options_netbios_node_type = ""
+
+dhcp_options_ntp_servers = []
+
+dhcp_options_tags = {}
+
+elasticache_subnet_tags = {}
+
+elasticache_subnets = []
+
+enable_dhcp_options = false
+
+enable_dns_hostnames = false
+
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_nat_gateway = false
+
+enable_s3_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+instance_tenancy = "default"
+
+intra_route_table_tags = {}
+
+intra_subnet_tags = {}
+
+intra_subnets = []
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+name = ""
+
+one_nat_gateway_per_az = false
 
 private_route_table_tags = {}
 
-default_vpc_name = ""
+private_subnet_tags = {}
+
+private_subnets = []
+
+propagate_private_route_tables_vgw = false
+
+propagate_public_route_tables_vgw = false
+
+public_route_table_tags = {}
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
+
+single_nat_gateway = false
+
+tags = {}
+
+vpc_tags = {}
+
+vpn_gateway_id = ""

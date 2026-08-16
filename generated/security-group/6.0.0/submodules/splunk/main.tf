@@ -1,22 +1,22 @@
 module "security-group_splunk" {
   source                               = "terraform-aws-modules/security-group/aws//modules/splunk"
   version                              = "6.0.0"
-  vpc_associations                     = var.vpc_associations
-  use_name_prefix                      = var.use_name_prefix
+  create                               = var.create
   description                          = var.description
-  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  egress_rules                         = var.egress_rules
+  enable_exclusive_rules               = var.enable_exclusive_rules
   ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
-  region                               = var.region
-  name                                 = var.name
-  timeouts                             = var.timeouts
   ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
   ingress_prefix_list_id               = var.ingress_prefix_list_id
-  egress_rules                         = var.egress_rules
-  tags                                 = var.tags
   ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
-  enable_exclusive_rules               = var.enable_exclusive_rules
-  create                               = var.create
-  vpc_id                               = var.vpc_id
-  preset_ingress_rules                 = var.preset_ingress_rules
   ingress_rules                        = var.ingress_rules
+  name                                 = var.name
+  preset_ingress_rules                 = var.preset_ingress_rules
+  region                               = var.region
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  tags                                 = var.tags
+  timeouts                             = var.timeouts
+  use_name_prefix                      = var.use_name_prefix
+  vpc_associations                     = var.vpc_associations
+  vpc_id                               = var.vpc_id
 }

@@ -1,17 +1,17 @@
-tags = {}
-
-validation_allow_overwrite_records = true
-
-wait_for_validation = true
+create_certificate = true
 
 domain_name = ""
 
-validation_method = "DNS"
+subject_alternative_names = []
 
-zone_id = ""
-
-create_certificate = true
+tags = {}
 
 validate_certificate = true
 
-subject_alternative_names = []
+validation_allow_overwrite_records = true
+
+validation_method = "DNS"
+
+wait_for_validation = true
+
+zone_id = ""

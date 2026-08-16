@@ -1,11 +1,11 @@
-output "this_group_name" {
-  value       = module.iam_iam-group-with-policies.this_group_name
-  description = "IAM group name"
-}
-
 output "aws_account_id" {
   value       = module.iam_iam-group-with-policies.aws_account_id
   description = "IAM AWS account id"
+}
+
+output "this_group_name" {
+  value       = module.iam_iam-group-with-policies.this_group_name
+  description = "IAM group name"
 }
 
 output "this_group_users" {

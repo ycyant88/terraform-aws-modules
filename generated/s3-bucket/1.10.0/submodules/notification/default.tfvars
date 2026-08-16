@@ -1,11 +1,11 @@
-lambda_notifications = {}
-
-sqs_notifications = {}
-
-sns_notifications = {}
-
-create = true
-
 bucket = ""
 
 bucket_arn = ""
+
+create = true
+
+lambda_notifications = {}
+
+sns_notifications = {}
+
+sqs_notifications = {}

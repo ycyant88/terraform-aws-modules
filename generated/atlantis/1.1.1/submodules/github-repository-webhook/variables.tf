@@ -1,3 +1,9 @@
+variable "create_github_repository_webhook" {
+  description = "Whether to create Github repository webhook for Atlantis"
+  type        = bool
+  default     = true
+}
+
 variable "github_organization" {
   description = "Github organization to use when creating webhook"
   type        = string
@@ -10,8 +16,8 @@ variable "github_repo_names" {
   default     = ""
 }
 
-variable "webhook_url" {
-  description = "Webhook URL"
+variable "github_token" {
+  description = "Github token to use when creating webhook"
   type        = string
   default     = ""
 }
@@ -22,14 +28,8 @@ variable "webhook_secret" {
   default     = ""
 }
 
-variable "create_github_repository_webhook" {
-  description = "Whether to create Github repository webhook for Atlantis"
-  type        = bool
-  default     = true
-}
-
-variable "github_token" {
-  description = "Github token to use when creating webhook"
+variable "webhook_url" {
+  description = "Webhook URL"
   type        = string
   default     = ""
 }

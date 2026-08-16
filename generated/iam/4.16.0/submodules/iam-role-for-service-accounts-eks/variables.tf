@@ -1,13 +1,7 @@
-variable "attach_karpenter_controller_policy" {
-  description = "Determines whether to attach the Karpenter Controller policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "karpenter_controller_cluster_id" {
-  description = "Cluster ID where the Karpenter controller is provisioned/managing"
+variable "assume_role_condition_test" {
+  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
   type        = string
-  default     = "*"
+  default     = "StringEquals"
 }
 
 variable "attach_cluster_autoscaler_policy" {
@@ -16,46 +10,10 @@ variable "attach_cluster_autoscaler_policy" {
   default     = false
 }
 
-variable "cluster_autoscaler_cluster_ids" {
-  description = "List of cluster IDs to appropriately scope permissions within the Cluster Autoscaler IAM policy"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_vpc_cni_policy" {
-  description = "Determines whether to attach the VPC CNI IAM policy to the role"
+variable "attach_ebs_csi_policy" {
+  description = "Determines whether to attach the EBS CSI IAM policy to the role"
   type        = bool
   default     = false
-}
-
-variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
-  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
-  type        = bool
-  default     = false
-}
-
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = null
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = null
-}
-
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
-}
-
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = true
 }
 
 variable "attach_external_dns_policy" {
@@ -64,56 +22,8 @@ variable "attach_external_dns_policy" {
   default     = false
 }
 
-variable "attach_node_termination_handler_policy" {
-  description = "Determines whether to attach the Node Termination Handler policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to add the the IAM role"
-  type        = map(any)
-  default     = {}
-}
-
-variable "external_dns_hosted_zone_arns" {
-  description = "Route53 hosted zone ARNs to allow external DNS to manage records"
-  type        = list(string)
-  default     = ["arn:aws:route53:::hostedzone/*"]
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = true
-}
-
-variable "oidc_providers" {
-  description = "Map of OIDC providers where each provdier map should contain the provider, provider_arns, and namespace_service_accounts"
-  type        = any
-  default     = {}
-}
-
-variable "vpc_cni_enable_ipv4" {
-  description = "Determines whether to enable IPv4 permissions for VPC CNI policy"
-  type        = bool
-  default     = false
-}
-
-variable "node_termination_handler_sqs_queue_arns" {
-  description = "List of SQS ARNs that contain node termination events"
-  type        = list(string)
-  default     = ["*"]
-}
-
-variable "role_policy_arns" {
-  description = "ARNs of any policies to attach to the IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_ebs_csi_policy" {
-  description = "Determines whether to attach the EBS CSI IAM policy to the role"
+variable "attach_karpenter_controller_policy" {
+  description = "Determines whether to attach the Karpenter Controller policy to the role"
   type        = bool
   default     = false
 }
@@ -124,16 +34,34 @@ variable "attach_load_balancer_controller_policy" {
   default     = false
 }
 
-variable "role_path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = null
+variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
+  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
+  type        = bool
+  default     = false
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = null
+variable "attach_node_termination_handler_policy" {
+  description = "Determines whether to attach the Node Termination Handler policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_vpc_cni_policy" {
+  description = "Determines whether to attach the VPC CNI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "cluster_autoscaler_cluster_ids" {
+  description = "List of cluster IDs to appropriately scope permissions within the Cluster Autoscaler IAM policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = true
 }
 
 variable "ebs_csi_kms_cmk_ids" {
@@ -142,22 +70,28 @@ variable "ebs_csi_kms_cmk_ids" {
   default     = []
 }
 
-variable "role_name" {
-  description = "Name of IAM role"
-  type        = string
-  default     = null
+variable "external_dns_hosted_zone_arns" {
+  description = "Route53 hosted zone ARNs to allow external DNS to manage records"
+  type        = list(string)
+  default     = ["arn:aws:route53:::hostedzone/*"]
 }
 
-variable "assume_role_condition_test" {
-  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
-  type        = string
-  default     = "StringEquals"
-}
-
-variable "vpc_cni_enable_ipv6" {
-  description = "Determines whether to enable IPv6 permissions for VPC CNI policy"
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
   type        = bool
-  default     = false
+  default     = true
+}
+
+variable "karpenter_controller_cluster_id" {
+  description = "Cluster ID where the Karpenter controller is provisioned/managing"
+  type        = string
+  default     = "*"
+}
+
+variable "karpenter_controller_node_iam_role_arns" {
+  description = "List of node IAM role ARNs Karpenter can use to launch nodes"
+  type        = list(string)
+  default     = ["*"]
 }
 
 variable "karpenter_controller_ssm_parameter_arns" {
@@ -166,8 +100,74 @@ variable "karpenter_controller_ssm_parameter_arns" {
   default     = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
 }
 
-variable "karpenter_controller_node_iam_role_arns" {
-  description = "List of node IAM role ARNs Karpenter can use to launch nodes"
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = null
+}
+
+variable "node_termination_handler_sqs_queue_arns" {
+  description = "List of SQS ARNs that contain node termination events"
   type        = list(string)
   default     = ["*"]
+}
+
+variable "oidc_providers" {
+  description = "Map of OIDC providers where each provdier map should contain the provider, provider_arns, and namespace_service_accounts"
+  type        = any
+  default     = {}
+}
+
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = null
+}
+
+variable "role_name" {
+  description = "Name of IAM role"
+  type        = string
+  default     = null
+}
+
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
+}
+
+variable "role_path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = null
+}
+
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = null
+}
+
+variable "role_policy_arns" {
+  description = "ARNs of any policies to attach to the IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add the the IAM role"
+  type        = map(any)
+  default     = {}
+}
+
+variable "vpc_cni_enable_ipv4" {
+  description = "Determines whether to enable IPv4 permissions for VPC CNI policy"
+  type        = bool
+  default     = false
+}
+
+variable "vpc_cni_enable_ipv6" {
+  description = "Determines whether to enable IPv6 permissions for VPC CNI policy"
+  type        = bool
+  default     = false
 }

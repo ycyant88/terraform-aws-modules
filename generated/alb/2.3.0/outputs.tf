@@ -13,13 +13,13 @@ output "alb_id" {
   description = "The ID of the ALB we created."
 }
 
-output "alb_listener_https_id" {
-  value       = module.alb.alb_listener_https_id
+output "alb_listener_http_id" {
+  value       = module.alb.alb_listener_http_id
   description = "The ID of the ALB Listener we created."
 }
 
-output "alb_listener_http_id" {
-  value       = module.alb.alb_listener_http_id
+output "alb_listener_https_id" {
+  value       = module.alb.alb_listener_https_id
   description = "The ID of the ALB Listener we created."
 }
 

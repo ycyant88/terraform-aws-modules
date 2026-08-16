@@ -1,85 +1,85 @@
+access_logs = {}
+
+associate_web_acl = false
+
+connection_logs = {}
+
+create = true
+
+create_security_group = true
+
+customer_owned_ipv4_pool = null
+
+default_port = 80
+
+default_protocol = "HTTP"
+
+desync_mitigation_mode = null
+
 dns_record_client_routing_policy = null
+
+drop_invalid_header_fields = true
+
+enable_cross_zone_load_balancing = true
+
+enable_deletion_protection = true
+
+enable_http2 = null
+
+enable_tls_version_and_cipher_suite_headers = null
+
+enable_waf_fail_open = null
+
+enable_xff_client_port = null
+
+enforce_security_group_inbound_rules_on_private_link_traffic = null
+
+idle_timeout = null
+
+internal = null
+
+ip_address_type = null
+
+listeners = {}
+
+load_balancer_type = "application"
 
 name = null
 
 name_prefix = null
 
-default_port = 80
-
-listeners = {}
-
-create_security_group = true
-
-security_group_egress_rules = {}
+preserve_host_header = null
 
 putin_khuylo = true
 
-tags = {}
+route53_records = {}
 
-enable_deletion_protection = true
+security_group_description = null
 
-enable_tls_version_and_cipher_suite_headers = null
+security_group_egress_rules = {}
 
-create = true
+security_group_ingress_rules = {}
 
-customer_owned_ipv4_pool = null
+security_group_name = null
 
-enable_waf_fail_open = null
+security_group_tags = {}
 
-idle_timeout = null
-
-subnets = null
-
-xff_header_processing_mode = null
-
-timeouts = {}
-
-target_groups = {}
-
-enable_xff_client_port = null
-
-drop_invalid_header_fields = true
-
-enable_http2 = null
-
-enforce_security_group_inbound_rules_on_private_link_traffic = null
+security_group_use_name_prefix = true
 
 security_groups = []
 
 subnet_mapping = []
 
-security_group_use_name_prefix = true
+subnets = null
 
-enable_cross_zone_load_balancing = true
+tags = {}
 
-load_balancer_type = "application"
+target_groups = {}
 
-preserve_host_header = null
-
-security_group_ingress_rules = {}
-
-web_acl_arn = null
-
-access_logs = {}
-
-connection_logs = {}
-
-ip_address_type = null
-
-default_protocol = "HTTP"
-
-security_group_name = null
-
-security_group_description = null
-
-associate_web_acl = false
+timeouts = {}
 
 vpc_id = null
 
-desync_mitigation_mode = null
+web_acl_arn = null
 
-internal = null
-
-security_group_tags = {}
-
-route53_records = {}
+xff_header_processing_mode = null

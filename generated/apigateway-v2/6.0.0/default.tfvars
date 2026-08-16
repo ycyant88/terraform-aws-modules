@@ -1,85 +1,85 @@
 api_key_selection_expression = null
 
+api_mapping_key = null
+
+api_version = null
+
+authorizers = {}
+
+body = null
+
 cors_configuration = null
 
-route_selection_expression = null
-
-credentials_arn = null
-
-api_mapping_key = null
+create = true
 
 create_certificate = true
 
-stage_description = null
+create_domain_name = true
 
-vpc_link_tags = {}
-
-fail_on_warnings = null
-
-mutual_tls_authentication = {}
-
-subdomain_record_types = ["A", "AAAA"]
+create_domain_records = true
 
 create_routes_and_integrations = true
 
 create_stage = true
 
-stage_default_route_settings = {}
-
-stage_tags = {}
-
-domain_name_ownership_verification_certificate_arn = null
-
-create = true
-
-disable_execute_api_endpoint = null
-
-body = null
-
-target = null
-
-domain_name = ""
-
-stage_name = "$default"
-
-stage_variables = {}
-
-protocol_type = "HTTP"
-
-route_key = null
-
-api_version = null
-
-hosted_zone_name = null
-
-private_zone = false
-
-subdomains = []
+credentials_arn = null
 
 deploy_stage = true
 
-vpc_links = {}
-
-region = null
-
-authorizers = {}
-
-create_domain_records = true
-
-stage_client_certificate_id = null
-
 description = null
 
-name = ""
+disable_execute_api_endpoint = null
+
+domain_name = ""
 
 domain_name_certificate_arn = null
 
-routes = {}
+domain_name_ownership_verification_certificate_arn = null
 
-tags = {}
+fail_on_warnings = null
+
+hosted_zone_name = null
 
 ip_address_type = null
 
-create_domain_name = true
+mutual_tls_authentication = {}
+
+name = ""
+
+private_zone = false
+
+protocol_type = "HTTP"
+
+region = null
+
+route_key = null
+
+route_selection_expression = null
+
+routes = {}
 
 stage_access_log_settings = {}
+
+stage_client_certificate_id = null
+
+stage_default_route_settings = {}
+
+stage_description = null
+
+stage_name = "$default"
+
+stage_tags = {}
+
+stage_variables = {}
+
+subdomain_record_types = ["A", "AAAA"]
+
+subdomains = []
+
+tags = {}
+
+target = null
+
+vpc_link_tags = {}
+
+vpc_links = {}

@@ -10,10 +10,64 @@ variable "aws_account_id" {
   default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
+}
+
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
+}
+
+variable "number_of_role_policy_arns" {
+  description = "Number of IAM policies to attach to IAM role"
+  type        = number
+  default     = null
+}
+
+variable "oidc_fully_qualified_audiences" {
+  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
+  type        = set(string)
+  default     = []
+}
+
+variable "oidc_fully_qualified_subjects" {
+  description = "The fully qualified OIDC subjects to be added to the role policy"
+  type        = set(string)
+  default     = []
+}
+
+variable "oidc_subjects_with_wildcards" {
+  description = "The OIDC subject using wildcards to be added to the role policy"
+  type        = set(string)
+  default     = []
+}
+
+variable "provider_url" {
+  description = "URL of the OIDC Provider. Use provider_urls to specify several URLs."
+  type        = string
+  default     = ""
+}
+
+variable "provider_urls" {
+  description = "List of URLs of the OIDC Providers"
+  type        = list(string)
+  default     = []
+}
+
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
 }
 
 variable "role_name" {
@@ -28,70 +82,10 @@ variable "role_name_prefix" {
   default     = null
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
-}
-
-variable "provider_urls" {
-  description = "List of URLs of the OIDC Providers"
-  type        = list(string)
-  default     = []
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
-}
-
-variable "role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "oidc_subjects_with_wildcards" {
-  description = "The OIDC subject using wildcards to be added to the role policy"
-  type        = set(string)
-  default     = []
-}
-
 variable "role_path" {
   description = "Path of IAM role"
   type        = string
   default     = "/"
-}
-
-variable "oidc_fully_qualified_subjects" {
-  description = "The fully qualified OIDC subjects to be added to the role policy"
-  type        = set(string)
-  default     = []
-}
-
-variable "oidc_fully_qualified_audiences" {
-  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
-  type        = set(string)
-  default     = []
-}
-
-variable "provider_url" {
-  description = "URL of the OIDC Provider. Use provider_urls to specify several URLs."
-  type        = string
-  default     = ""
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
 }
 
 variable "role_permissions_boundary_arn" {
@@ -100,8 +94,14 @@ variable "role_permissions_boundary_arn" {
   default     = ""
 }
 
-variable "number_of_role_policy_arns" {
-  description = "Number of IAM policies to attach to IAM role"
-  type        = number
-  default     = null
+variable "role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }

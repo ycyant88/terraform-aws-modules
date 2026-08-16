@@ -1,27 +1,27 @@
-idle_timeout = 60
-
-connection_draining_timeout = 300
-
-tags = {}
-
-subnets = ""
-
-internal = ""
-
-cross_zone_load_balancing = true
-
-security_groups = ""
-
-listener = ""
-
-instances = []
-
-health_check = ""
-
-number_of_instances = 0
-
-name = ""
+access_logs = []
 
 connection_draining = false
 
-access_logs = []
+connection_draining_timeout = 300
+
+cross_zone_load_balancing = true
+
+health_check = ""
+
+idle_timeout = 60
+
+instances = []
+
+internal = ""
+
+listener = ""
+
+name = ""
+
+number_of_instances = 0
+
+security_groups = ""
+
+subnets = ""
+
+tags = {}

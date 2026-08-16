@@ -1,13 +1,13 @@
 atlantis_repo_allowlist = ""
 
-webhook_url = ""
-
-webhook_secret = ""
-
 create_github_repository_webhook = true
 
 github_base_url = null
 
+github_owner = ""
+
 github_token = ""
 
-github_owner = ""
+webhook_secret = ""
+
+webhook_url = ""

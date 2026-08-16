@@ -1,11 +1,23 @@
+variable "acl" {
+  description = "The canned ACL to apply. Valid values are private, public-read, public-read-write, aws-exec-read, authenticated-read, bucket-owner-read, and bucket-owner-full-control. Defaults to private."
+  type        = string
+  default     = null
+}
+
 variable "bucket" {
   description = "The name of the bucket to put the file in. Alternatively, an S3 access point ARN can be specified."
   type        = string
   default     = ""
 }
 
-variable "file_source" {
-  description = "The path to a file that will be read and uploaded as raw bytes for the object content."
+variable "bucket_key_enabled" {
+  description = "Whether or not to use Amazon S3 Bucket Keys for SSE-KMS."
+  type        = bool
+  default     = null
+}
+
+variable "cache_control" {
+  description = "Specifies caching behavior along the request/reply chain."
   type        = string
   default     = null
 }
@@ -28,20 +40,8 @@ variable "content_disposition" {
   default     = null
 }
 
-variable "bucket_key_enabled" {
-  description = "Whether or not to use Amazon S3 Bucket Keys for SSE-KMS."
-  type        = bool
-  default     = null
-}
-
-variable "object_lock_retain_until_date" {
-  description = "The date and time, in RFC3339 format, when this object's object lock will expire."
-  type        = string
-  default     = null
-}
-
-variable "acl" {
-  description = "The canned ACL to apply. Valid values are private, public-read, public-read-write, aws-exec-read, authenticated-read, bucket-owner-read, and bucket-owner-full-control. Defaults to private."
+variable "content_encoding" {
+  description = "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field."
   type        = string
   default     = null
 }
@@ -52,28 +52,10 @@ variable "content_language" {
   default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to assign to the object."
-  type        = map(string)
-  default     = {}
-}
-
-variable "force_destroy" {
-  description = "Allow the object to be deleted by removing any legal hold on any object version. Default is false. This value should be set to true only if the bucket has S3 object lock enabled."
-  type        = bool
-  default     = false
-}
-
-variable "object_lock_mode" {
-  description = "The object lock retention mode that you want to apply to this object. Valid values are GOVERNANCE and COMPLIANCE."
+variable "content_type" {
+  description = "A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input."
   type        = string
   default     = null
-}
-
-variable "override_default_tags" {
-  description = "Ignore provider default_tags. S3 objects support a maximum of 10 tags."
-  type        = bool
-  default     = false
 }
 
 variable "create" {
@@ -82,16 +64,28 @@ variable "create" {
   default     = true
 }
 
-variable "cache_control" {
-  description = "Specifies caching behavior along the request/reply chain."
+variable "etag" {
+  description = "Used to trigger updates. This attribute is not compatible with KMS encryption, kms_key_id or server_side_encryption = \"aws:kms\"."
   type        = string
   default     = null
 }
 
-variable "content_type" {
-  description = "A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input."
+variable "file_source" {
+  description = "The path to a file that will be read and uploaded as raw bytes for the object content."
   type        = string
   default     = null
+}
+
+variable "force_destroy" {
+  description = "Allow the object to be deleted by removing any legal hold on any object version. Default is false. This value should be set to true only if the bucket has S3 object lock enabled."
+  type        = bool
+  default     = false
+}
+
+variable "key" {
+  description = "The name of the object once it is in the bucket."
+  type        = string
+  default     = ""
 }
 
 variable "kms_key_id" {
@@ -112,10 +106,22 @@ variable "object_lock_legal_hold_status" {
   default     = null
 }
 
-variable "source_hash" {
-  description = "Triggers updates like etag but useful to address etag encryption limitations. Set using filemd5(\"path/to/source\") (Terraform 0.11.12 or later). (The value is only stored in state and not saved by AWS.)"
+variable "object_lock_mode" {
+  description = "The object lock retention mode that you want to apply to this object. Valid values are GOVERNANCE and COMPLIANCE."
   type        = string
   default     = null
+}
+
+variable "object_lock_retain_until_date" {
+  description = "The date and time, in RFC3339 format, when this object's object lock will expire."
+  type        = string
+  default     = null
+}
+
+variable "override_default_tags" {
+  description = "Ignore provider default_tags. S3 objects support a maximum of 10 tags."
+  type        = bool
+  default     = false
 }
 
 variable "region" {
@@ -124,14 +130,14 @@ variable "region" {
   default     = null
 }
 
-variable "key" {
-  description = "The name of the object once it is in the bucket."
+variable "server_side_encryption" {
+  description = "Specifies server-side encryption of the object in S3. Valid values are \"AES256\" and \"aws:kms\"."
   type        = string
-  default     = ""
+  default     = null
 }
 
-variable "content_encoding" {
-  description = "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field."
+variable "source_hash" {
+  description = "Triggers updates like etag but useful to address etag encryption limitations. Set using filemd5(\"path/to/source\") (Terraform 0.11.12 or later). (The value is only stored in state and not saved by AWS.)"
   type        = string
   default     = null
 }
@@ -142,16 +148,10 @@ variable "storage_class" {
   default     = null
 }
 
-variable "etag" {
-  description = "Used to trigger updates. This attribute is not compatible with KMS encryption, kms_key_id or server_side_encryption = \"aws:kms\"."
-  type        = string
-  default     = null
-}
-
-variable "server_side_encryption" {
-  description = "Specifies server-side encryption of the object in S3. Valid values are \"AES256\" and \"aws:kms\"."
-  type        = string
-  default     = null
+variable "tags" {
+  description = "A map of tags to assign to the object."
+  type        = map(string)
+  default     = {}
 }
 
 variable "website_redirect" {

@@ -1,71 +1,71 @@
-http_tcp_listeners = []
-
-load_balancer_create_timeout = "10m"
-
-load_balancer_delete_timeout = "10m"
-
-load_balancer_update_timeout = "10m"
-
-security_groups = []
-
-name = null
-
-https_listener_rules_tags = {}
-
-extra_ssl_certs = []
-
-https_listener_rules = []
-
 access_logs = {}
+
+create_lb = true
+
+desync_mitigation_mode = "defensive"
+
+drop_invalid_header_fields = false
 
 enable_cross_zone_load_balancing = false
 
-name_prefix = null
+enable_deletion_protection = false
 
-subnet_mapping = []
+enable_http2 = true
 
-lb_tags = {}
+enable_waf_fail_open = false
 
-https_listeners_tags = {}
+extra_ssl_certs = []
+
+http_tcp_listener_rules = []
+
+http_tcp_listener_rules_tags = {}
+
+http_tcp_listeners = []
 
 http_tcp_listeners_tags = {}
 
-vpc_id = null
+https_listener_rules = []
 
-create_lb = true
+https_listener_rules_tags = {}
+
+https_listeners = []
+
+https_listeners_tags = {}
 
 idle_timeout = 60
 
 internal = false
 
-target_group_tags = {}
-
-http_tcp_listener_rules_tags = {}
-
-target_groups = []
-
-enable_deletion_protection = false
-
-http_tcp_listener_rules = []
-
-tags = {}
-
-drop_invalid_header_fields = false
-
 ip_address_type = "ipv4"
 
-subnets = null
-
-enable_http2 = true
-
-https_listeners = []
+lb_tags = {}
 
 listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
 
+load_balancer_create_timeout = "10m"
+
+load_balancer_delete_timeout = "10m"
+
 load_balancer_type = "application"
 
-enable_waf_fail_open = false
+load_balancer_update_timeout = "10m"
 
-desync_mitigation_mode = "defensive"
+name = null
+
+name_prefix = null
 
 putin_khuylo = true
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = null
+
+tags = {}
+
+target_group_tags = {}
+
+target_groups = []
+
+vpc_id = null

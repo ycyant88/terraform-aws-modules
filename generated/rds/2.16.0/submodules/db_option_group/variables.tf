@@ -1,11 +1,17 @@
-variable "name_prefix" {
-  description = "Creates a unique name beginning with the specified prefix"
-  type        = string
-  default     = ""
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
 }
 
 variable "engine_name" {
   description = "Specifies the name of the engine that this option group should be associated with"
+  type        = string
+  default     = ""
+}
+
+variable "identifier" {
+  description = "The identifier of the resource"
   type        = string
   default     = ""
 }
@@ -16,26 +22,8 @@ variable "major_engine_version" {
   default     = ""
 }
 
-variable "options" {
-  description = "A list of Options to apply"
-  type        = any
-  default     = []
-}
-
-variable "timeouts" {
-  description = "Define maximum timeout for deletion of aws_db_option_group resource"
-  type        = map(string)
-  default     = { "delete" : "15m" }
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
-}
-
-variable "identifier" {
-  description = "The identifier of the resource"
+variable "name_prefix" {
+  description = "Creates a unique name beginning with the specified prefix"
   type        = string
   default     = ""
 }
@@ -46,8 +34,20 @@ variable "option_group_description" {
   default     = ""
 }
 
+variable "options" {
+  description = "A list of Options to apply"
+  type        = any
+  default     = []
+}
+
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
   default     = {}
+}
+
+variable "timeouts" {
+  description = "Define maximum timeout for deletion of aws_db_option_group resource"
+  type        = map(string)
+  default     = { "delete" : "15m" }
 }

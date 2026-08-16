@@ -1,71 +1,71 @@
-permissions_boundary_arn = null
+cluster_arns = ["*"]
 
-ira_profile_duration_seconds = null
-
-ira_trust_anchor_acm_pca_arn = null
-
-intermediate_role_path = "/"
-
-trust_anchor_arns = []
-
-intermediate_policy_statements = null
-
-intermediate_role_policies = {}
+create = true
 
 description = "EKS Hybrid Node IAM role"
 
-tags = {}
-
-policy_name = "EKSHybridNode"
-
-cluster_arns = ["*"]
+enable_ira = false
 
 enable_pod_identity = true
 
-ira_trust_anchor_name = null
+intermediate_policy_name = null
+
+intermediate_policy_statements = null
+
+intermediate_policy_use_name_prefix = true
+
+intermediate_role_description = "EKS Hybrid Node IAM Roles Anywhere intermediate IAM role"
 
 intermediate_role_name = null
 
+intermediate_role_path = "/"
+
+intermediate_role_policies = {}
+
+intermediate_role_use_name_prefix = true
+
+ira_profile_duration_seconds = null
+
 ira_profile_managed_policy_arns = []
+
+ira_profile_name = null
+
+ira_profile_require_instance_properties = null
+
+ira_profile_session_policy = null
+
+ira_trust_anchor_acm_pca_arn = null
+
+ira_trust_anchor_name = null
+
+ira_trust_anchor_notification_settings = null
+
+ira_trust_anchor_source_type = null
+
+ira_trust_anchor_x509_certificate_data = null
+
+max_session_duration = null
 
 name = "EKSHybridNode"
 
 path = "/"
 
-max_session_duration = null
-
-enable_ira = false
-
-policy_path = "/"
+permissions_boundary_arn = null
 
 policies = {}
 
-ira_profile_require_instance_properties = null
+policy_description = "EKS Hybrid Node IAM role policy"
 
-ira_trust_anchor_source_type = null
+policy_name = "EKSHybridNode"
 
-use_name_prefix = true
-
-ira_trust_anchor_notification_settings = null
-
-intermediate_role_use_name_prefix = true
-
-intermediate_role_description = "EKS Hybrid Node IAM Roles Anywhere intermediate IAM role"
-
-intermediate_policy_name = null
-
-intermediate_policy_use_name_prefix = true
-
-policy_use_name_prefix = true
+policy_path = "/"
 
 policy_statements = null
 
-ira_trust_anchor_x509_certificate_data = null
+policy_use_name_prefix = true
 
-create = true
+tags = {}
 
-policy_description = "EKS Hybrid Node IAM role policy"
+trust_anchor_arns = []
 
-ira_profile_name = null
-
-ira_profile_session_policy = null
+use_name_prefix = true

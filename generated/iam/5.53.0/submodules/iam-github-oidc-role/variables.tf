@@ -1,19 +1,11 @@
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "policies" {
-  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = null
+variable "additional_trust_policy_conditions" {
+  description = "Additional conditions for the constraint to apply to the trust policy"
+  type = list(object({
+    test     = string
+    variable = string
+    values   = list(string)
+  }))
+  default = []
 }
 
 variable "audience" {
@@ -22,10 +14,10 @@ variable "audience" {
   default     = "sts.amazonaws.com"
 }
 
-variable "name" {
-  description = "Name of IAM role"
-  type        = string
-  default     = null
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "description" {
@@ -40,10 +32,22 @@ variable "force_detach_policies" {
   default     = true
 }
 
-variable "provider_url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = null
+}
+
+variable "name" {
+  description = "Name of IAM role"
   type        = string
-  default     = "token.actions.githubusercontent.com"
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
 }
 
 variable "path" {
@@ -56,6 +60,18 @@ variable "permissions_boundary_arn" {
   description = "Permissions boundary ARN to use for IAM role"
   type        = string
   default     = null
+}
+
+variable "policies" {
+  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
+}
+
+variable "provider_url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
+  type        = string
+  default     = "token.actions.githubusercontent.com"
 }
 
 variable "subject_condition" {
@@ -74,20 +90,4 @@ variable "tags" {
   description = "A map of tags to add to the resources created"
   type        = map(any)
   default     = {}
-}
-
-variable "name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
-}
-
-variable "additional_trust_policy_conditions" {
-  description = "Additional conditions for the constraint to apply to the trust policy"
-  type = list(object({
-    test     = string
-    variable = string
-    values   = list(string)
-  }))
-  default = []
 }

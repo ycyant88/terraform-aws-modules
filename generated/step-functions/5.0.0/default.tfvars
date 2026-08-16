@@ -1,83 +1,83 @@
-role_description = null
-
-role_tags = {}
+attach_cloudwatch_logs_policy = true
 
 attach_policies = false
-
-trusted_entities = []
-
-create_role = true
-
-definition = ""
-
-number_of_policies = 0
-
-policy_path = null
-
-sfn_state_machine_timeouts = {}
-
-aws_region_assume_role = ""
-
-policies = []
-
-create = true
-
-encryption_configuration = {}
-
-cloudwatch_log_group_retention_in_days = null
-
-role_name = null
-
-role_permissions_boundary = null
 
 attach_policies_for_integrations = true
 
 attach_policy = false
 
-attach_policy_statements = false
-
-use_existing_cloudwatch_log_group = false
-
-role_path = null
-
-role_force_detach_policies = true
-
-policy_jsons = []
-
-policy_statements = {}
-
-use_existing_role = false
-
-name = ""
-
-cloudwatch_log_group_name = null
-
 attach_policy_json = false
 
 attach_policy_jsons = false
 
-region = null
+attach_policy_statements = false
 
-tags = {}
+aws_region_assume_role = ""
 
-type = "STANDARD"
+cloudwatch_log_group_kms_key_id = null
 
-policy_json = null
+cloudwatch_log_group_name = null
 
-policy = null
-
-role_arn = ""
+cloudwatch_log_group_retention_in_days = null
 
 cloudwatch_log_group_tags = {}
 
-attach_cloudwatch_logs_policy = true
+create = true
 
-service_integrations = {}
+create_role = true
 
-number_of_policy_jsons = 0
+definition = ""
 
-publish = false
+encryption_configuration = {}
 
 logging_configuration = {}
 
-cloudwatch_log_group_kms_key_id = null
+name = ""
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_path = null
+
+policy_statements = {}
+
+publish = false
+
+region = null
+
+role_arn = ""
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+service_integrations = {}
+
+sfn_state_machine_timeouts = {}
+
+tags = {}
+
+trusted_entities = []
+
+type = "STANDARD"
+
+use_existing_cloudwatch_log_group = false
+
+use_existing_role = false

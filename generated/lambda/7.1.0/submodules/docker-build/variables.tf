@@ -1,43 +1,7 @@
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
-}
-
-variable "keep_remotely" {
-  description = "Whether to keep Docker image in the remote registry on destroy operation."
-  type        = bool
-  default     = false
-}
-
-variable "triggers" {
-  description = "A map of arbitrary strings that, when changed, will force the docker_image resource to be replaced. This can be used to rebuild an image when contents of source code folders change"
+variable "build_args" {
+  description = "A map of Docker build arguments."
   type        = map(string)
   default     = {}
-}
-
-variable "create_sam_metadata" {
-  description = "Controls whether the SAM metadata null resource should be created"
-  type        = bool
-  default     = false
-}
-
-variable "use_image_tag" {
-  description = "Controls whether to use image tag in ECR repository URI or not. Disable this to deploy latest image using ID (sha256:...)"
-  type        = bool
-  default     = true
-}
-
-variable "ecr_repo" {
-  description = "Name of ECR repository to use or to create"
-  type        = string
-  default     = null
-}
-
-variable "keep_locally" {
-  description = "Whether to delete the Docker image locally on destroy operation."
-  type        = bool
-  default     = false
 }
 
 variable "create_ecr_repo" {
@@ -46,44 +10,20 @@ variable "create_ecr_repo" {
   default     = false
 }
 
-variable "image_tag" {
-  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
+variable "create_sam_metadata" {
+  description = "Controls whether the SAM metadata null resource should be created"
+  type        = bool
+  default     = false
+}
+
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
   type        = string
-  default     = null
-}
-
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
-}
-
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ecr_repo_lifecycle_policy" {
-  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
-  type        = string
-  default     = null
-}
-
-variable "platform" {
-  description = "The target architecture platform to build the image for."
-  type        = string
-  default     = null
+  default     = "Dockerfile"
 }
 
 variable "ecr_address" {
   description = "Address of ECR repository for cross-account container image pulling (optional). Option create_ecr_repo must be false"
-  type        = string
-  default     = null
-}
-
-variable "source_path" {
-  description = "Path to folder containing application code"
   type        = string
   default     = null
 }
@@ -94,10 +34,58 @@ variable "ecr_force_delete" {
   default     = true
 }
 
+variable "ecr_repo" {
+  description = "Name of ECR repository to use or to create"
+  type        = string
+  default     = null
+}
+
+variable "ecr_repo_lifecycle_policy" {
+  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
+  type        = string
+  default     = null
+}
+
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
+}
+
+variable "force_remove" {
+  description = "Whether to remove image forcibly when the resource is destroyed."
+  type        = bool
+  default     = false
+}
+
+variable "image_tag" {
+  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
+  type        = string
+  default     = null
+}
+
 variable "image_tag_mutability" {
   description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
   type        = string
   default     = "MUTABLE"
+}
+
+variable "keep_locally" {
+  description = "Whether to delete the Docker image locally on destroy operation."
+  type        = bool
+  default     = false
+}
+
+variable "keep_remotely" {
+  description = "Whether to keep Docker image in the remote registry on destroy operation."
+  type        = bool
+  default     = false
+}
+
+variable "platform" {
+  description = "The target architecture platform to build the image for."
+  type        = string
+  default     = null
 }
 
 variable "scan_on_push" {
@@ -106,8 +94,20 @@ variable "scan_on_push" {
   default     = false
 }
 
-variable "force_remove" {
-  description = "Whether to remove image forcibly when the resource is destroyed."
+variable "source_path" {
+  description = "Path to folder containing application code"
+  type        = string
+  default     = null
+}
+
+variable "triggers" {
+  description = "A map of arbitrary strings that, when changed, will force the docker_image resource to be replaced. This can be used to rebuild an image when contents of source code folders change"
+  type        = map(string)
+  default     = {}
+}
+
+variable "use_image_tag" {
+  description = "Controls whether to use image tag in ECR repository URI or not. Disable this to deploy latest image using ID (sha256:...)"
   type        = bool
-  default     = false
+  default     = true
 }

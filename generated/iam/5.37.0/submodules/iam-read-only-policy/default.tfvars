@@ -1,8 +1,16 @@
-tags = {}
+additional_policy_json = "{}"
 
 allow_cloudwatch_logs_query = true
 
-web_console_services = ["resource-groups", "tag", "health", "ce"]
+allow_predefined_sts_actions = true
+
+allow_web_console_services = true
+
+allowed_services = ""
+
+create_policy = true
+
+description = "IAM Policy"
 
 name = null
 
@@ -10,14 +18,6 @@ name_prefix = null
 
 path = "/"
 
-allow_predefined_sts_actions = true
+tags = {}
 
-allow_web_console_services = true
-
-create_policy = true
-
-description = "IAM Policy"
-
-allowed_services = ""
-
-additional_policy_json = "{}"
+web_console_services = ["resource-groups", "tag", "health", "ce"]

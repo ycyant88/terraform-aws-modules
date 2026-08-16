@@ -1,44 +1,38 @@
-source_policy_documents = []
-
-grants = {}
-
-override_policy_documents = []
-
-bypass_policy_lockout_safety_check = null
-
-customer_master_key_spec = null
-
-is_enabled = null
-
 aliases = []
 
 aliases_use_name_prefix = false
+
+bypass_policy_lockout_safety_check = null
+
+computed_aliases = {}
 
 create = true
 
 create_external = false
 
+customer_master_key_spec = null
+
 deletion_window_in_days = null
 
-multi_region = false
+description = null
 
-key_administrators = []
-
-computed_aliases = {}
+enable_default_policy = true
 
 enable_key_rotation = true
 
-key_users = []
+grants = {}
+
+is_enabled = null
+
+key_administrators = []
+
+key_asymmetric_public_encryption_users = []
 
 key_asymmetric_sign_verify_users = []
 
+key_hmac_users = []
+
 key_material_base64 = null
-
-key_usage = null
-
-tags = {}
-
-valid_to = null
 
 key_owners = []
 
@@ -46,12 +40,18 @@ key_service_users = []
 
 key_symmetric_encryption_users = []
 
-description = null
+key_usage = null
+
+key_users = []
+
+multi_region = false
+
+override_policy_documents = []
 
 policy = null
 
-enable_default_policy = true
+source_policy_documents = []
 
-key_hmac_users = []
+tags = {}
 
-key_asymmetric_public_encryption_users = []
+valid_to = null

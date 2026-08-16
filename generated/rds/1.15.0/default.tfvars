@@ -1,89 +1,89 @@
 allocated_storage = ""
 
-replicate_source_db = ""
-
-engine_version = ""
-
-monitoring_role_arn = ""
+allow_major_version_upgrade = false
 
 apply_immediately = false
 
+auto_minor_version_upgrade = true
+
 availability_zone = ""
 
-multi_az = false
+backup_retention_period = 1
 
-monitoring_role_name = "rds-monitoring-role"
+backup_window = ""
 
-parameters = []
+character_set_name = ""
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
+
+create_db_parameter_group = true
 
 create_db_subnet_group = true
 
-timezone = ""
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
 
 identifier = ""
 
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
 name = ""
+
+parameter_group_name = ""
+
+parameters = []
 
 password = ""
 
 port = ""
 
-monitoring_interval = 0
+publicly_accessible = false
 
-kms_key_id = ""
-
-db_subnet_group_name = ""
-
-maintenance_window = ""
-
-subnet_ids = []
-
-auto_minor_version_upgrade = true
+replicate_source_db = ""
 
 skip_final_snapshot = true
 
-tags = {}
-
-storage_type = "gp2"
-
-final_snapshot_identifier = false
-
-vpc_security_group_ids = []
-
-create_monitoring_role = false
-
-allow_major_version_upgrade = false
-
-create_db_instance = true
-
-character_set_name = ""
+snapshot_identifier = ""
 
 storage_encrypted = false
 
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timezone = ""
+
 username = ""
 
-publicly_accessible = false
-
-family = ""
-
-iam_database_authentication_enabled = false
-
-backup_window = ""
-
-iops = 0
-
-copy_tags_to_snapshot = false
-
-backup_retention_period = 1
-
-snapshot_identifier = ""
-
-license_model = ""
-
-engine = ""
-
-instance_class = ""
-
-parameter_group_name = ""
-
-create_db_parameter_group = true
+vpc_security_group_ids = []

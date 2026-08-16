@@ -1,29 +1,29 @@
+cache_name = null
+
+cache_usage_limits = {}
+
 create = true
 
 daily_snapshot_time = null
 
 description = null
 
-security_group_ids = []
-
-cache_name = null
-
 engine = "redis"
 
 kms_key_id = null
 
-snapshot_retention_limit = null
-
 major_engine_version = null
+
+security_group_ids = []
 
 snapshot_arns_to_restore = null
 
-subnet_ids = []
+snapshot_retention_limit = null
 
-user_group_id = null
+subnet_ids = []
 
 tags = {}
 
-cache_usage_limits = {}
-
 timeouts = {}
+
+user_group_id = null

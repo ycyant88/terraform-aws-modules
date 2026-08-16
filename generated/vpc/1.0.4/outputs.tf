@@ -1,6 +1,11 @@
-output "vpc_id" {
-  value       = module.vpc.vpc_id
-  description = "The ID of the VPC"
+output "database_subnet_group" {
+  value       = module.vpc.database_subnet_group
+  description = "ID of database subnet group"
+}
+
+output "database_subnets" {
+  value       = module.vpc.database_subnets
+  description = "List of IDs of database subnets"
 }
 
 output "default_network_acl_id" {
@@ -8,19 +13,14 @@ output "default_network_acl_id" {
   description = "The ID of the default network ACL"
 }
 
-output "database_subnet_group" {
-  value       = module.vpc.database_subnet_group
-  description = "ID of database subnet group"
+output "default_security_group_id" {
+  value       = module.vpc.default_security_group_id
+  description = "The ID of the security group created by default on VPC creation"
 }
 
-output "igw_id" {
-  value       = module.vpc.igw_id
-  description = "The ID of the Internet Gateway"
-}
-
-output "public_subnets" {
-  value       = module.vpc.public_subnets
-  description = "List of IDs of public subnets"
+output "elasticache_subnet_group" {
+  value       = module.vpc.elasticache_subnet_group
+  description = "ID of elasticache subnet group"
 }
 
 output "elasticache_subnets" {
@@ -28,14 +28,9 @@ output "elasticache_subnets" {
   description = "List of IDs of elasticache subnets"
 }
 
-output "public_route_table_ids" {
-  value       = module.vpc.public_route_table_ids
-  description = "List of IDs of public route tables"
-}
-
-output "private_route_table_ids" {
-  value       = module.vpc.private_route_table_ids
-  description = "List of IDs of private route tables"
+output "igw_id" {
+  value       = module.vpc.igw_id
+  description = "The ID of the Internet Gateway"
 }
 
 output "nat_ids" {
@@ -48,14 +43,14 @@ output "nat_public_ips" {
   description = "List of public Elastic IPs created for AWS NAT Gateway"
 }
 
-output "vpc_cidr_block" {
-  value       = module.vpc.vpc_cidr_block
-  description = "The CIDR block of the VPC"
+output "natgw_ids" {
+  value       = module.vpc.natgw_ids
+  description = "List of NAT Gateway IDs"
 }
 
-output "default_security_group_id" {
-  value       = module.vpc.default_security_group_id
-  description = "The ID of the security group created by default on VPC creation"
+output "private_route_table_ids" {
+  value       = module.vpc.private_route_table_ids
+  description = "List of IDs of private route tables"
 }
 
 output "private_subnets" {
@@ -63,19 +58,19 @@ output "private_subnets" {
   description = "List of IDs of private subnets"
 }
 
-output "database_subnets" {
-  value       = module.vpc.database_subnets
-  description = "List of IDs of database subnets"
+output "public_route_table_ids" {
+  value       = module.vpc.public_route_table_ids
+  description = "List of IDs of public route tables"
 }
 
-output "natgw_ids" {
-  value       = module.vpc.natgw_ids
-  description = "List of NAT Gateway IDs"
+output "public_subnets" {
+  value       = module.vpc.public_subnets
+  description = "List of IDs of public subnets"
 }
 
-output "vpc_endpoint_s3_id" {
-  value       = module.vpc.vpc_endpoint_s3_id
-  description = "The ID of VPC endpoint for S3"
+output "vpc_cidr_block" {
+  value       = module.vpc.vpc_cidr_block
+  description = "The CIDR block of the VPC"
 }
 
 output "vpc_endpoint_dynamodb_id" {
@@ -83,7 +78,12 @@ output "vpc_endpoint_dynamodb_id" {
   description = "The ID of VPC endpoint for DynamoDB"
 }
 
-output "elasticache_subnet_group" {
-  value       = module.vpc.elasticache_subnet_group
-  description = "ID of elasticache subnet group"
+output "vpc_endpoint_s3_id" {
+  value       = module.vpc.vpc_endpoint_s3_id
+  description = "The ID of VPC endpoint for S3"
+}
+
+output "vpc_id" {
+  value       = module.vpc.vpc_id
+  description = "The ID of the VPC"
 }

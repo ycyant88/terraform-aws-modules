@@ -1,73 +1,73 @@
-vpc_zone_identifier = ""
+asg_name = ""
 
-image_id = ""
-
-key_name = ""
-
-min_elb_capacity = 0
-
-wait_for_elb_capacity = false
-
-spot_price = 0
-
-placement_tenancy = "default"
+associate_public_ip_address = false
 
 default_cooldown = 300
+
+desired_capacity = ""
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+existing_launch_configuration = ""
+
+force_delete = false
 
 health_check_grace_period = 300
 
 health_check_type = ""
 
-metrics_granularity = "1Minute"
-
-protect_from_scale_in = false
-
-existing_launch_configuration = ""
-
 iam_instance_profile = ""
 
-ebs_block_device = []
+image_id = ""
 
-ephemeral_block_device = []
+instance_type = ""
 
-max_size = ""
-
-termination_policies = ["Default"]
+key_name = ""
 
 lc_name = ""
 
-user_data = ""
+load_balancers = []
 
-ebs_optimized = false
+max_size = ""
 
-asg_name = ""
+metrics_granularity = "1Minute"
 
-target_group_arns = []
+min_elb_capacity = 0
+
+min_size = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
 
 suspended_processes = []
 
 tags = []
 
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+user_data = ""
+
+vpc_zone_identifier = ""
+
 wait_for_capacity_timeout = "10m"
 
-enable_monitoring = true
-
-root_block_device = []
-
-load_balancers = []
-
-instance_type = ""
-
-associate_public_ip_address = false
-
-min_size = ""
-
-desired_capacity = ""
-
-force_delete = false
-
-placement_group = ""
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-security_groups = ""
+wait_for_elb_capacity = false

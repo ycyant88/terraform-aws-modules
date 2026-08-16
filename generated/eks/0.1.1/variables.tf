@@ -10,34 +10,16 @@ variable "cluster_name" {
   default     = ""
 }
 
-variable "subnets" {
-  description = "A list of subnets to associate with the cluster's underlying instances."
-  type        = list(any)
-  default     = ""
-}
-
-variable "workers_asg_min_size" {
-  description = "description"
-  type        = string
-  default     = "1"
-}
-
-variable "workers_instance_type" {
-  description = "Size of the workers instances."
-  type        = string
-  default     = "m4.large"
-}
-
-variable "workers_asg_max_size" {
-  description = "description"
-  type        = string
-  default     = "3"
-}
-
 variable "cluster_version" {
   description = "Kubernetes version to use for the cluster."
   type        = string
   default     = "1.10"
+}
+
+variable "subnets" {
+  description = "A list of subnets to associate with the cluster's underlying instances."
+  type        = list(any)
+  default     = ""
 }
 
 variable "tags" {
@@ -62,4 +44,22 @@ variable "workers_asg_desired_capacity" {
   description = "description"
   type        = string
   default     = "1"
+}
+
+variable "workers_asg_max_size" {
+  description = "description"
+  type        = string
+  default     = "3"
+}
+
+variable "workers_asg_min_size" {
+  description = "description"
+  type        = string
+  default     = "1"
+}
+
+variable "workers_instance_type" {
+  description = "Size of the workers instances."
+  type        = string
+  default     = "m4.large"
 }

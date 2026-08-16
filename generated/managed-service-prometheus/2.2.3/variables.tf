@@ -4,22 +4,10 @@ variable "alert_manager_definition" {
   default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
 }
 
-variable "rule_group_namespaces" {
-  description = "A map of one or more rule group namespace definitions"
-  type        = map(any)
-  default     = {}
-}
-
 variable "create" {
   description = "Determines whether a resources will be created"
   type        = bool
   default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "create_workspace" {
@@ -28,10 +16,22 @@ variable "create_workspace" {
   default     = true
 }
 
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
+variable "logging_configuration" {
+  description = "The logging configuration of the prometheus workspace."
+  type        = map(string)
+  default     = {}
+}
+
+variable "rule_group_namespaces" {
+  description = "A map of one or more rule group namespace definitions"
+  type        = map(any)
+  default     = {}
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "workspace_alias" {
@@ -40,8 +40,8 @@ variable "workspace_alias" {
   default     = null
 }
 
-variable "logging_configuration" {
-  description = "The logging configuration of the prometheus workspace."
-  type        = map(string)
-  default     = {}
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
+  type        = string
+  default     = ""
 }

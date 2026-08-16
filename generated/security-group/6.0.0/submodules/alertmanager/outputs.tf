@@ -8,9 +8,9 @@ output "id" {
   description = "The ID of the security group"
 }
 
-output "vpc_id" {
-  value       = module.security-group_alertmanager.vpc_id
-  description = "The VPC ID"
+output "name" {
+  value       = module.security-group_alertmanager.name
+  description = "The name of the security group"
 }
 
 output "owner_id" {
@@ -18,7 +18,7 @@ output "owner_id" {
   description = "The owner ID"
 }
 
-output "name" {
-  value       = module.security-group_alertmanager.name
-  description = "The name of the security group"
+output "vpc_id" {
+  value       = module.security-group_alertmanager.vpc_id
+  description = "The VPC ID"
 }

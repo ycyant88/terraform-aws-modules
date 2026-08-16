@@ -1,30 +1,12 @@
-variable "evaluation_periods" {
-  description = "The number of periods over which data is compared to the specified threshold."
-  type        = number
-  default     = ""
+variable "actions_enabled" {
+  description = "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to true."
+  type        = bool
+  default     = true
 }
 
-variable "extended_statistic" {
-  description = "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100."
-  type        = string
-  default     = ""
-}
-
-variable "insufficient_data_actions" {
-  description = "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
+variable "alarm_actions" {
+  description = "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
   type        = list(string)
-  default     = ""
-}
-
-variable "ok_actions" {
-  description = "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
-  type        = list(string)
-  default     = ""
-}
-
-variable "alarm_name" {
-  description = "The descriptive name for the alarm. This name must be unique within the user's AWS account."
-  type        = string
   default     = ""
 }
 
@@ -34,16 +16,22 @@ variable "alarm_description" {
   default     = ""
 }
 
-variable "unit" {
-  description = "The unit for the alarm's associated metric."
+variable "alarm_name" {
+  description = "The descriptive name for the alarm. This name must be unique within the user's AWS account."
   type        = string
   default     = ""
 }
 
-variable "period" {
-  description = "The period in seconds over which the specified statistic is applied."
+variable "comparison_operator" {
+  description = "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold."
   type        = string
   default     = ""
+}
+
+variable "create_metric_alarm" {
+  description = "Whether to create the Cloudwatch metric alarm"
+  type        = bool
+  default     = true
 }
 
 variable "datapoints_to_alarm" {
@@ -64,21 +52,21 @@ variable "evaluate_low_sample_count_percentiles" {
   default     = ""
 }
 
-variable "create_metric_alarm" {
-  description = "Whether to create the Cloudwatch metric alarm"
-  type        = bool
-  default     = true
+variable "evaluation_periods" {
+  description = "The number of periods over which data is compared to the specified threshold."
+  type        = number
+  default     = ""
 }
 
-variable "comparison_operator" {
-  description = "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold."
+variable "extended_statistic" {
+  description = "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100."
   type        = string
   default     = ""
 }
 
-variable "threshold" {
-  description = "The value against which the specified statistic is compared."
-  type        = number
+variable "insufficient_data_actions" {
+  description = "The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
+  type        = list(string)
   default     = ""
 }
 
@@ -88,20 +76,26 @@ variable "metric_name" {
   default     = ""
 }
 
-variable "actions_enabled" {
-  description = "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to true."
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(string)
-  default     = {}
+variable "metric_query" {
+  description = "Enables you to create an alarm based on a metric math expression. You may specify at most 20."
+  type        = any
+  default     = []
 }
 
 variable "namespace" {
   description = "The namespace for the alarm's associated metric. See docs for the list of namespaces. See docs for supported metrics."
+  type        = string
+  default     = ""
+}
+
+variable "ok_actions" {
+  description = "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
+  type        = list(string)
+  default     = ""
+}
+
+variable "period" {
+  description = "The period in seconds over which the specified statistic is applied."
   type        = string
   default     = ""
 }
@@ -112,9 +106,15 @@ variable "statistic" {
   default     = ""
 }
 
-variable "alarm_actions" {
-  description = "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
-  type        = list(string)
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "threshold" {
+  description = "The value against which the specified statistic is compared."
+  type        = number
   default     = ""
 }
 
@@ -124,8 +124,8 @@ variable "treat_missing_data" {
   default     = "missing"
 }
 
-variable "metric_query" {
-  description = "Enables you to create an alarm based on a metric math expression. You may specify at most 20."
-  type        = any
-  default     = []
+variable "unit" {
+  description = "The unit for the alarm's associated metric."
+  type        = string
+  default     = ""
 }

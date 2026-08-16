@@ -1,67 +1,67 @@
-replication_configuration = {}
-
-object_lock_configuration = {}
-
-block_public_policy = false
-
-attach_deny_insecure_transport_policy = false
-
-request_payer = ""
-
-logging = {}
-
-owner = {}
-
-object_ownership = "ObjectWriter"
-
-attach_policy = false
-
-versioning = {}
-
-attach_require_latest_tls_policy = false
-
-attach_public_policy = true
-
 acceleration_status = ""
 
-block_public_acls = false
+acl = ""
 
-ignore_public_acls = false
-
-control_object_ownership = false
+attach_deny_insecure_transport_policy = false
 
 attach_elb_log_delivery_policy = false
 
 attach_lb_log_delivery_policy = false
 
-website = {}
+attach_policy = false
 
-grant = []
+attach_public_policy = true
 
-server_side_encryption_configuration = {}
+attach_require_latest_tls_policy = false
 
-create_bucket = true
+block_public_acls = false
 
-acl = ""
-
-cors_rule = []
-
-lifecycle_rule = []
-
-tags = {}
-
-object_lock_enabled = false
+block_public_policy = false
 
 bucket = ""
 
 bucket_prefix = ""
 
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
 expected_bucket_owner = ""
 
-restrict_public_buckets = false
+force_destroy = false
 
-putin_khuylo = true
+grant = []
+
+ignore_public_acls = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "ObjectWriter"
+
+owner = {}
 
 policy = ""
 
-force_destroy = false
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = ""
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

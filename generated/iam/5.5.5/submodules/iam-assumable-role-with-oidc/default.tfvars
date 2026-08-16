@@ -1,35 +1,35 @@
-provider_urls = []
-
-role_name_prefix = null
-
-role_description = ""
-
-tags = {}
-
-role_path = "/"
-
-number_of_role_policy_arns = null
-
-force_detach_policies = false
+allow_self_assume_role = false
 
 aws_account_id = ""
 
-role_name = null
+create_role = false
 
-role_permissions_boundary_arn = ""
+force_detach_policies = false
 
 max_session_duration = 3600
 
-role_policy_arns = []
+number_of_role_policy_arns = null
+
+oidc_fully_qualified_audiences = []
 
 oidc_fully_qualified_subjects = []
 
 oidc_subjects_with_wildcards = []
 
-allow_self_assume_role = false
-
-create_role = false
-
 provider_url = ""
 
-oidc_fully_qualified_audiences = []
+provider_urls = []
+
+role_description = ""
+
+role_name = null
+
+role_name_prefix = null
+
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_policy_arns = []
+
+tags = {}

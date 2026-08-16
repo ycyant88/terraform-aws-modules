@@ -1,45 +1,45 @@
-threshold = ""
-
-threshold_metric_id = ""
-
-metric_name = ""
-
-tags = {}
-
-evaluation_periods = ""
-
-datapoints_to_alarm = ""
-
-insufficient_data_actions = ""
-
-namespace = ""
-
-dimensions = ""
-
-ok_actions = ""
-
-extended_statistic = ""
-
-treat_missing_data = "missing"
-
-create_metric_alarm = true
-
-alarm_description = ""
-
-unit = ""
-
-evaluate_low_sample_count_percentiles = ""
-
 actions_enabled = true
 
 alarm_actions = ""
+
+alarm_description = ""
 
 alarm_name = ""
 
 comparison_operator = ""
 
+create_metric_alarm = true
+
+datapoints_to_alarm = ""
+
+dimensions = ""
+
+evaluate_low_sample_count_percentiles = ""
+
+evaluation_periods = ""
+
+extended_statistic = ""
+
+insufficient_data_actions = ""
+
+metric_name = ""
+
+metric_query = []
+
+namespace = ""
+
+ok_actions = ""
+
 period = ""
 
 statistic = ""
 
-metric_query = []
+tags = {}
+
+threshold = ""
+
+threshold_metric_id = ""
+
+treat_missing_data = "missing"
+
+unit = ""

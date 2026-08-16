@@ -1,15 +1,15 @@
-description = null
-
-scope = "REGIONAL"
-
-ip_address_version = "IPV4"
-
 addresses = []
 
 create = true
 
-putin_khuylo = true
+description = null
 
-tags = {}
+ip_address_version = "IPV4"
 
 name = ""
+
+putin_khuylo = true
+
+scope = "REGIONAL"
+
+tags = {}

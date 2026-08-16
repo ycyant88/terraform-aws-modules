@@ -1,22 +1,22 @@
 module "s3-bucket" {
   source                               = "terraform-aws-modules/s3-bucket/aws"
   version                              = "0.1.0"
-  bucket_prefix                        = var.bucket_prefix
-  force_destroy                        = var.force_destroy
-  logging                              = var.logging
-  replication_configuration            = var.replication_configuration
-  bucket                               = var.bucket
-  policy                               = var.policy
   acceleration_status                  = var.acceleration_status
-  region                               = var.region
-  versioning                           = var.versioning
-  cors_rule                            = var.cors_rule
-  lifecycle_rule                       = var.lifecycle_rule
-  server_side_encryption_configuration = var.server_side_encryption_configuration
-  create_bucket                        = var.create_bucket
   acl                                  = var.acl
-  tags                                 = var.tags
-  request_payer                        = var.request_payer
-  website                              = var.website
+  bucket                               = var.bucket
+  bucket_prefix                        = var.bucket_prefix
+  cors_rule                            = var.cors_rule
+  create_bucket                        = var.create_bucket
+  force_destroy                        = var.force_destroy
+  lifecycle_rule                       = var.lifecycle_rule
+  logging                              = var.logging
   object_lock_configuration            = var.object_lock_configuration
+  policy                               = var.policy
+  region                               = var.region
+  replication_configuration            = var.replication_configuration
+  request_payer                        = var.request_payer
+  server_side_encryption_configuration = var.server_side_encryption_configuration
+  tags                                 = var.tags
+  versioning                           = var.versioning
+  website                              = var.website
 }

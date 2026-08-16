@@ -1,23 +1,23 @@
 module "lambda_alias" {
   source                                    = "terraform-aws-modules/lambda/aws//modules/alias"
   version                                   = "7.21.0"
-  routing_additional_version_weights        = var.routing_additional_version_weights
-  use_existing_alias                        = var.use_existing_alias
-  refresh_alias                             = var.refresh_alias
+  allowed_triggers                          = var.allowed_triggers
+  create                                    = var.create
   create_async_event_config                 = var.create_async_event_config
-  name                                      = var.name
-  description                               = var.description
-  function_name                             = var.function_name
+  create_qualified_alias_allowed_triggers   = var.create_qualified_alias_allowed_triggers
   create_qualified_alias_async_event_config = var.create_qualified_alias_async_event_config
+  create_version_allowed_triggers           = var.create_version_allowed_triggers
+  create_version_async_event_config         = var.create_version_async_event_config
+  description                               = var.description
+  destination_on_failure                    = var.destination_on_failure
+  destination_on_success                    = var.destination_on_success
+  event_source_mapping                      = var.event_source_mapping
+  function_name                             = var.function_name
   function_version                          = var.function_version
   maximum_event_age_in_seconds              = var.maximum_event_age_in_seconds
-  create_version_allowed_triggers           = var.create_version_allowed_triggers
-  create_qualified_alias_allowed_triggers   = var.create_qualified_alias_allowed_triggers
   maximum_retry_attempts                    = var.maximum_retry_attempts
-  destination_on_failure                    = var.destination_on_failure
-  allowed_triggers                          = var.allowed_triggers
-  event_source_mapping                      = var.event_source_mapping
-  create                                    = var.create
-  create_version_async_event_config         = var.create_version_async_event_config
-  destination_on_success                    = var.destination_on_success
+  name                                      = var.name
+  refresh_alias                             = var.refresh_alias
+  routing_additional_version_weights        = var.routing_additional_version_weights
+  use_existing_alias                        = var.use_existing_alias
 }

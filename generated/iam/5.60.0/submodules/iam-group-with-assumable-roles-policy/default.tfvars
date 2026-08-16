@@ -1,11 +1,11 @@
-group_users = []
+assumable_roles = []
 
-tags = {}
+assumable_roles_policy_name_suffix = ""
+
+group_users = []
 
 name = ""
 
 path = "/"
 
-assumable_roles = []
-
-assumable_roles_policy_name_suffix = ""
+tags = {}

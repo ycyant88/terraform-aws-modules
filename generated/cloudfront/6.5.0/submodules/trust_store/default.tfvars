@@ -6,8 +6,8 @@ ca_cert_region = null
 
 ca_cert_version = null
 
-tags = {}
-
 create = true
 
 name = null
+
+tags = {}

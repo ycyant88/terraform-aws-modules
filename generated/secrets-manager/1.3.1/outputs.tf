@@ -1,11 +1,11 @@
-output "secret_version_id" {
-  value       = module.secrets-manager.secret_version_id
-  description = "The unique identifier of the version of the secret"
-}
-
 output "secret_arn" {
   value       = module.secrets-manager.secret_arn
   description = "The ARN of the secret"
+}
+
+output "secret_binary" {
+  value       = module.secrets-manager.secret_binary
+  description = "The secret binary"
 }
 
 output "secret_id" {
@@ -28,7 +28,7 @@ output "secret_string" {
   description = "The secret string"
 }
 
-output "secret_binary" {
-  value       = module.secrets-manager.secret_binary
-  description = "The secret binary"
+output "secret_version_id" {
+  value       = module.secrets-manager.secret_version_id
+  description = "The unique identifier of the version of the secret"
 }

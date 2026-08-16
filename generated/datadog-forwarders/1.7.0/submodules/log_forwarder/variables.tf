@@ -1,67 +1,13 @@
-variable "environment_variables" {
-  description = "A map of environment variables for the forwarder lambda function"
-  type        = map(string)
-  default     = {}
-}
-
-variable "lambda_tags" {
-  description = "A map of tags to apply to the forwarder lambda function"
-  type        = map(string)
-  default     = {}
-}
-
-variable "role_arn" {
-  description = "IAM role arn for forwarder lambda function to utilize"
+variable "bucket_name" {
+  description = "Forwarder S3 bucket name"
   type        = string
   default     = ""
 }
 
-variable "role_permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the forwarder role."
+variable "bucket_prefix" {
+  description = "S3 object key prefix to prepend to zip archive name"
   type        = string
-  default     = null
-}
-
-variable "forwarder_version" {
-  description = "Forwarder version - see https://github.com/DataDog/datadog-serverless-functions/releases"
-  type        = string
-  default     = "3.23.0"
-}
-
-variable "timeout" {
-  description = "The amount of time the forwarder lambda has to execute in seconds"
-  type        = number
-  default     = 120
-}
-
-variable "reserved_concurrent_executions" {
-  description = "The amount of reserved concurrent executions for the forwarder lambda function"
-  type        = number
-  default     = 100
-}
-
-variable "log_retention_days" {
-  description = "Forwarder CloudWatch log group retention in days"
-  type        = number
-  default     = 7
-}
-
-variable "role_path" {
-  description = "Forwarder role path"
-  type        = string
-  default     = null
-}
-
-variable "use_policy_name_prefix" {
-  description = "Whether to use unique name beginning with the specified policy_name for the forwarder policy"
-  type        = bool
-  default     = false
-}
-
-variable "security_group_ids" {
-  description = "List of security group ids when Lambda Function should run in the VPC."
-  type        = list(string)
-  default     = null
+  default     = ""
 }
 
 variable "create" {
@@ -70,10 +16,10 @@ variable "create" {
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to use on all resources"
-  type        = map(string)
-  default     = {}
+variable "create_bucket" {
+  description = "Controls whether an S3 bucket should be created for the forwarder"
+  type        = bool
+  default     = true
 }
 
 variable "dd_api_key" {
@@ -82,34 +28,10 @@ variable "dd_api_key" {
   default     = ""
 }
 
-variable "bucket_name" {
-  description = "Forwarder S3 bucket name"
+variable "dd_api_key_secret_arn" {
+  description = "The ARN of the Secrets Manager secret storing the Datadog API key, if you already have it stored in Secrets Manager"
   type        = string
   default     = ""
-}
-
-variable "s3_zip_kms_key_id" {
-  description = "The AWS KMS Key ARN to use for object encryption"
-  type        = string
-  default     = null
-}
-
-variable "role_name" {
-  description = "Forwarder role name"
-  type        = string
-  default     = ""
-}
-
-variable "use_role_name_prefix" {
-  description = "Whether to use unique name beginning with the specified role_name for the forwarder role"
-  type        = bool
-  default     = false
-}
-
-variable "policy_path" {
-  description = "Forwarder policy path"
-  type        = string
-  default     = null
 }
 
 variable "dd_site" {
@@ -118,10 +40,52 @@ variable "dd_site" {
   default     = "datadoghq.com"
 }
 
-variable "create_bucket" {
-  description = "Controls whether an S3 bucket should be created for the forwarder"
-  type        = bool
-  default     = true
+variable "environment_variables" {
+  description = "A map of environment variables for the forwarder lambda function"
+  type        = map(string)
+  default     = {}
+}
+
+variable "forwarder_version" {
+  description = "Forwarder version - see https://github.com/DataDog/datadog-serverless-functions/releases"
+  type        = string
+  default     = "3.23.0"
+}
+
+variable "kms_key_arn" {
+  description = "KMS key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key"
+  type        = string
+  default     = null
+}
+
+variable "lambda_tags" {
+  description = "A map of tags to apply to the forwarder lambda function"
+  type        = map(string)
+  default     = {}
+}
+
+variable "layers" {
+  description = "List of Lambda Layer Version ARNs (maximum of 5) to attach to the forwarder lambda"
+  type        = list(string)
+  default     = []
+}
+
+variable "log_retention_days" {
+  description = "Forwarder CloudWatch log group retention in days"
+  type        = number
+  default     = 7
+}
+
+variable "memory_size" {
+  description = "Memory size for the forwarder lambda function"
+  type        = number
+  default     = 1024
+}
+
+variable "name" {
+  description = "Forwarder lambda name"
+  type        = string
+  default     = "datadog-log-forwarder"
 }
 
 variable "policy_arn" {
@@ -136,10 +100,10 @@ variable "policy_name" {
   default     = ""
 }
 
-variable "layers" {
-  description = "List of Lambda Layer Version ARNs (maximum of 5) to attach to the forwarder lambda"
-  type        = list(string)
-  default     = []
+variable "policy_path" {
+  description = "Forwarder policy path"
+  type        = string
+  default     = null
 }
 
 variable "publish" {
@@ -148,20 +112,20 @@ variable "publish" {
   default     = false
 }
 
-variable "subnet_ids" {
-  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
-  type        = list(string)
-  default     = null
+variable "read_cloudwatch_logs" {
+  description = "Whether the forwarder will read logs from CloudWatch or not"
+  type        = bool
+  default     = false
 }
 
-variable "dd_api_key_secret_arn" {
-  description = "The ARN of the Secrets Manager secret storing the Datadog API key, if you already have it stored in Secrets Manager"
-  type        = string
-  default     = ""
+variable "reserved_concurrent_executions" {
+  description = "The amount of reserved concurrent executions for the forwarder lambda function"
+  type        = number
+  default     = 100
 }
 
-variable "bucket_prefix" {
-  description = "S3 object key prefix to prepend to zip archive name"
+variable "role_arn" {
+  description = "IAM role arn for forwarder lambda function to utilize"
   type        = string
   default     = ""
 }
@@ -172,20 +136,44 @@ variable "role_max_session_duration" {
   default     = null
 }
 
-variable "kms_key_arn" {
-  description = "KMS key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key"
+variable "role_name" {
+  description = "Forwarder role name"
+  type        = string
+  default     = ""
+}
+
+variable "role_path" {
+  description = "Forwarder role path"
   type        = string
   default     = null
 }
 
-variable "s3_zip_storage_class" {
-  description = "Specifies the desired Storage Class for the zip object. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, or STANDARD_IA"
+variable "role_permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the forwarder role."
   type        = string
   default     = null
 }
 
-variable "s3_zip_server_side_encryption" {
-  description = "Server-side encryption of the zip object in S3. Valid values are AES256 and aws:kms"
+variable "role_tags" {
+  description = "A map of tags to apply to the forwarder role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "runtime" {
+  description = "Lambda function runtime"
+  type        = string
+  default     = "python3.7"
+}
+
+variable "s3_log_bucket_arns" {
+  description = "S3 log buckets for forwarder to read and forward logs to Datadog"
+  type        = list(string)
+  default     = []
+}
+
+variable "s3_zip_kms_key_id" {
+  description = "The AWS KMS Key ARN to use for object encryption"
   type        = string
   default     = null
 }
@@ -196,44 +184,56 @@ variable "s3_zip_metadata" {
   default     = {}
 }
 
+variable "s3_zip_server_side_encryption" {
+  description = "Server-side encryption of the zip object in S3. Valid values are AES256 and aws:kms"
+  type        = string
+  default     = null
+}
+
+variable "s3_zip_storage_class" {
+  description = "Specifies the desired Storage Class for the zip object. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, or STANDARD_IA"
+  type        = string
+  default     = null
+}
+
 variable "s3_zip_tags" {
   description = "A map of tags to apply to the zip archive in S3"
   type        = map(string)
   default     = {}
 }
 
-variable "role_tags" {
-  description = "A map of tags to apply to the forwarder role"
+variable "security_group_ids" {
+  description = "List of security group ids when Lambda Function should run in the VPC."
+  type        = list(string)
+  default     = null
+}
+
+variable "subnet_ids" {
+  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
+  type        = list(string)
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to use on all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "s3_log_bucket_arns" {
-  description = "S3 log buckets for forwarder to read and forward logs to Datadog"
-  type        = list(string)
-  default     = []
-}
-
-variable "runtime" {
-  description = "Lambda function runtime"
-  type        = string
-  default     = "python3.7"
-}
-
-variable "memory_size" {
-  description = "Memory size for the forwarder lambda function"
+variable "timeout" {
+  description = "The amount of time the forwarder lambda has to execute in seconds"
   type        = number
-  default     = 1024
+  default     = 120
 }
 
-variable "read_cloudwatch_logs" {
-  description = "Whether the forwarder will read logs from CloudWatch or not"
+variable "use_policy_name_prefix" {
+  description = "Whether to use unique name beginning with the specified policy_name for the forwarder policy"
   type        = bool
   default     = false
 }
 
-variable "name" {
-  description = "Forwarder lambda name"
-  type        = string
-  default     = "datadog-log-forwarder"
+variable "use_role_name_prefix" {
+  description = "Whether to use unique name beginning with the specified role_name for the forwarder role"
+  type        = bool
+  default     = false
 }

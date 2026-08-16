@@ -1,13 +1,37 @@
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
+}
+
+variable "aws_account_id" {
+  description = "The AWS account ID where the OIDC provider lives, leave empty to use the account for the AWS provider"
   type        = string
   default     = ""
 }
 
-variable "role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(string)
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
+}
+
+variable "inline_policy_statements" {
+  description = "List of inline policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) to attach to IAM role as an inline policy"
+  type        = any
   default     = []
+}
+
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
 }
 
 variable "number_of_role_policy_arns" {
@@ -16,28 +40,10 @@ variable "number_of_role_policy_arns" {
   default     = null
 }
 
-variable "provider_trust_policy_conditions" {
-  description = "[Condition constraints](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#condition) applied to the trust policy"
-  type        = any
+variable "oidc_fully_qualified_audiences" {
+  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
+  type        = set(string)
   default     = []
-}
-
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = null
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
 }
 
 variable "oidc_fully_qualified_subjects" {
@@ -52,58 +58,10 @@ variable "oidc_subjects_with_wildcards" {
   default     = []
 }
 
-variable "oidc_fully_qualified_audiences" {
-  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
-  type        = set(string)
-  default     = []
-}
-
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
-}
-
-variable "aws_account_id" {
-  description = "The AWS account ID where the OIDC provider lives, leave empty to use the account for the AWS provider"
-  type        = string
-  default     = ""
-}
-
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
-}
-
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
-}
-
-variable "role_path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = "/"
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
-}
-
-variable "inline_policy_statements" {
-  description = "List of inline policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) to attach to IAM role as an inline policy"
+variable "provider_trust_policy_conditions" {
+  description = "[Condition constraints](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#condition) applied to the trust policy"
   type        = any
   default     = []
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
 }
 
 variable "provider_url" {
@@ -116,4 +74,46 @@ variable "provider_urls" {
   description = "List of URLs of the OIDC Providers"
   type        = list(string)
   default     = []
+}
+
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
+}
+
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = null
+}
+
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
+}
+
+variable "role_path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
+}
+
+variable "role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }

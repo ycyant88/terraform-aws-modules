@@ -10,6 +10,30 @@ variable "create_eks" {
   default     = true
 }
 
+variable "create_fargate_pod_execution_role" {
+  description = "Controls if the the IAM Role that provides permissions for the EKS Fargate Profile should be created."
+  type        = bool
+  default     = true
+}
+
+variable "eks_depends_on" {
+  description = "List of references to other resources this submodule depends on."
+  type        = any
+  default     = null
+}
+
+variable "fargate_pod_execution_role_name" {
+  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
+  type        = string
+  default     = null
+}
+
+variable "fargate_profiles" {
+  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
+  type        = any
+  default     = {}
+}
+
 variable "iam_path" {
   description = "IAM roles will be created on this path."
   type        = string
@@ -22,12 +46,6 @@ variable "iam_policy_arn_prefix" {
   default     = ""
 }
 
-variable "fargate_pod_execution_role_name" {
-  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
-  type        = string
-  default     = null
-}
-
 variable "subnets" {
   description = "A list of subnets for the EKS Fargate profiles."
   type        = list(string)
@@ -38,22 +56,4 @@ variable "tags" {
   description = "A map of tags to add to all resources."
   type        = map(string)
   default     = {}
-}
-
-variable "create_fargate_pod_execution_role" {
-  description = "Controls if the the IAM Role that provides permissions for the EKS Fargate Profile should be created."
-  type        = bool
-  default     = true
-}
-
-variable "fargate_profiles" {
-  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
-  type        = any
-  default     = {}
-}
-
-variable "eks_depends_on" {
-  description = "List of references to other resources this submodule depends on."
-  type        = any
-  default     = null
 }

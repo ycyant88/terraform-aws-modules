@@ -1,11 +1,11 @@
-default_capacity_provider_strategy = []
+capacity_providers = []
 
 container_insights = false
 
-tags = {}
-
 create_ecs = true
+
+default_capacity_provider_strategy = []
 
 name = ""
 
-capacity_providers = []
+tags = {}

@@ -1,27 +1,27 @@
-internal = ""
-
-idle_timeout = 60
+access_logs = []
 
 connection_draining = false
 
 connection_draining_timeout = 300
 
-listener = ""
+cross_zone_load_balancing = true
+
+health_check = ""
+
+idle_timeout = 60
 
 instances = []
 
+internal = ""
+
+listener = ""
+
 name = ""
 
-security_groups = ""
-
-cross_zone_load_balancing = true
-
-access_logs = []
-
 number_of_instances = 0
+
+security_groups = ""
 
 subnets = ""
 
 tags = {}
-
-health_check = ""

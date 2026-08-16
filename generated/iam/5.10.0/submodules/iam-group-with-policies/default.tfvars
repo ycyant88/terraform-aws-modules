@@ -1,17 +1,17 @@
-aws_account_id = ""
-
-group_users = []
-
-custom_group_policy_arns = []
-
 attach_iam_self_management_policy = true
 
-iam_self_management_policy_name_prefix = "IAMSelfManagement-"
-
-tags = {}
+aws_account_id = ""
 
 create_group = true
 
+custom_group_policies = []
+
+custom_group_policy_arns = []
+
+group_users = []
+
+iam_self_management_policy_name_prefix = "IAMSelfManagement-"
+
 name = ""
 
-custom_group_policies = []
+tags = {}

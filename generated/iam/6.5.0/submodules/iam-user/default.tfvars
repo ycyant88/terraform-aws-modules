@@ -1,28 +1,26 @@
-create_access_key = true
-
 access_key_status = null
-
-inline_policy_permissions = null
 
 create = true
 
-name = ""
-
-password_length = null
-
-ssh_public_key = ""
+create_access_key = true
 
 create_inline_policy = false
 
-source_inline_policy_documents = []
+create_login_profile = true
 
-tags = {}
+create_ssh_key = false
 
 force_destroy = false
 
-policies = {}
+inline_policy_permissions = null
 
-create_login_profile = true
+name = ""
+
+override_inline_policy_documents = []
+
+password_length = null
+
+password_reset_required = true
 
 path = null
 
@@ -30,10 +28,12 @@ permissions_boundary = null
 
 pgp_key = null
 
-create_ssh_key = false
+policies = {}
+
+source_inline_policy_documents = []
 
 ssh_key_encoding = "SSH"
 
-override_inline_policy_documents = []
+ssh_public_key = ""
 
-password_reset_required = true
+tags = {}

@@ -1,55 +1,55 @@
-web_acl_id = null
+aliases = null
+
+comment = null
 
 continuous_deployment_policy_id = null
 
+create_distribution = true
+
+create_monitoring_subscription = false
+
+create_origin_access_control = false
+
+create_origin_access_identity = false
+
+custom_error_response = {}
+
+default_cache_behavior = null
+
+default_root_object = null
+
+enabled = true
+
+geo_restriction = {}
+
+http_version = "http2"
+
 is_ipv6_enabled = null
 
-price_class = null
+logging_config = {}
 
-wait_for_deployment = true
+ordered_cache_behavior = []
+
+origin = null
 
 origin_access_control = { "s3" : { "description" : "", "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
 
-comment = null
+origin_access_identities = {}
+
+origin_group = {}
+
+price_class = null
+
+realtime_metrics_subscription_status = "Enabled"
+
+retain_on_delete = false
 
 staging = false
 
 tags = null
 
-origin = null
-
-enabled = true
-
-http_version = "http2"
-
-retain_on_delete = false
-
-logging_config = {}
-
-create_origin_access_identity = false
-
-create_origin_access_control = false
-
-default_cache_behavior = null
-
-create_monitoring_subscription = false
-
-default_root_object = null
-
 viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
 
-ordered_cache_behavior = []
+wait_for_deployment = true
 
-realtime_metrics_subscription_status = "Enabled"
-
-origin_access_identities = {}
-
-aliases = null
-
-custom_error_response = {}
-
-create_distribution = true
-
-geo_restriction = {}
-
-origin_group = {}
+web_acl_id = null

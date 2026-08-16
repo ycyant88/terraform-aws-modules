@@ -1,8 +1,8 @@
+aws_auth_accounts = []
+
 aws_auth_roles = []
 
 aws_auth_users = []
-
-aws_auth_accounts = []
 
 create = true
 

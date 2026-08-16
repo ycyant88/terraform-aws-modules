@@ -1,131 +1,131 @@
-ipv6_addresses = null
+ami = null
 
-launch_template = {}
+ami_ssm_parameter = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "optional" }
+associate_public_ip_address = null
 
-spot_wait_for_fulfillment = null
+availability_zone = null
 
-iam_role_path = null
+capacity_reservation_specification = {}
+
+cpu_core_count = null
+
+cpu_credits = null
+
+cpu_options = {}
+
+cpu_threads_per_core = null
+
+create = true
+
+create_iam_instance_profile = false
+
+create_spot_instance = false
+
+disable_api_stop = null
+
+disable_api_termination = null
 
 ebs_block_device = []
+
+ebs_optimized = null
+
+enable_volume_tags = true
+
+enclave_options_enabled = null
 
 ephemeral_block_device = []
 
 get_password_data = null
 
-spot_block_duration_minutes = null
+hibernation = null
 
-associate_public_ip_address = null
+host_id = null
 
-enclave_options_enabled = null
-
-root_block_device = []
-
-tenancy = null
-
-enable_volume_tags = true
-
-timeouts = {}
-
-iam_role_tags = {}
-
-ami = null
-
-availability_zone = null
-
-user_data = null
-
-name = ""
-
-monitoring = null
-
-iam_role_name = null
-
-cpu_options = {}
-
-spot_valid_from = null
-
-spot_instance_interruption_behavior = null
+iam_instance_profile = null
 
 iam_role_description = null
 
-disable_api_termination = null
+iam_role_name = null
 
-create_spot_instance = false
-
-ami_ssm_parameter = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-
-placement_group = null
-
-subnet_id = null
-
-spot_type = null
-
-iam_role_use_name_prefix = true
-
-cpu_credits = null
-
-ebs_optimized = null
-
-secondary_private_ips = null
-
-spot_price = null
-
-ipv6_address_count = null
-
-key_name = null
-
-cpu_core_count = null
-
-tags = {}
-
-user_data_base64 = null
-
-instance_initiated_shutdown_behavior = null
-
-putin_khuylo = true
-
-create = true
-
-maintenance_options = {}
-
-volume_tags = {}
-
-vpc_security_group_ids = null
-
-spot_valid_until = null
-
-create_iam_instance_profile = false
-
-instance_tags = {}
-
-user_data_replace_on_change = null
-
-hibernation = null
-
-instance_type = "t3.micro"
-
-network_interface = []
-
-spot_launch_group = null
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
 iam_role_policies = {}
 
-capacity_reservation_specification = {}
+iam_role_tags = {}
 
-host_id = null
-
-private_ip = null
-
-source_dest_check = null
-
-cpu_threads_per_core = null
-
-disable_api_stop = null
+iam_role_use_name_prefix = true
 
 ignore_ami_changes = false
 
-iam_instance_profile = null
+instance_initiated_shutdown_behavior = null
+
+instance_tags = {}
+
+instance_type = "t3.micro"
+
+ipv6_address_count = null
+
+ipv6_addresses = null
+
+key_name = null
+
+launch_template = {}
+
+maintenance_options = {}
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "optional" }
+
+monitoring = null
+
+name = ""
+
+network_interface = []
+
+placement_group = null
+
+private_ip = null
+
+putin_khuylo = true
+
+root_block_device = []
+
+secondary_private_ips = null
+
+source_dest_check = null
+
+spot_block_duration_minutes = null
+
+spot_instance_interruption_behavior = null
+
+spot_launch_group = null
+
+spot_price = null
+
+spot_type = null
+
+spot_valid_from = null
+
+spot_valid_until = null
+
+spot_wait_for_fulfillment = null
+
+subnet_id = null
+
+tags = {}
+
+tenancy = null
+
+timeouts = {}
+
+user_data = null
+
+user_data_base64 = null
+
+user_data_replace_on_change = null
+
+volume_tags = {}
+
+vpc_security_group_ids = null

@@ -4,10 +4,28 @@ variable "audience" {
   default     = "sts.amazonaws.com"
 }
 
-variable "tags" {
-  description = "A map of tags to add to the resources created"
-  type        = map(any)
-  default     = {}
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "IAM Role description"
+  type        = string
+  default     = null
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = true
+}
+
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = null
 }
 
 variable "name" {
@@ -22,30 +40,6 @@ variable "name_prefix" {
   default     = null
 }
 
-variable "subject_condition" {
-  description = "Condition to use for the GitHub OIDC role. Defaults to StringLike"
-  type        = string
-  default     = "StringLike"
-}
-
-variable "subjects" {
-  description = "List of GitHub OIDC subjects that are permitted by the trust policy. You do not need to prefix with repo: as this is provided. Example: ['my-org/my-repo:*', 'octo-org/octo-repo:ref:refs/heads/octo-branch']"
-  type        = list(string)
-  default     = []
-}
-
-variable "provider_url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
-  type        = string
-  default     = "token.actions.githubusercontent.com"
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
 variable "path" {
   description = "Path of IAM role"
   type        = string
@@ -58,26 +52,32 @@ variable "permissions_boundary_arn" {
   default     = null
 }
 
-variable "description" {
-  description = "IAM Role description"
-  type        = string
-  default     = null
-}
-
 variable "policies" {
   description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
   type        = map(string)
   default     = {}
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = true
+variable "provider_url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
+  type        = string
+  default     = "token.actions.githubusercontent.com"
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = null
+variable "subject_condition" {
+  description = "Condition to use for the GitHub OIDC role. Defaults to StringLike"
+  type        = string
+  default     = "StringLike"
+}
+
+variable "subjects" {
+  description = "List of GitHub OIDC subjects that are permitted by the trust policy. You do not need to prefix with repo: as this is provided. Example: ['my-org/my-repo:*', 'octo-org/octo-repo:ref:refs/heads/octo-branch']"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to the resources created"
+  type        = map(any)
+  default     = {}
 }

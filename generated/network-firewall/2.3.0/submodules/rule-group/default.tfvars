@@ -1,31 +1,31 @@
-encryption_configuration = null
-
-rules = null
-
-type = "STATELESS"
-
-resource_policy_principals = []
-
-ram_resource_associations = {}
-
-tags = {}
+attach_resource_policy = false
 
 capacity = 100
 
-rule_group = null
+create = true
 
 create_resource_policy = false
 
-resource_policy = ""
-
 description = null
 
-create = true
-
-region = null
+encryption_configuration = null
 
 name = ""
 
+ram_resource_associations = {}
+
+region = null
+
+resource_policy = ""
+
 resource_policy_actions = []
 
-attach_resource_policy = false
+resource_policy_principals = []
+
+rule_group = null
+
+rules = null
+
+tags = {}
+
+type = "STATELESS"

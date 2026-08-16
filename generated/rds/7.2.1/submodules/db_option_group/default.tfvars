@@ -1,21 +1,21 @@
 create = true
 
-name = ""
-
-use_name_prefix = true
-
 engine_name = null
-
-region = null
-
-option_group_description = null
 
 major_engine_version = null
 
+name = ""
+
+option_group_description = null
+
 options = null
+
+region = null
 
 skip_destroy = null
 
+tags = {}
+
 timeouts = null
 
-tags = {}
+use_name_prefix = true

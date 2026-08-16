@@ -1,118 +1,5 @@
-variable "entrypoint" {
-  description = "The entry point that is passed to the container"
-  type        = list(string)
-  default     = []
-}
-
-variable "extraHosts" {
-  description = "A list of hostnames and IP address mappings to append to the /etc/hosts file on the container"
-  type = list(object({
-    hostname  = string
-    ipAddress = string
-  }))
-  default = null
-}
-
-variable "versionConsistency" {
-  description = "Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest"
-  type        = string
-  default     = "disabled"
-}
-
-variable "mountPoints" {
-  description = "The mount points for data volumes in your container"
-  type = list(object({
-    containerPath = optional(string)
-    readOnly      = optional(bool)
-    sourceVolume  = optional(string)
-  }))
-  default = []
-}
-
-variable "logConfiguration" {
-  description = "The log configuration for the container. For more information see [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html)"
-  type = object({
-    logDriver = optional(string)
-    options   = optional(map(string))
-    secretOptions = optional(list(object({
-      name      = string
-      valueFrom = string
-    })))
-  })
-  default = {}
-}
-
-variable "resourceRequirements" {
-  description = "The type and amount of a resource to assign to a container. The only supported resource is a GPU"
-  type = list(object({
-    type  = string
-    value = string
-  }))
-  default = null
-}
-
-variable "secrets" {
-  description = "The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide"
-  type = list(object({
-    name      = string
-    valueFrom = string
-  }))
-  default = null
-}
-
-variable "startTimeout" {
-  description = "Time duration (in seconds) to wait before giving up on resolving dependencies for a container"
-  type        = number
-  default     = 30
-}
-
-variable "volumesFrom" {
-  description = "Data volumes to mount from another container"
-  type = list(object({
-    readOnly        = optional(bool)
-    sourceContainer = optional(string)
-  }))
-  default = []
-}
-
-variable "workingDirectory" {
-  description = "The working directory to run commands inside the container"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_use_name_prefix" {
-  description = "Determines whether the log group name should be used as a prefix"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "dockerSecurityOptions" {
-  description = "A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This field isn't valid for containers in tasks using the Fargate launch type"
-  type        = list(string)
-  default     = null
-}
-
-variable "hostname" {
-  description = "The hostname to use for your container"
-  type        = string
-  default     = null
-}
-
-variable "memory" {
-  description = "The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified"
-  type        = number
-  default     = null
-}
-
-variable "user" {
-  description = "The user to run as inside the container. Can be any of these formats: user, user:group, uid, uid:gid, user:gid, uid:group. The default (null) will use the container's configured USER directive or root if not set"
+variable "cloudwatch_log_group_class" {
+  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
   type        = string
   default     = null
 }
@@ -123,83 +10,10 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "operating_system_family" {
-  description = "The OS family for task"
-  type        = string
-  default     = "LINUX"
-}
-
-variable "environment" {
-  description = "The environment variables to pass to the container"
-  type = list(object({
-    name  = string
-    value = string
-  }))
-  default = []
-}
-
-variable "repositoryCredentials" {
-  description = "Container repository credentials; required when using a private repo.  This map currently supports a single key; \"credentialsParameter\", which should be the ARN of a Secrets Manager's secret holding the credentials"
-  type = object({
-    credentialsParameter = optional(string)
-  })
-  default = null
-}
-
-variable "ulimits" {
-  description = "A list of ulimits to set in the container. If a ulimit value is specified in a task definition, it overrides the default values set by Docker"
-  type = list(object({
-    hardLimit = number
-    name      = string
-    softLimit = number
-  }))
-  default = null
-}
-
-variable "enable_cloudwatch_logging" {
-  description = "Determines whether CloudWatch logging is configured for this container definition. Set to false to use other logging drivers"
-  type        = bool
-  default     = true
-}
-
 variable "cloudwatch_log_group_name" {
   description = "Custom name of CloudWatch log group for a service associated with the container definition"
   type        = string
   default     = null
-}
-
-variable "dnsSearchDomains" {
-  description = "Container DNS search domains. A list of DNS search domains that are presented to the container"
-  type        = list(string)
-  default     = null
-}
-
-variable "environmentFiles" {
-  description = "A list of files containing the environment variables to pass to a container"
-  type = list(object({
-    value = string
-    type  = string
-  }))
-  default = []
-}
-
-variable "portMappings" {
-  description = "The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the awsvpc network mode, only specify the containerPort. The hostPort can be left blank or it must be the same value as the containerPort"
-  type = list(object({
-    appProtocol        = optional(string)
-    containerPort      = optional(number)
-    containerPortRange = optional(string)
-    hostPort           = optional(number)
-    name               = optional(string)
-    protocol           = optional(string)
-  }))
-  default = null
-}
-
-variable "pseudoTerminal" {
-  description = "When this parameter is true, a TTY is allocated"
-  type        = bool
-  default     = false
 }
 
 variable "cloudwatch_log_group_retention_in_days" {
@@ -208,10 +22,28 @@ variable "cloudwatch_log_group_retention_in_days" {
   default     = 14
 }
 
+variable "cloudwatch_log_group_use_name_prefix" {
+  description = "Determines whether the log group name should be used as a prefix"
+  type        = bool
+  default     = false
+}
+
 variable "command" {
   description = "The command that's passed to the container"
   type        = list(string)
   default     = null
+}
+
+variable "cpu" {
+  description = "The number of cpu units to reserve for the container. This is optional for tasks using Fargate launch type and the total amount of cpu of all containers in a task will need to be lower than the task-level cpu value"
+  type        = number
+  default     = null
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether a log group is created by this module. If not, AWS will automatically create one if logging is enabled"
+  type        = bool
+  default     = true
 }
 
 variable "dependsOn" {
@@ -223,10 +55,40 @@ variable "dependsOn" {
   default = null
 }
 
+variable "disableNetworking" {
+  description = "When this parameter is true, networking is disabled within the container"
+  type        = bool
+  default     = null
+}
+
+variable "dnsSearchDomains" {
+  description = "Container DNS search domains. A list of DNS search domains that are presented to the container"
+  type        = list(string)
+  default     = null
+}
+
+variable "dnsServers" {
+  description = "Container DNS servers. This is a list of strings specifying the IP addresses of the DNS servers"
+  type        = list(string)
+  default     = null
+}
+
 variable "dockerLabels" {
   description = "A key/value map of labels to add to the container"
   type        = map(string)
   default     = null
+}
+
+variable "dockerSecurityOptions" {
+  description = "A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This field isn't valid for containers in tasks using the Fargate launch type"
+  type        = list(string)
+  default     = null
+}
+
+variable "enable_cloudwatch_logging" {
+  description = "Determines whether CloudWatch logging is configured for this container definition. Set to false to use other logging drivers"
+  type        = bool
+  default     = true
 }
 
 variable "enable_execute_command" {
@@ -235,10 +97,43 @@ variable "enable_execute_command" {
   default     = false
 }
 
+variable "entrypoint" {
+  description = "The entry point that is passed to the container"
+  type        = list(string)
+  default     = []
+}
+
+variable "environment" {
+  description = "The environment variables to pass to the container"
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
+
+variable "environmentFiles" {
+  description = "A list of files containing the environment variables to pass to a container"
+  type = list(object({
+    value = string
+    type  = string
+  }))
+  default = []
+}
+
 variable "essential" {
   description = "If the essential parameter of a container is marked as true, and that container fails or stops for any reason, all other containers that are part of the task are stopped"
   type        = bool
   default     = null
+}
+
+variable "extraHosts" {
+  description = "A list of hostnames and IP address mappings to append to the /etc/hosts file on the container"
+  type = list(object({
+    hostname  = string
+    ipAddress = string
+  }))
+  default = null
 }
 
 variable "firelensConfiguration" {
@@ -260,6 +155,30 @@ variable "healthCheck" {
     timeout     = optional(number, 5)
   })
   default = null
+}
+
+variable "hostname" {
+  description = "The hostname to use for your container"
+  type        = string
+  default     = null
+}
+
+variable "image" {
+  description = "The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either repository-url/image:tag or repository-url/image@digest"
+  type        = string
+  default     = null
+}
+
+variable "interactive" {
+  description = "When this parameter is true, you can deploy containerized applications that require stdin or a tty to be allocated"
+  type        = bool
+  default     = false
+}
+
+variable "links" {
+  description = "The links parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is bridge"
+  type        = list(string)
+  default     = null
 }
 
 variable "linuxParameters" {
@@ -287,22 +206,39 @@ variable "linuxParameters" {
   default = { "initProcessEnabled" : false }
 }
 
-variable "cpu" {
-  description = "The number of cpu units to reserve for the container. This is optional for tasks using Fargate launch type and the total amount of cpu of all containers in a task will need to be lower than the task-level cpu value"
+variable "logConfiguration" {
+  description = "The log configuration for the container. For more information see [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html)"
+  type = object({
+    logDriver = optional(string)
+    options   = optional(map(string))
+    secretOptions = optional(list(object({
+      name      = string
+      valueFrom = string
+    })))
+  })
+  default = {}
+}
+
+variable "memory" {
+  description = "The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified"
   type        = number
   default     = null
 }
 
-variable "dnsServers" {
-  description = "Container DNS servers. This is a list of strings specifying the IP addresses of the DNS servers"
-  type        = list(string)
+variable "memoryReservation" {
+  description = "The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the memory parameter (if applicable), or all of the available memory on the container instance"
+  type        = number
   default     = null
 }
 
-variable "links" {
-  description = "The links parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is bridge"
-  type        = list(string)
-  default     = null
+variable "mountPoints" {
+  description = "The mount points for data volumes in your container"
+  type = list(object({
+    containerPath = optional(string)
+    readOnly      = optional(bool)
+    sourceVolume  = optional(string)
+  }))
+  default = []
 }
 
 variable "name" {
@@ -311,10 +247,64 @@ variable "name" {
   default     = null
 }
 
+variable "operating_system_family" {
+  description = "The OS family for task"
+  type        = string
+  default     = "LINUX"
+}
+
+variable "portMappings" {
+  description = "The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the awsvpc network mode, only specify the containerPort. The hostPort can be left blank or it must be the same value as the containerPort"
+  type = list(object({
+    appProtocol        = optional(string)
+    containerPort      = optional(number)
+    containerPortRange = optional(string)
+    hostPort           = optional(number)
+    name               = optional(string)
+    protocol           = optional(string)
+  }))
+  default = null
+}
+
+variable "privileged" {
+  description = "When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user)"
+  type        = bool
+  default     = false
+}
+
+variable "pseudoTerminal" {
+  description = "When this parameter is true, a TTY is allocated"
+  type        = bool
+  default     = false
+}
+
 variable "readonlyRootFilesystem" {
   description = "When this parameter is true, the container is given read-only access to its root file system"
   type        = bool
   default     = true
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "repositoryCredentials" {
+  description = "Container repository credentials; required when using a private repo.  This map currently supports a single key; \"credentialsParameter\", which should be the ARN of a Secrets Manager's secret holding the credentials"
+  type = object({
+    credentialsParameter = optional(string)
+  })
+  default = null
+}
+
+variable "resourceRequirements" {
+  description = "The type and amount of a resource to assign to a container. The only supported resource is a GPU"
+  type = list(object({
+    type  = string
+    value = string
+  }))
+  default = null
 }
 
 variable "restartPolicy" {
@@ -325,6 +315,27 @@ variable "restartPolicy" {
     restartAttemptPeriod = optional(number)
   })
   default = { "enabled" : true }
+}
+
+variable "secrets" {
+  description = "The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide"
+  type = list(object({
+    name      = string
+    valueFrom = string
+  }))
+  default = null
+}
+
+variable "service" {
+  description = "The name of the service that the container definition is associated with. Used in CloudWatch log group default name (if one is not provided)"
+  type        = string
+  default     = null
+}
+
+variable "startTimeout" {
+  description = "Time duration (in seconds) to wait before giving up on resolving dependencies for a container"
+  type        = number
+  default     = 30
 }
 
 variable "stopTimeout" {
@@ -342,56 +353,45 @@ variable "systemControls" {
   default = []
 }
 
-variable "image" {
-  description = "The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either repository-url/image:tag or repository-url/image@digest"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ulimits" {
+  description = "A list of ulimits to set in the container. If a ulimit value is specified in a task definition, it overrides the default values set by Docker"
+  type = list(object({
+    hardLimit = number
+    name      = string
+    softLimit = number
+  }))
+  default = null
+}
+
+variable "user" {
+  description = "The user to run as inside the container. Can be any of these formats: user, user:group, uid, uid:gid, user:gid, uid:group. The default (null) will use the container's configured USER directive or root if not set"
   type        = string
   default     = null
 }
 
-variable "interactive" {
-  description = "When this parameter is true, you can deploy containerized applications that require stdin or a tty to be allocated"
-  type        = bool
-  default     = false
-}
-
-variable "memoryReservation" {
-  description = "The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the memory parameter (if applicable), or all of the available memory on the container instance"
-  type        = number
-  default     = null
-}
-
-variable "privileged" {
-  description = "When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user)"
-  type        = bool
-  default     = false
-}
-
-variable "service" {
-  description = "The name of the service that the container definition is associated with. Used in CloudWatch log group default name (if one is not provided)"
+variable "versionConsistency" {
+  description = "Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest"
   type        = string
-  default     = null
+  default     = "disabled"
 }
 
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a log group is created by this module. If not, AWS will automatically create one if logging is enabled"
-  type        = bool
-  default     = true
+variable "volumesFrom" {
+  description = "Data volumes to mount from another container"
+  type = list(object({
+    readOnly        = optional(bool)
+    sourceContainer = optional(string)
+  }))
+  default = []
 }
 
-variable "cloudwatch_log_group_class" {
-  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
+variable "workingDirectory" {
+  description = "The working directory to run commands inside the container"
   type        = string
-  default     = null
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "disableNetworking" {
-  description = "When this parameter is true, networking is disabled within the container"
-  type        = bool
   default     = null
 }

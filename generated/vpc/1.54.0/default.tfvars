@@ -1,179 +1,179 @@
-create_elasticache_subnet_group = true
+amazon_side_asn = "64512"
 
-ssm_endpoint_security_group_ids = []
-
-ec2_endpoint_security_group_ids = []
-
-ec2messages_endpoint_security_group_ids = []
-
-nat_eip_tags = {}
-
-enable_dynamodb_endpoint = false
-
-ssmmessages_endpoint_subnet_ids = []
-
-public_route_table_tags = {}
-
-redshift_route_table_tags = {}
-
-dhcp_options_tags = {}
-
-default_vpc_tags = {}
-
-create_vpc = true
-
-reuse_nat_ips = false
-
-map_public_ip_on_launch = true
-
-database_subnet_suffix = "db"
-
-ec2_endpoint_private_dns_enabled = false
-
-ec2messages_endpoint_subnet_ids = []
-
-propagate_public_route_tables_vgw = false
-
-private_subnet_suffix = "private"
-
-create_redshift_subnet_route_table = false
-
-enable_nat_gateway = false
-
-single_nat_gateway = false
-
-database_route_table_tags = {}
-
-nat_gateway_tags = {}
-
-default_vpc_name = ""
-
-secondary_cidr_blocks = []
-
-one_nat_gateway_per_az = false
-
-enable_ssm_endpoint = false
-
-ssm_endpoint_subnet_ids = []
-
-intra_route_table_tags = {}
-
-default_vpc_enable_dns_hostnames = false
-
-ssm_endpoint_private_dns_enabled = false
-
-redshift_subnet_tags = {}
-
-ec2messages_endpoint_private_dns_enabled = false
-
-enable_vpn_gateway = false
-
-create_database_internet_gateway_route = false
-
-enable_dns_hostnames = false
-
-ssmmessages_endpoint_security_group_ids = []
-
-elasticache_route_table_tags = {}
-
-redshift_subnet_group_tags = {}
-
-intra_subnet_tags = {}
-
-public_subnet_suffix = "public"
+assign_generated_ipv6_cidr_block = false
 
 azs = []
 
-igw_tags = {}
+cidr = "0.0.0.0/0"
 
-database_subnet_group_tags = {}
+create_database_internet_gateway_route = false
 
 create_database_nat_gateway_route = false
 
-ec2_endpoint_subnet_ids = []
+create_database_subnet_group = true
 
-dhcp_options_netbios_name_servers = []
+create_database_subnet_route_table = false
 
-dhcp_options_netbios_node_type = ""
+create_elasticache_subnet_group = true
 
-manage_default_vpc = false
+create_elasticache_subnet_route_table = false
 
-default_vpc_enable_dns_support = true
+create_redshift_subnet_group = true
+
+create_redshift_subnet_route_table = false
+
+create_vpc = true
+
+database_route_table_tags = {}
+
+database_subnet_group_tags = {}
+
+database_subnet_suffix = "db"
+
+database_subnet_tags = {}
+
+database_subnets = []
 
 default_vpc_enable_classiclink = false
 
-public_subnets = []
+default_vpc_enable_dns_hostnames = false
 
-private_subnets = []
+default_vpc_enable_dns_support = true
 
-redshift_subnets = []
+default_vpc_name = ""
 
-enable_dns_support = true
-
-private_route_table_tags = {}
+default_vpc_tags = {}
 
 dhcp_options_domain_name = ""
 
 dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
-create_elasticache_subnet_route_table = false
+dhcp_options_netbios_name_servers = []
 
-create_database_subnet_group = true
-
-enable_ec2messages_endpoint = false
-
-tags = {}
-
-vpn_gateway_tags = {}
+dhcp_options_netbios_node_type = ""
 
 dhcp_options_ntp_servers = []
 
-instance_tenancy = "default"
+dhcp_options_tags = {}
+
+ec2_endpoint_private_dns_enabled = false
+
+ec2_endpoint_security_group_ids = []
+
+ec2_endpoint_subnet_ids = []
+
+ec2messages_endpoint_private_dns_enabled = false
+
+ec2messages_endpoint_security_group_ids = []
+
+ec2messages_endpoint_subnet_ids = []
+
+elasticache_route_table_tags = {}
 
 elasticache_subnet_suffix = "elasticache"
 
-database_subnets = []
-
-enable_ec2_endpoint = false
-
-vpn_gateway_id = ""
-
-create_database_subnet_route_table = false
-
-ssmmessages_endpoint_private_dns_enabled = false
-
-enable_dhcp_options = false
-
-assign_generated_ipv6_cidr_block = false
-
-create_redshift_subnet_group = true
-
-propagate_private_route_tables_vgw = false
-
-vpc_tags = {}
-
-public_subnet_tags = {}
-
-private_subnet_tags = {}
-
-name = ""
-
-cidr = "0.0.0.0/0"
-
-external_nat_ip_ids = []
-
-enable_s3_endpoint = false
-
-enable_ssmmessages_endpoint = false
-
-amazon_side_asn = "64512"
-
-database_subnet_tags = {}
-
 elasticache_subnet_tags = {}
-
-redshift_subnet_suffix = "redshift"
 
 elasticache_subnets = []
 
+enable_dhcp_options = false
+
+enable_dns_hostnames = false
+
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_ec2_endpoint = false
+
+enable_ec2messages_endpoint = false
+
+enable_nat_gateway = false
+
+enable_s3_endpoint = false
+
+enable_ssm_endpoint = false
+
+enable_ssmmessages_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+igw_tags = {}
+
+instance_tenancy = "default"
+
+intra_route_table_tags = {}
+
+intra_subnet_tags = {}
+
 intra_subnets = []
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+name = ""
+
+nat_eip_tags = {}
+
+nat_gateway_tags = {}
+
+one_nat_gateway_per_az = false
+
+private_route_table_tags = {}
+
+private_subnet_suffix = "private"
+
+private_subnet_tags = {}
+
+private_subnets = []
+
+propagate_private_route_tables_vgw = false
+
+propagate_public_route_tables_vgw = false
+
+public_route_table_tags = {}
+
+public_subnet_suffix = "public"
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_route_table_tags = {}
+
+redshift_subnet_group_tags = {}
+
+redshift_subnet_suffix = "redshift"
+
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
+
+secondary_cidr_blocks = []
+
+single_nat_gateway = false
+
+ssm_endpoint_private_dns_enabled = false
+
+ssm_endpoint_security_group_ids = []
+
+ssm_endpoint_subnet_ids = []
+
+ssmmessages_endpoint_private_dns_enabled = false
+
+ssmmessages_endpoint_security_group_ids = []
+
+ssmmessages_endpoint_subnet_ids = []
+
+tags = {}
+
+vpc_tags = {}
+
+vpn_gateway_id = ""
+
+vpn_gateway_tags = {}

@@ -1,149 +1,149 @@
-create_iam_role = true
-
-iam_role_permissions_boundary = null
-
-use_custom_launch_template = true
-
-vpc_security_group_ids = []
-
-kernel_id = null
-
-create = true
-
-tags = {}
-
-cluster_endpoint = ""
-
-pre_bootstrap_user_data = ""
-
-bootstrap_extra_args = ""
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
-
-iam_role_description = null
-
-create_launch_template = true
-
-launch_template_use_name_prefix = true
-
-elastic_inference_accelerator = {}
-
-enable_monitoring = true
-
-force_update_version = null
-
-launch_template_id = ""
-
-network_interfaces = []
-
-taints = {}
-
-iam_role_name = null
-
-elastic_gpu_specifications = {}
-
-launch_template_tags = {}
-
-desired_size = 1
-
-name = ""
-
-cluster_ip_family = null
+ami_id = ""
 
 ami_release_version = null
 
-cluster_auth_base64 = ""
-
-cluster_primary_security_group_id = null
+ami_type = null
 
 block_device_mappings = {}
 
-subnet_ids = null
-
-use_name_prefix = true
-
-launch_template_name = null
-
-instance_types = null
-
-remote_access = {}
-
-iam_role_arn = null
-
-cluster_service_ipv4_cidr = null
-
-placement = {}
-
-ami_type = null
-
-launch_template_description = null
-
-max_size = 3
-
-disk_size = null
-
-labels = null
-
-iam_role_attach_cni_policy = true
-
-platform = "linux"
-
-disable_api_termination = null
-
-license_specifications = {}
-
-user_data_template_path = ""
-
-launch_template_default_version = null
-
-update_launch_template_default_version = true
-
-ram_disk_id = null
-
-capacity_type = "ON_DEMAND"
-
-timeouts = {}
-
-cluster_name = null
+bootstrap_extra_args = ""
 
 capacity_reservation_specification = {}
 
+capacity_type = "ON_DEMAND"
+
+cluster_auth_base64 = ""
+
+cluster_endpoint = ""
+
+cluster_ip_family = null
+
+cluster_name = null
+
+cluster_primary_security_group_id = null
+
+cluster_service_ipv4_cidr = null
+
+cluster_version = null
+
 cpu_options = {}
 
-maintenance_options = {}
+create = true
 
-tag_specifications = ["instance", "volume", "network-interface"]
+create_iam_role = true
 
-min_size = 0
-
-update_config = { "max_unavailable_percentage" : 33 }
-
-iam_role_additional_policies = {}
-
-enable_bootstrap_user_data = false
-
-ami_id = ""
-
-enclave_options = {}
-
-instance_market_options = {}
-
-iam_role_use_name_prefix = true
-
-launch_template_version = null
-
-iam_role_path = null
-
-iam_role_tags = {}
-
-post_bootstrap_user_data = ""
-
-ebs_optimized = null
-
-key_name = null
+create_launch_template = true
 
 credit_specification = {}
 
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = {}
+
+force_update_version = null
+
+iam_role_additional_policies = {}
+
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+instance_market_options = {}
+
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = {}
+
+maintenance_options = {}
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
 private_dns_name_options = {}
 
-cluster_version = null
+ram_disk_id = null
+
+remote_access = {}
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface"]
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []

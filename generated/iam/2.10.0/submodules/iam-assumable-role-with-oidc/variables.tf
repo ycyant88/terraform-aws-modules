@@ -1,23 +1,5 @@
-variable "oidc_subjects_with_wildcards" {
-  description = "The OIDC subject using wildcards to be added to the role policy"
-  type        = list(string)
-  default     = []
-}
-
 variable "aws_account_id" {
   description = "The AWS account ID where the OIDC provider lives, leave empty to use the account fo the AWS provider"
-  type        = string
-  default     = ""
-}
-
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = ""
-}
-
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
   type        = string
   default     = ""
 }
@@ -28,16 +10,34 @@ variable "create_role" {
   default     = false
 }
 
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
+}
+
+variable "oidc_fully_qualified_subjects" {
+  description = "The fully qualified OIDC subjects to be added to the role policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "oidc_subjects_with_wildcards" {
+  description = "The OIDC subject using wildcards to be added to the role policy"
+  type        = list(string)
+  default     = []
+}
+
 variable "provider_url" {
   description = "URL of the OIDC Provider"
   type        = string
   default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = ""
 }
 
 variable "role_path" {
@@ -46,10 +46,10 @@ variable "role_path" {
   default     = "/"
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
 }
 
 variable "role_policy_arns" {
@@ -58,8 +58,8 @@ variable "role_policy_arns" {
   default     = []
 }
 
-variable "oidc_fully_qualified_subjects" {
-  description = "The fully qualified OIDC subjects to be added to the role policy"
-  type        = list(string)
-  default     = []
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }

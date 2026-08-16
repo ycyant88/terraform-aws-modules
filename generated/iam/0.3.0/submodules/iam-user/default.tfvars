@@ -1,25 +1,25 @@
-upload_iam_user_ssh_key = false
-
-permissions_boundary = ""
-
 create_iam_access_key = true
+
+create_iam_user_login_profile = true
+
+create_user = true
+
+force_destroy = false
 
 name = ""
 
+password_length = 20
+
+password_reset_required = true
+
 path = "/"
 
-pgp_key = ""
+permissions_boundary = ""
 
-password_length = 20
+pgp_key = ""
 
 ssh_key_encoding = "SSH"
 
 ssh_public_key = ""
 
-create_user = true
-
-create_iam_user_login_profile = true
-
-force_destroy = false
-
-password_reset_required = true
+upload_iam_user_ssh_key = false

@@ -1,103 +1,103 @@
+attach_worker_autoscaling_policy = true
+
 attach_worker_cni_policy = true
+
+cluster_create_timeout = "15m"
+
+cluster_delete_timeout = "15m"
+
+cluster_enabled_log_types = []
+
+cluster_endpoint_private_access = false
+
+cluster_endpoint_public_access = true
+
+cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
+
+cluster_iam_role_name = ""
+
+cluster_log_kms_key_id = ""
+
+cluster_log_retention_in_days = 90
+
+cluster_name = ""
 
 cluster_security_group_id = ""
 
-subnets = ""
+cluster_version = "1.14"
 
-worker_sg_ingress_from_port = 1025
+config_output_path = "./"
+
+create_eks = true
+
+eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
 
 enable_irsa = false
 
-worker_ami_name_filter_windows = ""
-
-attach_worker_autoscaling_policy = true
+iam_path = "/"
 
 kubeconfig_aws_authenticator_additional_args = []
 
-eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
+kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
+
+kubeconfig_aws_authenticator_command_args = []
+
+kubeconfig_aws_authenticator_env_variables = {}
+
+kubeconfig_name = ""
+
+manage_aws_auth = true
+
+manage_cluster_iam_resources = true
+
+manage_worker_autoscaling_policy = true
+
+manage_worker_iam_resources = true
+
+map_accounts = []
+
+map_roles = []
+
+map_users = []
+
+node_groups = {}
+
+node_groups_defaults = {}
+
+permissions_boundary = null
+
+subnets = ""
+
+tags = {}
+
+vpc_id = ""
+
+wait_for_cluster_cmd = "until curl -k -s $ENDPOINT/healthz >/dev/null; do sleep 4; done"
+
+worker_additional_security_group_ids = []
+
+worker_ami_name_filter = ""
+
+worker_ami_name_filter_windows = ""
 
 worker_ami_owner_id = "602401143452"
 
 worker_ami_owner_id_windows = "801119661308"
 
-kubeconfig_name = ""
-
-permissions_boundary = null
+worker_create_initial_lifecycle_hooks = false
 
 worker_groups = []
 
-kubeconfig_aws_authenticator_env_variables = {}
-
-manage_aws_auth = true
-
-map_roles = []
-
-kubeconfig_aws_authenticator_command_args = []
-
-worker_create_initial_lifecycle_hooks = false
-
-workers_role_name = ""
-
-create_eks = true
-
-node_groups = {}
-
-vpc_id = ""
-
-cluster_create_timeout = "15m"
-
-map_users = []
-
 worker_groups_launch_template = []
-
-workers_additional_policies = []
-
-cluster_delete_timeout = "15m"
-
-iam_path = "/"
-
-cluster_log_kms_key_id = ""
-
-cluster_name = ""
-
-cluster_iam_role_name = ""
-
-cluster_log_retention_in_days = 90
-
-kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
-
-cluster_endpoint_public_access = true
-
-manage_cluster_iam_resources = true
-
-manage_worker_iam_resources = true
-
-node_groups_defaults = {}
-
-cluster_version = "1.14"
-
-tags = {}
 
 worker_security_group_id = ""
 
-worker_additional_security_group_ids = []
+worker_sg_ingress_from_port = 1025
 
-wait_for_cluster_cmd = "until curl -k -s $ENDPOINT/healthz >/dev/null; do sleep 4; done"
-
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
-
-manage_worker_autoscaling_policy = true
-
-config_output_path = "./"
+workers_additional_policies = []
 
 workers_group_defaults = {}
 
-map_accounts = []
-
-cluster_enabled_log_types = []
+workers_role_name = ""
 
 write_kubeconfig = true
-
-worker_ami_name_filter = ""
-
-cluster_endpoint_private_access = false

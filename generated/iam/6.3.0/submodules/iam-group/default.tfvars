@@ -1,29 +1,29 @@
-tags = {}
-
-policies = {}
-
 create = true
-
-name = ""
-
-enable_self_management_permissions = true
-
-permissions = null
-
-policy_description = null
-
-users = []
 
 create_policy = true
 
-policy_name = null
+enable_mfa_enforcement = true
 
-users_account_id = null
+enable_self_management_permissions = true
 
-policy_path = null
+name = ""
 
 path = null
 
-enable_mfa_enforcement = true
+permissions = null
+
+policies = {}
+
+policy_description = null
+
+policy_name = null
+
+policy_path = null
 
 policy_use_name_prefix = true
+
+tags = {}
+
+users = []
+
+users_account_id = null

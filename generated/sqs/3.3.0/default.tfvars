@@ -1,35 +1,35 @@
-visibility_timeout_seconds = 30
+content_based_deduplication = false
 
-message_retention_seconds = 345600
-
-receive_wait_time_seconds = 0
-
-redrive_policy = ""
-
-kms_master_key_id = null
-
-kms_data_key_reuse_period_seconds = 300
+create = true
 
 deduplication_scope = null
 
-tags = {}
-
-name = null
-
-max_message_size = 262144
-
 delay_seconds = 0
-
-policy = ""
 
 fifo_queue = false
 
 fifo_throughput_limit = null
 
+kms_data_key_reuse_period_seconds = 300
+
+kms_master_key_id = null
+
+max_message_size = 262144
+
+message_retention_seconds = 345600
+
+name = null
+
 name_prefix = null
 
-content_based_deduplication = false
+policy = ""
 
-create = true
+receive_wait_time_seconds = 0
 
 redrive_allow_policy = ""
+
+redrive_policy = ""
+
+tags = {}
+
+visibility_timeout_seconds = 30

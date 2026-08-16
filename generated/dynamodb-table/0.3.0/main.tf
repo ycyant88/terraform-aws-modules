@@ -1,23 +1,23 @@
 module "dynamodb-table" {
   source                             = "terraform-aws-modules/dynamodb-table/aws"
   version                            = "0.3.0"
-  billing_mode                       = var.billing_mode
   attributes                         = var.attributes
-  ttl_attribute_name                 = var.ttl_attribute_name
-  range_key                          = var.range_key
-  point_in_time_recovery_enabled     = var.point_in_time_recovery_enabled
+  billing_mode                       = var.billing_mode
+  create_table                       = var.create_table
+  global_secondary_indexes           = var.global_secondary_indexes
+  hash_key                           = var.hash_key
   local_secondary_indexes            = var.local_secondary_indexes
-  stream_enabled                     = var.stream_enabled
+  name                               = var.name
+  point_in_time_recovery_enabled     = var.point_in_time_recovery_enabled
+  range_key                          = var.range_key
+  read_capacity                      = var.read_capacity
   server_side_encryption_enabled     = var.server_side_encryption_enabled
   server_side_encryption_kms_key_arn = var.server_side_encryption_kms_key_arn
-  tags                               = var.tags
-  name                               = var.name
-  hash_key                           = var.hash_key
-  write_capacity                     = var.write_capacity
-  read_capacity                      = var.read_capacity
-  ttl_enabled                        = var.ttl_enabled
-  global_secondary_indexes           = var.global_secondary_indexes
+  stream_enabled                     = var.stream_enabled
   stream_view_type                   = var.stream_view_type
+  tags                               = var.tags
   timeouts                           = var.timeouts
-  create_table                       = var.create_table
+  ttl_attribute_name                 = var.ttl_attribute_name
+  ttl_enabled                        = var.ttl_enabled
+  write_capacity                     = var.write_capacity
 }

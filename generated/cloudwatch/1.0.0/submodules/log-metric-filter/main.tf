@@ -1,12 +1,12 @@
 module "cloudwatch_log-metric-filter" {
   source                              = "terraform-aws-modules/cloudwatch/aws//modules/log-metric-filter"
   version                             = "1.0.0"
-  pattern                             = var.pattern
-  log_group_name                      = var.log_group_name
-  metric_transformation_name          = var.metric_transformation_name
   create_cloudwatch_log_metric_filter = var.create_cloudwatch_log_metric_filter
-  name                                = var.name
+  log_group_name                      = var.log_group_name
+  metric_transformation_default_value = var.metric_transformation_default_value
+  metric_transformation_name          = var.metric_transformation_name
   metric_transformation_namespace     = var.metric_transformation_namespace
   metric_transformation_value         = var.metric_transformation_value
-  metric_transformation_default_value = var.metric_transformation_default_value
+  name                                = var.name
+  pattern                             = var.pattern
 }

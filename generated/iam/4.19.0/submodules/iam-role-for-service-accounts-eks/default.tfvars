@@ -1,61 +1,61 @@
-attach_node_termination_handler_policy = false
-
-attach_karpenter_controller_policy = false
-
-create_role = true
-
-vpc_cni_enable_ipv4 = false
-
-karpenter_controller_node_iam_role_arns = ["*"]
+assume_role_condition_test = "StringEquals"
 
 attach_cluster_autoscaler_policy = false
 
-cluster_autoscaler_cluster_ids = []
+attach_ebs_csi_policy = false
 
-external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/*"]
+attach_efs_csi_policy = false
 
-ebs_csi_kms_cmk_ids = []
+attach_external_dns_policy = false
 
-attach_vpc_cni_policy = false
+attach_karpenter_controller_policy = false
+
+attach_load_balancer_controller_policy = false
 
 attach_load_balancer_controller_targetgroup_binding_only_policy = false
 
-max_session_duration = null
+attach_node_termination_handler_policy = false
 
-karpenter_tag_key = "karpenter.sh/discovery"
+attach_vpc_cni_policy = false
 
-karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
+cluster_autoscaler_cluster_ids = []
 
-attach_load_balancer_controller_policy = false
+create_role = true
+
+ebs_csi_kms_cmk_ids = []
+
+external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/*"]
 
 force_detach_policies = true
 
 karpenter_controller_cluster_id = "*"
 
-role_path = null
+karpenter_controller_node_iam_role_arns = ["*"]
 
-role_policy_arns = []
+karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
 
-oidc_providers = {}
+karpenter_tag_key = "karpenter.sh/discovery"
 
-tags = {}
-
-attach_external_dns_policy = false
-
-attach_ebs_csi_policy = false
-
-role_name = null
-
-role_permissions_boundary_arn = null
-
-attach_efs_csi_policy = false
-
-vpc_cni_enable_ipv6 = false
-
-role_name_prefix = null
-
-assume_role_condition_test = "StringEquals"
+max_session_duration = null
 
 node_termination_handler_sqs_queue_arns = ["*"]
 
+oidc_providers = {}
+
 role_description = null
+
+role_name = null
+
+role_name_prefix = null
+
+role_path = null
+
+role_permissions_boundary_arn = null
+
+role_policy_arns = []
+
+tags = {}
+
+vpc_cni_enable_ipv4 = false
+
+vpc_cni_enable_ipv6 = false

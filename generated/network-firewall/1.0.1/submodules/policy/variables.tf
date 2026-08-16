@@ -1,7 +1,31 @@
-variable "stateless_fragment_default_actions" {
-  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
-  type        = list(string)
-  default     = ["aws:pass"]
+variable "attach_resource_policy" {
+  description = "Controls if a resource policy should be attached to the firewall policy"
+  type        = bool
+  default     = false
+}
+
+variable "create" {
+  description = "Controls if resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_resource_policy" {
+  description = "Controls if a resource policy should be created"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "A friendly description of the firewall policy"
+  type        = string
+  default     = null
+}
+
+variable "encryption_configuration" {
+  description = "KMS encryption configuration settings"
+  type        = any
+  default     = {}
 }
 
 variable "name" {
@@ -10,16 +34,28 @@ variable "name" {
   default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
+variable "ram_resource_associations" {
+  description = "A map of RAM resource associations for the created firewall policy"
   type        = map(string)
   default     = {}
 }
 
-variable "encryption_configuration" {
-  description = "KMS encryption configuration settings"
-  type        = any
-  default     = {}
+variable "resource_policy" {
+  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
+  type        = string
+  default     = ""
+}
+
+variable "resource_policy_actions" {
+  description = "A list of IAM actions allowed in the resource policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "resource_policy_principals" {
+  description = "A list of IAM principals allowed in the resource policy"
+  type        = list(string)
+  default     = []
 }
 
 variable "stateful_default_actions" {
@@ -40,34 +76,22 @@ variable "stateful_rule_group_reference" {
   default     = {}
 }
 
+variable "stateless_custom_action" {
+  description = "Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's stateless_default_actions"
+  type        = any
+  default     = {}
+}
+
 variable "stateless_default_actions" {
   description = "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
   type        = list(string)
   default     = ["aws:pass"]
 }
 
-variable "create_resource_policy" {
-  description = "Controls if a resource policy should be created"
-  type        = bool
-  default     = false
-}
-
-variable "resource_policy_actions" {
-  description = "A list of IAM actions allowed in the resource policy"
+variable "stateless_fragment_default_actions" {
+  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
   type        = list(string)
-  default     = []
-}
-
-variable "attach_resource_policy" {
-  description = "Controls if a resource policy should be attached to the firewall policy"
-  type        = bool
-  default     = false
-}
-
-variable "resource_policy" {
-  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
-  type        = string
-  default     = ""
+  default     = ["aws:pass"]
 }
 
 variable "stateless_rule_group_reference" {
@@ -76,32 +100,8 @@ variable "stateless_rule_group_reference" {
   default     = {}
 }
 
-variable "ram_resource_associations" {
-  description = "A map of RAM resource associations for the created firewall policy"
+variable "tags" {
+  description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "description" {
-  description = "A friendly description of the firewall policy"
-  type        = string
-  default     = null
-}
-
-variable "create" {
-  description = "Controls if resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "stateless_custom_action" {
-  description = "Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's stateless_default_actions"
-  type        = any
-  default     = {}
-}
-
-variable "resource_policy_principals" {
-  description = "A list of IAM principals allowed in the resource policy"
-  type        = list(string)
-  default     = []
 }

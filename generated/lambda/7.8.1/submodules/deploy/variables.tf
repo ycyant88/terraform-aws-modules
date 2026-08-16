@@ -1,11 +1,11 @@
-variable "description" {
-  description = "Description to use for the deployment"
+variable "after_allow_traffic_hook_arn" {
+  description = "ARN of Lambda function to execute after allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role"
   type        = string
   default     = ""
 }
 
-variable "use_existing_deployment_group" {
-  description = "Whether to use existing AWS CodeDeploy Deployment Group"
+variable "alarm_enabled" {
+  description = "Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later."
   type        = bool
   default     = false
 }
@@ -16,58 +16,40 @@ variable "alarm_ignore_poll_alarm_failure" {
   default     = false
 }
 
-variable "create_codedeploy_role" {
-  description = "Whether to create new AWS CodeDeploy IAM role"
+variable "alarms" {
+  description = "A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group."
+  type        = list(string)
+  default     = []
+}
+
+variable "alias_name" {
+  description = "Name for the alias"
+  type        = string
+  default     = ""
+}
+
+variable "app_name" {
+  description = "Name of AWS CodeDeploy application"
+  type        = string
+  default     = ""
+}
+
+variable "attach_hooks_policy" {
+  description = "Whether to attach Invoke policy to CodeDeploy role when before allow traffic or after allow traffic hooks are defined."
   type        = bool
   default     = true
 }
 
-variable "codedeploy_role_name" {
-  description = "IAM role name to create or use by CodeDeploy"
-  type        = string
-  default     = ""
-}
-
-variable "deployment_config_name" {
-  description = "Name of deployment config to use"
-  type        = string
-  default     = "CodeDeployDefault.LambdaAllAtOnce"
-}
-
-variable "triggers" {
-  description = "Map of triggers which will be notified when event happens. Valid options for event types are DeploymentStart, DeploymentSuccess, DeploymentFailure, DeploymentStop, DeploymentRollback, DeploymentReady (Applies only to replacement instances in a blue/green deployment), InstanceStart, InstanceSuccess, InstanceFailure, InstanceReady. Note that not all are applicable for Lambda deployments."
-  type        = map(any)
-  default     = {}
-}
-
-variable "save_deploy_script" {
-  description = "Save deploy script locally"
+variable "attach_triggers_policy" {
+  description = "Whether to attach SNS policy to CodeDeploy role when triggers are defined"
   type        = bool
   default     = false
 }
 
-variable "interpreter" {
-  description = "List of interpreter arguments used to execute deploy script, first arg is path"
-  type        = list(string)
-  default     = ["/bin/bash", "-c"]
-}
-
-variable "wait_deployment_completion" {
-  description = "Wait until deployment completes. It can take a lot of time and your terraform process may lock execution for long time."
+variable "auto_rollback_enabled" {
+  description = "Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group."
   type        = bool
-  default     = false
-}
-
-variable "get_deployment_sleep_timer" {
-  description = "Adds additional sleep time to get-deployment command to avoid the service throttling"
-  type        = number
-  default     = 5
-}
-
-variable "current_version" {
-  description = "Current version of Lambda function version to deploy (can't be $LATEST)"
-  type        = string
-  default     = ""
+  default     = true
 }
 
 variable "auto_rollback_events" {
@@ -82,16 +64,10 @@ variable "aws_cli_command" {
   default     = "aws"
 }
 
-variable "attach_hooks_policy" {
-  description = "Whether to attach Invoke policy to CodeDeploy role when before allow traffic or after allow traffic hooks are defined."
-  type        = bool
-  default     = true
-}
-
-variable "force_deploy" {
-  description = "Force deployment every time (even when nothing changes)"
-  type        = bool
-  default     = false
+variable "before_allow_traffic_hook_arn" {
+  description = "ARN of Lambda function to execute before allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role"
+  type        = string
+  default     = ""
 }
 
 variable "codedeploy_principals" {
@@ -100,86 +76,8 @@ variable "codedeploy_principals" {
   default     = ["codedeploy.amazonaws.com"]
 }
 
-variable "before_allow_traffic_hook_arn" {
-  description = "ARN of Lambda function to execute before allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role"
-  type        = string
-  default     = ""
-}
-
-variable "after_allow_traffic_hook_arn" {
-  description = "ARN of Lambda function to execute after allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role"
-  type        = string
-  default     = ""
-}
-
-variable "create_app" {
-  description = "Whether to create new AWS CodeDeploy app"
-  type        = bool
-  default     = false
-}
-
-variable "use_existing_app" {
-  description = "Whether to use existing AWS CodeDeploy app"
-  type        = bool
-  default     = false
-}
-
-variable "create_deployment_group" {
-  description = "Whether to create new AWS CodeDeploy Deployment Group"
-  type        = bool
-  default     = false
-}
-
-variable "create_deployment" {
-  description = "Create the AWS resources and script for CodeDeploy"
-  type        = bool
-  default     = false
-}
-
-variable "attach_triggers_policy" {
-  description = "Whether to attach SNS policy to CodeDeploy role when triggers are defined"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to assign to resources."
-  type        = map(string)
-  default     = {}
-}
-
-variable "function_name" {
-  description = "The name of the Lambda function to deploy"
-  type        = string
-  default     = ""
-}
-
-variable "alarm_enabled" {
-  description = "Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later."
-  type        = bool
-  default     = false
-}
-
-variable "alarms" {
-  description = "A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group."
-  type        = list(string)
-  default     = []
-}
-
-variable "run_deployment" {
-  description = "Run AWS CLI command to start the deployment"
-  type        = bool
-  default     = false
-}
-
-variable "alias_name" {
-  description = "Name for the alias"
-  type        = string
-  default     = ""
-}
-
-variable "deployment_group_name" {
-  description = "Name of deployment group to use"
+variable "codedeploy_role_name" {
+  description = "IAM role name to create or use by CodeDeploy"
   type        = string
   default     = ""
 }
@@ -190,20 +88,122 @@ variable "create" {
   default     = true
 }
 
+variable "create_app" {
+  description = "Whether to create new AWS CodeDeploy app"
+  type        = bool
+  default     = false
+}
+
+variable "create_codedeploy_role" {
+  description = "Whether to create new AWS CodeDeploy IAM role"
+  type        = bool
+  default     = true
+}
+
+variable "create_deployment" {
+  description = "Create the AWS resources and script for CodeDeploy"
+  type        = bool
+  default     = false
+}
+
+variable "create_deployment_group" {
+  description = "Whether to create new AWS CodeDeploy Deployment Group"
+  type        = bool
+  default     = false
+}
+
+variable "current_version" {
+  description = "Current version of Lambda function version to deploy (can't be $LATEST)"
+  type        = string
+  default     = ""
+}
+
+variable "deployment_config_name" {
+  description = "Name of deployment config to use"
+  type        = string
+  default     = "CodeDeployDefault.LambdaAllAtOnce"
+}
+
+variable "deployment_group_name" {
+  description = "Name of deployment group to use"
+  type        = string
+  default     = ""
+}
+
+variable "description" {
+  description = "Description to use for the deployment"
+  type        = string
+  default     = ""
+}
+
+variable "force_deploy" {
+  description = "Force deployment every time (even when nothing changes)"
+  type        = bool
+  default     = false
+}
+
+variable "function_name" {
+  description = "The name of the Lambda function to deploy"
+  type        = string
+  default     = ""
+}
+
+variable "get_deployment_sleep_timer" {
+  description = "Adds additional sleep time to get-deployment command to avoid the service throttling"
+  type        = number
+  default     = 5
+}
+
+variable "interpreter" {
+  description = "List of interpreter arguments used to execute deploy script, first arg is path"
+  type        = list(string)
+  default     = ["/bin/bash", "-c"]
+}
+
+variable "run_deployment" {
+  description = "Run AWS CLI command to start the deployment"
+  type        = bool
+  default     = false
+}
+
+variable "save_deploy_script" {
+  description = "Save deploy script locally"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to assign to resources."
+  type        = map(string)
+  default     = {}
+}
+
 variable "target_version" {
   description = "Target version of Lambda function version to deploy"
   type        = string
   default     = ""
 }
 
-variable "app_name" {
-  description = "Name of AWS CodeDeploy application"
-  type        = string
-  default     = ""
+variable "triggers" {
+  description = "Map of triggers which will be notified when event happens. Valid options for event types are DeploymentStart, DeploymentSuccess, DeploymentFailure, DeploymentStop, DeploymentRollback, DeploymentReady (Applies only to replacement instances in a blue/green deployment), InstanceStart, InstanceSuccess, InstanceFailure, InstanceReady. Note that not all are applicable for Lambda deployments."
+  type        = map(any)
+  default     = {}
 }
 
-variable "auto_rollback_enabled" {
-  description = "Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group."
+variable "use_existing_app" {
+  description = "Whether to use existing AWS CodeDeploy app"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "use_existing_deployment_group" {
+  description = "Whether to use existing AWS CodeDeploy Deployment Group"
+  type        = bool
+  default     = false
+}
+
+variable "wait_deployment_completion" {
+  description = "Wait until deployment completes. It can take a lot of time and your terraform process may lock execution for long time."
+  type        = bool
+  default     = false
 }

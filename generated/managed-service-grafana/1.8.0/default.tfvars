@@ -1,97 +1,97 @@
-workspace_id = ""
-
-configuration = null
-
-stack_set_name = null
-
-iam_role_description = null
-
-saml_idp_metadata_url = null
-
-name = null
-
-authentication_providers = ["AWS_SSO"]
-
-use_iam_role_name_prefix = true
-
-saml_login_assertion = null
-
-create_security_group = true
-
-iam_role_arn = null
-
-iam_role_permissions_boundary = null
-
-saml_role_assertion = null
-
-security_group_tags = {}
-
-notification_destinations = []
-
-create = true
-
-tags = {}
-
 account_access_type = "CURRENT_ACCOUNT"
-
-iam_role_path = null
-
-saml_editor_role_values = []
-
-saml_admin_role_values = []
-
-organization_role_name = null
-
-create_iam_role = true
-
-iam_role_name = null
-
-iam_role_max_session_duration = null
-
-iam_role_policy_arns = []
-
-saml_groups_assertion = null
-
-saml_login_validity_duration = null
-
-license_type = "ENTERPRISE"
-
-permission_type = "SERVICE_MANAGED"
-
-vpc_configuration = {}
-
-iam_role_force_detach_policies = true
-
-iam_role_tags = {}
-
-saml_allowed_organizations = []
 
 associate_license = true
 
-role_associations = {}
+authentication_providers = ["AWS_SSO"]
 
-security_group_use_name_prefix = true
+configuration = null
+
+create = true
+
+create_iam_role = true
+
+create_security_group = true
+
+create_workspace = true
 
 data_sources = []
 
+description = null
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_policy_arns = []
+
+iam_role_tags = {}
+
+license_type = "ENTERPRISE"
+
+name = null
+
+notification_destinations = []
+
+organization_role_name = null
+
 organizational_units = []
 
-workspace_api_keys = {}
+permission_type = "SERVICE_MANAGED"
+
+role_associations = {}
+
+saml_admin_role_values = []
+
+saml_allowed_organizations = []
+
+saml_editor_role_values = []
+
+saml_email_assertion = null
+
+saml_groups_assertion = null
+
+saml_idp_metadata_url = null
 
 saml_idp_metadata_xml = null
 
-saml_email_assertion = null
+saml_login_assertion = null
+
+saml_login_validity_duration = null
 
 saml_name_assertion = null
 
 saml_org_assertion = null
 
-security_group_name = null
-
-create_workspace = true
-
-description = null
+saml_role_assertion = null
 
 security_group_description = null
 
+security_group_name = null
+
 security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+stack_set_name = null
+
+tags = {}
+
+use_iam_role_name_prefix = true
+
+vpc_configuration = {}
+
+workspace_api_keys = {}
+
+workspace_id = ""

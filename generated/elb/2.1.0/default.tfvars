@@ -1,29 +1,29 @@
+access_logs = {}
+
 connection_draining = false
 
 connection_draining_timeout = 300
 
-number_of_instances = 0
-
-instances = []
-
-name = ""
-
 cross_zone_load_balancing = true
+
+health_check = ""
 
 idle_timeout = 60
 
-access_logs = {}
-
-security_groups = ""
+instances = []
 
 internal = ""
 
+listener = ""
+
+name = ""
+
 name_prefix = ""
+
+number_of_instances = 0
+
+security_groups = ""
 
 subnets = ""
 
 tags = {}
-
-listener = ""
-
-health_check = ""

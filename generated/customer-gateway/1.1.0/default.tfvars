@@ -1,7 +1,7 @@
-customer_gateways = {}
-
-tags = {}
-
 create = true
 
+customer_gateways = {}
+
 name = ""
+
+tags = {}

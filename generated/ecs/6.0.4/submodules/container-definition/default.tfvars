@@ -1,105 +1,105 @@
-mountPoints = []
+cloudwatch_log_group_class = null
 
-pseudoTerminal = false
+cloudwatch_log_group_kms_key_id = null
 
-ulimits = null
+cloudwatch_log_group_name = null
 
-user = null
+cloudwatch_log_group_retention_in_days = 14
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = null
+
+cpu = null
+
+create_cloudwatch_log_group = true
+
+dependsOn = null
+
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
+
+dockerLabels = null
+
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
 
 environment = []
 
 environmentFiles = []
 
-healthCheck = null
-
-portMappings = null
-
-service = null
-
-create_cloudwatch_log_group = true
-
-cloudwatch_log_group_name = null
+essential = null
 
 extraHosts = null
 
-logConfiguration = {}
+firelensConfiguration = null
 
-resourceRequirements = null
-
-secrets = null
-
-cloudwatch_log_group_class = null
-
-dependsOn = null
-
-dnsServers = null
+healthCheck = null
 
 hostname = null
 
 image = null
 
+interactive = false
+
 links = null
-
-memoryReservation = null
-
-name = null
-
-privileged = false
-
-command = null
-
-memory = null
-
-readonlyRootFilesystem = true
-
-stopTimeout = 120
-
-volumesFrom = []
-
-enable_cloudwatch_logging = true
-
-cloudwatch_log_group_kms_key_id = null
-
-tags = {}
-
-cpu = null
-
-disableNetworking = null
-
-dockerLabels = null
-
-entrypoint = []
-
-restartPolicy = { "enabled" : true }
-
-startTimeout = 30
-
-workingDirectory = null
-
-dnsSearchDomains = null
-
-dockerSecurityOptions = null
 
 linuxParameters = { "initProcessEnabled" : false }
 
-cloudwatch_log_group_retention_in_days = 14
+logConfiguration = {}
 
-region = null
+memory = null
 
-enable_execute_command = false
+memoryReservation = null
 
-repositoryCredentials = null
+mountPoints = []
 
-systemControls = []
-
-versionConsistency = "disabled"
-
-cloudwatch_log_group_use_name_prefix = false
+name = null
 
 operating_system_family = "LINUX"
 
-essential = null
+portMappings = null
 
-firelensConfiguration = null
+privileged = false
 
-interactive = false
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = []
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = []
+
+workingDirectory = null

@@ -1,57 +1,57 @@
-github_provider = "token.actions.githubusercontent.com"
+create = true
+
+create_inline_policy = false
 
 create_instance_profile = false
 
-name = null
+description = null
 
-oidc_wildcard_subjects = []
+enable_bitbucket_oidc = false
+
+enable_github_oidc = false
+
+enable_oidc = false
 
 enable_saml = false
 
+github_provider = "token.actions.githubusercontent.com"
+
+inline_policy_permissions = null
+
+max_session_duration = null
+
+name = null
+
 oidc_account_id = null
 
-tags = {}
-
-use_name_prefix = true
-
-path = null
-
-description = null
-
-trust_policy_permissions = null
-
 oidc_audiences = []
-
-create = true
-
-permissions_boundary = null
 
 oidc_provider_urls = []
 
 oidc_subjects = []
 
-saml_endpoints = ["https://signin.aws.amazon.com/saml"]
-
-source_inline_policy_documents = []
+oidc_wildcard_subjects = []
 
 override_inline_policy_documents = []
 
-enable_oidc = false
+path = null
 
-inline_policy_permissions = null
+permissions_boundary = null
 
-enable_bitbucket_oidc = false
+policies = {}
+
+saml_endpoints = ["https://signin.aws.amazon.com/saml"]
 
 saml_provider_ids = []
 
 saml_trust_actions = []
 
-create_inline_policy = false
+source_inline_policy_documents = []
 
-policies = {}
-
-max_session_duration = null
+tags = {}
 
 trust_policy_conditions = []
 
-enable_github_oidc = false
+trust_policy_permissions = null
+
+use_name_prefix = true

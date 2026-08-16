@@ -1,12 +1,12 @@
 create_policy = true
 
+description = "IAM Policy"
+
 name = null
 
 name_prefix = null
 
 path = "/"
-
-description = "IAM Policy"
 
 policy = ""
 

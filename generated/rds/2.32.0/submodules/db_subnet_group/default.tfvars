@@ -1,11 +1,11 @@
-name = ""
-
-use_name_prefix = true
+create = true
 
 description = ""
+
+name = ""
 
 subnet_ids = []
 
 tags = {}
 
-create = true
+use_name_prefix = true

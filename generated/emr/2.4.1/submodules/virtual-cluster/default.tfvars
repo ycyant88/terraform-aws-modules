@@ -1,49 +1,49 @@
-cloudwatch_log_group_skip_destroy = null
-
-create = true
-
-eks_cluster_id = ""
-
-namespace = "emr-containers"
-
-create_kubernetes_role = true
-
-oidc_provider_arn = ""
-
-cloudwatch_log_group_use_name_prefix = false
-
-tags = {}
-
-create_namespace = true
-
-s3_bucket_arns = []
-
-role_name = null
-
-iam_role_use_name_prefix = true
-
-iam_role_permissions_boundary = null
+annotations = {}
 
 cloudwatch_log_group_arn = "arn:aws:logs:*:*:*"
 
 cloudwatch_log_group_kms_key_id = null
 
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = 7
+
+cloudwatch_log_group_skip_destroy = null
+
+cloudwatch_log_group_use_name_prefix = false
+
+create = true
+
+create_cloudwatch_log_group = true
+
+create_iam_role = true
+
+create_kubernetes_role = true
+
+create_namespace = true
+
+eks_cluster_id = ""
+
+iam_role_additional_policies = {}
+
+iam_role_description = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_use_name_prefix = true
+
 labels = {}
 
 name = ""
 
-iam_role_path = null
+namespace = "emr-containers"
 
-iam_role_description = null
+oidc_provider_arn = ""
 
-iam_role_additional_policies = {}
+role_name = null
 
-create_cloudwatch_log_group = true
+s3_bucket_arns = []
 
-cloudwatch_log_group_retention_in_days = 7
-
-cloudwatch_log_group_name = null
-
-annotations = {}
-
-create_iam_role = true
+tags = {}

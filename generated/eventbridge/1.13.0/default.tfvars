@@ -1,103 +1,103 @@
-create_connections = false
-
-bus_name = "default"
-
-attach_kinesis_firehose_policy = false
-
-attach_sfn_policy = false
-
-attach_policy_json = false
-
-create_bus = true
-
-create_rules = true
-
-role_name = ""
-
-role_permissions_boundary = ""
-
-attach_tracing_policy = false
-
-ecs_target_arns = []
-
-attach_policy_jsons = false
-
-number_of_policy_jsons = 0
-
-targets = {}
+api_destinations = {}
 
 archives = {}
 
-policy = ""
-
-attach_policies = false
-
-policies = []
-
-policy_statements = {}
-
-create_api_destinations = false
-
-attach_kinesis_policy = false
-
 attach_api_destination_policy = false
-
-policy_jsons = []
-
-connections = {}
 
 attach_cloudwatch_policy = false
 
-number_of_policies = 0
+attach_ecs_policy = false
 
-role_force_detach_policies = true
+attach_kinesis_firehose_policy = false
 
-role_tags = {}
-
-permissions = {}
-
-role_description = ""
-
-attach_sqs_policy = false
+attach_kinesis_policy = false
 
 attach_lambda_policy = false
 
-kinesis_firehose_target_arns = []
+attach_policies = false
 
-sqs_target_arns = []
+attach_policy = false
 
-create_targets = true
+attach_policy_json = false
 
-create_archives = false
+attach_policy_jsons = false
+
+attach_policy_statements = false
+
+attach_sfn_policy = false
+
+attach_sqs_policy = false
+
+attach_tracing_policy = false
+
+bus_name = "default"
 
 cloudwatch_target_arns = []
 
-policy_json = ""
+connections = {}
+
+create = true
+
+create_api_destinations = false
+
+create_archives = false
+
+create_bus = true
+
+create_connections = false
 
 create_permissions = true
 
-api_destinations = {}
+create_role = true
 
-tags = {}
+create_rules = true
 
-role_path = ""
+create_targets = true
+
+ecs_target_arns = []
+
+kinesis_firehose_target_arns = []
 
 kinesis_target_arns = []
 
 lambda_target_arns = []
 
-create = true
+number_of_policies = 0
 
-create_role = true
+number_of_policy_jsons = 0
 
-trusted_entities = []
+permissions = {}
 
-sfn_target_arns = []
+policies = []
 
-attach_policy = false
+policy = ""
 
-attach_policy_statements = false
+policy_json = ""
+
+policy_jsons = []
+
+policy_statements = {}
+
+role_description = ""
+
+role_force_detach_policies = true
+
+role_name = ""
+
+role_path = ""
+
+role_permissions_boundary = ""
+
+role_tags = {}
 
 rules = {}
 
-attach_ecs_policy = false
+sfn_target_arns = []
+
+sqs_target_arns = []
+
+tags = {}
+
+targets = {}
+
+trusted_entities = []

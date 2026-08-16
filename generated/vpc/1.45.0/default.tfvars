@@ -1,139 +1,139 @@
-redshift_subnet_tags = {}
-
-vpn_gateway_tags = {}
-
-dhcp_options_domain_name = ""
-
-intra_subnet_tags = {}
+amazon_side_asn = "64512"
 
 assign_generated_ipv6_cidr_block = false
 
-public_subnet_suffix = "public"
-
-private_subnet_suffix = "private"
-
-enable_s3_endpoint = false
-
-nat_eip_tags = {}
-
-redshift_subnets = []
-
-create_redshift_subnet_route_table = false
-
-redshift_route_table_tags = {}
-
-database_subnet_tags = {}
-
-single_nat_gateway = false
-
-external_nat_ip_ids = []
-
-redshift_subnet_group_tags = {}
-
-manage_default_vpc = false
-
-default_vpc_name = ""
-
-create_database_subnet_route_table = false
-
-propagate_public_route_tables_vgw = false
-
-database_route_table_tags = {}
-
-dhcp_options_netbios_node_type = ""
-
-default_vpc_enable_classiclink = false
-
-intra_subnets = []
-
-elasticache_subnet_suffix = "elasticache"
-
-enable_dns_hostnames = false
-
-enable_dynamodb_endpoint = false
-
-map_public_ip_on_launch = true
-
-enable_vpn_gateway = false
-
-vpc_tags = {}
-
-enable_dhcp_options = false
-
-create_elasticache_subnet_route_table = false
-
-amazon_side_asn = "64512"
-
-public_subnet_tags = {}
-
-public_route_table_tags = {}
-
-dhcp_options_tags = {}
-
-default_vpc_enable_dns_hostnames = false
-
-create_vpc = true
-
-public_subnets = []
-
-tags = {}
-
-igw_tags = {}
-
-database_subnet_group_tags = {}
+azs = []
 
 cidr = "0.0.0.0/0"
 
-private_subnets = []
-
-elasticache_subnets = []
-
-intra_route_table_tags = {}
-
-database_subnets = []
-
-enable_dns_support = true
-
-reuse_nat_ips = false
-
-nat_gateway_tags = {}
-
-default_vpc_tags = {}
-
-name = ""
-
-vpn_gateway_id = ""
-
-propagate_private_route_tables_vgw = false
-
-private_subnet_tags = {}
-
-private_route_table_tags = {}
-
-dhcp_options_netbios_name_servers = []
-
-default_vpc_enable_dns_support = true
-
-one_nat_gateway_per_az = false
-
-dhcp_options_ntp_servers = []
-
-secondary_cidr_blocks = []
-
-redshift_subnet_suffix = "redshift"
-
 create_database_subnet_group = true
 
-elasticache_route_table_tags = {}
+create_database_subnet_route_table = false
 
-dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
+create_elasticache_subnet_route_table = false
 
-instance_tenancy = "default"
+create_redshift_subnet_route_table = false
 
-enable_nat_gateway = false
+create_vpc = true
 
-elasticache_subnet_tags = {}
+database_route_table_tags = {}
+
+database_subnet_group_tags = {}
 
 database_subnet_suffix = "db"
 
-azs = []
+database_subnet_tags = {}
+
+database_subnets = []
+
+default_vpc_enable_classiclink = false
+
+default_vpc_enable_dns_hostnames = false
+
+default_vpc_enable_dns_support = true
+
+default_vpc_name = ""
+
+default_vpc_tags = {}
+
+dhcp_options_domain_name = ""
+
+dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
+
+dhcp_options_netbios_name_servers = []
+
+dhcp_options_netbios_node_type = ""
+
+dhcp_options_ntp_servers = []
+
+dhcp_options_tags = {}
+
+elasticache_route_table_tags = {}
+
+elasticache_subnet_suffix = "elasticache"
+
+elasticache_subnet_tags = {}
+
+elasticache_subnets = []
+
+enable_dhcp_options = false
+
+enable_dns_hostnames = false
+
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_nat_gateway = false
+
+enable_s3_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+igw_tags = {}
+
+instance_tenancy = "default"
+
+intra_route_table_tags = {}
+
+intra_subnet_tags = {}
+
+intra_subnets = []
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+name = ""
+
+nat_eip_tags = {}
+
+nat_gateway_tags = {}
+
+one_nat_gateway_per_az = false
+
+private_route_table_tags = {}
+
+private_subnet_suffix = "private"
+
+private_subnet_tags = {}
+
+private_subnets = []
+
+propagate_private_route_tables_vgw = false
+
+propagate_public_route_tables_vgw = false
+
+public_route_table_tags = {}
+
+public_subnet_suffix = "public"
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_route_table_tags = {}
+
+redshift_subnet_group_tags = {}
+
+redshift_subnet_suffix = "redshift"
+
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
+
+secondary_cidr_blocks = []
+
+single_nat_gateway = false
+
+tags = {}
+
+vpc_tags = {}
+
+vpn_gateway_id = ""
+
+vpn_gateway_tags = {}

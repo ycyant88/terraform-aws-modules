@@ -1,7 +1,19 @@
+variable "build_args" {
+  description = "A map of Docker build arguments."
+  type        = map(string)
+  default     = {}
+}
+
 variable "create_ecr_repo" {
   description = "Controls whether ECR repository for Lambda image should be created"
   type        = bool
   default     = false
+}
+
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
+  type        = string
+  default     = "Dockerfile"
 }
 
 variable "ecr_address" {
@@ -16,46 +28,10 @@ variable "ecr_repo" {
   default     = null
 }
 
-variable "image_tag" {
-  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
+variable "ecr_repo_lifecycle_policy" {
+  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
   type        = string
   default     = null
-}
-
-variable "source_path" {
-  description = "Path to folder containing application code"
-  type        = string
-  default     = null
-}
-
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
-}
-
-variable "scan_on_push" {
-  description = "Indicates whether images are scanned after being pushed to the repository"
-  type        = bool
-  default     = false
-}
-
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
-}
-
-variable "keep_remotely" {
-  description = "Whether to keep Docker image in the remote registry on destroy operation."
-  type        = bool
-  default     = false
-}
-
-variable "image_tag_mutability" {
-  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
-  type        = string
-  default     = "MUTABLE"
 }
 
 variable "ecr_repo_tags" {
@@ -64,8 +40,32 @@ variable "ecr_repo_tags" {
   default     = {}
 }
 
-variable "ecr_repo_lifecycle_policy" {
-  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
+variable "image_tag" {
+  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
+  type        = string
+  default     = null
+}
+
+variable "image_tag_mutability" {
+  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
+  type        = string
+  default     = "MUTABLE"
+}
+
+variable "keep_remotely" {
+  description = "Whether to keep Docker image in the remote registry on destroy operation."
+  type        = bool
+  default     = false
+}
+
+variable "scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository"
+  type        = bool
+  default     = false
+}
+
+variable "source_path" {
+  description = "Path to folder containing application code"
   type        = string
   default     = null
 }

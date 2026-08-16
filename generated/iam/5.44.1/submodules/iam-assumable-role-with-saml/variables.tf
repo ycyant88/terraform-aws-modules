@@ -1,37 +1,7 @@
-variable "provider_ids" {
-  description = "List of SAML Provider IDs"
-  type        = list(string)
-  default     = []
-}
-
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = ""
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
-}
-
 variable "allow_self_assume_role" {
   description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
   type        = bool
   default     = false
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
-}
-
-variable "provider_id" {
-  description = "ID of the SAML Provider. Use provider_ids to specify several IDs."
-  type        = string
-  default     = ""
 }
 
 variable "aws_saml_endpoint" {
@@ -40,22 +10,40 @@ variable "aws_saml_endpoint" {
   default     = "https://signin.aws.amazon.com/saml"
 }
 
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
 }
 
-variable "trusted_role_actions" {
-  description = "Additional role actions"
-  type        = list(string)
-  default     = ["sts:AssumeRoleWithSAML", "sts:TagSession"]
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
 }
 
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
+}
+
+variable "number_of_role_policy_arns" {
+  description = "Number of IAM policies to attach to IAM role"
+  type        = number
   default     = null
+}
+
+variable "provider_id" {
+  description = "ID of the SAML Provider. Use provider_ids to specify several IDs."
+  type        = string
+  default     = ""
+}
+
+variable "provider_ids" {
+  description = "List of SAML Provider IDs"
+  type        = list(string)
+  default     = []
 }
 
 variable "role_description" {
@@ -64,15 +52,9 @@ variable "role_description" {
   default     = ""
 }
 
-variable "role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "number_of_role_policy_arns" {
-  description = "Number of IAM policies to attach to IAM role"
-  type        = number
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
   default     = null
 }
 
@@ -88,8 +70,26 @@ variable "role_path" {
   default     = "/"
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
+}
+
+variable "role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "trusted_role_actions" {
+  description = "Additional role actions"
+  type        = list(string)
+  default     = ["sts:AssumeRoleWithSAML", "sts:TagSession"]
 }

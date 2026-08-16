@@ -1,13 +1,13 @@
-variable "create_eks" {
-  description = "Controls if EKS resources should be created (it affects almost all resources)"
-  type        = bool
-  default     = true
-}
-
 variable "cluster_name" {
   description = "Name of parent cluster"
   type        = string
   default     = ""
+}
+
+variable "create_eks" {
+  description = "Controls if EKS resources should be created (it affects almost all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "default_iam_role_arn" {
@@ -16,8 +16,20 @@ variable "default_iam_role_arn" {
   default     = ""
 }
 
-variable "workers_group_defaults" {
-  description = "Workers group defaults from parent"
+variable "ng_depends_on" {
+  description = "List of references to other resources this submodule depends on"
+  type        = any
+  default     = null
+}
+
+variable "node_groups" {
+  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+  type        = any
+  default     = {}
+}
+
+variable "node_groups_defaults" {
+  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
   type        = any
   default     = ""
 }
@@ -28,20 +40,8 @@ variable "tags" {
   default     = ""
 }
 
-variable "node_groups_defaults" {
-  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+variable "workers_group_defaults" {
+  description = "Workers group defaults from parent"
   type        = any
   default     = ""
-}
-
-variable "node_groups" {
-  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
-  type        = any
-  default     = {}
-}
-
-variable "ng_depends_on" {
-  description = "List of references to other resources this submodule depends on"
-  type        = any
-  default     = null
 }

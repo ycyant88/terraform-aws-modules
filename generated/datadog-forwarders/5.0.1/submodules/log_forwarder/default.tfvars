@@ -1,6 +1,46 @@
+architectures = ["x86_64"]
+
+bucket_attach_deny_insecure_transport_policy = false
+
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+
+bucket_name = ""
+
+bucket_prefix = ""
+
 create = true
 
-role_arn = null
+create_bucket = true
+
+create_role = true
+
+create_role_policy = true
+
+dd_api_key = ""
+
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.69.0"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_retention_days = 7
+
+memory_size = 1024
+
+name = "datadog-log-forwarder"
+
+policy_arn = null
+
+policy_name = ""
 
 policy_path = null
 
@@ -8,47 +48,13 @@ publish = false
 
 reserved_concurrent_executions = 100
 
-dd_api_key_secret_arn = ""
+role_arn = null
 
-s3_zip_storage_class = null
+role_max_session_duration = null
+
+role_name = ""
 
 role_path = null
-
-create_role_policy = true
-
-architectures = ["x86_64"]
-
-bucket_attach_deny_insecure_transport_policy = false
-
-s3_zip_kms_key_id = null
-
-layers = []
-
-memory_size = 1024
-
-lambda_tags = {}
-
-dd_api_key = ""
-
-s3_zip_metadata = {}
-
-s3_zip_tags = {}
-
-policy_arn = null
-
-policy_name = ""
-
-kms_key_arn = null
-
-tags = {}
-
-dd_site = "datadoghq.com"
-
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
-
-s3_zip_tags_only = false
-
-create_role = true
 
 role_permissions_boundary = null
 
@@ -56,34 +62,28 @@ role_tags = {}
 
 runtime = "python3.7"
 
-create_bucket = true
+s3_log_bucket_arns = []
+
+s3_zip_kms_key_id = null
+
+s3_zip_metadata = {}
 
 s3_zip_server_side_encryption = null
 
-role_name = ""
+s3_zip_storage_class = null
 
-s3_log_bucket_arns = []
+s3_zip_tags = {}
 
-subnet_ids = null
+s3_zip_tags_only = false
 
 security_group_ids = null
 
-environment_variables = {}
+subnet_ids = null
 
-log_retention_days = 7
-
-bucket_name = ""
-
-use_role_name_prefix = false
-
-use_policy_name_prefix = false
-
-forwarder_version = "3.69.0"
-
-name = "datadog-log-forwarder"
+tags = {}
 
 timeout = 120
 
-bucket_prefix = ""
+use_policy_name_prefix = false
 
-role_max_session_duration = null
+use_role_name_prefix = false

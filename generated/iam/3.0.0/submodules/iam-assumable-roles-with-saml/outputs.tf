@@ -8,6 +8,11 @@ output "admin_iam_role_name" {
   description = "Name of admin IAM role"
 }
 
+output "admin_iam_role_path" {
+  value       = module.iam_iam-assumable-roles-with-saml.admin_iam_role_path
+  description = "Path of admin IAM role"
+}
+
 output "poweruser_iam_role_arn" {
   value       = module.iam_iam-assumable-roles-with-saml.poweruser_iam_role_arn
   description = "ARN of poweruser IAM role"
@@ -16,11 +21,6 @@ output "poweruser_iam_role_arn" {
 output "poweruser_iam_role_name" {
   value       = module.iam_iam-assumable-roles-with-saml.poweruser_iam_role_name
   description = "Name of poweruser IAM role"
-}
-
-output "admin_iam_role_path" {
-  value       = module.iam_iam-assumable-roles-with-saml.admin_iam_role_path
-  description = "Path of admin IAM role"
 }
 
 output "poweruser_iam_role_path" {

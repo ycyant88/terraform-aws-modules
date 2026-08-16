@@ -1,31 +1,11 @@
-output "alb_listener_https_arn" {
-  value       = module.alb.alb_listener_https_arn
-  description = "The ARN of the HTTPS ALB Listener we created."
+output "alb_arn" {
+  value       = module.alb.alb_arn
+  description = "ARN of the ALB itself. Useful for debug output, for example when attaching a WAF."
 }
 
-output "alb_listener_http_arn" {
-  value       = module.alb.alb_listener_http_arn
-  description = "The ARN of the HTTP ALB Listener we created."
-}
-
-output "alb_listener_https_id" {
-  value       = module.alb.alb_listener_https_id
-  description = "The ID of the ALB Listener we created."
-}
-
-output "alb_listener_http_id" {
-  value       = module.alb.alb_listener_http_id
-  description = "The ID of the ALB Listener we created."
-}
-
-output "target_group_arn" {
-  value       = module.alb.target_group_arn
-  description = "ARN of the target group. Useful for passing to your Auto Scaling group module."
-}
-
-output "target_group_name" {
-  value       = module.alb.target_group_name
-  description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group."
+output "alb_arn_suffix" {
+  value       = module.alb.alb_arn_suffix
+  description = "ARN suffix of our ALB - can be used with CloudWatch"
 }
 
 output "alb_dns_name" {
@@ -38,6 +18,26 @@ output "alb_id" {
   description = "The ID of the ALB we created."
 }
 
+output "alb_listener_http_arn" {
+  value       = module.alb.alb_listener_http_arn
+  description = "The ARN of the HTTP ALB Listener we created."
+}
+
+output "alb_listener_http_id" {
+  value       = module.alb.alb_listener_http_id
+  description = "The ID of the ALB Listener we created."
+}
+
+output "alb_listener_https_arn" {
+  value       = module.alb.alb_listener_https_arn
+  description = "The ARN of the HTTPS ALB Listener we created."
+}
+
+output "alb_listener_https_id" {
+  value       = module.alb.alb_listener_https_id
+  description = "The ID of the ALB Listener we created."
+}
+
 output "alb_zone_id" {
   value       = module.alb.alb_zone_id
   description = "The zone_id of the ALB to assist with creating DNS records."
@@ -48,12 +48,12 @@ output "principal_account_id" {
   description = "The AWS-owned account given permissions to write your ALB logs to S3."
 }
 
-output "alb_arn" {
-  value       = module.alb.alb_arn
-  description = "ARN of the ALB itself. Useful for debug output, for example when attaching a WAF."
+output "target_group_arn" {
+  value       = module.alb.target_group_arn
+  description = "ARN of the target group. Useful for passing to your Auto Scaling group module."
 }
 
-output "alb_arn_suffix" {
-  value       = module.alb.alb_arn_suffix
-  description = "ARN suffix of our ALB - can be used with CloudWatch"
+output "target_group_name" {
+  value       = module.alb.target_group_name
+  description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group."
 }

@@ -1,7 +1,7 @@
-variable "minimum_password_length" {
-  description = "Minimum length to require for user passwords"
-  type        = number
-  default     = 8
+variable "account_alias" {
+  description = "AWS IAM account alias for this account"
+  type        = string
+  default     = ""
 }
 
 variable "allow_users_to_change_password" {
@@ -10,20 +10,8 @@ variable "allow_users_to_change_password" {
   default     = true
 }
 
-variable "password_reuse_prevention" {
-  description = "The number of previous passwords that users are prevented from reusing"
-  type        = number
-  default     = null
-}
-
-variable "require_lowercase_characters" {
-  description = "Whether to require lowercase characters for user passwords"
-  type        = bool
-  default     = true
-}
-
-variable "require_uppercase_characters" {
-  description = "Whether to require uppercase characters for user passwords"
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
 }
@@ -40,6 +28,30 @@ variable "hard_expiry" {
   default     = false
 }
 
+variable "max_password_age" {
+  description = "The number of days that an user password is valid"
+  type        = number
+  default     = 0
+}
+
+variable "minimum_password_length" {
+  description = "Minimum length to require for user passwords"
+  type        = number
+  default     = 8
+}
+
+variable "password_reuse_prevention" {
+  description = "The number of previous passwords that users are prevented from reusing"
+  type        = number
+  default     = null
+}
+
+variable "require_lowercase_characters" {
+  description = "Whether to require lowercase characters for user passwords"
+  type        = bool
+  default     = true
+}
+
 variable "require_numbers" {
   description = "Whether to require numbers for user passwords"
   type        = bool
@@ -52,20 +64,8 @@ variable "require_symbols" {
   default     = true
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
+variable "require_uppercase_characters" {
+  description = "Whether to require uppercase characters for user passwords"
   type        = bool
   default     = true
-}
-
-variable "account_alias" {
-  description = "AWS IAM account alias for this account"
-  type        = string
-  default     = ""
-}
-
-variable "max_password_age" {
-  description = "The number of days that an user password is valid"
-  type        = number
-  default     = 0
 }

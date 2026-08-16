@@ -1,35 +1,35 @@
+create = true
+
+description = "Security Group managed by Terraform"
+
+egress_rules = {}
+
+enable_exclusive_rules = true
+
+ingress_cidr_ipv4 = {}
+
 ingress_cidr_ipv6 = {}
+
+ingress_prefix_list_id = {}
 
 ingress_referenced_security_group_id = {}
 
 ingress_rules = {}
 
-ingress_prefix_list_id = {}
-
-create = true
-
-tags = {}
-
-use_name_prefix = true
-
-egress_rules = {}
-
-region = null
+name = ""
 
 preset_ingress_rules = { "https-443" : { "description" : "HTTPS", "from_port" : 443, "ip_protocol" : "tcp", "to_port" : 443 } }
 
-name = ""
-
-description = "Security Group managed by Terraform"
+region = null
 
 revoke_rules_on_delete = false
 
-vpc_id = null
+tags = {}
 
 timeouts = null
 
+use_name_prefix = true
+
 vpc_associations = {}
 
-enable_exclusive_rules = true
-
-ingress_cidr_ipv4 = {}
+vpc_id = null

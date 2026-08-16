@@ -1,27 +1,27 @@
-validate_certificate = true
+certificate_transparency_logging_preference = true
 
-wait_for_validation = true
-
-validation_allow_overwrite_records = true
-
-domain_name = ""
-
-subject_alternative_names = []
-
-validation_method = "DNS"
+create_certificate = true
 
 create_route53_records = true
 
 dns_ttl = 60
 
+domain_name = ""
+
 putin_khuylo = true
+
+subject_alternative_names = []
+
+tags = {}
+
+validate_certificate = true
+
+validation_allow_overwrite_records = true
+
+validation_method = "DNS"
 
 validation_record_fqdns = []
 
-create_certificate = true
-
-certificate_transparency_logging_preference = true
+wait_for_validation = true
 
 zone_id = ""
-
-tags = {}

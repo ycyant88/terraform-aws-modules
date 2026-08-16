@@ -4,12 +4,6 @@ variable "action" {
   default     = null
 }
 
-variable "override_action" {
-  description = "Override action for managed rule groups and rule group reference statements. Use string (none, count) or object. Conflicts with action"
-  type        = any
-  default     = null
-}
-
 variable "captcha_config" {
   description = "CAPTCHA configuration that overrides the Web ACL level setting"
   type = object({
@@ -36,16 +30,36 @@ variable "create" {
   default     = true
 }
 
+variable "name" {
+  description = "Name of the rule. Must be unique within the Web ACL"
+  type        = string
+  default     = ""
+}
+
+variable "override_action" {
+  description = "Override action for managed rule groups and rule group reference statements. Use string (none, count) or object. Conflicts with action"
+  type        = any
+  default     = null
+}
+
+variable "priority" {
+  description = "Rule priority. Rules with lower priority are evaluated first"
+  type        = number
+  default     = ""
+}
+
 variable "putin_khuylo" {
   description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
   type        = bool
   default     = true
 }
 
-variable "web_acl_arn" {
-  description = "ARN of the Web ACL to add the rule to"
-  type        = string
-  default     = ""
+variable "rule_label" {
+  description = "List of labels to apply to matching web requests. Each entry must have a name field"
+  type = list(object({
+    name = string
+  }))
+  default = []
 }
 
 variable "statement" {
@@ -64,22 +78,8 @@ variable "visibility_config" {
   default = ""
 }
 
-variable "rule_label" {
-  description = "List of labels to apply to matching web requests. Each entry must have a name field"
-  type = list(object({
-    name = string
-  }))
-  default = []
-}
-
-variable "name" {
-  description = "Name of the rule. Must be unique within the Web ACL"
+variable "web_acl_arn" {
+  description = "ARN of the Web ACL to add the rule to"
   type        = string
-  default     = ""
-}
-
-variable "priority" {
-  description = "Rule priority. Rules with lower priority are evaluated first"
-  type        = number
   default     = ""
 }

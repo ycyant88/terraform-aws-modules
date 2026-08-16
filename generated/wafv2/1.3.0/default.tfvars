@@ -1,39 +1,39 @@
-name = ""
-
-default_action = "allow"
-
-rules = {}
-
-create = true
-
-scope = "REGIONAL"
-
-custom_response_bodies = {}
-
-token_domains = []
-
 association_config = {}
 
-create_logging_configuration = false
-
 association_resource_arns = {}
-
-description = null
-
-tags = {}
-
-visibility_config = {}
-
-logging_log_destination_configs = []
-
-logging_filter = null
-
-putin_khuylo = true
-
-rule_json = null
 
 captcha_config = null
 
 challenge_config = null
 
+create = true
+
+create_logging_configuration = false
+
+custom_response_bodies = {}
+
+default_action = "allow"
+
+description = null
+
+logging_filter = null
+
+logging_log_destination_configs = []
+
 logging_redacted_fields = []
+
+name = ""
+
+putin_khuylo = true
+
+rule_json = null
+
+rules = {}
+
+scope = "REGIONAL"
+
+tags = {}
+
+token_domains = []
+
+visibility_config = {}

@@ -1,21 +1,21 @@
+capacity = ""
+
 create = true
 
-putin_khuylo = true
+custom_response_body = {}
+
+description = null
 
 name = ""
 
 name_prefix = null
 
-tags = {}
-
-visibility_config = {}
+putin_khuylo = true
 
 rules = {}
 
-description = null
-
 scope = "REGIONAL"
 
-capacity = ""
+tags = {}
 
-custom_response_body = {}
+visibility_config = {}

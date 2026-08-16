@@ -1,25 +1,19 @@
-variable "scan_on_push" {
-  description = "Indicates whether images are scanned after being pushed to the repository"
-  type        = bool
-  default     = false
-}
-
 variable "build_args" {
   description = "A map of Docker build arguments."
   type        = map(string)
   default     = {}
 }
 
-variable "ecr_repo_lifecycle_policy" {
-  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
-  type        = string
-  default     = null
-}
-
-variable "keep_remotely" {
-  description = "Whether to keep Docker image in the remote registry on destroy operation."
+variable "create_ecr_repo" {
+  description = "Controls whether ECR repository for Lambda image should be created"
   type        = bool
   default     = false
+}
+
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
+  type        = string
+  default     = "Dockerfile"
 }
 
 variable "ecr_address" {
@@ -34,22 +28,16 @@ variable "ecr_repo" {
   default     = null
 }
 
-variable "source_path" {
-  description = "Path to folder containing application code"
+variable "ecr_repo_lifecycle_policy" {
+  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
   type        = string
   default     = null
 }
 
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
-}
-
-variable "create_ecr_repo" {
-  description = "Controls whether ECR repository for Lambda image should be created"
-  type        = bool
-  default     = false
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
 }
 
 variable "image_tag" {
@@ -64,8 +52,20 @@ variable "image_tag_mutability" {
   default     = "MUTABLE"
 }
 
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
+variable "keep_remotely" {
+  description = "Whether to keep Docker image in the remote registry on destroy operation."
+  type        = bool
+  default     = false
+}
+
+variable "scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository"
+  type        = bool
+  default     = false
+}
+
+variable "source_path" {
+  description = "Path to folder containing application code"
+  type        = string
+  default     = null
 }

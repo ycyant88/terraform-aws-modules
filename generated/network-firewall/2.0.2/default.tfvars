@@ -1,73 +1,73 @@
-policy_variables = null
+availability_zone_change_protection = null
 
-policy_stateful_rule_group_reference = null
+availability_zone_mapping = null
+
+create = true
+
+create_logging_configuration = null
+
+create_policy = true
+
+create_policy_resource_policy = null
+
+delete_protection = true
 
 description = ""
 
 enabled_analysis_types = null
 
-create_policy = true
+encryption_configuration = null
 
-policy_stateless_custom_action = null
+firewall_policy_arn = ""
 
-policy_stateless_fragment_default_actions = null
+firewall_policy_change_protection = null
 
-policy_stateless_rule_group_reference = null
+logging_configuration_destination_config = null
 
-availability_zone_change_protection = null
+name = ""
+
+policy_attach_resource_policy = null
+
+policy_description = null
+
+policy_encryption_configuration = null
+
+policy_name = ""
+
+policy_ram_resource_associations = null
+
+policy_resource_policy = ""
 
 policy_resource_policy_actions = null
 
 policy_resource_policy_principals = null
 
-policy_ram_resource_associations = null
-
-firewall_policy_change_protection = null
-
-policy_name = ""
-
-policy_attach_resource_policy = null
-
-tags = {}
-
-delete_protection = true
-
-firewall_policy_arn = ""
-
-subnet_change_protection = true
-
-vpc_id = null
-
-policy_stateless_default_actions = null
-
-policy_tags = {}
-
-create_policy_resource_policy = null
-
-subnet_mapping = null
-
-create_logging_configuration = null
-
 policy_stateful_default_actions = null
 
 policy_stateful_engine_options = null
 
-policy_resource_policy = ""
+policy_stateful_rule_group_reference = null
+
+policy_stateless_custom_action = null
+
+policy_stateless_default_actions = null
+
+policy_stateless_fragment_default_actions = null
+
+policy_stateless_rule_group_reference = null
+
+policy_tags = {}
+
+policy_variables = null
 
 region = null
 
-availability_zone_mapping = null
+subnet_change_protection = true
 
-logging_configuration_destination_config = null
+subnet_mapping = null
 
-create = true
-
-encryption_configuration = null
-
-name = ""
+tags = {}
 
 transit_gateway_id = null
 
-policy_description = null
-
-policy_encryption_configuration = null
+vpc_id = null

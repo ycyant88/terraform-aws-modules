@@ -1,79 +1,79 @@
-create_domain_records = true
-
-subdomains = []
-
-create_routes_and_integrations = true
-
-api_mapping_key = null
-
-mutual_tls_authentication = {}
-
-name = ""
-
-create_stage = true
-
-routes = {}
-
-stage_default_route_settings = {}
-
-vpc_links = {}
-
-cors_configuration = null
-
-disable_execute_api_endpoint = null
-
-create_certificate = true
-
-tags = {}
-
 api_key_selection_expression = null
 
-target = null
-
-create_domain_name = true
-
-subdomain_record_types = ["A", "AAAA"]
-
-credentials_arn = null
-
-fail_on_warnings = null
-
-stage_name = "$default"
-
-deploy_stage = true
-
-protocol_type = "HTTP"
-
-domain_name = ""
+api_mapping_key = null
 
 api_version = null
 
 authorizers = {}
 
-hosted_zone_name = null
+body = null
+
+cors_configuration = null
+
+create = true
+
+create_certificate = true
+
+create_domain_name = true
+
+create_domain_records = true
+
+create_routes_and_integrations = true
+
+create_stage = true
+
+credentials_arn = null
+
+deploy_stage = true
+
+description = null
+
+disable_execute_api_endpoint = null
+
+domain_name = ""
+
+domain_name_certificate_arn = null
 
 domain_name_ownership_verification_certificate_arn = null
 
-stage_description = null
+fail_on_warnings = null
 
-stage_variables = {}
+hosted_zone_name = null
+
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
 
 route_key = null
 
 route_selection_expression = null
 
-body = null
-
-domain_name_certificate_arn = null
+routes = {}
 
 stage_access_log_settings = {}
 
 stage_client_certificate_id = null
 
+stage_default_route_settings = {}
+
+stage_description = null
+
+stage_name = "$default"
+
 stage_tags = {}
+
+stage_variables = {}
+
+subdomain_record_types = ["A", "AAAA"]
+
+subdomains = []
+
+tags = {}
+
+target = null
 
 vpc_link_tags = {}
 
-create = true
-
-description = null
+vpc_links = {}

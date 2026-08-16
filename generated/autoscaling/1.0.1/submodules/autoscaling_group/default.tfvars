@@ -1,43 +1,43 @@
-desired_capacity = ""
-
 default_cooldown = 300
 
-health_check_type = ""
+desired_capacity = ""
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
 force_delete = false
 
-target_group_arns = []
-
-min_elb_capacity = 0
-
-wait_for_elb_capacity = false
-
 health_check_grace_period = 300
 
-placement_group = ""
-
-metrics_granularity = "1Minute"
-
-wait_for_capacity_timeout = "10m"
-
-name = ""
-
-vpc_zone_identifier = ""
-
-suspended_processes = []
-
-min_size = ""
+health_check_type = ""
 
 launch_configuration = ""
 
 load_balancers = []
 
-termination_policies = ["Default"]
+max_size = ""
 
-tags = []
+metrics_granularity = "1Minute"
 
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
 
 protect_from_scale_in = false
 
-max_size = ""
+suspended_processes = []
+
+tags = []
+
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

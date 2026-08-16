@@ -1,15 +1,15 @@
 module "s3-bucket_notification" {
   source                   = "terraform-aws-modules/s3-bucket/aws//modules/notification"
   version                  = "5.9.0"
-  create                   = var.create
-  create_sns_policy        = var.create_sns_policy
-  region                   = var.region
-  bucket_arn               = var.bucket_arn
-  lambda_notifications     = var.lambda_notifications
-  create_sqs_policy        = var.create_sqs_policy
-  create_lambda_permission = var.create_lambda_permission
   bucket                   = var.bucket
+  bucket_arn               = var.bucket_arn
+  create                   = var.create
+  create_lambda_permission = var.create_lambda_permission
+  create_sns_policy        = var.create_sns_policy
+  create_sqs_policy        = var.create_sqs_policy
   eventbridge              = var.eventbridge
-  sqs_notifications        = var.sqs_notifications
+  lambda_notifications     = var.lambda_notifications
+  region                   = var.region
   sns_notifications        = var.sns_notifications
+  sqs_notifications        = var.sqs_notifications
 }

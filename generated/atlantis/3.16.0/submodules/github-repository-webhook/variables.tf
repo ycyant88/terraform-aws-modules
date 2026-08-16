@@ -4,18 +4,6 @@ variable "atlantis_repo_allowlist" {
   default     = ""
 }
 
-variable "webhook_url" {
-  description = "Webhook URL"
-  type        = string
-  default     = ""
-}
-
-variable "webhook_secret" {
-  description = "Webhook secret"
-  type        = string
-  default     = ""
-}
-
 variable "create_github_repository_webhook" {
   description = "Whether to create Github repository webhook for Atlantis"
   type        = bool
@@ -28,14 +16,26 @@ variable "github_base_url" {
   default     = null
 }
 
+variable "github_owner" {
+  description = "Github owner to use when creating webhook"
+  type        = string
+  default     = ""
+}
+
 variable "github_token" {
   description = "Github token to use when creating webhook"
   type        = string
   default     = ""
 }
 
-variable "github_owner" {
-  description = "Github owner to use when creating webhook"
+variable "webhook_secret" {
+  description = "Webhook secret"
+  type        = string
+  default     = ""
+}
+
+variable "webhook_url" {
+  description = "Webhook URL"
   type        = string
   default     = ""
 }

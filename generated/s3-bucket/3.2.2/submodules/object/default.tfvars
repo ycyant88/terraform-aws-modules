@@ -1,47 +1,47 @@
-content_language = ""
+acl = ""
 
-file_source = ""
+bucket = ""
+
+bucket_key_enabled = ""
+
+cache_control = ""
+
+content = ""
+
+content_base64 = ""
+
+content_disposition = ""
 
 content_encoding = ""
 
+content_language = ""
+
+content_type = ""
+
+create = true
+
 etag = ""
+
+file_source = ""
+
+force_destroy = false
+
+key = ""
 
 kms_key_id = ""
 
 metadata = {}
 
-force_destroy = false
-
-bucket = ""
-
-key = ""
-
-object_lock_retain_until_date = ""
-
-content_disposition = ""
-
-content_type = ""
-
-storage_class = ""
-
-server_side_encryption = ""
-
-bucket_key_enabled = ""
-
-create = true
-
-content = ""
-
-cache_control = ""
-
-website_redirect = ""
-
-tags = {}
-
 object_lock_legal_hold_status = ""
 
 object_lock_mode = ""
 
-content_base64 = ""
+object_lock_retain_until_date = ""
 
-acl = ""
+server_side_encryption = ""
+
+storage_class = ""
+
+tags = {}
+
+website_redirect = ""

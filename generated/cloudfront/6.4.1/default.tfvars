@@ -1,75 +1,75 @@
-logging_config = null
-
-create = true
-
-is_ipv6_enabled = true
-
-origin_group = null
-
-viewer_mtls_config = null
-
-cloudfront_functions = null
-
-price_class = null
-
-wait_for_deployment = null
-
-origin_access_control = { "s3" : { "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
-
-connection_function_code = null
-
 aliases = null
-
-connection_function_association_id = null
-
-viewer_certificate = {}
-
-vpc_origin = null
-
-connection_function_config = null
-
-continuous_deployment_policy_id = null
-
-staging = null
-
-enabled = true
-
-ordered_cache_behavior = []
-
-retain_on_delete = null
-
-connection_function_publish = null
-
-comment = null
-
-default_cache_behavior = ""
-
-origin = {}
-
-restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
-
-web_acl_id = null
-
-response_headers_policies = null
-
-create_monitoring_subscription = false
-
-enable_v2_logging = false
-
-tags = {}
 
 anycast_ip_list_id = null
 
-custom_error_response = null
+cloudfront_functions = null
 
-create_connection_function = false
+comment = null
+
+connection_function_association_id = null
+
+connection_function_code = null
+
+connection_function_config = null
 
 connection_function_name = null
 
+connection_function_publish = null
+
+continuous_deployment_policy_id = null
+
+create = true
+
+create_connection_function = false
+
+create_monitoring_subscription = false
+
+custom_error_response = null
+
+default_cache_behavior = ""
+
 default_root_object = null
+
+enable_v2_logging = false
+
+enabled = true
 
 http_version = "http2"
 
+is_ipv6_enabled = true
+
+logging_config = null
+
+ordered_cache_behavior = []
+
+origin = {}
+
+origin_access_control = { "s3" : { "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
+
+origin_group = null
+
+price_class = null
+
 realtime_metrics_subscription_status = "Enabled"
 
+response_headers_policies = null
+
+restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
+
+retain_on_delete = null
+
+staging = null
+
+tags = {}
+
 v2_logging = null
+
+viewer_certificate = {}
+
+viewer_mtls_config = null
+
+vpc_origin = null
+
+wait_for_deployment = null
+
+web_acl_id = null

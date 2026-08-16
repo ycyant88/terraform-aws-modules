@@ -4,26 +4,14 @@ variable "application_feedback" {
   default     = {}
 }
 
-variable "delivery_policy" {
-  description = "The SNS delivery policy"
-  type        = string
-  default     = null
+variable "content_based_deduplication" {
+  description = "Boolean indicating whether or not to enable content-based deduplication for FIFO topics."
+  type        = bool
+  default     = false
 }
 
-variable "firehose_feedback" {
-  description = "Map of IAM role ARNs and sample rate for success and failure feedback"
-  type        = map(string)
-  default     = {}
-}
-
-variable "topic_policy" {
-  description = "An externally created fully-formed AWS policy as JSON"
-  type        = string
-  default     = null
-}
-
-variable "create_topic_policy" {
-  description = "Determines whether an SNS topic policy is created"
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
 }
@@ -34,34 +22,22 @@ variable "create_subscription" {
   default     = true
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
+variable "create_topic_policy" {
+  description = "Determines whether an SNS topic policy is created"
   type        = bool
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "delivery_policy" {
+  description = "The SNS delivery policy"
+  type        = string
+  default     = null
 }
 
-variable "content_based_deduplication" {
-  description = "Boolean indicating whether or not to enable content-based deduplication for FIFO topics."
-  type        = bool
-  default     = false
-}
-
-variable "source_topic_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "override_topic_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
+variable "display_name" {
+  description = "The display name for the SNS topic"
+  type        = string
+  default     = null
 }
 
 variable "enable_default_topic_policy" {
@@ -70,22 +46,16 @@ variable "enable_default_topic_policy" {
   default     = true
 }
 
-variable "subscriptions" {
-  description = "A map of subscription definitions to create"
-  type        = any
-  default     = {}
-}
-
-variable "use_name_prefix" {
-  description = "Determines whether name is used as a prefix"
-  type        = bool
-  default     = false
-}
-
 variable "fifo_topic" {
   description = "Boolean indicating whether or not to create a FIFO (first-in-first-out) topic"
   type        = bool
   default     = false
+}
+
+variable "firehose_feedback" {
+  description = "Map of IAM role ARNs and sample rate for success and failure feedback"
+  type        = map(string)
+  default     = {}
 }
 
 variable "http_feedback" {
@@ -100,9 +70,9 @@ variable "kms_master_key_id" {
   default     = null
 }
 
-variable "topic_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
+variable "lambda_feedback" {
+  description = "Map of IAM role ARNs and sample rate for success and failure feedback"
+  type        = map(string)
   default     = {}
 }
 
@@ -112,20 +82,50 @@ variable "name" {
   default     = null
 }
 
-variable "display_name" {
-  description = "The display name for the SNS topic"
-  type        = string
-  default     = null
+variable "override_topic_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
 }
 
-variable "lambda_feedback" {
-  description = "Map of IAM role ARNs and sample rate for success and failure feedback"
-  type        = map(string)
-  default     = {}
+variable "source_topic_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
 }
 
 variable "sqs_feedback" {
   description = "Map of IAM role ARNs and sample rate for success and failure feedback"
   type        = map(string)
   default     = {}
+}
+
+variable "subscriptions" {
+  description = "A map of subscription definitions to create"
+  type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "topic_policy" {
+  description = "An externally created fully-formed AWS policy as JSON"
+  type        = string
+  default     = null
+}
+
+variable "topic_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = any
+  default     = {}
+}
+
+variable "use_name_prefix" {
+  description = "Determines whether name is used as a prefix"
+  type        = bool
+  default     = false
 }

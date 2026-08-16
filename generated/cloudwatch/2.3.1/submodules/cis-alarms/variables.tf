@@ -1,37 +1,7 @@
-variable "disabled_controls" {
-  description = "List of IDs of disabled CIS controls"
-  type        = list(string)
-  default     = []
-}
-
-variable "namespace" {
-  description = "The namespace where metric filter and metric alarm should be cleated"
-  type        = string
-  default     = "CISBenchmark"
-}
-
-variable "log_group_name" {
-  description = "The name of the log group to associate the metric filter with"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create" {
-  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
+variable "actions_enabled" {
+  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
   type        = bool
   default     = true
-}
-
-variable "name_prefix" {
-  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
-  type        = string
-  default     = ""
 }
 
 variable "alarm_actions" {
@@ -40,10 +10,40 @@ variable "alarm_actions" {
   default     = []
 }
 
-variable "actions_enabled" {
-  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
+variable "create" {
+  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
   type        = bool
   default     = true
+}
+
+variable "disabled_controls" {
+  description = "List of IDs of disabled CIS controls"
+  type        = list(string)
+  default     = []
+}
+
+variable "log_group_name" {
+  description = "The name of the log group to associate the metric filter with"
+  type        = string
+  default     = ""
+}
+
+variable "name_prefix" {
+  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
+  type        = string
+  default     = ""
+}
+
+variable "namespace" {
+  description = "The namespace where metric filter and metric alarm should be cleated"
+  type        = string
+  default     = "CISBenchmark"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "use_random_name_prefix" {

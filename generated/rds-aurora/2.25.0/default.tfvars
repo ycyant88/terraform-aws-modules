@@ -1,117 +1,117 @@
-replica_count = 1
-
-tags = {}
-
-apply_immediately = false
-
-kms_key_id = ""
-
-name = ""
-
-subnets = []
-
-username = "root"
-
-skip_final_snapshot = false
-
-auto_minor_version_upgrade = true
-
-db_cluster_parameter_group_name = ""
-
-engine_version = "5.6.10a"
-
-create_security_group = true
-
-publicly_accessible = false
-
-deletion_protection = false
-
-scaling_configuration = {}
-
-engine = "aurora"
-
-replica_scale_cpu = 70
-
 allowed_cidr_blocks = []
-
-final_snapshot_identifier_prefix = "final"
-
-backup_retention_period = 7
-
-port = ""
-
-replica_scale_out_cooldown = 300
-
-db_subnet_group_name = ""
-
-iam_database_authentication_enabled = false
-
-global_cluster_identifier = ""
-
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
-
-database_name = ""
-
-replica_scale_enabled = false
-
-engine_mode = "provisioned"
-
-vpc_security_group_ids = []
 
 allowed_security_groups = []
 
-db_parameter_group_name = ""
+apply_immediately = false
 
-security_group_description = "Managed by Terraform"
-
-instance_type = ""
-
-replica_scale_in_cooldown = 300
-
-instance_type_replica = ""
-
-replication_source_identifier = ""
-
-copy_tags_to_snapshot = false
-
-iam_roles = []
-
-create_monitoring_role = true
-
-snapshot_identifier = ""
-
-performance_insights_kms_key_id = ""
-
-enabled_cloudwatch_logs_exports = []
-
-password = ""
-
-enable_http_endpoint = false
-
-replica_scale_max = 0
-
-replica_scale_min = 2
-
-source_region = ""
+auto_minor_version_upgrade = true
 
 backtrack_window = 0
 
-permissions_boundary = ""
-
-monitoring_interval = 0
+backup_retention_period = 7
 
 ca_cert_identifier = "rds-ca-2019"
 
-vpc_id = ""
+copy_tags_to_snapshot = false
 
-storage_encrypted = true
+create_monitoring_role = true
+
+create_security_group = true
+
+database_name = ""
+
+db_cluster_parameter_group_name = ""
+
+db_parameter_group_name = ""
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enable_http_endpoint = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
+
+engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
+iam_roles = []
+
+instance_type = ""
+
+instance_type_replica = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+permissions_boundary = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
 
 preferred_backup_window = "02:00-03:00"
 
 preferred_maintenance_window = "sun:05:00-sun:06:00"
 
-monitoring_role_arn = ""
+publicly_accessible = false
+
+replica_count = 1
 
 replica_scale_connections = 700
 
-performance_insights_enabled = false
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+replication_source_identifier = ""
+
+scaling_configuration = {}
+
+security_group_description = "Managed by Terraform"
+
+skip_final_snapshot = false
+
+snapshot_identifier = ""
+
+source_region = ""
+
+storage_encrypted = true
+
+subnets = []
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""
+
+vpc_security_group_ids = []

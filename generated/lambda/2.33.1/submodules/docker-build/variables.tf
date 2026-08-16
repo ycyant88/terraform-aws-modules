@@ -1,37 +1,19 @@
+variable "build_args" {
+  description = "A map of Docker build arguments."
+  type        = map(string)
+  default     = {}
+}
+
 variable "create_ecr_repo" {
   description = "Controls whether ECR repository for Lambda image should be created"
   type        = bool
   default     = false
 }
 
-variable "source_path" {
-  description = "Path to folder containing application code"
-  type        = string
-  default     = null
-}
-
 variable "docker_file_path" {
   description = "Path to Dockerfile in source package"
   type        = string
   default     = "Dockerfile"
-}
-
-variable "scan_on_push" {
-  description = "Indicates whether images are scanned after being pushed to the repository"
-  type        = bool
-  default     = false
-}
-
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ecr_repo_lifecycle_policy" {
-  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
-  type        = string
-  default     = null
 }
 
 variable "ecr_address" {
@@ -46,6 +28,18 @@ variable "ecr_repo" {
   default     = null
 }
 
+variable "ecr_repo_lifecycle_policy" {
+  description = "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images."
+  type        = string
+  default     = null
+}
+
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
+}
+
 variable "image_tag" {
   description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
   type        = string
@@ -58,8 +52,14 @@ variable "image_tag_mutability" {
   default     = "MUTABLE"
 }
 
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
+variable "scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository"
+  type        = bool
+  default     = false
+}
+
+variable "source_path" {
+  description = "Path to folder containing application code"
+  type        = string
+  default     = null
 }

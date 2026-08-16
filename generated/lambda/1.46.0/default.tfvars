@@ -1,179 +1,179 @@
-file_system_arn = null
+allowed_triggers = {}
 
-s3_existing_package = null
+artifacts_dir = "builds"
 
-s3_acl = "private"
+attach_async_event_policy = false
 
-role_path = null
-
-attach_policies = false
-
-policy_jsons = []
-
-create = true
-
-runtime = ""
-
-image_uri = null
-
-create_unqualified_alias_allowed_triggers = true
-
-role_description = null
+attach_cloudwatch_logs_policy = true
 
 attach_dead_letter_policy = false
 
-cloudwatch_logs_kms_key_id = null
+attach_network_policy = false
 
-role_permissions_boundary = null
+attach_policies = false
 
-trusted_entities = []
-
-policies = []
-
-s3_object_storage_class = "ONEZONE_IA"
-
-allowed_triggers = {}
+attach_policy = false
 
 attach_policy_json = false
 
 attach_policy_jsons = false
 
-policy = null
-
-policy_statements = {}
-
-handler = ""
-
-attach_network_policy = false
-
-local_existing_package = null
-
-store_on_s3 = false
-
-s3_bucket = null
-
-s3_server_side_encryption = null
-
-source_path = null
-
-create_package = true
-
-timeout = 3
-
-tags = {}
-
-package_type = "Zip"
-
-layer_name = ""
-
-role_tags = {}
-
-policy_json = null
-
-docker_with_ssh_agent = false
-
-docker_image = ""
-
-reserved_concurrent_executions = -1
-
-s3_object_tags = {}
-
-create_unqualified_alias_async_event_config = true
+attach_policy_statements = false
 
 attach_tracing_policy = false
 
 build_in_docker = false
 
-docker_file = ""
-
-lambda_at_edge = false
-
-image_config_working_directory = null
-
-role_name = null
-
-attach_policy_statements = false
-
-hash_extra = ""
-
-docker_build_root = ""
-
-create_function = true
-
-kms_key_arn = null
-
-environment_variables = {}
-
-maximum_event_age_in_seconds = null
-
-destination_on_failure = null
-
-role_force_detach_policies = true
-
-attach_cloudwatch_logs_policy = true
+cloudwatch_logs_kms_key_id = null
 
 cloudwatch_logs_retention_in_days = null
 
-create_role = true
+cloudwatch_logs_tags = {}
 
-function_name = ""
+compatible_runtimes = []
 
-layers = null
-
-memory_size = 128
-
-license_info = ""
+create = true
 
 create_async_event_config = false
 
-maximum_retry_attempts = null
-
-attach_policy = false
-
-artifacts_dir = "builds"
-
-vpc_subnet_ids = null
-
-event_source_mapping = {}
-
-attach_async_event_policy = false
-
-create_layer = false
-
-lambda_role = ""
-
-dead_letter_target_arn = null
-
-vpc_security_group_ids = null
-
-provisioned_concurrent_executions = -1
-
 create_current_version_allowed_triggers = true
-
-cloudwatch_logs_tags = {}
-
-description = ""
-
-tracing_mode = null
-
-image_config_entry_point = []
-
-destination_on_success = null
-
-file_system_local_mount_path = null
-
-docker_pip_cache = null
 
 create_current_version_async_event_config = true
 
-use_existing_cloudwatch_log_group = false
+create_function = true
 
-number_of_policy_jsons = 0
+create_layer = false
 
-number_of_policies = 0
+create_package = true
 
-publish = false
+create_role = true
+
+create_unqualified_alias_allowed_triggers = true
+
+create_unqualified_alias_async_event_config = true
+
+dead_letter_target_arn = null
+
+description = ""
+
+destination_on_failure = null
+
+destination_on_success = null
+
+docker_build_root = ""
+
+docker_file = ""
+
+docker_image = ""
+
+docker_pip_cache = null
+
+docker_with_ssh_agent = false
+
+environment_variables = {}
+
+event_source_mapping = {}
+
+file_system_arn = null
+
+file_system_local_mount_path = null
+
+function_name = ""
+
+handler = ""
+
+hash_extra = ""
 
 image_config_command = []
 
-compatible_runtimes = []
+image_config_entry_point = []
+
+image_config_working_directory = null
+
+image_uri = null
+
+kms_key_arn = null
+
+lambda_at_edge = false
+
+lambda_role = ""
+
+layer_name = ""
+
+layers = null
+
+license_info = ""
+
+local_existing_package = null
+
+maximum_event_age_in_seconds = null
+
+maximum_retry_attempts = null
+
+memory_size = 128
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+package_type = "Zip"
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_statements = {}
+
+provisioned_concurrent_executions = -1
+
+publish = false
+
+reserved_concurrent_executions = -1
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+runtime = ""
+
+s3_acl = "private"
+
+s3_bucket = null
+
+s3_existing_package = null
+
+s3_object_storage_class = "ONEZONE_IA"
+
+s3_object_tags = {}
+
+s3_server_side_encryption = null
+
+source_path = null
+
+store_on_s3 = false
+
+tags = {}
+
+timeout = 3
+
+tracing_mode = null
+
+trusted_entities = []
+
+use_existing_cloudwatch_log_group = false
+
+vpc_security_group_ids = null
+
+vpc_subnet_ids = null

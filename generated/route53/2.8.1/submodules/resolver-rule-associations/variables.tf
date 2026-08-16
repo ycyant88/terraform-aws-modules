@@ -1,13 +1,13 @@
-variable "resolver_rule_associations" {
-  description = "Map of Route53 Resolver rule associations parameters"
-  type        = any
-  default     = {}
-}
-
 variable "create" {
   description = "Whether to create Route53 Resolver rule associations"
   type        = bool
   default     = true
+}
+
+variable "resolver_rule_associations" {
+  description = "Map of Route53 Resolver rule associations parameters"
+  type        = any
+  default     = {}
 }
 
 variable "vpc_id" {

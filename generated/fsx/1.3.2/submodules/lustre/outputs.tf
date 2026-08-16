@@ -1,26 +1,6 @@
-output "cloudwatch_log_group_name" {
-  value       = module.fsx_lustre.cloudwatch_log_group_name
-  description = "Name of cloudwatch log group created"
-}
-
-output "file_cache_dns_name" {
-  value       = module.fsx_lustre.file_cache_dns_name
-  description = "The Domain Name System (DNS) name for the cache"
-}
-
-output "security_group_arn" {
-  value       = module.fsx_lustre.security_group_arn
-  description = "Amazon Resource Name (ARN) of the security group"
-}
-
-output "security_group_id" {
-  value       = module.fsx_lustre.security_group_id
-  description = "ID of the security group"
-}
-
-output "file_system_network_interface_ids" {
-  value       = module.fsx_lustre.file_system_network_interface_ids
-  description = "Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface"
+output "backup_arn" {
+  value       = module.fsx_lustre.backup_arn
+  description = "Amazon Resource Name of the backup"
 }
 
 output "backup_id" {
@@ -33,9 +13,14 @@ output "cloudwatch_log_group_arn" {
   description = "Arn of cloudwatch log group created"
 }
 
-output "backup_arn" {
-  value       = module.fsx_lustre.backup_arn
-  description = "Amazon Resource Name of the backup"
+output "cloudwatch_log_group_name" {
+  value       = module.fsx_lustre.cloudwatch_log_group_name
+  description = "Name of cloudwatch log group created"
+}
+
+output "data_repository_associations" {
+  value       = module.fsx_lustre.data_repository_associations
+  description = "Data repository associations created and their attributes"
 }
 
 output "file_cache_arn" {
@@ -43,9 +28,9 @@ output "file_cache_arn" {
   description = "Amazon Resource Name of the file cache"
 }
 
-output "data_repository_associations" {
-  value       = module.fsx_lustre.data_repository_associations
-  description = "Data repository associations created and their attributes"
+output "file_cache_dns_name" {
+  value       = module.fsx_lustre.file_cache_dns_name
+  description = "The Domain Name System (DNS) name for the cache"
 }
 
 output "file_cache_id" {
@@ -71,4 +56,19 @@ output "file_system_id" {
 output "file_system_mount_name" {
   value       = module.fsx_lustre.file_system_mount_name
   description = "The value to be used when mounting the filesystem"
+}
+
+output "file_system_network_interface_ids" {
+  value       = module.fsx_lustre.file_system_network_interface_ids
+  description = "Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface"
+}
+
+output "security_group_arn" {
+  value       = module.fsx_lustre.security_group_arn
+  description = "Amazon Resource Name (ARN) of the security group"
+}
+
+output "security_group_id" {
+  value       = module.fsx_lustre.security_group_id
+  description = "ID of the security group"
 }

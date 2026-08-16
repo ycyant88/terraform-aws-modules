@@ -1,99 +1,99 @@
-force_delete = false
-
-instance_type = ""
-
-root_block_device = []
-
-spot_price = ""
-
-default_cooldown = 300
-
-health_check_grace_period = 300
-
-termination_policies = ["Default"]
-
-suspended_processes = []
-
-tags = []
-
-create_lc = true
-
-initial_lifecycle_hook_lifecycle_transition = ""
-
 asg_name = ""
-
-user_data = " "
-
-ebs_optimized = false
-
-vpc_zone_identifier = ""
-
-metrics_granularity = "1Minute"
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-create_asg = true
-
-lc_name = ""
-
-key_name = ""
 
 associate_public_ip_address = false
 
-ephemeral_block_device = []
+create_asg = true
 
-min_size = ""
+create_asg_with_initial_lifecycle_hook = false
+
+create_lc = true
+
+default_cooldown = 300
 
 desired_capacity = ""
 
-health_check_type = ""
+ebs_block_device = []
 
-recreate_asg_when_lc_changes = false
-
-iam_instance_profile = ""
-
-placement_group = ""
-
-security_groups = []
+ebs_optimized = false
 
 enable_monitoring = true
 
-placement_tenancy = "default"
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
-wait_for_capacity_timeout = "10m"
+ephemeral_block_device = []
 
-min_elb_capacity = 0
+force_delete = false
 
-protect_from_scale_in = false
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
+image_id = ""
 
 initial_lifecycle_hook_default_result = "ABANDON"
+
+initial_lifecycle_hook_heartbeat_timeout = "60"
+
+initial_lifecycle_hook_lifecycle_transition = ""
+
+initial_lifecycle_hook_name = ""
 
 initial_lifecycle_hook_notification_metadata = ""
 
 initial_lifecycle_hook_notification_target_arn = ""
 
-name = ""
-
-ebs_block_device = []
-
-wait_for_elb_capacity = false
-
-create_asg_with_initial_lifecycle_hook = false
-
-initial_lifecycle_hook_name = ""
-
-initial_lifecycle_hook_heartbeat_timeout = "60"
-
-load_balancers = []
-
-target_group_arns = []
-
-tags_as_map = {}
-
 initial_lifecycle_hook_role_arn = ""
+
+instance_type = ""
+
+key_name = ""
 
 launch_configuration = ""
 
-image_id = ""
+lc_name = ""
+
+load_balancers = []
 
 max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+recreate_asg_when_lc_changes = false
+
+root_block_device = []
+
+security_groups = []
+
+spot_price = ""
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+user_data = " "
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

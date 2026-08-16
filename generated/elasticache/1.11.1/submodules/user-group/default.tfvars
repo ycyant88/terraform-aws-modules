@@ -1,16 +1,16 @@
+create = true
+
 create_default_user = true
+
+create_group = true
 
 default_user = {}
 
 default_user_id = "default"
 
-create = true
+engine = "redis"
 
 tags = {}
-
-create_group = true
-
-engine = "redis"
 
 user_group_id = ""
 

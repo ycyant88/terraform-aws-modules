@@ -1,5 +1,53 @@
+variable "amazon_managed_service_prometheus_workspace_arns" {
+  description = "List of AMP Workspace ARNs to read and write metrics"
+  type        = list(string)
+  default     = []
+}
+
+variable "attach_amazon_managed_service_prometheus_policy" {
+  description = "Determines whether to attach the Amazon Managed Service for Prometheus IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_aws_gateway_controller_policy" {
+  description = "Determines whether to attach the AWS Gateway Controller IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
 variable "attach_cert_manager_policy" {
   description = "Determines whether to attach the Cert Manager IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_cloudwatch_observability_policy" {
+  description = "Determines whether to attach the Amazon CloudWatch Observability IAM policies to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_cluster_autoscaler_policy" {
+  description = "Determines whether to attach the Cluster Autoscaler IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_ebs_csi_policy" {
+  description = "Determines whether to attach the EBS CSI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_efs_csi_policy" {
+  description = "Determines whether to attach the EFS CSI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_external_dns_policy" {
+  description = "Determines whether to attach the External DNS IAM policy to the role"
   type        = bool
   default     = false
 }
@@ -10,28 +58,52 @@ variable "attach_external_secrets_policy" {
   default     = false
 }
 
-variable "external_secrets_ssm_parameter_arns" {
-  description = "List of Systems Manager Parameter ARNs that contain secrets to mount using External Secrets"
-  type        = list(string)
-  default     = []
+variable "attach_fsx_lustre_csi_policy" {
+  description = "Determines whether to attach the FSx for Lustre CSI Driver IAM policy to the role"
+  type        = bool
+  default     = false
 }
 
-variable "fsx_openzfs_csi_service_role_arns" {
-  description = "Service role ARNs to allow FSx for OpenZFS CSI create and manage FSX for openzfs service linked roles"
-  type        = list(string)
-  default     = ["arn:aws:iam::*:role/aws-service-role/fsx.amazonaws.com/*"]
+variable "attach_fsx_openzfs_csi_policy" {
+  description = "Determines whether to attach the FSx for OpenZFS CSI Driver IAM policy to the role"
+  type        = bool
+  default     = false
 }
 
-variable "path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = "/"
+variable "attach_load_balancer_controller_policy" {
+  description = "Determines whether to attach the Load Balancer Controller policy to the role"
+  type        = bool
+  default     = false
 }
 
-variable "policy_description" {
-  description = "IAM policy description"
-  type        = string
-  default     = null
+variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
+  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
+  type        = bool
+  default     = false
+}
+
+variable "attach_mountpoint_s3_csi_policy" {
+  description = "Determines whether to attach the Mountpoint S3 CSI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_node_termination_handler_policy" {
+  description = "Determines whether to attach the Node Termination Handler policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_velero_policy" {
+  description = "Determines whether to attach the Velero IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_vpc_cni_policy" {
+  description = "Determines whether to attach the VPC CNI IAM policy to the role"
+  type        = bool
+  default     = false
 }
 
 variable "cert_manager_hosted_zone_arns" {
@@ -46,8 +118,38 @@ variable "cluster_autoscaler_cluster_names" {
   default     = []
 }
 
-variable "mountpoint_s3_csi_kms_arns" {
-  description = "KMS Key ARNs to allow Mountpoint S3 CSI driver to download and upload Objects of a S3 bucket using aws:kms SSE"
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_inline_policy" {
+  description = "Determines whether to create an inline policy"
+  type        = bool
+  default     = false
+}
+
+variable "create_policy" {
+  description = "Whether to create an IAM policy that is attached to the IAM role created"
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "ebs_csi_kms_cmk_arns" {
+  description = "KMS CMK ARNs to allow EBS CSI to manage encrypted volumes"
+  type        = list(string)
+  default     = []
+}
+
+variable "external_dns_hosted_zone_arns" {
+  description = "Route53 hosted zone ARNs to allow External DNS to manage records"
   type        = list(string)
   default     = []
 }
@@ -58,46 +160,34 @@ variable "external_secrets_kms_key_arns" {
   default     = []
 }
 
-variable "load_balancer_controller_targetgroup_arns" {
-  description = "List of Target groups ARNs using Load Balancer Controller"
+variable "external_secrets_secrets_manager_arns" {
+  description = "List of Secrets Manager ARNs that contain secrets to mount using External Secrets"
   type        = list(string)
   default     = []
 }
 
-variable "attach_cloudwatch_observability_policy" {
-  description = "Determines whether to attach the Amazon CloudWatch Observability IAM policies to the role"
+variable "external_secrets_secrets_manager_create_permission" {
+  description = "Determines whether External Secrets may use secretsmanager:CreateSecret"
   type        = bool
   default     = false
 }
 
-variable "permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "create_policy" {
-  description = "Whether to create an IAM policy that is attached to the IAM role created"
-  type        = bool
-  default     = true
-}
-
-variable "attach_cluster_autoscaler_policy" {
-  description = "Determines whether to attach the Cluster Autoscaler IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "amazon_managed_service_prometheus_workspace_arns" {
-  description = "List of AMP Workspace ARNs to read and write metrics"
+variable "external_secrets_ssm_parameter_arns" {
+  description = "List of Systems Manager Parameter ARNs that contain secrets to mount using External Secrets"
   type        = list(string)
   default     = []
 }
 
-variable "mountpoint_s3_csi_path_arns" {
-  description = "S3 path ARNs to allow Mountpoint S3 CSI driver to manage items at the provided path(s). This is required if attach_mountpoint_s3_csi_policy = true"
+variable "fsx_lustre_csi_service_role_arns" {
+  description = "Service role ARNs to allow FSx for Lustre CSI create and manage FSX for Lustre service linked roles"
   type        = list(string)
-  default     = []
+  default     = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
+}
+
+variable "fsx_openzfs_csi_service_role_arns" {
+  description = "Service role ARNs to allow FSx for OpenZFS CSI create and manage FSX for openzfs service linked roles"
+  type        = list(string)
+  default     = ["arn:aws:iam::*:role/aws-service-role/fsx.amazonaws.com/*"]
 }
 
 variable "inline_policy_permissions" {
@@ -126,152 +216,32 @@ variable "inline_policy_permissions" {
   default = null
 }
 
-variable "external_secrets_secrets_manager_arns" {
-  description = "List of Secrets Manager ARNs that contain secrets to mount using External Secrets"
+variable "load_balancer_controller_targetgroup_arns" {
+  description = "List of Target groups ARNs using Load Balancer Controller"
   type        = list(string)
   default     = []
 }
 
-variable "attach_fsx_lustre_csi_policy" {
-  description = "Determines whether to attach the FSx for Lustre CSI Driver IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
-  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
-  type        = bool
-  default     = false
-}
-
-variable "vpc_cni_enable_ipv6" {
-  description = "Determines whether to enable IPv6 permissions for VPC CNI policy"
-  type        = bool
-  default     = false
-}
-
-variable "override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "velero_s3_bucket_arns" {
-  description = "List of S3 Bucket ARNs that Velero needs access to in order to backup and restore cluster resources"
-  type        = list(string)
-  default     = []
-}
-
-variable "use_name_prefix" {
-  description = "Determines whether the IAM role/policy name (name/policy_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "attach_node_termination_handler_policy" {
-  description = "Determines whether to attach the Node Termination Handler policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "create_inline_policy" {
-  description = "Determines whether to create an inline policy"
-  type        = bool
-  default     = false
-}
-
-variable "attach_vpc_cni_policy" {
-  description = "Determines whether to attach the VPC CNI IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "trust_condition_test" {
-  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
-  type        = string
-  default     = "StringEquals"
-}
-
-variable "attach_aws_gateway_controller_policy" {
-  description = "Determines whether to attach the AWS Gateway Controller IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "attach_ebs_csi_policy" {
-  description = "Determines whether to attach the EBS CSI IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "fsx_lustre_csi_service_role_arns" {
-  description = "Service role ARNs to allow FSx for Lustre CSI create and manage FSX for Lustre service linked roles"
-  type        = list(string)
-  default     = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
-}
-
-variable "override_inline_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ebs_csi_kms_cmk_arns" {
-  description = "KMS CMK ARNs to allow EBS CSI to manage encrypted volumes"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_external_dns_policy" {
-  description = "Determines whether to attach the External DNS IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "external_secrets_secrets_manager_create_permission" {
-  description = "Determines whether External Secrets may use secretsmanager:CreateSecret"
-  type        = bool
-  default     = false
-}
-
-variable "attach_load_balancer_controller_policy" {
-  description = "Determines whether to attach the Load Balancer Controller policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "description" {
-  description = "Description of the role"
-  type        = string
+variable "max_session_duration" {
+  description = "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours"
+  type        = number
   default     = null
 }
 
-variable "attach_fsx_openzfs_csi_policy" {
-  description = "Determines whether to attach the FSx for OpenZFS CSI Driver IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "node_termination_handler_sqs_queue_arns" {
-  description = "List of SQS ARNs that contain node termination events"
+variable "mountpoint_s3_csi_bucket_arns" {
+  description = "S3 bucket ARNs to allow Mountpoint S3 CSI to list buckets"
   type        = list(string)
   default     = []
 }
 
-variable "source_inline_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+variable "mountpoint_s3_csi_kms_arns" {
+  description = "KMS Key ARNs to allow Mountpoint S3 CSI driver to download and upload Objects of a S3 bucket using aws:kms SSE"
+  type        = list(string)
+  default     = []
+}
+
+variable "mountpoint_s3_csi_path_arns" {
+  description = "S3 path ARNs to allow Mountpoint S3 CSI driver to manage items at the provided path(s). This is required if attach_mountpoint_s3_csi_policy = true"
   type        = list(string)
   default     = []
 }
@@ -282,10 +252,34 @@ variable "name" {
   default     = ""
 }
 
-variable "max_session_duration" {
-  description = "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours"
-  type        = number
-  default     = null
+variable "node_termination_handler_sqs_queue_arns" {
+  description = "List of SQS ARNs that contain node termination events"
+  type        = list(string)
+  default     = []
+}
+
+variable "oidc_providers" {
+  description = "Map of OIDC providers where each provider map should contain the provider, provider_arn, and namespace_service_accounts"
+  type        = any
+  default     = {}
+}
+
+variable "override_inline_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
 }
 
 variable "permissions" {
@@ -314,6 +308,24 @@ variable "permissions" {
   default = null
 }
 
+variable "permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "policies" {
+  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
+}
+
+variable "policy_description" {
+  description = "IAM policy description"
+  type        = string
+  default     = null
+}
+
 variable "policy_name" {
   description = "Name to use on IAM policy created"
   type        = string
@@ -326,28 +338,10 @@ variable "policy_path" {
   default     = null
 }
 
-variable "attach_mountpoint_s3_csi_policy" {
-  description = "Determines whether to attach the Mountpoint S3 CSI IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "external_dns_hosted_zone_arns" {
-  description = "Route53 hosted zone ARNs to allow External DNS to manage records"
+variable "source_inline_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
   type        = list(string)
   default     = []
-}
-
-variable "attach_amazon_managed_service_prometheus_policy" {
-  description = "Determines whether to attach the Amazon Managed Service for Prometheus IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "oidc_providers" {
-  description = "Map of OIDC providers where each provider map should contain the provider, provider_arn, and namespace_service_accounts"
-  type        = any
-  default     = {}
 }
 
 variable "source_policy_documents" {
@@ -356,22 +350,28 @@ variable "source_policy_documents" {
   default     = []
 }
 
-variable "mountpoint_s3_csi_bucket_arns" {
-  description = "S3 bucket ARNs to allow Mountpoint S3 CSI to list buckets"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "trust_condition_test" {
+  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
+  type        = string
+  default     = "StringEquals"
+}
+
+variable "use_name_prefix" {
+  description = "Determines whether the IAM role/policy name (name/policy_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "velero_s3_bucket_arns" {
+  description = "List of S3 Bucket ARNs that Velero needs access to in order to backup and restore cluster resources"
   type        = list(string)
   default     = []
-}
-
-variable "attach_efs_csi_policy" {
-  description = "Determines whether to attach the EFS CSI IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "attach_velero_policy" {
-  description = "Determines whether to attach the Velero IAM policy to the role"
-  type        = bool
-  default     = false
 }
 
 variable "vpc_cni_enable_cloudwatch_logs" {
@@ -386,8 +386,8 @@ variable "vpc_cni_enable_ipv4" {
   default     = false
 }
 
-variable "policies" {
-  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
+variable "vpc_cni_enable_ipv6" {
+  description = "Determines whether to enable IPv6 permissions for VPC CNI policy"
+  type        = bool
+  default     = false
 }

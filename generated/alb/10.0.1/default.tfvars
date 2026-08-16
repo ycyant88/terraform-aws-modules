@@ -1,97 +1,97 @@
-subnet_mapping = null
-
-default_port = 80
+access_logs = null
 
 additional_target_group_attachments = null
 
-route53_records = null
-
 associate_web_acl = false
 
-putin_khuylo = true
+client_keep_alive = null
+
+connection_logs = null
 
 create = true
 
-access_logs = null
+create_security_group = true
+
+customer_owned_ipv4_pool = null
+
+default_port = 80
+
+default_protocol = "HTTP"
+
+desync_mitigation_mode = null
+
+dns_record_client_routing_policy = null
+
+drop_invalid_header_fields = true
+
+enable_cross_zone_load_balancing = true
+
+enable_deletion_protection = true
 
 enable_http2 = null
 
 enable_tls_version_and_cipher_suite_headers = null
 
-idle_timeout = null
-
-ip_address_type = null
-
-name_prefix = null
-
-preserve_host_header = null
-
-dns_record_client_routing_policy = null
-
-default_protocol = "HTTP"
-
-target_groups = null
-
-security_group_use_name_prefix = true
-
-web_acl_arn = null
-
-region = null
-
-client_keep_alive = null
-
-desync_mitigation_mode = null
-
-enable_deletion_protection = true
-
-load_balancer_type = "application"
-
-timeouts = null
-
-security_group_name = null
-
-vpc_id = null
-
 enable_waf_fail_open = null
-
-minimum_load_balancer_capacity = null
-
-security_groups = []
-
-security_group_ingress_rules = null
-
-connection_logs = null
-
-customer_owned_ipv4_pool = null
 
 enable_xff_client_port = null
 
 enable_zonal_shift = null
 
+enforce_security_group_inbound_rules_on_private_link_traffic = null
+
+idle_timeout = null
+
 internal = null
 
-subnets = null
-
-listeners = {}
-
-create_security_group = true
-
-enforce_security_group_inbound_rules_on_private_link_traffic = null
+ip_address_type = null
 
 ipam_pools = null
 
+listeners = {}
+
+load_balancer_type = "application"
+
+minimum_load_balancer_capacity = null
+
+name = null
+
+name_prefix = null
+
+preserve_host_header = null
+
+putin_khuylo = true
+
+region = null
+
+route53_records = null
+
 security_group_description = null
-
-security_group_tags = {}
-
-tags = {}
-
-enable_cross_zone_load_balancing = true
-
-xff_header_processing_mode = null
 
 security_group_egress_rules = null
 
-drop_invalid_header_fields = true
+security_group_ingress_rules = null
 
-name = null
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = null
+
+subnets = null
+
+tags = {}
+
+target_groups = null
+
+timeouts = null
+
+vpc_id = null
+
+web_acl_arn = null
+
+xff_header_processing_mode = null

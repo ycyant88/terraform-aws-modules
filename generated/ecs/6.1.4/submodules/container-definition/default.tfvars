@@ -1,105 +1,105 @@
-ulimits = null
+cloudwatch_log_group_class = null
 
-environment = []
+cloudwatch_log_group_kms_key_id = null
 
-memory = null
-
-mountPoints = []
-
-name = null
-
-logConfiguration = {}
-
-operating_system_family = "LINUX"
-
-tags = {}
-
-disableNetworking = null
-
-healthCheck = null
-
-workingDirectory = null
-
-enable_cloudwatch_logging = true
-
-dependsOn = null
-
-extraHosts = null
-
-linuxParameters = {}
-
-portMappings = null
-
-readonlyRootFilesystem = true
-
-user = null
-
-volumesFrom = []
+cloudwatch_log_group_name = null
 
 cloudwatch_log_group_retention_in_days = 14
 
-enable_execute_command = false
+cloudwatch_log_group_use_name_prefix = false
+
+command = null
 
 cpu = null
 
-pseudoTerminal = false
+create_cloudwatch_log_group = true
 
-cloudwatch_log_group_class = null
+dependsOn = null
 
-dockerLabels = null
-
-dockerSecurityOptions = null
-
-entrypoint = []
-
-essential = null
-
-resourceRequirements = null
-
-secrets = null
-
-stopTimeout = 120
-
-versionConsistency = "disabled"
-
-interactive = false
-
-links = null
-
-memoryReservation = null
-
-command = null
+disableNetworking = null
 
 dnsSearchDomains = null
 
 dnsServers = null
 
+dockerLabels = null
+
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
 environmentFiles = []
 
-create_cloudwatch_log_group = true
+essential = null
+
+extraHosts = null
 
 firelensConfiguration = null
 
+healthCheck = null
+
 hostname = null
-
-service = null
-
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-cloudwatch_log_group_kms_key_id = null
-
-region = null
 
 image = null
 
+interactive = false
+
+links = null
+
+linuxParameters = {}
+
+logConfiguration = {}
+
+memory = null
+
+memoryReservation = null
+
+mountPoints = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
 privileged = false
+
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
 
 repositoryCredentials = null
 
+resourceRequirements = null
+
 restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
 
 startTimeout = 30
 
+stopTimeout = 120
+
 systemControls = []
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = []
+
+workingDirectory = null

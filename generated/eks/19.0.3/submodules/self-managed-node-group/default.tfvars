@@ -1,189 +1,189 @@
-capacity_reservation_specification = {}
-
-health_check_type = null
-
-tags = {}
-
-pre_bootstrap_user_data = ""
-
-initial_lifecycle_hooks = []
-
-mixed_instances_policy = null
-
-cluster_ip_family = null
-
-iam_role_tags = {}
-
-post_bootstrap_user_data = ""
-
-cluster_primary_security_group_id = null
-
-name = ""
-
-launch_template_version = null
-
-context = null
-
-min_size = 0
-
-protect_from_scale_in = false
-
-cluster_endpoint = ""
-
-launch_template_description = null
-
-disable_api_termination = null
-
-kernel_id = null
-
-network_interfaces = []
-
-use_name_prefix = true
-
-termination_policies = []
-
-create_schedule = true
-
-iam_role_permissions_boundary = null
-
-maintenance_options = {}
-
-instance_requirements = {}
-
-availability_zones = null
-
-desired_size = 1
-
-warm_pool = {}
-
-platform = "linux"
-
-hibernation_options = {}
-
-vpc_security_group_ids = []
-
-wait_for_capacity_timeout = null
-
-create_launch_template = true
-
-block_device_mappings = {}
-
-default_instance_warmup = null
+ami_id = ""
 
 autoscaling_group_tags = {}
 
-iam_role_description = null
+availability_zones = null
 
-force_delete_warm_pool = null
+block_device_mappings = {}
 
-use_mixed_instances_policy = false
-
-cluster_name = ""
-
-ram_disk_id = null
-
-enclave_options = {}
-
-cluster_version = null
-
-subnet_ids = null
-
-min_elb_capacity = null
-
-delete_timeout = null
-
-iam_role_additional_policies = {}
-
-service_linked_role_arn = null
-
-create = true
-
-launch_template_default_version = null
-
-cpu_options = {}
-
-ami_id = ""
-
-suspended_processes = []
-
-max_instance_lifetime = null
-
-user_data_template_path = ""
-
-update_launch_template_default_version = true
-
-elastic_inference_accelerator = {}
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
-
-target_group_arns = []
-
-health_check_grace_period = null
-
-launch_template_use_name_prefix = true
-
-elastic_gpu_specifications = {}
-
-force_delete = null
-
-metrics_granularity = null
-
-create_iam_instance_profile = true
-
-iam_role_use_name_prefix = true
-
-license_specifications = {}
-
-placement = {}
-
-key_name = null
-
-placement_group = null
-
-instance_refresh = { "preferences" : { "min_healthy_percentage" : 66 }, "strategy" : "Rolling" }
-
-instance_market_options = {}
-
-ebs_optimized = null
-
-iam_role_path = null
-
-private_dns_name_options = {}
+bootstrap_extra_args = ""
 
 capacity_rebalance = null
 
-enabled_metrics = []
-
-iam_role_attach_cni_policy = true
-
-launch_template_tags = {}
-
-create_autoscaling_group = true
+capacity_reservation_specification = {}
 
 cluster_auth_base64 = ""
 
-bootstrap_extra_args = ""
+cluster_endpoint = ""
+
+cluster_ip_family = null
+
+cluster_name = ""
+
+cluster_primary_security_group_id = null
+
+cluster_version = null
+
+context = null
+
+cpu_options = {}
+
+create = true
+
+create_autoscaling_group = true
+
+create_iam_instance_profile = true
+
+create_launch_template = true
+
+create_schedule = true
+
+credit_specification = {}
+
+default_cooldown = null
+
+default_instance_warmup = null
+
+delete_timeout = null
+
+desired_size = 1
+
+disable_api_termination = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_monitoring = true
+
+enabled_metrics = []
+
+enclave_options = {}
+
+force_delete = null
+
+force_delete_warm_pool = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = {}
+
+iam_instance_profile_arn = null
+
+iam_role_additional_policies = {}
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = {}
+
+instance_refresh = { "preferences" : { "min_healthy_percentage" : 66 }, "strategy" : "Rolling" }
+
+instance_requirements = {}
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
+launch_template_default_version = null
+
+launch_template_description = null
 
 launch_template_id = ""
 
 launch_template_name = null
 
-credit_specification = {}
+launch_template_tags = {}
 
-instance_type = ""
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = {}
+
+maintenance_options = {}
+
+max_instance_lifetime = null
 
 max_size = 3
 
-wait_for_elb_capacity = null
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = 0
+
+mixed_instances_policy = null
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+placement_group = null
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+private_dns_name_options = {}
+
+protect_from_scale_in = false
+
+ram_disk_id = null
 
 schedules = {}
 
-iam_instance_profile_arn = null
+service_linked_role_arn = null
 
-iam_role_name = null
+subnet_ids = null
 
-instance_initiated_shutdown_behavior = null
+suspended_processes = []
 
-enable_monitoring = true
+tags = {}
 
-default_cooldown = null
+target_group_arns = []
+
+termination_policies = []
+
+update_launch_template_default_version = true
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []
+
+wait_for_capacity_timeout = null
+
+wait_for_elb_capacity = null
+
+warm_pool = {}

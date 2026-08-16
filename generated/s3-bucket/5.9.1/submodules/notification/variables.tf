@@ -1,5 +1,17 @@
-variable "create_sns_policy" {
-  description = "Whether to create a policy for SNS permissions or not?"
+variable "bucket" {
+  description = "Name of S3 bucket to use"
+  type        = string
+  default     = ""
+}
+
+variable "bucket_arn" {
+  description = "ARN of S3 bucket to use in policies"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Whether to create this resource or not?"
   type        = bool
   default     = true
 }
@@ -10,20 +22,8 @@ variable "create_lambda_permission" {
   default     = true
 }
 
-variable "bucket_arn" {
-  description = "ARN of S3 bucket to use in policies"
-  type        = string
-  default     = null
-}
-
-variable "sns_notifications" {
-  description = "Map of S3 bucket notifications to SNS topic"
-  type        = any
-  default     = {}
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
+variable "create_sns_policy" {
+  description = "Whether to create a policy for SNS permissions or not?"
   type        = bool
   default     = true
 }
@@ -34,18 +34,6 @@ variable "create_sqs_policy" {
   default     = true
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "bucket" {
-  description = "Name of S3 bucket to use"
-  type        = string
-  default     = ""
-}
-
 variable "eventbridge" {
   description = "Whether to enable Amazon EventBridge notifications"
   type        = bool
@@ -54,6 +42,18 @@ variable "eventbridge" {
 
 variable "lambda_notifications" {
   description = "Map of S3 bucket notifications to Lambda function"
+  type        = any
+  default     = {}
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "sns_notifications" {
+  description = "Map of S3 bucket notifications to SNS topic"
   type        = any
   default     = {}
 }

@@ -1,7 +1,31 @@
+variable "access_key_status" {
+  description = "Access key status to apply"
+  type        = string
+  default     = null
+}
+
 variable "create" {
   description = "Controls if resources should be created (affects all resources)"
   type        = bool
   default     = true
+}
+
+variable "create_access_key" {
+  description = "Whether to create IAM access key"
+  type        = bool
+  default     = true
+}
+
+variable "create_login_profile" {
+  description = "Whether to create IAM user login profile"
+  type        = bool
+  default     = true
+}
+
+variable "create_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
+  type        = bool
+  default     = false
 }
 
 variable "force_destroy" {
@@ -10,10 +34,10 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "policies" {
-  description = "Policies to attach to the IAM user in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
+variable "name" {
+  description = "Desired name for the IAM user"
+  type        = string
+  default     = ""
 }
 
 variable "password_length" {
@@ -22,8 +46,8 @@ variable "password_length" {
   default     = null
 }
 
-variable "create_access_key" {
-  description = "Whether to create IAM access key"
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login"
   type        = bool
   default     = true
 }
@@ -40,16 +64,16 @@ variable "permissions_boundary" {
   default     = null
 }
 
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login"
-  type        = bool
-  default     = true
+variable "pgp_key" {
+  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key"
+  type        = string
+  default     = null
 }
 
-variable "create_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
-  type        = bool
-  default     = false
+variable "policies" {
+  description = "Policies to attach to the IAM user in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
 }
 
 variable "ssh_key_encoding" {
@@ -58,38 +82,14 @@ variable "ssh_key_encoding" {
   default     = "SSH"
 }
 
-variable "name" {
-  description = "Desired name for the IAM user"
+variable "ssh_public_key" {
+  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
   type        = string
   default     = ""
-}
-
-variable "create_login_profile" {
-  description = "Whether to create IAM user login profile"
-  type        = bool
-  default     = true
-}
-
-variable "pgp_key" {
-  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key"
-  type        = string
-  default     = null
-}
-
-variable "access_key_status" {
-  description = "Access key status to apply"
-  type        = string
-  default     = null
 }
 
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "ssh_public_key" {
-  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
-  type        = string
-  default     = ""
 }

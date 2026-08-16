@@ -1,105 +1,105 @@
-private_ip = null
-
-secondary_private_ips = null
-
-spot_valid_from = null
-
-launch_template = null
-
-ebs_block_device = []
+ami = ""
 
 associate_public_ip_address = null
 
-monitoring = false
+availability_zone = null
 
-spot_price = null
+capacity_reservation_specification = {}
 
-spot_valid_until = null
-
-network_interface = []
-
-root_block_device = []
-
-volume_tags = {}
-
-vpc_security_group_ids = null
-
-cpu_threads_per_core = null
-
-spot_block_duration_minutes = null
-
-host_id = null
-
-instance_type = "t3.micro"
-
-spot_launch_group = null
-
-create = true
+cpu_core_count = null
 
 cpu_credits = null
 
+cpu_threads_per_core = null
+
+create = true
+
+create_spot_instance = false
+
+disable_api_stop = null
+
+disable_api_termination = null
+
+ebs_block_device = []
+
+ebs_optimized = null
+
+enable_volume_tags = true
+
 enclave_options_enabled = null
+
+ephemeral_block_device = []
+
+get_password_data = null
+
+hibernation = null
+
+host_id = null
+
+iam_instance_profile = null
+
+instance_initiated_shutdown_behavior = null
+
+instance_type = "t3.micro"
 
 ipv6_address_count = null
 
 ipv6_addresses = null
 
-source_dest_check = true
+key_name = null
 
-tags = {}
-
-disable_api_stop = null
-
-capacity_reservation_specification = {}
-
-enable_volume_tags = true
-
-tenancy = null
-
-create_spot_instance = false
-
-disable_api_termination = null
-
-ebs_optimized = null
-
-user_data_replace_on_change = false
-
-ami = ""
-
-user_data = null
-
-spot_instance_interruption_behavior = null
-
-name = ""
+launch_template = null
 
 metadata_options = {}
 
-subnet_id = null
+monitoring = false
 
-user_data_base64 = null
+name = ""
 
-instance_initiated_shutdown_behavior = null
+network_interface = []
 
-ephemeral_block_device = []
+placement_group = null
 
-hibernation = null
-
-iam_instance_profile = null
-
-cpu_core_count = null
-
-spot_type = null
+private_ip = null
 
 putin_khuylo = true
 
-availability_zone = null
+root_block_device = []
 
-key_name = null
+secondary_private_ips = null
 
-get_password_data = null
+source_dest_check = true
 
-timeouts = {}
+spot_block_duration_minutes = null
+
+spot_instance_interruption_behavior = null
+
+spot_launch_group = null
+
+spot_price = null
+
+spot_type = null
+
+spot_valid_from = null
+
+spot_valid_until = null
 
 spot_wait_for_fulfillment = null
 
-placement_group = null
+subnet_id = null
+
+tags = {}
+
+tenancy = null
+
+timeouts = {}
+
+user_data = null
+
+user_data_base64 = null
+
+user_data_replace_on_change = false
+
+volume_tags = {}
+
+vpc_security_group_ids = null

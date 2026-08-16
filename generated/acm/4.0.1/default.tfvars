@@ -1,24 +1,22 @@
 certificate_transparency_logging_preference = true
 
-subject_alternative_names = []
-
-dns_ttl = 60
+create_certificate = true
 
 create_route53_records = true
 
-zone_id = ""
-
-tags = {}
-
-create_certificate = true
-
-validation_allow_overwrite_records = true
-
-wait_for_validation = true
+dns_ttl = 60
 
 domain_name = ""
 
+putin_khuylo = true
+
+subject_alternative_names = []
+
+tags = {}
+
 validate_certificate = true
+
+validation_allow_overwrite_records = true
 
 validation_method = "DNS"
 
@@ -26,4 +24,6 @@ validation_option = {}
 
 validation_record_fqdns = []
 
-putin_khuylo = true
+wait_for_validation = true
+
+zone_id = ""

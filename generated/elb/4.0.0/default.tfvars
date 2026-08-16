@@ -1,31 +1,31 @@
-instances = []
-
-security_groups = ""
+access_logs = {}
 
 connection_draining = false
 
 connection_draining_timeout = 300
 
-access_logs = {}
+create_elb = true
 
 cross_zone_load_balancing = true
 
 health_check = ""
 
-create_elb = true
-
-name_prefix = null
-
-subnets = ""
-
 idle_timeout = 60
+
+instances = []
+
+internal = false
 
 listener = ""
 
 name = null
 
-internal = false
-
-tags = {}
+name_prefix = null
 
 number_of_instances = 0
+
+security_groups = ""
+
+subnets = ""
+
+tags = {}

@@ -1,81 +1,81 @@
-name = null
+access_logs = {}
 
-route53_records = {}
-
-putin_khuylo = true
-
-tags = {}
-
-subnets = []
-
-xff_header_processing_mode = null
-
-default_protocol = "HTTP"
-
-target_groups = {}
+associate_web_acl = false
 
 create = true
 
-drop_invalid_header_fields = true
+create_security_group = true
 
-enable_deletion_protection = true
-
-security_group_ingress_rules = {}
-
-security_group_tags = {}
-
-enable_waf_fail_open = null
+customer_owned_ipv4_pool = null
 
 default_port = 80
 
-listeners = {}
-
-enable_http2 = null
-
-idle_timeout = null
+default_protocol = "HTTP"
 
 desync_mitigation_mode = null
 
 dns_record_client_routing_policy = null
 
+drop_invalid_header_fields = true
+
 enable_cross_zone_load_balancing = true
 
-subnet_mapping = []
+enable_deletion_protection = true
 
-timeouts = {}
-
-security_group_use_name_prefix = true
-
-preserve_host_header = null
-
-security_group_description = null
-
-associate_web_acl = false
-
-web_acl_arn = null
+enable_http2 = null
 
 enable_tls_version_and_cipher_suite_headers = null
 
-access_logs = {}
-
-customer_owned_ipv4_pool = null
-
-internal = null
-
-load_balancer_type = "application"
-
-security_group_name = null
+enable_waf_fail_open = null
 
 enable_xff_client_port = null
 
+idle_timeout = null
+
+internal = null
+
 ip_address_type = null
+
+listeners = {}
+
+load_balancer_type = "application"
+
+name = null
 
 name_prefix = null
 
+preserve_host_header = null
+
+putin_khuylo = true
+
+route53_records = {}
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
 security_groups = []
 
-create_security_group = true
+subnet_mapping = []
+
+subnets = []
+
+tags = {}
+
+target_groups = {}
+
+timeouts = {}
 
 vpc_id = null
 
-security_group_egress_rules = {}
+web_acl_arn = null
+
+xff_header_processing_mode = null

@@ -1,8 +1,3 @@
-output "topic_beginning_archive_time" {
-  value       = module.sns.topic_beginning_archive_time
-  description = "The oldest timestamp at which a FIFO topic subscriber can start a replay"
-}
-
 output "subscriptions" {
   value       = module.sns.subscriptions
   description = "Map of subscriptions created and their attributes"
@@ -11,6 +6,11 @@ output "subscriptions" {
 output "topic_arn" {
   value       = module.sns.topic_arn
   description = "The ARN of the SNS topic, as a more obvious property (clone of id)"
+}
+
+output "topic_beginning_archive_time" {
+  value       = module.sns.topic_beginning_archive_time
+  description = "The oldest timestamp at which a FIFO topic subscriber can start a replay"
 }
 
 output "topic_id" {

@@ -1,62 +1,40 @@
-saml_admin_role_values = []
-
-create = true
-
-description = null
-
-stack_set_name = null
-
-iam_role_permissions_boundary = null
-
-saml_login_validity_duration = null
-
-saml_role_assertion = null
-
-create_iam_role = true
-
-saml_editor_role_values = []
-
-saml_org_assertion = null
-
-role_associations = {}
-
-name = null
-
 account_access_type = "CURRENT_ACCOUNT"
-
-permission_type = "SERVICE_MANAGED"
-
-iam_role_max_session_duration = null
-
-saml_idp_metadata_xml = null
-
-saml_allowed_organizations = []
-
-saml_groups_assertion = null
-
-saml_idp_metadata_url = null
-
-workspace_id = ""
-
-authentication_providers = ["AWS_SSO"]
-
-license_type = "ENTERPRISE"
-
-iam_role_description = null
-
-saml_email_assertion = null
-
-saml_login_assertion = null
 
 associate_license = true
 
-tags = {}
+authentication_providers = ["AWS_SSO"]
+
+create = true
+
+create_iam_role = true
+
+create_workspace = true
+
+data_sources = []
+
+description = null
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
 
 iam_role_policy_arns = []
 
 iam_role_tags = {}
 
-create_workspace = true
+license_type = "ENTERPRISE"
+
+name = null
 
 notification_destinations = []
 
@@ -64,18 +42,40 @@ organization_role_name = null
 
 organizational_units = []
 
+permission_type = "SERVICE_MANAGED"
+
+role_associations = {}
+
+saml_admin_role_values = []
+
+saml_allowed_organizations = []
+
+saml_editor_role_values = []
+
+saml_email_assertion = null
+
+saml_groups_assertion = null
+
+saml_idp_metadata_url = null
+
+saml_idp_metadata_xml = null
+
+saml_login_assertion = null
+
+saml_login_validity_duration = null
+
 saml_name_assertion = null
 
-iam_role_force_detach_policies = true
+saml_org_assertion = null
 
-data_sources = []
+saml_role_assertion = null
 
-workspace_api_keys = {}
+stack_set_name = null
 
-iam_role_arn = null
-
-iam_role_name = null
+tags = {}
 
 use_iam_role_name_prefix = true
 
-iam_role_path = null
+workspace_api_keys = {}
+
+workspace_id = ""

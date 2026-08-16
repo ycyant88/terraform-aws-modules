@@ -1,10 +1,10 @@
-description = null
-
-tags = {}
-
 create = true
 
+description = null
+
 family = null
+
+name = ""
 
 parameters = null
 
@@ -12,6 +12,6 @@ region = null
 
 skip_destroy = null
 
-name = ""
+tags = {}
 
 use_name_prefix = true

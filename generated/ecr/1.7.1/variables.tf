@@ -1,43 +1,13 @@
-variable "registry_policy" {
-  description = "The policy document. This is a JSON formatted string"
-  type        = string
-  default     = null
-}
-
-variable "registry_replication_rules" {
-  description = "The replication rules for a replication configuration. A maximum of 10 are allowed"
-  type        = any
-  default     = []
-}
-
-variable "repository_kms_key" {
-  description = "The ARN of the KMS key to use when encryption_type is KMS. If not specified, uses the default AWS managed key for ECR"
-  type        = string
-  default     = null
-}
-
 variable "attach_repository_policy" {
   description = "Determines whether a repository policy will be attached to the repository"
   type        = bool
   default     = true
 }
 
-variable "repository_read_access_arns" {
-  description = "The ARNs of the IAM users/roles that have read access to the repository"
-  type        = list(string)
-  default     = []
-}
-
-variable "repository_lambda_read_access_arns" {
-  description = "The ARNs of the Lambda service roles that have read access to the repository"
-  type        = list(string)
-  default     = []
-}
-
-variable "repository_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = {}
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "create_lifecycle_policy" {
@@ -46,10 +16,58 @@ variable "create_lifecycle_policy" {
   default     = true
 }
 
-variable "repository_lifecycle_policy" {
-  description = "The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs"
+variable "create_registry_policy" {
+  description = "Determines whether a registry policy will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_registry_replication_configuration" {
+  description = "Determines whether a registry replication configuration will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_repository" {
+  description = "Determines whether a repository will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_repository_policy" {
+  description = "Determines whether a repository policy will be created"
+  type        = bool
+  default     = true
+}
+
+variable "manage_registry_scanning_configuration" {
+  description = "Determines whether the registry scanning configuration will be managed"
+  type        = bool
+  default     = false
+}
+
+variable "public_repository_catalog_data" {
+  description = "Catalog data configuration for the repository"
+  type        = any
+  default     = {}
+}
+
+variable "registry_policy" {
+  description = "The policy document. This is a JSON formatted string"
   type        = string
-  default     = ""
+  default     = null
+}
+
+variable "registry_pull_through_cache_rules" {
+  description = "List of pull through cache rules to create"
+  type        = map(map(string))
+  default     = {}
+}
+
+variable "registry_replication_rules" {
+  description = "The replication rules for a replication configuration. A maximum of 10 are allowed"
+  type        = any
+  default     = []
 }
 
 variable "registry_scan_rules" {
@@ -58,16 +76,10 @@ variable "registry_scan_rules" {
   default     = []
 }
 
-variable "repository_name" {
-  description = "The name of the repository"
+variable "registry_scan_type" {
+  description = "the scanning type to set for the registry. Can be either ENHANCED or BASIC"
   type        = string
-  default     = ""
-}
-
-variable "repository_image_tag_mutability" {
-  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE. Defaults to IMMUTABLE"
-  type        = string
-  default     = "IMMUTABLE"
+  default     = "ENHANCED"
 }
 
 variable "repository_encryption_type" {
@@ -82,34 +94,40 @@ variable "repository_force_delete" {
   default     = null
 }
 
-variable "registry_pull_through_cache_rules" {
-  description = "List of pull through cache rules to create"
-  type        = map(map(string))
-  default     = {}
-}
-
-variable "manage_registry_scanning_configuration" {
-  description = "Determines whether the registry scanning configuration will be managed"
-  type        = bool
-  default     = false
-}
-
-variable "registry_scan_type" {
-  description = "the scanning type to set for the registry. Can be either ENHANCED or BASIC"
-  type        = string
-  default     = "ENHANCED"
-}
-
-variable "create_registry_replication_configuration" {
-  description = "Determines whether a registry replication configuration will be created"
-  type        = bool
-  default     = false
-}
-
 variable "repository_image_scan_on_push" {
   description = "Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false)"
   type        = bool
   default     = true
+}
+
+variable "repository_image_tag_mutability" {
+  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE. Defaults to IMMUTABLE"
+  type        = string
+  default     = "IMMUTABLE"
+}
+
+variable "repository_kms_key" {
+  description = "The ARN of the KMS key to use when encryption_type is KMS. If not specified, uses the default AWS managed key for ECR"
+  type        = string
+  default     = null
+}
+
+variable "repository_lambda_read_access_arns" {
+  description = "The ARNs of the Lambda service roles that have read access to the repository"
+  type        = list(string)
+  default     = []
+}
+
+variable "repository_lifecycle_policy" {
+  description = "The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs"
+  type        = string
+  default     = ""
+}
+
+variable "repository_name" {
+  description = "The name of the repository"
+  type        = string
+  default     = ""
 }
 
 variable "repository_policy" {
@@ -118,34 +136,22 @@ variable "repository_policy" {
   default     = null
 }
 
-variable "public_repository_catalog_data" {
-  description = "Catalog data configuration for the repository"
+variable "repository_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
   type        = any
   default     = {}
 }
 
-variable "create_registry_policy" {
-  description = "Determines whether a registry policy will be created"
-  type        = bool
-  default     = false
+variable "repository_read_access_arns" {
+  description = "The ARNs of the IAM users/roles that have read access to the repository"
+  type        = list(string)
+  default     = []
 }
 
-variable "create_repository_policy" {
-  description = "Determines whether a repository policy will be created"
-  type        = bool
-  default     = true
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "repository_read_write_access_arns" {
+  description = "The ARNs of the IAM users/roles that have read/write access to the repository"
+  type        = list(string)
+  default     = []
 }
 
 variable "repository_type" {
@@ -154,14 +160,8 @@ variable "repository_type" {
   default     = "private"
 }
 
-variable "create_repository" {
-  description = "Determines whether a repository will be created"
-  type        = bool
-  default     = true
-}
-
-variable "repository_read_write_access_arns" {
-  description = "The ARNs of the IAM users/roles that have read/write access to the repository"
-  type        = list(string)
-  default     = []
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

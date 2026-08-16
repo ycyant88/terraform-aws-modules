@@ -1,79 +1,79 @@
-vpc_zone_identifier = ""
+asg_name = ""
 
-wait_for_elb_capacity = false
+associate_public_ip_address = false
 
-force_delete = false
+create_asg = true
 
-security_groups = ""
+create_lc = true
+
+default_cooldown = 300
+
+desired_capacity = ""
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
 ephemeral_block_device = []
 
-min_elb_capacity = 0
-
-protect_from_scale_in = false
-
-metrics_granularity = "1Minute"
-
-lc_name = ""
-
-image_id = ""
-
-user_data = ""
-
-ebs_optimized = false
+force_delete = false
 
 health_check_grace_period = 300
 
 health_check_type = ""
 
-enable_monitoring = true
-
-create_lc = true
-
-associate_public_ip_address = false
-
-max_size = ""
-
-min_size = ""
-
-desired_capacity = ""
-
-tags = []
-
-create_asg = true
-
-launch_configuration = ""
-
 iam_instance_profile = ""
+
+image_id = ""
 
 instance_type = ""
 
 key_name = ""
 
-ebs_block_device = []
+launch_configuration = ""
 
-placement_tenancy = "default"
+lc_name = ""
 
 load_balancers = []
 
-suspended_processes = []
+max_size = ""
 
-placement_group = ""
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
 
 name = ""
 
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
 root_block_device = []
+
+security_groups = ""
 
 spot_price = 0
 
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+suspended_processes = []
 
-wait_for_capacity_timeout = "10m"
-
-asg_name = ""
-
-default_cooldown = 300
+tags = []
 
 target_group_arns = []
 
 termination_policies = ["Default"]
+
+user_data = ""
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

@@ -16,16 +16,28 @@ variable "alarm_actions" {
   default     = null
 }
 
+variable "alarm_description" {
+  description = "The description for the composite alarm."
+  type        = string
+  default     = null
+}
+
 variable "alarm_name" {
   description = "The descriptive name for the composite alarm. This name must be unique within the region."
   type        = string
   default     = null
 }
 
-variable "alarm_description" {
-  description = "The description for the composite alarm."
+variable "alarm_rule" {
+  description = "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. The maximum length is 10240 characters."
   type        = string
   default     = null
+}
+
+variable "create" {
+  description = "Whether to create the Cloudwatch composite alarm"
+  type        = bool
+  default     = true
 }
 
 variable "insufficient_data_actions" {
@@ -40,20 +52,8 @@ variable "ok_actions" {
   default     = null
 }
 
-variable "alarm_rule" {
-  description = "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. The maximum length is 10240 characters."
-  type        = string
-  default     = null
-}
-
 variable "tags" {
   description = "A mapping of tags to assign to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "create" {
-  description = "Whether to create the Cloudwatch composite alarm"
-  type        = bool
-  default     = true
 }

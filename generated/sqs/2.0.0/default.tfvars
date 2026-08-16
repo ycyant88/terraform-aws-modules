@@ -1,29 +1,29 @@
-visibility_timeout_seconds = 30
-
-tags = {}
-
-name_prefix = null
-
-delay_seconds = 0
-
 content_based_deduplication = false
-
-kms_master_key_id = null
 
 create = true
 
-name = null
+delay_seconds = 0
 
-max_message_size = 262144
-
-policy = ""
-
-redrive_policy = ""
+fifo_queue = false
 
 kms_data_key_reuse_period_seconds = 300
 
+kms_master_key_id = null
+
+max_message_size = 262144
+
 message_retention_seconds = 345600
+
+name = null
+
+name_prefix = null
+
+policy = ""
 
 receive_wait_time_seconds = 0
 
-fifo_queue = false
+redrive_policy = ""
+
+tags = {}
+
+visibility_timeout_seconds = 30

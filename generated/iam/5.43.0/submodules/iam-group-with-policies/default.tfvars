@@ -1,21 +1,21 @@
 attach_iam_self_management_policy = true
 
-iam_self_management_policy_name_prefix = "IAMSelfManagement-"
+aws_account_id = ""
 
-path = "/"
+create_group = true
+
+custom_group_policies = []
 
 custom_group_policy_arns = []
 
 enable_mfa_enforcement = true
 
-aws_account_id = ""
+group_users = []
 
-tags = {}
-
-create_group = true
+iam_self_management_policy_name_prefix = "IAMSelfManagement-"
 
 name = ""
 
-group_users = []
+path = "/"
 
-custom_group_policies = []
+tags = {}

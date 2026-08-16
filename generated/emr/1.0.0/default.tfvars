@@ -1,131 +1,131 @@
-kerberos_attributes = {}
+additional_info = null
 
-log_encryption_kms_key_id = null
-
-service_pass_role_policy_description = null
-
-managed_security_group_use_name_prefix = true
-
-custom_ami_id = null
-
-termination_protection = null
-
-security_configuration_name = null
-
-security_configuration_use_name_prefix = true
-
-iam_role_use_name_prefix = true
-
-vpc_id = ""
-
-release_label_filters = { "default" : { "prefix" : "emr-6" } }
-
-iam_role_permissions_boundary = null
-
-create_autoscaling_iam_role = true
-
-tags = {}
-
-create_service_iam_role = true
-
-slave_security_group_rules = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
-
-keep_job_flow_alive_when_no_steps = null
-
-step = {}
-
-step_concurrency_level = null
-
-service_iam_role_arn = null
-
-autoscaling_iam_role_arn = null
-
-service_security_group_rules = {}
+applications = []
 
 auto_termination_policy = {}
 
-ec2_attributes = {}
+autoscaling_iam_role_arn = null
+
+autoscaling_iam_role_description = null
+
+autoscaling_iam_role_name = null
+
+bootstrap_action = {}
 
 configurations = null
 
-name = ""
+configurations_json = null
 
-iam_role_tags = {}
+core_instance_fleet = {}
 
-service_iam_role_description = null
-
-service_pass_role_policy_name = null
+core_instance_group = {}
 
 create = true
 
-task_instance_group = {}
+create_autoscaling_iam_role = true
 
-managed_security_group_name = null
+create_iam_instance_profile = true
 
-task_instance_fleet = {}
+create_managed_security_groups = true
+
+create_security_configuration = false
+
+create_service_iam_role = true
+
+custom_ami_id = null
+
+ebs_root_volume_size = null
+
+ec2_attributes = {}
+
+iam_instance_profile_description = null
 
 iam_instance_profile_name = null
 
 iam_instance_profile_policies = { "AmazonElasticMapReduceforEC2Role" : "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role" }
 
-create_managed_security_groups = true
-
-core_instance_fleet = {}
-
-scale_down_behavior = "TERMINATE_AT_TASK_COMPLETION"
-
-visible_to_all_users = null
-
-managed_scaling_policy = {}
-
-autoscaling_iam_role_description = null
-
-bootstrap_action = {}
-
-list_steps_states = []
-
 iam_role_path = null
 
-iam_instance_profile_description = null
+iam_role_permissions_boundary = null
 
-service_security_group_description = "Managed service access security group"
+iam_role_tags = {}
 
-additional_info = null
-
-applications = []
-
-master_instance_group = {}
-
-service_iam_role_policies = { "AmazonEMRServicePolicy_v2" : "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2" }
-
-configurations_json = null
-
-master_instance_fleet = {}
-
-release_label = null
-
-autoscaling_iam_role_name = null
-
-master_security_group_description = "Managed master security group"
-
-core_instance_group = {}
-
-create_security_configuration = false
-
-service_iam_role_name = null
-
-managed_security_group_tags = {}
-
-slave_security_group_description = "Managed slave security group"
+iam_role_use_name_prefix = true
 
 is_private_cluster = true
 
-ebs_root_volume_size = null
+keep_job_flow_alive_when_no_steps = null
+
+kerberos_attributes = {}
+
+list_steps_states = []
+
+log_encryption_kms_key_id = null
 
 log_uri = null
 
-security_configuration = null
+managed_scaling_policy = {}
 
-create_iam_instance_profile = true
+managed_security_group_name = null
+
+managed_security_group_tags = {}
+
+managed_security_group_use_name_prefix = true
+
+master_instance_fleet = {}
+
+master_instance_group = {}
+
+master_security_group_description = "Managed master security group"
 
 master_security_group_rules = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
+
+name = ""
+
+release_label = null
+
+release_label_filters = { "default" : { "prefix" : "emr-6" } }
+
+scale_down_behavior = "TERMINATE_AT_TASK_COMPLETION"
+
+security_configuration = null
+
+security_configuration_name = null
+
+security_configuration_use_name_prefix = true
+
+service_iam_role_arn = null
+
+service_iam_role_description = null
+
+service_iam_role_name = null
+
+service_iam_role_policies = { "AmazonEMRServicePolicy_v2" : "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2" }
+
+service_pass_role_policy_description = null
+
+service_pass_role_policy_name = null
+
+service_security_group_description = "Managed service access security group"
+
+service_security_group_rules = {}
+
+slave_security_group_description = "Managed slave security group"
+
+slave_security_group_rules = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
+
+step = {}
+
+step_concurrency_level = null
+
+tags = {}
+
+task_instance_fleet = {}
+
+task_instance_group = {}
+
+termination_protection = null
+
+visible_to_all_users = null
+
+vpc_id = ""

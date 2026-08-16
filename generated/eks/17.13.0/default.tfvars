@@ -1,135 +1,135 @@
-worker_ami_owner_id_windows = "amazon"
+attach_worker_cni_policy = true
+
+aws_auth_additional_labels = {}
+
+cluster_create_endpoint_private_access_sg_rule = false
+
+cluster_create_security_group = true
 
 cluster_create_timeout = "30m"
 
+cluster_delete_timeout = "15m"
+
+cluster_egress_cidrs = ["0.0.0.0/0"]
+
+cluster_enabled_log_types = []
+
+cluster_encryption_config = []
+
+cluster_endpoint_private_access = false
+
+cluster_endpoint_private_access_cidrs = null
+
+cluster_endpoint_private_access_sg = null
+
+cluster_endpoint_public_access = true
+
 cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-kubeconfig_output_path = "./"
+cluster_iam_role_name = ""
 
-worker_ami_name_filter = ""
+cluster_log_kms_key_id = ""
+
+cluster_log_retention_in_days = 90
+
+cluster_name = ""
+
+cluster_security_group_id = ""
+
+cluster_service_ipv4_cidr = null
+
+cluster_tags = {}
+
+cluster_version = ""
+
+create_eks = true
+
+create_fargate_pod_execution_role = true
+
+eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
 
 enable_irsa = false
 
 fargate_pod_execution_role_name = null
 
-worker_security_group_id = ""
-
-cluster_tags = {}
-
-worker_groups = []
-
-cluster_create_endpoint_private_access_sg_rule = false
-
-attach_worker_cni_policy = true
-
-cluster_encryption_config = []
-
-cluster_log_kms_key_id = ""
-
-write_kubeconfig = true
-
-workers_group_defaults = {}
-
-kubeconfig_aws_authenticator_env_variables = {}
-
-permissions_boundary = null
-
-kubeconfig_file_permission = "0600"
-
-cluster_endpoint_private_access_sg = null
-
-manage_worker_iam_resources = true
-
-worker_create_initial_lifecycle_hooks = false
-
-cluster_delete_timeout = "15m"
+fargate_profiles = {}
 
 iam_path = "/"
 
-manage_cluster_iam_resources = true
-
-cluster_service_ipv4_cidr = null
-
-subnets = ""
+kubeconfig_aws_authenticator_additional_args = []
 
 kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
 
 kubeconfig_aws_authenticator_command_args = []
 
-cluster_enabled_log_types = []
+kubeconfig_aws_authenticator_env_variables = {}
 
-map_users = []
+kubeconfig_file_permission = "0600"
 
-timeouts = {}
+kubeconfig_name = ""
+
+kubeconfig_output_path = "./"
+
+manage_aws_auth = true
+
+manage_cluster_iam_resources = true
+
+manage_worker_iam_resources = true
+
+map_accounts = []
 
 map_roles = []
 
-aws_auth_additional_labels = {}
+map_users = []
+
+node_groups = {}
+
+node_groups_defaults = {}
+
+openid_connect_audiences = []
+
+permissions_boundary = null
+
+subnets = ""
+
+tags = {}
+
+timeouts = {}
 
 vpc_id = ""
+
+wait_for_cluster_timeout = 300
+
+worker_additional_security_group_ids = []
+
+worker_ami_name_filter = ""
 
 worker_ami_name_filter_windows = ""
 
 worker_ami_owner_id = "amazon"
 
-cluster_endpoint_private_access_cidrs = null
-
-node_groups = {}
-
-workers_egress_cidrs = ["0.0.0.0/0"]
-
-cluster_version = ""
-
-kubeconfig_name = ""
-
-create_eks = true
-
-cluster_log_retention_in_days = 90
-
-worker_groups_launch_template = []
-
-cluster_security_group_id = ""
-
-worker_create_security_group = true
-
-cluster_endpoint_public_access = true
-
-workers_additional_policies = []
-
-map_accounts = []
-
-kubeconfig_aws_authenticator_additional_args = []
+worker_ami_owner_id_windows = "amazon"
 
 worker_create_cluster_primary_security_group_rules = false
 
-workers_role_name = ""
+worker_create_initial_lifecycle_hooks = false
 
-cluster_name = ""
+worker_create_security_group = true
+
+worker_groups = []
+
+worker_groups_launch_template = []
+
+worker_security_group_id = ""
 
 worker_sg_ingress_from_port = 1025
 
-cluster_create_security_group = true
+workers_additional_policies = []
 
-cluster_iam_role_name = ""
+workers_egress_cidrs = ["0.0.0.0/0"]
 
-node_groups_defaults = {}
+workers_group_defaults = {}
 
-eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
+workers_role_name = ""
 
-fargate_profiles = {}
-
-create_fargate_pod_execution_role = true
-
-manage_aws_auth = true
-
-cluster_egress_cidrs = ["0.0.0.0/0"]
-
-worker_additional_security_group_ids = []
-
-cluster_endpoint_private_access = false
-
-wait_for_cluster_timeout = 300
-
-openid_connect_audiences = []
-
-tags = {}
+write_kubeconfig = true

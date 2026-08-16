@@ -1,105 +1,105 @@
-cpu = null
-
-firelensConfiguration = null
-
-name = null
-
-repositoryCredentials = null
-
 cloudwatch_log_group_class = null
 
-image = null
-
-logConfiguration = {}
-
-memory = null
-
-startTimeout = 30
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-links = null
-
-memoryReservation = null
-
-essential = null
-
-resourceRequirements = null
-
-restartPolicy = { "enabled" : true }
-
-workingDirectory = null
-
-service = null
-
 cloudwatch_log_group_retention_in_days = 14
 
-healthCheck = null
+cloudwatch_log_group_use_name_prefix = false
 
-secrets = null
+command = null
 
-volumesFrom = null
+cpu = null
 
-enable_cloudwatch_logging = true
+create_cloudwatch_log_group = true
 
-dockerSecurityOptions = null
-
-environment = null
+dependsOn = null
 
 disableNetworking = null
 
 dnsSearchDomains = null
 
-portMappings = null
+dnsServers = null
 
-stopTimeout = 120
+dockerLabels = null
 
-systemControls = null
+dockerSecurityOptions = null
 
-cloudwatch_log_group_use_name_prefix = false
+enable_cloudwatch_logging = true
 
-tags = {}
+enable_execute_command = false
+
+entrypoint = null
+
+environment = null
+
+environmentFiles = null
+
+essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
+
+image = null
 
 interactive = false
 
+links = null
+
 linuxParameters = {}
+
+logConfiguration = {}
+
+memory = null
+
+memoryReservation = null
+
+mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
 
 privileged = false
 
 pseudoTerminal = false
 
-versionConsistency = "disabled"
-
-create_cloudwatch_log_group = true
-
-mountPoints = null
-
-dockerLabels = null
-
-operating_system_family = "LINUX"
-
-command = null
-
-dependsOn = null
-
-dnsServers = null
-
-extraHosts = null
-
-hostname = null
-
-enable_execute_command = false
-
-environmentFiles = null
-
 readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = null
+
+tags = {}
 
 ulimits = null
 
 user = null
 
-cloudwatch_log_group_kms_key_id = null
+versionConsistency = "disabled"
 
-entrypoint = null
+volumesFrom = null
 
-region = null
+workingDirectory = null

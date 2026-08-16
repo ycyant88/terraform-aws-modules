@@ -1,7 +1,7 @@
-variable "query_string" {
-  description = "The The query to save."
-  type        = string
-  default     = ""
+variable "create" {
+  description = "Whether to create the Cloudwatch query definition"
+  type        = bool
+  default     = true
 }
 
 variable "log_group_names" {
@@ -10,14 +10,14 @@ variable "log_group_names" {
   default     = null
 }
 
-variable "create" {
-  description = "Whether to create the Cloudwatch query definition"
-  type        = bool
-  default     = true
-}
-
 variable "name" {
   description = "The name of the query."
+  type        = string
+  default     = ""
+}
+
+variable "query_string" {
+  description = "The The query to save."
   type        = string
   default     = ""
 }

@@ -5,7 +5,7 @@ module "cloudfront_trust_store" {
   ca_cert_key     = var.ca_cert_key
   ca_cert_region  = var.ca_cert_region
   ca_cert_version = var.ca_cert_version
-  tags            = var.tags
   create          = var.create
   name            = var.name
+  tags            = var.tags
 }

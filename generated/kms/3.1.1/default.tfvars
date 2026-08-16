@@ -1,77 +1,77 @@
-multi_region = false
+aliases = []
 
-enable_route53_dnssec = false
+aliases_use_name_prefix = false
 
-rotation_period_in_days = null
+bypass_policy_lockout_safety_check = null
 
-primary_key_arn = null
+computed_aliases = {}
+
+create = true
+
+create_external = false
+
+create_replica = false
 
 create_replica_external = false
 
 custom_key_store_id = null
 
-key_service_users = []
+customer_master_key_spec = null
 
-key_asymmetric_public_encryption_users = []
+deletion_window_in_days = null
 
-key_hmac_users = []
+description = null
 
-computed_aliases = {}
+enable_default_policy = true
 
-create_external = false
+enable_key_rotation = true
 
-policy = null
+enable_route53_dnssec = false
 
-key_symmetric_encryption_users = []
+grants = {}
 
 is_enabled = null
 
-key_owners = []
-
 key_administrators = []
 
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
+key_hmac_users = []
+
+key_material_base64 = null
+
+key_owners = []
+
+key_service_roles_for_autoscaling = []
+
+key_service_users = []
+
+key_statements = {}
+
+key_symmetric_encryption_users = []
+
+key_usage = null
+
 key_users = []
+
+multi_region = false
+
+override_policy_documents = []
+
+policy = null
+
+primary_external_key_arn = null
+
+primary_key_arn = null
+
+rotation_period_in_days = null
+
+route53_dnssec_sources = []
 
 source_policy_documents = []
 
 tags = {}
-
-description = null
-
-enable_key_rotation = true
-
-create_replica = false
-
-aliases = []
-
-key_asymmetric_sign_verify_users = []
-
-bypass_policy_lockout_safety_check = null
-
-enable_default_policy = true
-
-key_service_roles_for_autoscaling = []
-
-aliases_use_name_prefix = false
-
-grants = {}
-
-create = true
-
-override_policy_documents = []
-
-primary_external_key_arn = null
-
-deletion_window_in_days = null
-
-key_material_base64 = null
-
-key_statements = {}
-
-route53_dnssec_sources = []
-
-customer_master_key_spec = null
-
-key_usage = null
 
 valid_to = null

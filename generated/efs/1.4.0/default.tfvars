@@ -1,57 +1,57 @@
-availability_zone_name = null
-
-performance_mode = null
-
-create_security_group = true
-
-policy_statements = []
-
-security_group_use_name_prefix = false
-
-tags = {}
-
-creation_token = null
-
-provisioned_throughput_in_mibps = null
-
-lifecycle_policy = {}
-
-bypass_policy_lockout_safety_check = null
-
-source_policy_documents = []
-
-create_backup_policy = true
-
-mount_targets = {}
-
-security_group_name = null
-
-enable_backup_policy = true
-
-create_replication_configuration = false
-
-create = true
-
-name = ""
-
-kms_key_arn = null
-
-deny_nonsecure_transport = true
-
-encrypted = true
-
-security_group_rules = {}
-
-throughput_mode = null
+access_points = {}
 
 attach_policy = true
 
-security_group_description = null
+availability_zone_name = null
 
-security_group_vpc_id = null
+bypass_policy_lockout_safety_check = null
 
-access_points = {}
+create = true
+
+create_backup_policy = true
+
+create_replication_configuration = false
+
+create_security_group = true
+
+creation_token = null
+
+deny_nonsecure_transport = true
+
+enable_backup_policy = true
+
+encrypted = true
+
+kms_key_arn = null
+
+lifecycle_policy = {}
+
+mount_targets = {}
+
+name = ""
 
 override_policy_documents = []
 
+performance_mode = null
+
+policy_statements = []
+
+provisioned_throughput_in_mibps = null
+
 replication_configuration_destination = {}
+
+security_group_description = null
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_use_name_prefix = false
+
+security_group_vpc_id = null
+
+source_policy_documents = []
+
+tags = {}
+
+throughput_mode = null

@@ -1,17 +1,17 @@
-option_group_description = ""
+create = true
 
 engine_name = ""
 
-timeouts = { "delete" : "15m" }
-
-create = true
+major_engine_version = ""
 
 name = ""
 
-use_name_prefix = true
-
-major_engine_version = ""
+option_group_description = ""
 
 options = []
 
 tags = {}
+
+timeouts = { "delete" : "15m" }
+
+use_name_prefix = true

@@ -1,55 +1,55 @@
 attach_repository_policy = true
 
-repository_lambda_read_access_arns = []
+create = true
 
-repository_policy_statements = {}
+create_lifecycle_policy = true
 
 create_registry_policy = false
 
-registry_pull_through_cache_rules = {}
-
-registry_scan_rules = []
-
-tags = {}
+create_registry_replication_configuration = false
 
 create_repository = true
 
-repository_policy = null
-
-repository_force_delete = null
-
-repository_read_write_access_arns = []
-
-repository_lifecycle_policy = ""
-
-registry_scan_type = "ENHANCED"
-
-create_registry_replication_configuration = false
-
-create = true
-
-repository_name = ""
-
-repository_kms_key = null
-
-repository_read_access_arns = []
-
-manage_registry_scanning_configuration = false
-
-registry_replication_rules = []
-
-repository_image_tag_mutability = "IMMUTABLE"
-
-repository_encryption_type = null
-
 create_repository_policy = true
 
-create_lifecycle_policy = true
+manage_registry_scanning_configuration = false
 
 public_repository_catalog_data = {}
 
 registry_policy = null
 
-repository_type = "private"
+registry_pull_through_cache_rules = {}
+
+registry_replication_rules = []
+
+registry_scan_rules = []
+
+registry_scan_type = "ENHANCED"
+
+repository_encryption_type = null
+
+repository_force_delete = null
 
 repository_image_scan_on_push = true
+
+repository_image_tag_mutability = "IMMUTABLE"
+
+repository_kms_key = null
+
+repository_lambda_read_access_arns = []
+
+repository_lifecycle_policy = ""
+
+repository_name = ""
+
+repository_policy = null
+
+repository_policy_statements = {}
+
+repository_read_access_arns = []
+
+repository_read_write_access_arns = []
+
+repository_type = "private"
+
+tags = {}

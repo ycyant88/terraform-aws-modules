@@ -1,125 +1,125 @@
-get_password_data = null
+ami = null
 
-enable_volume_tags = true
+ami_ssm_parameter = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 
-cpu_core_count = null
+associate_public_ip_address = null
 
-ebs_optimized = null
-
-instance_type = "t3.micro"
-
-putin_khuylo = true
-
-create_iam_instance_profile = false
+availability_zone = null
 
 capacity_reservation_specification = {}
 
-timeouts = {}
+cpu_core_count = null
 
-iam_role_permissions_boundary = null
+cpu_credits = null
+
+cpu_threads_per_core = null
+
+create = true
+
+create_iam_instance_profile = false
+
+create_spot_instance = false
+
+disable_api_stop = null
 
 disable_api_termination = null
 
 ebs_block_device = []
 
-monitoring = false
+ebs_optimized = null
 
-root_block_device = []
+enable_volume_tags = true
+
+enclave_options_enabled = null
+
+ephemeral_block_device = []
+
+get_password_data = null
+
+hibernation = null
+
+host_id = null
+
+iam_instance_profile = null
 
 iam_role_description = null
 
 iam_role_name = null
 
-vpc_security_group_ids = null
+iam_role_path = null
 
-spot_wait_for_fulfillment = null
-
-iam_instance_profile = null
-
-spot_valid_from = null
-
-iam_role_tags = {}
-
-name = ""
-
-associate_public_ip_address = null
-
-ephemeral_block_device = []
-
-key_name = null
-
-placement_group = null
-
-spot_price = null
-
-source_dest_check = true
+iam_role_permissions_boundary = null
 
 iam_role_policies = {}
 
-instance_initiated_shutdown_behavior = null
-
-subnet_id = null
-
-user_data_replace_on_change = false
-
-spot_launch_group = null
-
-spot_block_duration_minutes = null
-
-create = true
-
-ami_ssm_parameter = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-
-hibernation = null
-
-user_data_base64 = null
-
-ipv6_address_count = null
-
-launch_template = null
-
-network_interface = []
-
-tags = {}
-
-iam_role_path = null
-
-availability_zone = null
-
-cpu_credits = null
-
-metadata_options = {}
-
-user_data = null
-
-enclave_options_enabled = null
-
-cpu_threads_per_core = null
-
-spot_instance_interruption_behavior = null
-
-disable_api_stop = null
+iam_role_tags = {}
 
 iam_role_use_name_prefix = true
 
-maintenance_options = {}
+instance_initiated_shutdown_behavior = null
 
-private_ip = null
+instance_type = "t3.micro"
 
-spot_type = null
-
-spot_valid_until = null
-
-ami = null
-
-host_id = null
+ipv6_address_count = null
 
 ipv6_addresses = null
 
+key_name = null
+
+launch_template = null
+
+maintenance_options = {}
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = null
+
+private_ip = null
+
+putin_khuylo = true
+
+root_block_device = []
+
 secondary_private_ips = null
+
+source_dest_check = true
+
+spot_block_duration_minutes = null
+
+spot_instance_interruption_behavior = null
+
+spot_launch_group = null
+
+spot_price = null
+
+spot_type = null
+
+spot_valid_from = null
+
+spot_valid_until = null
+
+spot_wait_for_fulfillment = null
+
+subnet_id = null
+
+tags = {}
 
 tenancy = null
 
+timeouts = {}
+
+user_data = null
+
+user_data_base64 = null
+
+user_data_replace_on_change = false
+
 volume_tags = {}
 
-create_spot_instance = false
+vpc_security_group_ids = null

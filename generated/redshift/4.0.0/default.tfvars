@@ -1,137 +1,137 @@
-create_subnet_group = true
-
-usage_limits = {}
-
-cluster_identifier = ""
-
-use_snapshot_identifier_prefix = true
-
-owner_account = null
-
-parameter_group_parameters = {}
+allow_version_upgrade = null
 
 apply_immediately = null
 
-random_password_length = 16
-
-scheduled_actions = {}
-
-iam_role_description = null
+aqua_configuration_status = null
 
 authentication_profiles = {}
 
-kms_key_arn = null
+automated_snapshot_retention_period = null
 
-create_random_password = true
+availability_zone = null
 
-skip_final_snapshot = true
+availability_zone_relocation_enabled = null
 
-snapshot_copy = {}
+cluster_identifier = ""
 
-vpc_security_group_ids = []
-
-endpoint_resource_owner = null
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-default_iam_role_arn = null
-
-subnet_group_name = null
-
-snapshot_schedule_description = null
-
-snapshot_schedule_force_destroy = null
-
-allow_version_upgrade = null
-
-parameter_group_name = null
-
-parameter_group_description = null
-
-subnet_group_tags = {}
+cluster_timeouts = {}
 
 cluster_version = null
 
-parameter_group_tags = {}
+create = true
 
-iam_role_name = null
+create_endpoint_access = false
 
-iam_role_use_name_prefix = true
+create_parameter_group = true
+
+create_random_password = true
+
+create_scheduled_action_iam_role = false
+
+create_snapshot_schedule = false
+
+create_subnet_group = true
+
+database_name = null
+
+default_iam_role_arn = null
+
+elastic_ip = null
+
+encrypted = true
+
+endpoint_name = ""
+
+endpoint_resource_owner = null
+
+endpoint_subnet_group_name = ""
 
 endpoint_vpc_security_group_ids = []
 
 enhanced_vpc_routing = null
 
-snapshot_identifier = null
-
-cluster_timeouts = {}
-
-subnet_ids = []
-
-tags = {}
-
-automated_snapshot_retention_period = null
-
-snapshot_cluster_identifier = null
-
-create_parameter_group = true
-
-subnet_group_description = null
-
-parameter_group_family = "redshift-1.0"
-
-aqua_configuration_status = null
+final_snapshot_identifier = null
 
 iam_role_arns = []
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-iam_role_path = null
+iam_role_use_name_prefix = true
 
-create_endpoint_access = false
-
-encrypted = true
-
-final_snapshot_identifier = null
+kms_key_arn = null
 
 logging = {}
 
-master_password = null
-
-port = null
-
-publicly_accessible = false
-
-availability_zone = null
-
-database_name = null
-
-elastic_ip = null
+maintenance_track_name = null
 
 manual_snapshot_retention_period = null
 
+master_password = null
+
+master_username = "awsuser"
+
 node_type = ""
-
-snapshot_schedule_definitions = []
-
-endpoint_name = ""
 
 number_of_nodes = 1
 
+owner_account = null
+
+parameter_group_description = null
+
+parameter_group_family = "redshift-1.0"
+
+parameter_group_name = null
+
+parameter_group_parameters = {}
+
+parameter_group_tags = {}
+
+port = null
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
+
+publicly_accessible = false
+
+random_password_length = 16
+
+scheduled_actions = {}
+
+skip_final_snapshot = true
+
+snapshot_cluster_identifier = null
+
+snapshot_copy = {}
+
+snapshot_identifier = null
+
+snapshot_schedule_definitions = []
+
+snapshot_schedule_description = null
+
+snapshot_schedule_force_destroy = null
+
 snapshot_schedule_identifier = null
 
-create_snapshot_schedule = false
+subnet_group_description = null
 
-create_scheduled_action_iam_role = false
+subnet_group_name = null
 
-endpoint_subnet_group_name = ""
+subnet_group_tags = {}
 
-create = true
+subnet_ids = []
 
-availability_zone_relocation_enabled = null
+tags = {}
 
-maintenance_track_name = null
+usage_limits = {}
 
-master_username = "awsuser"
+use_snapshot_identifier_prefix = true
+
+vpc_security_group_ids = []

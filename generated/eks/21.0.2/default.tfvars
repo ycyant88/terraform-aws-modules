@@ -1,8 +1,72 @@
-remote_network_config = null
+access_entries = {}
 
-security_group_use_name_prefix = true
+additional_security_group_ids = []
 
-iam_role_description = null
+addons = null
+
+addons_timeouts = null
+
+attach_encryption_policy = true
+
+authentication_mode = "API_AND_CONFIG_MAP"
+
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_retention_in_days = 90
+
+cloudwatch_log_group_tags = {}
+
+cluster_tags = {}
+
+compute_config = null
+
+control_plane_subnet_ids = []
+
+create = true
+
+create_cloudwatch_log_group = true
+
+create_cni_ipv6_iam_policy = false
+
+create_iam_role = true
+
+create_kms_key = true
+
+create_node_iam_role = true
+
+create_node_security_group = true
+
+create_primary_security_group_tags = true
+
+create_security_group = true
+
+custom_oidc_thumbprints = []
+
+dataplane_wait_duration = "30s"
+
+eks_managed_node_groups = null
+
+enable_auto_mode_custom_tags = true
+
+enable_cluster_creator_admin_permissions = false
+
+enable_irsa = true
+
+enable_kms_key_rotation = true
+
+enabled_log_types = ["audit", "api", "authenticator"]
+
+encryption_config = { "resources" : ["secrets"] }
+
+encryption_policy_description = "Cluster encryption policy to allow cluster role to utilize CMK provided"
+
+encryption_policy_name = null
+
+encryption_policy_path = null
+
+encryption_policy_tags = {}
 
 encryption_policy_use_name_prefix = true
 
@@ -10,188 +74,124 @@ endpoint_private_access = true
 
 endpoint_public_access = false
 
-timeouts = null
+endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-security_group_name = null
+fargate_profiles = null
 
-custom_oidc_thumbprints = []
+force_update_version = null
 
 iam_role_additional_policies = {}
 
-addons_timeouts = null
+iam_role_arn = null
 
-node_iam_role_path = null
+iam_role_description = null
 
-zonal_shift_config = null
+iam_role_name = null
 
-security_group_tags = {}
+iam_role_path = null
 
-node_security_group_enable_recommended_rules = true
-
-enable_auto_mode_custom_tags = true
-
-prefix_separator = "-"
-
-create_security_group = true
-
-create_node_security_group = true
-
-enable_irsa = true
-
-iam_role_use_name_prefix = true
-
-encryption_policy_name = null
-
-encryption_policy_tags = {}
-
-dataplane_wait_duration = "30s"
-
-create_primary_security_group_tags = true
-
-kms_key_description = null
-
-enable_kms_key_rotation = true
+iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-encryption_policy_description = "Cluster encryption policy to allow cluster role to utilize CMK provided"
+iam_role_use_name_prefix = true
+
+identity_providers = null
+
+include_oidc_root_ca_thumbprint = true
+
+ip_family = "ipv4"
+
+kms_key_administrators = []
+
+kms_key_aliases = []
+
+kms_key_deletion_window_in_days = null
+
+kms_key_description = null
+
+kms_key_enable_default_policy = true
+
+kms_key_override_policy_documents = []
+
+kms_key_owners = []
+
+kms_key_service_users = []
+
+kms_key_source_policy_documents = []
+
+kms_key_users = []
+
+kubernetes_version = null
+
+name = ""
+
+node_iam_role_additional_policies = {}
+
+node_iam_role_description = null
 
 node_iam_role_name = null
 
-node_iam_role_use_name_prefix = true
+node_iam_role_path = null
 
 node_iam_role_permissions_boundary = null
 
-create_cloudwatch_log_group = true
+node_iam_role_tags = {}
 
-security_group_id = ""
+node_iam_role_use_name_prefix = true
+
+node_security_group_additional_rules = {}
+
+node_security_group_description = "EKS node shared security group"
+
+node_security_group_enable_recommended_rules = true
+
+node_security_group_id = ""
 
 node_security_group_name = null
 
 node_security_group_tags = {}
 
-eks_managed_node_groups = null
+node_security_group_use_name_prefix = true
 
 openid_connect_audiences = []
 
-create_iam_role = true
+outpost_config = null
 
-force_update_version = null
-
-create_kms_key = true
-
-kms_key_administrators = []
-
-kms_key_source_policy_documents = []
-
-cloudwatch_log_group_retention_in_days = 90
-
-security_group_description = "EKS cluster security group"
-
-identity_providers = null
+prefix_separator = "-"
 
 putin_khuylo = true
 
-tags = {}
+region = null
 
-kubernetes_version = null
-
-additional_security_group_ids = []
-
-outpost_config = null
-
-kms_key_override_policy_documents = []
-
-cloudwatch_log_group_tags = {}
-
-iam_role_path = null
-
-node_iam_role_description = null
-
-name = ""
-
-upgrade_policy = null
-
-kms_key_enable_default_policy = true
-
-kms_key_service_users = []
-
-kms_key_aliases = []
-
-node_security_group_use_name_prefix = true
-
-iam_role_permissions_boundary = null
-
-encryption_policy_path = null
+remote_network_config = null
 
 security_group_additional_rules = {}
 
-include_oidc_root_ca_thumbprint = true
+security_group_description = "EKS cluster security group"
 
-iam_role_name = null
+security_group_id = ""
 
-addons = null
+security_group_name = null
 
-create_node_iam_role = true
+security_group_tags = {}
 
-node_iam_role_additional_policies = {}
-
-authentication_mode = "API_AND_CONFIG_MAP"
-
-control_plane_subnet_ids = []
-
-endpoint_public_access_cidrs = ["0.0.0.0/0"]
-
-ip_family = "ipv4"
-
-cluster_tags = {}
-
-create = true
-
-attach_encryption_policy = true
-
-enable_cluster_creator_admin_permissions = false
-
-kms_key_deletion_window_in_days = null
-
-create_cni_ipv6_iam_policy = false
-
-node_security_group_additional_rules = {}
-
-fargate_profiles = null
-
-subnet_ids = []
-
-service_ipv6_cidr = null
-
-encryption_config = { "resources" : ["secrets"] }
-
-cloudwatch_log_group_kms_key_id = null
-
-vpc_id = null
-
-node_security_group_id = ""
-
-region = null
-
-enabled_log_types = ["audit", "api", "authenticator"]
-
-compute_config = null
-
-service_ipv4_cidr = null
-
-node_iam_role_tags = {}
+security_group_use_name_prefix = true
 
 self_managed_node_groups = null
 
-access_entries = {}
+service_ipv4_cidr = null
 
-kms_key_owners = []
+service_ipv6_cidr = null
 
-kms_key_users = []
+subnet_ids = []
 
-cloudwatch_log_group_class = null
+tags = {}
 
-node_security_group_description = "EKS node shared security group"
+timeouts = null
 
-iam_role_arn = null
+upgrade_policy = null
+
+vpc_id = null
+
+zonal_shift_config = null

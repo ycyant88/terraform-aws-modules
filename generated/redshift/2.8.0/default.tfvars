@@ -1,73 +1,73 @@
-max_concurrency_scaling_clusters = "1"
+allow_version_upgrade = true
 
-parameter_group_name = ""
+automated_snapshot_retention_period = 0
 
-subnets = []
+cluster_database_name = ""
 
-require_ssl = "false"
+cluster_iam_roles = []
 
-kms_key_id = ""
+cluster_identifier = ""
+
+cluster_master_password = ""
+
+cluster_master_username = ""
+
+cluster_node_type = ""
+
+cluster_number_of_nodes = 3
+
+cluster_parameter_group = "redshift-1.0"
+
+cluster_port = 5439
+
+cluster_version = "1.0"
+
+enable_case_sensitive_identifier = false
 
 enable_logging = false
 
-use_fips_ssl = "false"
+enable_user_activity_logging = "false"
 
-cluster_iam_roles = []
+encrypted = false
+
+enhanced_vpc_routing = false
+
+final_snapshot_identifier = ""
+
+kms_key_id = ""
+
+logging_bucket_name = null
+
+logging_s3_key_prefix = null
+
+max_concurrency_scaling_clusters = "1"
+
+owner_account = null
+
+parameter_group_name = ""
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
 
 publicly_accessible = false
 
 redshift_subnet_group_name = ""
 
-automated_snapshot_retention_period = 0
-
-allow_version_upgrade = true
-
-enable_case_sensitive_identifier = false
-
-cluster_number_of_nodes = 3
-
-cluster_master_password = ""
-
-cluster_parameter_group = "redshift-1.0"
-
-wlm_json_configuration = "[{\"query_concurrency\": 5}]"
-
-cluster_node_type = ""
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-enhanced_vpc_routing = false
-
-cluster_database_name = ""
-
-tags = {}
-
-encrypted = false
-
-vpc_security_group_ids = ""
-
-enable_user_activity_logging = "false"
-
-snapshot_copy_destination_region = null
-
-owner_account = null
-
-logging_s3_key_prefix = null
-
-snapshot_cluster_identifier = null
-
-cluster_version = "1.0"
-
-cluster_port = 5439
-
-final_snapshot_identifier = ""
-
-logging_bucket_name = null
-
-cluster_identifier = ""
-
-cluster_master_username = ""
+require_ssl = "false"
 
 skip_final_snapshot = true
 
+snapshot_cluster_identifier = null
+
+snapshot_copy_destination_region = null
+
 snapshot_identifier = null
+
+subnets = []
+
+tags = {}
+
+use_fips_ssl = "false"
+
+vpc_security_group_ids = ""
+
+wlm_json_configuration = "[{\"query_concurrency\": 5}]"

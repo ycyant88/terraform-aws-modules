@@ -1,93 +1,93 @@
-private_subnets = []
+azs = []
 
-public_subnet_tags = {}
+cidr = "0.0.0.0/0"
 
-default_route_table_tags = {}
+create_database_subnet_group = true
 
-public_route_table_tags = {}
-
-private_route_table_tags = {}
+create_vpc = true
 
 database_subnet_tags = {}
 
-dhcp_options_tags = {}
+database_subnets = []
 
-dhcp_options_netbios_node_type = ""
+default_route_table_tags = {}
 
-vpc_tags = {}
+default_vpc_enable_classiclink = false
 
-name = ""
+default_vpc_enable_dns_hostnames = false
 
-enable_nat_gateway = false
+default_vpc_enable_dns_support = true
 
-external_nat_ip_ids = []
+default_vpc_name = ""
 
-elasticache_subnet_tags = {}
+default_vpc_tags = {}
 
-manage_default_vpc = false
-
-redshift_subnets = []
-
-azs = []
-
-enable_dns_support = true
-
-enable_vpn_gateway = false
-
-private_subnet_tags = {}
-
-redshift_subnet_tags = {}
+dhcp_options_domain_name = ""
 
 dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
 dhcp_options_netbios_name_servers = []
 
-database_subnets = []
+dhcp_options_netbios_node_type = ""
 
-create_database_subnet_group = true
+dhcp_options_ntp_servers = []
 
-enable_dynamodb_endpoint = false
+dhcp_options_tags = {}
 
-tags = {}
-
-reuse_nat_ips = false
-
-create_vpc = true
-
-instance_tenancy = "default"
-
-enable_dns_hostnames = false
-
-map_public_ip_on_launch = true
-
-vpn_gateway_id = ""
-
-dhcp_options_domain_name = ""
-
-default_vpc_enable_dns_support = true
-
-default_vpc_enable_classiclink = false
-
-public_subnets = []
+elasticache_subnet_tags = {}
 
 elasticache_subnets = []
 
+enable_dhcp_options = false
+
+enable_dns_hostnames = false
+
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_nat_gateway = false
+
 enable_s3_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+instance_tenancy = "default"
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+name = ""
+
+private_route_table_tags = {}
+
+private_subnet_tags = {}
+
+private_subnets = []
 
 propagate_private_route_tables_vgw = false
 
 propagate_public_route_tables_vgw = false
 
-enable_dhcp_options = false
+public_route_table_tags = {}
 
-default_vpc_enable_dns_hostnames = false
+public_subnet_tags = {}
 
-default_vpc_tags = {}
+public_subnets = []
 
-cidr = "0.0.0.0/0"
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
 
 single_nat_gateway = false
 
-dhcp_options_ntp_servers = []
+tags = {}
 
-default_vpc_name = ""
+vpc_tags = {}
+
+vpn_gateway_id = ""

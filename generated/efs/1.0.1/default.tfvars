@@ -1,53 +1,53 @@
-performance_mode = null
-
-kms_key_arn = null
-
-security_group_vpc_id = null
-
-create_security_group = true
-
-security_group_use_name_prefix = false
-
-replication_configuration_destination = {}
+access_points = {}
 
 attach_policy = true
 
-mount_targets = {}
+availability_zone_name = null
 
-name = ""
+bypass_policy_lockout_safety_check = null
+
+create = true
 
 create_replication_configuration = false
 
-throughput_mode = null
+create_security_group = true
 
-override_policy_documents = []
+creation_token = null
 
 enable_backup_policy = true
 
 encrypted = true
 
-source_policy_documents = []
+kms_key_arn = null
+
+lifecycle_policy = {}
+
+mount_targets = {}
+
+name = ""
+
+override_policy_documents = []
+
+performance_mode = null
+
+policy_statements = []
+
+provisioned_throughput_in_mibps = null
+
+replication_configuration_destination = {}
+
+security_group_description = null
 
 security_group_name = null
 
 security_group_rules = {}
 
+security_group_use_name_prefix = false
+
+security_group_vpc_id = null
+
+source_policy_documents = []
+
 tags = {}
 
-provisioned_throughput_in_mibps = null
-
-lifecycle_policy = {}
-
-security_group_description = null
-
-access_points = {}
-
-create = true
-
-availability_zone_name = null
-
-creation_token = null
-
-bypass_policy_lockout_safety_check = null
-
-policy_statements = []
+throughput_mode = null

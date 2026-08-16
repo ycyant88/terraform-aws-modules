@@ -1,31 +1,31 @@
-tags = {}
+access_key_status = null
 
-permissions_boundary = null
+create = true
 
-policies = {}
+create_access_key = true
+
+create_login_profile = true
 
 create_ssh_key = false
 
-ssh_key_encoding = "SSH"
+force_destroy = false
 
-path = null
+name = ""
 
 password_length = null
 
 password_reset_required = true
 
-create_access_key = true
+path = null
 
-access_key_status = null
-
-create = true
-
-name = ""
-
-force_destroy = false
+permissions_boundary = null
 
 pgp_key = null
 
+policies = {}
+
+ssh_key_encoding = "SSH"
+
 ssh_public_key = ""
 
-create_login_profile = true
+tags = {}

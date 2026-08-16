@@ -1,29 +1,29 @@
-cidr = ""
-
-atlantis_image = ""
+acm_certificate_domain_name = ""
 
 atlantis_github_user = ""
 
-acm_certificate_domain_name = ""
+atlantis_github_user_token = ""
 
-route53_zone_name = ""
+atlantis_image = ""
 
-create_route53_record = true
-
-azs = ""
-
-public_subnets = ""
-
-certificate_arn = ""
-
-cloudwatch_log_retention_in_days = 7
+atlantis_repo_whitelist = ""
 
 atlantis_version = "latest"
 
-atlantis_github_user_token = ""
+azs = ""
+
+certificate_arn = ""
+
+cidr = ""
+
+cloudwatch_log_retention_in_days = 7
+
+create_route53_record = true
 
 name = "atlantis"
 
 private_subnets = ""
 
-atlantis_repo_whitelist = ""
+public_subnets = ""
+
+route53_zone_name = ""

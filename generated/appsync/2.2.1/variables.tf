@@ -1,18 +1,12 @@
-variable "iam_permissions_boundary" {
-  description = "ARN for iam permissions boundary"
-  type        = string
-  default     = null
-}
-
-variable "direct_lambda_request_template" {
-  description = "VTL request template for the direct lambda integrations"
-  type        = string
-  default     = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
-}
-
-variable "functions" {
-  description = "Map of functions to create"
+variable "additional_authentication_provider" {
+  description = "One or more additional authentication providers for the GraphqlApi."
   type        = any
+  default     = {}
+}
+
+variable "api_keys" {
+  description = "Map of API keys to create"
+  type        = map(string)
   default     = {}
 }
 
@@ -22,28 +16,16 @@ variable "authentication_type" {
   default     = "API_KEY"
 }
 
-variable "log_exclude_verbose_content" {
-  description = "Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level."
+variable "cache_at_rest_encryption_enabled" {
+  description = "At-rest encryption flag for cache."
   type        = bool
   default     = false
 }
 
-variable "api_keys" {
-  description = "Map of API keys to create"
-  type        = map(string)
-  default     = {}
-}
-
-variable "elasticsearch_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AMAZON_ELASTICSEARCH"
-  type        = list(string)
-  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
-}
-
-variable "caching_behavior" {
-  description = "Caching behavior."
-  type        = string
-  default     = "FULL_REQUEST_CACHING"
+variable "cache_transit_encryption_enabled" {
+  description = "Transit encryption flag when connecting to cache."
+  type        = bool
+  default     = false
 }
 
 variable "cache_ttl" {
@@ -52,74 +34,20 @@ variable "cache_ttl" {
   default     = 1
 }
 
-variable "dynamodb_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AMAZON_DYNAMODB"
-  type        = list(string)
-  default     = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
-}
-
-variable "direct_lambda_response_template" {
-  description = "VTL response template for the direct lambda integrations"
-  type        = string
-  default     = "$util.toJson($ctx.result)\n"
-}
-
-variable "logging_enabled" {
-  description = "Whether to enable Cloudwatch logging on GraphQL API"
-  type        = bool
-  default     = false
-}
-
-variable "create_logs_role" {
-  description = "Whether to create service role for Cloudwatch logs"
-  type        = bool
-  default     = true
-}
-
-variable "log_field_log_level" {
-  description = "Field logging level. Valid values: ALL, ERROR, NONE."
-  type        = string
-  default     = null
-}
-
-variable "lambda_authorizer_config" {
-  description = "Nested argument containing Lambda authorizer configuration."
-  type        = map(string)
-  default     = {}
-}
-
-variable "resolver_caching_ttl" {
-  description = "Default caching TTL for resolvers when caching is enabled"
-  type        = number
-  default     = 60
-}
-
-variable "create_graphql_api" {
-  description = "Whether to create GraphQL API"
-  type        = bool
-  default     = true
-}
-
-variable "domain_name_description" {
-  description = "A description of the Domain Name."
-  type        = string
-  default     = null
-}
-
 variable "cache_type" {
   description = "The cache instance type."
   type        = string
   default     = "SMALL"
 }
 
-variable "resolvers" {
-  description = "Map of resolvers to create"
-  type        = any
-  default     = {}
+variable "caching_behavior" {
+  description = "Caching behavior."
+  type        = string
+  default     = "FULL_REQUEST_CACHING"
 }
 
-variable "xray_enabled" {
-  description = "Whether tracing with X-ray is enabled."
+variable "caching_enabled" {
+  description = "Whether caching with Elasticache is enabled."
   type        = bool
   default     = false
 }
@@ -130,64 +58,34 @@ variable "certificate_arn" {
   default     = ""
 }
 
-variable "cache_at_rest_encryption_enabled" {
-  description = "At-rest encryption flag for cache."
+variable "create_graphql_api" {
+  description = "Whether to create GraphQL API"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "openid_connect_config" {
-  description = "Nested argument containing OpenID Connect configuration."
-  type        = map(string)
-  default     = {}
-}
-
-variable "user_pool_config" {
-  description = "The Amazon Cognito User Pool configuration."
-  type        = map(string)
-  default     = {}
-}
-
-variable "tags" {
-  description = "Map of tags to add to all GraphQL resources created by this module"
-  type        = map(string)
-  default     = {}
-}
-
-variable "cache_transit_encryption_enabled" {
-  description = "Transit encryption flag when connecting to cache."
+variable "create_logs_role" {
+  description = "Whether to create service role for Cloudwatch logs"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "schema" {
-  description = "The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration."
+variable "datasources" {
+  description = "Map of datasources to create"
+  type        = any
+  default     = {}
+}
+
+variable "direct_lambda_request_template" {
+  description = "VTL request template for the direct lambda integrations"
   type        = string
-  default     = ""
+  default     = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
 }
 
-variable "visibility" {
-  description = "The API visibility. Valid values: GLOBAL, PRIVATE."
+variable "direct_lambda_response_template" {
+  description = "VTL response template for the direct lambda integrations"
   type        = string
-  default     = null
-}
-
-variable "logs_role_name" {
-  description = "Name of IAM role to create for Cloudwatch logs"
-  type        = string
-  default     = null
-}
-
-variable "log_cloudwatch_logs_role_arn" {
-  description = "Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account."
-  type        = string
-  default     = null
-}
-
-variable "lambda_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AWS_LAMBDA"
-  type        = list(string)
-  default     = ["lambda:invokeFunction"]
+  default     = "$util.toJson($ctx.result)\n"
 }
 
 variable "domain_name" {
@@ -202,16 +100,82 @@ variable "domain_name_association_enabled" {
   default     = false
 }
 
-variable "name" {
-  description = "Name of GraphQL API"
+variable "domain_name_description" {
+  description = "A description of the Domain Name."
   type        = string
-  default     = ""
+  default     = null
 }
 
-variable "additional_authentication_provider" {
-  description = "One or more additional authentication providers for the GraphqlApi."
+variable "dynamodb_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AMAZON_DYNAMODB"
+  type        = list(string)
+  default     = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
+}
+
+variable "elasticsearch_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AMAZON_ELASTICSEARCH"
+  type        = list(string)
+  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+}
+
+variable "functions" {
+  description = "Map of functions to create"
   type        = any
   default     = {}
+}
+
+variable "graphql_api_tags" {
+  description = "Map of tags to add to GraphQL API"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_permissions_boundary" {
+  description = "ARN for iam permissions boundary"
+  type        = string
+  default     = null
+}
+
+variable "lambda_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AWS_LAMBDA"
+  type        = list(string)
+  default     = ["lambda:invokeFunction"]
+}
+
+variable "lambda_authorizer_config" {
+  description = "Nested argument containing Lambda authorizer configuration."
+  type        = map(string)
+  default     = {}
+}
+
+variable "log_cloudwatch_logs_role_arn" {
+  description = "Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account."
+  type        = string
+  default     = null
+}
+
+variable "log_exclude_verbose_content" {
+  description = "Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level."
+  type        = bool
+  default     = false
+}
+
+variable "log_field_log_level" {
+  description = "Field logging level. Valid values: ALL, ERROR, NONE."
+  type        = string
+  default     = null
+}
+
+variable "logging_enabled" {
+  description = "Whether to enable Cloudwatch logging on GraphQL API"
+  type        = bool
+  default     = false
+}
+
+variable "logs_role_name" {
+  description = "Name of IAM role to create for Cloudwatch logs"
+  type        = string
+  default     = null
 }
 
 variable "logs_role_tags" {
@@ -220,20 +184,56 @@ variable "logs_role_tags" {
   default     = {}
 }
 
-variable "datasources" {
-  description = "Map of datasources to create"
+variable "name" {
+  description = "Name of GraphQL API"
+  type        = string
+  default     = ""
+}
+
+variable "openid_connect_config" {
+  description = "Nested argument containing OpenID Connect configuration."
+  type        = map(string)
+  default     = {}
+}
+
+variable "resolver_caching_ttl" {
+  description = "Default caching TTL for resolvers when caching is enabled"
+  type        = number
+  default     = 60
+}
+
+variable "resolvers" {
+  description = "Map of resolvers to create"
   type        = any
   default     = {}
 }
 
-variable "caching_enabled" {
-  description = "Whether caching with Elasticache is enabled."
-  type        = bool
-  default     = false
+variable "schema" {
+  description = "The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration."
+  type        = string
+  default     = ""
 }
 
-variable "graphql_api_tags" {
-  description = "Map of tags to add to GraphQL API"
+variable "tags" {
+  description = "Map of tags to add to all GraphQL resources created by this module"
   type        = map(string)
   default     = {}
+}
+
+variable "user_pool_config" {
+  description = "The Amazon Cognito User Pool configuration."
+  type        = map(string)
+  default     = {}
+}
+
+variable "visibility" {
+  description = "The API visibility. Valid values: GLOBAL, PRIVATE."
+  type        = string
+  default     = null
+}
+
+variable "xray_enabled" {
+  description = "Whether tracing with X-ray is enabled."
+  type        = bool
+  default     = false
 }

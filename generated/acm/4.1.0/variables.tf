@@ -1,61 +1,7 @@
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
-}
-
-variable "create_certificate" {
-  description = "Whether to create ACM certificate"
-  type        = bool
-  default     = true
-}
-
-variable "wait_for_validation" {
-  description = "Whether to wait for the validation to complete"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
-
 variable "acm_certificate_domain_validation_options" {
   description = "A list of domain_validation_options created by the ACM certificate to create required Route53 records from it (used when create_route53_records_only is set to true)"
   type        = any
   default     = {}
-}
-
-variable "distinct_domain_names" {
-  description = "List of distinct domains and SANs (used when create_route53_records_only is set to true)"
-  type        = list(string)
-  default     = []
-}
-
-variable "validation_record_fqdns" {
-  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
-  type        = list(string)
-  default     = []
-}
-
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
-  type        = string
-  default     = ""
-}
-
-variable "validate_certificate" {
-  description = "Whether to validate certificate by creating Route53 record"
-  type        = bool
-  default     = true
-}
-
-variable "validation_allow_overwrite_records" {
-  description = "Whether to allow overwrite of Route53 records"
-  type        = bool
-  default     = true
 }
 
 variable "certificate_transparency_logging_preference" {
@@ -64,10 +10,10 @@ variable "certificate_transparency_logging_preference" {
   default     = true
 }
 
-variable "validation_option" {
-  description = "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use."
-  type        = any
-  default     = {}
+variable "create_certificate" {
+  description = "Whether to create ACM certificate"
+  type        = bool
+  default     = true
 }
 
 variable "create_route53_records" {
@@ -82,10 +28,28 @@ variable "create_route53_records_only" {
   default     = false
 }
 
+variable "distinct_domain_names" {
+  description = "List of distinct domains and SANs (used when create_route53_records_only is set to true)"
+  type        = list(string)
+  default     = []
+}
+
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
+}
+
 variable "domain_name" {
   description = "A domain name for which the certificate should be issued"
   type        = string
   default     = ""
+}
+
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
 }
 
 variable "subject_alternative_names" {
@@ -94,14 +58,50 @@ variable "subject_alternative_names" {
   default     = []
 }
 
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
+}
+
+variable "validate_certificate" {
+  description = "Whether to validate certificate by creating Route53 record"
+  type        = bool
+  default     = true
+}
+
+variable "validation_allow_overwrite_records" {
+  description = "Whether to allow overwrite of Route53 records"
+  type        = bool
+  default     = true
+}
+
 variable "validation_method" {
   description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
   type        = string
   default     = "DNS"
 }
 
-variable "dns_ttl" {
-  description = "The TTL of DNS recursive resolvers to cache information about this record."
-  type        = number
-  default     = 60
+variable "validation_option" {
+  description = "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use."
+  type        = any
+  default     = {}
+}
+
+variable "validation_record_fqdns" {
+  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
+  type        = list(string)
+  default     = []
+}
+
+variable "wait_for_validation" {
+  description = "Whether to wait for the validation to complete"
+  type        = bool
+  default     = true
+}
+
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
+  type        = string
+  default     = ""
 }

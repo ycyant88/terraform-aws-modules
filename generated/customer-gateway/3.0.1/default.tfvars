@@ -1,7 +1,7 @@
 create = true
 
-name = ""
-
 customer_gateways = {}
+
+name = ""
 
 tags = {}

@@ -1,5 +1,119 @@
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
+}
+
+variable "amazon_managed_service_prometheus_workspace_arns" {
+  description = "List of AMP Workspace ARNs to read and write metrics"
+  type        = list(string)
+  default     = ["*"]
+}
+
+variable "assume_role_condition_test" {
+  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
+  type        = string
+  default     = "StringEquals"
+}
+
+variable "attach_amazon_managed_service_prometheus_policy" {
+  description = "Determines whether to attach the Amazon Managed Service for Prometheus IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_appmesh_controller_policy" {
+  description = "Determines whether to attach the Appmesh Controller policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_appmesh_envoy_proxy_policy" {
+  description = "Determines whether to attach the Appmesh envoy proxy policy to the role"
+  type        = bool
+  default     = false
+}
+
 variable "attach_aws_gateway_controller_policy" {
   description = "Determines whether to attach the AWS Gateway Controller IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_cert_manager_policy" {
+  description = "Determines whether to attach the Cert Manager IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_cluster_autoscaler_policy" {
+  description = "Determines whether to attach the Cluster Autoscaler IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_ebs_csi_policy" {
+  description = "Determines whether to attach the EBS CSI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_efs_csi_policy" {
+  description = "Determines whether to attach the EFS CSI IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_external_dns_policy" {
+  description = "Determines whether to attach the External DNS IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_external_secrets_policy" {
+  description = "Determines whether to attach the External Secrets policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_fsx_lustre_csi_policy" {
+  description = "Determines whether to attach the FSx for Lustre CSI Driver IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_karpenter_controller_policy" {
+  description = "Determines whether to attach the Karpenter Controller policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_load_balancer_controller_policy" {
+  description = "Determines whether to attach the Load Balancer Controller policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
+  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
+  type        = bool
+  default     = false
+}
+
+variable "attach_node_termination_handler_policy" {
+  description = "Determines whether to attach the Node Termination Handler policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_velero_policy" {
+  description = "Determines whether to attach the Velero IAM policy to the role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_vpc_cni_policy" {
+  description = "Determines whether to attach the VPC CNI IAM policy to the role"
   type        = bool
   default     = false
 }
@@ -16,10 +130,22 @@ variable "cluster_autoscaler_cluster_ids" {
   default     = []
 }
 
-variable "attach_efs_csi_policy" {
-  description = "Determines whether to attach the EFS CSI IAM policy to the role"
+variable "cluster_autoscaler_cluster_names" {
+  description = "List of cluster names to appropriately scope permissions within the Cluster Autoscaler IAM policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "create_role" {
+  description = "Whether to create a role"
   type        = bool
-  default     = false
+  default     = true
+}
+
+variable "ebs_csi_kms_cmk_ids" {
+  description = "KMS CMK IDs to allow EBS CSI to manage encrypted volumes"
+  type        = list(string)
+  default     = []
 }
 
 variable "external_dns_hosted_zone_arns" {
@@ -28,70 +154,34 @@ variable "external_dns_hosted_zone_arns" {
   default     = ["arn:aws:route53:::hostedzone/*"]
 }
 
-variable "karpenter_controller_node_iam_role_arns" {
-  description = "List of node IAM role ARNs Karpenter can use to launch nodes"
+variable "external_secrets_kms_key_arns" {
+  description = "List of KMS Key ARNs that are used by Secrets Manager that contain secrets to mount using External Secrets"
   type        = list(string)
-  default     = ["*"]
+  default     = ["arn:aws:kms:*:*:key/*"]
 }
 
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add the the IAM role"
-  type        = map(any)
-  default     = {}
-}
-
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
-}
-
-variable "attach_cluster_autoscaler_policy" {
-  description = "Determines whether to attach the Cluster Autoscaler IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "karpenter_subnet_account_id" {
-  description = "Account ID of where the subnets Karpenter will utilize resides. Used when subnets are shared from another account"
-  type        = string
-  default     = ""
-}
-
-variable "attach_load_balancer_controller_targetgroup_binding_only_policy" {
-  description = "Determines whether to attach the Load Balancer Controller policy for the TargetGroupBinding only"
-  type        = bool
-  default     = false
-}
-
-variable "amazon_managed_service_prometheus_workspace_arns" {
-  description = "List of AMP Workspace ARNs to read and write metrics"
+variable "external_secrets_secrets_manager_arns" {
+  description = "List of Secrets Manager ARNs that contain secrets to mount using External Secrets"
   type        = list(string)
-  default     = ["*"]
+  default     = ["arn:aws:secretsmanager:*:*:secret:*"]
 }
 
-variable "attach_velero_policy" {
-  description = "Determines whether to attach the Velero IAM policy to the role"
+variable "external_secrets_ssm_parameter_arns" {
+  description = "List of Systems Manager Parameter ARNs that contain secrets to mount using External Secrets"
+  type        = list(string)
+  default     = ["arn:aws:ssm:*:*:parameter/*"]
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = null
-}
-
-variable "attach_fsx_lustre_csi_policy" {
-  description = "Determines whether to attach the FSx for Lustre CSI Driver IAM policy to the role"
-  type        = bool
-  default     = false
+variable "fsx_lustre_csi_service_role_arns" {
+  description = "Service role ARNs to allow FSx for Lustre CSI create and manage FSX for Lustre service linked roles"
+  type        = list(string)
+  default     = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
 }
 
 variable "karpenter_controller_cluster_id" {
@@ -106,46 +196,28 @@ variable "karpenter_controller_cluster_name" {
   default     = "*"
 }
 
+variable "karpenter_controller_node_iam_role_arns" {
+  description = "List of node IAM role ARNs Karpenter can use to launch nodes"
+  type        = list(string)
+  default     = ["*"]
+}
+
 variable "karpenter_controller_ssm_parameter_arns" {
   description = "List of SSM Parameter ARNs that contain AMI IDs launched by Karpenter"
   type        = list(string)
   default     = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
 }
 
-variable "attach_appmesh_controller_policy" {
-  description = "Determines whether to attach the Appmesh Controller policy to the role"
-  type        = bool
-  default     = false
+variable "karpenter_sqs_queue_arn" {
+  description = "(Optional) ARN of SQS used by Karpenter when native node termination handling is enabled"
+  type        = string
+  default     = null
 }
 
-variable "velero_s3_bucket_arns" {
-  description = "List of S3 Bucket ARNs that Velero needs access to in order to backup and restore cluster resources"
-  type        = list(string)
-  default     = ["*"]
-}
-
-variable "attach_node_termination_handler_policy" {
-  description = "Determines whether to attach the Node Termination Handler policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "ebs_csi_kms_cmk_ids" {
-  description = "KMS CMK IDs to allow EBS CSI to manage encrypted volumes"
-  type        = list(string)
-  default     = []
-}
-
-variable "fsx_lustre_csi_service_role_arns" {
-  description = "Service role ARNs to allow FSx for Lustre CSI create and manage FSX for Lustre service linked roles"
-  type        = list(string)
-  default     = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
-}
-
-variable "attach_karpenter_controller_policy" {
-  description = "Determines whether to attach the Karpenter Controller policy to the role"
-  type        = bool
-  default     = false
+variable "karpenter_subnet_account_id" {
+  description = "Account ID of where the subnets Karpenter will utilize resides. Used when subnets are shared from another account"
+  type        = string
+  default     = ""
 }
 
 variable "karpenter_tag_key" {
@@ -154,9 +226,9 @@ variable "karpenter_tag_key" {
   default     = "karpenter.sh/discovery"
 }
 
-variable "karpenter_sqs_queue_arn" {
-  description = "(Optional) ARN of SQS used by Karpenter when native node termination handling is enabled"
-  type        = string
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
   default     = null
 }
 
@@ -166,10 +238,10 @@ variable "node_termination_handler_sqs_queue_arns" {
   default     = ["*"]
 }
 
-variable "external_secrets_ssm_parameter_arns" {
-  description = "List of Systems Manager Parameter ARNs that contain secrets to mount using External Secrets"
-  type        = list(string)
-  default     = ["arn:aws:ssm:*:*:parameter/*"]
+variable "oidc_providers" {
+  description = "Map of OIDC providers where each provider map should contain the provider, provider_arn, and namespace_service_accounts"
+  type        = any
+  default     = {}
 }
 
 variable "policy_name_prefix" {
@@ -178,58 +250,10 @@ variable "policy_name_prefix" {
   default     = "AmazonEKS_"
 }
 
-variable "attach_appmesh_envoy_proxy_policy" {
-  description = "Determines whether to attach the Appmesh envoy proxy policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = true
-}
-
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
+variable "role_description" {
+  description = "IAM Role description"
   type        = string
   default     = null
-}
-
-variable "oidc_providers" {
-  description = "Map of OIDC providers where each provider map should contain the provider, provider_arn, and namespace_service_accounts"
-  type        = any
-  default     = {}
-}
-
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = true
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = null
-}
-
-variable "attach_cert_manager_policy" {
-  description = "Determines whether to attach the Cert Manager IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "cluster_autoscaler_cluster_names" {
-  description = "List of cluster names to appropriately scope permissions within the Cluster Autoscaler IAM policy"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_external_dns_policy" {
-  description = "Determines whether to attach the External DNS IAM policy to the role"
-  type        = bool
-  default     = false
 }
 
 variable "role_name" {
@@ -238,52 +262,40 @@ variable "role_name" {
   default     = null
 }
 
-variable "external_secrets_kms_key_arns" {
-  description = "List of KMS Key ARNs that are used by Secrets Manager that contain secrets to mount using External Secrets"
-  type        = list(string)
-  default     = ["arn:aws:kms:*:*:key/*"]
-}
-
-variable "attach_amazon_managed_service_prometheus_policy" {
-  description = "Determines whether to attach the Amazon Managed Service for Prometheus IAM policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "assume_role_condition_test" {
-  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
   type        = string
-  default     = "StringEquals"
+  default     = null
 }
 
-variable "attach_ebs_csi_policy" {
-  description = "Determines whether to attach the EBS CSI IAM policy to the role"
-  type        = bool
-  default     = false
+variable "role_path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
 }
 
-variable "attach_external_secrets_policy" {
-  description = "Determines whether to attach the External Secrets policy to the role"
-  type        = bool
-  default     = false
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = null
 }
 
-variable "external_secrets_secrets_manager_arns" {
-  description = "List of Secrets Manager ARNs that contain secrets to mount using External Secrets"
+variable "role_policy_arns" {
+  description = "ARNs of any policies to attach to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "tags" {
+  description = "A map of tags to add the the IAM role"
+  type        = map(any)
+  default     = {}
+}
+
+variable "velero_s3_bucket_arns" {
+  description = "List of S3 Bucket ARNs that Velero needs access to in order to backup and restore cluster resources"
   type        = list(string)
-  default     = ["arn:aws:secretsmanager:*:*:secret:*"]
-}
-
-variable "attach_load_balancer_controller_policy" {
-  description = "Determines whether to attach the Load Balancer Controller policy to the role"
-  type        = bool
-  default     = false
-}
-
-variable "attach_vpc_cni_policy" {
-  description = "Determines whether to attach the VPC CNI IAM policy to the role"
-  type        = bool
-  default     = false
+  default     = ["*"]
 }
 
 variable "vpc_cni_enable_ipv4" {
@@ -296,16 +308,4 @@ variable "vpc_cni_enable_ipv6" {
   description = "Determines whether to enable IPv6 permissions for VPC CNI policy"
   type        = bool
   default     = false
-}
-
-variable "role_path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = "/"
-}
-
-variable "role_policy_arns" {
-  description = "ARNs of any policies to attach to the IAM role"
-  type        = map(string)
-  default     = {}
 }

@@ -1,3 +1,39 @@
+variable "access_logs" {
+  description = "An access logs block"
+  type        = map(string)
+  default     = {}
+}
+
+variable "connection_draining" {
+  description = "Boolean to enable connection draining"
+  type        = bool
+  default     = false
+}
+
+variable "connection_draining_timeout" {
+  description = "The time in seconds to allow for connections to drain"
+  type        = number
+  default     = 300
+}
+
+variable "create_elb" {
+  description = "Create the elb or not"
+  type        = bool
+  default     = true
+}
+
+variable "cross_zone_load_balancing" {
+  description = "Enable cross-zone load balancing"
+  type        = bool
+  default     = true
+}
+
+variable "health_check" {
+  description = "A health check block"
+  type        = map(string)
+  default     = ""
+}
+
 variable "idle_timeout" {
   description = "The time in seconds that the connection is allowed to be idle"
   type        = number
@@ -8,6 +44,18 @@ variable "instances" {
   description = "List of instances ID to place in the ELB pool"
   type        = list(string)
   default     = []
+}
+
+variable "internal" {
+  description = "If true, ELB will be an internal ELB"
+  type        = bool
+  default     = false
+}
+
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(map(string))
+  default     = ""
 }
 
 variable "name" {
@@ -22,64 +70,10 @@ variable "name_prefix" {
   default     = ""
 }
 
-variable "internal" {
-  description = "If true, ELB will be an internal ELB"
-  type        = bool
-  default     = false
-}
-
-variable "connection_draining" {
-  description = "Boolean to enable connection draining"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
-
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(map(string))
-  default     = ""
-}
-
-variable "cross_zone_load_balancing" {
-  description = "Enable cross-zone load balancing"
-  type        = bool
-  default     = true
-}
-
-variable "connection_draining_timeout" {
-  description = "The time in seconds to allow for connections to drain"
-  type        = number
-  default     = 300
-}
-
-variable "access_logs" {
-  description = "An access logs block"
-  type        = map(string)
-  default     = {}
-}
-
-variable "health_check" {
-  description = "A health check block"
-  type        = map(string)
-  default     = ""
-}
-
 variable "number_of_instances" {
   description = "Number of instances to attach to ELB"
   type        = number
   default     = 0
-}
-
-variable "create_elb" {
-  description = "Create the elb or not"
-  type        = bool
-  default     = true
 }
 
 variable "security_groups" {
@@ -92,4 +86,10 @@ variable "subnets" {
   description = "A list of subnet IDs to attach to the ELB"
   type        = list(string)
   default     = ""
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }

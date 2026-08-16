@@ -1,25 +1,25 @@
-listener = ""
-
 access_logs = {}
-
-name_prefix = ""
-
-internal = ""
 
 connection_draining = false
 
 connection_draining_timeout = 300
 
-idle_timeout = 60
-
-tags = {}
+cross_zone_load_balancing = true
 
 health_check = ""
 
+idle_timeout = 60
+
+internal = ""
+
+listener = ""
+
 name = ""
+
+name_prefix = ""
 
 security_groups = ""
 
 subnets = ""
 
-cross_zone_load_balancing = true
+tags = {}

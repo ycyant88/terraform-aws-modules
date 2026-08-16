@@ -1,89 +1,89 @@
-engine_version = ""
+allocated_storage = ""
 
-monitoring_role_name = "rds-monitoring-role"
+allow_major_version_upgrade = false
+
+apply_immediately = false
+
+auto_minor_version_upgrade = true
+
+availability_zone = ""
+
+backup_retention_period = 1
+
+backup_window = ""
+
+character_set_name = ""
 
 copy_tags_to_snapshot = false
 
 create = true
 
-allocated_storage = ""
-
-storage_encrypted = false
-
-replicate_source_db = ""
-
-port = ""
-
-iops = 0
-
-apply_immediately = false
-
-skip_final_snapshot = true
-
-tags = {}
-
-snapshot_identifier = ""
-
-iam_database_authentication_enabled = false
-
-final_snapshot_identifier = false
-
-multi_az = false
-
-allow_major_version_upgrade = false
-
-character_set_name = ""
-
-engine = ""
-
-username = ""
-
-parameter_group_name = ""
-
-monitoring_role_arn = ""
-
 create_monitoring_role = false
-
-enabled_cloudwatch_logs_exports = []
-
-performance_insights_enabled = false
-
-identifier = ""
-
-storage_type = "gp2"
-
-instance_class = ""
-
-vpc_security_group_ids = []
 
 db_subnet_group_name = ""
 
-publicly_accessible = false
-
-option_group_name = ""
-
 deletion_protection = false
 
-license_model = ""
+enabled_cloudwatch_logs_exports = []
 
-name = ""
+engine = ""
 
-maintenance_window = ""
+engine_version = ""
 
-backup_window = ""
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
 
 kms_key_id = ""
 
-password = ""
+license_model = ""
 
-availability_zone = ""
+maintenance_window = ""
 
 monitoring_interval = 0
 
-auto_minor_version_upgrade = true
+monitoring_role_arn = ""
 
-backup_retention_period = 1
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_name = ""
+
+parameter_group_name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+port = ""
+
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
 timezone = ""
 
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+username = ""
+
+vpc_security_group_ids = []

@@ -1,47 +1,17 @@
-variable "core_instance_fleet" {
-  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any core_instance_group configuration blocks are set"
-  type        = any
-  default     = {}
-}
-
-variable "service_iam_role_description" {
-  description = "Description of the role"
+variable "additional_info" {
+  description = "JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform"
   type        = string
   default     = null
 }
 
-variable "service_pass_role_policy_name" {
-  description = "Name to use on IAM policy created"
-  type        = string
-  default     = null
+variable "applications" {
+  description = "A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster"
+  type        = list(string)
+  default     = []
 }
 
-variable "master_security_group_rules" {
-  description = "Security group rules to add to the security group created"
-  type        = any
-  default     = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "release_label" {
-  description = "Release label for the Amazon EMR release"
-  type        = string
-  default     = null
-}
-
-variable "task_instance_group" {
-  description = "Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [task node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master)"
-  type        = any
-  default     = {}
-}
-
-variable "managed_scaling_policy" {
-  description = "Compute limit configuration for a [Managed Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html)"
+variable "auto_termination_policy" {
+  description = "An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates"
   type        = any
   default     = {}
 }
@@ -52,34 +22,10 @@ variable "autoscaling_iam_role_arn" {
   default     = null
 }
 
-variable "master_security_group_description" {
-  description = "Description of the security group created"
+variable "autoscaling_iam_role_description" {
+  description = "Description of the role"
   type        = string
-  default     = "Managed master security group"
-}
-
-variable "auto_termination_policy" {
-  description = "An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates"
-  type        = any
-  default     = {}
-}
-
-variable "step_concurrency_level" {
-  description = "Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with release_label 5.28.0 or greater (default is 1)"
-  type        = number
   default     = null
-}
-
-variable "create_service_iam_role" {
-  description = "Determines whether the service IAM role should be created"
-  type        = bool
-  default     = true
-}
-
-variable "managed_security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
 }
 
 variable "autoscaling_iam_role_name" {
@@ -88,82 +34,10 @@ variable "autoscaling_iam_role_name" {
   default     = null
 }
 
-variable "vpc_id" {
-  description = "The ID of the Amazon Virtual Private Cloud (Amazon VPC) where the security groups will be created"
-  type        = string
-  default     = ""
-}
-
-variable "log_uri" {
-  description = "S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created"
-  type        = string
-  default     = null
-}
-
-variable "step" {
-  description = "Steps to run when creating the cluster"
+variable "bootstrap_action" {
+  description = "Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes"
   type        = any
   default     = {}
-}
-
-variable "termination_protection" {
-  description = "Switch on/off termination protection (default is false, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to false"
-  type        = bool
-  default     = null
-}
-
-variable "task_instance_fleet" {
-  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the task node type. Cannot be specified if any task_instance_group configuration blocks are set"
-  type        = any
-  default     = {}
-}
-
-variable "service_iam_role_policies" {
-  description = "Map of IAM policies to attach to the service role"
-  type        = map(string)
-  default     = { "AmazonEMRServicePolicy_v2" : "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2" }
-}
-
-variable "create_autoscaling_iam_role" {
-  description = "Determines whether the autoscaling IAM role should be created"
-  type        = bool
-  default     = true
-}
-
-variable "additional_info" {
-  description = "JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore Terraform cannot detect drift from the actual EMR cluster if its value is changed outside Terraform"
-  type        = string
-  default     = null
-}
-
-variable "ec2_attributes" {
-  description = "Attributes for the EC2 instances running the job flow"
-  type        = any
-  default     = {}
-}
-
-variable "scale_down_behavior" {
-  description = "Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized"
-  type        = string
-  default     = "TERMINATE_AT_TASK_COMPLETION"
-}
-
-variable "autoscaling_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "is_private_cluster" {
-  description = "Identifies whether the cluster is created in a private subnet"
-  type        = bool
-  default     = true
-}
-
-variable "service_security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = "Managed service access security group"
 }
 
 variable "configurations" {
@@ -178,10 +52,40 @@ variable "configurations_json" {
   default     = null
 }
 
-variable "keep_job_flow_alive_when_no_steps" {
-  description = "Switch on/off run cluster with no steps or when all steps are complete (default is on)"
+variable "core_instance_fleet" {
+  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any core_instance_group configuration blocks are set"
+  type        = any
+  default     = {}
+}
+
+variable "core_instance_group" {
+  description = "Configuration block to use an [Instance Group] for the core node type"
+  type        = any
+  default     = {}
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
-  default     = null
+  default     = true
+}
+
+variable "create_autoscaling_iam_role" {
+  description = "Determines whether the autoscaling IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_instance_profile" {
+  description = "Determines whether the EC2 IAM role/instance profile should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_managed_security_groups" {
+  description = "Determines whether managed security groups are created"
+  type        = bool
+  default     = true
 }
 
 variable "create_security_configuration" {
@@ -190,8 +94,32 @@ variable "create_security_configuration" {
   default     = false
 }
 
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+variable "create_service_iam_role" {
+  description = "Determines whether the service IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "custom_ami_id" {
+  description = "Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later"
+  type        = string
+  default     = null
+}
+
+variable "ebs_root_volume_size" {
+  description = "Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later"
+  type        = number
+  default     = null
+}
+
+variable "ec2_attributes" {
+  description = "Attributes for the EC2 instances running the job flow"
+  type        = any
+  default     = {}
+}
+
+variable "iam_instance_profile_description" {
+  description = "Description of the EC2 IAM role/instance profile"
   type        = string
   default     = null
 }
@@ -202,58 +130,10 @@ variable "iam_instance_profile_name" {
   default     = null
 }
 
-variable "create_managed_security_groups" {
-  description = "Determines whether managed security groups are created"
-  type        = bool
-  default     = true
-}
-
 variable "iam_instance_profile_policies" {
   description = "Map of IAM policies to attach to the EC2 IAM role/instance profile"
   type        = map(string)
   default     = { "AmazonElasticMapReduceforEC2Role" : "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role" }
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "custom_ami_id" {
-  description = "Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later"
-  type        = string
-  default     = null
-}
-
-variable "log_encryption_kms_key_id" {
-  description = "AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0"
-  type        = string
-  default     = null
-}
-
-variable "master_instance_fleet" {
-  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any master_instance_group configuration blocks are set"
-  type        = any
-  default     = {}
-}
-
-variable "visible_to_all_users" {
-  description = "Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is true"
-  type        = bool
-  default     = null
-}
-
-variable "service_pass_role_policy_description" {
-  description = "Description of the policy"
-  type        = string
-  default     = null
-}
-
-variable "iam_instance_profile_description" {
-  description = "Description of the EC2 IAM role/instance profile"
-  type        = string
-  default     = null
 }
 
 variable "iam_role_path" {
@@ -262,21 +142,33 @@ variable "iam_role_path" {
   default     = null
 }
 
-variable "managed_security_group_name" {
-  description = "Name to use on manged security group created. Note - -master, -slave, and -service will be appended to this name to distinguish"
+variable "iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
   type        = string
   default     = null
 }
 
-variable "slave_security_group_rules" {
-  description = "Security group rules to add to the security group created"
-  type        = any
-  default     = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
+variable "iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
 }
 
-variable "ebs_root_volume_size" {
-  description = "Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later"
-  type        = number
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "is_private_cluster" {
+  description = "Identifies whether the cluster is created in a private subnet"
+  type        = bool
+  default     = true
+}
+
+variable "keep_job_flow_alive_when_no_steps" {
+  description = "Switch on/off run cluster with no steps or when all steps are complete (default is on)"
+  type        = bool
   default     = null
 }
 
@@ -286,10 +178,100 @@ variable "kerberos_attributes" {
   default     = {}
 }
 
+variable "list_steps_states" {
+  description = "List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps"
+  type        = list(string)
+  default     = []
+}
+
+variable "log_encryption_kms_key_id" {
+  description = "AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0"
+  type        = string
+  default     = null
+}
+
+variable "log_uri" {
+  description = "S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created"
+  type        = string
+  default     = null
+}
+
+variable "managed_scaling_policy" {
+  description = "Compute limit configuration for a [Managed Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html)"
+  type        = any
+  default     = {}
+}
+
+variable "managed_security_group_name" {
+  description = "Name to use on manged security group created. Note - -master, -slave, and -service will be appended to this name to distinguish"
+  type        = string
+  default     = null
+}
+
+variable "managed_security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "managed_security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "master_instance_fleet" {
+  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any master_instance_group configuration blocks are set"
+  type        = any
+  default     = {}
+}
+
+variable "master_instance_group" {
+  description = "Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master)"
+  type        = any
+  default     = {}
+}
+
+variable "master_security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = "Managed master security group"
+}
+
+variable "master_security_group_rules" {
+  description = "Security group rules to add to the security group created"
+  type        = any
+  default     = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
+}
+
 variable "name" {
   description = "Name of the job flow"
   type        = string
   default     = ""
+}
+
+variable "release_label" {
+  description = "Release label for the Amazon EMR release"
+  type        = string
+  default     = null
+}
+
+variable "release_label_filters" {
+  description = "Map of release label filters use to lookup a release label"
+  type        = any
+  default     = { "default" : { "prefix" : "emr-6" } }
+}
+
+variable "scale_down_behavior" {
+  description = "Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized"
+  type        = string
+  default     = "TERMINATE_AT_TASK_COMPLETION"
+}
+
+variable "security_configuration" {
+  description = "Security configuration to create, or attach if create_security_configuration is false. Only valid for EMR clusters with release_label 4.8.0 or greater"
+  type        = string
+  default     = null
 }
 
 variable "security_configuration_name" {
@@ -304,70 +286,16 @@ variable "security_configuration_use_name_prefix" {
   default     = true
 }
 
-variable "security_configuration" {
-  description = "Security configuration to create, or attach if create_security_configuration is false. Only valid for EMR clusters with release_label 4.8.0 or greater"
-  type        = string
-  default     = null
-}
-
-variable "core_instance_group" {
-  description = "Configuration block to use an [Instance Group] for the core node type"
-  type        = any
-  default     = {}
-}
-
-variable "release_label_filters" {
-  description = "Map of release label filters use to lookup a release label"
-  type        = any
-  default     = { "default" : { "prefix" : "emr-6" } }
-}
-
-variable "iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "applications" {
-  description = "A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster"
-  type        = list(string)
-  default     = []
-}
-
-variable "bootstrap_action" {
-  description = "Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes"
-  type        = any
-  default     = {}
-}
-
-variable "master_instance_group" {
-  description = "Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master)"
-  type        = any
-  default     = {}
-}
-
 variable "service_iam_role_arn" {
   description = "The ARN of an existing IAM role to use for the service"
   type        = string
   default     = null
 }
 
-variable "iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "create_iam_instance_profile" {
-  description = "Determines whether the EC2 IAM role/instance profile should be created"
-  type        = bool
-  default     = true
-}
-
-variable "list_steps_states" {
-  description = "List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps"
-  type        = list(string)
-  default     = []
+variable "service_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
 }
 
 variable "service_iam_role_name" {
@@ -376,10 +304,34 @@ variable "service_iam_role_name" {
   default     = null
 }
 
-variable "managed_security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
-  type        = bool
-  default     = true
+variable "service_iam_role_policies" {
+  description = "Map of IAM policies to attach to the service role"
+  type        = map(string)
+  default     = { "AmazonEMRServicePolicy_v2" : "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2" }
+}
+
+variable "service_pass_role_policy_description" {
+  description = "Description of the policy"
+  type        = string
+  default     = null
+}
+
+variable "service_pass_role_policy_name" {
+  description = "Name to use on IAM policy created"
+  type        = string
+  default     = null
+}
+
+variable "service_security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = "Managed service access security group"
+}
+
+variable "service_security_group_rules" {
+  description = "Security group rules to add to the security group created"
+  type        = any
+  default     = {}
 }
 
 variable "slave_security_group_description" {
@@ -388,8 +340,56 @@ variable "slave_security_group_description" {
   default     = "Managed slave security group"
 }
 
-variable "service_security_group_rules" {
+variable "slave_security_group_rules" {
   description = "Security group rules to add to the security group created"
   type        = any
+  default     = { "default" : { "cidr_blocks" : ["0.0.0.0/0"], "description" : "Allow all egress traffic", "from_port" : 0, "ipv6_cidr_blocks" : ["::/0"], "protocol" : "-1", "to_port" : 0, "type" : "egress" } }
+}
+
+variable "step" {
+  description = "Steps to run when creating the cluster"
+  type        = any
   default     = {}
+}
+
+variable "step_concurrency_level" {
+  description = "Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with release_label 5.28.0 or greater (default is 1)"
+  type        = number
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_instance_fleet" {
+  description = "Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the task node type. Cannot be specified if any task_instance_group configuration blocks are set"
+  type        = any
+  default     = {}
+}
+
+variable "task_instance_group" {
+  description = "Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [task node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master)"
+  type        = any
+  default     = {}
+}
+
+variable "termination_protection" {
+  description = "Switch on/off termination protection (default is false, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to false"
+  type        = bool
+  default     = null
+}
+
+variable "visible_to_all_users" {
+  description = "Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is true"
+  type        = bool
+  default     = null
+}
+
+variable "vpc_id" {
+  description = "The ID of the Amazon Virtual Private Cloud (Amazon VPC) where the security groups will be created"
+  type        = string
+  default     = ""
 }

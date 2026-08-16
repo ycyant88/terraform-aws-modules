@@ -1,99 +1,99 @@
 ami = ""
 
-ephemeral_block_device = []
-
-placement_group = ""
-
-spot_valid_from = ""
-
 associate_public_ip_address = ""
-
-ebs_block_device = []
-
-instance_initiated_shutdown_behavior = ""
-
-timeouts = {}
-
-create_spot_instance = false
-
-spot_type = ""
 
 availability_zone = ""
 
-hibernation = ""
-
-ipv6_address_count = ""
-
-key_name = ""
-
-metadata_options = {}
-
-name = ""
-
-cpu_credits = ""
-
-get_password_data = ""
-
-ipv6_addresses = ""
-
-root_block_device = []
-
-source_dest_check = true
-
-cpu_threads_per_core = ""
-
-spot_instance_interruption_behavior = ""
-
-ebs_optimized = ""
-
-enclave_options_enabled = ""
-
-iam_instance_profile = ""
-
-tenancy = ""
-
-enable_volume_tags = true
+capacity_reservation_specification = ""
 
 cpu_core_count = ""
 
-spot_price = ""
+cpu_credits = ""
+
+cpu_threads_per_core = ""
+
+create = true
+
+create_spot_instance = false
+
+disable_api_termination = ""
+
+ebs_block_device = []
+
+ebs_optimized = ""
+
+enable_volume_tags = true
+
+enclave_options_enabled = ""
+
+ephemeral_block_device = []
+
+get_password_data = ""
+
+hibernation = ""
 
 host_id = ""
 
+iam_instance_profile = ""
+
+instance_initiated_shutdown_behavior = ""
+
 instance_type = "t3.micro"
+
+ipv6_address_count = ""
+
+ipv6_addresses = ""
+
+key_name = ""
+
+launch_template = ""
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+root_block_device = []
+
+secondary_private_ips = ""
+
+source_dest_check = true
+
+spot_block_duration_minutes = ""
+
+spot_instance_interruption_behavior = ""
+
+spot_launch_group = ""
+
+spot_price = ""
+
+spot_type = ""
+
+spot_valid_from = ""
+
+spot_valid_until = ""
+
+spot_wait_for_fulfillment = ""
 
 subnet_id = ""
 
 tags = {}
 
+tenancy = ""
+
+timeouts = {}
+
+user_data = ""
+
 user_data_base64 = ""
 
 volume_tags = {}
 
-spot_wait_for_fulfillment = ""
-
-disable_api_termination = ""
-
-network_interface = []
-
-secondary_private_ips = ""
-
 vpc_security_group_ids = ""
-
-spot_launch_group = ""
-
-spot_block_duration_minutes = ""
-
-spot_valid_until = ""
-
-create = true
-
-capacity_reservation_specification = ""
-
-launch_template = ""
-
-monitoring = false
-
-private_ip = ""
-
-user_data = ""

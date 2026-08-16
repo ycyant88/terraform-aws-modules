@@ -1,13 +1,3 @@
-output "iam_role_arn" {
-  value       = module.iam_iam-assumable-role.iam_role_arn
-  description = "ARN of IAM role"
-}
-
-output "iam_role_name" {
-  value       = module.iam_iam-assumable-role.iam_role_name
-  description = "Name of IAM role"
-}
-
 output "iam_instance_profile_arn" {
   value       = module.iam_iam-assumable-role.iam_instance_profile_arn
   description = "ARN of IAM instance profile"
@@ -21,6 +11,16 @@ output "iam_instance_profile_name" {
 output "iam_instance_profile_path" {
   value       = module.iam_iam-assumable-role.iam_instance_profile_path
   description = "Path of IAM instance profile"
+}
+
+output "iam_role_arn" {
+  value       = module.iam_iam-assumable-role.iam_role_arn
+  description = "ARN of IAM role"
+}
+
+output "iam_role_name" {
+  value       = module.iam_iam-assumable-role.iam_role_name
+  description = "Name of IAM role"
 }
 
 output "iam_role_path" {

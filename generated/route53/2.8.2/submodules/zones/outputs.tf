@@ -1,11 +1,11 @@
-output "route53_zone_name_servers" {
-  value       = module.route53_zones.route53_zone_name_servers
-  description = "Name servers of Route53 zone"
-}
-
 output "route53_zone_name" {
   value       = module.route53_zones.route53_zone_name
   description = "Name of Route53 zone"
+}
+
+output "route53_zone_name_servers" {
+  value       = module.route53_zones.route53_zone_name_servers
+  description = "Name servers of Route53 zone"
 }
 
 output "route53_zone_zone_id" {

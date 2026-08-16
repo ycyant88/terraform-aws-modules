@@ -1,19 +1,7 @@
-variable "log_group_tags" {
-  description = "A map of tags to apply to the CloudWatch log group"
+variable "auth" {
+  description = "Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters"
   type        = map(string)
   default     = {}
-}
-
-variable "use_policy_name_prefix" {
-  description = "Whether to use unique name beginning with the specified iam_policy_name"
-  type        = bool
-  default     = false
-}
-
-variable "name" {
-  description = "The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens"
-  type        = string
-  default     = ""
 }
 
 variable "auth_scheme" {
@@ -22,28 +10,10 @@ variable "auth_scheme" {
   default     = "SECRETS"
 }
 
-variable "db_name" {
-  description = "The name of the database"
-  type        = string
-  default     = ""
-}
-
-variable "log_group_kms_key_id" {
-  description = "The ARN of the KMS Key to use when encrypting log data"
-  type        = string
+variable "connection_borrow_timeout" {
+  description = "The number of seconds for a proxy to wait for a connection to become available in the connection pool"
+  type        = number
   default     = null
-}
-
-variable "use_role_name_prefix" {
-  description = "Whether to use unique name beginning with the specified iam_role_name"
-  type        = bool
-  default     = false
-}
-
-variable "iam_role_description" {
-  description = "The description of the role"
-  type        = string
-  default     = ""
 }
 
 variable "create_iam_policy" {
@@ -52,26 +22,74 @@ variable "create_iam_policy" {
   default     = true
 }
 
-variable "max_connections_percent" {
-  description = "The maximum size of the connection pool for each target in a target group"
-  type        = number
-  default     = 90
+variable "create_iam_role" {
+  description = "Determines whether an IAM role is created"
+  type        = bool
+  default     = true
 }
 
-variable "target_db_instance" {
-  description = "Determines whether DB instance is targetted by proxy"
+variable "create_proxy" {
+  description = "Determines whether a proxy and its resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "db_cluster_identifier" {
+  description = "DB cluster identifier"
+  type        = string
+  default     = ""
+}
+
+variable "db_host" {
+  description = "The identifier to use for the database endpoint"
+  type        = string
+  default     = ""
+}
+
+variable "db_instance_identifier" {
+  description = "DB instance identifier"
+  type        = string
+  default     = ""
+}
+
+variable "db_name" {
+  description = "The name of the database"
+  type        = string
+  default     = ""
+}
+
+variable "debug_logging" {
+  description = "Whether the proxy includes detailed information about SQL statements in its logs"
   type        = bool
   default     = false
 }
 
-variable "log_group_retention_in_days" {
-  description = "Specifies the number of days you want to retain log events in the log group"
-  type        = number
-  default     = 30
+variable "engine_family" {
+  description = "The kind of database engine that the proxy will connect to. Valid values are MYSQL or POSTGRESQL"
+  type        = string
+  default     = ""
 }
 
-variable "iam_role_name" {
-  description = "The name of the role. If omitted, Terraform will assign a random, unique name"
+variable "iam_auth" {
+  description = "Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of DISABLED, REQUIRED"
+  type        = string
+  default     = "REQUIRED"
+}
+
+variable "iam_creation_wait_duration" {
+  description = "Time duration delay to wait for IAM resource creation/propagation. For example, 30s for 30 seconds or 5m for 5 minutes. Updating this value by itself will not trigger a delay."
+  type        = string
+  default     = "30s"
+}
+
+variable "iam_policy_name" {
+  description = "The name of the role policy. If omitted, Terraform will assign a random, unique name"
+  type        = string
+  default     = ""
+}
+
+variable "iam_role_description" {
+  description = "The description of the role"
   type        = string
   default     = ""
 }
@@ -88,32 +106,8 @@ variable "iam_role_max_session_duration" {
   default     = 43200
 }
 
-variable "iam_policy_name" {
-  description = "The name of the role policy. If omitted, Terraform will assign a random, unique name"
-  type        = string
-  default     = ""
-}
-
-variable "engine_family" {
-  description = "The kind of database engine that the proxy will connect to. Valid values are MYSQL or POSTGRESQL"
-  type        = string
-  default     = ""
-}
-
-variable "vpc_security_group_ids" {
-  description = "One or more VPC security group IDs to associate with the new proxy"
-  type        = list(string)
-  default     = []
-}
-
-variable "db_instance_identifier" {
-  description = "DB instance identifier"
-  type        = string
-  default     = ""
-}
-
-variable "db_cluster_identifier" {
-  description = "DB cluster identifier"
+variable "iam_role_name" {
+  description = "The name of the role. If omitted, Terraform will assign a random, unique name"
   type        = string
   default     = ""
 }
@@ -124,10 +118,22 @@ variable "iam_role_path" {
   default     = null
 }
 
-variable "db_host" {
-  description = "The identifier to use for the database endpoint"
+variable "iam_role_permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the role"
   type        = string
-  default     = ""
+  default     = null
+}
+
+variable "iam_role_tags" {
+  description = "A map of tags to apply to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "idle_client_timeout" {
+  description = "The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it"
+  type        = number
+  default     = 1800
 }
 
 variable "init_query" {
@@ -136,22 +142,22 @@ variable "init_query" {
   default     = ""
 }
 
-variable "iam_role_permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the role"
+variable "log_group_kms_key_id" {
+  description = "The ARN of the KMS Key to use when encrypting log data"
   type        = string
   default     = null
 }
 
-variable "iam_creation_wait_duration" {
-  description = "Time duration delay to wait for IAM resource creation/propagation. For example, 30s for 30 seconds or 5m for 5 minutes. Updating this value by itself will not trigger a delay."
-  type        = string
-  default     = "30s"
+variable "log_group_retention_in_days" {
+  description = "Specifies the number of days you want to retain log events in the log group"
+  type        = number
+  default     = 30
 }
 
-variable "create_proxy" {
-  description = "Determines whether a proxy and its resources will be created"
-  type        = bool
-  default     = true
+variable "log_group_tags" {
+  description = "A map of tags to apply to the CloudWatch log group"
+  type        = map(string)
+  default     = {}
 }
 
 variable "manage_log_group" {
@@ -160,21 +166,45 @@ variable "manage_log_group" {
   default     = true
 }
 
-variable "auth" {
-  description = "Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters"
-  type        = map(string)
-  default     = {}
+variable "max_connections_percent" {
+  description = "The maximum size of the connection pool for each target in a target group"
+  type        = number
+  default     = 90
 }
 
-variable "debug_logging" {
-  description = "Whether the proxy includes detailed information about SQL statements in its logs"
-  type        = bool
-  default     = false
+variable "max_idle_connections_percent" {
+  description = "Controls how actively the proxy closes idle database connections in the connection pool"
+  type        = number
+  default     = 50
+}
+
+variable "name" {
+  description = "The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens"
+  type        = string
+  default     = ""
 }
 
 variable "proxy_tags" {
   description = "A map of tags to apply to the RDS Proxy"
   type        = map(string)
+  default     = {}
+}
+
+variable "require_tls" {
+  description = "A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy"
+  type        = bool
+  default     = true
+}
+
+variable "role_arn" {
+  description = "The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager"
+  type        = string
+  default     = ""
+}
+
+variable "secrets" {
+  description = "Map of secerets to be used by RDS Proxy for authentication to the database"
+  type        = map(object({ arn = string, description = string, kms_key_id = string }))
   default     = {}
 }
 
@@ -184,46 +214,10 @@ variable "session_pinning_filters" {
   default     = []
 }
 
-variable "create_iam_role" {
-  description = "Determines whether an IAM role is created"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_tags" {
-  description = "A map of tags to apply to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "iam_auth" {
-  description = "Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of DISABLED, REQUIRED"
-  type        = string
-  default     = "REQUIRED"
-}
-
 variable "tags" {
   description = "A map of tags to use on all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "role_arn" {
-  description = "The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager"
-  type        = string
-  default     = ""
-}
-
-variable "vpc_subnet_ids" {
-  description = "One or more VPC subnet IDs to associate with the new proxy"
-  type        = list(string)
-  default     = []
-}
-
-variable "max_idle_connections_percent" {
-  description = "Controls how actively the proxy closes idle database connections in the connection pool"
-  type        = number
-  default     = 50
 }
 
 variable "target_db_cluster" {
@@ -232,26 +226,32 @@ variable "target_db_cluster" {
   default     = false
 }
 
-variable "idle_client_timeout" {
-  description = "The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it"
-  type        = number
-  default     = 1800
-}
-
-variable "require_tls" {
-  description = "A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy"
+variable "target_db_instance" {
+  description = "Determines whether DB instance is targetted by proxy"
   type        = bool
-  default     = true
+  default     = false
 }
 
-variable "secrets" {
-  description = "Map of secerets to be used by RDS Proxy for authentication to the database"
-  type        = map(object({ arn = string, description = string, kms_key_id = string }))
-  default     = {}
+variable "use_policy_name_prefix" {
+  description = "Whether to use unique name beginning with the specified iam_policy_name"
+  type        = bool
+  default     = false
 }
 
-variable "connection_borrow_timeout" {
-  description = "The number of seconds for a proxy to wait for a connection to become available in the connection pool"
-  type        = number
-  default     = null
+variable "use_role_name_prefix" {
+  description = "Whether to use unique name beginning with the specified iam_role_name"
+  type        = bool
+  default     = false
+}
+
+variable "vpc_security_group_ids" {
+  description = "One or more VPC security group IDs to associate with the new proxy"
+  type        = list(string)
+  default     = []
+}
+
+variable "vpc_subnet_ids" {
+  description = "One or more VPC subnet IDs to associate with the new proxy"
+  type        = list(string)
+  default     = []
 }

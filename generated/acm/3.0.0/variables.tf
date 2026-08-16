@@ -1,5 +1,11 @@
-variable "validation_allow_overwrite_records" {
-  description = "Whether to allow overwrite of Route53 records"
+variable "certificate_transparency_logging_preference" {
+  description = "Specifies whether certificate details should be added to a certificate transparency log"
+  type        = bool
+  default     = true
+}
+
+variable "create_certificate" {
+  description = "Whether to create ACM certificate"
   type        = bool
   default     = true
 }
@@ -22,22 +28,10 @@ variable "subject_alternative_names" {
   default     = []
 }
 
-variable "validation_method" {
-  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
-  type        = string
-  default     = "DNS"
-}
-
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
-  type        = string
-  default     = ""
-}
-
-variable "create_certificate" {
-  description = "Whether to create ACM certificate"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }
 
 variable "validate_certificate" {
@@ -46,20 +40,26 @@ variable "validate_certificate" {
   default     = true
 }
 
+variable "validation_allow_overwrite_records" {
+  description = "Whether to allow overwrite of Route53 records"
+  type        = bool
+  default     = true
+}
+
+variable "validation_method" {
+  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
+  type        = string
+  default     = "DNS"
+}
+
 variable "wait_for_validation" {
   description = "Whether to wait for the validation to complete"
   type        = bool
   default     = true
 }
 
-variable "certificate_transparency_logging_preference" {
-  description = "Specifies whether certificate details should be added to a certificate transparency log"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record."
+  type        = string
+  default     = ""
 }

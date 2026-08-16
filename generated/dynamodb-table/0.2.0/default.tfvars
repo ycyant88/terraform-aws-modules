@@ -1,37 +1,37 @@
-timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
-
-create_table = true
+attributes = []
 
 billing_mode = "PAY_PER_REQUEST"
 
-write_capacity = ""
+create_table = true
 
-ttl_attribute_name = ""
+global_secondary_indexes = []
 
-server_side_encryption_kms_key_arn = ""
+hash_key = ""
+
+local_secondary_indexes = []
 
 name = ""
 
+point_in_time_recovery_enabled = false
+
 range_key = ""
 
-stream_enabled = false
+read_capacity = ""
 
 server_side_encryption_enabled = false
 
-attributes = []
+server_side_encryption_kms_key_arn = ""
 
-global_secondary_indexes = []
+stream_enabled = false
 
 stream_view_type = ""
 
 tags = {}
 
-hash_key = ""
+timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
 
-read_capacity = ""
-
-point_in_time_recovery_enabled = false
+ttl_attribute_name = ""
 
 ttl_enabled = false
 
-local_secondary_indexes = []
+write_capacity = ""

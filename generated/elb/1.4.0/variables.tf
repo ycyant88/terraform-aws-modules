@@ -1,7 +1,7 @@
-variable "cross_zone_load_balancing" {
-  description = "Enable cross-zone load balancing"
-  type        = string
-  default     = true
+variable "access_logs" {
+  description = "An access logs block"
+  type        = list(any)
+  default     = []
 }
 
 variable "connection_draining" {
@@ -10,10 +10,28 @@ variable "connection_draining" {
   default     = false
 }
 
-variable "number_of_instances" {
-  description = "Number of instances to attach to ELB"
+variable "connection_draining_timeout" {
+  description = "The time in seconds to allow for connections to drain"
   type        = string
-  default     = 0
+  default     = 300
+}
+
+variable "cross_zone_load_balancing" {
+  description = "Enable cross-zone load balancing"
+  type        = string
+  default     = true
+}
+
+variable "health_check" {
+  description = "A health check block"
+  type        = list(any)
+  default     = ""
+}
+
+variable "idle_timeout" {
+  description = "The time in seconds that the connection is allowed to be idle"
+  type        = string
+  default     = 60
 }
 
 variable "instances" {
@@ -22,16 +40,16 @@ variable "instances" {
   default     = []
 }
 
-variable "connection_draining_timeout" {
-  description = "The time in seconds to allow for connections to drain"
+variable "internal" {
+  description = "If true, ELB will be an internal ELB"
   type        = string
-  default     = 300
+  default     = ""
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(any)
-  default     = {}
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(any)
+  default     = ""
 }
 
 variable "name" {
@@ -40,16 +58,10 @@ variable "name" {
   default     = ""
 }
 
-variable "internal" {
-  description = "If true, ELB will be an internal ELB"
+variable "number_of_instances" {
+  description = "Number of instances to attach to ELB"
   type        = string
-  default     = ""
-}
-
-variable "access_logs" {
-  description = "An access logs block"
-  type        = list(any)
-  default     = []
+  default     = 0
 }
 
 variable "security_groups" {
@@ -64,20 +76,8 @@ variable "subnets" {
   default     = ""
 }
 
-variable "idle_timeout" {
-  description = "The time in seconds that the connection is allowed to be idle"
-  type        = string
-  default     = 60
-}
-
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(any)
-  default     = ""
-}
-
-variable "health_check" {
-  description = "A health check block"
-  type        = list(any)
-  default     = ""
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(any)
+  default     = {}
 }

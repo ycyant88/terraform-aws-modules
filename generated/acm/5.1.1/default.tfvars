@@ -1,41 +1,41 @@
-certificate_transparency_logging_preference = true
-
-subject_alternative_names = []
-
-distinct_domain_names = []
-
-validation_option = {}
-
-zones = {}
-
-dns_ttl = 60
-
 acm_certificate_domain_validation_options = {}
 
-validate_certificate = true
-
-validation_allow_overwrite_records = true
-
-wait_for_validation = true
-
-domain_name = ""
+certificate_transparency_logging_preference = true
 
 create_certificate = true
 
-validation_method = null
+create_route53_records = true
 
-validation_record_fqdns = []
+create_route53_records_only = false
 
-zone_id = ""
+distinct_domain_names = []
+
+dns_ttl = 60
+
+domain_name = ""
 
 key_algorithm = null
 
 putin_khuylo = true
 
-create_route53_records_only = false
+subject_alternative_names = []
+
+tags = {}
+
+validate_certificate = true
+
+validation_allow_overwrite_records = true
+
+validation_method = null
+
+validation_option = {}
+
+validation_record_fqdns = []
 
 validation_timeout = null
 
-create_route53_records = true
+wait_for_validation = true
 
-tags = {}
+zone_id = ""
+
+zones = {}

@@ -1,38 +1,7 @@
-variable "description" {
-  description = "A friendly description of the firewall"
-  type        = string
-  default     = null
-}
-
-variable "vpc_id" {
-  description = "The unique identifier of the VPC where AWS Network Firewall should create the firewall"
-  type        = string
-  default     = null
-}
-
-variable "logging_configuration_destination_config" {
-  description = "A list of min 1, max 2 configuration blocks describing the destination for the logging configuration"
-  type = list(object({
-    log_destination      = map(string)
-    log_destination_type = string
-    log_type             = string
-  }))
-  default = null
-}
-
-variable "subnet_change_protection" {
-  description = "A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to true"
+variable "availability_zone_change_protection" {
+  description = " A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to true, you must first disable this protection before adding or removing Availability Zones"
   type        = bool
-  default     = true
-}
-
-variable "subnet_mapping" {
-  description = "Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet"
-  type = map(object({
-    ip_address_type = optional(string)
-    subnet_id       = string
-  }))
-  default = null
+  default     = null
 }
 
 variable "availability_zone_mapping" {
@@ -43,22 +12,10 @@ variable "availability_zone_mapping" {
   default = null
 }
 
-variable "firewall_policy_arn" {
-  description = "The ARN of the Firewall Policy to use"
-  type        = string
-  default     = ""
-}
-
-variable "firewall_policy_change_protection" {
-  description = "A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to false"
+variable "create" {
+  description = "Controls if resources should be created"
   type        = bool
-  default     = null
-}
-
-variable "transit_gateway_id" {
-  description = "The ID of the transit gateway to which the firewall is attached. Required when creating a transit gateway-attached firewall"
-  type        = string
-  default     = null
+  default     = true
 }
 
 variable "create_logging_configuration" {
@@ -67,28 +24,16 @@ variable "create_logging_configuration" {
   default     = false
 }
 
-variable "name" {
-  description = "A friendly name of the firewall"
-  type        = string
-  default     = ""
-}
-
-variable "create" {
-  description = "Controls if resources should be created"
+variable "delete_protection" {
+  description = "A boolean flag indicating whether it is possible to delete the firewall. Defaults to true"
   type        = bool
   default     = true
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+variable "description" {
+  description = "A friendly description of the firewall"
   type        = string
   default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "enabled_analysis_types" {
@@ -106,14 +51,69 @@ variable "encryption_configuration" {
   default = null
 }
 
-variable "availability_zone_change_protection" {
-  description = " A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to true, you must first disable this protection before adding or removing Availability Zones"
+variable "firewall_policy_arn" {
+  description = "The ARN of the Firewall Policy to use"
+  type        = string
+  default     = ""
+}
+
+variable "firewall_policy_change_protection" {
+  description = "A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to false"
   type        = bool
   default     = null
 }
 
-variable "delete_protection" {
-  description = "A boolean flag indicating whether it is possible to delete the firewall. Defaults to true"
+variable "logging_configuration_destination_config" {
+  description = "A list of min 1, max 2 configuration blocks describing the destination for the logging configuration"
+  type = list(object({
+    log_destination      = map(string)
+    log_destination_type = string
+    log_type             = string
+  }))
+  default = null
+}
+
+variable "name" {
+  description = "A friendly name of the firewall"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "subnet_change_protection" {
+  description = "A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to true"
   type        = bool
   default     = true
+}
+
+variable "subnet_mapping" {
+  description = "Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet"
+  type = map(object({
+    ip_address_type = optional(string)
+    subnet_id       = string
+  }))
+  default = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "transit_gateway_id" {
+  description = "The ID of the transit gateway to which the firewall is attached. Required when creating a transit gateway-attached firewall"
+  type        = string
+  default     = null
+}
+
+variable "vpc_id" {
+  description = "The unique identifier of the VPC where AWS Network Firewall should create the firewall"
+  type        = string
+  default     = null
 }

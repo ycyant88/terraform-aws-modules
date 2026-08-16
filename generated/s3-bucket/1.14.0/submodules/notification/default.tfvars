@@ -2,10 +2,10 @@ bucket = ""
 
 bucket_arn = ""
 
-lambda_notifications = {}
+create = true
 
-sqs_notifications = {}
+lambda_notifications = {}
 
 sns_notifications = {}
 
-create = true
+sqs_notifications = {}

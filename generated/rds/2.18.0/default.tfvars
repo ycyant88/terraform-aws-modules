@@ -1,125 +1,125 @@
-delete_automated_backups = true
-
-storage_encrypted = false
-
-publicly_accessible = false
-
-monitoring_role_name = "rds-monitoring-role"
-
-skip_final_snapshot = true
-
-subnet_ids = []
-
-family = ""
-
-username = ""
-
-parameter_group_description = ""
-
-copy_tags_to_snapshot = false
-
-options = []
-
-max_allocated_storage = 0
-
-ca_cert_identifier = "rds-ca-2019"
-
 allocated_storage = ""
 
-deletion_protection = false
+allow_major_version_upgrade = false
 
-license_model = ""
+apply_immediately = false
 
-iops = 0
-
-major_engine_version = ""
-
-performance_insights_enabled = false
-
-maintenance_window = ""
-
-character_set_name = ""
-
-vpc_security_group_ids = []
-
-performance_insights_retention_period = 7
-
-engine = ""
-
-engine_version = ""
-
-parameter_group_name = ""
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-kms_key_id = ""
-
-instance_class = ""
-
-name = ""
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
 backup_retention_period = 1
 
-enabled_cloudwatch_logs_exports = []
+backup_window = ""
 
-create_db_parameter_group = true
+ca_cert_identifier = "rds-ca-2019"
 
-storage_type = "gp2"
+character_set_name = ""
 
-replicate_source_db = ""
-
-snapshot_identifier = ""
-
-domain_iam_role_name = ""
-
-final_snapshot_identifier = null
-
-port = ""
-
-use_parameter_group_name_prefix = true
-
-iam_database_authentication_enabled = false
-
-auto_minor_version_upgrade = true
-
-parameters = []
+copy_tags_to_snapshot = false
 
 create_db_instance = true
 
-db_subnet_group_name = ""
+create_db_option_group = true
 
-monitoring_interval = 0
-
-create_monitoring_role = false
-
-tags = {}
-
-domain = ""
-
-multi_az = false
-
-backup_window = ""
-
-option_group_timeouts = { "delete" : "15m" }
-
-password = ""
-
-option_group_name = ""
-
-apply_immediately = false
-
-option_group_description = ""
+create_db_parameter_group = true
 
 create_db_subnet_group = true
 
-create_db_option_group = true
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+delete_automated_backups = true
+
+deletion_protection = false
+
+domain = ""
+
+domain_iam_role_name = ""
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = null
+
+iam_database_authentication_enabled = false
 
 identifier = ""
 
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+major_engine_version = ""
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
 monitoring_role_arn = ""
 
-allow_major_version_upgrade = false
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_description = ""
+
+option_group_name = ""
+
+option_group_timeouts = { "delete" : "15m" }
+
+options = []
+
+parameter_group_description = ""
+
+parameter_group_name = ""
+
+parameters = []
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_retention_period = 7
+
+port = ""
+
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
 timezone = ""
+
+use_parameter_group_name_prefix = true
+
+username = ""
+
+vpc_security_group_ids = []

@@ -1,13 +1,13 @@
-variable "tags" {
-  description = "Tags added to all zones. Will take precedence over tags from the 'zones' variable"
-  type        = map(any)
-  default     = {}
-}
-
 variable "create" {
   description = "Whether to create Route53 zone"
   type        = bool
   default     = true
+}
+
+variable "tags" {
+  description = "Tags added to all zones. Will take precedence over tags from the 'zones' variable"
+  type        = map(any)
+  default     = {}
 }
 
 variable "zones" {

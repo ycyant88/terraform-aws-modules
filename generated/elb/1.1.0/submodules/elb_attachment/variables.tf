@@ -1,9 +1,3 @@
-variable "instances" {
-  description = "List of instances ID to place in the ELB pool"
-  type        = list(any)
-  default     = ""
-}
-
 variable "count" {
   description = "Number of instances ID to place in the ELB pool"
   type        = string
@@ -13,5 +7,11 @@ variable "count" {
 variable "elb" {
   description = "The name of the ELB"
   type        = string
+  default     = ""
+}
+
+variable "instances" {
+  description = "List of instances ID to place in the ELB pool"
+  type        = list(any)
   default     = ""
 }

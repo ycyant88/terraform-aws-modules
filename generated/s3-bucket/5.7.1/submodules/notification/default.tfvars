@@ -1,21 +1,21 @@
-lambda_notifications = {}
-
-sqs_notifications = {}
-
-create = true
-
-create_sns_policy = true
-
-region = null
+bucket = ""
 
 bucket_arn = null
 
-eventbridge = null
-
-sns_notifications = {}
-
-create_sqs_policy = true
+create = true
 
 create_lambda_permission = true
 
-bucket = ""
+create_sns_policy = true
+
+create_sqs_policy = true
+
+eventbridge = null
+
+lambda_notifications = {}
+
+region = null
+
+sns_notifications = {}
+
+sqs_notifications = {}

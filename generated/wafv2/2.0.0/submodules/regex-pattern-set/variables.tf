@@ -1,25 +1,19 @@
+variable "create" {
+  description = "Controls if resources should be created"
+  type        = bool
+  default     = true
+}
+
 variable "description" {
   description = "A friendly description of the regex pattern set"
   type        = string
   default     = null
 }
 
-variable "scope" {
-  description = "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL"
+variable "name" {
+  description = "A friendly name of the regex pattern set"
   type        = string
-  default     = "REGIONAL"
-}
-
-variable "regular_expressions" {
-  description = "Set of regex pattern strings"
-  type        = set(string)
-  default     = []
-}
-
-variable "create" {
-  description = "Controls if resources should be created"
-  type        = bool
-  default     = true
+  default     = ""
 }
 
 variable "putin_khuylo" {
@@ -28,14 +22,20 @@ variable "putin_khuylo" {
   default     = true
 }
 
+variable "regular_expressions" {
+  description = "Set of regex pattern strings"
+  type        = set(string)
+  default     = []
+}
+
+variable "scope" {
+  description = "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL"
+  type        = string
+  default     = "REGIONAL"
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "name" {
-  description = "A friendly name of the regex pattern set"
-  type        = string
-  default     = ""
 }

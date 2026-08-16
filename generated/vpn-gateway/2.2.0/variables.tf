@@ -1,5 +1,29 @@
-variable "tunnel2_inside_cidr" {
-  description = "The CIDR block of the inside IP addresses for the second VPN tunnel."
+variable "create_vpn_connection" {
+  description = "Set to false to prevent the creation of a VPN Connection."
+  type        = bool
+  default     = true
+}
+
+variable "create_vpn_gateway_attachment" {
+  description = "Set to false to prevent attachment of the vGW to the VPC"
+  type        = bool
+  default     = true
+}
+
+variable "customer_gateway_id" {
+  description = "The id of the Customer Gateway."
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "Set of tags to be added to the VPN Connection resource (only if create_vpn_connection = true)."
+  type        = map(string)
+  default     = {}
+}
+
+variable "tunnel1_inside_cidr" {
+  description = "The CIDR block of the inside IP addresses for the first VPN tunnel."
   type        = string
   default     = ""
 }
@@ -10,28 +34,16 @@ variable "tunnel1_preshared_key" {
   default     = ""
 }
 
+variable "tunnel2_inside_cidr" {
+  description = "The CIDR block of the inside IP addresses for the second VPN tunnel."
+  type        = string
+  default     = ""
+}
+
 variable "tunnel2_preshared_key" {
   description = "The preshared key of the second VPN tunnel."
   type        = string
   default     = ""
-}
-
-variable "create_vpn_gateway_attachment" {
-  description = "Set to false to prevent attachment of the vGW to the VPC"
-  type        = bool
-  default     = true
-}
-
-variable "vpn_gateway_id" {
-  description = "The id of the VPN Gateway."
-  type        = string
-  default     = ""
-}
-
-variable "create_vpn_connection" {
-  description = "Set to false to prevent the creation of a VPN Connection."
-  type        = bool
-  default     = true
 }
 
 variable "vpc_id" {
@@ -40,22 +52,16 @@ variable "vpc_id" {
   default     = ""
 }
 
-variable "vpc_subnet_route_table_ids" {
-  description = "The ids of the VPC subnets for which routes from the VPN Gateway will be propagated."
-  type        = list(string)
-  default     = []
-}
-
 variable "vpc_subnet_route_table_count" {
   description = "The number of subnet route table ids being passed in via vpc_subnet_route_table_ids."
   type        = number
   default     = 0
 }
 
-variable "tags" {
-  description = "Set of tags to be added to the VPN Connection resource (only if create_vpn_connection = true)."
-  type        = map(string)
-  default     = {}
+variable "vpc_subnet_route_table_ids" {
+  description = "The ids of the VPC subnets for which routes from the VPN Gateway will be propagated."
+  type        = list(string)
+  default     = []
 }
 
 variable "vpn_connection_static_routes_destinations" {
@@ -64,20 +70,14 @@ variable "vpn_connection_static_routes_destinations" {
   default     = []
 }
 
-variable "tunnel1_inside_cidr" {
-  description = "The CIDR block of the inside IP addresses for the first VPN tunnel."
-  type        = string
-  default     = ""
-}
-
-variable "customer_gateway_id" {
-  description = "The id of the Customer Gateway."
-  type        = string
-  default     = ""
-}
-
 variable "vpn_connection_static_routes_only" {
   description = "Set to true for the created VPN connection to use static routes exclusively (only if create_vpn_connection = true). Static routes must be used for devices that don't support BGP."
   type        = bool
   default     = false
+}
+
+variable "vpn_gateway_id" {
+  description = "The id of the VPN Gateway."
+  type        = string
+  default     = ""
 }

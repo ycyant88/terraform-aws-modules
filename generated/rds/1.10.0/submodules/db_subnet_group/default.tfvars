@@ -1,9 +1,9 @@
+count = 1
+
 identifier = ""
+
+name_prefix = ""
 
 subnet_ids = []
 
 tags = {}
-
-count = 1
-
-name_prefix = ""

@@ -1,45 +1,45 @@
-rule_json = null
+association_config = {}
 
-token_domains = []
+association_resource_arns = {}
 
 captcha_config = null
 
 challenge_config = null
 
-association_config = {}
+create = true
 
 create_logging_configuration = false
 
-putin_khuylo = true
+custom_response_bodies = {}
+
+data_protection_config = null
 
 default_action = "allow"
 
-custom_response_bodies = {}
-
-logging_log_destination_configs = []
+description = null
 
 logging_filter = null
 
-create = true
+logging_log_destination_configs = []
+
+logging_redacted_fields = []
+
+logging_region = null
 
 name = null
 
 name_prefix = null
 
-data_protection_config = null
+putin_khuylo = true
+
+rule_json = null
+
+rules = {}
 
 scope = "REGIONAL"
 
 tags = {}
 
-logging_region = null
-
-association_resource_arns = {}
-
-description = null
-
-rules = {}
-
-logging_redacted_fields = []
+token_domains = []
 
 visibility_config = {}

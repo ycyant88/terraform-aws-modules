@@ -1,85 +1,13 @@
-variable "security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = null
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "rules" {
-  description = "A map of Route 53 Resolver rules & associations to create"
-  type = map(object({
-    # Rule
-    domain_name = string
-    name        = optional(string)
-    rule_type   = string
-    tags        = optional(map(string), {})
-    target_ip = optional(list(object({
-      ip       = string
-      ipv6     = optional(string)
-      port     = optional(number)
-      protocol = optional(string)
-    })))
-
-    # Association
-    vpc_id = optional(string)
-  }))
-  default = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "protocols" {
-  description = "Protocols you want to use for the Route 53 Resolver endpoint. Valid values are DoH, Do53, or DoH-FIPS"
-  type        = list(string)
-  default     = []
-}
-
-variable "security_group_egress_rules" {
-  description = "Security group tcp/udp on port 53 egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-  }))
-  default = {}
-}
-
 variable "create" {
   description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
 }
 
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+variable "create_security_group" {
+  description = "Determines if a security group is created"
   type        = bool
   default     = true
-}
-
-variable "vpc_id" {
-  description = "The VPC ID where the security group will be created"
-  type        = string
-  default     = null
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
 }
 
 variable "direction" {
@@ -104,20 +32,47 @@ variable "name" {
   default     = null
 }
 
-variable "type" {
-  description = "Endpoint IP type. This endpoint type is applied to all IP addresses. Valid values are IPV6, IPV4 or DUALSTACK (both IPv4 and IPv6)"
+variable "protocols" {
+  description = "Protocols you want to use for the Route 53 Resolver endpoint. Valid values are DoH, Do53, or DoH-FIPS"
+  type        = list(string)
+  default     = []
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
   type        = string
   default     = null
 }
 
-variable "security_group_name" {
-  description = "Name to use on security group created"
+variable "rules" {
+  description = "A map of Route 53 Resolver rules & associations to create"
+  type = map(object({
+    # Rule
+    domain_name = string
+    name        = optional(string)
+    rule_type   = string
+    tags        = optional(map(string), {})
+    target_ip = optional(list(object({
+      ip       = string
+      ipv6     = optional(string)
+      port     = optional(number)
+      protocol = optional(string)
+    })))
+
+    # Association
+    vpc_id = optional(string)
+  }))
+  default = {}
+}
+
+variable "security_group_description" {
+  description = "Description of the security group created"
   type        = string
   default     = null
 }
 
-variable "security_group_ingress_rules" {
-  description = "Security group tcp/udp on port 53 ingress rules to add to the security group created"
+variable "security_group_egress_rules" {
+  description = "Security group tcp/udp on port 53 egress rules to add to the security group created"
   type = map(object({
     name = optional(string)
 
@@ -137,8 +92,53 @@ variable "security_group_ids" {
   default     = []
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
+variable "security_group_ingress_rules" {
+  description = "Security group tcp/udp on port 53 ingress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+  }))
+  default = {}
+}
+
+variable "security_group_name" {
+  description = "Name to use on security group created"
+  type        = string
+  default     = null
+}
+
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
   type        = bool
   default     = true
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "type" {
+  description = "Endpoint IP type. This endpoint type is applied to all IP addresses. Valid values are IPV6, IPV4 or DUALSTACK (both IPv4 and IPv6)"
+  type        = string
+  default     = null
+}
+
+variable "vpc_id" {
+  description = "The VPC ID where the security group will be created"
+  type        = string
+  default     = null
 }

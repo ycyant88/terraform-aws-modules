@@ -1,103 +1,103 @@
 allowed_cidr_blocks = []
 
-final_snapshot_identifier_prefix = "final"
-
-kms_key_id = ""
-
-tags = {}
-
-iam_database_authentication_enabled = false
-
-name = ""
+allowed_security_groups = []
 
 apply_immediately = false
 
-snapshot_identifier = ""
+auto_minor_version_upgrade = true
 
-enabled_cloudwatch_logs_exports = []
-
-source_region = ""
-
-replica_count = 1
-
-username = "root"
+backtrack_window = 0
 
 backup_retention_period = 7
 
-preferred_maintenance_window = "sun:05:00-sun:06:00"
+copy_tags_to_snapshot = false
 
-port = ""
+create_security_group = true
 
-monitoring_interval = 0
+database_name = ""
 
-iam_roles = []
-
-allowed_security_groups = []
-
-vpc_id = ""
-
-publicly_accessible = false
-
-preferred_backup_window = "02:00-03:00"
+db_cluster_parameter_group_name = "default.aurora5.6"
 
 db_parameter_group_name = "default.aurora5.6"
 
-engine = "aurora"
+db_subnet_group_name = ""
 
 deletion_protection = false
 
-replica_scale_min = 2
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
+
+engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
 
 global_cluster_identifier = ""
 
-copy_tags_to_snapshot = false
+iam_database_authentication_enabled = false
 
-scaling_configuration = {}
+iam_roles = []
 
-storage_encrypted = true
+instance_type = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_connections = 700
 
 replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
 
 replica_scale_out_cooldown = 300
 
 replication_source_identifier = ""
 
-subnets = []
-
-instance_type = ""
-
-database_name = ""
-
-auto_minor_version_upgrade = true
-
-engine_version = "5.6.10a"
-
-replica_scale_enabled = false
-
-engine_mode = "provisioned"
-
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
-
-backtrack_window = 0
-
-performance_insights_enabled = false
-
-create_security_group = true
-
-password = ""
+scaling_configuration = {}
 
 skip_final_snapshot = false
 
-db_cluster_parameter_group_name = "default.aurora5.6"
+snapshot_identifier = ""
 
-replica_scale_max = 0
+source_region = ""
 
-replica_scale_connections = 700
+storage_encrypted = true
 
-replica_scale_in_cooldown = 300
+subnets = []
 
-performance_insights_kms_key_id = ""
+tags = {}
+
+username = "root"
+
+vpc_id = ""
 
 vpc_security_group_ids = []
-
-db_subnet_group_name = ""

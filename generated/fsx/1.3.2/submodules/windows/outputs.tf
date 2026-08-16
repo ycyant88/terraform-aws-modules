@@ -1,16 +1,11 @@
-output "file_system_remote_administration_endpoint" {
-  value       = module.fsx_windows.file_system_remote_administration_endpoint
-  description = "For MULTI_AZ_1 deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For SINGLE_AZ_1 deployment types, this is the DNS name of the file system"
+output "cloudwatch_log_group_arn" {
+  value       = module.fsx_windows.cloudwatch_log_group_arn
+  description = "Arn of cloudwatch log group created"
 }
 
 output "cloudwatch_log_group_name" {
   value       = module.fsx_windows.cloudwatch_log_group_name
   description = "Name of cloudwatch log group created"
-}
-
-output "security_group_arn" {
-  value       = module.fsx_windows.security_group_arn
-  description = "Amazon Resource Name (ARN) of the security group"
 }
 
 output "file_system_arn" {
@@ -38,9 +33,14 @@ output "file_system_preferred_file_server_ip" {
   description = "IP address of the primary, or preferred, file server"
 }
 
-output "cloudwatch_log_group_arn" {
-  value       = module.fsx_windows.cloudwatch_log_group_arn
-  description = "Arn of cloudwatch log group created"
+output "file_system_remote_administration_endpoint" {
+  value       = module.fsx_windows.file_system_remote_administration_endpoint
+  description = "For MULTI_AZ_1 deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For SINGLE_AZ_1 deployment types, this is the DNS name of the file system"
+}
+
+output "security_group_arn" {
+  value       = module.fsx_windows.security_group_arn
+  description = "Amazon Resource Name (ARN) of the security group"
 }
 
 output "security_group_id" {

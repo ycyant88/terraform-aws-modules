@@ -1,79 +1,79 @@
-tags = {}
-
-iam_role_arn = null
-
-iam_role_force_detach_policies = true
-
-saml_admin_role_values = []
-
-saml_name_assertion = null
-
-description = null
-
-stack_set_name = null
-
-iam_role_max_session_duration = null
-
-saml_email_assertion = null
-
-license_type = "ENTERPRISE"
-
-role_associations = {}
-
-workspace_id = ""
-
-permission_type = "SERVICE_MANAGED"
-
-iam_role_description = null
-
-iam_role_permissions_boundary = null
-
-saml_idp_metadata_xml = null
+account_access_type = "CURRENT_ACCOUNT"
 
 associate_license = true
 
-notification_destinations = []
-
-create_iam_role = true
-
-iam_role_tags = {}
-
-saml_allowed_organizations = []
-
 authentication_providers = ["AWS_SSO"]
 
-organizational_units = []
+create = true
 
-iam_role_name = null
-
-saml_idp_metadata_url = null
-
-name = null
-
-account_access_type = "CURRENT_ACCOUNT"
-
-iam_role_path = null
-
-saml_groups_assertion = null
-
-saml_login_assertion = null
+create_iam_role = true
 
 create_workspace = true
 
 data_sources = []
 
-organization_role_name = null
+description = null
 
-use_iam_role_name_prefix = true
+iam_role_arn = null
 
-saml_login_validity_duration = null
+iam_role_description = null
 
-saml_org_assertion = null
+iam_role_force_detach_policies = true
 
-create = true
+iam_role_max_session_duration = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
 
 iam_role_policy_arns = []
 
+iam_role_tags = {}
+
+license_type = "ENTERPRISE"
+
+name = null
+
+notification_destinations = []
+
+organization_role_name = null
+
+organizational_units = []
+
+permission_type = "SERVICE_MANAGED"
+
+role_associations = {}
+
+saml_admin_role_values = []
+
+saml_allowed_organizations = []
+
 saml_editor_role_values = []
 
+saml_email_assertion = null
+
+saml_groups_assertion = null
+
+saml_idp_metadata_url = null
+
+saml_idp_metadata_xml = null
+
+saml_login_assertion = null
+
+saml_login_validity_duration = null
+
+saml_name_assertion = null
+
+saml_org_assertion = null
+
 saml_role_assertion = null
+
+stack_set_name = null
+
+tags = {}
+
+use_iam_role_name_prefix = true
+
+workspace_id = ""

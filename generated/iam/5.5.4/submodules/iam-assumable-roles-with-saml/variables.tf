@@ -1,7 +1,7 @@
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
+variable "admin_role_name" {
+  description = "IAM role with admin access"
+  type        = string
+  default     = "admin"
 }
 
 variable "admin_role_path" {
@@ -16,22 +16,22 @@ variable "admin_role_permissions_boundary_arn" {
   default     = ""
 }
 
+variable "admin_role_policy_arns" {
+  description = "List of policy ARNs to use for admin role"
+  type        = list(string)
+  default     = ["arn:aws:iam::aws:policy/AdministratorAccess"]
+}
+
 variable "admin_role_tags" {
   description = "A map of tags to add to admin role resource."
   type        = map(string)
   default     = {}
 }
 
-variable "poweruser_role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for poweruser role"
-  type        = string
-  default     = ""
-}
-
-variable "provider_id" {
-  description = "ID of the SAML Provider. Use provider_ids to specify several IDs."
-  type        = string
-  default     = ""
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
 }
 
 variable "aws_saml_endpoint" {
@@ -46,28 +46,22 @@ variable "create_admin_role" {
   default     = false
 }
 
-variable "poweruser_role_name" {
-  description = "IAM role with poweruser access"
-  type        = string
-  default     = "poweruser"
+variable "create_poweruser_role" {
+  description = "Whether to create poweruser role"
+  type        = bool
+  default     = false
 }
 
-variable "poweruser_role_tags" {
-  description = "A map of tags to add to poweruser role resource."
-  type        = map(string)
-  default     = {}
+variable "create_readonly_role" {
+  description = "Whether to create readonly role"
+  type        = bool
+  default     = false
 }
 
-variable "readonly_role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for readonly role"
-  type        = string
-  default     = ""
-}
-
-variable "readonly_role_tags" {
-  description = "A map of tags to add to readonly role resource."
-  type        = map(string)
-  default     = {}
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
 }
 
 variable "max_session_duration" {
@@ -76,40 +70,10 @@ variable "max_session_duration" {
   default     = 3600
 }
 
-variable "admin_role_policy_arns" {
-  description = "List of policy ARNs to use for admin role"
-  type        = list(string)
-  default     = ["arn:aws:iam::aws:policy/AdministratorAccess"]
-}
-
-variable "poweruser_role_policy_arns" {
-  description = "List of policy ARNs to use for poweruser role"
-  type        = list(string)
-  default     = ["arn:aws:iam::aws:policy/PowerUserAccess"]
-}
-
-variable "readonly_role_policy_arns" {
-  description = "List of policy ARNs to use for readonly role"
-  type        = list(string)
-  default     = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
-}
-
-variable "provider_ids" {
-  description = "List of SAML Provider IDs"
-  type        = list(string)
-  default     = []
-}
-
-variable "admin_role_name" {
-  description = "IAM role with admin access"
+variable "poweruser_role_name" {
+  description = "IAM role with poweruser access"
   type        = string
-  default     = "admin"
-}
-
-variable "create_poweruser_role" {
-  description = "Whether to create poweruser role"
-  type        = bool
-  default     = false
+  default     = "poweruser"
 }
 
 variable "poweruser_role_path" {
@@ -118,10 +82,34 @@ variable "poweruser_role_path" {
   default     = "/"
 }
 
-variable "create_readonly_role" {
-  description = "Whether to create readonly role"
-  type        = bool
-  default     = false
+variable "poweruser_role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for poweruser role"
+  type        = string
+  default     = ""
+}
+
+variable "poweruser_role_policy_arns" {
+  description = "List of policy ARNs to use for poweruser role"
+  type        = list(string)
+  default     = ["arn:aws:iam::aws:policy/PowerUserAccess"]
+}
+
+variable "poweruser_role_tags" {
+  description = "A map of tags to add to poweruser role resource."
+  type        = map(string)
+  default     = {}
+}
+
+variable "provider_id" {
+  description = "ID of the SAML Provider. Use provider_ids to specify several IDs."
+  type        = string
+  default     = ""
+}
+
+variable "provider_ids" {
+  description = "List of SAML Provider IDs"
+  type        = list(string)
+  default     = []
 }
 
 variable "readonly_role_name" {
@@ -136,8 +124,20 @@ variable "readonly_role_path" {
   default     = "/"
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
+variable "readonly_role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for readonly role"
+  type        = string
+  default     = ""
+}
+
+variable "readonly_role_policy_arns" {
+  description = "List of policy ARNs to use for readonly role"
+  type        = list(string)
+  default     = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
+}
+
+variable "readonly_role_tags" {
+  description = "A map of tags to add to readonly role resource."
+  type        = map(string)
+  default     = {}
 }

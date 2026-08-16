@@ -1,19 +1,19 @@
 module "iam_iam-github-oidc-role" {
   source                             = "terraform-aws-modules/iam/aws//modules/iam-github-oidc-role"
   version                            = "5.53.0"
-  create                             = var.create
-  policies                           = var.policies
-  max_session_duration               = var.max_session_duration
+  additional_trust_policy_conditions = var.additional_trust_policy_conditions
   audience                           = var.audience
-  name                               = var.name
+  create                             = var.create
   description                        = var.description
   force_detach_policies              = var.force_detach_policies
-  provider_url                       = var.provider_url
+  max_session_duration               = var.max_session_duration
+  name                               = var.name
+  name_prefix                        = var.name_prefix
   path                               = var.path
   permissions_boundary_arn           = var.permissions_boundary_arn
+  policies                           = var.policies
+  provider_url                       = var.provider_url
   subject_condition                  = var.subject_condition
   subjects                           = var.subjects
   tags                               = var.tags
-  name_prefix                        = var.name_prefix
-  additional_trust_policy_conditions = var.additional_trust_policy_conditions
 }

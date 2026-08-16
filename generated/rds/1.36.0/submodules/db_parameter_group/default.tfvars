@@ -1,8 +1,10 @@
-identifier = ""
+create = true
+
+description = ""
 
 family = ""
 
-create = true
+identifier = ""
 
 name = ""
 
@@ -13,5 +15,3 @@ parameters = []
 tags = {}
 
 use_name_prefix = true
-
-description = ""

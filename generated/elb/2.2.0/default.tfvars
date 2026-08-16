@@ -1,29 +1,29 @@
-name_prefix = ""
-
-subnets = ""
+access_logs = {}
 
 connection_draining = false
 
-name = ""
-
-security_groups = ""
-
-number_of_instances = 0
-
-internal = ""
+connection_draining_timeout = 300
 
 cross_zone_load_balancing = true
 
+health_check = ""
+
 idle_timeout = 60
 
-connection_draining_timeout = 300
+instances = []
 
-tags = {}
+internal = ""
 
 listener = ""
 
-health_check = ""
+name = ""
 
-access_logs = {}
+name_prefix = ""
 
-instances = []
+number_of_instances = 0
+
+security_groups = ""
+
+subnets = ""
+
+tags = {}

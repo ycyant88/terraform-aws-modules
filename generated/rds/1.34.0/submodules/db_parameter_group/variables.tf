@@ -4,26 +4,20 @@ variable "create" {
   default     = true
 }
 
-variable "identifier" {
-  description = "The identifier of the resource"
+variable "description" {
+  description = "The description of the DB parameter group"
   type        = string
   default     = ""
 }
 
-variable "parameters" {
-  description = "A list of DB parameter maps to apply"
-  type        = list(any)
-  default     = []
+variable "family" {
+  description = "The family of the DB parameter group"
+  type        = string
+  default     = ""
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(any)
-  default     = {}
-}
-
-variable "description" {
-  description = "The description of the DB parameter group"
+variable "identifier" {
+  description = "The identifier of the resource"
   type        = string
   default     = ""
 }
@@ -40,10 +34,16 @@ variable "name_prefix" {
   default     = ""
 }
 
-variable "family" {
-  description = "The family of the DB parameter group"
-  type        = string
-  default     = ""
+variable "parameters" {
+  description = "A list of DB parameter maps to apply"
+  type        = list(any)
+  default     = []
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(any)
+  default     = {}
 }
 
 variable "use_name_prefix" {

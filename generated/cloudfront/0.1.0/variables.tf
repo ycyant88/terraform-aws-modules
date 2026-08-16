@@ -1,36 +1,18 @@
-variable "custom_error_response" {
-  description = "One or more custom error response elements"
-  type        = any
-  default     = {}
-}
-
-variable "enabled" {
-  description = "Whether the distribution is enabled to accept end user requests for content."
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to assign to the resource."
-  type        = map(string)
-  default     = null
-}
-
-variable "origin" {
-  description = "One or more origins for this distribution (multiples allowed)."
-  type        = any
-  default     = null
-}
-
-variable "viewer_certificate" {
-  description = "The SSL configuration for this distribution"
-  type        = any
+variable "aliases" {
+  description = "Extra CNAMEs (alternate domain names), if any, for this distribution."
+  type        = list(string)
   default     = null
 }
 
 variable "cache_behavior" {
   description = "The map of cache behaviors for this distribution. Key default will be used as the default cache behavior, all other keys will be used as ordered list of cache behaviors. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0."
   type        = any
+  default     = null
+}
+
+variable "comment" {
+  description = "Any comments you want to include about the distribution."
+  type        = string
   default     = null
 }
 
@@ -46,21 +28,27 @@ variable "create_origin_access_identity" {
   default     = false
 }
 
+variable "custom_error_response" {
+  description = "One or more custom error response elements"
+  type        = any
+  default     = {}
+}
+
 variable "default_root_object" {
   description = "The object that you want CloudFront to return (for example, index.html) when an end user requests the root URL."
   type        = string
   default     = null
 }
 
-variable "price_class" {
-  description = "The price class for this distribution. One of PriceClass_All, PriceClass_200, PriceClass_100"
-  type        = string
-  default     = null
+variable "enabled" {
+  description = "Whether the distribution is enabled to accept end user requests for content."
+  type        = bool
+  default     = true
 }
 
-variable "origin_access_identities" {
-  description = "Map of CloudFront origin access identities (value as a comment)"
-  type        = map(string)
+variable "geo_restriction" {
+  description = "The restriction configuration for this distribution (geo_restrictions)"
+  type        = any
   default     = {}
 }
 
@@ -76,10 +64,22 @@ variable "is_ipv6_enabled" {
   default     = null
 }
 
-variable "web_acl_id" {
-  description = "If you're using AWS WAF to filter CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have waf:GetWebACL permissions assigned. If using WAFv2, provide the ARN of the web ACL."
-  type        = string
+variable "logging_config" {
+  description = "The logging configuration that controls how logs are written to your distribution (maximum one)."
+  type        = any
   default     = null
+}
+
+variable "origin" {
+  description = "One or more origins for this distribution (multiples allowed)."
+  type        = any
+  default     = null
+}
+
+variable "origin_access_identities" {
+  description = "Map of CloudFront origin access identities (value as a comment)"
+  type        = map(string)
+  default     = {}
 }
 
 variable "origin_group" {
@@ -88,26 +88,8 @@ variable "origin_group" {
   default     = null
 }
 
-variable "geo_restriction" {
-  description = "The restriction configuration for this distribution (geo_restrictions)"
-  type        = any
-  default     = {}
-}
-
-variable "logging_config" {
-  description = "The logging configuration that controls how logs are written to your distribution (maximum one)."
-  type        = any
-  default     = null
-}
-
-variable "aliases" {
-  description = "Extra CNAMEs (alternate domain names), if any, for this distribution."
-  type        = list(string)
-  default     = null
-}
-
-variable "comment" {
-  description = "Any comments you want to include about the distribution."
+variable "price_class" {
+  description = "The price class for this distribution. One of PriceClass_All, PriceClass_200, PriceClass_100"
   type        = string
   default     = null
 }
@@ -118,8 +100,26 @@ variable "retain_on_delete" {
   default     = false
 }
 
+variable "tags" {
+  description = "A map of tags to assign to the resource."
+  type        = map(string)
+  default     = null
+}
+
+variable "viewer_certificate" {
+  description = "The SSL configuration for this distribution"
+  type        = any
+  default     = null
+}
+
 variable "wait_for_deployment" {
   description = "If enabled, the resource will wait for the distribution status to change from InProgress to Deployed. Setting this tofalse will skip the process."
   type        = bool
   default     = true
+}
+
+variable "web_acl_id" {
+  description = "If you're using AWS WAF to filter CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have waf:GetWebACL permissions assigned. If using WAFv2, provide the ARN of the web ACL."
+  type        = string
+  default     = null
 }

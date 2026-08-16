@@ -1,85 +1,85 @@
-retrieval_role_name = ""
+config_profile_description = null
 
-retrieval_role_use_name_prefix = true
+config_profile_location_uri = "hosted"
 
-hosted_config_version_description = null
+config_profile_name = null
 
-deployment_strategy_description = null
+config_profile_retrieval_role_arn = null
+
+config_profile_tags = {}
+
+config_profile_type = null
+
+config_profile_validator = []
+
+create = true
+
+create_deployment_strategy = true
+
+create_retrieval_role = true
+
+deployment_configuration_version = null
+
+deployment_description = null
 
 deployment_strategy_deployment_duration_in_minutes = 0
+
+deployment_strategy_description = null
 
 deployment_strategy_final_bake_time_in_minutes = 0
 
 deployment_strategy_growth_factor = 100
 
-name = ""
+deployment_strategy_growth_type = null
 
-s3_configuration_object_key = "*"
+deployment_strategy_id = null
 
-use_s3_configuration = false
+deployment_strategy_name = null
+
+deployment_strategy_replicate_to = "NONE"
 
 deployment_strategy_tags = {}
 
 deployment_tags = {}
 
-use_ssm_document_configuration = false
-
 description = null
-
-config_profile_name = null
-
-use_hosted_configuration = false
-
-ssm_document_configuration_arn = null
-
-retrieval_role_tags = {}
 
 environments = {}
 
-config_profile_retrieval_role_arn = null
+hosted_config_version_content = null
 
-config_profile_validator = []
+hosted_config_version_content_type = null
 
-deployment_description = null
+hosted_config_version_description = null
 
-deployment_configuration_version = null
-
-config_profile_tags = {}
+name = ""
 
 retrieval_role_description = null
 
-deployment_strategy_name = null
-
-deployment_strategy_growth_type = null
-
-deployment_strategy_replicate_to = "NONE"
-
-create = true
-
-config_profile_description = null
-
-create_retrieval_role = true
+retrieval_role_name = ""
 
 retrieval_role_path = null
 
 retrieval_role_permissions_boundary = null
 
-ssm_parameter_configuration_arn = null
+retrieval_role_tags = {}
 
-use_ssm_parameter_configuration = false
-
-hosted_config_version_content_type = null
-
-tags = {}
-
-config_profile_type = null
-
-config_profile_location_uri = "hosted"
+retrieval_role_use_name_prefix = true
 
 s3_configuration_bucket_arn = null
 
-hosted_config_version_content = null
+s3_configuration_object_key = "*"
 
-create_deployment_strategy = true
+ssm_document_configuration_arn = null
 
-deployment_strategy_id = null
+ssm_parameter_configuration_arn = null
+
+tags = {}
+
+use_hosted_configuration = false
+
+use_s3_configuration = false
+
+use_ssm_document_configuration = false
+
+use_ssm_parameter_configuration = false

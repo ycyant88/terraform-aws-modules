@@ -1,79 +1,7 @@
-variable "enable_tls_version_and_cipher_suite_headers" {
-  description = "Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target."
-  type        = bool
-  default     = false
-}
-
-variable "http_tcp_listener_rules" {
-  description = "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, http_tcp_listener_index (default to http_tcp_listeners[count.index])"
-  type        = any
-  default     = []
-}
-
-variable "load_balancer_create_timeout" {
-  description = "Timeout value when creating the ALB."
-  type        = string
-  default     = "10m"
-}
-
-variable "name" {
-  description = "The resource name and Name tag of the load balancer."
-  type        = string
-  default     = null
-}
-
-variable "security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = null
-}
-
-variable "enable_cross_zone_load_balancing" {
-  description = "Indicates whether cross zone load balancing should be enabled in application load balancers."
-  type        = bool
-  default     = false
-}
-
-variable "http_tcp_listeners" {
-  description = "A list of maps describing the HTTP listeners or TCP ports for this ALB. Required key/values: port, protocol. Optional key/values: target_group_index (defaults to http_tcp_listeners[count.index])"
-  type        = any
-  default     = []
-}
-
-variable "ip_address_type" {
-  description = "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack."
-  type        = string
-  default     = "ipv4"
-}
-
-variable "internal" {
-  description = "Boolean determining if the load balancer is internal or externally facing."
-  type        = bool
-  default     = false
-}
-
-variable "load_balancer_update_timeout" {
-  description = "Timeout value when updating the ALB."
-  type        = string
-  default     = "10m"
-}
-
-variable "https_listener_rules_tags" {
-  description = "A map of tags to add to all https listener rules"
+variable "access_logs" {
+  description = "Map containing access logging configuration for load balancer."
   type        = map(string)
   default     = {}
-}
-
-variable "vpc_id" {
-  description = "VPC id where the load balancer and other resources will be deployed."
-  type        = string
-  default     = null
-}
-
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
 }
 
 variable "create_lb" {
@@ -82,28 +10,28 @@ variable "create_lb" {
   default     = true
 }
 
-variable "https_listener_rules" {
-  description = "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, https_listener_index (default to https_listeners[count.index])"
-  type        = any
-  default     = []
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = true
 }
 
-variable "access_logs" {
-  description = "Map containing access logging configuration for load balancer."
-  type        = map(string)
-  default     = {}
+variable "desync_mitigation_mode" {
+  description = "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync."
+  type        = string
+  default     = "defensive"
 }
 
-variable "subnet_mapping" {
-  description = "A list of subnet mapping blocks describing subnets to attach to network load balancer"
-  type        = list(map(string))
-  default     = []
+variable "drop_invalid_header_fields" {
+  description = "Indicates whether invalid header fields are dropped in application load balancers. Defaults to false."
+  type        = bool
+  default     = false
 }
 
-variable "security_groups" {
-  description = "The security groups to attach to the load balancer. e.g. [\"sg-edcd9784\",\"sg-edcd9785\"]"
-  type        = list(string)
-  default     = []
+variable "enable_cross_zone_load_balancing" {
+  description = "Indicates whether cross zone load balancing should be enabled in application load balancers."
+  type        = bool
+  default     = false
 }
 
 variable "enable_deletion_protection" {
@@ -118,22 +46,10 @@ variable "enable_http2" {
   default     = true
 }
 
-variable "extra_ssl_certs" {
-  description = "A list of maps describing any extra SSL certificates to apply to the HTTPS listeners. Required key/values: certificate_arn, https_listener_index (the index of the listener within https_listeners which the cert applies toward)."
-  type        = list(map(string))
-  default     = []
-}
-
-variable "idle_timeout" {
-  description = "The time in seconds that the connection is allowed to be idle."
-  type        = number
-  default     = 60
-}
-
-variable "http_tcp_listener_rules_tags" {
-  description = "A map of tags to add to all http listener rules"
-  type        = map(string)
-  default     = {}
+variable "enable_tls_version_and_cipher_suite_headers" {
+  description = "Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target."
+  type        = bool
+  default     = false
 }
 
 variable "enable_waf_fail_open" {
@@ -142,46 +58,34 @@ variable "enable_waf_fail_open" {
   default     = false
 }
 
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+variable "enable_xff_client_port" {
+  description = "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in application load balancers."
   type        = bool
   default     = true
 }
 
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
+variable "extra_ssl_certs" {
+  description = "A list of maps describing any extra SSL certificates to apply to the HTTPS listeners. Required key/values: certificate_arn, https_listener_index (the index of the listener within https_listeners which the cert applies toward)."
+  type        = list(map(string))
+  default     = []
+}
+
+variable "http_tcp_listener_rules" {
+  description = "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, http_tcp_listener_index (default to http_tcp_listeners[count.index])"
+  type        = any
+  default     = []
+}
+
+variable "http_tcp_listener_rules_tags" {
+  description = "A map of tags to add to all http listener rules"
   type        = map(string)
   default     = {}
 }
 
-variable "drop_invalid_header_fields" {
-  description = "Indicates whether invalid header fields are dropped in application load balancers. Defaults to false."
-  type        = bool
-  default     = false
-}
-
-variable "preserve_host_header" {
-  description = "Indicates whether Host header should be preserve and forward to targets without any change. Defaults to false."
-  type        = bool
-  default     = false
-}
-
-variable "load_balancer_delete_timeout" {
-  description = "Timeout value when deleting the ALB."
-  type        = string
-  default     = "10m"
-}
-
-variable "target_group_tags" {
-  description = "A map of tags to add to all target groups"
-  type        = map(string)
-  default     = {}
-}
-
-variable "https_listeners_tags" {
-  description = "A map of tags to add to all https listeners"
-  type        = map(string)
-  default     = {}
+variable "http_tcp_listeners" {
+  description = "A list of maps describing the HTTP listeners or TCP ports for this ALB. Required key/values: port, protocol. Optional key/values: target_group_index (defaults to http_tcp_listeners[count.index])"
+  type        = any
+  default     = []
 }
 
 variable "http_tcp_listeners_tags" {
@@ -190,16 +94,148 @@ variable "http_tcp_listeners_tags" {
   default     = {}
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
+variable "https_listener_rules" {
+  description = "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, https_listener_index (default to https_listeners[count.index])"
+  type        = any
+  default     = []
+}
+
+variable "https_listener_rules_tags" {
+  description = "A map of tags to add to all https listener rules"
+  type        = map(string)
+  default     = {}
+}
+
+variable "https_listeners" {
+  description = "A list of maps describing the HTTPS listeners for this ALB. Required key/values: port, certificate_arn. Optional key/values: ssl_policy (defaults to ELBSecurityPolicy-2016-08), target_group_index (defaults to https_listeners[count.index])"
+  type        = any
+  default     = []
+}
+
+variable "https_listeners_tags" {
+  description = "A map of tags to add to all https listeners"
+  type        = map(string)
+  default     = {}
+}
+
+variable "idle_timeout" {
+  description = "The time in seconds that the connection is allowed to be idle."
+  type        = number
+  default     = 60
+}
+
+variable "internal" {
+  description = "Boolean determining if the load balancer is internal or externally facing."
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "ip_address_type" {
+  description = "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack."
+  type        = string
+  default     = "ipv4"
+}
+
+variable "lb_tags" {
+  description = "A map of tags to add to load balancer"
+  type        = map(string)
+  default     = {}
+}
+
+variable "listener_ssl_policy_default" {
+  description = "The security policy if using HTTPS externally on the load balancer. [See](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)."
+  type        = string
+  default     = "ELBSecurityPolicy-2016-08"
+}
+
+variable "load_balancer_create_timeout" {
+  description = "Timeout value when creating the ALB."
+  type        = string
+  default     = "10m"
+}
+
+variable "load_balancer_delete_timeout" {
+  description = "Timeout value when deleting the ALB."
+  type        = string
+  default     = "10m"
 }
 
 variable "load_balancer_type" {
   description = "The type of load balancer to create. Possible values are application or network."
   type        = string
   default     = "application"
+}
+
+variable "load_balancer_update_timeout" {
+  description = "Timeout value when updating the ALB."
+  type        = string
+  default     = "10m"
+}
+
+variable "name" {
+  description = "The resource name and Name tag of the load balancer."
+  type        = string
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "The resource name prefix and Name tag of the load balancer. Cannot be longer than 6 characters"
+  type        = string
+  default     = null
+}
+
+variable "preserve_host_header" {
+  description = "Indicates whether Host header should be preserve and forward to targets without any change. Defaults to false."
+  type        = bool
+  default     = false
+}
+
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
+}
+
+variable "security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = null
+}
+
+variable "security_group_name" {
+  description = "Name to use on security group created"
+  type        = string
+  default     = null
+}
+
+variable "security_group_rules" {
+  description = "Security group rules to add to the security group created"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "security_groups" {
+  description = "The security groups to attach to the load balancer. e.g. [\"sg-edcd9784\",\"sg-edcd9785\"]"
+  type        = list(string)
+  default     = []
+}
+
+variable "subnet_mapping" {
+  description = "A list of subnet mapping blocks describing subnets to attach to network load balancer"
+  type        = list(map(string))
+  default     = []
 }
 
 variable "subnets" {
@@ -214,40 +250,10 @@ variable "tags" {
   default     = {}
 }
 
-variable "lb_tags" {
-  description = "A map of tags to add to load balancer"
+variable "target_group_tags" {
+  description = "A map of tags to add to all target groups"
   type        = map(string)
   default     = {}
-}
-
-variable "xff_header_processing_mode" {
-  description = "Determines how the load balancer modifies the X-Forwarded-For header in the HTTP request before sending the request to the target."
-  type        = string
-  default     = "append"
-}
-
-variable "security_group_rules" {
-  description = "Security group rules to add to the security group created"
-  type        = any
-  default     = {}
-}
-
-variable "https_listeners" {
-  description = "A list of maps describing the HTTPS listeners for this ALB. Required key/values: port, certificate_arn. Optional key/values: ssl_policy (defaults to ELBSecurityPolicy-2016-08), target_group_index (defaults to https_listeners[count.index])"
-  type        = any
-  default     = []
-}
-
-variable "listener_ssl_policy_default" {
-  description = "The security policy if using HTTPS externally on the load balancer. [See](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)."
-  type        = string
-  default     = "ELBSecurityPolicy-2016-08"
-}
-
-variable "name_prefix" {
-  description = "The resource name prefix and Name tag of the load balancer. Cannot be longer than 6 characters"
-  type        = string
-  default     = null
 }
 
 variable "target_groups" {
@@ -256,20 +262,14 @@ variable "target_groups" {
   default     = []
 }
 
-variable "security_group_name" {
-  description = "Name to use on security group created"
+variable "vpc_id" {
+  description = "VPC id where the load balancer and other resources will be deployed."
   type        = string
   default     = null
 }
 
-variable "enable_xff_client_port" {
-  description = "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in application load balancers."
-  type        = bool
-  default     = true
-}
-
-variable "desync_mitigation_mode" {
-  description = "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync."
+variable "xff_header_processing_mode" {
+  description = "Determines how the load balancer modifies the X-Forwarded-For header in the HTTP request before sending the request to the target."
   type        = string
-  default     = "defensive"
+  default     = "append"
 }

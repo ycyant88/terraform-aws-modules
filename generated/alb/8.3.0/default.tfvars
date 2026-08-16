@@ -1,85 +1,85 @@
-https_listeners = []
-
-listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
-
-name_prefix = null
-
-https_listener_rules_tags = {}
-
-enable_deletion_protection = false
-
-extra_ssl_certs = []
-
-internal = false
-
 access_logs = {}
 
-lb_tags = {}
-
-desync_mitigation_mode = "defensive"
-
-security_groups = []
-
-vpc_id = null
-
-putin_khuylo = true
-
-security_group_use_name_prefix = true
-
-load_balancer_update_timeout = "10m"
-
-subnet_mapping = []
-
-preserve_host_header = false
-
-enable_http2 = true
-
-http_tcp_listeners = []
-
-http_tcp_listener_rules = []
-
-load_balancer_type = "application"
-
-http_tcp_listener_rules_tags = {}
-
-https_listener_rules = []
-
-target_group_tags = {}
-
-https_listeners_tags = {}
-
-http_tcp_listeners_tags = {}
-
-security_group_rules = {}
-
-drop_invalid_header_fields = false
-
-security_group_name = null
-
-security_group_tags = {}
-
-subnets = null
-
-target_groups = []
+create_lb = true
 
 create_security_group = true
 
-security_group_description = null
+desync_mitigation_mode = "defensive"
 
-tags = {}
+drop_invalid_header_fields = false
+
+enable_cross_zone_load_balancing = false
+
+enable_deletion_protection = false
+
+enable_http2 = true
+
+enable_waf_fail_open = false
+
+extra_ssl_certs = []
+
+http_tcp_listener_rules = []
+
+http_tcp_listener_rules_tags = {}
+
+http_tcp_listeners = []
+
+http_tcp_listeners_tags = {}
+
+https_listener_rules = []
+
+https_listener_rules_tags = {}
+
+https_listeners = []
+
+https_listeners_tags = {}
 
 idle_timeout = 60
 
+internal = false
+
 ip_address_type = "ipv4"
 
-create_lb = true
+lb_tags = {}
+
+listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
 
 load_balancer_create_timeout = "10m"
 
 load_balancer_delete_timeout = "10m"
 
+load_balancer_type = "application"
+
+load_balancer_update_timeout = "10m"
+
 name = null
 
-enable_waf_fail_open = false
+name_prefix = null
 
-enable_cross_zone_load_balancing = false
+preserve_host_header = false
+
+putin_khuylo = true
+
+security_group_description = null
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = null
+
+tags = {}
+
+target_group_tags = {}
+
+target_groups = []
+
+vpc_id = null

@@ -1,25 +1,25 @@
+create = true
+
+create_listeners = true
+
+enabled = true
+
+endpoint_groups_timeouts = {}
+
 flow_logs_enabled = false
 
+flow_logs_s3_bucket = null
+
 flow_logs_s3_prefix = null
+
+ip_address_type = "IPV4"
+
+ip_addresses = []
 
 listeners = {}
 
 listeners_timeouts = {}
 
-endpoint_groups_timeouts = {}
-
-ip_address_type = "IPV4"
-
-tags = {}
-
 name = ""
 
-ip_addresses = []
-
-enabled = true
-
-flow_logs_s3_bucket = null
-
-create_listeners = true
-
-create = true
+tags = {}

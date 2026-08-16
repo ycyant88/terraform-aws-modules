@@ -1,55 +1,55 @@
-tags = {}
-
-enable_default_route_table_association = true
-
-enable_vpn_ecmp_support = true
-
-enable_multicast_support = false
-
-timeouts = null
-
-enable_sg_referencing_support = true
-
-ram_name = ""
+amazon_side_asn = null
 
 create_tgw = true
 
+create_tgw_routes = true
+
 description = null
 
-vpc_attachments = {}
+enable_auto_accept_shared_attachments = false
 
-tgw_route_table_tags = {}
-
-share_tgw = true
-
-ram_allow_external_principals = false
-
-ram_principals = []
-
-ram_resource_share_arn = ""
-
-region = null
-
-amazon_side_asn = null
+enable_default_route_table_association = true
 
 enable_default_route_table_propagation = true
 
 enable_dns_support = true
 
-transit_gateway_cidr_blocks = []
+enable_multicast_support = false
 
-tgw_default_route_table_tags = {}
+enable_sg_referencing_support = true
 
-tgw_vpc_attachment_tags = {}
+enable_vpn_ecmp_support = true
 
-create_tgw_routes = true
+name = ""
 
-enable_auto_accept_shared_attachments = false
+ram_allow_external_principals = false
 
-tgw_tags = {}
+ram_name = ""
 
-transit_gateway_route_table_id = null
+ram_principals = []
+
+ram_resource_share_arn = ""
 
 ram_tags = {}
 
-name = ""
+region = null
+
+share_tgw = true
+
+tags = {}
+
+tgw_default_route_table_tags = {}
+
+tgw_route_table_tags = {}
+
+tgw_tags = {}
+
+tgw_vpc_attachment_tags = {}
+
+timeouts = null
+
+transit_gateway_cidr_blocks = []
+
+transit_gateway_route_table_id = null
+
+vpc_attachments = {}

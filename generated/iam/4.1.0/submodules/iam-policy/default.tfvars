@@ -1,9 +1,9 @@
-path = "/"
-
 description = "IAM Policy"
+
+name = ""
+
+path = "/"
 
 policy = ""
 
 tags = {}
-
-name = ""

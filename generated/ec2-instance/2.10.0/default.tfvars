@@ -1,61 +1,61 @@
-placement_group = ""
+ami = ""
+
+associate_public_ip_address = ""
+
+cpu_credits = "standard"
 
 disable_api_termination = false
 
-instance_type = ""
-
-user_data = ""
-
-tags = {}
-
-ephemeral_block_device = []
-
-instance_count = 1
-
-ami = ""
+ebs_block_device = []
 
 ebs_optimized = false
 
+ephemeral_block_device = []
+
+get_password_data = false
+
+iam_instance_profile = ""
+
+instance_count = 1
+
+instance_initiated_shutdown_behavior = ""
+
+instance_type = ""
+
+ipv6_address_count = ""
+
+ipv6_addresses = ""
+
+key_name = ""
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+private_ips = []
+
 root_block_device = []
+
+source_dest_check = true
 
 subnet_id = ""
 
 subnet_ids = []
 
-private_ip = ""
-
-volume_tags = {}
-
-ipv6_addresses = ""
-
-network_interface = []
-
-name = ""
-
-get_password_data = false
-
-key_name = ""
-
-vpc_security_group_ids = ""
-
-use_num_suffix = false
-
-source_dest_check = true
-
-monitoring = false
-
-associate_public_ip_address = ""
-
-private_ips = []
-
-iam_instance_profile = ""
-
-cpu_credits = "standard"
+tags = {}
 
 tenancy = "default"
 
-instance_initiated_shutdown_behavior = ""
+use_num_suffix = false
 
-ipv6_address_count = ""
+user_data = ""
 
-ebs_block_device = []
+volume_tags = {}
+
+vpc_security_group_ids = ""

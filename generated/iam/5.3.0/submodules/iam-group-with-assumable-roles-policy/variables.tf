@@ -10,14 +10,14 @@ variable "group_users" {
   default     = []
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "name" {
   description = "Name of IAM policy and IAM group"
   type        = string
   default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
 }

@@ -1,43 +1,7 @@
-variable "cluster_service_connect_defaults" {
-  description = "Configures a default Service Connect namespace"
-  type        = map(string)
-  default     = {}
-}
-
-variable "cloudwatch_log_group_name" {
-  description = "Custom name of CloudWatch Log Group for ECS cluster"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_tags" {
-  description = "A map of additional tags to add to the log group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "default_capacity_provider_use_fargate" {
-  description = "Determines whether to use Fargate or autoscaling for default capacity provider strategy"
-  type        = bool
-  default     = true
-}
-
 variable "autoscaling_capacity_providers" {
   description = "Map of autoscaling capacity provider definitions to create for the cluster"
   type        = any
   default     = {}
-}
-
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
-  type        = bool
-  default     = true
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events"
-  type        = number
-  default     = 90
 }
 
 variable "cloudwatch_log_group_kms_key_id" {
@@ -46,22 +10,22 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "task_exec_iam_role_description" {
-  description = "Description of the role"
+variable "cloudwatch_log_group_name" {
+  description = "Custom name of CloudWatch Log Group for ECS cluster"
   type        = string
   default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "cloudwatch_log_group_retention_in_days" {
+  description = "Number of days to retain log events"
+  type        = number
+  default     = 90
 }
 
-variable "create_task_exec_iam_role" {
-  description = "Determines whether the ECS task definition IAM role should be created"
-  type        = bool
-  default     = false
+variable "cloudwatch_log_group_tags" {
+  description = "A map of additional tags to add to the log group created"
+  type        = map(string)
+  default     = {}
 }
 
 variable "cluster_configuration" {
@@ -70,10 +34,70 @@ variable "cluster_configuration" {
   default     = {}
 }
 
+variable "cluster_name" {
+  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_service_connect_defaults" {
+  description = "Configures a default Service Connect namespace"
+  type        = map(string)
+  default     = {}
+}
+
+variable "cluster_settings" {
+  description = "List of configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster"
+  type        = any
+  default     = [{ "name" : "containerInsights", "value" : "enabled" }]
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
+  type        = bool
+  default     = true
+}
+
+variable "create_task_exec_iam_role" {
+  description = "Determines whether the ECS task definition IAM role should be created"
+  type        = bool
+  default     = false
+}
+
 variable "create_task_exec_policy" {
   description = "Determines whether the ECS task definition IAM policy should be created. This includes permissions included in AmazonECSTaskExecutionRolePolicy as well as access to secrets and SSM parameters"
   type        = bool
   default     = true
+}
+
+variable "default_capacity_provider_use_fargate" {
+  description = "Determines whether to use Fargate or autoscaling for default capacity provider strategy"
+  type        = bool
+  default     = true
+}
+
+variable "fargate_capacity_providers" {
+  description = "Map of Fargate capacity provider definitions to use for the cluster"
+  type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
 }
 
 variable "task_exec_iam_role_name" {
@@ -88,9 +112,21 @@ variable "task_exec_iam_role_path" {
   default     = null
 }
 
-variable "fargate_capacity_providers" {
-  description = "Map of Fargate capacity provider definitions to use for the cluster"
-  type        = any
+variable "task_exec_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_policies" {
+  description = "Map of IAM role policy ARNs to attach to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
   default     = {}
 }
 
@@ -100,33 +136,9 @@ variable "task_exec_iam_role_use_name_prefix" {
   default     = true
 }
 
-variable "task_exec_ssm_param_arns" {
-  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
-  type        = list(string)
-  default     = ["arn:aws:ssm:*:*:parameter/*"]
-}
-
-variable "cluster_name" {
-  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  type        = string
-  default     = ""
-}
-
-variable "cluster_settings" {
-  description = "List of configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster"
+variable "task_exec_iam_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
   type        = any
-  default     = [{ "name" : "containerInsights", "value" : "enabled" }]
-}
-
-variable "task_exec_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "task_exec_iam_role_policies" {
-  description = "Map of IAM role policy ARNs to attach to the IAM role"
-  type        = map(string)
   default     = {}
 }
 
@@ -136,20 +148,8 @@ variable "task_exec_secret_arns" {
   default     = ["arn:aws:secretsmanager:*:*:secret:*"]
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "task_exec_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "task_exec_iam_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = {}
+variable "task_exec_ssm_param_arns" {
+  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
+  type        = list(string)
+  default     = ["arn:aws:ssm:*:*:parameter/*"]
 }

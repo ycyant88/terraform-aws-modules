@@ -1,35 +1,35 @@
 create = true
 
-revoke_rules_on_delete = false
+description = "Security Group managed by Terraform"
 
-timeouts = null
+egress_rules = {}
+
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
+
+ingress_cidr_ipv6 = {}
+
+ingress_prefix_list_id = {}
 
 ingress_referenced_security_group_id = {}
 
 ingress_rules = {}
 
-region = null
-
-vpc_id = null
+name = ""
 
 preset_ingress_rules = { "minio" : { "description" : "MinIO", "from_port" : 9000, "ip_protocol" : "tcp", "to_port" : 9000 } }
 
-ingress_prefix_list_id = {}
+region = null
 
-egress_rules = {}
+revoke_rules_on_delete = false
 
 tags = {}
 
+timeouts = null
+
 use_name_prefix = true
-
-description = "Security Group managed by Terraform"
-
-ingress_cidr_ipv6 = {}
 
 vpc_associations = {}
 
-enable_exclusive_rules = true
-
-name = ""
+vpc_id = null

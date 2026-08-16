@@ -1,45 +1,45 @@
-create = true
-
-name = "atlantis"
+alb = {}
 
 alb_security_group_id = ""
 
-alb = {}
+alb_target_group_arn = ""
+
+atlantis = {}
 
 certificate_arn = ""
 
 certificate_domain_name = ""
 
-validate_certificate = true
+cluster = {}
 
 cluster_arn = ""
 
-tags = {}
-
-vpc_id = ""
-
-atlantis = {}
+create = true
 
 create_alb = true
 
-alb_target_group_arn = ""
-
-service = {}
-
-region = null
-
 create_certificate = true
-
-route53_record_name = null
 
 create_cluster = true
 
-cluster = {}
+create_route53_records = true
+
+efs = {}
 
 enable_efs = false
 
-create_route53_records = true
+name = "atlantis"
+
+region = null
+
+route53_record_name = null
 
 route53_zone_id = ""
 
-efs = {}
+service = {}
+
+tags = {}
+
+validate_certificate = true
+
+vpc_id = ""

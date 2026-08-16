@@ -1,16 +1,6 @@
-output "this_elb_id" {
-  value       = module.elb_elb.this_elb_id
-  description = "The name of the ELB"
-}
-
 output "this_elb_arn" {
   value       = module.elb_elb.this_elb_arn
   description = "The ARN of the ELB"
-}
-
-output "this_elb_name" {
-  value       = module.elb_elb.this_elb_name
-  description = "The name of the ELB"
 }
 
 output "this_elb_dns_name" {
@@ -18,9 +8,19 @@ output "this_elb_dns_name" {
   description = "The DNS name of the ELB"
 }
 
+output "this_elb_id" {
+  value       = module.elb_elb.this_elb_id
+  description = "The name of the ELB"
+}
+
 output "this_elb_instances" {
   value       = module.elb_elb.this_elb_instances
   description = "The list of instances in the ELB"
+}
+
+output "this_elb_name" {
+  value       = module.elb_elb.this_elb_name
+  description = "The name of the ELB"
 }
 
 output "this_elb_source_security_group" {

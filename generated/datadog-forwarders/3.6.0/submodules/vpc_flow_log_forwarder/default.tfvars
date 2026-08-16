@@ -1,22 +1,34 @@
-read_cloudwatch_logs = false
+architectures = ["x86_64"]
 
-timeout = 10
+create = true
 
-publish = false
+create_role = true
 
-kms_key_arn = null
-
-dd_app_key = ""
+create_role_policy = true
 
 dd_api_key_secret_arn = ""
 
+dd_app_key = ""
+
 dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.43.0"
 
 kms_alias = ""
 
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_retention_days = 7
+
 memory_size = 256
 
-architectures = ["x86_64"]
+name = "datadog-vpc-flow-log-forwarder"
 
 policy_arn = null
 
@@ -24,48 +36,36 @@ policy_name = ""
 
 policy_path = null
 
-forwarder_version = "3.43.0"
+publish = false
 
-name = "datadog-vpc-flow-log-forwarder"
+read_cloudwatch_logs = false
 
 reserved_concurrent_executions = 10
 
 role_arn = null
 
+role_max_session_duration = null
+
 role_name = ""
-
-use_role_name_prefix = false
-
-lambda_tags = {}
-
-create = true
-
-create_role = true
-
-role_permissions_boundary = null
-
-create_role_policy = true
-
-layers = []
-
-environment_variables = {}
-
-log_retention_days = 7
-
-tags = {}
-
-security_group_ids = null
-
-s3_log_bucket_arns = []
-
-runtime = "python3.9"
 
 role_path = null
 
-role_max_session_duration = null
+role_permissions_boundary = null
 
 role_tags = {}
 
-use_policy_name_prefix = false
+runtime = "python3.9"
+
+s3_log_bucket_arns = []
+
+security_group_ids = null
 
 subnet_ids = null
+
+tags = {}
+
+timeout = 10
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

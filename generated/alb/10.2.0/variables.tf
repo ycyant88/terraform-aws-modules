@@ -1,83 +1,9 @@
-variable "security_group_name" {
-  description = "Name to use on security group created"
-  type        = string
-  default     = null
-}
-
-variable "security_group_egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(string)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(string)
-  }))
-  default = null
-}
-
-variable "web_acl_arn" {
-  description = "Web Application Firewall (WAF) ARN of the resource to associate with the load balancer"
-  type        = string
-  default     = null
-}
-
-variable "enable_tls_version_and_cipher_suite_headers" {
-  description = "Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type application. Defaults to false"
-  type        = bool
-  default     = null
-}
-
-variable "name_prefix" {
-  description = "Creates a unique name beginning with the specified prefix. Conflicts with name"
-  type        = string
-  default     = null
-}
-
-variable "vpc_id" {
-  description = "Identifier of the VPC where the security group will be created"
-  type        = string
-  default     = null
-}
-
-variable "connection_logs" {
+variable "access_logs" {
   description = "Map containing access logging configuration for load balancer"
   type = object({
     bucket  = string
     enabled = optional(bool, true)
     prefix  = optional(string)
-  })
-  default = null
-}
-
-variable "enable_deletion_protection" {
-  description = "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to true"
-  type        = bool
-  default     = true
-}
-
-variable "enable_zonal_shift" {
-  description = "Whether zonal shift is enabled"
-  type        = bool
-  default     = null
-}
-
-variable "ip_address_type" {
-  description = "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack"
-  type        = string
-  default     = null
-}
-
-variable "ipam_pools" {
-  description = "The IPAM pools to use with the load balancer"
-  type = object({
-    ipv4_ipam_pool_id = string
   })
   default = null
 }
@@ -94,46 +20,26 @@ variable "additional_target_group_attachments" {
   default = null
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
-  type        = bool
-  default     = true
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "desync_mitigation_mode" {
-  description = "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are monitor, defensive (default), strictest"
-  type        = string
-  default     = null
-}
-
-variable "security_groups" {
-  description = "A list of security group IDs to assign to the LB"
-  type        = list(string)
-  default     = []
-}
-
-variable "subnets" {
-  description = "A list of subnet IDs to attach to the LB. Subnets cannot be updated for Load Balancers of type network. Changing this value for load balancers of type network will force a recreation of the resource"
-  type        = list(string)
-  default     = null
-}
-
 variable "associate_web_acl" {
   description = "Indicates whether a Web Application Firewall (WAF) ACL should be associated with the load balancer"
   type        = bool
   default     = false
 }
 
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
+variable "client_keep_alive" {
+  description = "Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds"
+  type        = number
+  default     = null
+}
+
+variable "connection_logs" {
+  description = "Map containing access logging configuration for load balancer"
+  type = object({
+    bucket  = string
+    enabled = optional(bool, true)
+    prefix  = optional(string)
+  })
+  default = null
 }
 
 variable "create" {
@@ -142,14 +48,56 @@ variable "create" {
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = true
+}
+
+variable "customer_owned_ipv4_pool" {
+  description = "The ID of the customer owned ipv4 pool to use for this load balancer"
+  type        = string
+  default     = null
+}
+
+variable "default_port" {
+  description = "Default port used across the listener and target group"
+  type        = number
+  default     = 80
+}
+
+variable "default_protocol" {
+  description = "Default protocol used across the listener and target group"
+  type        = string
+  default     = "HTTP"
+}
+
+variable "desync_mitigation_mode" {
+  description = "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are monitor, defensive (default), strictest"
+  type        = string
+  default     = null
+}
+
+variable "dns_record_client_routing_policy" {
+  description = "Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are any_availability_zone (default), availability_zone_affinity, or partial_availability_zone_affinity. Only valid for network type load balancers"
+  type        = string
+  default     = null
 }
 
 variable "drop_invalid_header_fields" {
   description = "Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is true. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type application"
+  type        = bool
+  default     = true
+}
+
+variable "enable_cross_zone_load_balancing" {
+  description = "If true, cross-zone load balancing of the load balancer will be enabled. For application load balancer this feature is always enabled (true) and cannot be disabled. Defaults to true"
+  type        = bool
+  default     = true
+}
+
+variable "enable_deletion_protection" {
+  description = "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to true"
   type        = bool
   default     = true
 }
@@ -160,32 +108,28 @@ variable "enable_http2" {
   default     = null
 }
 
+variable "enable_tls_version_and_cipher_suite_headers" {
+  description = "Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type application. Defaults to false"
+  type        = bool
+  default     = null
+}
+
 variable "enable_waf_fail_open" {
   description = "Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to false"
   type        = bool
   default     = null
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
+variable "enable_xff_client_port" {
+  description = "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in application load balancers. Defaults to false"
+  type        = bool
   default     = null
 }
 
-variable "access_logs" {
-  description = "Map containing access logging configuration for load balancer"
-  type = object({
-    bucket  = string
-    enabled = optional(bool, true)
-    prefix  = optional(string)
-  })
-  default = null
-}
-
-variable "enable_cross_zone_load_balancing" {
-  description = "If true, cross-zone load balancing of the load balancer will be enabled. For application load balancer this feature is always enabled (true) and cannot be disabled. Defaults to true"
+variable "enable_zonal_shift" {
+  description = "Whether zonal shift is enabled"
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "enforce_security_group_inbound_rules_on_private_link_traffic" {
@@ -206,36 +150,18 @@ variable "internal" {
   default     = null
 }
 
-variable "minimum_load_balancer_capacity" {
-  description = "Minimum capacity for a load balancer. Only valid for Load Balancers of type application or network"
+variable "ip_address_type" {
+  description = "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack"
+  type        = string
+  default     = null
+}
+
+variable "ipam_pools" {
+  description = "The IPAM pools to use with the load balancer"
   type = object({
-    capacity_units = number
+    ipv4_ipam_pool_id = string
   })
   default = null
-}
-
-variable "default_port" {
-  description = "Default port used across the listener and target group"
-  type        = number
-  default     = 80
-}
-
-variable "client_keep_alive" {
-  description = "Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds"
-  type        = number
-  default     = null
-}
-
-variable "name" {
-  description = "The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen"
-  type        = string
-  default     = null
-}
-
-variable "xff_header_processing_mode" {
-  description = "Determines how the load balancer modifies the X-Forwarded-For header in the HTTP request before sending the request to the target. The possible values are append, preserve, and remove. Only valid for Load Balancers of type application. The default is append"
-  type        = string
-  default     = null
 }
 
 variable "listeners" {
@@ -432,16 +358,83 @@ variable "listeners" {
   default = {}
 }
 
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+variable "load_balancer_type" {
+  description = "The type of load balancer to create. Possible values are application, gateway, or network. The default value is application"
+  type        = string
+  default     = "application"
+}
+
+variable "minimum_load_balancer_capacity" {
+  description = "Minimum capacity for a load balancer. Only valid for Load Balancers of type application or network"
+  type = object({
+    capacity_units = number
+  })
+  default = null
+}
+
+variable "name" {
+  description = "The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen"
+  type        = string
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "Creates a unique name beginning with the specified prefix. Conflicts with name"
+  type        = string
+  default     = null
+}
+
+variable "preserve_host_header" {
+  description = "Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to false"
+  type        = bool
+  default     = null
+}
+
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
   type        = bool
   default     = true
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "route53_records" {
+  description = "Map of Route53 records to create. Each record map should contain zone_id, name, and type"
+  type = map(object({
+    zone_id                = string
+    name                   = optional(string)
+    type                   = string
+    evaluate_target_health = optional(bool, true)
+  }))
+  default = null
 }
 
 variable "security_group_description" {
   description = "Description of the security group created"
   type        = string
   default     = null
+}
+
+variable "security_group_egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(string)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(string)
+  }))
+  default = null
 }
 
 variable "security_group_ingress_rules" {
@@ -462,16 +455,28 @@ variable "security_group_ingress_rules" {
   default = null
 }
 
-variable "dns_record_client_routing_policy" {
-  description = "Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are any_availability_zone (default), availability_zone_affinity, or partial_availability_zone_affinity. Only valid for network type load balancers"
+variable "security_group_name" {
+  description = "Name to use on security group created"
   type        = string
   default     = null
 }
 
-variable "load_balancer_type" {
-  description = "The type of load balancer to create. Possible values are application, gateway, or network. The default value is application"
-  type        = string
-  default     = "application"
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "security_groups" {
+  description = "A list of security group IDs to assign to the LB"
+  type        = list(string)
+  default     = []
 }
 
 variable "subnet_mapping" {
@@ -485,20 +490,16 @@ variable "subnet_mapping" {
   default = null
 }
 
-variable "timeouts" {
-  description = "Create, update, and delete timeout configurations for the load balancer"
-  type = object({
-    create = optional(string)
-    update = optional(string)
-    delete = optional(string)
-  })
-  default = null
+variable "subnets" {
+  description = "A list of subnet IDs to attach to the LB. Subnets cannot be updated for Load Balancers of type network. Changing this value for load balancers of type network will force a recreation of the resource"
+  type        = list(string)
+  default     = null
 }
 
-variable "default_protocol" {
-  description = "Default protocol used across the listener and target group"
-  type        = string
-  default     = "HTTP"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "target_groups" {
@@ -573,31 +574,30 @@ variable "target_groups" {
   default = null
 }
 
-variable "route53_records" {
-  description = "Map of Route53 records to create. Each record map should contain zone_id, name, and type"
-  type = map(object({
-    zone_id                = string
-    name                   = optional(string)
-    type                   = string
-    evaluate_target_health = optional(bool, true)
-  }))
+variable "timeouts" {
+  description = "Create, update, and delete timeout configurations for the load balancer"
+  type = object({
+    create = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
   default = null
 }
 
-variable "customer_owned_ipv4_pool" {
-  description = "The ID of the customer owned ipv4 pool to use for this load balancer"
+variable "vpc_id" {
+  description = "Identifier of the VPC where the security group will be created"
   type        = string
   default     = null
 }
 
-variable "enable_xff_client_port" {
-  description = "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in application load balancers. Defaults to false"
-  type        = bool
+variable "web_acl_arn" {
+  description = "Web Application Firewall (WAF) ARN of the resource to associate with the load balancer"
+  type        = string
   default     = null
 }
 
-variable "preserve_host_header" {
-  description = "Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to false"
-  type        = bool
+variable "xff_header_processing_mode" {
+  description = "Determines how the load balancer modifies the X-Forwarded-For header in the HTTP request before sending the request to the target. The possible values are append, preserve, and remove. Only valid for Load Balancers of type application. The default is append"
+  type        = string
   default     = null
 }

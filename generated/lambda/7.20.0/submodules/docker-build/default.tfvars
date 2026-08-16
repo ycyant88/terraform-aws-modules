@@ -1,39 +1,39 @@
-create_ecr_repo = false
-
-image_tag = null
-
-docker_file_path = "Dockerfile"
-
 build_args = {}
 
-keep_remotely = false
+cache_from = []
 
-triggers = {}
-
-ecr_address = null
-
-scan_on_push = false
-
-ecr_force_delete = true
-
-ecr_repo_lifecycle_policy = null
-
-force_remove = false
+create_ecr_repo = false
 
 create_sam_metadata = false
 
-use_image_tag = true
+docker_file_path = "Dockerfile"
+
+ecr_address = null
+
+ecr_force_delete = true
 
 ecr_repo = null
 
-source_path = null
-
-image_tag_mutability = "MUTABLE"
+ecr_repo_lifecycle_policy = null
 
 ecr_repo_tags = {}
 
-platform = null
+force_remove = false
+
+image_tag = null
+
+image_tag_mutability = "MUTABLE"
 
 keep_locally = false
 
-cache_from = []
+keep_remotely = false
+
+platform = null
+
+scan_on_push = false
+
+source_path = null
+
+triggers = {}
+
+use_image_tag = true

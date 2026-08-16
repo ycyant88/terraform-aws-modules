@@ -1,7 +1,7 @@
-variable "create" {
-  description = "Controls if resources should be created."
-  type        = bool
-  default     = true
+variable "ca_certificates_bundle_s3_bucket" {
+  description = "S3 bucket name holding the client certificate CA bundle."
+  type        = string
+  default     = null
 }
 
 variable "ca_certificates_bundle_s3_key" {
@@ -16,16 +16,16 @@ variable "ca_certificates_bundle_s3_object_version" {
   default     = null
 }
 
+variable "create" {
+  description = "Controls if resources should be created."
+  type        = bool
+  default     = true
+}
+
 variable "create_trust_store_revocation" {
   description = "Whether to create a trust store revocation for use with an application load balancer."
   type        = bool
   default     = false
-}
-
-variable "ca_certificates_bundle_s3_bucket" {
-  description = "S3 bucket name holding the client certificate CA bundle."
-  type        = string
-  default     = null
 }
 
 variable "name" {

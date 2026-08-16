@@ -1,74 +1,64 @@
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_retention_in_days = 14
-
-disableNetworking = null
-
-entrypoint = null
-
-firelensConfiguration = null
-
-hostname = null
-
-resourceRequirements = null
-
-versionConsistency = "disabled"
-
 cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-dependsOn = null
+cloudwatch_log_group_name = null
 
-linuxParameters = {}
-
-readonlyRootFilesystem = true
-
-secrets = null
-
-startTimeout = 30
-
-stopTimeout = 120
-
-ulimits = null
-
-credentialSpecs = null
-
-dockerSecurityOptions = null
-
-systemControls = null
-
-service = null
-
-tags = {}
-
-dnsSearchDomains = null
-
-healthCheck = null
-
-logConfiguration = {}
-
-pseudoTerminal = false
-
-operating_system_family = "LINUX"
-
-portMappings = null
-
-repositoryCredentials = null
-
-volumesFrom = null
-
-enable_cloudwatch_logging = true
+cloudwatch_log_group_retention_in_days = 14
 
 cloudwatch_log_group_use_name_prefix = false
 
+command = null
+
 cpu = null
+
+create_cloudwatch_log_group = true
+
+credentialSpecs = null
+
+dependsOn = null
+
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
 
 dockerLabels = null
 
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = null
+
 environment = null
 
+environmentFiles = null
+
+essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
+
+image = null
+
+interactive = false
+
 links = null
+
+linuxParameters = {}
+
+logConfiguration = {}
+
+memory = null
 
 memoryReservation = null
 
@@ -76,32 +66,42 @@ mountPoints = null
 
 name = null
 
-user = null
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
 
 region = null
 
-dnsServers = null
+repositoryCredentials = null
 
-enable_execute_command = false
-
-essential = null
-
-extraHosts = null
-
-interactive = false
+resourceRequirements = null
 
 restartPolicy = { "enabled" : true }
 
-create_cloudwatch_log_group = true
+secrets = null
 
-command = null
+service = null
 
-environmentFiles = null
+startTimeout = 30
 
-image = null
+stopTimeout = 120
 
-memory = null
+systemControls = null
 
-privileged = false
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = null
 
 workingDirectory = null

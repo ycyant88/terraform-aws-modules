@@ -1,133 +1,133 @@
-monitoring_role_arn = ""
-
-create_monitoring_role = true
-
-vpc_security_group_ids = []
+allow_major_version_upgrade = false
 
 allowed_cidr_blocks = []
 
-username = "root"
-
-create_random_password = true
-
-name = ""
-
-database_name = ""
-
-is_primary_cluster = true
-
-engine_version = "5.6.10a"
-
-instances_parameters = []
-
-storage_encrypted = true
-
-replication_source_identifier = ""
-
-iam_roles = []
-
-permissions_boundary = ""
-
-s3_import = ""
-
-db_subnet_group_name = ""
-
-ca_cert_identifier = "rds-ca-2019"
-
-vpc_id = ""
-
-deletion_protection = false
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-scaling_configuration = {}
-
-replica_scale_max = 0
-
-engine_mode = "provisioned"
-
-db_cluster_parameter_group_name = ""
+allowed_security_groups = []
 
 apply_immediately = false
 
-create_security_group = true
-
-replica_count = 1
-
-port = ""
-
-snapshot_identifier = ""
-
-replica_scale_in_cooldown = 300
-
-copy_tags_to_snapshot = false
-
-performance_insights_kms_key_id = ""
+auto_minor_version_upgrade = true
 
 backtrack_window = 0
 
-subnets = []
+backup_retention_period = 7
 
-password = ""
-
-kms_key_id = ""
-
-replica_scale_cpu = 70
-
-replica_scale_out_cooldown = 300
-
-performance_insights_enabled = false
+ca_cert_identifier = "rds-ca-2019"
 
 cluster_tags = {}
 
-source_region = ""
-
-allowed_security_groups = []
-
-skip_final_snapshot = false
-
-db_parameter_group_name = ""
-
-enable_http_endpoint = false
-
-replica_scale_enabled = false
-
-replica_scale_connections = 700
-
-security_group_description = "Managed by Terraform"
-
-instance_type = ""
-
-publicly_accessible = false
-
-enabled_cloudwatch_logs_exports = []
-
-global_cluster_identifier = ""
-
-backup_retention_period = 7
-
-engine = "aurora"
-
-iam_database_authentication_enabled = false
-
-instance_type_replica = ""
-
-monitoring_interval = 0
-
-allow_major_version_upgrade = false
-
-replica_scale_min = 2
+copy_tags_to_snapshot = false
 
 create_cluster = true
 
-preferred_backup_window = "02:00-03:00"
+create_monitoring_role = true
 
-auto_minor_version_upgrade = true
+create_random_password = true
 
-tags = {}
+create_security_group = true
 
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
+database_name = ""
+
+db_cluster_parameter_group_name = ""
+
+db_parameter_group_name = ""
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enable_http_endpoint = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
+
+engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
 
 final_snapshot_identifier_prefix = "final"
 
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
 iam_partition = "aws"
+
+iam_roles = []
+
+instance_type = ""
+
+instance_type_replica = ""
+
+instances_parameters = []
+
+is_primary_cluster = true
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+permissions_boundary = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_connections = 700
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+replication_source_identifier = ""
+
+s3_import = ""
+
+scaling_configuration = {}
+
+security_group_description = "Managed by Terraform"
+
+skip_final_snapshot = false
+
+snapshot_identifier = ""
+
+source_region = ""
+
+storage_encrypted = true
+
+subnets = []
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""
+
+vpc_security_group_ids = []

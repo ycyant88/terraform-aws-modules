@@ -1,35 +1,35 @@
-kms_key_arn = null
-
-retention_period_in_days = null
-
-limits_per_label_set = null
-
-workspace_alias = null
-
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-cloudwatch_log_group_kms_key_id = null
-
-create_alert_manager = true
-
-rule_group_namespaces = null
-
-workspace_id = ""
+alert_manager_definition = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
 
 cloudwatch_log_group_class = null
 
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
 cloudwatch_log_group_retention_in_days = 30
 
-alert_manager_definition = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
+cloudwatch_log_group_use_name_prefix = false
 
 create = true
 
-region = null
+create_alert_manager = true
+
+create_workspace = true
+
+kms_key_arn = null
+
+limits_per_label_set = null
 
 logging_configuration = null
 
+region = null
+
+retention_period_in_days = null
+
+rule_group_namespaces = null
+
 tags = {}
 
-create_workspace = true
+workspace_alias = null
+
+workspace_id = ""

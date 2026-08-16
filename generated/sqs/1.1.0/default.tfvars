@@ -1,26 +1,26 @@
-max_message_size = 262144
+content_based_deduplication = false
+
+create = true
 
 delay_seconds = 0
-
-receive_wait_time_seconds = 0
 
 fifo_queue = false
 
 kms_data_key_reuse_period_seconds = 300
 
-create = true
+kms_master_key_id = ""
 
-name = ""
+max_message_size = 262144
 
 message_retention_seconds = 345600
 
+name = ""
+
 policy = ""
 
+receive_wait_time_seconds = 0
+
 redrive_policy = ""
-
-content_based_deduplication = false
-
-kms_master_key_id = ""
 
 tags = {}
 

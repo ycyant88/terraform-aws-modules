@@ -1,59 +1,59 @@
-use_role_name_prefix = false
-
-policy_name = ""
-
-timeout = 10
-
-reserved_concurrent_executions = 10
-
-subnet_ids = null
-
-use_policy_name_prefix = false
-
-memory_size = 256
-
-policy_arn = ""
-
-policy_path = null
-
-forwarder_version = "3.34.0"
-
 create = true
-
-role_path = null
-
-layers = []
-
-security_group_ids = null
-
-environment_variables = {}
-
-dd_site = "datadoghq.com"
-
-role_arn = ""
-
-lambda_tags = {}
-
-log_retention_days = 7
-
-tags = {}
 
 dd_api_key = ""
 
-role_permissions_boundary = null
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.34.0"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_retention_days = 7
+
+memory_size = 256
 
 name = "datadog-rds-enhanced-monitoring-forwarder"
 
+policy_arn = ""
+
+policy_name = ""
+
+policy_path = null
+
+publish = false
+
+reserved_concurrent_executions = 10
+
+role_arn = ""
+
+role_max_session_duration = null
+
 role_name = ""
+
+role_path = null
+
+role_permissions_boundary = null
 
 role_tags = {}
 
 runtime = "python3.7"
 
-publish = false
+security_group_ids = null
 
-kms_key_arn = null
+subnet_ids = null
 
-role_max_session_duration = null
+tags = {}
 
-dd_api_key_secret_arn = ""
+timeout = 10
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

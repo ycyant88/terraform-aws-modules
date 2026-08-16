@@ -1,81 +1,81 @@
-use_name_prefix = false
+acl_name = null
+
+acl_tags = {}
+
+acl_use_name_prefix = false
+
+acl_user_names = []
+
+auto_minor_version_upgrade = null
+
+create = true
+
+create_acl = true
+
+create_parameter_group = true
+
+create_subnet_group = true
+
+create_users = true
+
+description = null
 
 engine_version = null
 
 final_snapshot_name = null
 
-users = {}
+kms_key_arn = null
 
-acl_name = null
+maintenance_window = null
 
-create_subnet_group = true
-
-sns_topic_arn = null
-
-snapshot_arns = null
-
-acl_tags = {}
-
-subnet_ids = []
-
-create = true
-
-port = null
-
-num_shards = null
-
-snapshot_window = null
-
-parameter_group_parameters = []
+name = ""
 
 node_type = null
 
 num_replicas_per_shard = null
 
-tls_enabled = null
-
-parameter_group_tags = {}
-
-kms_key_arn = null
-
-security_group_ids = null
-
-snapshot_retention_limit = null
+num_shards = null
 
 parameter_group_description = null
 
-description = null
+parameter_group_family = null
+
+parameter_group_name = null
+
+parameter_group_parameters = []
+
+parameter_group_tags = {}
+
+parameter_group_use_name_prefix = false
+
+port = null
+
+security_group_ids = null
+
+snapshot_arns = null
 
 snapshot_name = null
 
-create_users = true
+snapshot_retention_limit = null
 
-acl_user_names = []
+snapshot_window = null
 
-create_parameter_group = true
+sns_topic_arn = null
 
-parameter_group_family = null
-
-subnet_group_use_name_prefix = false
-
-tags = {}
-
-name = ""
-
-maintenance_window = null
-
-create_acl = true
-
-parameter_group_name = null
+subnet_group_description = null
 
 subnet_group_name = null
 
 subnet_group_tags = {}
 
-auto_minor_version_upgrade = null
+subnet_group_use_name_prefix = false
 
-acl_use_name_prefix = false
+subnet_ids = []
 
-parameter_group_use_name_prefix = false
+tags = {}
 
-subnet_group_description = null
+tls_enabled = null
+
+use_name_prefix = false
+
+users = {}

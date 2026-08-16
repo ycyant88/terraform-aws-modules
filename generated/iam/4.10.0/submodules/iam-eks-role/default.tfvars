@@ -1,23 +1,23 @@
-max_session_duration = 43200
-
-role_name = null
-
-role_path = "/"
-
-role_name_prefix = null
-
-tags = {}
+cluster_service_accounts = {}
 
 create_role = true
 
-role_permissions_boundary_arn = ""
+force_detach_policies = false
 
-role_description = ""
-
-role_policy_arns = []
-
-cluster_service_accounts = {}
+max_session_duration = 43200
 
 provider_url_sa_pairs = {}
 
-force_detach_policies = false
+role_description = ""
+
+role_name = null
+
+role_name_prefix = null
+
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_policy_arns = []
+
+tags = {}

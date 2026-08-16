@@ -10,34 +10,16 @@ variable "create_table_bucket_policy" {
   default     = false
 }
 
-variable "table_bucket_policy" {
-  description = "Amazon Web Services resource-based policy document in JSON format"
-  type        = string
+variable "encryption_configuration" {
+  description = "Map of encryption configurations"
+  type        = any
   default     = null
 }
 
-variable "table_bucket_source_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "table_bucket_override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "table_bucket_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+variable "maintenance_configuration" {
+  description = "Map of table bucket maintenance configurations"
   type        = any
-  default     = {}
-}
-
-variable "tags" {
-  description = "Key-value map of resource tags"
-  type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "region" {
@@ -52,20 +34,38 @@ variable "table_bucket_name" {
   default     = null
 }
 
-variable "encryption_configuration" {
-  description = "Map of encryption configurations"
-  type        = any
+variable "table_bucket_override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "table_bucket_policy" {
+  description = "Amazon Web Services resource-based policy document in JSON format"
+  type        = string
   default     = null
 }
 
-variable "maintenance_configuration" {
-  description = "Map of table bucket maintenance configurations"
+variable "table_bucket_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
   type        = any
-  default     = null
+  default     = {}
+}
+
+variable "table_bucket_source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
 }
 
 variable "tables" {
   description = "Map of table configurations"
   type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "Key-value map of resource tags"
+  type        = map(string)
   default     = {}
 }

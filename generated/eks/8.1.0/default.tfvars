@@ -1,103 +1,103 @@
-map_users = []
+attach_worker_autoscaling_policy = true
 
-kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
-
-permissions_boundary = null
-
-node_groups = {}
-
-cluster_log_retention_in_days = 90
-
-worker_ami_owner_id_windows = "801119661308"
-
-iam_path = "/"
-
-cluster_log_kms_key_id = ""
-
-manage_aws_auth = true
-
-worker_ami_name_filter = ""
-
-kubeconfig_aws_authenticator_additional_args = []
-
-worker_groups = []
-
-manage_cluster_iam_resources = true
-
-workers_role_name = ""
-
-node_groups_defaults = {}
-
-local_exec_interpreter = ["/bin/sh", "-c"]
-
-manage_worker_autoscaling_policy = true
-
-cluster_enabled_log_types = []
-
-create_eks = true
-
-config_output_path = "./"
-
-map_accounts = []
-
-worker_groups_launch_template = []
-
-worker_security_group_id = ""
-
-write_kubeconfig = true
-
-kubeconfig_aws_authenticator_env_variables = {}
+attach_worker_cni_policy = true
 
 cluster_create_timeout = "15m"
 
-workers_group_defaults = {}
+cluster_delete_timeout = "15m"
 
-workers_additional_policies = []
+cluster_enabled_log_types = []
 
 cluster_endpoint_private_access = false
 
+cluster_endpoint_public_access = true
+
+cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
+
+cluster_iam_role_name = ""
+
+cluster_log_kms_key_id = ""
+
+cluster_log_retention_in_days = 90
+
+cluster_name = ""
+
 cluster_security_group_id = ""
+
+cluster_version = "1.14"
+
+config_output_path = "./"
+
+create_eks = true
+
+eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
+
+enable_irsa = false
+
+iam_path = "/"
+
+kubeconfig_aws_authenticator_additional_args = []
+
+kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
+
+kubeconfig_aws_authenticator_command_args = []
+
+kubeconfig_aws_authenticator_env_variables = {}
+
+kubeconfig_name = ""
+
+local_exec_interpreter = ["/bin/sh", "-c"]
+
+manage_aws_auth = true
+
+manage_cluster_iam_resources = true
+
+manage_worker_autoscaling_policy = true
+
+manage_worker_iam_resources = true
+
+map_accounts = []
+
+map_roles = []
+
+map_users = []
+
+node_groups = {}
+
+node_groups_defaults = {}
+
+permissions_boundary = null
+
+subnets = ""
+
+tags = {}
+
+vpc_id = ""
+
+worker_additional_security_group_ids = []
+
+worker_ami_name_filter = ""
 
 worker_ami_name_filter_windows = ""
 
 worker_ami_owner_id = "602401143452"
 
-map_roles = []
-
-eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
-
-subnets = ""
-
-cluster_delete_timeout = "15m"
-
-cluster_endpoint_public_access = true
-
-enable_irsa = false
+worker_ami_owner_id_windows = "801119661308"
 
 worker_create_initial_lifecycle_hooks = false
 
-manage_worker_iam_resources = true
+worker_groups = []
 
-cluster_name = ""
+worker_groups_launch_template = []
 
-worker_additional_security_group_ids = []
-
-kubeconfig_name = ""
-
-attach_worker_autoscaling_policy = true
-
-cluster_version = "1.14"
-
-tags = {}
+worker_security_group_id = ""
 
 worker_sg_ingress_from_port = 1025
 
-cluster_iam_role_name = ""
+workers_additional_policies = []
 
-vpc_id = ""
+workers_group_defaults = {}
 
-kubeconfig_aws_authenticator_command_args = []
+workers_role_name = ""
 
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
-
-attach_worker_cni_policy = true
+write_kubeconfig = true

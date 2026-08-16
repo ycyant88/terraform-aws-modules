@@ -1,41 +1,41 @@
 aliases = null
 
+cache_behavior = null
+
 comment = null
-
-price_class = null
-
-wait_for_deployment = true
-
-origin = null
-
-create_origin_access_identity = false
-
-enabled = true
-
-custom_error_response = {}
 
 create_distribution = true
 
-origin_group = {}
+create_origin_access_identity = false
 
-geo_restriction = {}
-
-tags = null
+custom_error_response = {}
 
 default_root_object = null
+
+enabled = true
+
+geo_restriction = {}
 
 http_version = "http2"
 
 is_ipv6_enabled = null
 
-retain_on_delete = false
-
-web_acl_id = null
-
-viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
-
 logging_config = {}
+
+origin = null
 
 origin_access_identities = {}
 
-cache_behavior = null
+origin_group = {}
+
+price_class = null
+
+retain_on_delete = false
+
+tags = null
+
+viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+
+wait_for_deployment = true
+
+web_acl_id = null

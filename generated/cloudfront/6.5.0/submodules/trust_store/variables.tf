@@ -22,12 +22,6 @@ variable "ca_cert_version" {
   default     = null
 }
 
-variable "tags" {
-  description = "Key-value tags for the place index"
-  type        = map(string)
-  default     = {}
-}
-
 variable "create" {
   description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
@@ -38,4 +32,10 @@ variable "name" {
   description = "Name of the trust store. Changing this forces a new resource to be created"
   type        = string
   default     = null
+}
+
+variable "tags" {
+  description = "Key-value tags for the place index"
+  type        = map(string)
+  default     = {}
 }

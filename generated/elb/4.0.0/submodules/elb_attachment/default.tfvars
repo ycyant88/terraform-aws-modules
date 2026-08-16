@@ -1,7 +1,7 @@
+create_attachment = true
+
 elb = ""
 
 instances = ""
-
-create_attachment = true
 
 number_of_instances = ""

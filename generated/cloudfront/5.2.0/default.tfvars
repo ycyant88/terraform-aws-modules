@@ -1,69 +1,69 @@
-geo_restriction = {}
-
-ordered_cache_behavior = []
-
-vpc_origin_timeouts = {}
-
-create_cloudfront_function = false
-
-origin_group = {}
-
-logging_config = {}
-
-default_cache_behavior = null
-
-viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
-
-realtime_metrics_subscription_status = "Enabled"
-
-origin_access_identities = {}
-
-comment = null
-
-http_version = "http2"
-
-tags = null
-
-origin_access_control = { "s3" : { "description" : "", "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
-
-continuous_deployment_policy_id = null
+aliases = null
 
 cloudfront_functions = null
 
-retain_on_delete = false
+comment = null
 
-wait_for_deployment = true
+continuous_deployment_policy_id = null
 
-staging = false
-
-origin = null
-
-custom_error_response = {}
-
-create_monitoring_subscription = false
-
-vpc_origin = {}
-
-create_origin_access_identity = false
-
-enabled = true
-
-create_vpc_origin = false
+create_cloudfront_function = false
 
 create_distribution = true
 
+create_monitoring_subscription = false
+
 create_origin_access_control = false
 
-is_ipv6_enabled = null
-
-web_acl_id = null
+create_origin_access_identity = false
 
 create_response_headers_policy = false
 
-response_headers_policies = null
+create_vpc_origin = false
 
-aliases = null
+custom_error_response = {}
+
+default_cache_behavior = null
 
 default_root_object = null
 
+enabled = true
+
+geo_restriction = {}
+
+http_version = "http2"
+
+is_ipv6_enabled = null
+
+logging_config = {}
+
+ordered_cache_behavior = []
+
+origin = null
+
+origin_access_control = { "s3" : { "description" : "", "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
+
+origin_access_identities = {}
+
+origin_group = {}
+
 price_class = null
+
+realtime_metrics_subscription_status = "Enabled"
+
+response_headers_policies = null
+
+retain_on_delete = false
+
+staging = false
+
+tags = null
+
+viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+
+vpc_origin = {}
+
+vpc_origin_timeouts = {}
+
+wait_for_deployment = true
+
+web_acl_id = null

@@ -1,15 +1,3 @@
-variable "slack_emoji" {
-  description = "A custom emoji that will appear on Slack messages"
-  type        = string
-  default     = ":aws:"
-}
-
-variable "kms_key_arn" {
-  description = "ARN of the KMS key used for decrypting slack webhook url"
-  type        = string
-  default     = ""
-}
-
 variable "create" {
   description = "Whether to create all resources"
   type        = string
@@ -20,6 +8,18 @@ variable "create_sns_topic" {
   description = "Whether to create new SNS topic"
   type        = string
   default     = true
+}
+
+variable "create_with_kms_key" {
+  description = "Whether to create resources with KMS encryption"
+  type        = string
+  default     = false
+}
+
+variable "kms_key_arn" {
+  description = "ARN of the KMS key used for decrypting slack webhook url"
+  type        = string
+  default     = ""
 }
 
 variable "lambda_function_name" {
@@ -34,26 +34,26 @@ variable "slack_channel" {
   default     = ""
 }
 
+variable "slack_emoji" {
+  description = "A custom emoji that will appear on Slack messages"
+  type        = string
+  default     = ":aws:"
+}
+
 variable "slack_username" {
   description = "The username that will appear on Slack messages"
   type        = string
   default     = ""
 }
 
-variable "create_with_kms_key" {
-  description = "Whether to create resources with KMS encryption"
-  type        = string
-  default     = false
-}
-
-variable "sns_topic_name" {
-  description = "The name of the SNS topic to create"
+variable "slack_webhook_url" {
+  description = "The URL of Slack webhook"
   type        = string
   default     = ""
 }
 
-variable "slack_webhook_url" {
-  description = "The URL of Slack webhook"
+variable "sns_topic_name" {
+  description = "The name of the SNS topic to create"
   type        = string
   default     = ""
 }

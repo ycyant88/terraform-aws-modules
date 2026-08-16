@@ -1,77 +1,77 @@
-username = "root"
-
-tags = {}
-
-final_snapshot_identifier_prefix = "final"
-
-db_parameter_group_name = "default.aurora5.6"
-
-replica_scale_enabled = false
-
-engine = "aurora"
-
-replica_scale_in_cooldown = "300"
-
-replica_scale_out_cooldown = "300"
-
-performance_insights_enabled = "false"
-
-replica_count = 1
-
-backup_retention_period = "7"
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-snapshot_identifier = ""
-
-name = ""
-
-publicly_accessible = "false"
-
-database_name = ""
-
-port = ""
-
-replica_scale_min = "2"
-
 allowed_security_groups = []
 
-preferred_backup_window = "02:00-03:00"
-
 allowed_security_groups_count = 0
-
-storage_encrypted = "true"
 
 apply_immediately = "false"
 
 auto_minor_version_upgrade = "true"
 
+backup_retention_period = "7"
+
+database_name = ""
+
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+deletion_protection = "false"
+
+engine = "aurora"
+
 engine_version = "5.6.10a"
 
-performance_insights_kms_key_id = ""
+final_snapshot_identifier_prefix = "final"
 
 iam_database_authentication_enabled = "false"
 
-subnets = ""
+identifier_prefix = ""
 
 instance_type = ""
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-replica_scale_max = "0"
-
-password = ""
-
-skip_final_snapshot = "false"
 
 kms_key_id = ""
 
 monitoring_interval = 0
 
+name = ""
+
+password = ""
+
+performance_insights_enabled = "false"
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = "false"
+
+replica_count = 1
+
 replica_scale_cpu = "70"
 
-identifier_prefix = ""
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = "300"
+
+replica_scale_max = "0"
+
+replica_scale_min = "2"
+
+replica_scale_out_cooldown = "300"
+
+skip_final_snapshot = "false"
+
+snapshot_identifier = ""
+
+storage_encrypted = "true"
+
+subnets = ""
+
+tags = {}
+
+username = "root"
 
 vpc_id = ""
-
-deletion_protection = "false"

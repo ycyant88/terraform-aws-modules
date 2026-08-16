@@ -1,91 +1,91 @@
-essential = null
-
-log_configuration = {}
-
-stop_timeout = 120
-
-user = null
-
-disable_networking = null
-
-environment_files = []
-
-repository_credentials = {}
-
-cpu = null
-
-hostname = null
-
-system_controls = []
-
-create_cloudwatch_log_group = true
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_retention_in_days = 30
 
-operating_system_family = "LINUX"
-
-environment = []
-
-health_check = {}
-
-image = null
-
-links = []
-
-memory_reservation = null
-
-name = null
-
-privileged = false
-
 command = []
 
-entrypoint = []
+cpu = null
 
-service = ""
-
-readonly_root_filesystem = true
-
-ulimits = []
-
-firelens_configuration = {}
-
-port_mappings = []
+create_cloudwatch_log_group = true
 
 dependencies = []
 
-docker_labels = {}
-
-mount_points = []
-
-pseudo_terminal = false
-
-working_directory = null
-
-cloudwatch_log_group_kms_key_id = null
-
-extra_hosts = []
-
-interactive = false
-
-secrets = []
-
-start_timeout = 30
-
-enable_cloudwatch_logging = true
-
-tags = {}
+disable_networking = null
 
 dns_search_domains = []
 
-resource_requirements = []
+dns_servers = []
+
+docker_labels = {}
+
+docker_security_options = []
+
+enable_cloudwatch_logging = true
+
+entrypoint = []
+
+environment = []
+
+environment_files = []
+
+essential = null
+
+extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
+
+image = null
+
+interactive = false
+
+links = []
 
 linux_parameters = {}
 
+log_configuration = {}
+
 memory = null
+
+memory_reservation = null
+
+mount_points = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+port_mappings = []
+
+privileged = false
+
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
+
+stop_timeout = 120
+
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
 
 volumes_from = []
 
-dns_servers = []
-
-docker_security_options = []
+working_directory = null

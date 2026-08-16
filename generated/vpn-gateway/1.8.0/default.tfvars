@@ -1,27 +1,27 @@
-tunnel2_preshared_key = ""
+create_vpn_connection = true
 
 create_vpn_gateway_attachment = true
 
-vpc_subnet_route_table_ids = []
+customer_gateway_id = ""
 
-vpc_subnet_route_table_count = 0
-
-vpn_connection_static_routes_only = false
-
-vpn_connection_static_routes_destinations = []
+tags = {}
 
 tunnel1_inside_cidr = ""
 
-tunnel2_inside_cidr = ""
-
 tunnel1_preshared_key = ""
 
-vpn_gateway_id = ""
+tunnel2_inside_cidr = ""
 
-customer_gateway_id = ""
-
-create_vpn_connection = true
+tunnel2_preshared_key = ""
 
 vpc_id = ""
 
-tags = {}
+vpc_subnet_route_table_count = 0
+
+vpc_subnet_route_table_ids = []
+
+vpn_connection_static_routes_destinations = []
+
+vpn_connection_static_routes_only = false
+
+vpn_gateway_id = ""

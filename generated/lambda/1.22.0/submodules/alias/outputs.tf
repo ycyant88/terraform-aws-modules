@@ -1,6 +1,6 @@
-output "this_lambda_alias_invoke_arn" {
-  value       = module.lambda_alias.this_lambda_alias_invoke_arn
-  description = "The ARN to be used for invoking Lambda Function from API Gateway"
+output "this_lambda_alias_arn" {
+  value       = module.lambda_alias.this_lambda_alias_arn
+  description = "The ARN of the Lambda Function Alias"
 }
 
 output "this_lambda_alias_description" {
@@ -13,12 +13,12 @@ output "this_lambda_alias_function_version" {
   description = "Lambda function version which the alias uses"
 }
 
+output "this_lambda_alias_invoke_arn" {
+  value       = module.lambda_alias.this_lambda_alias_invoke_arn
+  description = "The ARN to be used for invoking Lambda Function from API Gateway"
+}
+
 output "this_lambda_alias_name" {
   value       = module.lambda_alias.this_lambda_alias_name
   description = "The name of the Lambda Function Alias"
-}
-
-output "this_lambda_alias_arn" {
-  value       = module.lambda_alias.this_lambda_alias_arn
-  description = "The ARN of the Lambda Function Alias"
 }

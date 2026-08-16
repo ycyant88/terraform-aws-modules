@@ -1,10 +1,22 @@
-stateless_fragment_default_actions = ["aws:pass"]
+attach_resource_policy = false
+
+create = true
+
+create_resource_policy = false
+
+description = null
+
+encryption_configuration = {}
 
 name = ""
 
-tags = {}
+ram_resource_associations = {}
 
-encryption_configuration = {}
+resource_policy = ""
+
+resource_policy_actions = []
+
+resource_policy_principals = []
 
 stateful_default_actions = []
 
@@ -12,24 +24,12 @@ stateful_engine_options = {}
 
 stateful_rule_group_reference = {}
 
+stateless_custom_action = {}
+
 stateless_default_actions = ["aws:pass"]
 
-create_resource_policy = false
-
-resource_policy_actions = []
-
-attach_resource_policy = false
-
-resource_policy = ""
+stateless_fragment_default_actions = ["aws:pass"]
 
 stateless_rule_group_reference = {}
 
-ram_resource_associations = {}
-
-description = null
-
-create = true
-
-stateless_custom_action = {}
-
-resource_policy_principals = []
+tags = {}

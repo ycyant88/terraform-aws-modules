@@ -1,31 +1,31 @@
-role_path = "/"
-
-max_session_duration = 3600
-
-create_role = false
-
-provider_ids = []
+allow_self_assume_role = false
 
 aws_saml_endpoint = "https://signin.aws.amazon.com/saml"
 
-tags = {}
+create_role = false
 
-role_name_prefix = null
+force_detach_policies = false
 
-role_description = ""
+max_session_duration = 3600
 
 number_of_role_policy_arns = null
 
+provider_id = ""
+
+provider_ids = []
+
+role_description = ""
+
 role_name = null
+
+role_name_prefix = null
+
+role_path = "/"
 
 role_permissions_boundary_arn = ""
 
 role_policy_arns = []
 
-force_detach_policies = false
-
-allow_self_assume_role = false
+tags = {}
 
 trusted_role_actions = ["sts:AssumeRoleWithSAML", "sts:TagSession"]
-
-provider_id = ""

@@ -1,105 +1,105 @@
-entrypoint = []
-
-extraHosts = null
-
-versionConsistency = "disabled"
-
-mountPoints = []
-
-logConfiguration = {}
-
-resourceRequirements = null
-
-secrets = null
-
-startTimeout = 30
-
-volumesFrom = []
-
-workingDirectory = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-tags = {}
-
-dockerSecurityOptions = null
-
-hostname = null
-
-memory = null
-
-user = null
+cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-operating_system_family = "LINUX"
-
-environment = []
-
-repositoryCredentials = null
-
-ulimits = null
-
-enable_cloudwatch_logging = true
-
 cloudwatch_log_group_name = null
-
-dnsSearchDomains = null
-
-environmentFiles = []
-
-portMappings = null
-
-pseudoTerminal = false
 
 cloudwatch_log_group_retention_in_days = 14
 
+cloudwatch_log_group_use_name_prefix = false
+
 command = null
+
+cpu = null
+
+create_cloudwatch_log_group = true
 
 dependsOn = null
 
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
+
 dockerLabels = null
+
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
 
 enable_execute_command = false
 
+entrypoint = []
+
+environment = []
+
+environmentFiles = []
+
 essential = null
+
+extraHosts = null
 
 firelensConfiguration = null
 
 healthCheck = null
 
-linuxParameters = { "initProcessEnabled" : false }
-
-cpu = null
-
-dnsServers = null
-
-links = null
-
-name = null
-
-readonlyRootFilesystem = true
-
-restartPolicy = { "enabled" : true }
-
-stopTimeout = 120
-
-systemControls = []
+hostname = null
 
 image = null
 
 interactive = false
 
+links = null
+
+linuxParameters = { "initProcessEnabled" : false }
+
+logConfiguration = {}
+
+memory = null
+
 memoryReservation = null
+
+mountPoints = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
 
 privileged = false
 
-service = null
+pseudoTerminal = false
 
-create_cloudwatch_log_group = true
-
-cloudwatch_log_group_class = null
+readonlyRootFilesystem = true
 
 region = null
 
-disableNetworking = null
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = []
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = []
+
+workingDirectory = null

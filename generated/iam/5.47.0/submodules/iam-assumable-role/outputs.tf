@@ -1,11 +1,11 @@
-output "iam_role_arn" {
-  value       = module.iam_iam-assumable-role.iam_role_arn
-  description = "ARN of IAM role"
-}
-
 output "iam_instance_profile_arn" {
   value       = module.iam_iam-assumable-role.iam_instance_profile_arn
   description = "ARN of IAM instance profile"
+}
+
+output "iam_instance_profile_id" {
+  value       = module.iam_iam-assumable-role.iam_instance_profile_id
+  description = "IAM Instance profile's ID."
 }
 
 output "iam_instance_profile_name" {
@@ -16,6 +16,11 @@ output "iam_instance_profile_name" {
 output "iam_instance_profile_path" {
   value       = module.iam_iam-assumable-role.iam_instance_profile_path
   description = "Path of IAM instance profile"
+}
+
+output "iam_role_arn" {
+  value       = module.iam_iam-assumable-role.iam_role_arn
+  description = "ARN of IAM role"
 }
 
 output "iam_role_name" {
@@ -36,11 +41,6 @@ output "iam_role_unique_id" {
 output "role_requires_mfa" {
   value       = module.iam_iam-assumable-role.role_requires_mfa
   description = "Whether IAM role requires MFA"
-}
-
-output "iam_instance_profile_id" {
-  value       = module.iam_iam-assumable-role.iam_instance_profile_id
-  description = "IAM Instance profile's ID."
 }
 
 output "role_sts_externalid" {

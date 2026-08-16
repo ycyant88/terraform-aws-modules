@@ -1,90 +1,3 @@
-variable "security_group_name" {
-  description = "Name to use on security group created"
-  type        = string
-  default     = null
-}
-
-variable "node_iam_role_override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "cluster_setting" {
-  description = "List of configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster"
-  type = list(object({
-    name  = string
-    value = string
-  }))
-  default = [{ "name" : "containerInsights", "value" : "enabled" }]
-}
-
-variable "create_task_exec_iam_role" {
-  description = "Determines whether the ECS task definition IAM role should be created"
-  type        = bool
-  default     = false
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "infrastructure_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "node_iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "cloudwatch_log_group_name" {
-  description = "Custom name of CloudWatch Log Group for ECS cluster"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_kms_key_id" {
-  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
-  type        = string
-  default     = null
-}
-
-variable "task_exec_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "infrastructure_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_name" {
-  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  type        = string
-  default     = ""
-}
-
-variable "infrastructure_iam_role_override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
 variable "capacity_providers" {
   description = "Map of capacity provider definitions to create for the cluster"
   type = map(object({
@@ -175,13 +88,263 @@ variable "capacity_providers" {
   default = null
 }
 
+variable "cloudwatch_log_group_class" {
+  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_kms_key_id" {
+  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_name" {
+  description = "Custom name of CloudWatch Log Group for ECS cluster"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_retention_in_days" {
+  description = "Number of days to retain log events"
+  type        = number
+  default     = 90
+}
+
+variable "cloudwatch_log_group_tags" {
+  description = "A map of additional tags to add to the log group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "cluster_capacity_providers" {
+  description = "List of capacity provider names to associate with the ECS cluster. Note: any capacity providers created by this module will be automatically added"
+  type        = list(string)
+  default     = []
+}
+
+variable "cluster_configuration" {
+  description = "The execute command configuration for the cluster"
+  type = object({
+    execute_command_configuration = optional(object({
+      kms_key_id = optional(string)
+      log_configuration = optional(object({
+        cloud_watch_encryption_enabled = optional(bool)
+        cloud_watch_log_group_name     = optional(string)
+        s3_bucket_encryption_enabled   = optional(bool)
+        s3_bucket_name                 = optional(string)
+        s3_kms_key_id                  = optional(string)
+        s3_key_prefix                  = optional(string)
+      }))
+      logging = optional(string, "OVERRIDE")
+    }))
+    managed_storage_configuration = optional(object({
+      fargate_ephemeral_storage_kms_key_id = optional(string)
+      kms_key_id                           = optional(string)
+    }))
+  })
+  default = { "execute_command_configuration" : { "log_configuration" : { "cloud_watch_log_group_name" : "placeholder" } } }
+}
+
+variable "cluster_name" {
+  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_service_connect_defaults" {
+  description = "Configures a default Service Connect namespace"
+  type = object({
+    namespace = string
+  })
+  default = null
+}
+
+variable "cluster_setting" {
+  description = "List of configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster"
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = [{ "name" : "containerInsights", "value" : "enabled" }]
+}
+
+variable "cluster_tags" {
+  description = "A map of additional tags to add to the cluster"
+  type        = map(string)
+  default     = {}
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
+  type        = bool
+  default     = true
+}
+
+variable "create_infrastructure_iam_role" {
+  description = "Determines whether the ECS infrastructure IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_node_iam_instance_profile" {
+  description = "Determines whether an IAM instance profile is created or to use an existing IAM instance profile"
+  type        = bool
+  default     = true
+}
+
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = true
+}
+
+variable "create_task_exec_iam_role" {
+  description = "Determines whether the ECS task definition IAM role should be created"
+  type        = bool
+  default     = false
+}
+
 variable "create_task_exec_policy" {
   description = "Determines whether the ECS task definition IAM policy should be created. This includes permissions included in AmazonECSTaskExecutionRolePolicy as well as access to secrets and SSM parameters"
   type        = bool
   default     = true
 }
 
+variable "default_capacity_provider_strategy" {
+  description = "Map of default capacity provider strategy definitions to use for the cluster"
+  type = map(object({
+    base   = optional(number)
+    name   = optional(string) # Will fall back to use map key if not set
+    weight = optional(number)
+  }))
+  default = null
+}
+
+variable "disable_v7_default_name_description" {
+  description = "[DEPRECATED - will be removed in v8.0] Determines whether to disable the default postfix added to resource names and descriptions added in v7.0"
+  type        = bool
+  default     = false
+}
+
+variable "infrastructure_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "infrastructure_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "infrastructure_iam_role_override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "infrastructure_iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "infrastructure_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
 variable "infrastructure_iam_role_source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "infrastructure_iam_role_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type = map(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string, "Allow")
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    })))
+  }))
+  default = null
+}
+
+variable "infrastructure_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "infrastructure_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "node_iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "node_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = "ECS Managed Instances node IAM role"
+}
+
+variable "node_iam_role_name" {
+  description = "Name to use on IAM role/instance profile created"
+  type        = string
+  default     = null
+}
+
+variable "node_iam_role_override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "node_iam_role_path" {
+  description = "IAM role/instance profile path"
+  type        = string
+  default     = null
+}
+
+variable "node_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "node_iam_role_source_policy_documents" {
   description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
   type        = list(string)
   default     = []
@@ -213,60 +376,28 @@ variable "node_iam_role_statements" {
   default = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "cluster_service_connect_defaults" {
-  description = "Configures a default Service Connect namespace"
-  type = object({
-    namespace = string
-  })
-  default = null
-}
-
-variable "cloudwatch_log_group_tags" {
-  description = "A map of additional tags to add to the log group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "task_exec_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "task_exec_secret_arns" {
-  description = "List of SecretsManager secret ARNs the task execution role will be permitted to get/read"
-  type        = list(string)
-  default     = []
-}
-
 variable "node_iam_role_tags" {
   description = "A map of additional tags to add to the IAM role/instance profile created"
   type        = map(string)
   default     = {}
 }
 
-variable "node_iam_role_path" {
-  description = "IAM role/instance profile path"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_class" {
-  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
-  type        = string
-  default     = null
-}
-
 variable "node_iam_role_use_name_prefix" {
   description = "Determines whether the IAM role/instance profile name (node_iam_role_name) is used as a prefix"
   type        = bool
   default     = true
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = null
 }
 
 variable "security_group_egress_rules" {
@@ -287,72 +418,6 @@ variable "security_group_egress_rules" {
   default = { "all_ipv4" : { "cidr_ipv4" : "0.0.0.0/0", "description" : "Allow all IPv4 traffic", "ip_protocol" : "-1" }, "all_ipv6" : { "cidr_ipv6" : "::/0", "description" : "Allow all IPv6 traffic", "ip_protocol" : "-1" } }
 }
 
-variable "vpc_id" {
-  description = "The ID of the VPC where the security group will be created"
-  type        = string
-  default     = null
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "default_capacity_provider_strategy" {
-  description = "Map of default capacity provider strategy definitions to use for the cluster"
-  type = map(object({
-    base   = optional(number)
-    name   = optional(string) # Will fall back to use map key if not set
-    weight = optional(number)
-  }))
-  default = null
-}
-
-variable "task_exec_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "task_exec_iam_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type = map(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string, "Allow")
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      variable = string
-      values   = list(string)
-    })))
-  }))
-  default = null
-}
-
-variable "create_infrastructure_iam_role" {
-  description = "Determines whether the ECS infrastructure IAM role should be created"
-  type        = bool
-  default     = true
-}
-
-variable "infrastructure_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
 variable "security_group_ingress_rules" {
   description = "Security group ingress rules to add to the security group created"
   type = map(object({
@@ -371,155 +436,22 @@ variable "security_group_ingress_rules" {
   default = {}
 }
 
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
-  type        = bool
-  default     = true
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events"
-  type        = number
-  default     = 90
-}
-
-variable "infrastructure_iam_role_description" {
-  description = "Description of the role"
+variable "security_group_name" {
+  description = "Name to use on security group created"
   type        = string
   default     = null
 }
 
-variable "infrastructure_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
   type        = map(string)
   default     = {}
-}
-
-variable "create_node_iam_instance_profile" {
-  description = "Determines whether an IAM instance profile is created or to use an existing IAM instance profile"
-  type        = bool
-  default     = true
-}
-
-variable "create_security_group" {
-  description = "Determines if a security group is created"
-  type        = bool
-  default     = true
-}
-
-variable "task_exec_ssm_param_arns" {
-  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
-  type        = list(string)
-  default     = []
 }
 
 variable "security_group_use_name_prefix" {
   description = "Determines whether the security group name (security_group_name) is used as a prefix"
   type        = bool
   default     = true
-}
-
-variable "cluster_configuration" {
-  description = "The execute command configuration for the cluster"
-  type = object({
-    execute_command_configuration = optional(object({
-      kms_key_id = optional(string)
-      log_configuration = optional(object({
-        cloud_watch_encryption_enabled = optional(bool)
-        cloud_watch_log_group_name     = optional(string)
-        s3_bucket_encryption_enabled   = optional(bool)
-        s3_bucket_name                 = optional(string)
-        s3_kms_key_id                  = optional(string)
-        s3_key_prefix                  = optional(string)
-      }))
-      logging = optional(string, "OVERRIDE")
-    }))
-    managed_storage_configuration = optional(object({
-      fargate_ephemeral_storage_kms_key_id = optional(string)
-      kms_key_id                           = optional(string)
-    }))
-  })
-  default = { "execute_command_configuration" : { "log_configuration" : { "cloud_watch_log_group_name" : "placeholder" } } }
-}
-
-variable "task_exec_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "infrastructure_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "disable_v7_default_name_description" {
-  description = "[DEPRECATED - will be removed in v8.0] Determines whether to disable the default postfix added to resource names and descriptions added in v7.0"
-  type        = bool
-  default     = false
-}
-
-variable "security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = null
-}
-
-variable "cluster_capacity_providers" {
-  description = "List of capacity provider names to associate with the ECS cluster. Note: any capacity providers created by this module will be automatically added"
-  type        = list(string)
-  default     = []
-}
-
-variable "task_exec_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "infrastructure_iam_role_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type = map(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string, "Allow")
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      variable = string
-      values   = list(string)
-    })))
-  }))
-  default = null
-}
-
-variable "node_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = "ECS Managed Instances node IAM role"
-}
-
-variable "node_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "node_iam_role_source_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
 }
 
 variable "services" {
@@ -1186,8 +1118,44 @@ variable "services" {
   default = null
 }
 
-variable "cluster_tags" {
-  description = "A map of additional tags to add to the cluster"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_policies" {
+  description = "Map of IAM role policy ARNs to attach to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
   type        = map(string)
   default     = {}
 }
@@ -1198,14 +1166,46 @@ variable "task_exec_iam_role_use_name_prefix" {
   default     = true
 }
 
-variable "task_exec_iam_role_policies" {
-  description = "Map of IAM role policy ARNs to attach to the IAM role"
-  type        = map(string)
-  default     = {}
+variable "task_exec_iam_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type = map(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string, "Allow")
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    })))
+  }))
+  default = null
 }
 
-variable "node_iam_role_name" {
-  description = "Name to use on IAM role/instance profile created"
+variable "task_exec_secret_arns" {
+  description = "List of SecretsManager secret ARNs the task execution role will be permitted to get/read"
+  type        = list(string)
+  default     = []
+}
+
+variable "task_exec_ssm_param_arns" {
+  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
+  type        = list(string)
+  default     = []
+}
+
+variable "vpc_id" {
+  description = "The ID of the VPC where the security group will be created"
   type        = string
   default     = null
 }

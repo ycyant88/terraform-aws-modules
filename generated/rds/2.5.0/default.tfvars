@@ -1,115 +1,115 @@
-db_subnet_group_name = ""
-
-subnet_ids = []
-
-max_allocated_storage = 0
-
-password = ""
-
-vpc_security_group_ids = []
-
-parameter_group_description = ""
-
-monitoring_role_name = "rds-monitoring-role"
-
-tags = {}
-
-option_group_description = ""
-
-identifier = ""
-
-storage_type = "gp2"
-
-monitoring_interval = 0
-
-auto_minor_version_upgrade = true
-
-family = ""
-
-username = ""
-
-create_db_instance = true
-
-character_set_name = ""
-
-name = ""
-
-iops = 0
-
-backup_retention_period = 1
-
-create_db_parameter_group = true
-
-deletion_protection = false
-
-maintenance_window = ""
-
-create_db_option_group = true
-
-engine = ""
-
-publicly_accessible = false
-
-skip_final_snapshot = true
-
 allocated_storage = ""
 
 allow_major_version_upgrade = false
 
 apply_immediately = false
 
-instance_class = ""
-
-backup_window = ""
-
-parameters = []
-
-final_snapshot_identifier = null
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
-multi_az = false
+backup_retention_period = 1
 
-create_monitoring_role = false
+backup_window = ""
+
+character_set_name = ""
 
 copy_tags_to_snapshot = false
 
-major_engine_version = ""
+create_db_instance = true
+
+create_db_option_group = true
+
+create_db_parameter_group = true
 
 create_db_subnet_group = true
 
-timezone = ""
+create_monitoring_role = false
 
-replicate_source_db = ""
+db_subnet_group_name = ""
 
-parameter_group_name = ""
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = null
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+major_engine_version = ""
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_description = ""
 
 option_group_name = ""
 
 options = []
 
-enabled_cloudwatch_logs_exports = []
+parameter_group_description = ""
+
+parameter_group_name = ""
+
+parameters = []
+
+password = ""
 
 performance_insights_enabled = false
 
 performance_insights_retention_period = 7
 
-storage_encrypted = false
-
-kms_key_id = ""
-
 port = ""
 
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
 
 snapshot_identifier = ""
 
-license_model = ""
+storage_encrypted = false
 
-engine_version = ""
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
 
 use_parameter_group_name_prefix = true
 
-iam_database_authentication_enabled = false
+username = ""
 
-monitoring_role_arn = ""
+vpc_security_group_ids = []

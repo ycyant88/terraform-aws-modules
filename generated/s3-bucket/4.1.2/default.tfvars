@@ -1,105 +1,105 @@
-attach_deny_unencrypted_object_uploads = false
-
-website = {}
-
-cors_rule = []
-
-grant = []
-
-attach_deny_incorrect_kms_key_sse = false
-
-allowed_kms_key_arn = null
-
-attach_policy = false
-
-owner = {}
-
-attach_lb_log_delivery_policy = false
-
-attach_access_log_delivery_policy = false
-
-lifecycle_rule = []
-
-block_public_policy = true
-
-object_ownership = "BucketOwnerEnforced"
-
-attach_require_latest_tls_policy = false
-
-expected_bucket_owner = null
-
-analytics_source_account_id = null
-
-restrict_public_buckets = true
-
 acceleration_status = null
-
-versioning = {}
-
-acl = null
-
-inventory_source_account_id = null
-
-create_bucket = true
-
-attach_deny_incorrect_encryption_headers = false
-
-server_side_encryption_configuration = {}
-
-analytics_configuration = {}
-
-attach_deny_insecure_transport_policy = false
-
-access_log_delivery_policy_source_buckets = []
-
-object_lock_configuration = {}
-
-analytics_source_bucket_arn = null
-
-control_object_ownership = false
-
-request_payer = null
-
-intelligent_tiering = {}
-
-tags = {}
-
-replication_configuration = {}
-
-policy = null
-
-block_public_acls = true
-
-attach_inventory_destination_policy = false
-
-bucket = null
-
-inventory_source_bucket_arn = null
-
-putin_khuylo = true
-
-inventory_configuration = {}
-
-object_lock_enabled = false
-
-metric_configuration = []
-
-logging = {}
 
 access_log_delivery_policy_source_accounts = []
 
+access_log_delivery_policy_source_buckets = []
+
+acl = null
+
+allowed_kms_key_arn = null
+
+analytics_configuration = {}
+
 analytics_self_source_destination = false
 
-attach_elb_log_delivery_policy = false
+analytics_source_account_id = null
 
-attach_public_policy = true
+analytics_source_bucket_arn = null
 
-force_destroy = false
-
-inventory_self_source_destination = false
-
-ignore_public_acls = true
+attach_access_log_delivery_policy = false
 
 attach_analytics_destination_policy = false
 
+attach_deny_incorrect_encryption_headers = false
+
+attach_deny_incorrect_kms_key_sse = false
+
+attach_deny_insecure_transport_policy = false
+
+attach_deny_unencrypted_object_uploads = false
+
+attach_elb_log_delivery_policy = false
+
+attach_inventory_destination_policy = false
+
+attach_lb_log_delivery_policy = false
+
+attach_policy = false
+
+attach_public_policy = true
+
+attach_require_latest_tls_policy = false
+
+block_public_acls = true
+
+block_public_policy = true
+
+bucket = null
+
 bucket_prefix = null
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+expected_bucket_owner = null
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = true
+
+intelligent_tiering = {}
+
+inventory_configuration = {}
+
+inventory_self_source_destination = false
+
+inventory_source_account_id = null
+
+inventory_source_bucket_arn = null
+
+lifecycle_rule = []
+
+logging = {}
+
+metric_configuration = []
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "BucketOwnerEnforced"
+
+owner = {}
+
+policy = null
+
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = null
+
+restrict_public_buckets = true
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

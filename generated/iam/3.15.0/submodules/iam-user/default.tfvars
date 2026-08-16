@@ -1,14 +1,22 @@
-password_length = 20
+create_iam_access_key = true
 
-permissions_boundary = ""
+create_iam_user_login_profile = true
 
-path = "/"
+create_user = true
 
 force_destroy = false
 
+name = ""
+
+password_length = 20
+
 password_reset_required = true
 
-upload_iam_user_ssh_key = false
+path = "/"
+
+permissions_boundary = ""
+
+pgp_key = ""
 
 ssh_key_encoding = "SSH"
 
@@ -16,12 +24,4 @@ ssh_public_key = ""
 
 tags = {}
 
-create_user = true
-
-create_iam_user_login_profile = true
-
-create_iam_access_key = true
-
-name = ""
-
-pgp_key = ""
+upload_iam_user_ssh_key = false

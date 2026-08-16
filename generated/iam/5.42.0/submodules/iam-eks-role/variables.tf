@@ -1,7 +1,13 @@
-variable "role_path" {
-  description = "Path of IAM role"
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
+}
+
+variable "assume_role_condition_test" {
+  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
   type        = string
-  default     = "/"
+  default     = "StringEquals"
 }
 
 variable "cluster_service_accounts" {
@@ -10,10 +16,10 @@ variable "cluster_service_accounts" {
   default     = {}
 }
 
-variable "tags" {
-  description = "A map of tags to add the the IAM role"
-  type        = map(any)
-  default     = {}
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = true
 }
 
 variable "force_detach_policies" {
@@ -28,10 +34,10 @@ variable "max_session_duration" {
   default     = 43200
 }
 
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
 }
 
 variable "role_name" {
@@ -40,22 +46,22 @@ variable "role_name" {
   default     = null
 }
 
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = ""
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
-}
-
 variable "role_name_prefix" {
   description = "IAM role name prefix"
   type        = string
   default     = null
+}
+
+variable "role_path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
 }
 
 variable "role_policy_arns" {
@@ -64,14 +70,8 @@ variable "role_policy_arns" {
   default     = {}
 }
 
-variable "assume_role_condition_test" {
-  description = "Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate when assuming the role"
-  type        = string
-  default     = "StringEquals"
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A map of tags to add the the IAM role"
+  type        = map(any)
+  default     = {}
 }

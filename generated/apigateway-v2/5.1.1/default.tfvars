@@ -1,77 +1,77 @@
-create_stage = true
-
-stage_client_certificate_id = null
-
-stage_name = "$default"
-
-stage_tags = {}
+api_key_selection_expression = null
 
 api_mapping_key = null
-
-disable_execute_api_endpoint = null
-
-route_selection_expression = null
 
 api_version = null
 
 authorizers = {}
 
-description = null
+body = null
 
-create_domain_records = true
+cors_configuration = null
 
-stage_variables = {}
+create = true
+
+create_certificate = true
 
 create_domain_name = true
 
-name = ""
+create_domain_records = true
 
-body = null
+create_routes_and_integrations = true
 
-route_key = null
+create_stage = true
 
-target = null
+credentials_arn = null
+
+deploy_stage = true
+
+description = null
+
+disable_execute_api_endpoint = null
 
 domain_name = ""
 
-stage_default_route_settings = {}
+domain_name_certificate_arn = null
 
-cors_configuration = null
+domain_name_ownership_verification_certificate_arn = null
 
 fail_on_warnings = null
 
 mutual_tls_authentication = {}
 
-subdomains = []
-
-deploy_stage = true
-
-credentials_arn = null
-
-tags = {}
+name = ""
 
 protocol_type = "HTTP"
 
-domain_name_ownership_verification_certificate_arn = null
+route_key = null
+
+route_selection_expression = null
 
 routes = {}
 
-create = true
-
 stage_access_log_settings = {}
+
+stage_client_certificate_id = null
+
+stage_default_route_settings = {}
 
 stage_description = null
 
-create_routes_and_integrations = true
+stage_name = "$default"
 
-domain_name_certificate_arn = null
+stage_tags = {}
+
+stage_variables = {}
 
 subdomain_record_types = ["A", "AAAA"]
 
-create_certificate = true
+subdomains = []
 
-vpc_links = {}
+tags = {}
+
+target = null
 
 vpc_link_tags = {}
 
-api_key_selection_expression = null
+vpc_links = {}

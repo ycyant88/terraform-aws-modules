@@ -1,39 +1,39 @@
+attach_resource_policy = false
+
 create = true
 
-policy_variables = null
-
-resource_policy_principals = []
-
-region = null
+create_resource_policy = false
 
 description = null
 
 encryption_configuration = null
 
-stateful_rule_group_reference = null
+name = ""
 
-create_resource_policy = false
-
-resource_policy = ""
+policy_variables = null
 
 ram_resource_associations = {}
 
-stateless_rule_group_reference = null
+region = null
 
-attach_resource_policy = false
+resource_policy = ""
 
-stateless_default_actions = ["aws:pass"]
+resource_policy_actions = []
 
-stateless_fragment_default_actions = ["aws:pass"]
-
-name = ""
-
-tags = {}
+resource_policy_principals = []
 
 stateful_default_actions = []
 
 stateful_engine_options = null
 
+stateful_rule_group_reference = null
+
 stateless_custom_action = null
 
-resource_policy_actions = []
+stateless_default_actions = ["aws:pass"]
+
+stateless_fragment_default_actions = ["aws:pass"]
+
+stateless_rule_group_reference = null
+
+tags = {}

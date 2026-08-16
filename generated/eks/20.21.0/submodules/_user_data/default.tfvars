@@ -1,35 +1,35 @@
-bootstrap_extra_args = ""
+additional_cluster_dns_ips = []
 
 ami_type = null
 
-cluster_auth_base64 = ""
-
-cluster_service_cidr = ""
-
-additional_cluster_dns_ips = []
-
-cloudinit_pre_nodeadm = []
-
-is_eks_managed_node_group = true
-
-cluster_name = ""
-
-user_data_template_path = ""
+bootstrap_extra_args = ""
 
 cloudinit_post_nodeadm = []
 
-cluster_ip_family = "ipv4"
+cloudinit_pre_nodeadm = []
 
-post_bootstrap_user_data = ""
-
-enable_bootstrap_user_data = false
+cluster_auth_base64 = ""
 
 cluster_endpoint = ""
 
-cluster_service_ipv4_cidr = null
+cluster_ip_family = "ipv4"
 
-pre_bootstrap_user_data = ""
+cluster_name = ""
+
+cluster_service_cidr = ""
+
+cluster_service_ipv4_cidr = null
 
 create = true
 
+enable_bootstrap_user_data = false
+
+is_eks_managed_node_group = true
+
 platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+user_data_template_path = ""

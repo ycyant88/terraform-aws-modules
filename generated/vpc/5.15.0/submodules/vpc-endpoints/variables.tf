@@ -1,7 +1,13 @@
-variable "vpc_id" {
-  description = "The ID of the VPC in which the endpoint will be used"
-  type        = string
-  default     = null
+variable "create" {
+  description = "Determines whether resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = false
 }
 
 variable "endpoints" {
@@ -10,16 +16,22 @@ variable "endpoints" {
   default     = {}
 }
 
+variable "security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = null
+}
+
 variable "security_group_ids" {
   description = "Default security group IDs to associate with the VPC endpoints"
   type        = list(string)
   default     = []
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
-  type        = bool
-  default     = false
+variable "security_group_name" {
+  description = "Name to use on security group created. Conflicts with security_group_name_prefix"
+  type        = string
+  default     = null
 }
 
 variable "security_group_name_prefix" {
@@ -40,12 +52,6 @@ variable "security_group_tags" {
   default     = {}
 }
 
-variable "create" {
-  description = "Determines whether resources will be created"
-  type        = bool
-  default     = true
-}
-
 variable "subnet_ids" {
   description = "Default subnets IDs to associate with the VPC endpoints"
   type        = list(string)
@@ -64,14 +70,8 @@ variable "timeouts" {
   default     = {}
 }
 
-variable "security_group_name" {
-  description = "Name to use on security group created. Conflicts with security_group_name_prefix"
-  type        = string
-  default     = null
-}
-
-variable "security_group_description" {
-  description = "Description of the security group created"
+variable "vpc_id" {
+  description = "The ID of the VPC in which the endpoint will be used"
   type        = string
   default     = null
 }

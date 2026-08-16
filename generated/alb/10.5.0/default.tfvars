@@ -1,99 +1,99 @@
-timeouts = null
+access_logs = null
+
+additional_target_group_attachments = null
+
+associate_web_acl = false
+
+client_keep_alive = null
+
+connection_logs = null
+
+create = true
 
 create_security_group = true
 
-web_acl_arn = null
-
-enable_tls_version_and_cipher_suite_headers = null
-
 customer_owned_ipv4_pool = null
 
-enable_waf_fail_open = null
+default_port = 80
 
-enable_zonal_shift = null
-
-security_groups = []
-
-subnet_mapping = null
-
-name = null
-
-preserve_host_header = null
-
-listeners = {}
-
-vpc_id = null
-
-internal = null
-
-ipam_pools = null
-
-name_prefix = null
-
-connection_logs = null
+default_protocol = "HTTP"
 
 desync_mitigation_mode = null
 
 dns_record_client_routing_policy = null
 
-enable_deletion_protection = true
-
-default_port = 80
-
-xff_header_processing_mode = null
-
-default_protocol = "HTTP"
-
-additional_target_group_attachments = null
-
-security_group_egress_rules = null
-
-security_group_tags = {}
-
-putin_khuylo = true
-
 drop_invalid_header_fields = true
 
-security_group_use_name_prefix = true
+enable_cross_zone_load_balancing = true
 
-security_group_ingress_rules = null
+enable_deletion_protection = true
 
-route53_records = null
+enable_http2 = null
 
-associate_web_acl = false
+enable_tls_version_and_cipher_suite_headers = null
 
-create = true
+enable_waf_fail_open = null
 
-client_keep_alive = null
+enable_xff_client_port = null
+
+enable_zonal_shift = null
+
+enforce_security_group_inbound_rules_on_private_link_traffic = null
 
 health_check_logs = null
 
 idle_timeout = null
 
-minimum_load_balancer_capacity = null
+internal = null
 
-security_group_name = null
+ip_address_type = null
+
+ipam_pools = null
+
+listeners = {}
 
 load_balancer_type = "application"
 
-tags = {}
+minimum_load_balancer_capacity = null
 
-enable_http2 = null
+name = null
 
-enable_xff_client_port = null
+name_prefix = null
 
-enforce_security_group_inbound_rules_on_private_link_traffic = null
+preserve_host_header = null
 
-subnets = null
-
-target_groups = null
-
-security_group_description = null
+putin_khuylo = true
 
 region = null
 
-access_logs = null
+route53_records = null
 
-enable_cross_zone_load_balancing = true
+security_group_description = null
 
-ip_address_type = null
+security_group_egress_rules = null
+
+security_group_ingress_rules = null
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = null
+
+subnets = null
+
+tags = {}
+
+target_groups = null
+
+timeouts = null
+
+vpc_id = null
+
+web_acl_arn = null
+
+xff_header_processing_mode = null

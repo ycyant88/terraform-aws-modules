@@ -1,3 +1,9 @@
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
 variable "description" {
   description = "The description of the DB parameter group"
   type        = string
@@ -10,10 +16,10 @@ variable "family" {
   default     = ""
 }
 
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
+variable "identifier" {
+  description = "The identifier of the resource"
+  type        = string
+  default     = ""
 }
 
 variable "name" {
@@ -24,12 +30,6 @@ variable "name" {
 
 variable "name_prefix" {
   description = "Creates a unique name beginning with the specified prefix"
-  type        = string
-  default     = ""
-}
-
-variable "identifier" {
-  description = "The identifier of the resource"
   type        = string
   default     = ""
 }

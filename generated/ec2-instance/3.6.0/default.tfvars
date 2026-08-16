@@ -1,101 +1,101 @@
+ami = ""
+
+associate_public_ip_address = ""
+
 availability_zone = ""
 
 capacity_reservation_specification = ""
 
-placement_group = ""
+cpu_core_count = ""
 
-spot_instance_interruption_behavior = ""
+cpu_credits = ""
 
-spot_valid_until = ""
+cpu_threads_per_core = ""
 
-name = ""
-
-get_password_data = ""
-
-instance_initiated_shutdown_behavior = ""
-
-key_name = ""
-
-private_ip = ""
-
-volume_tags = {}
-
-timeouts = {}
-
-disable_api_termination = ""
-
-source_dest_check = true
+create = true
 
 create_spot_instance = false
 
-spot_type = ""
+disable_api_termination = ""
 
-monitoring = false
+ebs_block_device = []
+
+ebs_optimized = ""
+
+enable_volume_tags = true
+
+enclave_options_enabled = ""
+
+ephemeral_block_device = []
+
+get_password_data = ""
 
 hibernation = ""
 
 host_id = ""
 
-launch_template = ""
+iam_instance_profile = ""
 
-network_interface = []
-
-root_block_device = []
-
-spot_block_duration_minutes = ""
-
-putin_khuylo = true
-
-enclave_options_enabled = ""
-
-associate_public_ip_address = ""
-
-ipv6_addresses = ""
-
-subnet_id = ""
-
-tags = {}
-
-user_data = ""
-
-vpc_security_group_ids = ""
-
-spot_price = ""
-
-ami = ""
-
-spot_valid_from = ""
+instance_initiated_shutdown_behavior = ""
 
 instance_type = "t3.micro"
 
 ipv6_address_count = ""
 
+ipv6_addresses = ""
+
+key_name = ""
+
+launch_template = ""
+
 metadata_options = {}
 
-spot_launch_group = ""
+monitoring = false
 
-create = true
+name = ""
 
-iam_instance_profile = ""
+network_interface = []
 
-tenancy = ""
+placement_group = ""
 
-user_data_base64 = ""
+private_ip = ""
 
-enable_volume_tags = true
+putin_khuylo = true
 
-cpu_core_count = ""
-
-cpu_threads_per_core = ""
-
-cpu_credits = ""
-
-ebs_optimized = ""
-
-ephemeral_block_device = []
+root_block_device = []
 
 secondary_private_ips = ""
 
+source_dest_check = true
+
+spot_block_duration_minutes = ""
+
+spot_instance_interruption_behavior = ""
+
+spot_launch_group = ""
+
+spot_price = ""
+
+spot_type = ""
+
+spot_valid_from = ""
+
+spot_valid_until = ""
+
 spot_wait_for_fulfillment = ""
 
-ebs_block_device = []
+subnet_id = ""
+
+tags = {}
+
+tenancy = ""
+
+timeouts = {}
+
+user_data = ""
+
+user_data_base64 = ""
+
+volume_tags = {}
+
+vpc_security_group_ids = ""

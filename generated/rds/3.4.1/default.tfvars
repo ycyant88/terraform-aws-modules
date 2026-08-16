@@ -1,155 +1,155 @@
-final_snapshot_identifier = null
-
-password = ""
+allocated_storage = null
 
 allow_major_version_upgrade = false
 
-db_subnet_group_name = null
-
-option_group_timeouts = { "delete" : "15m" }
-
-performance_insights_retention_period = 7
-
-allocated_storage = null
-
-port = null
-
-restore_to_point_in_time = null
-
-db_subnet_group_description = ""
-
-performance_insights_kms_key_id = null
-
-storage_encrypted = false
-
-domain = null
-
 apply_immediately = false
 
-parameter_group_use_name_prefix = true
+auto_minor_version_upgrade = true
+
+availability_zone = null
+
+backup_retention_period = null
+
+backup_window = null
+
+ca_cert_identifier = null
+
+character_set_name = null
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
 
 create_db_option_group = true
 
-performance_insights_enabled = false
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
 
 create_random_password = false
 
-replicate_source_db = null
-
-engine = ""
-
-engine_version = null
-
-iops = 0
-
-monitoring_interval = 0
-
-timezone = null
-
-identifier = ""
-
-vpc_security_group_ids = []
-
-monitoring_role_arn = null
-
-tags = {}
+cross_region_replica = false
 
 db_instance_tags = {}
 
 db_option_group_tags = {}
 
-db_subnet_group_tags = {}
-
-parameter_group_description = ""
-
-domain_iam_role_name = null
-
-license_model = null
-
 db_parameter_group_tags = {}
 
-create_db_subnet_group = true
+db_subnet_group_description = ""
 
-parameter_group_name = null
+db_subnet_group_name = null
 
-storage_type = null
-
-final_snapshot_identifier_prefix = "final"
-
-publicly_accessible = false
-
-option_group_description = ""
-
-snapshot_identifier = null
-
-name = null
-
-subnet_ids = []
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-max_allocated_storage = 0
-
-cross_region_replica = false
-
-multi_az = false
-
-maintenance_window = null
-
-backup_retention_period = null
-
-parameters = []
-
-major_engine_version = ""
-
-create_db_instance = true
-
-deletion_protection = false
-
-availability_zone = null
+db_subnet_group_tags = {}
 
 db_subnet_group_use_name_prefix = true
 
-random_password_length = 10
+delete_automated_backups = true
 
-kms_key_id = null
+deletion_protection = false
 
-create_monitoring_role = false
+domain = null
 
-copy_tags_to_snapshot = false
-
-character_set_name = null
-
-ca_cert_identifier = null
-
-auto_minor_version_upgrade = true
-
-s3_import = null
-
-username = null
-
-monitoring_role_description = null
-
-options = []
-
-monitoring_role_name = "rds-monitoring-role"
-
-skip_final_snapshot = false
-
-instance_class = null
-
-backup_window = null
-
-create_db_parameter_group = true
-
-option_group_name = null
+domain_iam_role_name = null
 
 enabled_cloudwatch_logs_exports = []
 
+engine = ""
+
+engine_version = null
+
+family = ""
+
+final_snapshot_identifier = null
+
+final_snapshot_identifier_prefix = "final"
+
 iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = null
+
+iops = 0
+
+kms_key_id = null
+
+license_model = null
+
+maintenance_window = null
+
+major_engine_version = ""
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = null
+
+monitoring_role_description = null
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = null
+
+option_group_description = ""
+
+option_group_name = null
+
+option_group_timeouts = { "delete" : "15m" }
 
 option_group_use_name_prefix = true
 
-delete_automated_backups = true
+options = []
 
-family = ""
+parameter_group_description = ""
+
+parameter_group_name = null
+
+parameter_group_use_name_prefix = true
+
+parameters = []
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = null
+
+performance_insights_retention_period = 7
+
+port = null
+
+publicly_accessible = false
+
+random_password_length = 10
+
+replicate_source_db = null
+
+restore_to_point_in_time = null
+
+s3_import = null
+
+skip_final_snapshot = false
+
+snapshot_identifier = null
+
+storage_encrypted = false
+
+storage_type = null
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = null
+
+username = null
+
+vpc_security_group_ids = []

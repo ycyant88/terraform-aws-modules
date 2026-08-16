@@ -1,54 +1,6 @@
-variable "rules" {
-  description = "A map of objects with EventBridge Rule definitions."
+variable "api_destinations" {
+  description = "A map of objects with EventBridge Destination definitions."
   type        = map(any)
-  default     = {}
-}
-
-variable "sns_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the AWS SNS's you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
-}
-
-variable "policy_statements" {
-  description = "Map of dynamic policy statements to attach to IAM role"
-  type        = any
-  default     = {}
-}
-
-variable "append_pipe_postfix" {
-  description = "Controls whether to append '-pipe' to the name of the pipe"
-  type        = bool
-  default     = true
-}
-
-variable "attach_policy_jsons" {
-  description = "Controls whether policy_jsons should be added to IAM role"
-  type        = bool
-  default     = false
-}
-
-variable "append_destination_postfix" {
-  description = "Controls whether to append '-destination' to the name of the destination"
-  type        = bool
-  default     = true
-}
-
-variable "create_archives" {
-  description = "Controls whether EventBridge Archive resources should be created"
-  type        = bool
-  default     = false
-}
-
-variable "create_schedules" {
-  description = "Controls whether EventBridge Schedule resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "schedule_groups" {
-  description = "A map of objects with EventBridge Schedule Group definitions."
-  type        = any
   default     = {}
 }
 
@@ -58,8 +10,50 @@ variable "append_connection_postfix" {
   default     = true
 }
 
-variable "attach_sqs_policy" {
-  description = "Controls whether the SQS policy should be added to IAM role for EventBridge Target"
+variable "append_destination_postfix" {
+  description = "Controls whether to append '-destination' to the name of the destination"
+  type        = bool
+  default     = true
+}
+
+variable "append_pipe_postfix" {
+  description = "Controls whether to append '-pipe' to the name of the pipe"
+  type        = bool
+  default     = true
+}
+
+variable "append_rule_postfix" {
+  description = "Controls whether to append '-rule' to the name of the rule"
+  type        = bool
+  default     = true
+}
+
+variable "append_schedule_group_postfix" {
+  description = "Controls whether to append '-group' to the name of the schedule group"
+  type        = bool
+  default     = true
+}
+
+variable "append_schedule_postfix" {
+  description = "Controls whether to append '-schedule' to the name of the schedule"
+  type        = bool
+  default     = true
+}
+
+variable "archives" {
+  description = "A map of objects with the EventBridge Archive definitions."
+  type        = map(any)
+  default     = {}
+}
+
+variable "attach_api_destination_policy" {
+  description = "Controls whether the API Destination policy should be added to IAM role for EventBridge Target"
+  type        = bool
+  default     = false
+}
+
+variable "attach_cloudwatch_policy" {
+  description = "Controls whether the Cloudwatch policy should be added to IAM role for EventBridge Target"
   type        = bool
   default     = false
 }
@@ -70,8 +64,26 @@ variable "attach_ecs_policy" {
   default     = false
 }
 
-variable "attach_api_destination_policy" {
-  description = "Controls whether the API Destination policy should be added to IAM role for EventBridge Target"
+variable "attach_kinesis_firehose_policy" {
+  description = "Controls whether the Kinesis Firehose policy should be added to IAM role for EventBridge Target"
+  type        = bool
+  default     = false
+}
+
+variable "attach_kinesis_policy" {
+  description = "Controls whether the Kinesis policy should be added to IAM role for EventBridge Target"
+  type        = bool
+  default     = false
+}
+
+variable "attach_lambda_policy" {
+  description = "Controls whether the Lambda Function policy should be added to IAM role for EventBridge Target"
+  type        = bool
+  default     = false
+}
+
+variable "attach_policies" {
+  description = "Controls whether list of policies should be added to IAM role"
   type        = bool
   default     = false
 }
@@ -82,26 +94,14 @@ variable "attach_policy" {
   default     = false
 }
 
-variable "tags" {
-  description = "A map of tags to assign to resources."
-  type        = map(string)
-  default     = {}
-}
-
-variable "append_schedule_group_postfix" {
-  description = "Controls whether to append '-group' to the name of the schedule group"
-  type        = bool
-  default     = true
-}
-
-variable "create_api_destinations" {
-  description = "Controls whether EventBridge Destination resources should be created"
+variable "attach_policy_json" {
+  description = "Controls whether policy_json should be added to IAM role"
   type        = bool
   default     = false
 }
 
-variable "attach_tracing_policy" {
-  description = "Controls whether X-Ray tracing policy should be added to IAM role for EventBridge"
+variable "attach_policy_jsons" {
+  description = "Controls whether policy_jsons should be added to IAM role"
   type        = bool
   default     = false
 }
@@ -112,76 +112,28 @@ variable "attach_policy_statements" {
   default     = false
 }
 
-variable "policy_json" {
-  description = "An additional policy document as JSON to attach to IAM role"
-  type        = string
-  default     = null
-}
-
-variable "create" {
-  description = "Controls whether resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "schemas_discoverer_description" {
-  description = "Default schemas discoverer description"
-  type        = string
-  default     = "Auto schemas discoverer event"
-}
-
-variable "targets" {
-  description = "A map of objects with EventBridge Target definitions."
-  type        = any
-  default     = {}
-}
-
-variable "role_force_detach_policies" {
-  description = "Specifies to force detaching any policies the IAM role has before destroying it."
-  type        = bool
-  default     = true
-}
-
-variable "lambda_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the Lambda Functions you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
-}
-
-variable "policy_jsons" {
-  description = "List of additional policy documents as JSON to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "policies" {
-  description = "List of policy statements ARN to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "create_bus" {
-  description = "Controls whether EventBridge Bus resource should be created"
-  type        = bool
-  default     = true
-}
-
-variable "attach_lambda_policy" {
-  description = "Controls whether the Lambda Function policy should be added to IAM role for EventBridge Target"
+variable "attach_sfn_policy" {
+  description = "Controls whether the StepFunction policy should be added to IAM role for EventBridge Target"
   type        = bool
   default     = false
 }
 
-variable "schedule_group_timeouts" {
-  description = "A map of objects with EventBridge Schedule Group create and delete timeouts."
-  type        = map(string)
-  default     = {}
+variable "attach_sns_policy" {
+  description = "Controls whether the SNS policy should be added to IAM role for EventBridge Target"
+  type        = bool
+  default     = false
 }
 
-variable "create_rules" {
-  description = "Controls whether EventBridge Rule resources should be created"
+variable "attach_sqs_policy" {
+  description = "Controls whether the SQS policy should be added to IAM role for EventBridge Target"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "attach_tracing_policy" {
+  description = "Controls whether X-Ray tracing policy should be added to IAM role for EventBridge"
+  type        = bool
+  default     = false
 }
 
 variable "bus_name" {
@@ -190,74 +142,38 @@ variable "bus_name" {
   default     = "default"
 }
 
-variable "role_description" {
-  description = "Description of IAM role to use for EventBridge"
-  type        = string
-  default     = null
-}
-
-variable "ecs_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the AWS ECS Tasks you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_policies" {
-  description = "Controls whether list of policies should be added to IAM role"
-  type        = bool
-  default     = false
-}
-
-variable "number_of_policies" {
-  description = "Number of policies to attach to IAM role"
-  type        = number
-  default     = 0
-}
-
-variable "policy" {
-  description = "An additional policy document ARN to attach to IAM role"
-  type        = string
-  default     = null
-}
-
-variable "append_rule_postfix" {
-  description = "Controls whether to append '-rule' to the name of the rule"
-  type        = bool
-  default     = true
-}
-
-variable "role_name" {
-  description = "Name of IAM role to use for EventBridge"
-  type        = string
-  default     = null
-}
-
-variable "create_pipes" {
-  description = "Controls whether EventBridge Pipes resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "role_permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the IAM role used by EventBridge"
-  type        = string
-  default     = null
-}
-
-variable "attach_sfn_policy" {
-  description = "Controls whether the StepFunction policy should be added to IAM role for EventBridge Target"
-  type        = bool
-  default     = false
-}
-
 variable "cloudwatch_target_arns" {
   description = "The Amazon Resource Name (ARN) of the Cloudwatch Log Streams you want to use as EventBridge targets"
   type        = list(string)
   default     = []
 }
 
-variable "create_permissions" {
-  description = "Controls whether EventBridge Permission resources should be created"
+variable "connections" {
+  description = "A map of objects with EventBridge Connection definitions."
+  type        = any
+  default     = {}
+}
+
+variable "create" {
+  description = "Controls whether resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_api_destinations" {
+  description = "Controls whether EventBridge Destination resources should be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_archives" {
+  description = "Controls whether EventBridge Archive resources should be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_bus" {
+  description = "Controls whether EventBridge Bus resource should be created"
   type        = bool
   default     = true
 }
@@ -268,62 +184,44 @@ variable "create_connections" {
   default     = false
 }
 
-variable "create_schemas_discoverer" {
-  description = "Controls whether default schemas discoverer should be created"
-  type        = bool
-  default     = false
-}
-
-variable "archives" {
-  description = "A map of objects with the EventBridge Archive definitions."
-  type        = map(any)
-  default     = {}
-}
-
-variable "connections" {
-  description = "A map of objects with EventBridge Connection definitions."
-  type        = any
-  default     = {}
-}
-
-variable "api_destinations" {
-  description = "A map of objects with EventBridge Destination definitions."
-  type        = map(any)
-  default     = {}
-}
-
-variable "pipes" {
-  description = "A map of objects with EventBridge Pipe definitions."
-  type        = any
-  default     = {}
-}
-
-variable "attach_kinesis_policy" {
-  description = "Controls whether the Kinesis policy should be added to IAM role for EventBridge Target"
-  type        = bool
-  default     = false
-}
-
-variable "append_schedule_postfix" {
-  description = "Controls whether to append '-schedule' to the name of the schedule"
+variable "create_permissions" {
+  description = "Controls whether EventBridge Permission resources should be created"
   type        = bool
   default     = true
 }
 
-variable "kinesis_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the Kinesis Streams you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
+variable "create_pipes" {
+  description = "Controls whether EventBridge Pipes resources should be created"
+  type        = bool
+  default     = true
 }
 
-variable "kinesis_firehose_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the Kinesis Firehose Delivery Streams you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
+variable "create_role" {
+  description = "Controls whether IAM roles should be created"
+  type        = bool
+  default     = true
 }
 
-variable "attach_kinesis_firehose_policy" {
-  description = "Controls whether the Kinesis Firehose policy should be added to IAM role for EventBridge Target"
+variable "create_rules" {
+  description = "Controls whether EventBridge Rule resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_schedule_groups" {
+  description = "Controls whether EventBridge Schedule Group resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_schedules" {
+  description = "Controls whether EventBridge Schedule resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_schemas_discoverer" {
+  description = "Controls whether default schemas discoverer should be created"
   type        = bool
   default     = false
 }
@@ -334,76 +232,10 @@ variable "create_targets" {
   default     = true
 }
 
-variable "number_of_policy_jsons" {
-  description = "Number of policies JSON to attach to IAM role"
-  type        = number
-  default     = 0
-}
-
-variable "trusted_entities" {
-  description = "Additional trusted entities for assuming roles (trust relationship)"
+variable "ecs_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the AWS ECS Tasks you want to use as EventBridge targets"
   type        = list(string)
   default     = []
-}
-
-variable "create_role" {
-  description = "Controls whether IAM roles should be created"
-  type        = bool
-  default     = true
-}
-
-variable "role_tags" {
-  description = "A map of tags to assign to IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "attach_sns_policy" {
-  description = "Controls whether the SNS policy should be added to IAM role for EventBridge Target"
-  type        = bool
-  default     = false
-}
-
-variable "role_path" {
-  description = "Path of IAM role to use for EventBridge"
-  type        = string
-  default     = null
-}
-
-variable "sfn_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the StepFunctions you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
-}
-
-variable "attach_policy_json" {
-  description = "Controls whether policy_json should be added to IAM role"
-  type        = bool
-  default     = false
-}
-
-variable "permissions" {
-  description = "A map of objects with EventBridge Permission definitions."
-  type        = map(any)
-  default     = {}
-}
-
-variable "attach_cloudwatch_policy" {
-  description = "Controls whether the Cloudwatch policy should be added to IAM role for EventBridge Target"
-  type        = bool
-  default     = false
-}
-
-variable "sqs_target_arns" {
-  description = "The Amazon Resource Name (ARN) of the AWS SQS Queues you want to use as EventBridge targets"
-  type        = list(string)
-  default     = []
-}
-
-variable "schedules" {
-  description = "A map of objects with EventBridge Schedule definitions."
-  type        = map(any)
-  default     = {}
 }
 
 variable "event_source_name" {
@@ -412,8 +244,176 @@ variable "event_source_name" {
   default     = null
 }
 
-variable "create_schedule_groups" {
-  description = "Controls whether EventBridge Schedule Group resources should be created"
+variable "kinesis_firehose_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the Kinesis Firehose Delivery Streams you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "kinesis_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the Kinesis Streams you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "lambda_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the Lambda Functions you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "number_of_policies" {
+  description = "Number of policies to attach to IAM role"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_policy_jsons" {
+  description = "Number of policies JSON to attach to IAM role"
+  type        = number
+  default     = 0
+}
+
+variable "permissions" {
+  description = "A map of objects with EventBridge Permission definitions."
+  type        = map(any)
+  default     = {}
+}
+
+variable "pipes" {
+  description = "A map of objects with EventBridge Pipe definitions."
+  type        = any
+  default     = {}
+}
+
+variable "policies" {
+  description = "List of policy statements ARN to attach to IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "policy" {
+  description = "An additional policy document ARN to attach to IAM role"
+  type        = string
+  default     = null
+}
+
+variable "policy_json" {
+  description = "An additional policy document as JSON to attach to IAM role"
+  type        = string
+  default     = null
+}
+
+variable "policy_jsons" {
+  description = "List of additional policy documents as JSON to attach to IAM role"
+  type        = list(string)
+  default     = []
+}
+
+variable "policy_statements" {
+  description = "Map of dynamic policy statements to attach to IAM role"
+  type        = any
+  default     = {}
+}
+
+variable "role_description" {
+  description = "Description of IAM role to use for EventBridge"
+  type        = string
+  default     = null
+}
+
+variable "role_force_detach_policies" {
+  description = "Specifies to force detaching any policies the IAM role has before destroying it."
   type        = bool
   default     = true
+}
+
+variable "role_name" {
+  description = "Name of IAM role to use for EventBridge"
+  type        = string
+  default     = null
+}
+
+variable "role_path" {
+  description = "Path of IAM role to use for EventBridge"
+  type        = string
+  default     = null
+}
+
+variable "role_permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the IAM role used by EventBridge"
+  type        = string
+  default     = null
+}
+
+variable "role_tags" {
+  description = "A map of tags to assign to IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "rules" {
+  description = "A map of objects with EventBridge Rule definitions."
+  type        = map(any)
+  default     = {}
+}
+
+variable "schedule_group_timeouts" {
+  description = "A map of objects with EventBridge Schedule Group create and delete timeouts."
+  type        = map(string)
+  default     = {}
+}
+
+variable "schedule_groups" {
+  description = "A map of objects with EventBridge Schedule Group definitions."
+  type        = any
+  default     = {}
+}
+
+variable "schedules" {
+  description = "A map of objects with EventBridge Schedule definitions."
+  type        = map(any)
+  default     = {}
+}
+
+variable "schemas_discoverer_description" {
+  description = "Default schemas discoverer description"
+  type        = string
+  default     = "Auto schemas discoverer event"
+}
+
+variable "sfn_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the StepFunctions you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "sns_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the AWS SNS's you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "sqs_target_arns" {
+  description = "The Amazon Resource Name (ARN) of the AWS SQS Queues you want to use as EventBridge targets"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to assign to resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "targets" {
+  description = "A map of objects with EventBridge Target definitions."
+  type        = any
+  default     = {}
+}
+
+variable "trusted_entities" {
+  description = "Additional trusted entities for assuming roles (trust relationship)"
+  type        = list(string)
+  default     = []
 }

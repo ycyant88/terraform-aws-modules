@@ -1,42 +1,24 @@
-name = ""
-
-disable_api_termination = false
-
-tags = {}
-
 ami = ""
-
-availability_zone = ""
-
-instance_type = ""
-
-source_dest_check = true
-
-ephemeral_block_device = []
-
-count = 1
-
-subnet_id = ""
 
 associate_public_ip_address = false
 
-private_ip = ""
+availability_zone = ""
 
-volume_tags = {}
+count = 1
+
+disable_api_termination = false
 
 ebs_block_device = []
 
-tenancy = "default"
-
 ebs_optimized = false
 
-instance_initiated_shutdown_behavior = ""
+ephemeral_block_device = []
 
 iam_instance_profile = ""
 
-monitoring = false
+instance_initiated_shutdown_behavior = ""
 
-user_data = ""
+instance_type = ""
 
 ipv6_address_count = 0
 
@@ -44,10 +26,28 @@ ipv6_addresses = []
 
 key_name = ""
 
+monitoring = false
+
+name = ""
+
 network_interface = []
 
 placement_group = ""
 
-vpc_security_group_ids = ""
+private_ip = ""
 
 root_block_device = []
+
+source_dest_check = true
+
+subnet_id = ""
+
+tags = {}
+
+tenancy = "default"
+
+user_data = ""
+
+volume_tags = {}
+
+vpc_security_group_ids = ""

@@ -10,22 +10,10 @@ variable "bucket_arn" {
   default     = null
 }
 
-variable "eventbridge" {
-  description = "Whether to enable Amazon EventBridge notifications"
+variable "create" {
+  description = "Whether to create this resource or not?"
   type        = bool
-  default     = null
-}
-
-variable "sqs_notifications" {
-  description = "Map of S3 bucket notifications to SQS queue"
-  type        = any
-  default     = {}
-}
-
-variable "sns_notifications" {
-  description = "Map of S3 bucket notifications to SNS topic"
-  type        = any
-  default     = {}
+  default     = true
 }
 
 variable "create_sns_policy" {
@@ -40,14 +28,26 @@ variable "create_sqs_policy" {
   default     = true
 }
 
-variable "create" {
-  description = "Whether to create this resource or not?"
+variable "eventbridge" {
+  description = "Whether to enable Amazon EventBridge notifications"
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "lambda_notifications" {
   description = "Map of S3 bucket notifications to Lambda function"
+  type        = any
+  default     = {}
+}
+
+variable "sns_notifications" {
+  description = "Map of S3 bucket notifications to SNS topic"
+  type        = any
+  default     = {}
+}
+
+variable "sqs_notifications" {
+  description = "Map of S3 bucket notifications to SQS queue"
   type        = any
   default     = {}
 }

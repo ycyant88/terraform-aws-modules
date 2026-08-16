@@ -1,18 +1,18 @@
 create = true
 
-name = null
+exclude_filter = {}
 
 firehose_arn = ""
 
-output_format = ""
-
 include_filter = {}
+
+name = null
 
 name_prefix = null
 
-role_arn = ""
+output_format = ""
 
-exclude_filter = {}
+role_arn = ""
 
 statistics_configuration = []
 

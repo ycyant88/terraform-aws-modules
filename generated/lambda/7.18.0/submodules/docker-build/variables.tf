@@ -1,19 +1,43 @@
+variable "build_args" {
+  description = "A map of Docker build arguments."
+  type        = map(string)
+  default     = {}
+}
+
+variable "create_ecr_repo" {
+  description = "Controls whether ECR repository for Lambda image should be created"
+  type        = bool
+  default     = false
+}
+
 variable "create_sam_metadata" {
   description = "Controls whether the SAM metadata null resource should be created"
   type        = bool
   default     = false
 }
 
-variable "source_path" {
-  description = "Path to folder containing application code"
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
+  type        = string
+  default     = "Dockerfile"
+}
+
+variable "ecr_address" {
+  description = "Address of ECR repository for cross-account container image pulling (optional). Option create_ecr_repo must be false"
   type        = string
   default     = null
 }
 
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
+variable "ecr_force_delete" {
+  description = "If true, will delete the repository even if it contains images."
+  type        = bool
+  default     = true
+}
+
+variable "ecr_repo" {
+  description = "Name of ECR repository to use or to create"
+  type        = string
+  default     = null
 }
 
 variable "ecr_repo_lifecycle_policy" {
@@ -22,20 +46,20 @@ variable "ecr_repo_lifecycle_policy" {
   default     = null
 }
 
-variable "keep_remotely" {
-  description = "Whether to keep Docker image in the remote registry on destroy operation."
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
+}
+
+variable "force_remove" {
+  description = "Whether to remove image forcibly when the resource is destroyed."
   type        = bool
   default     = false
 }
 
-variable "use_image_tag" {
-  description = "Controls whether to use image tag in ECR repository URI or not. Disable this to deploy latest image using ID (sha256:...)"
-  type        = bool
-  default     = true
-}
-
-variable "ecr_address" {
-  description = "Address of ECR repository for cross-account container image pulling (optional). Option create_ecr_repo must be false"
+variable "image_tag" {
+  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
   type        = string
   default     = null
 }
@@ -52,28 +76,10 @@ variable "keep_locally" {
   default     = false
 }
 
-variable "ecr_repo" {
-  description = "Name of ECR repository to use or to create"
-  type        = string
-  default     = null
-}
-
-variable "image_tag" {
-  description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
-  type        = string
-  default     = null
-}
-
-variable "ecr_force_delete" {
-  description = "If true, will delete the repository even if it contains images."
+variable "keep_remotely" {
+  description = "Whether to keep Docker image in the remote registry on destroy operation."
   type        = bool
-  default     = true
-}
-
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
+  default     = false
 }
 
 variable "platform" {
@@ -82,10 +88,16 @@ variable "platform" {
   default     = null
 }
 
-variable "force_remove" {
-  description = "Whether to remove image forcibly when the resource is destroyed."
+variable "scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository"
   type        = bool
   default     = false
+}
+
+variable "source_path" {
+  description = "Path to folder containing application code"
+  type        = string
+  default     = null
 }
 
 variable "triggers" {
@@ -94,20 +106,8 @@ variable "triggers" {
   default     = {}
 }
 
-variable "create_ecr_repo" {
-  description = "Controls whether ECR repository for Lambda image should be created"
+variable "use_image_tag" {
+  description = "Controls whether to use image tag in ECR repository URI or not. Disable this to deploy latest image using ID (sha256:...)"
   type        = bool
-  default     = false
-}
-
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
-}
-
-variable "scan_on_push" {
-  description = "Indicates whether images are scanned after being pushed to the repository"
-  type        = bool
-  default     = false
+  default     = true
 }

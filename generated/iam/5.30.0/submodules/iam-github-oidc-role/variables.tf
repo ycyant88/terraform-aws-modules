@@ -1,11 +1,17 @@
-variable "description" {
-  description = "IAM Role description"
+variable "audience" {
+  description = "Audience to use for OIDC role. Defaults to sts.amazonaws.com for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)"
   type        = string
-  default     = null
+  default     = "sts.amazonaws.com"
 }
 
-variable "name_prefix" {
-  description = "IAM role name prefix"
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "IAM Role description"
   type        = string
   default     = null
 }
@@ -16,10 +22,22 @@ variable "force_detach_policies" {
   default     = true
 }
 
-variable "audience" {
-  description = "Audience to use for OIDC role. Defaults to sts.amazonaws.com for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)"
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = null
+}
+
+variable "name" {
+  description = "Name of IAM role"
   type        = string
-  default     = "sts.amazonaws.com"
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
 }
 
 variable "path" {
@@ -40,10 +58,10 @@ variable "policies" {
   default     = {}
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = null
+variable "provider_url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
+  type        = string
+  default     = "token.actions.githubusercontent.com"
 }
 
 variable "subjects" {
@@ -52,26 +70,8 @@ variable "subjects" {
   default     = []
 }
 
-variable "provider_url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
-  type        = string
-  default     = "token.actions.githubusercontent.com"
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
 variable "tags" {
   description = "A map of tags to add to the resources created"
   type        = map(any)
   default     = {}
-}
-
-variable "name" {
-  description = "Name of IAM role"
-  type        = string
-  default     = null
 }

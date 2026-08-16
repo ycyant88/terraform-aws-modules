@@ -13,14 +13,14 @@ output "fargate_profile_status" {
   description = "Status of the EKS Fargate Profile"
 }
 
-output "iam_role_name" {
-  value       = module.eks_fargate-profile.iam_role_name
-  description = "The name of the IAM role"
-}
-
 output "iam_role_arn" {
   value       = module.eks_fargate-profile.iam_role_arn
   description = "The Amazon Resource Name (ARN) specifying the IAM role"
+}
+
+output "iam_role_name" {
+  value       = module.eks_fargate-profile.iam_role_name
+  description = "The name of the IAM role"
 }
 
 output "iam_role_unique_id" {

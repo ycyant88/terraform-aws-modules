@@ -1,53 +1,53 @@
-description = null
-
-access_policy_name = null
-
-timeouts = {}
-
-encryption_policy = {}
-
-network_policy = {}
-
-lifecycle_policy_name = null
-
-create = true
-
-create_encryption_policy = true
-
-create_network_policy = false
-
-network_policy_name = null
-
-encryption_policy_name = null
-
-access_policy_index_permissions = ["aoss:*"]
-
-create_lifecycle_policy = false
-
-name = ""
-
-create_access_policy = false
-
-access_policy_description = null
-
-access_policy_principals = []
-
-lifecycle_policy_description = null
-
-type = null
-
-encryption_policy_description = null
-
-network_policy_description = null
+access_policy = {}
 
 access_policy_collection_permissions = ["aoss:*"]
 
-tags = {}
+access_policy_description = null
 
-standby_replicas = null
+access_policy_index_permissions = ["aoss:*"]
+
+access_policy_name = null
+
+access_policy_principals = []
+
+create = true
+
+create_access_policy = false
+
+create_encryption_policy = true
+
+create_lifecycle_policy = false
+
+create_network_policy = false
+
+description = null
+
+encryption_policy = {}
+
+encryption_policy_description = null
+
+encryption_policy_name = null
+
+lifecycle_policy_description = null
+
+lifecycle_policy_min_index_retention = null
+
+lifecycle_policy_name = null
 
 lifecycle_policy_no_min_index_retention = null
 
-access_policy = {}
+name = ""
 
-lifecycle_policy_min_index_retention = null
+network_policy = {}
+
+network_policy_description = null
+
+network_policy_name = null
+
+standby_replicas = null
+
+tags = {}
+
+timeouts = {}
+
+type = null

@@ -1,11 +1,11 @@
-retention_in_days = ""
+create = true
 
 kms_key_id = ""
-
-tags = {}
-
-create = true
 
 name = ""
 
 name_prefix = ""
+
+retention_in_days = ""
+
+tags = {}

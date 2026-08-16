@@ -1,11 +1,11 @@
-variable "create_ecr_repo" {
-  description = "Controls whether ECR repository for Lambda image should be created"
-  type        = bool
-  default     = false
+variable "build_args" {
+  description = "A map of Docker build arguments."
+  type        = map(string)
+  default     = {}
 }
 
-variable "scan_on_push" {
-  description = "Indicates whether images are scanned after being pushed to the repository"
+variable "create_ecr_repo" {
+  description = "Controls whether ECR repository for Lambda image should be created"
   type        = bool
   default     = false
 }
@@ -14,24 +14,6 @@ variable "docker_file_path" {
   description = "Path to Dockerfile in source package"
   type        = string
   default     = "Dockerfile"
-}
-
-variable "image_tag_mutability" {
-  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
-  type        = string
-  default     = "MUTABLE"
-}
-
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
-}
-
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
 }
 
 variable "ecr_address" {
@@ -46,10 +28,28 @@ variable "ecr_repo" {
   default     = null
 }
 
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
+}
+
 variable "image_tag" {
   description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
   type        = string
   default     = null
+}
+
+variable "image_tag_mutability" {
+  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
+  type        = string
+  default     = "MUTABLE"
+}
+
+variable "scan_on_push" {
+  description = "Indicates whether images are scanned after being pushed to the repository"
+  type        = bool
+  default     = false
 }
 
 variable "source_path" {

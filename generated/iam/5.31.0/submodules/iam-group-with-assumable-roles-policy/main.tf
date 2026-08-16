@@ -3,7 +3,7 @@ module "iam_iam-group-with-assumable-roles-policy" {
   version         = "5.31.0"
   assumable_roles = var.assumable_roles
   group_users     = var.group_users
-  tags            = var.tags
   name            = var.name
   path            = var.path
+  tags            = var.tags
 }

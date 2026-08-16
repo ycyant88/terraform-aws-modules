@@ -1,11 +1,11 @@
 atlantis_allowed_repo_names = ""
 
-webhook_url = ""
-
-webhook_secret = ""
-
 create_github_repository_webhook = true
+
+github_organization = ""
 
 github_token = ""
 
-github_organization = ""
+webhook_secret = ""
+
+webhook_url = ""

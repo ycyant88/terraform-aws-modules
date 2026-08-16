@@ -1,77 +1,77 @@
-lambda_allowed_actions = ["lambda:invokeFunction"]
-
-functions = {}
-
-domain_name_description = null
-
-datasources = {}
-
-resolvers = {}
-
-log_exclude_verbose_content = false
-
-lambda_authorizer_config = {}
-
-logs_role_tags = {}
-
-tags = {}
-
-certificate_arn = ""
+additional_authentication_provider = {}
 
 api_keys = {}
 
-direct_lambda_response_template = "$util.toJson($ctx.result)\n"
-
-logging_enabled = false
-
-log_field_log_level = null
-
-openid_connect_config = {}
-
-user_pool_config = {}
-
-graphql_api_tags = {}
-
-domain_name = ""
-
-log_cloudwatch_logs_role_arn = null
-
-cache_transit_encryption_enabled = false
-
-dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
-
-create_graphql_api = true
-
-xray_enabled = false
-
-logs_role_name = null
-
-caching_behavior = "FULL_REQUEST_CACHING"
-
-cache_type = "SMALL"
-
-iam_permissions_boundary = null
-
-name = ""
+authentication_type = "API_KEY"
 
 cache_at_rest_encryption_enabled = false
 
-direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
+cache_transit_encryption_enabled = false
 
-resolver_caching_ttl = 60
+cache_ttl = 1
 
-domain_name_association_enabled = false
+cache_type = "SMALL"
+
+caching_behavior = "FULL_REQUEST_CACHING"
 
 caching_enabled = false
 
-schema = ""
+certificate_arn = ""
 
-authentication_type = "API_KEY"
+create_graphql_api = true
 
 create_logs_role = true
 
+datasources = {}
+
+direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
+
+direct_lambda_response_template = "$util.toJson($ctx.result)\n"
+
+domain_name = ""
+
+domain_name_association_enabled = false
+
+domain_name_description = null
+
+dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
+
 elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
 
-additional_authentication_provider = {}
+functions = {}
 
-cache_ttl = 1
+graphql_api_tags = {}
+
+iam_permissions_boundary = null
+
+lambda_allowed_actions = ["lambda:invokeFunction"]
+
+lambda_authorizer_config = {}
+
+log_cloudwatch_logs_role_arn = null
+
+log_exclude_verbose_content = false
+
+log_field_log_level = null
+
+logging_enabled = false
+
+logs_role_name = null
+
+logs_role_tags = {}
+
+name = ""
+
+openid_connect_config = {}
+
+resolver_caching_ttl = 60
+
+resolvers = {}
+
+schema = ""
+
+tags = {}
+
+user_pool_config = {}
+
+xray_enabled = false

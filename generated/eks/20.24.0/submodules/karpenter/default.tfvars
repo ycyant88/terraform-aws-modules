@@ -1,95 +1,95 @@
-iam_role_use_name_prefix = true
+access_entry_type = "EC2_LINUX"
 
-iam_policy_name = "KarpenterController"
+ami_id_ssm_parameter_arns = []
 
-enable_pod_identity = true
-
-queue_managed_sse_enabled = true
-
-node_iam_role_arn = null
-
-node_iam_role_additional_policies = {}
+cluster_ip_family = "ipv4"
 
 cluster_name = ""
 
-iam_role_name = "KarpenterController"
-
-iam_role_path = "/"
-
-enable_v1_permissions = false
-
-queue_name = null
-
-node_iam_role_path = "/"
-
-node_iam_role_description = null
-
-node_iam_role_permissions_boundary = null
-
-create_iam_role = true
-
-iam_policy_use_name_prefix = true
-
-iam_role_policies = {}
-
-create_pod_identity_association = false
-
-enable_spot_termination = true
-
-node_iam_role_max_session_duration = null
-
-node_iam_role_tags = {}
-
-tags = {}
-
-enable_irsa = false
-
-irsa_namespace_service_accounts = ["karpenter:karpenter"]
-
-create_node_iam_role = true
-
-node_iam_role_name = null
+create = true
 
 create_access_entry = true
 
+create_iam_role = true
+
 create_instance_profile = false
 
-rule_name_prefix = "Karpenter"
+create_node_iam_role = true
 
-iam_role_max_session_duration = null
+create_pod_identity_association = false
 
-iam_role_permissions_boundary_arn = null
+enable_irsa = false
 
-iam_role_tags = {}
+enable_pod_identity = true
 
-irsa_oidc_provider_arn = ""
+enable_spot_termination = true
 
-irsa_assume_role_condition_test = "StringEquals"
+enable_v1_permissions = false
 
-cluster_ip_family = "ipv4"
+iam_policy_description = "Karpenter controller IAM policy"
+
+iam_policy_name = "KarpenterController"
 
 iam_policy_path = "/"
 
 iam_policy_statements = []
 
-ami_id_ssm_parameter_arns = []
-
-namespace = "kube-system"
-
-service_account = "karpenter"
-
-iam_policy_description = "Karpenter controller IAM policy"
-
-queue_kms_master_key_id = null
-
-queue_kms_data_key_reuse_period_seconds = null
-
-node_iam_role_attach_cni_policy = true
-
-access_entry_type = "EC2_LINUX"
-
-create = true
+iam_policy_use_name_prefix = true
 
 iam_role_description = "Karpenter controller IAM role"
 
+iam_role_max_session_duration = null
+
+iam_role_name = "KarpenterController"
+
+iam_role_path = "/"
+
+iam_role_permissions_boundary_arn = null
+
+iam_role_policies = {}
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+irsa_assume_role_condition_test = "StringEquals"
+
+irsa_namespace_service_accounts = ["karpenter:karpenter"]
+
+irsa_oidc_provider_arn = ""
+
+namespace = "kube-system"
+
+node_iam_role_additional_policies = {}
+
+node_iam_role_arn = null
+
+node_iam_role_attach_cni_policy = true
+
+node_iam_role_description = null
+
+node_iam_role_max_session_duration = null
+
+node_iam_role_name = null
+
+node_iam_role_path = "/"
+
+node_iam_role_permissions_boundary = null
+
+node_iam_role_tags = {}
+
 node_iam_role_use_name_prefix = true
+
+queue_kms_data_key_reuse_period_seconds = null
+
+queue_kms_master_key_id = null
+
+queue_managed_sse_enabled = true
+
+queue_name = null
+
+rule_name_prefix = "Karpenter"
+
+service_account = "karpenter"
+
+tags = {}

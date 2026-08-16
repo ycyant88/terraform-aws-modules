@@ -1,91 +1,91 @@
-default_vpc_name = ""
-
-default_vpc_enable_classiclink = false
-
-instance_tenancy = "default"
-
 azs = []
-
-enable_dns_support = true
-
-enable_nat_gateway = false
-
-reuse_nat_ips = false
-
-enable_s3_endpoint = false
-
-name = ""
 
 cidr = ""
 
-public_subnets = []
+create_database_subnet_group = true
 
-enable_dynamodb_endpoint = false
+create_vpc = true
 
-public_propagating_vgws = []
+database_subnet_tags = {}
 
-vpc_tags = {}
+database_subnets = []
 
-public_subnet_tags = {}
+default_route_table_tags = {}
 
-redshift_subnet_tags = {}
+default_vpc_enable_classiclink = false
 
-private_subnets = []
+default_vpc_enable_dns_hostnames = false
 
-private_subnet_tags = {}
+default_vpc_enable_dns_support = true
 
-public_route_table_tags = {}
+default_vpc_name = ""
 
-enable_dhcp_options = false
+default_vpc_tags = {}
+
+dhcp_options_domain_name = ""
+
+dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
 dhcp_options_netbios_name_servers = []
 
 dhcp_options_netbios_node_type = ""
 
-default_vpc_tags = {}
+dhcp_options_ntp_servers = []
 
-database_subnets = []
-
-enable_dns_hostnames = false
-
-single_nat_gateway = false
-
-external_nat_ip_ids = []
-
-private_propagating_vgws = []
-
-private_route_table_tags = {}
-
-create_vpc = true
-
-create_database_subnet_group = true
+dhcp_options_tags = {}
 
 elasticache_subnet_tags = {}
 
-dhcp_options_ntp_servers = []
+elasticache_subnets = []
 
-default_vpc_enable_dns_support = true
+enable_dhcp_options = false
 
-default_vpc_enable_dns_hostnames = false
+enable_dns_hostnames = false
 
-redshift_subnets = []
+enable_dns_support = true
 
-tags = {}
+enable_dynamodb_endpoint = false
 
-default_route_table_tags = {}
+enable_nat_gateway = false
 
-dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
+enable_s3_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+instance_tenancy = "default"
 
 manage_default_vpc = false
 
 map_public_ip_on_launch = true
 
-enable_vpn_gateway = false
+name = ""
 
-database_subnet_tags = {}
+private_propagating_vgws = []
 
-elasticache_subnets = []
+private_route_table_tags = {}
 
-dhcp_options_tags = {}
+private_subnet_tags = {}
 
-dhcp_options_domain_name = ""
+private_subnets = []
+
+public_propagating_vgws = []
+
+public_route_table_tags = {}
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
+
+single_nat_gateway = false
+
+tags = {}
+
+vpc_tags = {}

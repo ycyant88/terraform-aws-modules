@@ -1,59 +1,5 @@
-variable "elasticache_subnet_tags" {
-  description = "Additional tags for the elasticache subnets"
-  type        = map(any)
-  default     = {}
-}
-
-variable "public_subnets" {
-  description = "A list of public subnets inside the VPC"
-  type        = list(any)
-  default     = []
-}
-
-variable "enable_nat_gateway" {
-  description = "Should be true if you want to provision NAT Gateways for each of your private networks"
-  type        = bool
-  default     = false
-}
-
-variable "public_propagating_vgws" {
-  description = "A list of VGWs the public route table should propagate"
-  type        = list(any)
-  default     = []
-}
-
-variable "private_subnets" {
-  description = "A list of private subnets inside the VPC"
-  type        = list(any)
-  default     = []
-}
-
 variable "azs" {
   description = "A list of availability zones in the region"
-  type        = list(any)
-  default     = []
-}
-
-variable "enable_dns_hostnames" {
-  description = "Should be true to enable DNS hostnames in the VPC"
-  type        = bool
-  default     = false
-}
-
-variable "enable_dynamodb_endpoint" {
-  description = "Should be true if you want to provision a DynamoDB endpoint to the VPC"
-  type        = bool
-  default     = false
-}
-
-variable "private_propagating_vgws" {
-  description = "A list of VGWs the private route table should propagate"
-  type        = list(any)
-  default     = []
-}
-
-variable "dhcp_options_ntp_servers" {
-  description = "Specify a list of NTP servers for DHCP options set"
   type        = list(any)
   default     = []
 }
@@ -64,76 +10,10 @@ variable "cidr" {
   default     = ""
 }
 
-variable "map_public_ip_on_launch" {
-  description = "Should be false if you do not want to auto-assign public IP on launch"
-  type        = bool
-  default     = true
-}
-
-variable "enable_vpn_gateway" {
-  description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC"
-  type        = bool
-  default     = false
-}
-
-variable "enable_dhcp_options" {
-  description = "Should be true if you want to specify a DHCP options set with a custom domain name, DNS servers, NTP servers, netbios servers, and/or netbios server type"
-  type        = bool
-  default     = false
-}
-
 variable "create_database_subnet_group" {
   description = "Controls if database subnet group should be created"
   type        = bool
   default     = true
-}
-
-variable "enable_dns_support" {
-  description = "Should be true to enable DNS support in the VPC"
-  type        = bool
-  default     = true
-}
-
-variable "single_nat_gateway" {
-  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(any)
-  default     = {}
-}
-
-variable "private_route_table_tags" {
-  description = "Additional tags for the private route tables"
-  type        = map(any)
-  default     = {}
-}
-
-variable "dhcp_options_domain_name_servers" {
-  description = "Specify a list of DNS server addresses for DHCP options set, default to AWS provided"
-  type        = list(any)
-  default     = ["AmazonProvidedDNS"]
-}
-
-variable "name" {
-  description = "Name to be used on all the resources as identifier"
-  type        = string
-  default     = ""
-}
-
-variable "database_subnets" {
-  description = "A list of database subnets"
-  type        = list(any)
-  default     = []
-}
-
-variable "public_subnet_tags" {
-  description = "Additional tags for the public subnets"
-  type        = map(any)
-  default     = {}
 }
 
 variable "database_subnet_tags" {
@@ -142,22 +22,22 @@ variable "database_subnet_tags" {
   default     = {}
 }
 
-variable "instance_tenancy" {
-  description = "A tenancy option for instances launched into the VPC"
-  type        = string
-  default     = "default"
-}
-
-variable "elasticache_subnets" {
-  description = "A list of elasticache subnets"
+variable "database_subnets" {
+  description = "A list of database subnets"
   type        = list(any)
   default     = []
 }
 
-variable "enable_s3_endpoint" {
-  description = "Should be true if you want to provision an S3 endpoint to the VPC"
-  type        = bool
-  default     = false
+variable "dhcp_options_domain_name" {
+  description = "Specifies DNS name for DHCP options set"
+  type        = string
+  default     = ""
+}
+
+variable "dhcp_options_domain_name_servers" {
+  description = "Specify a list of DNS server addresses for DHCP options set, default to AWS provided"
+  type        = list(any)
+  default     = ["AmazonProvidedDNS"]
 }
 
 variable "dhcp_options_netbios_name_servers" {
@@ -172,10 +52,112 @@ variable "dhcp_options_netbios_node_type" {
   default     = ""
 }
 
+variable "dhcp_options_ntp_servers" {
+  description = "Specify a list of NTP servers for DHCP options set"
+  type        = list(any)
+  default     = []
+}
+
+variable "elasticache_subnet_tags" {
+  description = "Additional tags for the elasticache subnets"
+  type        = map(any)
+  default     = {}
+}
+
+variable "elasticache_subnets" {
+  description = "A list of elasticache subnets"
+  type        = list(any)
+  default     = []
+}
+
+variable "enable_dhcp_options" {
+  description = "Should be true if you want to specify a DHCP options set with a custom domain name, DNS servers, NTP servers, netbios servers, and/or netbios server type"
+  type        = bool
+  default     = false
+}
+
+variable "enable_dns_hostnames" {
+  description = "Should be true to enable DNS hostnames in the VPC"
+  type        = bool
+  default     = false
+}
+
+variable "enable_dns_support" {
+  description = "Should be true to enable DNS support in the VPC"
+  type        = bool
+  default     = true
+}
+
+variable "enable_dynamodb_endpoint" {
+  description = "Should be true if you want to provision a DynamoDB endpoint to the VPC"
+  type        = bool
+  default     = false
+}
+
+variable "enable_nat_gateway" {
+  description = "Should be true if you want to provision NAT Gateways for each of your private networks"
+  type        = bool
+  default     = false
+}
+
+variable "enable_s3_endpoint" {
+  description = "Should be true if you want to provision an S3 endpoint to the VPC"
+  type        = bool
+  default     = false
+}
+
+variable "enable_vpn_gateway" {
+  description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC"
+  type        = bool
+  default     = false
+}
+
+variable "instance_tenancy" {
+  description = "A tenancy option for instances launched into the VPC"
+  type        = string
+  default     = "default"
+}
+
+variable "map_public_ip_on_launch" {
+  description = "Should be false if you do not want to auto-assign public IP on launch"
+  type        = bool
+  default     = true
+}
+
+variable "name" {
+  description = "Name to be used on all the resources as identifier"
+  type        = string
+  default     = ""
+}
+
+variable "private_propagating_vgws" {
+  description = "A list of VGWs the private route table should propagate"
+  type        = list(any)
+  default     = []
+}
+
+variable "private_route_table_tags" {
+  description = "Additional tags for the private route tables"
+  type        = map(any)
+  default     = {}
+}
+
 variable "private_subnet_tags" {
   description = "Additional tags for the private subnets"
   type        = map(any)
   default     = {}
+}
+
+variable "private_subnets" {
+  description = "A list of private subnets inside the VPC"
+  type        = list(any)
+  default     = []
+}
+
+variable "public_propagating_vgws" {
+  description = "A list of VGWs the public route table should propagate"
+  type        = list(any)
+  default     = []
 }
 
 variable "public_route_table_tags" {
@@ -184,8 +166,26 @@ variable "public_route_table_tags" {
   default     = {}
 }
 
-variable "dhcp_options_domain_name" {
-  description = "Specifies DNS name for DHCP options set"
-  type        = string
-  default     = ""
+variable "public_subnet_tags" {
+  description = "Additional tags for the public subnets"
+  type        = map(any)
+  default     = {}
+}
+
+variable "public_subnets" {
+  description = "A list of public subnets inside the VPC"
+  type        = list(any)
+  default     = []
+}
+
+variable "single_nat_gateway" {
+  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(any)
+  default     = {}
 }

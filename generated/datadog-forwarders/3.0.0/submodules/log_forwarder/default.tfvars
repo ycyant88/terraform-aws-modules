@@ -1,85 +1,85 @@
-create_bucket = true
+bucket_attach_deny_insecure_transport_policy = false
+
+bucket_name = ""
 
 bucket_prefix = ""
 
-s3_zip_server_side_encryption = null
+create = true
 
-role_path = null
+create_bucket = true
 
-role_permissions_boundary = null
+create_role = true
 
 create_role_policy = true
 
-read_cloudwatch_logs = false
+dd_api_key = ""
+
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.39.1"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_retention_days = 7
+
+memory_size = 1024
 
 name = "datadog-log-forwarder"
-
-create = true
-
-role_arn = null
-
-role_name = ""
 
 policy_arn = null
 
 policy_name = ""
 
-layers = []
-
-security_group_ids = null
-
-environment_variables = {}
-
-tags = {}
-
-dd_api_key_secret_arn = ""
-
-create_role = true
-
-role_max_session_duration = null
-
-reserved_concurrent_executions = 100
-
-s3_zip_metadata = {}
-
-s3_zip_tags = {}
-
-use_policy_name_prefix = false
+policy_path = null
 
 publish = false
 
-subnet_ids = null
+read_cloudwatch_logs = false
 
-s3_zip_kms_key_id = null
+reserved_concurrent_executions = 100
 
-dd_api_key = ""
+role_arn = null
 
-memory_size = 1024
+role_max_session_duration = null
 
-lambda_tags = {}
+role_name = ""
 
-log_retention_days = 7
+role_path = null
 
-bucket_attach_deny_insecure_transport_policy = false
-
-kms_key_arn = null
-
-dd_site = "datadoghq.com"
-
-s3_zip_storage_class = null
-
-use_role_name_prefix = false
-
-s3_log_bucket_arns = []
-
-forwarder_version = "3.39.1"
-
-bucket_name = ""
+role_permissions_boundary = null
 
 role_tags = {}
 
-policy_path = null
-
 runtime = "python3.7"
 
+s3_log_bucket_arns = []
+
+s3_zip_kms_key_id = null
+
+s3_zip_metadata = {}
+
+s3_zip_server_side_encryption = null
+
+s3_zip_storage_class = null
+
+s3_zip_tags = {}
+
+security_group_ids = null
+
+subnet_ids = null
+
+tags = {}
+
 timeout = 120
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

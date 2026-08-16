@@ -1,103 +1,103 @@
-policies = []
-
-create_role = true
-
-role_name = ""
-
-attach_kinesis_firehose_policy = false
-
-attach_ecs_policy = false
-
-attach_policy_json = false
-
-number_of_policies = 0
-
-policy_statements = {}
-
-role_description = ""
-
-role_path = ""
-
-role_force_detach_policies = true
-
-attach_lambda_policy = false
-
-cloudwatch_target_arns = []
-
-attach_policy_jsons = false
-
-create_rules = true
-
-create_connections = false
-
-permissions = {}
-
-attach_cloudwatch_policy = false
-
-attach_policy = false
-
-number_of_policy_jsons = 0
-
-create_bus = true
-
-create_permissions = true
-
-targets = {}
+api_destinations = {}
 
 archives = {}
 
-connections = {}
+attach_api_destination_policy = false
 
-sfn_target_arns = []
+attach_cloudwatch_policy = false
 
-policy = ""
+attach_ecs_policy = false
 
-create_api_destinations = false
+attach_kinesis_firehose_policy = false
 
-attach_sfn_policy = false
+attach_kinesis_policy = false
+
+attach_lambda_policy = false
 
 attach_policies = false
 
-trusted_entities = []
+attach_policy = false
+
+attach_policy_json = false
+
+attach_policy_jsons = false
+
+attach_policy_statements = false
+
+attach_sfn_policy = false
+
+attach_sqs_policy = false
+
+attach_tracing_policy = false
+
+bus_name = "default"
+
+cloudwatch_target_arns = []
+
+connections = {}
+
+create = true
+
+create_api_destinations = false
 
 create_archives = false
 
-rules = {}
+create_bus = true
 
-api_destinations = {}
+create_connections = false
 
-tags = {}
+create_permissions = true
+
+create_role = true
+
+create_rules = true
+
+create_targets = true
+
+ecs_target_arns = []
+
+kinesis_firehose_target_arns = []
 
 kinesis_target_arns = []
+
+lambda_target_arns = []
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permissions = {}
+
+policies = []
+
+policy = ""
 
 policy_json = ""
 
 policy_jsons = []
 
+policy_statements = {}
+
+role_description = ""
+
+role_force_detach_policies = true
+
+role_name = ""
+
+role_path = ""
+
 role_permissions_boundary = ""
 
 role_tags = {}
 
-attach_kinesis_policy = false
+rules = {}
+
+sfn_target_arns = []
 
 sqs_target_arns = []
 
-ecs_target_arns = []
+tags = {}
 
-lambda_target_arns = []
+targets = {}
 
-kinesis_firehose_target_arns = []
-
-attach_policy_statements = false
-
-create = true
-
-create_targets = true
-
-bus_name = "default"
-
-attach_sqs_policy = false
-
-attach_api_destination_policy = false
-
-attach_tracing_policy = false
+trusted_entities = []

@@ -1,87 +1,87 @@
-kms_key_id = ""
+allocated_storage = ""
 
-password = ""
+allow_major_version_upgrade = false
+
+apply_immediately = false
 
 auto_minor_version_upgrade = true
 
-option_group_name = ""
+availability_zone = ""
 
-create = true
-
-username = ""
-
-parameter_group_name = ""
+backup_retention_period = 1
 
 backup_window = ""
 
-timezone = ""
+character_set_name = ""
 
-port = ""
+copy_tags_to_snapshot = false
+
+create = true
+
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
 
 monitoring_interval = 0
 
 monitoring_role_arn = ""
 
-allow_major_version_upgrade = false
+monitoring_role_name = "rds-monitoring-role"
 
-maintenance_window = ""
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-deletion_protection = false
-
-identifier = ""
-
-storage_type = "gp2"
-
-engine_version = ""
-
-vpc_security_group_ids = []
-
-create_monitoring_role = false
-
-replicate_source_db = ""
-
-apply_immediately = false
-
-publicly_accessible = false
-
-copy_tags_to_snapshot = false
-
-backup_retention_period = 1
-
-snapshot_identifier = ""
-
-engine = ""
+multi_az = false
 
 name = ""
 
-final_snapshot_identifier = false
+option_group_name = ""
 
-availability_zone = ""
+parameter_group_name = ""
 
-character_set_name = ""
+password = ""
 
-enabled_cloudwatch_logs_exports = []
+port = ""
 
-iops = 0
+publicly_accessible = false
 
-monitoring_role_name = "rds-monitoring-role"
+replicate_source_db = ""
 
 skip_final_snapshot = true
 
-allocated_storage = ""
+snapshot_identifier = ""
 
 storage_encrypted = false
 
-license_model = ""
-
-instance_class = ""
-
-db_subnet_group_name = ""
+storage_type = "gp2"
 
 tags = {}
 
-iam_database_authentication_enabled = false
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
-multi_az = false
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

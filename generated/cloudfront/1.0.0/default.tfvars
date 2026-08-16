@@ -1,16 +1,32 @@
-origin_access_identities = {}
+aliases = null
 
-origin = null
+cache_behavior = null
 
-viewer_certificate = null
+comment = null
 
-logging_config = {}
-
-custom_error_response = {}
+create_distribution = true
 
 create_origin_access_identity = false
 
+custom_error_response = {}
+
+default_root_object = null
+
+enabled = true
+
+geo_restriction = {}
+
+http_version = "http2"
+
 is_ipv6_enabled = null
+
+logging_config = {}
+
+origin = null
+
+origin_access_identities = {}
+
+origin_group = {}
 
 price_class = null
 
@@ -18,24 +34,8 @@ retain_on_delete = false
 
 tags = null
 
-comment = null
+viewer_certificate = null
 
 wait_for_deployment = true
 
 web_acl_id = null
-
-origin_group = {}
-
-create_distribution = true
-
-aliases = null
-
-default_root_object = null
-
-enabled = true
-
-http_version = "http2"
-
-geo_restriction = {}
-
-cache_behavior = null

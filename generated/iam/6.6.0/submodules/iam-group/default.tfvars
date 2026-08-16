@@ -1,20 +1,12 @@
-policy_name = null
-
-tags = {}
-
-enable_self_management_permissions = true
-
-policy_use_name_prefix = true
-
-policy_description = null
-
-policy_path = null
-
-users = []
+create = true
 
 create_policy = true
 
-create = true
+enable_mfa_enforcement = true
+
+enable_self_management_permissions = true
+
+name = ""
 
 path = null
 
@@ -22,8 +14,16 @@ permissions = null
 
 policies = {}
 
+policy_description = null
+
+policy_name = null
+
+policy_path = null
+
+policy_use_name_prefix = true
+
+tags = {}
+
+users = []
+
 users_account_id = null
-
-name = ""
-
-enable_mfa_enforcement = true

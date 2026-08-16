@@ -1,43 +1,43 @@
-name = null
-
-http_failure_feedback_role_arn = null
-
-lambda_failure_feedback_role_arn = null
-
-tags = {}
-
-content_based_deduplication = false
-
-name_prefix = null
-
-policy = null
-
-delivery_policy = null
-
-lambda_success_feedback_role_arn = null
-
-lambda_success_feedback_sample_rate = null
-
-sqs_success_feedback_role_arn = null
-
-sqs_failure_feedback_role_arn = null
-
-create_sns_topic = true
-
-display_name = null
+application_failure_feedback_role_arn = null
 
 application_success_feedback_role_arn = null
 
 application_success_feedback_sample_rate = null
 
-application_failure_feedback_role_arn = null
+content_based_deduplication = false
 
-sqs_success_feedback_sample_rate = null
+create_sns_topic = true
 
-kms_master_key_id = null
+delivery_policy = null
+
+display_name = null
+
+fifo_topic = false
+
+http_failure_feedback_role_arn = null
 
 http_success_feedback_role_arn = null
 
 http_success_feedback_sample_rate = null
 
-fifo_topic = false
+kms_master_key_id = null
+
+lambda_failure_feedback_role_arn = null
+
+lambda_success_feedback_role_arn = null
+
+lambda_success_feedback_sample_rate = null
+
+name = null
+
+name_prefix = null
+
+policy = null
+
+sqs_failure_feedback_role_arn = null
+
+sqs_success_feedback_role_arn = null
+
+sqs_success_feedback_sample_rate = null
+
+tags = {}

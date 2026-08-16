@@ -1,5 +1,29 @@
-variable "vpc_id" {
-  description = "The ID of the VPC in which the endpoint will be used"
+variable "create" {
+  description = "Determines whether resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = false
+}
+
+variable "endpoints" {
+  description = "A map of interface and/or gateway endpoints containing their properties and configurations"
+  type        = any
+  default     = {}
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. If a value is provided, service_endpoint must be specified due to https://github.com/hashicorp/terraform-provider-aws/issues/42462"
+  type        = string
+  default     = null
+}
+
+variable "security_group_description" {
+  description = "Description of the security group created"
   type        = string
   default     = null
 }
@@ -8,6 +32,30 @@ variable "security_group_ids" {
   description = "Default security group IDs to associate with the VPC endpoints"
   type        = list(string)
   default     = []
+}
+
+variable "security_group_name" {
+  description = "Name to use on security group created. Conflicts with security_group_name_prefix"
+  type        = string
+  default     = null
+}
+
+variable "security_group_name_prefix" {
+  description = "Name prefix to use on security group created. Conflicts with security_group_name"
+  type        = string
+  default     = null
+}
+
+variable "security_group_rules" {
+  description = "Security group rules to add to the security group created"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
 }
 
 variable "subnet_ids" {
@@ -28,56 +76,8 @@ variable "timeouts" {
   default     = {}
 }
 
-variable "security_group_name" {
-  description = "Name to use on security group created. Conflicts with security_group_name_prefix"
+variable "vpc_id" {
+  description = "The ID of the VPC in which the endpoint will be used"
   type        = string
   default     = null
-}
-
-variable "security_group_name_prefix" {
-  description = "Name prefix to use on security group created. Conflicts with security_group_name"
-  type        = string
-  default     = null
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. If a value is provided, service_endpoint must be specified due to https://github.com/hashicorp/terraform-provider-aws/issues/42462"
-  type        = string
-  default     = null
-}
-
-variable "endpoints" {
-  description = "A map of interface and/or gateway endpoints containing their properties and configurations"
-  type        = any
-  default     = {}
-}
-
-variable "create_security_group" {
-  description = "Determines if a security group is created"
-  type        = bool
-  default     = false
-}
-
-variable "security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = null
-}
-
-variable "security_group_rules" {
-  description = "Security group rules to add to the security group created"
-  type        = any
-  default     = {}
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create" {
-  description = "Determines whether resources will be created"
-  type        = bool
-  default     = true
 }

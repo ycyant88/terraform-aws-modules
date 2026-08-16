@@ -1,5 +1,5 @@
+assumable_roles = []
+
 group_users = []
 
 name = ""
-
-assumable_roles = []

@@ -1,27 +1,27 @@
-max_session_duration = null
-
 audience = "sts.amazonaws.com"
 
-tags = {}
-
-path = "/"
+create = true
 
 description = null
 
+force_detach_policies = true
+
+max_session_duration = null
+
+name = null
+
+name_prefix = null
+
+path = "/"
+
+permissions_boundary_arn = null
+
 policies = {}
+
+provider_url = "token.actions.githubusercontent.com"
 
 subject_condition = "StringLike"
 
 subjects = []
 
-provider_url = "token.actions.githubusercontent.com"
-
-create = true
-
-name = null
-
-permissions_boundary_arn = null
-
-name_prefix = null
-
-force_detach_policies = true
+tags = {}

@@ -1,25 +1,25 @@
-role_name = null
+allow_self_assume_role = false
 
-role_description = ""
+assume_role_condition_test = "StringEquals"
 
-role_name_prefix = null
+cluster_service_accounts = {}
 
-role_policy_arns = {}
-
-tags = {}
+create_role = true
 
 force_detach_policies = false
 
-allow_self_assume_role = false
+max_session_duration = 43200
 
-create_role = true
+role_description = ""
+
+role_name = null
+
+role_name_prefix = null
 
 role_path = "/"
 
 role_permissions_boundary_arn = ""
 
-cluster_service_accounts = {}
+role_policy_arns = {}
 
-max_session_duration = 43200
-
-assume_role_condition_test = "StringEquals"
+tags = {}

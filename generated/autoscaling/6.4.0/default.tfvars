@@ -1,157 +1,157 @@
-tags = {}
-
-capacity_reservation_specification = {}
-
-create_schedule = true
-
-use_name_prefix = true
-
-max_size = null
-
-load_balancers = []
-
-launch_template_description = null
-
-instance_initiated_shutdown_behavior = null
-
-ram_disk_id = null
-
-instance_requirements = {}
-
 autoscaling_group_tags = {}
 
-min_size = null
-
-desired_capacity = null
-
-placement_group = null
-
-health_check_grace_period = null
-
-mixed_instances_policy = null
-
-metadata_options = {}
-
-iam_instance_profile_arn = null
-
-network_interfaces = []
-
-service_linked_role_arn = null
-
-image_id = ""
-
-security_groups = []
-
-launch_template = null
-
-warm_pool = {}
-
-enable_monitoring = true
-
-kernel_id = null
-
-cpu_options = {}
-
-private_dns_name_options = {}
-
-health_check_type = null
-
-instance_refresh = {}
-
-use_mixed_instances_policy = false
-
-iam_instance_profile_name = null
-
-user_data = null
+availability_zones = null
 
 block_device_mappings = []
 
-enclave_options = {}
+capacity_rebalance = null
 
-scaling_policies = {}
+capacity_reservation_specification = {}
+
+cpu_options = {}
 
 create = true
 
-vpc_zone_identifier = null
+create_launch_template = true
+
+create_scaling_policy = true
+
+create_schedule = true
+
+credit_specification = {}
 
 default_cooldown = null
 
-update_default_version = null
+default_version = null
 
-placement = {}
+delete_timeout = null
 
-tag_specifications = []
+desired_capacity = null
 
-name = ""
+disable_api_termination = null
 
-wait_for_elb_capacity = null
+ebs_optimized = null
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_monitoring = true
 
 enabled_metrics = []
+
+enclave_options = {}
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = {}
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+ignore_desired_capacity_changes = false
+
+image_id = ""
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = {}
+
+instance_name = ""
+
+instance_refresh = {}
+
+instance_requirements = {}
+
+instance_type = null
+
+kernel_id = null
+
+key_name = null
+
+launch_template = null
+
+launch_template_description = null
+
+launch_template_name = ""
 
 launch_template_use_name_prefix = true
 
 launch_template_version = null
 
-termination_policies = []
-
-initial_lifecycle_hooks = []
-
-instance_type = null
-
-instance_market_options = {}
-
-availability_zones = null
-
-max_instance_lifetime = null
-
-ebs_optimized = null
-
-default_version = null
-
-elastic_gpu_specifications = {}
-
-wait_for_capacity_timeout = null
-
-suspended_processes = []
-
-disable_api_termination = null
-
-instance_name = ""
-
-force_delete = null
-
-key_name = null
-
 license_specifications = {}
 
-capacity_rebalance = null
-
-elastic_inference_accelerator = {}
-
-putin_khuylo = true
-
-min_elb_capacity = null
-
-protect_from_scale_in = false
-
-create_launch_template = true
-
-launch_template_name = ""
-
-create_scaling_policy = true
-
-ignore_desired_capacity_changes = false
-
-metrics_granularity = null
-
-credit_specification = {}
-
-hibernation_options = {}
+load_balancers = []
 
 maintenance_options = {}
 
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = {}
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+placement_group = null
+
+private_dns_name_options = {}
+
+protect_from_scale_in = false
+
+putin_khuylo = true
+
+ram_disk_id = null
+
+scaling_policies = {}
+
 schedules = {}
+
+security_groups = []
+
+service_linked_role_arn = null
+
+suspended_processes = []
+
+tag_specifications = []
+
+tags = {}
 
 target_group_arns = []
 
-delete_timeout = null
+termination_policies = []
+
+update_default_version = null
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data = null
+
+vpc_zone_identifier = null
+
+wait_for_capacity_timeout = null
+
+wait_for_elb_capacity = null
+
+warm_pool = {}

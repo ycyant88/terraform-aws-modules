@@ -1,83 +1,83 @@
+asg_name = ""
+
+associate_public_ip_address = false
+
+create_asg = true
+
+create_lc = true
+
+default_cooldown = 300
+
+desired_capacity = ""
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+force_delete = false
+
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
 image_id = ""
 
 instance_type = ""
 
-associate_public_ip_address = false
-
-force_delete = false
-
-protect_from_scale_in = false
-
-default_cooldown = 300
-
-create_lc = true
-
-load_balancers = []
-
-wait_for_elb_capacity = false
-
-placement_tenancy = "default"
-
-metrics_granularity = "1Minute"
-
-user_data = " "
-
-create_asg = true
-
-root_block_device = []
-
-wait_for_capacity_timeout = "10m"
-
-min_elb_capacity = 0
-
-name = ""
-
-ebs_block_device = []
-
-max_size = ""
-
-health_check_grace_period = 300
-
-termination_policies = ["Default"]
-
-tags = []
-
-placement_group = ""
-
-health_check_type = ""
-
-lc_name = ""
+key_name = ""
 
 launch_configuration = ""
 
-iam_instance_profile = ""
+lc_name = ""
 
-security_groups = []
+load_balancers = []
 
-enable_monitoring = true
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
 
 min_size = ""
 
-vpc_zone_identifier = ""
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
 
 recreate_asg_when_lc_changes = false
 
-ebs_optimized = false
+root_block_device = []
 
-desired_capacity = ""
-
-target_group_arns = []
-
-suspended_processes = []
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-asg_name = ""
-
-key_name = ""
-
-ephemeral_block_device = []
+security_groups = []
 
 spot_price = ""
 
+suspended_processes = []
+
+tags = []
+
 tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+user_data = " "
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

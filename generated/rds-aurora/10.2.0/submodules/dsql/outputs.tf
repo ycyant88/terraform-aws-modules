@@ -1,11 +1,16 @@
-output "identifier" {
-  value       = module.rds-aurora_dsql.identifier
-  description = "Cluster identifier"
+output "arn" {
+  value       = module.rds-aurora_dsql.arn
+  description = "ARN of the cluster"
 }
 
 output "encryption_details" {
   value       = module.rds-aurora_dsql.encryption_details
   description = "Encryption configuration details for the DSQL cluster"
+}
+
+output "identifier" {
+  value       = module.rds-aurora_dsql.identifier
+  description = "Cluster identifier"
 }
 
 output "multi_region_properties" {
@@ -16,9 +21,4 @@ output "multi_region_properties" {
 output "vpc_endpoint_service_name" {
   value       = module.rds-aurora_dsql.vpc_endpoint_service_name
   description = "The DSQL cluster's VPC endpoint service name"
-}
-
-output "arn" {
-  value       = module.rds-aurora_dsql.arn
-  description = "ARN of the cluster"
 }

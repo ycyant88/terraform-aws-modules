@@ -1,61 +1,61 @@
-apply_immediately = false
-
-storage_encrypted = false
-
-port = ""
-
-iops = 0
-
-family = ""
-
 allocated_storage = ""
 
-username = ""
+allow_major_version_upgrade = false
 
-tags = {}
-
-parameters = []
+apply_immediately = false
 
 auto_minor_version_upgrade = true
 
-maintenance_window = ""
-
-monitoring_role_arn = ""
-
-final_snapshot_identifier = ""
-
-instance_class = ""
-
-password = ""
-
-multi_az = false
-
-monitoring_interval = 0
-
-storage_type = "gp2"
-
-engine_version = ""
-
-skip_final_snapshot = true
-
-kms_key_id = ""
-
-vpc_security_group_ids = []
-
-copy_tags_to_snapshot = false
+backup_retention_period = 1
 
 backup_window = ""
 
-backup_retention_period = 1
-
-subnet_ids = []
-
-identifier = ""
+copy_tags_to_snapshot = false
 
 engine = ""
 
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = ""
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+maintenance_window = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+multi_az = false
+
 name = ""
+
+parameters = []
+
+password = ""
+
+port = ""
 
 publicly_accessible = false
 
-allow_major_version_upgrade = false
+skip_final_snapshot = true
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+username = ""
+
+vpc_security_group_ids = []

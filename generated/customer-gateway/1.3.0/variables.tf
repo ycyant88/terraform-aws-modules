@@ -4,16 +4,16 @@ variable "create" {
   default     = true
 }
 
-variable "name" {
-  description = "Name to be used on all the resources as identifier"
-  type        = string
-  default     = ""
-}
-
 variable "customer_gateways" {
   description = "Maps of Customer Gateway's attributes (BGP ASN and Gateway's Internet-routable external IP address)"
   type        = map(map(any))
   default     = {}
+}
+
+variable "name" {
+  description = "Name to be used on all the resources as identifier"
+  type        = string
+  default     = ""
 }
 
 variable "tags" {

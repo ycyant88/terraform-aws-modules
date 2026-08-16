@@ -1,33 +1,3 @@
-variable "region" {
-  description = "AWS region to use."
-  type        = string
-  default     = ""
-}
-
-variable "backend_port" {
-  description = "The port the service on the EC2 instances listen on."
-  type        = number
-  default     = 80
-}
-
-variable "health_check_healthy_threshold" {
-  description = "Number of consecutive positive health checks before a backend instance is considered healthy."
-  type        = number
-  default     = 3
-}
-
-variable "security_policy" {
-  description = "The security policy if using HTTPS externally on the ALB. See: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html"
-  type        = string
-  default     = "ELBSecurityPolicy-2016-08"
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(any)
-  default     = {}
-}
-
 variable "alb_is_internal" {
   description = "Boolean determining if the ALB is internal or externally facing."
   type        = bool
@@ -36,24 +6,6 @@ variable "alb_is_internal" {
 
 variable "alb_name" {
   description = "The name of the ALB as will show in the AWS EC2 ELB console."
-  type        = string
-  default     = ""
-}
-
-variable "backend_protocol" {
-  description = "The protocol the backend service speaks. Options: HTTP, HTTPS, TCP, SSL (secure tcp)."
-  type        = string
-  default     = "HTTP"
-}
-
-variable "bucket_policy" {
-  description = "A custom S3 bucket policy to apply to the log bucket. If not provided, a minimal policy will be generated from other variables."
-  type        = string
-  default     = ""
-}
-
-variable "log_bucket" {
-  description = "S3 bucket for storing ALB access logs. Setting this means the module will try to create the bucket."
   type        = string
   default     = ""
 }
@@ -70,38 +22,20 @@ variable "alb_security_groups" {
   default     = ""
 }
 
-variable "force_destroy_log_bucket" {
-  description = "If set to true and if the log bucket already exists, it will be destroyed and recreated."
-  type        = bool
-  default     = false
-}
-
-variable "health_check_interval" {
-  description = "Interval in seconds on which the health check against backend hosts is tried."
+variable "backend_port" {
+  description = "The port the service on the EC2 instances listen on."
   type        = number
-  default     = 10
+  default     = 80
 }
 
-variable "health_check_timeout" {
-  description = "Seconds to leave a health check waiting before terminating it and calling the check unhealthy."
-  type        = number
-  default     = 5
+variable "backend_protocol" {
+  description = "The protocol the backend service speaks. Options: HTTP, HTTPS, TCP, SSL (secure tcp)."
+  type        = string
+  default     = "HTTP"
 }
 
-variable "health_check_unhealthy_threshold" {
-  description = "Number of consecutive positive health checks before a backend instance is considered unhealthy."
-  type        = number
-  default     = 3
-}
-
-variable "subnets" {
-  description = "A list of subnets to associate with the ALB. e.g. ['subnet-1a2b3c4d','subnet-1a2b3c4e','subnet-1a2b3c4f']"
-  type        = list(any)
-  default     = ""
-}
-
-variable "vpc_id" {
-  description = "VPC id where the ALB and other resources will be deployed."
+variable "bucket_policy" {
+  description = "A custom S3 bucket policy to apply to the log bucket. If not provided, a minimal policy will be generated from other variables."
   type        = string
   default     = ""
 }
@@ -118,6 +52,24 @@ variable "cookie_duration" {
   default     = 1
 }
 
+variable "force_destroy_log_bucket" {
+  description = "If set to true and if the log bucket already exists, it will be destroyed and recreated."
+  type        = bool
+  default     = false
+}
+
+variable "health_check_healthy_threshold" {
+  description = "Number of consecutive positive health checks before a backend instance is considered healthy."
+  type        = number
+  default     = 3
+}
+
+variable "health_check_interval" {
+  description = "Interval in seconds on which the health check against backend hosts is tried."
+  type        = number
+  default     = 10
+}
+
 variable "health_check_path" {
   description = "The URL the ELB should use for health checks. e.g. /health"
   type        = string
@@ -130,8 +82,56 @@ variable "health_check_port" {
   default     = "traffic-port"
 }
 
+variable "health_check_timeout" {
+  description = "Seconds to leave a health check waiting before terminating it and calling the check unhealthy."
+  type        = number
+  default     = 5
+}
+
+variable "health_check_unhealthy_threshold" {
+  description = "Number of consecutive positive health checks before a backend instance is considered unhealthy."
+  type        = number
+  default     = 3
+}
+
+variable "log_bucket" {
+  description = "S3 bucket for storing ALB access logs. Setting this means the module will try to create the bucket."
+  type        = string
+  default     = ""
+}
+
 variable "log_prefix" {
   description = "S3 prefix within the log_bucket under which logs are stored."
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "AWS region to use."
+  type        = string
+  default     = ""
+}
+
+variable "security_policy" {
+  description = "The security policy if using HTTPS externally on the ALB. See: https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html"
+  type        = string
+  default     = "ELBSecurityPolicy-2016-08"
+}
+
+variable "subnets" {
+  description = "A list of subnets to associate with the ALB. e.g. ['subnet-1a2b3c4d','subnet-1a2b3c4e','subnet-1a2b3c4f']"
+  type        = list(any)
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(any)
+  default     = {}
+}
+
+variable "vpc_id" {
+  description = "VPC id where the ALB and other resources will be deployed."
   type        = string
   default     = ""
 }

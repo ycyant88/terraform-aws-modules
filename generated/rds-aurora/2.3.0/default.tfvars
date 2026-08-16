@@ -1,85 +1,85 @@
-password = ""
+allowed_security_groups = []
 
-instance_type = ""
-
-deletion_protection = false
+allowed_security_groups_count = 0
 
 apply_immediately = false
 
-kms_key_id = ""
+auto_minor_version_upgrade = true
 
-publicly_accessible = false
+backup_retention_period = 7
 
-skip_final_snapshot = false
-
-preferred_backup_window = "02:00-03:00"
-
-port = ""
-
-engine_version = "5.6.10a"
-
-replica_scale_min = 2
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
+database_name = ""
 
 db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
 
 engine = "aurora"
 
 engine_mode = "provisioned"
 
-allowed_security_groups = []
-
-database_name = ""
-
-db_parameter_group_name = "default.aurora5.6"
-
-storage_encrypted = true
-
-performance_insights_enabled = false
-
-enabled_cloudwatch_logs_exports = []
-
-subnets = []
-
-replica_count = 1
-
-vpc_id = ""
-
-replica_scale_cpu = 70
-
-replica_scale_in_cooldown = 300
-
-tags = {}
-
-performance_insights_kms_key_id = ""
-
-name = ""
-
-monitoring_interval = 0
+engine_version = "5.6.10a"
 
 final_snapshot_identifier_prefix = "final"
 
-backup_retention_period = 7
-
-auto_minor_version_upgrade = true
-
-snapshot_identifier = ""
-
-vpc_security_group_ids = []
-
-username = "root"
-
-replica_scale_out_cooldown = 300
-
-allowed_security_groups_count = 0
-
-replica_scale_enabled = false
-
-replica_scale_max = 0
+global_cluster_identifier = ""
 
 iam_database_authentication_enabled = false
 
-global_cluster_identifier = ""
+instance_type = ""
 
-db_subnet_group_name = ""
+kms_key_id = ""
+
+monitoring_interval = 0
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+skip_final_snapshot = false
+
+snapshot_identifier = ""
+
+storage_encrypted = true
+
+subnets = []
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""
+
+vpc_security_group_ids = []

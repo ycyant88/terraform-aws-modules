@@ -1,161 +1,161 @@
-parameter_group_description = null
-
-parameter_group_tags = {}
-
-iam_role_path = null
-
 allow_version_upgrade = null
-
-automated_snapshot_retention_period = null
-
-owner_account = null
-
-parameter_group_name = null
-
-iam_role_tags = {}
-
-availability_zone_relocation_enabled = null
-
-cluster_identifier = ""
-
-snapshot_arn = null
-
-cloudwatch_log_group_tags = {}
-
-manual_snapshot_retention_period = null
-
-master_username = "awsuser"
-
-node_type = ""
-
-cloudwatch_log_group_skip_destroy = null
-
-vpc_id = ""
-
-cluster_version = null
-
-enhanced_vpc_routing = null
-
-snapshot_identifier = null
-
-create_parameter_group = true
-
-create_subnet_group = true
-
-usage_limits = {}
-
-cloudwatch_log_group_kms_key_id = null
-
-multi_az = null
-
-subnet_group_description = null
-
-iam_role_permissions_boundary = null
-
-master_password_rotate_immediately = null
-
-final_snapshot_identifier = null
-
-master_password_wo = null
-
-number_of_nodes = 1
-
-port = 5439
-
-publicly_accessible = null
-
-subnet_ids = []
-
-master_password_rotation_automatically_after_days = null
-
-security_group_tags = {}
 
 apply_immediately = null
 
-parameter_group_parameters = null
+authentication_profiles = {}
+
+automated_snapshot_retention_period = null
+
+availability_zone = null
+
+availability_zone_relocation_enabled = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_retention_in_days = 0
+
+cloudwatch_log_group_skip_destroy = null
+
+cloudwatch_log_group_tags = {}
+
+cluster_identifier = ""
+
+cluster_timeouts = null
+
+cluster_version = null
+
+create = true
+
+create_cloudwatch_log_group = false
+
+create_parameter_group = true
+
+create_scheduled_action_iam_role = false
+
+create_security_group = true
+
+create_subnet_group = true
+
+database_name = null
+
+default_iam_role_arn = null
+
+elastic_ip = null
+
+encrypted = null
+
+endpoint_access = {}
+
+enhanced_vpc_routing = null
+
+final_snapshot_identifier = null
+
+iam_role_arns = []
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+kms_key_arn = null
+
+logging = null
+
+maintenance_track_name = null
+
+manage_master_password = true
+
+manage_master_password_rotation = false
+
+manual_snapshot_retention_period = null
+
+master_password_rotate_immediately = null
+
+master_password_rotation_automatically_after_days = null
 
 master_password_rotation_duration = null
 
 master_password_rotation_schedule_expression = null
 
-manage_master_password = true
+master_password_secret_kms_key_id = null
 
-scheduled_actions = {}
-
-iam_role_name = null
-
-parameter_group_family = "redshift-2.0"
-
-encrypted = null
-
-kms_key_arn = null
-
-maintenance_track_name = null
+master_password_wo = null
 
 master_password_wo_version = null
 
-snapshot_copy = null
+master_username = "awsuser"
 
-security_group_ingress_rules = {}
+multi_az = null
 
-master_password_secret_kms_key_id = null
+node_type = ""
 
-snapshot_cluster_identifier = null
+number_of_nodes = 1
 
-default_iam_role_arn = null
+owner_account = null
 
-endpoint_access = {}
+parameter_group_description = null
 
-create_security_group = true
+parameter_group_family = "redshift-2.0"
 
-region = null
+parameter_group_name = null
 
-tags = {}
+parameter_group_parameters = null
 
-iam_role_arns = []
+parameter_group_tags = {}
 
-subnet_group_tags = {}
-
-create_scheduled_action_iam_role = false
-
-create = true
-
-skip_final_snapshot = true
-
-snapshot_schedule = null
-
-iam_role_description = null
-
-manage_master_password_rotation = false
-
-security_group_description = null
-
-iam_role_use_name_prefix = true
-
-security_group_name = ""
-
-security_group_use_name_prefix = true
-
-elastic_ip = null
-
-authentication_profiles = {}
-
-create_cloudwatch_log_group = false
-
-cloudwatch_log_group_retention_in_days = 0
-
-security_group_egress_rules = {}
-
-availability_zone = null
-
-database_name = null
+port = 5439
 
 preferred_maintenance_window = "sat:10:00-sat:10:30"
 
-logging = null
+publicly_accessible = null
 
-vpc_security_group_ids = []
+region = null
 
-cluster_timeouts = null
+scheduled_actions = {}
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ingress_rules = {}
+
+security_group_name = ""
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+skip_final_snapshot = true
+
+snapshot_arn = null
+
+snapshot_cluster_identifier = null
+
+snapshot_copy = null
+
+snapshot_identifier = null
+
+snapshot_schedule = null
+
+subnet_group_description = null
 
 subnet_group_name = null
+
+subnet_group_tags = {}
+
+subnet_ids = []
+
+tags = {}
+
+usage_limits = {}
+
+vpc_id = ""
+
+vpc_security_group_ids = []

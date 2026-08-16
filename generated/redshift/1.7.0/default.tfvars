@@ -1,65 +1,65 @@
-snapshot_identifier = ""
+allow_version_upgrade = true
 
-snapshot_cluster_identifier = ""
-
-tags = {}
-
-subnets = []
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-enable_user_activity_logging = "false"
-
-require_ssl = "false"
-
-kms_key_id = ""
-
-cluster_node_type = ""
+automated_snapshot_retention_period = 0
 
 cluster_database_name = ""
 
-cluster_parameter_group = "redshift-1.0"
-
 cluster_iam_roles = []
 
-publicly_accessible = false
+cluster_identifier = ""
 
-redshift_subnet_group_name = ""
-
-final_snapshot_identifier = false
-
-enhanced_vpc_routing = false
-
-cluster_number_of_nodes = 3
-
-vpc_security_group_ids = ""
-
-skip_final_snapshot = true
-
-logging_s3_key_prefix = false
-
-wlm_json_configuration = "[{\"query_concurrency\": 5}]"
-
-encrypted = false
+cluster_master_password = ""
 
 cluster_master_username = ""
 
+cluster_node_type = ""
+
+cluster_number_of_nodes = 3
+
+cluster_parameter_group = "redshift-1.0"
+
 cluster_port = 5439
-
-use_fips_ssl = "false"
-
-allow_version_upgrade = true
-
-cluster_identifier = ""
 
 cluster_version = "1.0"
 
 enable_logging = false
 
+enable_user_activity_logging = "false"
+
+encrypted = false
+
+enhanced_vpc_routing = false
+
+final_snapshot_identifier = false
+
+kms_key_id = ""
+
 logging_bucket_name = false
 
-cluster_master_password = ""
-
-automated_snapshot_retention_period = 0
+logging_s3_key_prefix = false
 
 parameter_group_name = ""
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
+
+publicly_accessible = false
+
+redshift_subnet_group_name = ""
+
+require_ssl = "false"
+
+skip_final_snapshot = true
+
+snapshot_cluster_identifier = ""
+
+snapshot_identifier = ""
+
+subnets = []
+
+tags = {}
+
+use_fips_ssl = "false"
+
+vpc_security_group_ids = ""
+
+wlm_json_configuration = "[{\"query_concurrency\": 5}]"

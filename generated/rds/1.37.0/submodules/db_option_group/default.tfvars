@@ -1,12 +1,10 @@
-identifier = ""
+create = true
 
 engine_name = ""
 
+identifier = ""
+
 major_engine_version = ""
-
-timeouts = { "delete" : "15m" }
-
-create = true
 
 name_prefix = ""
 
@@ -15,3 +13,5 @@ option_group_description = ""
 options = []
 
 tags = {}
+
+timeouts = { "delete" : "15m" }

@@ -1,26 +1,8 @@
 acceleration_status = ""
 
-control_object_ownership = false
+acl = ""
 
-tags = {}
-
-object_lock_configuration = {}
-
-block_public_policy = false
-
-force_destroy = false
-
-request_payer = ""
-
-owner = {}
-
-bucket = ""
-
-bucket_prefix = ""
-
-policy = ""
-
-block_public_acls = false
+attach_deny_insecure_transport_policy = false
 
 attach_elb_log_delivery_policy = false
 
@@ -28,42 +10,60 @@ attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
-intelligent_tiering = {}
-
-create_bucket = true
-
-cors_rule = []
-
-server_side_encryption_configuration = {}
-
-replication_configuration = {}
-
-restrict_public_buckets = false
+attach_public_policy = true
 
 attach_require_latest_tls_policy = false
 
-attach_public_policy = true
+block_public_acls = false
 
-website = {}
+block_public_policy = false
 
-ignore_public_acls = false
+bucket = ""
 
-acl = ""
+bucket_prefix = ""
 
-lifecycle_rule = []
+control_object_ownership = false
 
-object_lock_enabled = false
+cors_rule = []
 
-grant = []
+create_bucket = true
 
 expected_bucket_owner = ""
 
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+intelligent_tiering = {}
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
 object_ownership = "ObjectWriter"
+
+owner = {}
+
+policy = ""
 
 putin_khuylo = true
 
-attach_deny_insecure_transport_policy = false
+replication_configuration = {}
+
+request_payer = ""
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
 
 versioning = {}
 
-logging = {}
+website = {}

@@ -1,9 +1,9 @@
-subnet_ids = []
-
-tags = {}
-
 create = true
+
+identifier = ""
 
 name_prefix = ""
 
-identifier = ""
+subnet_ids = []
+
+tags = {}

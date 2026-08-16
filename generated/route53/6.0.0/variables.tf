@@ -1,7 +1,25 @@
-variable "tags" {
-  description = "Tags added to all zones. Will take precedence over tags from the 'zones' variable"
-  type        = map(string)
-  default     = {}
+variable "comment" {
+  description = "A comment for the hosted zone. Defaults to Managed by Terraform"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Whether to create Route53 zone"
+  type        = bool
+  default     = true
+}
+
+variable "create_dnssec_kms_key" {
+  description = "Whether to create a KMS key for DNSSEC signing"
+  type        = bool
+  default     = true
+}
+
+variable "create_zone" {
+  description = "Determines whether to create the Route53 zone or lookup an existing zone"
+  type        = bool
+  default     = true
 }
 
 variable "delegation_set_id" {
@@ -10,13 +28,28 @@ variable "delegation_set_id" {
   default     = null
 }
 
-variable "vpc_association_authorizations" {
-  description = "A map of VPC association authorizations to create for the Route53 zone"
-  type = map(object({
-    vpc_id     = string
-    vpc_region = optional(string)
-  }))
-  default = null
+variable "dnssec_kms_key_aliases" {
+  description = "A list of aliases to create. Note - due to the use of toset(), values must be static strings and not computed values"
+  type        = list(string)
+  default     = []
+}
+
+variable "dnssec_kms_key_arn" {
+  description = "The ARN of the KMS key to use for DNSSEC signing. Required when create_dnssec_kms_key is false"
+  type        = string
+  default     = null
+}
+
+variable "dnssec_kms_key_description" {
+  description = "The description of the key as viewed in AWS console"
+  type        = string
+  default     = "Route53 DNSSEC KMS Key"
+}
+
+variable "dnssec_kms_key_tags" {
+  description = "Additional tags to apply to the KMS key created for DNSSEC signing"
+  type        = map(string)
+  default     = {}
 }
 
 variable "enable_dnssec" {
@@ -25,10 +58,22 @@ variable "enable_dnssec" {
   default     = false
 }
 
-variable "dnssec_kms_key_aliases" {
-  description = "A list of aliases to create. Note - due to the use of toset(), values must be static strings and not computed values"
-  type        = list(string)
-  default     = []
+variable "force_destroy" {
+  description = "Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone"
+  type        = bool
+  default     = null
+}
+
+variable "name" {
+  description = "This is the name of the hosted zone"
+  type        = string
+  default     = ""
+}
+
+variable "private_zone" {
+  description = "Whether the hosted zone is private. Only applicable when create_zone = false"
+  type        = bool
+  default     = false
 }
 
 variable "records" {
@@ -84,43 +129,10 @@ variable "records" {
   default = {}
 }
 
-variable "vpc_id" {
-  description = "The ID of the VPC associated with the existing hosted zone. Only applicable when create_zone = false"
-  type        = string
-  default     = null
-}
-
-variable "force_destroy" {
-  description = "Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone"
-  type        = bool
-  default     = null
-}
-
-variable "name" {
-  description = "This is the name of the hosted zone"
-  type        = string
-  default     = ""
-}
-
-variable "dnssec_kms_key_description" {
-  description = "The description of the key as viewed in AWS console"
-  type        = string
-  default     = "Route53 DNSSEC KMS Key"
-}
-
-variable "private_zone" {
-  description = "Whether the hosted zone is private. Only applicable when create_zone = false"
-  type        = bool
-  default     = false
-}
-
-variable "vpc" {
-  description = " Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the delegation_set_id argument in this resource and any aws_route53_zone_association resource specifying the same zone ID"
-  type = map(object({
-    vpc_id     = string
-    vpc_region = optional(string)
-  }))
-  default = null
+variable "tags" {
+  description = "Tags added to all zones. Will take precedence over tags from the 'zones' variable"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeouts" {
@@ -133,38 +145,26 @@ variable "timeouts" {
   default = null
 }
 
-variable "dnssec_kms_key_tags" {
-  description = "Additional tags to apply to the KMS key created for DNSSEC signing"
-  type        = map(string)
-  default     = {}
+variable "vpc" {
+  description = " Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the delegation_set_id argument in this resource and any aws_route53_zone_association resource specifying the same zone ID"
+  type = map(object({
+    vpc_id     = string
+    vpc_region = optional(string)
+  }))
+  default = null
 }
 
-variable "create" {
-  description = "Whether to create Route53 zone"
-  type        = bool
-  default     = true
+variable "vpc_association_authorizations" {
+  description = "A map of VPC association authorizations to create for the Route53 zone"
+  type = map(object({
+    vpc_id     = string
+    vpc_region = optional(string)
+  }))
+  default = null
 }
 
-variable "create_zone" {
-  description = "Determines whether to create the Route53 zone or lookup an existing zone"
-  type        = bool
-  default     = true
-}
-
-variable "comment" {
-  description = "A comment for the hosted zone. Defaults to Managed by Terraform"
-  type        = string
-  default     = null
-}
-
-variable "create_dnssec_kms_key" {
-  description = "Whether to create a KMS key for DNSSEC signing"
-  type        = bool
-  default     = true
-}
-
-variable "dnssec_kms_key_arn" {
-  description = "The ARN of the KMS key to use for DNSSEC signing. Required when create_dnssec_kms_key is false"
+variable "vpc_id" {
+  description = "The ID of the VPC associated with the existing hosted zone. Only applicable when create_zone = false"
   type        = string
   default     = null
 }

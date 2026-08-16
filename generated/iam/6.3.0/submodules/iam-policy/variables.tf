@@ -4,6 +4,12 @@ variable "create" {
   default     = true
 }
 
+variable "description" {
+  description = "The description of the policy"
+  type        = string
+  default     = null
+}
+
 variable "name" {
   description = "The name of the policy"
   type        = string
@@ -18,12 +24,6 @@ variable "name_prefix" {
 
 variable "path" {
   description = "The path of the policy in IAM"
-  type        = string
-  default     = null
-}
-
-variable "description" {
-  description = "The description of the policy"
   type        = string
   default     = null
 }

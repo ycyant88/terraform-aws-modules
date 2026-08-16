@@ -1,7 +1,7 @@
-variable "ng_depends_on" {
-  description = "List of references to other resources this submodule depends on"
-  type        = any
-  default     = null
+variable "cluster_name" {
+  description = "Name of parent cluster"
+  type        = string
+  default     = ""
 }
 
 variable "create_eks" {
@@ -16,16 +16,10 @@ variable "default_iam_role_arn" {
   default     = ""
 }
 
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
-  type        = string
-  default     = ""
-}
-
-variable "worker_additional_security_group_ids" {
-  description = "A list of additional security group ids to attach to worker instances"
-  type        = list(string)
-  default     = []
+variable "ng_depends_on" {
+  description = "List of references to other resources this submodule depends on"
+  type        = any
+  default     = null
 }
 
 variable "node_groups" {
@@ -34,14 +28,8 @@ variable "node_groups" {
   default     = {}
 }
 
-variable "cluster_name" {
-  description = "Name of parent cluster"
-  type        = string
-  default     = ""
-}
-
-variable "workers_group_defaults" {
-  description = "Workers group defaults from parent"
+variable "node_groups_defaults" {
+  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
   type        = any
   default     = ""
 }
@@ -52,8 +40,20 @@ variable "tags" {
   default     = ""
 }
 
-variable "node_groups_defaults" {
-  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+variable "worker_additional_security_group_ids" {
+  description = "A list of additional security group ids to attach to worker instances"
+  type        = list(string)
+  default     = []
+}
+
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
+  type        = string
+  default     = ""
+}
+
+variable "workers_group_defaults" {
+  description = "Workers group defaults from parent"
   type        = any
   default     = ""
 }

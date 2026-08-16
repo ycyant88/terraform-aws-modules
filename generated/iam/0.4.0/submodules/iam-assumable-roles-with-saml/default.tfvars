@@ -1,37 +1,37 @@
-provider_id = ""
+admin_role_name = "admin"
 
-max_session_duration = 3600
+admin_role_path = "/"
 
-provider_name = ""
+admin_role_permissions_boundary_arn = ""
+
+admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+
+aws_saml_endpoint = ["https://signin.aws.amazon.com/saml"]
+
+create_admin_role = false
+
+create_poweruser_role = false
 
 create_readonly_role = false
 
-readonly_role_path = "/"
+max_session_duration = 3600
 
-create_poweruser_role = false
+poweruser_role_name = "poweruser"
 
 poweruser_role_path = "/"
 
 poweruser_role_permissions_boundary_arn = ""
 
-readonly_role_name = "readonly"
-
-aws_saml_endpoint = ["https://signin.aws.amazon.com/saml"]
-
-admin_role_name = "admin"
-
-admin_role_permissions_boundary_arn = ""
-
-poweruser_role_name = "poweruser"
-
 poweruser_role_policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
 
-readonly_role_policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+provider_id = ""
+
+provider_name = ""
+
+readonly_role_name = "readonly"
+
+readonly_role_path = "/"
 
 readonly_role_permissions_boundary_arn = ""
 
-create_admin_role = false
-
-admin_role_path = "/"
-
-admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+readonly_role_policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"

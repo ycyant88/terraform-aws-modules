@@ -1,19 +1,19 @@
-create = true
-
-name = null
-
-subnet_ids = null
-
-cluster_source_policy_documents = null
-
 cluster_override_policy_documents = null
 
 cluster_policy_statements = null
+
+cluster_source_policy_documents = null
+
+create = true
+
+create_cluster_policy = false
+
+name = null
 
 region = null
 
 security_group_ids = null
 
-tags = {}
+subnet_ids = null
 
-create_cluster_policy = false
+tags = {}

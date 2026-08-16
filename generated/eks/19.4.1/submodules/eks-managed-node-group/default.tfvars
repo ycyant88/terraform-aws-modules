@@ -1,149 +1,149 @@
-force_update_version = null
+ami_id = ""
 
-ebs_optimized = null
+ami_release_version = null
 
 ami_type = null
 
-desired_size = 1
-
-tags = {}
-
-launch_template_default_version = null
-
-launch_template_id = ""
-
-vpc_security_group_ids = []
-
-maintenance_options = {}
-
-tag_specifications = ["instance", "volume", "network-interface", "spot-instances-request"]
-
-cluster_name = null
-
-cluster_auth_base64 = ""
-
-update_launch_template_default_version = true
-
-ram_disk_id = null
-
-capacity_reservation_specification = {}
-
-timeouts = {}
-
-iam_role_name = null
-
-iam_role_tags = {}
-
-use_custom_launch_template = true
-
-launch_template_name = null
-
-update_config = { "max_unavailable_percentage" : 33 }
-
-iam_role_attach_cni_policy = true
-
-name = ""
-
-disk_size = null
-
-kernel_id = null
-
-taints = {}
-
-user_data_template_path = ""
-
-credit_specification = {}
-
-min_size = 0
-
-iam_role_use_name_prefix = true
-
-platform = "linux"
-
-cluster_service_ipv4_cidr = null
-
-license_specifications = {}
-
-placement = {}
-
-private_dns_name_options = {}
-
-capacity_type = "ON_DEMAND"
-
-cluster_ip_family = null
-
-cluster_endpoint = ""
-
-elastic_inference_accelerator = {}
-
 block_device_mappings = {}
-
-instance_types = null
 
 bootstrap_extra_args = ""
 
-launch_template_use_name_prefix = true
+capacity_reservation_specification = {}
 
-network_interfaces = []
+capacity_type = "ON_DEMAND"
 
-max_size = 3
+cluster_auth_base64 = ""
 
-launch_template_version = null
+cluster_endpoint = ""
 
-remote_access = {}
+cluster_ip_family = null
 
-create_iam_role = true
+cluster_name = null
 
-iam_role_arn = null
+cluster_primary_security_group_id = null
 
-create = true
-
-enable_bootstrap_user_data = false
-
-cpu_options = {}
-
-elastic_gpu_specifications = {}
-
-subnet_ids = null
+cluster_service_ipv4_cidr = null
 
 cluster_version = null
 
-launch_template_description = null
+cpu_options = {}
 
-cluster_primary_security_group_id = null
+create = true
+
+create_iam_role = true
+
+create_launch_template = true
+
+credit_specification = {}
+
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = {}
+
+force_update_version = null
+
+iam_role_additional_policies = {}
+
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
 
 iam_role_path = null
 
 iam_role_permissions_boundary = null
 
-ami_id = ""
+iam_role_tags = {}
 
-labels = null
+iam_role_use_name_prefix = true
 
 instance_market_options = {}
 
-post_bootstrap_user_data = ""
+instance_types = null
 
-disable_api_termination = null
-
-enable_monitoring = true
-
-ami_release_version = null
-
-iam_role_description = null
-
-enclave_options = {}
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+kernel_id = null
 
 key_name = null
 
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
 launch_template_tags = {}
 
-use_name_prefix = true
+launch_template_use_name_prefix = true
 
-iam_role_additional_policies = {}
+launch_template_version = null
+
+license_specifications = {}
+
+maintenance_options = {}
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
 
 pre_bootstrap_user_data = ""
 
-create_launch_template = true
+private_dns_name_options = {}
+
+ram_disk_id = null
+
+remote_access = {}
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface", "spot-instances-request"]
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []

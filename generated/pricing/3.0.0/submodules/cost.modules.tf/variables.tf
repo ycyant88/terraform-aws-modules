@@ -1,13 +1,13 @@
-variable "enabled" {
-  description = "Whether to enable this module and call cost.modules.tf"
-  type        = bool
-  default     = true
-}
-
 variable "content" {
   description = "Content of tfstate or plan file as json"
   type        = string
   default     = ""
+}
+
+variable "enabled" {
+  description = "Whether to enable this module and call cost.modules.tf"
+  type        = bool
+  default     = true
 }
 
 variable "filename_hash" {

@@ -1,30 +1,26 @@
-create = true
+association_config = {}
 
-visibility_config = {}
+association_resource_arns = {}
 
-rules = {}
-
-rule_json = null
-
-create_logging_configuration = false
-
-logging_log_destination_configs = []
-
-token_domains = []
-
-putin_khuylo = true
-
-description = null
-
-default_action = "allow"
+captcha_config = null
 
 challenge_config = null
 
-logging_filter = null
+create = true
+
+create_logging_configuration = false
 
 custom_response_bodies = {}
 
-captcha_config = null
+data_protection_config = null
+
+default_action = "allow"
+
+description = null
+
+logging_filter = null
+
+logging_log_destination_configs = []
 
 logging_redacted_fields = []
 
@@ -32,12 +28,16 @@ name = null
 
 name_prefix = null
 
-data_protection_config = null
+putin_khuylo = true
+
+rule_json = null
+
+rules = {}
 
 scope = "REGIONAL"
 
 tags = {}
 
-association_config = {}
+token_domains = []
 
-association_resource_arns = {}
+visibility_config = {}

@@ -1,5 +1,5 @@
 create = true
 
-zones = {}
-
 tags = {}
+
+zones = {}

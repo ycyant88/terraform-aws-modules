@@ -1,128 +1,74 @@
-s3_object_tags = {}
-
-create_unqualified_alias_allowed_triggers = true
-
-cloudwatch_logs_tags = {}
-
-role_tags = {}
-
-attach_async_event_policy = false
-
-layers = null
-
-memory_size = 128
-
-vpc_security_group_ids = null
-
-docker_with_ssh_agent = false
-
-policies = []
-
-store_on_s3 = false
-
-docker_file = ""
-
-reserved_concurrent_executions = -1
-
-vpc_subnet_ids = null
-
-role_path = null
-
-create = true
-
-license_info = ""
-
-kms_key_arn = null
-
-publish = false
-
-policy_statements = {}
-
-runtime = ""
-
 allowed_triggers = {}
-
-s3_object_storage_class = "ONEZONE_IA"
-
-attach_policies = false
-
-s3_existing_package = null
-
-timeout = 3
-
-create_current_version_allowed_triggers = true
-
-role_description = null
-
-docker_build_root = ""
-
-layer_name = ""
-
-destination_on_success = null
-
-hash_extra = ""
-
-policy = null
-
-source_path = null
-
-build_in_docker = false
-
-docker_pip_cache = null
-
-attach_tracing_policy = false
-
-number_of_policies = 0
-
-policy_json = null
-
-tags = {}
-
-create_unqualified_alias_async_event_config = true
-
-maximum_event_age_in_seconds = null
-
-maximum_retry_attempts = null
-
-role_permissions_boundary = null
-
-create_role = true
-
-lambda_at_edge = false
-
-handler = ""
-
-attach_dead_letter_policy = false
-
-description = ""
-
-attach_network_policy = false
-
-attach_policy_statements = false
-
-trusted_entities = []
 
 artifacts_dir = "builds"
 
-local_existing_package = null
+attach_async_event_policy = false
 
-create_layer = false
+attach_cloudwatch_logs_policy = true
 
-use_existing_cloudwatch_log_group = false
+attach_dead_letter_policy = false
 
-cloudwatch_logs_kms_key_id = null
+attach_network_policy = false
+
+attach_policies = false
 
 attach_policy = false
 
-create_function = true
+attach_policy_json = false
 
-tracing_mode = null
+attach_policy_statements = false
+
+attach_tracing_policy = false
+
+build_in_docker = false
+
+cloudwatch_logs_kms_key_id = null
 
 cloudwatch_logs_retention_in_days = null
 
+cloudwatch_logs_tags = {}
+
+compatible_runtimes = []
+
+create = true
+
 create_async_event_config = false
 
+create_current_version_allowed_triggers = true
+
 create_current_version_async_event_config = true
+
+create_function = true
+
+create_layer = false
+
+create_package = true
+
+create_role = true
+
+create_unqualified_alias_allowed_triggers = true
+
+create_unqualified_alias_async_event_config = true
+
+dead_letter_target_arn = null
+
+description = ""
+
+destination_on_failure = null
+
+destination_on_success = null
+
+docker_build_root = ""
+
+docker_file = ""
+
+docker_image = ""
+
+docker_pip_cache = null
+
+docker_with_ssh_agent = false
+
+environment_variables = {}
 
 file_system_arn = null
 
@@ -130,28 +76,82 @@ file_system_local_mount_path = null
 
 function_name = ""
 
-dead_letter_target_arn = null
+handler = ""
 
-compatible_runtimes = []
+hash_extra = ""
 
-role_name = null
+kms_key_arn = null
 
-attach_cloudwatch_logs_policy = true
-
-attach_policy_json = false
-
-create_package = true
-
-environment_variables = {}
-
-destination_on_failure = null
-
-s3_bucket = null
-
-docker_image = ""
+lambda_at_edge = false
 
 lambda_role = ""
 
+layer_name = ""
+
+layers = null
+
+license_info = ""
+
+local_existing_package = null
+
+maximum_event_age_in_seconds = null
+
+maximum_retry_attempts = null
+
+memory_size = 128
+
+number_of_policies = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_statements = {}
+
 provisioned_concurrent_executions = -1
 
+publish = false
+
+reserved_concurrent_executions = -1
+
+role_description = null
+
 role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+runtime = ""
+
+s3_bucket = null
+
+s3_existing_package = null
+
+s3_object_storage_class = "ONEZONE_IA"
+
+s3_object_tags = {}
+
+source_path = null
+
+store_on_s3 = false
+
+tags = {}
+
+timeout = 3
+
+tracing_mode = null
+
+trusted_entities = []
+
+use_existing_cloudwatch_log_group = false
+
+vpc_security_group_ids = null
+
+vpc_subnet_ids = null

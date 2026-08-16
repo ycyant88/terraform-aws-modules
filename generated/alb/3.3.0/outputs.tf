@@ -1,23 +1,3 @@
-output "https_listener_arns" {
-  value       = module.alb.https_listener_arns
-  description = "The ARNs of the HTTPS load balancer listeners created."
-}
-
-output "load_balancer_arn_suffix" {
-  value       = module.alb.load_balancer_arn_suffix
-  description = "ARN suffix of our load balancer - can be used with CloudWatch."
-}
-
-output "load_balancer_id" {
-  value       = module.alb.load_balancer_id
-  description = "The ID and ARN of the load balancer we created."
-}
-
-output "target_group_arns" {
-  value       = module.alb.target_group_arns
-  description = "ARNs of the target groups. Useful for passing to your Auto Scaling group."
-}
-
 output "dns_name" {
   value       = module.alb.dns_name
   description = "The DNS name of the load balancer."
@@ -33,9 +13,24 @@ output "http_tcp_listener_ids" {
   description = "The IDs of the TCP and HTTP load balancer listeners created."
 }
 
+output "https_listener_arns" {
+  value       = module.alb.https_listener_arns
+  description = "The ARNs of the HTTPS load balancer listeners created."
+}
+
 output "https_listener_ids" {
   value       = module.alb.https_listener_ids
   description = "The IDs of the load balancer listeners created."
+}
+
+output "load_balancer_arn_suffix" {
+  value       = module.alb.load_balancer_arn_suffix
+  description = "ARN suffix of our load balancer - can be used with CloudWatch."
+}
+
+output "load_balancer_id" {
+  value       = module.alb.load_balancer_id
+  description = "The ID and ARN of the load balancer we created."
 }
 
 output "load_balancer_zone_id" {
@@ -46,6 +41,11 @@ output "load_balancer_zone_id" {
 output "target_group_arn_suffixes" {
   value       = module.alb.target_group_arn_suffixes
   description = "ARN suffixes of our target groups - can be used with CloudWatch."
+}
+
+output "target_group_arns" {
+  value       = module.alb.target_group_arns
+  description = "ARNs of the target groups. Useful for passing to your Auto Scaling group."
 }
 
 output "target_group_names" {

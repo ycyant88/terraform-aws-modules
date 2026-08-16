@@ -1,26 +1,6 @@
-output "current_deployment" {
-  value       = module.ecs_express-service.current_deployment
-  description = "Details about the current deployment"
-}
-
-output "security_group_arn" {
-  value       = module.ecs_express-service.security_group_arn
-  description = "Amazon Resource Name (ARN) of the security group"
-}
-
-output "execution_iam_role_name" {
-  value       = module.ecs_express-service.execution_iam_role_name
-  description = "Task execution IAM role name"
-}
-
-output "execution_iam_role_arn" {
-  value       = module.ecs_express-service.execution_iam_role_arn
-  description = "Task execution IAM role ARN"
-}
-
-output "task_iam_role_arn" {
-  value       = module.ecs_express-service.task_iam_role_arn
-  description = "Task IAM role ARN"
+output "cloudwatch_log_group_arn" {
+  value       = module.ecs_express-service.cloudwatch_log_group_arn
+  description = "ARN of CloudWatch log group created"
 }
 
 output "cloudwatch_log_group_name" {
@@ -28,24 +8,19 @@ output "cloudwatch_log_group_name" {
   description = "Name of CloudWatch log group created"
 }
 
-output "cloudwatch_log_group_arn" {
-  value       = module.ecs_express-service.cloudwatch_log_group_arn
-  description = "ARN of CloudWatch log group created"
+output "current_deployment" {
+  value       = module.ecs_express-service.current_deployment
+  description = "Details about the current deployment"
 }
 
-output "service_arn" {
-  value       = module.ecs_express-service.service_arn
-  description = "ARN of the ECS Express Service"
+output "execution_iam_role_arn" {
+  value       = module.ecs_express-service.execution_iam_role_arn
+  description = "Task execution IAM role ARN"
 }
 
-output "service_url" {
-  value       = module.ecs_express-service.service_url
-  description = "URL of the ECS Express Service"
-}
-
-output "service_revision_arn" {
-  value       = module.ecs_express-service.service_revision_arn
-  description = "ARN of the ECS Express Service revision"
+output "execution_iam_role_name" {
+  value       = module.ecs_express-service.execution_iam_role_name
+  description = "Task execution IAM role name"
 }
 
 output "infrastructure_iam_role_arn" {
@@ -63,9 +38,34 @@ output "ingress_paths" {
   description = "List of ingress paths associated with the service"
 }
 
+output "security_group_arn" {
+  value       = module.ecs_express-service.security_group_arn
+  description = "Amazon Resource Name (ARN) of the security group"
+}
+
 output "security_group_id" {
   value       = module.ecs_express-service.security_group_id
   description = "ID of the security group"
+}
+
+output "service_arn" {
+  value       = module.ecs_express-service.service_arn
+  description = "ARN of the ECS Express Service"
+}
+
+output "service_revision_arn" {
+  value       = module.ecs_express-service.service_revision_arn
+  description = "ARN of the ECS Express Service revision"
+}
+
+output "service_url" {
+  value       = module.ecs_express-service.service_url
+  description = "URL of the ECS Express Service"
+}
+
+output "task_iam_role_arn" {
+  value       = module.ecs_express-service.task_iam_role_arn
+  description = "Task IAM role ARN"
 }
 
 output "task_iam_role_name" {

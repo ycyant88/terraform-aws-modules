@@ -1,7 +1,3 @@
-create = true
-
-name = null
-
 ca_cert_bucket = null
 
 ca_cert_key = null
@@ -9,5 +5,9 @@ ca_cert_key = null
 ca_cert_region = null
 
 ca_cert_version = null
+
+create = true
+
+name = null
 
 tags = {}

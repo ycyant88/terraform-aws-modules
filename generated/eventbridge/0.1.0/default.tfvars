@@ -1,93 +1,93 @@
-bus_name = ""
-
-create_targets = true
-
-role_path = ""
-
-role_tags = {}
-
-attach_kinesis_policy = false
-
-attach_tracing_policy = false
-
-create_archives = false
-
-attach_sqs_policy = false
-
-attach_ecs_policy = false
-
-attach_policy = false
-
-policy_statements = {}
-
-permission_config = []
-
-role_force_detach_policies = true
-
-role_permissions_boundary = ""
-
-attach_lambda_policy = false
+archive_config = []
 
 attach_cloudwatch_policy = false
 
-attach_policy_jsons = false
-
-rules = {}
-
-targets = {}
-
-role_description = ""
-
-number_of_policy_jsons = 0
-
-trusted_entities = []
-
-policy_jsons = []
-
-policies = []
-
-create_bus = true
-
-create_rules = true
-
-role_name = ""
+attach_ecs_policy = false
 
 attach_kinesis_firehose_policy = false
 
-ecs_target_arns = []
+attach_kinesis_policy = false
 
-cloudwatch_target_arns = []
-
-policy_json = ""
-
-tags = {}
-
-attach_sfn_policy = false
-
-attach_policy_json = false
-
-number_of_policies = 0
-
-archive_config = []
-
-create = true
-
-create_role = true
+attach_lambda_policy = false
 
 attach_policies = false
 
-policy = ""
+attach_policy = false
+
+attach_policy_json = false
+
+attach_policy_jsons = false
+
+attach_policy_statements = false
+
+attach_sfn_policy = false
+
+attach_sqs_policy = false
+
+attach_tracing_policy = false
+
+bus_name = ""
+
+cloudwatch_target_arns = []
+
+create = true
+
+create_archives = false
+
+create_bus = true
 
 create_permissions = true
 
-kinesis_target_arns = []
+create_role = true
+
+create_rules = true
+
+create_targets = true
+
+ecs_target_arns = []
 
 kinesis_firehose_target_arns = []
 
-sqs_target_arns = []
+kinesis_target_arns = []
 
 lambda_target_arns = []
 
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permission_config = []
+
+policies = []
+
+policy = ""
+
+policy_json = ""
+
+policy_jsons = []
+
+policy_statements = {}
+
+role_description = ""
+
+role_force_detach_policies = true
+
+role_name = ""
+
+role_path = ""
+
+role_permissions_boundary = ""
+
+role_tags = {}
+
+rules = {}
+
 sfn_target_arns = []
 
-attach_policy_statements = false
+sqs_target_arns = []
+
+tags = {}
+
+targets = {}
+
+trusted_entities = []

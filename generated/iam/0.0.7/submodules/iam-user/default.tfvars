@@ -1,23 +1,23 @@
 create_iam_access_key = true
 
-name = ""
-
-path = "/"
-
-force_destroy = false
-
-pgp_key = ""
-
-password_reset_required = true
-
-upload_iam_user_ssh_key = false
-
-ssh_key_encoding = "SSH"
+create_iam_user_login_profile = true
 
 create_user = true
 
-create_iam_user_login_profile = true
+force_destroy = false
+
+name = ""
 
 password_length = 20
 
+password_reset_required = true
+
+path = "/"
+
+pgp_key = ""
+
+ssh_key_encoding = "SSH"
+
 ssh_public_key = ""
+
+upload_iam_user_ssh_key = false

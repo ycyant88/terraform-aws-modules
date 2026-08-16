@@ -1,37 +1,61 @@
-variable "dlq_redrive_allow_policy" {
-  description = "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs."
-  type        = any
-  default     = {}
-}
-
-variable "override_dlq_queue_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
 variable "content_based_deduplication" {
   description = "Enables content-based deduplication for FIFO queues"
   type        = bool
   default     = null
 }
 
-variable "kms_master_key_id" {
-  description = "The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK"
-  type        = string
-  default     = null
+variable "create" {
+  description = "Whether to create SQS queue"
+  type        = bool
+  default     = true
 }
 
-variable "use_name_prefix" {
-  description = "Determines whether name is used as a prefix"
+variable "create_dlq" {
+  description = "Determines whether to create SQS dead letter queue"
   type        = bool
   default     = false
 }
 
-variable "override_queue_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
+variable "create_dlq_queue_policy" {
+  description = "Whether to create SQS queue policy"
+  type        = bool
+  default     = false
+}
+
+variable "create_dlq_redrive_allow_policy" {
+  description = "Determines whether to create a redrive allow policy for the dead letter queue."
+  type        = bool
+  default     = true
+}
+
+variable "create_queue_policy" {
+  description = "Whether to create SQS queue policy"
+  type        = bool
+  default     = false
+}
+
+variable "deduplication_scope" {
+  description = "Specifies whether message deduplication occurs at the message group or queue level"
+  type        = string
+  default     = null
+}
+
+variable "delay_seconds" {
+  description = "The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)"
+  type        = number
+  default     = null
+}
+
+variable "dlq_content_based_deduplication" {
+  description = "Enables content-based deduplication for FIFO queues"
+  type        = bool
+  default     = null
+}
+
+variable "dlq_deduplication_scope" {
+  description = "Specifies whether message deduplication occurs at the message group or queue level"
+  type        = string
+  default     = null
 }
 
 variable "dlq_delay_seconds" {
@@ -52,10 +76,34 @@ variable "dlq_kms_master_key_id" {
   default     = null
 }
 
-variable "dlq_visibility_timeout_seconds" {
-  description = "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)"
+variable "dlq_message_retention_seconds" {
+  description = "The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days)"
   type        = number
   default     = null
+}
+
+variable "dlq_name" {
+  description = "This is the human-readable name of the queue. If omitted, Terraform will assign a random name"
+  type        = string
+  default     = null
+}
+
+variable "dlq_queue_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = any
+  default     = {}
+}
+
+variable "dlq_receive_wait_time_seconds" {
+  description = "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)"
+  type        = number
+  default     = null
+}
+
+variable "dlq_redrive_allow_policy" {
+  description = "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs."
+  type        = any
+  default     = {}
 }
 
 variable "dlq_sqs_managed_sse_enabled" {
@@ -64,26 +112,14 @@ variable "dlq_sqs_managed_sse_enabled" {
   default     = true
 }
 
-variable "create_dlq_queue_policy" {
-  description = "Whether to create SQS queue policy"
-  type        = bool
-  default     = false
+variable "dlq_tags" {
+  description = "A mapping of additional tags to assign to the dead letter queue"
+  type        = map(string)
+  default     = {}
 }
 
-variable "source_dlq_queue_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "create" {
-  description = "Whether to create SQS queue"
-  type        = bool
-  default     = true
-}
-
-variable "delay_seconds" {
-  description = "The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)"
+variable "dlq_visibility_timeout_seconds" {
+  description = "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)"
   type        = number
   default     = null
 }
@@ -94,34 +130,10 @@ variable "fifo_queue" {
   default     = false
 }
 
-variable "redrive_allow_policy" {
-  description = "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs."
-  type        = any
-  default     = {}
-}
-
-variable "sqs_managed_sse_enabled" {
-  description = "Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys"
-  type        = bool
-  default     = true
-}
-
-variable "visibility_timeout_seconds" {
-  description = "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)"
-  type        = number
+variable "fifo_throughput_limit" {
+  description = "Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group"
+  type        = string
   default     = null
-}
-
-variable "queue_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = {}
-}
-
-variable "create_dlq_redrive_allow_policy" {
-  description = "Determines whether to create a redrive allow policy for the dead letter queue."
-  type        = bool
-  default     = true
 }
 
 variable "kms_data_key_reuse_period_seconds" {
@@ -130,69 +142,9 @@ variable "kms_data_key_reuse_period_seconds" {
   default     = null
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "source_queue_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "dlq_message_retention_seconds" {
-  description = "The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days)"
-  type        = number
-  default     = null
-}
-
-variable "dlq_queue_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = {}
-}
-
-variable "dlq_tags" {
-  description = "A mapping of additional tags to assign to the dead letter queue"
-  type        = map(string)
-  default     = {}
-}
-
-variable "deduplication_scope" {
-  description = "Specifies whether message deduplication occurs at the message group or queue level"
+variable "kms_master_key_id" {
+  description = "The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK"
   type        = string
-  default     = null
-}
-
-variable "name" {
-  description = "This is the human-readable name of the queue. If omitted, Terraform will assign a random name"
-  type        = string
-  default     = null
-}
-
-variable "receive_wait_time_seconds" {
-  description = "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)"
-  type        = number
-  default     = null
-}
-
-variable "dlq_deduplication_scope" {
-  description = "Specifies whether message deduplication occurs at the message group or queue level"
-  type        = string
-  default     = null
-}
-
-variable "dlq_name" {
-  description = "This is the human-readable name of the queue. If omitted, Terraform will assign a random name"
-  type        = string
-  default     = null
-}
-
-variable "dlq_receive_wait_time_seconds" {
-  description = "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)"
-  type        = number
   default     = null
 }
 
@@ -208,22 +160,40 @@ variable "message_retention_seconds" {
   default     = null
 }
 
-variable "create_dlq" {
-  description = "Determines whether to create SQS dead letter queue"
-  type        = bool
-  default     = false
-}
-
-variable "dlq_content_based_deduplication" {
-  description = "Enables content-based deduplication for FIFO queues"
-  type        = bool
-  default     = null
-}
-
-variable "fifo_throughput_limit" {
-  description = "Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group"
+variable "name" {
+  description = "This is the human-readable name of the queue. If omitted, Terraform will assign a random name"
   type        = string
   default     = null
+}
+
+variable "override_dlq_queue_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "override_queue_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "queue_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = any
+  default     = {}
+}
+
+variable "receive_wait_time_seconds" {
+  description = "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)"
+  type        = number
+  default     = null
+}
+
+variable "redrive_allow_policy" {
+  description = "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs."
+  type        = any
+  default     = {}
 }
 
 variable "redrive_policy" {
@@ -232,8 +202,38 @@ variable "redrive_policy" {
   default     = {}
 }
 
-variable "create_queue_policy" {
-  description = "Whether to create SQS queue policy"
+variable "source_dlq_queue_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "source_queue_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "sqs_managed_sse_enabled" {
+  description = "Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys"
+  type        = bool
+  default     = true
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "use_name_prefix" {
+  description = "Determines whether name is used as a prefix"
   type        = bool
   default     = false
+}
+
+variable "visibility_timeout_seconds" {
+  description = "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)"
+  type        = number
+  default     = null
 }

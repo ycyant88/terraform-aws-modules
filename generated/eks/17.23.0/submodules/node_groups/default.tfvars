@@ -1,25 +1,25 @@
-cluster_endpoint = ""
-
-default_iam_role_arn = ""
-
-workers_group_defaults = {}
-
 cluster_auth_base64 = ""
 
-node_groups = {}
+cluster_endpoint = ""
 
 cluster_name = ""
 
-worker_security_group_id = ""
+create_eks = true
 
-tags = {}
+default_iam_role_arn = ""
 
 ebs_optimized_not_supported = []
 
-create_eks = true
+ng_depends_on = null
 
-worker_additional_security_group_ids = []
+node_groups = {}
 
 node_groups_defaults = {}
 
-ng_depends_on = null
+tags = {}
+
+worker_additional_security_group_ids = []
+
+worker_security_group_id = ""
+
+workers_group_defaults = {}

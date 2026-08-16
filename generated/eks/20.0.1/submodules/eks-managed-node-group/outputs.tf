@@ -1,16 +1,11 @@
-output "node_group_resources" {
-  value       = module.eks_eks-managed-node-group.node_group_resources
-  description = "List of objects containing information about underlying resources"
-}
-
-output "node_group_autoscaling_group_names" {
-  value       = module.eks_eks-managed-node-group.node_group_autoscaling_group_names
-  description = "List of the autoscaling group names"
-}
-
 output "autoscaling_group_schedule_arns" {
   value       = module.eks_eks-managed-node-group.autoscaling_group_schedule_arns
   description = "ARNs of autoscaling group schedules"
+}
+
+output "iam_role_arn" {
+  value       = module.eks_eks-managed-node-group.iam_role_arn
+  description = "The Amazon Resource Name (ARN) specifying the IAM role"
 }
 
 output "iam_role_name" {
@@ -23,44 +18,14 @@ output "iam_role_unique_id" {
   description = "Stable and unique string identifying the IAM role"
 }
 
-output "node_group_labels" {
-  value       = module.eks_eks-managed-node-group.node_group_labels
-  description = "Map of labels applied to the node group"
-}
-
-output "iam_role_arn" {
-  value       = module.eks_eks-managed-node-group.iam_role_arn
-  description = "The Amazon Resource Name (ARN) specifying the IAM role"
-}
-
-output "platform" {
-  value       = module.eks_eks-managed-node-group.platform
-  description = "Identifies if the OS platform is bottlerocket, linux, or windows based"
-}
-
-output "node_group_status" {
-  value       = module.eks_eks-managed-node-group.node_group_status
-  description = "Status of the EKS Node Group"
-}
-
-output "node_group_taints" {
-  value       = module.eks_eks-managed-node-group.node_group_taints
-  description = "List of objects containing information about taints applied to the node group"
-}
-
-output "node_group_id" {
-  value       = module.eks_eks-managed-node-group.node_group_id
-  description = "EKS Cluster name and EKS Node Group name separated by a colon (:)"
+output "launch_template_arn" {
+  value       = module.eks_eks-managed-node-group.launch_template_arn
+  description = "The ARN of the launch template"
 }
 
 output "launch_template_id" {
   value       = module.eks_eks-managed-node-group.launch_template_id
   description = "The ID of the launch template"
-}
-
-output "launch_template_arn" {
-  value       = module.eks_eks-managed-node-group.launch_template_arn
-  description = "The ARN of the launch template"
 }
 
 output "launch_template_latest_version" {
@@ -76,4 +41,39 @@ output "launch_template_name" {
 output "node_group_arn" {
   value       = module.eks_eks-managed-node-group.node_group_arn
   description = "Amazon Resource Name (ARN) of the EKS Node Group"
+}
+
+output "node_group_autoscaling_group_names" {
+  value       = module.eks_eks-managed-node-group.node_group_autoscaling_group_names
+  description = "List of the autoscaling group names"
+}
+
+output "node_group_id" {
+  value       = module.eks_eks-managed-node-group.node_group_id
+  description = "EKS Cluster name and EKS Node Group name separated by a colon (:)"
+}
+
+output "node_group_labels" {
+  value       = module.eks_eks-managed-node-group.node_group_labels
+  description = "Map of labels applied to the node group"
+}
+
+output "node_group_resources" {
+  value       = module.eks_eks-managed-node-group.node_group_resources
+  description = "List of objects containing information about underlying resources"
+}
+
+output "node_group_status" {
+  value       = module.eks_eks-managed-node-group.node_group_status
+  description = "Status of the EKS Node Group"
+}
+
+output "node_group_taints" {
+  value       = module.eks_eks-managed-node-group.node_group_taints
+  description = "List of objects containing information about taints applied to the node group"
+}
+
+output "platform" {
+  value       = module.eks_eks-managed-node-group.platform
+  description = "Identifies if the OS platform is bottlerocket, linux, or windows based"
 }

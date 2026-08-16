@@ -10,16 +10,16 @@ variable "create" {
   default     = true
 }
 
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
-  type        = bool
-  default     = true
+variable "description" {
+  description = "A friendly description of the IP set"
+  type        = string
+  default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "ip_address_version" {
+  description = "Specify IPV4 or IPV6. Valid values are IPV4 or IPV6"
+  type        = string
+  default     = "IPV4"
 }
 
 variable "name" {
@@ -28,10 +28,10 @@ variable "name" {
   default     = ""
 }
 
-variable "description" {
-  description = "A friendly description of the IP set"
-  type        = string
-  default     = null
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
+  type        = bool
+  default     = true
 }
 
 variable "scope" {
@@ -40,8 +40,8 @@ variable "scope" {
   default     = "REGIONAL"
 }
 
-variable "ip_address_version" {
-  description = "Specify IPV4 or IPV6. Valid values are IPV4 or IPV6"
-  type        = string
-  default     = "IPV4"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

@@ -1,18 +1,36 @@
+variable "cluster_name" {
+  description = "Name of the EKS cluster."
+  type        = string
+  default     = ""
+}
+
+variable "create_eks" {
+  description = "Controls if EKS resources should be created (it affects almost all resources)"
+  type        = bool
+  default     = true
+}
+
 variable "create_fargate_pod_execution_role" {
   description = "Controls if the the IAM Role that provides permissions for the EKS Fargate Profile should be created."
   type        = bool
   default     = true
 }
 
-variable "subnets" {
-  description = "A list of subnets for the EKS Fargate profiles."
-  type        = list(string)
-  default     = []
+variable "eks_depends_on" {
+  description = "List of references to other resources this submodule depends on."
+  type        = any
+  default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
+variable "fargate_pod_execution_role_name" {
+  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
+  type        = string
+  default     = null
+}
+
+variable "fargate_profiles" {
+  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
+  type        = any
   default     = {}
 }
 
@@ -28,32 +46,14 @@ variable "iam_policy_arn_prefix" {
   default     = ""
 }
 
-variable "fargate_pod_execution_role_name" {
-  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
-  type        = string
-  default     = null
+variable "subnets" {
+  description = "A list of subnets for the EKS Fargate profiles."
+  type        = list(string)
+  default     = []
 }
 
-variable "fargate_profiles" {
-  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
-  type        = any
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
   default     = {}
-}
-
-variable "eks_depends_on" {
-  description = "List of references to other resources this submodule depends on."
-  type        = any
-  default     = null
-}
-
-variable "cluster_name" {
-  description = "Name of the EKS cluster."
-  type        = string
-  default     = ""
-}
-
-variable "create_eks" {
-  description = "Controls if EKS resources should be created (it affects almost all resources)"
-  type        = bool
-  default     = true
 }

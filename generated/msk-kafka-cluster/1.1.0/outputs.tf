@@ -1,11 +1,6 @@
-output "schema_registries" {
-  value       = module.msk-kafka-cluster.schema_registries
-  description = "A map of output attributes for the schema registries created"
-}
-
-output "schemas" {
-  value       = module.msk-kafka-cluster.schemas
-  description = "A map of output attributes for the schemas created"
+output "arn" {
+  value       = module.msk-kafka-cluster.arn
+  description = "Amazon Resource Name (ARN) of the MSK cluster"
 }
 
 output "bootstrap_brokers" {
@@ -33,23 +28,33 @@ output "bootstrap_brokers_tls" {
   description = "One or more DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if encryption_in_transit_client_broker is set to TLS_PLAINTEXT or TLS"
 }
 
-output "current_version" {
-  value       = module.msk-kafka-cluster.current_version
-  description = "Current version of the MSK Cluster used for updates, e.g. K13V1IB3VIYZZH"
-}
-
-output "zookeeper_connect_string_tls" {
-  value       = module.msk-kafka-cluster.zookeeper_connect_string_tls
-  description = "A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically"
-}
-
 output "configuration_arn" {
   value       = module.msk-kafka-cluster.configuration_arn
   description = "Amazon Resource Name (ARN) of the configuration"
 }
 
-output "arn" {
-  value       = module.msk-kafka-cluster.arn
+output "configuration_latest_revision" {
+  value       = module.msk-kafka-cluster.configuration_latest_revision
+  description = "Latest revision of the configuration"
+}
+
+output "current_version" {
+  value       = module.msk-kafka-cluster.current_version
+  description = "Current version of the MSK Cluster used for updates, e.g. K13V1IB3VIYZZH"
+}
+
+output "schema_registries" {
+  value       = module.msk-kafka-cluster.schema_registries
+  description = "A map of output attributes for the schema registries created"
+}
+
+output "schemas" {
+  value       = module.msk-kafka-cluster.schemas
+  description = "A map of output attributes for the schemas created"
+}
+
+output "scram_secret_association_id" {
+  value       = module.msk-kafka-cluster.scram_secret_association_id
   description = "Amazon Resource Name (ARN) of the MSK cluster"
 }
 
@@ -58,12 +63,7 @@ output "zookeeper_connect_string" {
   description = "A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically"
 }
 
-output "configuration_latest_revision" {
-  value       = module.msk-kafka-cluster.configuration_latest_revision
-  description = "Latest revision of the configuration"
-}
-
-output "scram_secret_association_id" {
-  value       = module.msk-kafka-cluster.scram_secret_association_id
-  description = "Amazon Resource Name (ARN) of the MSK cluster"
+output "zookeeper_connect_string_tls" {
+  value       = module.msk-kafka-cluster.zookeeper_connect_string_tls
+  description = "A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically"
 }

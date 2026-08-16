@@ -1,51 +1,51 @@
-create = true
-
-tags = {}
+alb = {}
 
 alb_security_group_id = ""
 
-atlantis_uid = 100
-
-alb = {}
-
-certificate_domain_name = ""
-
-vpc_id = ""
+alb_subnets = []
 
 alb_target_group_arn = ""
-
-create_route53_records = true
-
-create_certificate = true
 
 atlantis = {}
 
 atlantis_gid = 1000
 
+atlantis_uid = 100
+
 certificate_arn = ""
 
-create_alb = true
-
-cluster_arn = ""
-
-service = {}
-
-route53_record_name = null
-
-name = "atlantis"
-
-alb_subnets = []
-
-create_cluster = true
-
-enable_efs = false
+certificate_domain_name = ""
 
 cluster = {}
 
-service_subnets = []
+cluster_arn = ""
 
-validate_certificate = true
+create = true
+
+create_alb = true
+
+create_certificate = true
+
+create_cluster = true
+
+create_route53_records = true
+
+efs = {}
+
+enable_efs = false
+
+name = "atlantis"
+
+route53_record_name = null
 
 route53_zone_id = ""
 
-efs = {}
+service = {}
+
+service_subnets = []
+
+tags = {}
+
+validate_certificate = true
+
+vpc_id = ""

@@ -1,8 +1,10 @@
-name = ""
-
-use_name_prefix = true
+create = true
 
 description = null
+
+family = null
+
+name = ""
 
 parameters = null
 
@@ -12,6 +14,4 @@ skip_destroy = null
 
 tags = {}
 
-create = true
-
-family = null
+use_name_prefix = true

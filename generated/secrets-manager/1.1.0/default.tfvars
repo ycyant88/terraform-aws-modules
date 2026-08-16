@@ -1,47 +1,47 @@
-recovery_window_in_days = null
-
-policy_statements = {}
-
 block_public_policy = null
 
-version_stages = null
-
-random_password_length = 32
-
 create = true
-
-name = null
-
-name_prefix = null
-
-replica = {}
-
-enable_rotation = false
-
-rotation_rules = {}
-
-description = null
-
-force_overwrite_replica_secret = null
 
 create_policy = false
 
 create_random_password = false
 
-random_password_override_special = "!@#$%&*()-_=+[]{}<>:?"
+description = null
 
-rotation_lambda_arn = ""
+enable_rotation = false
 
-secret_binary = null
-
-tags = {}
-
-kms_key_id = null
-
-source_policy_documents = []
-
-override_policy_documents = []
+force_overwrite_replica_secret = null
 
 ignore_secret_changes = false
 
+kms_key_id = null
+
+name = null
+
+name_prefix = null
+
+override_policy_documents = []
+
+policy_statements = {}
+
+random_password_length = 32
+
+random_password_override_special = "!@#$%&*()-_=+[]{}<>:?"
+
+recovery_window_in_days = null
+
+replica = {}
+
+rotation_lambda_arn = ""
+
+rotation_rules = {}
+
+secret_binary = null
+
 secret_string = null
+
+source_policy_documents = []
+
+tags = {}
+
+version_stages = null

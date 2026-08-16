@@ -1,19 +1,19 @@
 module "atlantis" {
   source                           = "terraform-aws-modules/atlantis/aws"
   version                          = "1.0.0"
-  cidr                             = var.cidr
-  atlantis_image                   = var.atlantis_image
-  atlantis_github_user             = var.atlantis_github_user
   acm_certificate_domain_name      = var.acm_certificate_domain_name
-  route53_zone_name                = var.route53_zone_name
-  create_route53_record            = var.create_route53_record
-  azs                              = var.azs
-  public_subnets                   = var.public_subnets
-  certificate_arn                  = var.certificate_arn
-  cloudwatch_log_retention_in_days = var.cloudwatch_log_retention_in_days
-  atlantis_version                 = var.atlantis_version
+  atlantis_github_user             = var.atlantis_github_user
   atlantis_github_user_token       = var.atlantis_github_user_token
+  atlantis_image                   = var.atlantis_image
+  atlantis_repo_whitelist          = var.atlantis_repo_whitelist
+  atlantis_version                 = var.atlantis_version
+  azs                              = var.azs
+  certificate_arn                  = var.certificate_arn
+  cidr                             = var.cidr
+  cloudwatch_log_retention_in_days = var.cloudwatch_log_retention_in_days
+  create_route53_record            = var.create_route53_record
   name                             = var.name
   private_subnets                  = var.private_subnets
-  atlantis_repo_whitelist          = var.atlantis_repo_whitelist
+  public_subnets                   = var.public_subnets
+  route53_zone_name                = var.route53_zone_name
 }

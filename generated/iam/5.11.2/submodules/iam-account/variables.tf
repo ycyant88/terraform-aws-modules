@@ -1,13 +1,7 @@
-variable "create_account_password_policy" {
-  description = "Whether to create AWS IAM account password policy"
-  type        = bool
-  default     = true
-}
-
-variable "minimum_password_length" {
-  description = "Minimum length to require for user passwords"
-  type        = number
-  default     = 8
+variable "account_alias" {
+  description = "AWS IAM account alias for this account"
+  type        = string
+  default     = ""
 }
 
 variable "allow_users_to_change_password" {
@@ -16,14 +10,8 @@ variable "allow_users_to_change_password" {
   default     = true
 }
 
-variable "password_reuse_prevention" {
-  description = "The number of previous passwords that users are prevented from reusing"
-  type        = number
-  default     = null
-}
-
-variable "require_symbols" {
-  description = "Whether to require symbols for user passwords"
+variable "create_account_password_policy" {
+  description = "Whether to create AWS IAM account password policy"
   type        = bool
   default     = true
 }
@@ -34,10 +22,10 @@ variable "get_caller_identity" {
   default     = true
 }
 
-variable "account_alias" {
-  description = "AWS IAM account alias for this account"
-  type        = string
-  default     = ""
+variable "hard_expiry" {
+  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
+  type        = bool
+  default     = false
 }
 
 variable "max_password_age" {
@@ -46,10 +34,16 @@ variable "max_password_age" {
   default     = 0
 }
 
-variable "hard_expiry" {
-  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
-  type        = bool
-  default     = false
+variable "minimum_password_length" {
+  description = "Minimum length to require for user passwords"
+  type        = number
+  default     = 8
+}
+
+variable "password_reuse_prevention" {
+  description = "The number of previous passwords that users are prevented from reusing"
+  type        = number
+  default     = null
 }
 
 variable "require_lowercase_characters" {
@@ -58,14 +52,20 @@ variable "require_lowercase_characters" {
   default     = true
 }
 
-variable "require_uppercase_characters" {
-  description = "Whether to require uppercase characters for user passwords"
+variable "require_numbers" {
+  description = "Whether to require numbers for user passwords"
   type        = bool
   default     = true
 }
 
-variable "require_numbers" {
-  description = "Whether to require numbers for user passwords"
+variable "require_symbols" {
+  description = "Whether to require symbols for user passwords"
+  type        = bool
+  default     = true
+}
+
+variable "require_uppercase_characters" {
+  description = "Whether to require uppercase characters for user passwords"
   type        = bool
   default     = true
 }

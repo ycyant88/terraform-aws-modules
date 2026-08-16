@@ -1,3 +1,9 @@
+variable "access_logs" {
+  description = "An access logs block"
+  type        = map(string)
+  default     = {}
+}
+
 variable "connection_draining" {
   description = "Boolean to enable connection draining"
   type        = bool
@@ -10,28 +16,16 @@ variable "connection_draining_timeout" {
   default     = 300
 }
 
-variable "number_of_instances" {
-  description = "Number of instances to attach to ELB"
-  type        = number
-  default     = 0
-}
-
-variable "instances" {
-  description = "List of instances ID to place in the ELB pool"
-  type        = list(string)
-  default     = []
-}
-
-variable "name" {
-  description = "The name of the ELB"
-  type        = string
-  default     = ""
-}
-
 variable "cross_zone_load_balancing" {
   description = "Enable cross-zone load balancing"
   type        = bool
   default     = true
+}
+
+variable "health_check" {
+  description = "A health check block"
+  type        = map(string)
+  default     = ""
 }
 
 variable "idle_timeout" {
@@ -40,16 +34,10 @@ variable "idle_timeout" {
   default     = 60
 }
 
-variable "access_logs" {
-  description = "An access logs block"
-  type        = map(string)
-  default     = {}
-}
-
-variable "security_groups" {
-  description = "A list of security group IDs to assign to the ELB"
+variable "instances" {
+  description = "List of instances ID to place in the ELB pool"
   type        = list(string)
-  default     = ""
+  default     = []
 }
 
 variable "internal" {
@@ -58,9 +46,33 @@ variable "internal" {
   default     = ""
 }
 
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(map(string))
+  default     = ""
+}
+
+variable "name" {
+  description = "The name of the ELB"
+  type        = string
+  default     = ""
+}
+
 variable "name_prefix" {
   description = "The prefix name of the ELB"
   type        = string
+  default     = ""
+}
+
+variable "number_of_instances" {
+  description = "Number of instances to attach to ELB"
+  type        = number
+  default     = 0
+}
+
+variable "security_groups" {
+  description = "A list of security group IDs to assign to the ELB"
+  type        = list(string)
   default     = ""
 }
 
@@ -74,16 +86,4 @@ variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
   default     = {}
-}
-
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(map(string))
-  default     = ""
-}
-
-variable "health_check" {
-  description = "A health check block"
-  type        = map(string)
-  default     = ""
 }

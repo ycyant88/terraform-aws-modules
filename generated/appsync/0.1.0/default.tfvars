@@ -1,45 +1,45 @@
-resolver_caching_ttl = 60
+api_keys = {}
 
-xray_enabled = false
+authentication_type = "API_KEY"
 
-schema = ""
+create_graphql_api = true
 
 create_logs_role = true
+
+datasources = {}
+
+direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": $util.toJson($context.args)\n}\n"
+
+direct_lambda_response_template = "$util.toJson($context.result)\n"
+
+dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
+
+elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+
+graphql_api_tags = {}
+
+lambda_allowed_actions = ["lambda:invokeFunction"]
 
 log_cloudwatch_logs_role_arn = ""
 
 log_exclude_verbose_content = false
 
-logs_role_tags = {}
-
-elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
-
-datasources = {}
-
-create_graphql_api = true
+log_field_log_level = ""
 
 logging_enabled = false
 
-log_field_log_level = ""
-
-graphql_api_tags = {}
-
-direct_lambda_response_template = "$util.toJson($context.result)\n"
-
-authentication_type = "API_KEY"
-
 logs_role_name = ""
 
-tags = {}
-
-dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
-
-direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": $util.toJson($context.args)\n}\n"
-
-resolvers = {}
+logs_role_tags = {}
 
 name = ""
 
-api_keys = {}
+resolver_caching_ttl = 60
 
-lambda_allowed_actions = ["lambda:invokeFunction"]
+resolvers = {}
+
+schema = ""
+
+tags = {}
+
+xray_enabled = false

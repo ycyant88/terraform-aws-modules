@@ -1,10 +1,6 @@
-use_random_name_prefix = false
-
-namespace = "CISBenchmark"
+actions_enabled = true
 
 alarm_actions = []
-
-actions_enabled = true
 
 create = true
 
@@ -12,6 +8,10 @@ disabled_controls = []
 
 log_group_name = ""
 
+name_prefix = ""
+
+namespace = "CISBenchmark"
+
 tags = {}
 
-name_prefix = ""
+use_random_name_prefix = false

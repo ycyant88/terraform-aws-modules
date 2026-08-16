@@ -1,91 +1,13 @@
-variable "metric_configuration" {
-  description = "Map containing bucket metric configuration."
-  type        = any
+variable "acceleration_status" {
+  description = "(Optional) Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended."
+  type        = string
+  default     = null
+}
+
+variable "access_log_delivery_policy_source_accounts" {
+  description = "(Optional) List of AWS Account IDs should be allowed to deliver access logs to this bucket."
+  type        = list(string)
   default     = []
-}
-
-variable "analytics_self_source_destination" {
-  description = "Whether or not the analytics source bucket is also the destination bucket."
-  type        = bool
-  default     = false
-}
-
-variable "attach_cloudtrail_log_delivery_policy" {
-  description = "Controls if S3 bucket should have CloudTrail log delivery policy attached"
-  type        = bool
-  default     = false
-}
-
-variable "attach_require_latest_tls_policy" {
-  description = "Controls if S3 bucket should require the latest version of TLS"
-  type        = bool
-  default     = false
-}
-
-variable "policy" {
-  description = "(Optional) A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a terraform plan. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide."
-  type        = string
-  default     = null
-}
-
-variable "tags" {
-  description = "(Optional) A mapping of tags to assign to the bucket."
-  type        = map(string)
-  default     = {}
-}
-
-variable "request_payer" {
-  description = "(Optional) Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information."
-  type        = string
-  default     = null
-}
-
-variable "versioning" {
-  description = "Map containing versioning configuration."
-  type        = map(string)
-  default     = {}
-}
-
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
-}
-
-variable "attach_deny_insecure_transport_policy" {
-  description = "Controls if S3 bucket should have deny non-SSL transport policy attached"
-  type        = bool
-  default     = false
-}
-
-variable "analytics_configuration" {
-  description = "Map containing bucket analytics configuration."
-  type        = any
-  default     = {}
-}
-
-variable "data_redundancy" {
-  description = "Data redundancy. Valid values: SingleAvailabilityZone"
-  type        = string
-  default     = null
-}
-
-variable "attach_access_log_delivery_policy" {
-  description = "Controls if S3 bucket should have S3 access log delivery policy attached"
-  type        = bool
-  default     = false
-}
-
-variable "bucket_prefix" {
-  description = "(Optional, Forces new resource) Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket."
-  type        = string
-  default     = null
-}
-
-variable "logging" {
-  description = "Map containing access bucket logging configuration."
-  type        = any
-  default     = {}
 }
 
 variable "access_log_delivery_policy_source_buckets" {
@@ -94,58 +16,16 @@ variable "access_log_delivery_policy_source_buckets" {
   default     = []
 }
 
-variable "grant" {
-  description = "An ACL policy grant. Conflicts with acl"
-  type        = any
+variable "access_log_delivery_policy_source_organizations" {
+  description = "(Optional) List of AWS Organization IDs should be allowed to deliver access logs to this bucket."
+  type        = list(string)
   default     = []
 }
 
-variable "block_public_policy" {
-  description = "Whether Amazon S3 should block public bucket policies for this bucket."
-  type        = bool
-  default     = true
-}
-
-variable "ignore_public_acls" {
-  description = "Whether Amazon S3 should ignore public ACLs for this bucket."
-  type        = bool
-  default     = true
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration"
+variable "acl" {
+  description = "(Optional) The canned ACL to apply. Conflicts with grant"
   type        = string
   default     = null
-}
-
-variable "acceleration_status" {
-  description = "(Optional) Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended."
-  type        = string
-  default     = null
-}
-
-variable "inventory_source_account_id" {
-  description = "The inventory source account id."
-  type        = string
-  default     = null
-}
-
-variable "object_lock_enabled" {
-  description = "Whether S3 bucket should have an Object Lock configuration enabled."
-  type        = bool
-  default     = false
-}
-
-variable "cors_rule" {
-  description = "List of maps containing rules for Cross-Origin Resource Sharing."
-  type        = any
-  default     = []
-}
-
-variable "attach_deny_incorrect_encryption_headers" {
-  description = "Controls if S3 bucket should deny incorrect encryption headers policy attached."
-  type        = bool
-  default     = false
 }
 
 variable "allowed_kms_key_arn" {
@@ -154,14 +34,14 @@ variable "allowed_kms_key_arn" {
   default     = null
 }
 
-variable "attach_waf_log_delivery_policy" {
-  description = "Controls if S3 bucket should have WAF log delivery policy attached"
-  type        = bool
-  default     = false
+variable "analytics_configuration" {
+  description = "Map containing bucket analytics configuration."
+  type        = any
+  default     = {}
 }
 
-variable "force_destroy" {
-  description = "(Optional, Default:false ) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable."
+variable "analytics_self_source_destination" {
+  description = "Whether or not the analytics source bucket is also the destination bucket."
   type        = bool
   default     = false
 }
@@ -172,10 +52,46 @@ variable "analytics_source_account_id" {
   default     = null
 }
 
-variable "create_bucket" {
-  description = "Controls if S3 bucket should be created"
+variable "analytics_source_bucket_arn" {
+  description = "The analytics source bucket ARN."
+  type        = string
+  default     = null
+}
+
+variable "attach_access_log_delivery_policy" {
+  description = "Controls if S3 bucket should have S3 access log delivery policy attached"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "attach_analytics_destination_policy" {
+  description = "Controls if S3 bucket should have bucket analytics destination policy attached."
+  type        = bool
+  default     = false
+}
+
+variable "attach_cloudtrail_log_delivery_policy" {
+  description = "Controls if S3 bucket should have CloudTrail log delivery policy attached"
+  type        = bool
+  default     = false
+}
+
+variable "attach_deny_incorrect_encryption_headers" {
+  description = "Controls if S3 bucket should deny incorrect encryption headers policy attached."
+  type        = bool
+  default     = false
+}
+
+variable "attach_deny_incorrect_kms_key_sse" {
+  description = "Controls if S3 bucket policy should deny usage of incorrect KMS key SSE."
+  type        = bool
+  default     = false
+}
+
+variable "attach_deny_insecure_transport_policy" {
+  description = "Controls if S3 bucket should have deny non-SSL transport policy attached"
+  type        = bool
+  default     = false
 }
 
 variable "attach_deny_ssec_encrypted_object_uploads" {
@@ -184,34 +100,58 @@ variable "attach_deny_ssec_encrypted_object_uploads" {
   default     = false
 }
 
-variable "access_log_delivery_policy_source_accounts" {
-  description = "(Optional) List of AWS Account IDs should be allowed to deliver access logs to this bucket."
-  type        = list(string)
-  default     = []
+variable "attach_deny_unencrypted_object_uploads" {
+  description = "Controls if S3 bucket should deny unencrypted object uploads policy attached."
+  type        = bool
+  default     = false
 }
 
-variable "intelligent_tiering" {
-  description = "Map containing intelligent tiering configuration."
-  type        = any
-  default     = {}
+variable "attach_elb_log_delivery_policy" {
+  description = "Controls if S3 bucket should have ELB log delivery policy attached"
+  type        = bool
+  default     = false
 }
 
-variable "bucket" {
-  description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."
+variable "attach_inventory_destination_policy" {
+  description = "Controls if S3 bucket should have bucket inventory destination policy attached."
+  type        = bool
+  default     = false
+}
+
+variable "attach_lb_log_delivery_policy" {
+  description = "Controls if S3 bucket should have ALB/NLB log delivery policy attached"
+  type        = bool
+  default     = false
+}
+
+variable "attach_policy" {
+  description = "Controls if S3 bucket should have bucket policy attached (set to true to use value of policy as bucket policy)"
+  type        = bool
+  default     = false
+}
+
+variable "attach_public_policy" {
+  description = "Controls if a user defined public bucket policy will be attached (set to false to allow upstream to apply defaults to the bucket)"
+  type        = bool
+  default     = true
+}
+
+variable "attach_require_latest_tls_policy" {
+  description = "Controls if S3 bucket should require the latest version of TLS"
+  type        = bool
+  default     = false
+}
+
+variable "attach_waf_log_delivery_policy" {
+  description = "Controls if S3 bucket should have WAF log delivery policy attached"
+  type        = bool
+  default     = false
+}
+
+variable "availability_zone_id" {
+  description = "Availability Zone ID or Local Zone ID"
   type        = string
   default     = null
-}
-
-variable "access_log_delivery_policy_source_organizations" {
-  description = "(Optional) List of AWS Organization IDs should be allowed to deliver access logs to this bucket."
-  type        = list(string)
-  default     = []
-}
-
-variable "inventory_configuration" {
-  description = "Map containing S3 inventory configuration."
-  type        = any
-  default     = {}
 }
 
 variable "block_public_acls" {
@@ -220,22 +160,106 @@ variable "block_public_acls" {
   default     = true
 }
 
-variable "restrict_public_buckets" {
-  description = "Whether Amazon S3 should restrict public bucket policies for this bucket."
+variable "block_public_policy" {
+  description = "Whether Amazon S3 should block public bucket policies for this bucket."
   type        = bool
   default     = true
 }
 
-variable "attach_deny_unencrypted_object_uploads" {
-  description = "Controls if S3 bucket should deny unencrypted object uploads policy attached."
+variable "bucket" {
+  description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."
+  type        = string
+  default     = null
+}
+
+variable "bucket_prefix" {
+  description = "(Optional, Forces new resource) Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket."
+  type        = string
+  default     = null
+}
+
+variable "control_object_ownership" {
+  description = "Whether to manage S3 Bucket Ownership Controls on this bucket."
   type        = bool
   default     = false
 }
 
-variable "acl" {
-  description = "(Optional) The canned ACL to apply. Conflicts with grant"
+variable "cors_rule" {
+  description = "List of maps containing rules for Cross-Origin Resource Sharing."
+  type        = any
+  default     = []
+}
+
+variable "create_bucket" {
+  description = "Controls if S3 bucket should be created"
+  type        = bool
+  default     = true
+}
+
+variable "data_redundancy" {
+  description = "Data redundancy. Valid values: SingleAvailabilityZone"
   type        = string
   default     = null
+}
+
+variable "expected_bucket_owner" {
+  description = "The account ID of the expected bucket owner"
+  type        = string
+  default     = null
+}
+
+variable "force_destroy" {
+  description = "(Optional, Default:false ) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable."
+  type        = bool
+  default     = false
+}
+
+variable "grant" {
+  description = "An ACL policy grant. Conflicts with acl"
+  type        = any
+  default     = []
+}
+
+variable "ignore_public_acls" {
+  description = "Whether Amazon S3 should ignore public ACLs for this bucket."
+  type        = bool
+  default     = true
+}
+
+variable "intelligent_tiering" {
+  description = "Map containing intelligent tiering configuration."
+  type        = any
+  default     = {}
+}
+
+variable "inventory_configuration" {
+  description = "Map containing S3 inventory configuration."
+  type        = any
+  default     = {}
+}
+
+variable "inventory_self_source_destination" {
+  description = "Whether or not the inventory source bucket is also the destination bucket."
+  type        = bool
+  default     = false
+}
+
+variable "inventory_source_account_id" {
+  description = "The inventory source account id."
+  type        = string
+  default     = null
+}
+
+variable "inventory_source_bucket_arn" {
+  description = "The inventory source bucket ARN."
+  type        = string
+  default     = null
+}
+
+variable "is_directory_bucket" {
+  description = "If the s3 bucket created is a directory bucket"
+  type        = bool
+  default     = false
 }
 
 variable "lb_log_delivery_policy_source_organizations" {
@@ -250,32 +274,32 @@ variable "lifecycle_rule" {
   default     = []
 }
 
-variable "server_side_encryption_configuration" {
-  description = "Map containing server-side encryption configuration."
-  type        = any
-  default     = {}
-}
-
-variable "analytics_source_bucket_arn" {
-  description = "The analytics source bucket ARN."
+variable "location_type" {
+  description = "Location type. Valid values: AvailabilityZone or LocalZone"
   type        = string
   default     = null
 }
 
-variable "attach_lb_log_delivery_policy" {
-  description = "Controls if S3 bucket should have ALB/NLB log delivery policy attached"
-  type        = bool
-  default     = false
+variable "logging" {
+  description = "Map containing access bucket logging configuration."
+  type        = any
+  default     = {}
 }
 
-variable "inventory_self_source_destination" {
-  description = "Whether or not the inventory source bucket is also the destination bucket."
-  type        = bool
-  default     = false
+variable "metric_configuration" {
+  description = "Map containing bucket metric configuration."
+  type        = any
+  default     = []
 }
 
-variable "control_object_ownership" {
-  description = "Whether to manage S3 Bucket Ownership Controls on this bucket."
+variable "object_lock_configuration" {
+  description = "Map containing S3 object locking configuration."
+  type        = any
+  default     = {}
+}
+
+variable "object_lock_enabled" {
+  description = "Whether S3 bucket should have an Object Lock configuration enabled."
   type        = bool
   default     = false
 }
@@ -286,26 +310,56 @@ variable "object_ownership" {
   default     = "BucketOwnerEnforced"
 }
 
-variable "is_directory_bucket" {
-  description = "If the s3 bucket created is a directory bucket"
-  type        = bool
-  default     = false
+variable "owner" {
+  description = "Bucket owner's display name and ID. Conflicts with acl"
+  type        = map(string)
+  default     = {}
 }
 
-variable "location_type" {
-  description = "Location type. Valid values: AvailabilityZone or LocalZone"
+variable "policy" {
+  description = "(Optional) A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a terraform plan. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide."
   type        = string
   default     = null
 }
 
-variable "website" {
-  description = "Map containing static web-site hosting or redirect configuration."
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "replication_configuration" {
+  description = "Map containing cross-region replication configuration."
   type        = any
   default     = {}
 }
 
-variable "owner" {
-  description = "Bucket owner's display name and ID. Conflicts with acl"
+variable "request_payer" {
+  description = "(Optional) Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information."
+  type        = string
+  default     = null
+}
+
+variable "restrict_public_buckets" {
+  description = "Whether Amazon S3 should restrict public bucket policies for this bucket."
+  type        = bool
+  default     = true
+}
+
+variable "server_side_encryption_configuration" {
+  description = "Map containing server-side encryption configuration."
+  type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "(Optional) A mapping of tags to assign to the bucket."
   type        = map(string)
   default     = {}
 }
@@ -322,68 +376,14 @@ variable "type" {
   default     = "Directory"
 }
 
-variable "attach_policy" {
-  description = "Controls if S3 bucket should have bucket policy attached (set to true to use value of policy as bucket policy)"
-  type        = bool
-  default     = false
-}
-
-variable "attach_deny_incorrect_kms_key_sse" {
-  description = "Controls if S3 bucket policy should deny usage of incorrect KMS key SSE."
-  type        = bool
-  default     = false
-}
-
-variable "expected_bucket_owner" {
-  description = "The account ID of the expected bucket owner"
-  type        = string
-  default     = null
-}
-
-variable "replication_configuration" {
-  description = "Map containing cross-region replication configuration."
-  type        = any
+variable "versioning" {
+  description = "Map containing versioning configuration."
+  type        = map(string)
   default     = {}
 }
 
-variable "attach_public_policy" {
-  description = "Controls if a user defined public bucket policy will be attached (set to false to allow upstream to apply defaults to the bucket)"
-  type        = bool
-  default     = true
-}
-
-variable "attach_inventory_destination_policy" {
-  description = "Controls if S3 bucket should have bucket inventory destination policy attached."
-  type        = bool
-  default     = false
-}
-
-variable "object_lock_configuration" {
-  description = "Map containing S3 object locking configuration."
+variable "website" {
+  description = "Map containing static web-site hosting or redirect configuration."
   type        = any
   default     = {}
-}
-
-variable "inventory_source_bucket_arn" {
-  description = "The inventory source bucket ARN."
-  type        = string
-  default     = null
-}
-
-variable "availability_zone_id" {
-  description = "Availability Zone ID or Local Zone ID"
-  type        = string
-  default     = null
-}
-
-variable "attach_elb_log_delivery_policy" {
-  description = "Controls if S3 bucket should have ELB log delivery policy attached"
-  type        = bool
-  default     = false
-}
-
-variable "attach_analytics_destination_policy" {
-  description = "Controls if S3 bucket should have bucket analytics destination policy attached."
-  type        = bool
-  default     = false
 }

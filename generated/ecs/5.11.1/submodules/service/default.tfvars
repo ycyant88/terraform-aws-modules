@@ -1,201 +1,201 @@
-deployment_minimum_healthy_percent = 66
+alarms = {}
 
 assign_public_ip = false
 
-autoscaling_scheduled_actions = {}
-
-scheduling_strategy = null
-
-iam_role_tags = {}
-
-runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
-
-skip_destroy = null
-
-tasks_iam_role_arn = null
-
-network_mode = "awsvpc"
-
-proxy_configuration = {}
-
-ignore_task_definition_changes = false
-
-deployment_circuit_breaker = {}
-
-iam_role_name = null
-
-wait_until_stable_timeout = null
-
-tasks_iam_role_policies = {}
+autoscaling_max_capacity = 10
 
 autoscaling_min_capacity = 1
 
 autoscaling_policies = { "cpu" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageCPUUtilization" } } }, "memory" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageMemoryUtilization" } } } }
 
+autoscaling_scheduled_actions = {}
+
 capacity_provider_strategy = {}
-
-iam_role_description = null
-
-tasks_iam_role_name = null
-
-iam_role_use_name_prefix = true
-
-ipc_mode = null
-
-create_task_exec_iam_role = true
-
-security_group_tags = {}
-
-iam_role_statements = {}
-
-container_definitions = {}
-
-force_new_deployment = true
-
-placement_constraints = {}
-
-service_tags = {}
-
-task_exec_iam_role_arn = null
-
-create_task_exec_policy = true
-
-deployment_controller = {}
-
-cpu = 1024
-
-task_exec_iam_role_use_name_prefix = true
-
-tasks_iam_role_use_name_prefix = true
-
-tags = {}
-
-enable_ecs_managed_tags = true
-
-service_connect_configuration = {}
-
-service_registries = {}
-
-security_group_use_name_prefix = true
-
-memory = 2048
-
-task_exec_iam_statements = {}
-
-pid_mode = null
-
-launch_type = "FARGATE"
-
-task_definition_placement_constraints = {}
-
-tasks_iam_role_path = null
-
-container_definition_defaults = {}
-
-task_exec_iam_role_max_session_duration = null
-
-create_security_group = true
-
-create = true
 
 cluster_arn = ""
 
-tasks_iam_role_tags = {}
+container_definition_defaults = {}
 
-enable_autoscaling = true
+container_definitions = {}
 
-wait_for_steady_state = null
+cpu = 1024
 
-security_group_description = null
-
-ephemeral_storage = {}
+create = true
 
 create_iam_role = true
 
-iam_role_permissions_boundary = null
+create_security_group = true
 
-family = null
+create_service = true
+
+create_task_definition = true
+
+create_task_exec_iam_role = true
+
+create_task_exec_policy = true
 
 create_tasks_iam_role = true
 
-task_exec_ssm_param_arns = ["arn:aws:ssm:*:*:parameter/*"]
+deployment_circuit_breaker = {}
 
-tasks_iam_role_description = null
+deployment_controller = {}
 
-alarms = {}
+deployment_maximum_percent = 200
 
-health_check_grace_period_seconds = null
+deployment_minimum_healthy_percent = 66
 
-inference_accelerator = {}
+desired_count = 1
 
-task_exec_iam_role_name = null
+enable_autoscaling = true
 
-task_exec_iam_role_path = null
+enable_ecs_managed_tags = true
+
+enable_execute_command = false
+
+ephemeral_storage = {}
 
 external_id = null
 
-name = null
+family = null
 
-timeouts = {}
+force_delete = null
+
+force_new_deployment = true
+
+health_check_grace_period_seconds = null
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_name = null
 
 iam_role_path = null
 
-security_group_rules = {}
+iam_role_permissions_boundary = null
 
-subnet_ids = []
+iam_role_statements = {}
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+ignore_task_definition_changes = false
+
+inference_accelerator = {}
+
+ipc_mode = null
+
+launch_type = "FARGATE"
+
+load_balancer = {}
+
+memory = 2048
+
+name = null
+
+network_mode = "awsvpc"
+
+ordered_placement_strategy = {}
+
+pid_mode = null
+
+placement_constraints = {}
 
 platform_version = null
 
 propagate_tags = null
 
-tasks_iam_role_permissions_boundary = null
-
-force_delete = null
-
-task_exec_iam_role_description = null
-
-task_exec_iam_role_tags = {}
-
-scale = {}
-
-tasks_iam_role_statements = {}
-
-deployment_maximum_percent = 200
-
-load_balancer = {}
+proxy_configuration = {}
 
 requires_compatibilities = ["FARGATE"]
 
-task_tags = {}
+runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
 
-create_service = true
+scale = {}
 
-desired_count = 1
+scheduling_strategy = null
 
-enable_execute_command = false
-
-triggers = {}
-
-task_exec_secret_arns = ["arn:aws:secretsmanager:*:*:secret:*"]
-
-wait_until_stable = null
+security_group_description = null
 
 security_group_ids = []
 
-ordered_placement_strategy = {}
-
-create_task_definition = true
-
 security_group_name = null
 
-iam_role_arn = null
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+service_connect_configuration = {}
+
+service_registries = {}
+
+service_tags = {}
+
+skip_destroy = null
+
+subnet_ids = []
+
+tags = {}
+
+task_definition_arn = null
+
+task_definition_placement_constraints = {}
+
+task_exec_iam_role_arn = null
+
+task_exec_iam_role_description = null
+
+task_exec_iam_role_max_session_duration = null
+
+task_exec_iam_role_name = null
+
+task_exec_iam_role_path = null
 
 task_exec_iam_role_permissions_boundary = null
 
 task_exec_iam_role_policies = {}
 
-task_definition_arn = null
+task_exec_iam_role_tags = {}
+
+task_exec_iam_role_use_name_prefix = true
+
+task_exec_iam_statements = {}
+
+task_exec_secret_arns = ["arn:aws:secretsmanager:*:*:secret:*"]
+
+task_exec_ssm_param_arns = ["arn:aws:ssm:*:*:parameter/*"]
+
+task_tags = {}
+
+tasks_iam_role_arn = null
+
+tasks_iam_role_description = null
+
+tasks_iam_role_name = null
+
+tasks_iam_role_path = null
+
+tasks_iam_role_permissions_boundary = null
+
+tasks_iam_role_policies = {}
+
+tasks_iam_role_statements = {}
+
+tasks_iam_role_tags = {}
+
+tasks_iam_role_use_name_prefix = true
+
+timeouts = {}
+
+triggers = {}
 
 volume = {}
 
-autoscaling_max_capacity = 10
+wait_for_steady_state = null
+
+wait_until_stable = null
+
+wait_until_stable_timeout = null

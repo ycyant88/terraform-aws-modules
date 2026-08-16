@@ -1,93 +1,93 @@
-role_description = ""
-
-attach_lambda_policy = false
-
-cloudwatch_target_arns = []
-
-policy_json = ""
-
-policy = ""
-
-permissions = {}
-
-role_tags = {}
-
-attach_policy = false
-
-attach_sqs_policy = false
-
-attach_ecs_policy = false
+archives = {}
 
 attach_cloudwatch_policy = false
 
-kinesis_target_arns = []
-
-sqs_target_arns = []
-
-create_permissions = true
-
-targets = {}
-
-archives = {}
-
-policies = []
-
-attach_policy_json = false
-
-number_of_policy_jsons = 0
-
-number_of_policies = 0
-
-create_targets = true
-
-create_archives = false
-
-attach_policies = false
-
-attach_sfn_policy = false
-
-sfn_target_arns = []
-
-policy_statements = {}
-
-create_rules = true
-
-rules = {}
-
-attach_kinesis_policy = false
+attach_ecs_policy = false
 
 attach_kinesis_firehose_policy = false
 
-attach_tracing_policy = false
+attach_kinesis_policy = false
 
-trusted_entities = []
+attach_lambda_policy = false
 
-create_role = true
+attach_policies = false
 
-create_bus = true
+attach_policy = false
 
-role_force_detach_policies = true
-
-role_path = ""
-
-kinesis_firehose_target_arns = []
-
-ecs_target_arns = []
+attach_policy_json = false
 
 attach_policy_jsons = false
 
 attach_policy_statements = false
 
-create = true
+attach_sfn_policy = false
 
-tags = {}
+attach_sqs_policy = false
 
-role_name = ""
-
-policy_jsons = []
+attach_tracing_policy = false
 
 bus_name = "default"
 
-role_permissions_boundary = ""
+cloudwatch_target_arns = []
+
+create = true
+
+create_archives = false
+
+create_bus = true
+
+create_permissions = true
+
+create_role = true
+
+create_rules = true
+
+create_targets = true
+
+ecs_target_arns = []
+
+kinesis_firehose_target_arns = []
+
+kinesis_target_arns = []
 
 lambda_target_arns = []
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permissions = {}
+
+policies = []
+
+policy = ""
+
+policy_json = ""
+
+policy_jsons = []
+
+policy_statements = {}
+
+role_description = ""
+
+role_force_detach_policies = true
+
+role_name = ""
+
+role_path = ""
+
+role_permissions_boundary = ""
+
+role_tags = {}
+
+rules = {}
+
+sfn_target_arns = []
+
+sqs_target_arns = []
+
+tags = {}
+
+targets = {}
+
+trusted_entities = []

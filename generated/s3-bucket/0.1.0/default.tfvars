@@ -1,35 +1,35 @@
-bucket_prefix = ""
-
-force_destroy = false
-
-logging = {}
-
-replication_configuration = {}
-
-bucket = ""
-
-policy = ""
-
 acceleration_status = ""
-
-region = ""
-
-versioning = {}
-
-cors_rule = {}
-
-lifecycle_rule = []
-
-server_side_encryption_configuration = {}
-
-create_bucket = true
 
 acl = "private"
 
-tags = {}
+bucket = ""
+
+bucket_prefix = ""
+
+cors_rule = {}
+
+create_bucket = true
+
+force_destroy = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+policy = ""
+
+region = ""
+
+replication_configuration = {}
 
 request_payer = ""
 
-website = {}
+server_side_encryption_configuration = {}
 
-object_lock_configuration = {}
+tags = {}
+
+versioning = {}
+
+website = {}

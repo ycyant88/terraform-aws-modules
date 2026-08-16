@@ -1,105 +1,105 @@
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
 cloudwatch_log_group_retention_in_days = 14
 
-operating_system_family = "LINUX"
+cloudwatch_log_group_use_name_prefix = false
 
-dockerSecurityOptions = null
-
-extraHosts = null
-
-healthCheck = null
-
-image = null
-
-volumesFrom = null
-
-service = null
-
-enable_cloudwatch_logging = true
+command = null
 
 cpu = null
 
+create_cloudwatch_log_group = true
+
 dependsOn = null
+
+disableNetworking = null
 
 dnsSearchDomains = null
 
 dnsServers = null
 
-environmentFiles = null
-
-name = null
-
-portMappings = null
-
-pseudoTerminal = false
-
-entrypoint = null
-
-links = null
-
-memoryReservation = null
-
-repositoryCredentials = null
-
-secrets = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-cloudwatch_log_group_kms_key_id = null
-
-firelensConfiguration = null
-
-hostname = null
-
-memory = null
-
-restartPolicy = { "enabled" : true }
-
-startTimeout = 30
-
-ulimits = null
-
-versionConsistency = "disabled"
-
-tags = {}
-
-disableNetworking = null
-
 dockerLabels = null
 
-environment = null
+dockerSecurityOptions = null
 
-interactive = false
-
-stopTimeout = 120
-
-user = null
-
-cloudwatch_log_group_name = null
-
-logConfiguration = {}
-
-essential = null
-
-resourceRequirements = null
-
-create_cloudwatch_log_group = true
-
-region = null
-
-linuxParameters = {}
-
-privileged = false
-
-systemControls = null
-
-workingDirectory = null
-
-command = null
+enable_cloudwatch_logging = true
 
 enable_execute_command = false
 
+entrypoint = null
+
+environment = null
+
+environmentFiles = null
+
+essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
+
+image = null
+
+interactive = false
+
+links = null
+
+linuxParameters = {}
+
+logConfiguration = {}
+
+memory = null
+
+memoryReservation = null
+
 mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
+pseudoTerminal = false
 
 readonlyRootFilesystem = true
 
-cloudwatch_log_group_class = null
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = null
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = null
+
+workingDirectory = null

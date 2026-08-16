@@ -1,97 +1,97 @@
-health_check = {}
+cloudwatch_log_group_kms_key_id = null
 
-pseudo_terminal = false
-
-secrets = []
+cloudwatch_log_group_name = null
 
 cloudwatch_log_group_retention_in_days = 30
 
-cloudwatch_log_group_kms_key_id = null
-
-docker_labels = {}
-
-environment_files = []
-
-hostname = null
-
-disable_networking = null
-
-firelens_configuration = {}
-
-user = null
+cloudwatch_log_group_use_name_prefix = false
 
 command = []
 
-dns_servers = []
+cpu = null
 
-volumes_from = []
+create_cloudwatch_log_group = true
 
-linux_parameters = {}
+dependencies = []
 
-log_configuration = {}
+disable_networking = null
 
 dns_search_domains = []
 
-resource_requirements = []
+dns_servers = []
 
-cloudwatch_log_group_use_name_prefix = false
+docker_labels = {}
 
-name = null
+docker_security_options = []
 
-tags = {}
+enable_cloudwatch_logging = true
 
-operating_system_family = "LINUX"
+enable_execute_command = false
 
-mount_points = []
+entrypoint = []
 
-service = ""
+environment = []
 
-cpu = null
+environment_files = []
+
+essential = null
+
+extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
+
+image = null
 
 interactive = false
 
 links = []
 
+linux_parameters = {}
+
+log_configuration = {}
+
 memory = null
-
-repository_credentials = {}
-
-extra_hosts = []
-
-image = null
-
-port_mappings = []
-
-dependencies = []
-
-docker_security_options = []
-
-entrypoint = []
 
 memory_reservation = null
 
-readonly_root_filesystem = true
+mount_points = []
 
-start_timeout = 30
+name = null
 
-system_controls = []
+operating_system_family = "LINUX"
+
+port_mappings = []
 
 privileged = false
 
-ulimits = []
+pseudo_terminal = false
 
-enable_execute_command = false
+readonly_root_filesystem = true
 
-environment = []
+repository_credentials = {}
 
-essential = null
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
 
 stop_timeout = 120
 
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
 working_directory = null
-
-enable_cloudwatch_logging = true
-
-cloudwatch_log_group_name = null
-
-create_cloudwatch_log_group = true

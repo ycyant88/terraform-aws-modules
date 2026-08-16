@@ -1,177 +1,177 @@
-kms_key_aliases = []
+attach_cluster_encryption_policy = true
 
-cluster_security_group_name = null
+aws_auth_accounts = []
 
-node_security_group_id = ""
+aws_auth_fargate_profile_pod_execution_role_arns = []
 
-iam_role_permissions_boundary = null
+aws_auth_node_iam_role_arns_non_windows = []
 
-cluster_version = null
+aws_auth_node_iam_role_arns_windows = []
 
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
+aws_auth_roles = []
 
-node_security_group_additional_rules = {}
+aws_auth_users = []
 
-cluster_service_ipv6_cidr = null
+cloudwatch_log_group_kms_key_id = null
 
-kms_key_override_policy_documents = []
+cloudwatch_log_group_retention_in_days = 90
 
-create_cloudwatch_log_group = true
+cluster_additional_security_group_ids = []
 
-create_cluster_security_group = true
+cluster_addons = {}
 
-node_security_group_name = null
-
-node_security_group_tags = {}
-
-iam_role_arn = null
-
-iam_role_description = null
+cluster_addons_timeouts = {}
 
 cluster_enabled_log_types = ["audit", "api", "authenticator"]
 
-cluster_ip_family = null
+cluster_encryption_config = { "resources" : ["secrets"] }
 
-subnet_ids = []
-
-cluster_security_group_use_name_prefix = true
+cluster_encryption_policy_description = "Cluster encryption policy to allow cluster role to utilize CMK provided"
 
 cluster_encryption_policy_name = null
 
 cluster_encryption_policy_path = null
 
-putin_khuylo = true
-
-cluster_name = ""
-
-cluster_additional_security_group_ids = []
-
-cluster_security_group_tags = {}
-
-node_security_group_use_name_prefix = true
+cluster_encryption_policy_tags = {}
 
 cluster_encryption_policy_use_name_prefix = true
 
-cluster_addons = {}
-
-cluster_timeouts = {}
-
-enable_kms_key_rotation = true
-
-cluster_security_group_description = "EKS cluster security group"
-
-node_security_group_description = "EKS node shared security group"
-
-enable_irsa = true
-
-cluster_identity_providers = {}
-
-eks_managed_node_groups = {}
-
-aws_auth_accounts = []
-
-create_kms_key = true
-
-kms_key_enable_default_policy = false
-
-kms_key_source_policy_documents = []
-
-cloudwatch_log_group_kms_key_id = null
-
-vpc_id = null
-
-iam_role_path = null
-
-aws_auth_roles = []
-
-cluster_service_ipv4_cidr = null
-
-outpost_config = {}
-
-cluster_encryption_policy_description = "Cluster encryption policy to allow cluster role to utilize CMK provided"
-
-aws_auth_fargate_profile_pod_execution_role_arns = []
-
-iam_role_name = null
-
-iam_role_tags = {}
-
-kms_key_deletion_window_in_days = null
-
-kms_key_service_users = []
-
-create_iam_role = true
-
-cluster_encryption_policy_tags = {}
-
-tags = {}
-
 cluster_endpoint_private_access = true
-
-iam_role_use_name_prefix = true
-
-cluster_iam_role_dns_suffix = null
-
-self_managed_node_group_defaults = {}
-
-eks_managed_node_group_defaults = {}
-
-create_aws_auth_configmap = false
 
 cluster_endpoint_public_access = false
 
-cluster_security_group_id = ""
+cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-self_managed_node_groups = {}
+cluster_iam_role_dns_suffix = null
 
-manage_aws_auth_configmap = false
+cluster_identity_providers = {}
 
-aws_auth_users = []
+cluster_ip_family = null
 
-attach_cluster_encryption_policy = true
-
-iam_role_additional_policies = {}
-
-custom_oidc_thumbprints = []
-
-fargate_profile_defaults = {}
-
-kms_key_owners = []
-
-openid_connect_audiences = []
-
-cloudwatch_log_group_retention_in_days = 90
-
-create_cni_ipv6_iam_policy = false
-
-create_node_security_group = true
-
-aws_auth_node_iam_role_arns_non_windows = []
-
-cluster_tags = {}
-
-kms_key_administrators = []
-
-cluster_addons_timeouts = {}
-
-prefix_separator = "-"
-
-kms_key_description = null
-
-create_cluster_primary_security_group_tags = true
-
-kms_key_users = []
+cluster_name = ""
 
 cluster_security_group_additional_rules = {}
 
-node_security_group_enable_recommended_rules = true
+cluster_security_group_description = "EKS cluster security group"
 
-create = true
+cluster_security_group_id = ""
+
+cluster_security_group_name = null
+
+cluster_security_group_tags = {}
+
+cluster_security_group_use_name_prefix = true
+
+cluster_service_ipv4_cidr = null
+
+cluster_service_ipv6_cidr = null
+
+cluster_tags = {}
+
+cluster_timeouts = {}
+
+cluster_version = null
 
 control_plane_subnet_ids = []
 
-aws_auth_node_iam_role_arns_windows = []
+create = true
 
-cluster_encryption_config = { "resources" : ["secrets"] }
+create_aws_auth_configmap = false
+
+create_cloudwatch_log_group = true
+
+create_cluster_primary_security_group_tags = true
+
+create_cluster_security_group = true
+
+create_cni_ipv6_iam_policy = false
+
+create_iam_role = true
+
+create_kms_key = true
+
+create_node_security_group = true
+
+custom_oidc_thumbprints = []
+
+eks_managed_node_group_defaults = {}
+
+eks_managed_node_groups = {}
+
+enable_irsa = true
+
+enable_kms_key_rotation = true
+
+fargate_profile_defaults = {}
 
 fargate_profiles = {}
+
+iam_role_additional_policies = {}
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+kms_key_administrators = []
+
+kms_key_aliases = []
+
+kms_key_deletion_window_in_days = null
+
+kms_key_description = null
+
+kms_key_enable_default_policy = false
+
+kms_key_override_policy_documents = []
+
+kms_key_owners = []
+
+kms_key_service_users = []
+
+kms_key_source_policy_documents = []
+
+kms_key_users = []
+
+manage_aws_auth_configmap = false
+
+node_security_group_additional_rules = {}
+
+node_security_group_description = "EKS node shared security group"
+
+node_security_group_enable_recommended_rules = true
+
+node_security_group_id = ""
+
+node_security_group_name = null
+
+node_security_group_tags = {}
+
+node_security_group_use_name_prefix = true
+
+openid_connect_audiences = []
+
+outpost_config = {}
+
+prefix_separator = "-"
+
+putin_khuylo = true
+
+self_managed_node_group_defaults = {}
+
+self_managed_node_groups = {}
+
+subnet_ids = []
+
+tags = {}
+
+vpc_id = null

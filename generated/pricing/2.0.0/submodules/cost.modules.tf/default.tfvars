@@ -1,7 +1,7 @@
-tmp_dir = "tmp"
+content = ""
 
 enabled = true
 
-content = ""
-
 filename_hash = ""
+
+tmp_dir = "tmp"

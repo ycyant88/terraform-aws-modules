@@ -1,81 +1,81 @@
-intelligent_tiering = {}
-
-inventory_self_source_destination = false
-
-restrict_public_buckets = false
-
-versioning = {}
-
-replication_configuration = {}
-
-object_lock_configuration = {}
-
-attach_lb_log_delivery_policy = false
-
-request_payer = null
-
-website = {}
-
-cors_rule = []
-
-object_lock_enabled = false
-
-object_ownership = "ObjectWriter"
+acceleration_status = null
 
 acl = null
 
-tags = {}
-
-expected_bucket_owner = null
-
-metric_configuration = []
-
-force_destroy = false
-
-acceleration_status = null
-
-lifecycle_rule = []
-
-inventory_configuration = {}
+attach_deny_insecure_transport_policy = false
 
 attach_elb_log_delivery_policy = false
 
 attach_inventory_destination_policy = false
 
-bucket = null
-
-policy = null
-
-putin_khuylo = true
-
-inventory_source_bucket_arn = null
-
-block_public_acls = false
-
-ignore_public_acls = false
-
-create_bucket = true
-
-bucket_prefix = null
-
-logging = {}
-
-grant = []
-
-attach_deny_insecure_transport_policy = false
+attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
 attach_public_policy = true
 
-server_side_encryption_configuration = {}
+attach_require_latest_tls_policy = false
+
+block_public_acls = false
+
+block_public_policy = false
+
+bucket = null
+
+bucket_prefix = null
 
 control_object_ownership = false
 
-attach_require_latest_tls_policy = false
+cors_rule = []
 
-owner = {}
+create_bucket = true
+
+expected_bucket_owner = null
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+intelligent_tiering = {}
+
+inventory_configuration = {}
+
+inventory_self_source_destination = false
 
 inventory_source_account_id = null
 
-block_public_policy = false
+inventory_source_bucket_arn = null
+
+lifecycle_rule = []
+
+logging = {}
+
+metric_configuration = []
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "ObjectWriter"
+
+owner = {}
+
+policy = null
+
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = null
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

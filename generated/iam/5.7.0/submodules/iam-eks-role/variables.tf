@@ -1,7 +1,7 @@
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = ""
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
 }
 
 variable "cluster_service_accounts" {
@@ -10,10 +10,10 @@ variable "cluster_service_accounts" {
   default     = {}
 }
 
-variable "tags" {
-  description = "A map of tags to add the the IAM role"
-  type        = map(any)
-  default     = {}
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = true
 }
 
 variable "force_detach_policies" {
@@ -22,8 +22,26 @@ variable "force_detach_policies" {
   default     = false
 }
 
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 43200
+}
+
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
+}
+
 variable "role_name" {
   description = "Name of IAM role"
+  type        = string
+  default     = null
+}
+
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
   type        = string
   default     = null
 }
@@ -34,16 +52,10 @@ variable "role_path" {
   default     = "/"
 }
 
-variable "role_description" {
-  description = "IAM Role description"
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
   type        = string
   default     = ""
-}
-
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
 }
 
 variable "role_policy_arns" {
@@ -52,20 +64,8 @@ variable "role_policy_arns" {
   default     = {}
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 43200
-}
-
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A map of tags to add the the IAM role"
+  type        = map(any)
+  default     = {}
 }

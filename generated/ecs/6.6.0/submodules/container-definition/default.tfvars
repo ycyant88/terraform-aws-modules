@@ -1,105 +1,105 @@
-service = null
-
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-region = null
-
-dependsOn = null
-
-enable_execute_command = false
-
-environmentFiles = null
-
-linuxParameters = {}
-
-name = null
-
-repositoryCredentials = null
-
-cloudwatch_log_group_retention_in_days = 14
-
-tags = {}
-
-disableNetworking = null
-
-dnsServers = null
-
-firelensConfiguration = null
-
-ulimits = null
-
-enable_cloudwatch_logging = true
-
 cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-dockerSecurityOptions = null
+cloudwatch_log_group_name = null
 
-interactive = false
+cloudwatch_log_group_retention_in_days = 14
 
-memory = null
+cloudwatch_log_group_use_name_prefix = false
 
-pseudoTerminal = false
+command = null
 
-readonlyRootFilesystem = true
+cpu = null
 
-versionConsistency = "disabled"
+create_cloudwatch_log_group = true
 
-workingDirectory = null
+dependsOn = null
+
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
 
 dockerLabels = null
 
-links = null
+dockerSecurityOptions = null
 
-resourceRequirements = null
+enable_cloudwatch_logging = true
 
-memoryReservation = null
+enable_execute_command = false
 
-operating_system_family = "LINUX"
-
-healthCheck = null
-
-hostname = null
-
-secrets = null
-
-stopTimeout = 120
+entrypoint = null
 
 environment = null
+
+environmentFiles = null
 
 essential = null
 
 extraHosts = null
 
-user = null
+firelensConfiguration = null
 
-create_cloudwatch_log_group = true
+healthCheck = null
 
-cpu = null
-
-entrypoint = null
+hostname = null
 
 image = null
 
+interactive = false
+
+links = null
+
+linuxParameters = {}
+
 logConfiguration = {}
 
+memory = null
+
+memoryReservation = null
+
 mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
 
 portMappings = null
 
 privileged = false
 
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
 restartPolicy = { "enabled" : true }
 
-command = null
+secrets = null
 
-dnsSearchDomains = null
+service = null
 
 startTimeout = 30
 
+stopTimeout = 120
+
 systemControls = null
 
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
 volumesFrom = null
+
+workingDirectory = null

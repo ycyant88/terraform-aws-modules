@@ -1,6 +1,6 @@
-db_instance_identifier = null
-
 create = true
+
+db_instance_identifier = null
 
 feature_name = null
 

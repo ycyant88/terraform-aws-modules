@@ -1,73 +1,73 @@
-iam_role_path = null
-
-iam_role_force_detach_policies = true
-
-saml_idp_metadata_url = null
-
-saml_email_assertion = null
-
-saml_login_assertion = null
-
-saml_name_assertion = null
+account_access_type = "CURRENT_ACCOUNT"
 
 associate_license = true
 
-iam_role_arn = null
-
-name = null
-
-description = null
-
-account_access_type = "CURRENT_ACCOUNT"
-
-data_sources = []
-
-iam_role_name = null
-
-tags = {}
-
-create_iam_role = true
-
-iam_role_description = null
-
-iam_role_permissions_boundary = null
-
-saml_allowed_organizations = []
-
-organizational_units = []
-
-stack_set_name = null
-
-saml_role_assertion = null
+authentication_providers = ["AWS_SSO"]
 
 create = true
 
-saml_idp_metadata_xml = null
+create_iam_role = true
 
-saml_admin_role_values = []
+data_sources = []
 
-license_type = "ENTERPRISE"
+description = null
 
-saml_groups_assertion = null
+iam_role_arn = null
 
-saml_login_validity_duration = null
+iam_role_description = null
 
-use_iam_role_name_prefix = true
+iam_role_force_detach_policies = true
 
 iam_role_max_session_duration = null
 
-saml_org_assertion = null
+iam_role_name = null
 
-role_associations = {}
+iam_role_path = null
 
-authentication_providers = ["AWS_SSO"]
+iam_role_permissions_boundary = null
 
-permission_type = "SERVICE_MANAGED"
+iam_role_tags = {}
+
+license_type = "ENTERPRISE"
+
+name = null
 
 notification_destinations = []
 
 organization_role_name = null
 
-iam_role_tags = {}
+organizational_units = []
+
+permission_type = "SERVICE_MANAGED"
+
+role_associations = {}
+
+saml_admin_role_values = []
+
+saml_allowed_organizations = []
 
 saml_editor_role_values = []
+
+saml_email_assertion = null
+
+saml_groups_assertion = null
+
+saml_idp_metadata_url = null
+
+saml_idp_metadata_xml = null
+
+saml_login_assertion = null
+
+saml_login_validity_duration = null
+
+saml_name_assertion = null
+
+saml_org_assertion = null
+
+saml_role_assertion = null
+
+stack_set_name = null
+
+tags = {}
+
+use_iam_role_name_prefix = true

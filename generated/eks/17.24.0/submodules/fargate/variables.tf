@@ -4,28 +4,16 @@ variable "cluster_name" {
   default     = ""
 }
 
-variable "subnets" {
-  description = "A list of subnets for the EKS Fargate profiles."
-  type        = list(string)
-  default     = []
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "create_eks" {
   description = "Controls if EKS resources should be created (it affects almost all resources)"
   type        = bool
   default     = true
 }
 
-variable "iam_path" {
-  description = "IAM roles will be created on this path."
-  type        = string
-  default     = "/"
+variable "create_fargate_pod_execution_role" {
+  description = "Controls if the the IAM Role that provides permissions for the EKS Fargate Profile should be created."
+  type        = bool
+  default     = true
 }
 
 variable "fargate_pod_execution_role_name" {
@@ -40,14 +28,26 @@ variable "fargate_profiles" {
   default     = {}
 }
 
+variable "iam_path" {
+  description = "IAM roles will be created on this path."
+  type        = string
+  default     = "/"
+}
+
 variable "permissions_boundary" {
   description = "If provided, all IAM roles will be created with this permissions boundary attached."
   type        = string
   default     = null
 }
 
-variable "create_fargate_pod_execution_role" {
-  description = "Controls if the the IAM Role that provides permissions for the EKS Fargate Profile should be created."
-  type        = bool
-  default     = true
+variable "subnets" {
+  description = "A list of subnets for the EKS Fargate profiles."
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
 }

@@ -1,65 +1,65 @@
-putin_khuylo = true
-
-attach_lb_log_delivery_policy = false
+acceleration_status = ""
 
 acl = ""
 
-tags = {}
-
-force_destroy = false
-
-logging = {}
-
-lifecycle_rule = []
-
-restrict_public_buckets = false
-
 attach_deny_insecure_transport_policy = false
-
-versioning = {}
-
-server_side_encryption_configuration = {}
-
-ignore_public_acls = false
-
-bucket = ""
-
-request_payer = ""
-
-expected_bucket_owner = ""
-
-replication_configuration = {}
-
-object_lock_configuration = {}
-
-block_public_policy = false
-
-attach_public_policy = true
-
-bucket_prefix = ""
-
-cors_rule = []
-
-owner = {}
-
-block_public_acls = false
 
 attach_elb_log_delivery_policy = false
 
-control_object_ownership = false
-
-object_ownership = "ObjectWriter"
-
-attach_require_latest_tls_policy = false
-
-acceleration_status = ""
-
-website = {}
-
-grant = []
-
-create_bucket = true
+attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
+attach_public_policy = true
+
+attach_require_latest_tls_policy = false
+
+block_public_acls = false
+
+block_public_policy = false
+
+bucket = ""
+
+bucket_prefix = ""
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+expected_bucket_owner = ""
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+object_ownership = "ObjectWriter"
+
+owner = {}
+
 policy = ""
+
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = ""
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

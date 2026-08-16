@@ -1,49 +1,49 @@
-map_roles = []
+cluster_create_timeout = "15m"
 
-subnets = ""
+cluster_delete_timeout = "15m"
 
-write_kubeconfig = true
-
-map_accounts = []
-
-map_users = []
-
-kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
+cluster_name = ""
 
 cluster_security_group_id = ""
-
-kubeconfig_aws_authenticator_additional_args = []
-
-vpc_id = ""
 
 cluster_version = "1.10"
 
 config_output_path = "./"
 
-manage_aws_auth = true
+create_elb_service_linked_role = false
 
-kubeconfig_name = ""
+kubeconfig_aws_authenticator_additional_args = []
 
-cluster_delete_timeout = "15m"
-
-worker_group_count = "1"
-
-workers_group_defaults = {}
+kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
 
 kubeconfig_aws_authenticator_env_variables = {}
 
-worker_groups = [{ "name" : "default" }]
+kubeconfig_name = ""
 
-cluster_create_timeout = "15m"
+manage_aws_auth = true
+
+map_accounts = []
+
+map_roles = []
+
+map_users = []
+
+subnets = ""
 
 tags = {}
 
-worker_security_group_id = ""
+vpc_id = ""
 
 worker_additional_security_group_ids = []
 
+worker_group_count = "1"
+
+worker_groups = [{ "name" : "default" }]
+
+worker_security_group_id = ""
+
 worker_sg_ingress_from_port = "1025"
 
-cluster_name = ""
+workers_group_defaults = {}
 
-create_elb_service_linked_role = false
+write_kubeconfig = true

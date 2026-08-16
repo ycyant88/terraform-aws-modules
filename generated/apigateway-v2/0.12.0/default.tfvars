@@ -1,53 +1,53 @@
-protocol_type = "HTTP"
+api_key_selection_expression = "$request.header.x-api-key"
+
+api_version = ""
+
+cors_configuration = {}
+
+create = true
 
 create_api_domain_name = true
 
-api_key_selection_expression = "$request.header.x-api-key"
-
-credentials_arn = ""
-
-target = ""
-
-domain_name_tags = {}
-
 create_api_gateway = true
+
+create_default_stage = true
 
 create_default_stage_api_mapping = true
 
 create_routes_and_integrations = true
 
-default_stage_tags = {}
+create_vpc_link = true
 
-vpc_links = {}
-
-tags = {}
-
-vpc_link_tags = {}
-
-name = ""
-
-route_key = ""
-
-cors_configuration = {}
+credentials_arn = ""
 
 default_stage_access_log_destination_arn = ""
 
-domain_name_certificate_arn = ""
+default_stage_access_log_format = ""
+
+default_stage_tags = {}
 
 description = ""
 
-create = true
+domain_name = ""
+
+domain_name_certificate_arn = ""
+
+domain_name_tags = {}
 
 integrations = {}
 
-api_version = ""
+name = ""
 
-create_vpc_link = true
+protocol_type = "HTTP"
+
+route_key = ""
 
 route_selection_expression = "$request.method $request.path"
 
-default_stage_access_log_format = ""
+tags = {}
 
-domain_name = ""
+target = ""
 
-create_default_stage = true
+vpc_link_tags = {}
+
+vpc_links = {}

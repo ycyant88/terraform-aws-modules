@@ -4,28 +4,16 @@ variable "clusters" {
   default     = null
 }
 
-variable "witness_region" {
-  description = "Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the cluster"
-  type        = string
-  default     = null
-}
-
-variable "timeouts" {
-  description = "Create timeout configuration for the cluster"
-  type        = any
-  default     = {}
-}
-
-variable "tags" {
-  description = "A map of tags to be associated with the AWS DSQL Cluster resource"
-  type        = map(string)
-  default     = {}
-}
-
 variable "create" {
   description = "Whether cluster should be created (affects all resources)"
   type        = bool
   default     = true
+}
+
+variable "create_cluster_peering" {
+  description = "Whether to create cluster peering"
+  type        = bool
+  default     = false
 }
 
 variable "deletion_protection_enabled" {
@@ -40,8 +28,20 @@ variable "kms_encryption_key" {
   default     = null
 }
 
-variable "create_cluster_peering" {
-  description = "Whether to create cluster peering"
-  type        = bool
-  default     = false
+variable "tags" {
+  description = "A map of tags to be associated with the AWS DSQL Cluster resource"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create timeout configuration for the cluster"
+  type        = any
+  default     = {}
+}
+
+variable "witness_region" {
+  description = "Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the cluster"
+  type        = string
+  default     = null
 }

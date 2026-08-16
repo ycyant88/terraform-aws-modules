@@ -1,99 +1,99 @@
-secondary_private_ips = ""
-
-subnet_id = ""
-
-volume_tags = {}
-
-instance_initiated_shutdown_behavior = ""
-
-private_ip = ""
-
-root_block_device = []
-
-spot_wait_for_fulfillment = ""
-
-spot_block_duration_minutes = ""
-
 ami = ""
-
-cpu_core_count = ""
-
-cpu_threads_per_core = ""
-
-ephemeral_block_device = []
-
-ipv6_address_count = ""
-
-spot_valid_until = ""
-
-cpu_credits = ""
-
-hibernation = ""
-
-key_name = ""
-
-metadata_options = {}
-
-monitoring = false
-
-create = true
-
-name = ""
 
 associate_public_ip_address = ""
 
-source_dest_check = true
-
-spot_launch_group = ""
-
-spot_instance_interruption_behavior = ""
-
-spot_type = ""
-
-iam_instance_profile = ""
-
-timeouts = {}
-
-create_spot_instance = false
-
-tags = {}
-
-tenancy = ""
-
-spot_price = ""
+availability_zone = ""
 
 capacity_reservation_specification = ""
 
-host_id = ""
+cpu_core_count = ""
 
-launch_template = ""
+cpu_credits = ""
 
-user_data = ""
+cpu_threads_per_core = ""
 
-spot_valid_from = ""
+create = true
+
+create_spot_instance = false
 
 disable_api_termination = ""
-
-enclave_options_enabled = ""
-
-placement_group = ""
-
-get_password_data = ""
-
-instance_type = "t3.micro"
-
-ipv6_addresses = ""
-
-network_interface = []
-
-user_data_base64 = ""
-
-availability_zone = ""
 
 ebs_block_device = []
 
 ebs_optimized = ""
 
 enable_volume_tags = true
+
+enclave_options_enabled = ""
+
+ephemeral_block_device = []
+
+get_password_data = ""
+
+hibernation = ""
+
+host_id = ""
+
+iam_instance_profile = ""
+
+instance_initiated_shutdown_behavior = ""
+
+instance_type = "t3.micro"
+
+ipv6_address_count = ""
+
+ipv6_addresses = ""
+
+key_name = ""
+
+launch_template = ""
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+root_block_device = []
+
+secondary_private_ips = ""
+
+source_dest_check = true
+
+spot_block_duration_minutes = ""
+
+spot_instance_interruption_behavior = ""
+
+spot_launch_group = ""
+
+spot_price = ""
+
+spot_type = ""
+
+spot_valid_from = ""
+
+spot_valid_until = ""
+
+spot_wait_for_fulfillment = ""
+
+subnet_id = ""
+
+tags = {}
+
+tenancy = ""
+
+timeouts = {}
+
+user_data = ""
+
+user_data_base64 = ""
+
+volume_tags = {}
 
 vpc_security_group_ids = ""

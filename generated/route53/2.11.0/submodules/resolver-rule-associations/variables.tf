@@ -1,7 +1,7 @@
-variable "vpc_id" {
-  description = "Default VPC ID for all the Route53 Resolver rule associations"
-  type        = string
-  default     = null
+variable "create" {
+  description = "Whether to create Route53 Resolver rule associations"
+  type        = bool
+  default     = true
 }
 
 variable "resolver_rule_associations" {
@@ -10,8 +10,8 @@ variable "resolver_rule_associations" {
   default     = {}
 }
 
-variable "create" {
-  description = "Whether to create Route53 Resolver rule associations"
-  type        = bool
-  default     = true
+variable "vpc_id" {
+  description = "Default VPC ID for all the Route53 Resolver rule associations"
+  type        = string
+  default     = null
 }

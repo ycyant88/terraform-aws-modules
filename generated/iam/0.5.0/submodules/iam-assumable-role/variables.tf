@@ -1,13 +1,7 @@
-variable "trusted_role_arns" {
-  description = "ARNs of AWS entities who can assume these roles"
-  type        = list(any)
-  default     = []
-}
-
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
+variable "admin_role_policy_arn" {
+  description = "Policy ARN to use for admin role"
   type        = string
-  default     = ""
+  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
 variable "attach_admin_policy" {
@@ -28,10 +22,10 @@ variable "attach_readonly_policy" {
   default     = false
 }
 
-variable "role_requires_mfa" {
-  description = "Whether role requires MFA"
+variable "create_role" {
+  description = "Whether to create a role"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "custom_role_policy_arns" {
@@ -40,34 +34,10 @@ variable "custom_role_policy_arns" {
   default     = []
 }
 
-variable "admin_role_policy_arn" {
-  description = "Policy ARN to use for admin role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
-}
-
-variable "poweruser_role_policy_arn" {
-  description = "Policy ARN to use for poweruser role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
-}
-
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = ""
-}
-
-variable "readonly_role_policy_arn" {
-  description = "Policy ARN to use for readonly role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
 }
 
 variable "mfa_age" {
@@ -76,14 +46,44 @@ variable "mfa_age" {
   default     = 86400
 }
 
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
+variable "poweruser_role_policy_arn" {
+  description = "Policy ARN to use for poweruser role"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
+}
+
+variable "readonly_role_policy_arn" {
+  description = "Policy ARN to use for readonly role"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = ""
 }
 
 variable "role_path" {
   description = "Path of IAM role"
   type        = string
   default     = "/"
+}
+
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
+}
+
+variable "role_requires_mfa" {
+  description = "Whether role requires MFA"
+  type        = bool
+  default     = true
+}
+
+variable "trusted_role_arns" {
+  description = "ARNs of AWS entities who can assume these roles"
+  type        = list(any)
+  default     = []
 }

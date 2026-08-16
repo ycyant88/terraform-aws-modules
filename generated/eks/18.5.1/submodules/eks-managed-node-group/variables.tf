@@ -1,150 +1,12 @@
-variable "iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "ram_disk_id" {
-  description = "The ID of the ram disk"
-  type        = string
-  default     = null
-}
-
-variable "subnet_ids" {
-  description = "Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: kubernetes.io/cluster/CLUSTER_NAME"
-  type        = list(string)
-  default     = null
-}
-
-variable "min_size" {
-  description = "Minimum number of instances/nodes"
-  type        = number
-  default     = 0
-}
-
-variable "max_size" {
-  description = "Maximum number of instances/nodes"
-  type        = number
-  default     = 3
-}
-
-variable "desired_size" {
-  description = "Desired number of instances/nodes"
-  type        = number
-  default     = 1
-}
-
-variable "labels" {
-  description = "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed"
-  type        = map(string)
-  default     = null
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "bootstrap_extra_args" {
-  description = "Additional arguments passed to the bootstrap script. When platform = bottlerocket; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "capacity_reservation_specification" {
-  description = "Targeting for EC2 capacity reservations"
-  type        = any
-  default     = null
-}
-
-variable "cpu_options" {
-  description = "The CPU options for the instance"
-  type        = map(string)
-  default     = null
-}
-
-variable "instance_types" {
-  description = "Set of instance types associated with the EKS Node Group. Defaults to [\"t3.medium\"]"
-  type        = list(string)
-  default     = null
-}
-
 variable "ami_id" {
   description = "The AMI from which to launch the instance. If not supplied, EKS will use its own default image"
   type        = string
   default     = ""
 }
 
-variable "taints" {
-  description = "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group"
-  type        = any
-  default     = {}
-}
-
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+variable "ami_release_version" {
+  description = "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version"
   type        = string
-  default     = true
-}
-
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "name" {
-  description = "Name of the EKS managed node group"
-  type        = string
-  default     = ""
-}
-
-variable "vpc_security_group_ids" {
-  description = "A list of security group IDs to associate"
-  type        = list(string)
-  default     = []
-}
-
-variable "launch_template_default_version" {
-  description = "Default version of the launch template"
-  type        = string
-  default     = null
-}
-
-variable "launch_template_name" {
-  description = "Launch template name - either to be created (var.create_launch_template = true) or existing (var.create_launch_template = false)"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "cluster_version" {
-  description = "Kubernetes version. Defaults to EKS Cluster Kubernetes version"
-  type        = string
-  default     = null
-}
-
-variable "user_data_template_path" {
-  description = "Path to a local, custom user data template file to use when rendering user data"
-  type        = string
-  default     = ""
-}
-
-variable "elastic_gpu_specifications" {
-  description = "The elastic GPU to attach to the instance"
-  type        = map(string)
   default     = null
 }
 
@@ -154,26 +16,56 @@ variable "ami_type" {
   default     = null
 }
 
+variable "block_device_mappings" {
+  description = "Specify volumes to attach to the instance besides the volumes specified by the AMI"
+  type        = any
+  default     = {}
+}
+
+variable "bootstrap_extra_args" {
+  description = "Additional arguments passed to the bootstrap script. When platform = bottlerocket; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
+  type        = string
+  default     = ""
+}
+
+variable "capacity_reservation_specification" {
+  description = "Targeting for EC2 capacity reservations"
+  type        = any
+  default     = null
+}
+
 variable "capacity_type" {
   description = "Type of capacity associated with the EKS Node Group. Valid values: ON_DEMAND, SPOT"
   type        = string
   default     = "ON_DEMAND"
 }
 
-variable "remote_access" {
-  description = "Configuration block with remote access settings"
-  type        = any
-  default     = {}
+variable "cluster_auth_base64" {
+  description = "Base64 encoded CA of associated EKS cluster"
+  type        = string
+  default     = ""
 }
 
-variable "update_config" {
-  description = "Configuration block of settings for max unavailable resources during node group updates"
-  type        = map(string)
-  default     = {}
+variable "cluster_endpoint" {
+  description = "Endpoint of associated EKS cluster"
+  type        = string
+  default     = ""
 }
 
-variable "iam_role_description" {
-  description = "Description of the role"
+variable "cluster_ip_family" {
+  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
+  type        = string
+  default     = null
+}
+
+variable "cluster_name" {
+  description = "Name of associated EKS cluster"
+  type        = string
+  default     = null
+}
+
+variable "cluster_security_group_id" {
+  description = "Cluster control plane security group ID"
   type        = string
   default     = null
 }
@@ -184,15 +76,15 @@ variable "cluster_service_ipv4_cidr" {
   default     = null
 }
 
-variable "elastic_inference_accelerator" {
-  description = "Configuration block containing an Elastic Inference Accelerator to attach to the instance"
-  type        = map(string)
+variable "cluster_version" {
+  description = "Kubernetes version. Defaults to EKS Cluster Kubernetes version"
+  type        = string
   default     = null
 }
 
-variable "iam_role_path" {
-  description = "IAM role path"
-  type        = string
+variable "cpu_options" {
+  description = "The CPU options for the instance"
+  type        = map(string)
   default     = null
 }
 
@@ -202,112 +94,40 @@ variable "create" {
   default     = true
 }
 
-variable "metadata_options" {
-  description = "Customize the metadata options for the instance"
-  type        = map(string)
-  default     = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
-}
-
-variable "security_group_name" {
-  description = "Name to use on security group created"
-  type        = string
-  default     = null
-}
-
-variable "pre_bootstrap_user_data" {
-  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when platform = bottlerocket"
-  type        = string
-  default     = ""
-}
-
-variable "cluster_name" {
-  description = "Name of associated EKS cluster"
-  type        = string
-  default     = null
-}
-
-variable "ami_release_version" {
-  description = "AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version"
-  type        = string
-  default     = null
-}
-
-variable "security_group_description" {
-  description = "Description for the security group created"
-  type        = string
-  default     = "EKS managed node group security group"
-}
-
-variable "iam_role_attach_cni_policy" {
-  description = "Whether to attach the AmazonEKS_CNI_Policy/AmazonEKS_CNI_IPv6_Policy IAM policy to the IAM IAM role. WARNING: If set false the permissions must be assigned to the aws-node DaemonSet pods via another method or nodes will not be able to join the cluster"
-  type        = bool
-  default     = true
-}
-
-variable "platform" {
-  description = "Identifies if the OS platform is bottlerocket or linux based; windows is not supported"
-  type        = string
-  default     = "linux"
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the security group/nodes will be provisioned"
-  type        = string
-  default     = null
-}
-
-variable "launch_template_use_name_prefix" {
-  description = "Determines whether to use launch_template_name as is or create a unique name beginning with the launch_template_name as the prefix"
-  type        = bool
-  default     = true
-}
-
-variable "launch_template_description" {
-  description = "Description of the launch template"
-  type        = string
-  default     = null
-}
-
-variable "instance_market_options" {
-  description = "The market (purchasing) option for the instance"
-  type        = any
-  default     = null
-}
-
-variable "force_update_version" {
-  description = "Force version update if existing pods are unable to be drained due to a pod disruption budget issue"
-  type        = bool
-  default     = null
-}
-
-variable "cluster_security_group_id" {
-  description = "Cluster control plane security group ID"
-  type        = string
-  default     = null
-}
-
 variable "create_iam_role" {
   description = "Determines whether an IAM role is created or to use an existing IAM role"
   type        = bool
   default     = true
 }
 
-variable "post_bootstrap_user_data" {
-  description = "User data that is appended to the user data script after of the EKS bootstrap script. Not used when platform = bottlerocket"
-  type        = string
-  default     = ""
+variable "create_launch_template" {
+  description = "Determines whether to create a launch template or not. If set to false, EKS will use its own default launch template"
+  type        = bool
+  default     = true
 }
 
-variable "key_name" {
-  description = "The key name that should be used for the instance(s)"
-  type        = string
+variable "create_security_group" {
+  description = "Determines whether to create a security group"
+  type        = bool
+  default     = true
+}
+
+variable "credit_specification" {
+  description = "Customize the credit specification of the instance"
+  type        = map(string)
   default     = null
 }
 
-variable "use_name_prefix" {
-  description = "Determines whether to use name as is or create a unique name beginning with the name as the prefix"
+variable "desired_size" {
+  description = "Desired number of instances/nodes"
+  type        = number
+  default     = 1
+}
+
+variable "disable_api_termination" {
+  description = "If true, enables EC2 instance termination protection"
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "disk_size" {
@@ -322,46 +142,16 @@ variable "ebs_optimized" {
   default     = null
 }
 
-variable "cluster_auth_base64" {
-  description = "Base64 encoded CA of associated EKS cluster"
-  type        = string
-  default     = ""
-}
-
-variable "disable_api_termination" {
-  description = "If true, enables EC2 instance termination protection"
-  type        = bool
-  default     = null
-}
-
-variable "kernel_id" {
-  description = "The kernel ID"
-  type        = string
-  default     = null
-}
-
-variable "block_device_mappings" {
-  description = "Specify volumes to attach to the instance besides the volumes specified by the AMI"
-  type        = any
-  default     = {}
-}
-
-variable "enclave_options" {
-  description = "Enable Nitro Enclaves on launched instances"
+variable "elastic_gpu_specifications" {
+  description = "The elastic GPU to attach to the instance"
   type        = map(string)
   default     = null
 }
 
-variable "launch_template_version" {
-  description = "Launch template version number. The default is $Default"
-  type        = string
+variable "elastic_inference_accelerator" {
+  description = "Configuration block containing an Elastic Inference Accelerator to attach to the instance"
+  type        = map(string)
   default     = null
-}
-
-variable "security_group_rules" {
-  description = "List of security group rules to add to the security group created"
-  type        = any
-  default     = {}
 }
 
 variable "enable_bootstrap_user_data" {
@@ -370,46 +160,28 @@ variable "enable_bootstrap_user_data" {
   default     = false
 }
 
-variable "cluster_ip_family" {
-  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
-  type        = string
-  default     = null
-}
-
-variable "create_launch_template" {
-  description = "Determines whether to create a launch template or not. If set to false, EKS will use its own default launch template"
+variable "enable_monitoring" {
+  description = "Enables/disables detailed monitoring"
   type        = bool
   default     = true
 }
 
-variable "credit_specification" {
-  description = "Customize the credit specification of the instance"
+variable "enclave_options" {
+  description = "Enable Nitro Enclaves on launched instances"
   type        = map(string)
   default     = null
 }
 
-variable "placement" {
-  description = "The placement of the instance"
-  type        = map(string)
-  default     = null
-}
-
-variable "launch_template_tags" {
-  description = "A map of additional tags to add to the tag_specifications of launch template created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "timeouts" {
-  description = "Create, update, and delete timeout configurations for the node group"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_security_group" {
-  description = "Determines whether to create a security group"
+variable "force_update_version" {
+  description = "Force version update if existing pods are unable to be drained due to a pod disruption budget issue"
   type        = bool
-  default     = true
+  default     = null
+}
+
+variable "iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = list(string)
+  default     = []
 }
 
 variable "iam_role_arn" {
@@ -418,8 +190,38 @@ variable "iam_role_arn" {
   default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
+variable "iam_role_attach_cni_policy" {
+  description = "Whether to attach the AmazonEKS_CNI_Policy/AmazonEKS_CNI_IPv6_Policy IAM policy to the IAM IAM role. WARNING: If set false the permissions must be assigned to the aws-node DaemonSet pods via another method or nodes will not be able to join the cluster"
+  type        = bool
+  default     = true
+}
+
+variable "iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
   type        = map(string)
   default     = {}
 }
@@ -430,10 +232,70 @@ variable "iam_role_use_name_prefix" {
   default     = true
 }
 
-variable "update_launch_template_default_version" {
-  description = "Whether to update the launch templates default version on each update. Conflicts with launch_template_default_version"
+variable "instance_market_options" {
+  description = "The market (purchasing) option for the instance"
+  type        = any
+  default     = null
+}
+
+variable "instance_types" {
+  description = "Set of instance types associated with the EKS Node Group. Defaults to [\"t3.medium\"]"
+  type        = list(string)
+  default     = null
+}
+
+variable "kernel_id" {
+  description = "The kernel ID"
+  type        = string
+  default     = null
+}
+
+variable "key_name" {
+  description = "The key name that should be used for the instance(s)"
+  type        = string
+  default     = null
+}
+
+variable "labels" {
+  description = "Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed"
+  type        = map(string)
+  default     = null
+}
+
+variable "launch_template_default_version" {
+  description = "Default version of the launch template"
+  type        = string
+  default     = null
+}
+
+variable "launch_template_description" {
+  description = "Description of the launch template"
+  type        = string
+  default     = null
+}
+
+variable "launch_template_name" {
+  description = "Launch template name - either to be created (var.create_launch_template = true) or existing (var.create_launch_template = false)"
+  type        = string
+  default     = ""
+}
+
+variable "launch_template_tags" {
+  description = "A map of additional tags to add to the tag_specifications of launch template created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "launch_template_use_name_prefix" {
+  description = "Determines whether to use launch_template_name as is or create a unique name beginning with the launch_template_name as the prefix"
   type        = bool
   default     = true
+}
+
+variable "launch_template_version" {
+  description = "Launch template version number. The default is $Default"
+  type        = string
+  default     = null
 }
 
 variable "license_specifications" {
@@ -442,10 +304,28 @@ variable "license_specifications" {
   default     = null
 }
 
-variable "enable_monitoring" {
-  description = "Enables/disables detailed monitoring"
-  type        = bool
-  default     = true
+variable "max_size" {
+  description = "Maximum number of instances/nodes"
+  type        = number
+  default     = 3
+}
+
+variable "metadata_options" {
+  description = "Customize the metadata options for the instance"
+  type        = map(string)
+  default     = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+}
+
+variable "min_size" {
+  description = "Minimum number of instances/nodes"
+  type        = number
+  default     = 0
+}
+
+variable "name" {
+  description = "Name of the EKS managed node group"
+  type        = string
+  default     = ""
 }
 
 variable "network_interfaces" {
@@ -454,8 +334,128 @@ variable "network_interfaces" {
   default     = []
 }
 
-variable "cluster_endpoint" {
-  description = "Endpoint of associated EKS cluster"
+variable "placement" {
+  description = "The placement of the instance"
+  type        = map(string)
+  default     = null
+}
+
+variable "platform" {
+  description = "Identifies if the OS platform is bottlerocket or linux based; windows is not supported"
+  type        = string
+  default     = "linux"
+}
+
+variable "post_bootstrap_user_data" {
+  description = "User data that is appended to the user data script after of the EKS bootstrap script. Not used when platform = bottlerocket"
   type        = string
   default     = ""
+}
+
+variable "pre_bootstrap_user_data" {
+  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when platform = bottlerocket"
+  type        = string
+  default     = ""
+}
+
+variable "ram_disk_id" {
+  description = "The ID of the ram disk"
+  type        = string
+  default     = null
+}
+
+variable "remote_access" {
+  description = "Configuration block with remote access settings"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_description" {
+  description = "Description for the security group created"
+  type        = string
+  default     = "EKS managed node group security group"
+}
+
+variable "security_group_name" {
+  description = "Name to use on security group created"
+  type        = string
+  default     = null
+}
+
+variable "security_group_rules" {
+  description = "List of security group rules to add to the security group created"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+  type        = string
+  default     = true
+}
+
+variable "subnet_ids" {
+  description = "Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: kubernetes.io/cluster/CLUSTER_NAME"
+  type        = list(string)
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "taints" {
+  description = "The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group"
+  type        = any
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create, update, and delete timeout configurations for the node group"
+  type        = map(string)
+  default     = {}
+}
+
+variable "update_config" {
+  description = "Configuration block of settings for max unavailable resources during node group updates"
+  type        = map(string)
+  default     = {}
+}
+
+variable "update_launch_template_default_version" {
+  description = "Whether to update the launch templates default version on each update. Conflicts with launch_template_default_version"
+  type        = bool
+  default     = true
+}
+
+variable "use_name_prefix" {
+  description = "Determines whether to use name as is or create a unique name beginning with the name as the prefix"
+  type        = bool
+  default     = true
+}
+
+variable "user_data_template_path" {
+  description = "Path to a local, custom user data template file to use when rendering user data"
+  type        = string
+  default     = ""
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where the security group/nodes will be provisioned"
+  type        = string
+  default     = null
+}
+
+variable "vpc_security_group_ids" {
+  description = "A list of security group IDs to associate"
+  type        = list(string)
+  default     = []
 }

@@ -1,55 +1,55 @@
-enable_http2 = true
+access_logs = {}
 
-extra_ssl_certs = []
-
-https_listeners = []
-
-ip_address_type = "ipv4"
-
-internal = false
-
-load_balancer_delete_timeout = "10m"
-
-load_balancer_type = "application"
-
-subnet_mapping = []
+create_lb = true
 
 drop_invalid_header_fields = false
 
+enable_cross_zone_load_balancing = false
+
 enable_deletion_protection = false
 
-enable_cross_zone_load_balancing = false
+enable_http2 = true
+
+extra_ssl_certs = []
 
 http_tcp_listeners = []
 
 https_listener_rules = []
 
-name_prefix = null
-
-tags = {}
-
-lb_tags = {}
-
-load_balancer_create_timeout = "10m"
-
-load_balancer_update_timeout = "10m"
-
-subnets = null
-
-security_groups = []
-
-target_groups = []
-
-create_lb = true
+https_listeners = []
 
 idle_timeout = 60
 
+internal = false
+
+ip_address_type = "ipv4"
+
+lb_tags = {}
+
 listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
+
+load_balancer_create_timeout = "10m"
+
+load_balancer_delete_timeout = "10m"
+
+load_balancer_type = "application"
+
+load_balancer_update_timeout = "10m"
 
 name = null
 
-access_logs = {}
+name_prefix = null
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = null
+
+tags = {}
 
 target_group_tags = {}
+
+target_groups = []
 
 vpc_id = null

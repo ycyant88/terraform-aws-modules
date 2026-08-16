@@ -1,61 +1,61 @@
-config_output_path = "./"
-
-map_users_count = 0
-
-workers_group_defaults = {}
-
-local_exec_interpreter = ["/bin/sh", "-c"]
-
-worker_security_group_id = ""
+cluster_create_security_group = true
 
 cluster_create_timeout = "15m"
 
 cluster_delete_timeout = "15m"
 
+cluster_name = ""
+
 cluster_security_group_id = ""
 
-map_roles_count = 0
+cluster_version = "1.11"
 
-worker_group_count = "1"
-
-subnets = ""
-
-worker_additional_security_group_ids = []
-
-kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
-
-write_kubeconfig = true
-
-map_users = []
-
-worker_groups = [{ "name" : "default" }]
-
-map_roles = []
+config_output_path = "./"
 
 kubeconfig_aws_authenticator_additional_args = []
 
-kubeconfig_aws_authenticator_env_variables = {}
-
-vpc_id = ""
-
-worker_sg_ingress_from_port = "1025"
+kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
 
 kubeconfig_aws_authenticator_command_args = []
 
+kubeconfig_aws_authenticator_env_variables = {}
+
 kubeconfig_name = ""
 
-worker_create_security_group = true
+local_exec_interpreter = ["/bin/sh", "-c"]
 
 manage_aws_auth = true
 
 map_accounts = []
 
+map_accounts_count = 0
+
+map_roles = []
+
+map_roles_count = 0
+
+map_users = []
+
+map_users_count = 0
+
+subnets = ""
+
 tags = {}
 
-cluster_create_security_group = true
+vpc_id = ""
 
-cluster_name = ""
+worker_additional_security_group_ids = []
 
-cluster_version = "1.11"
+worker_create_security_group = true
 
-map_accounts_count = 0
+worker_group_count = "1"
+
+worker_groups = [{ "name" : "default" }]
+
+worker_security_group_id = ""
+
+worker_sg_ingress_from_port = "1025"
+
+workers_group_defaults = {}
+
+write_kubeconfig = true

@@ -1,85 +1,85 @@
-off_peak_window_options = { "enabled" : true, "off_peak_window" : { "hours" : 7 } }
+access_policies = null
 
-enable_access_policy = true
+access_policy_override_policy_documents = []
 
-outbound_connections = {}
+access_policy_source_policy_documents = []
 
-security_group_name = null
+access_policy_statements = {}
 
-engine_version = null
-
-node_to_node_encryption = { "enabled" : true }
-
-vpc_options = {}
-
-timeouts = {}
-
-vpc_endpoints = {}
-
-cloudwatch_log_group_kms_key_id = null
-
-security_group_tags = {}
+advanced_options = {}
 
 advanced_security_options = { "anonymous_auth_enabled" : false, "enabled" : true }
 
-package_associations = {}
+auto_tune_options = { "desired_state" : "ENABLED", "rollback_on_disable" : "NO_ROLLBACK" }
 
-access_policy_override_policy_documents = []
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_retention_in_days = 60
 
 cloudwatch_log_group_skip_destroy = null
 
 cloudwatch_log_resource_policy_name = null
 
-create_security_group = true
-
-advanced_options = {}
-
 cluster_config = { "dedicated_master_enabled" : true }
-
-create_cloudwatch_log_groups = true
-
-auto_tune_options = { "desired_state" : "ENABLED", "rollback_on_disable" : "NO_ROLLBACK" }
 
 cognito_options = {}
 
-domain_endpoint_options = { "enforce_https" : true, "tls_security_policy" : "Policy-Min-TLS-1-2-2019-07" }
-
-software_update_options = { "auto_software_update_enabled" : true }
-
-access_policy_source_policy_documents = []
-
-saml_options = {}
-
-create_cloudwatch_log_resource_policy = true
-
-tags = {}
-
-domain_name = ""
-
-log_publishing_options = [{ "log_type" : "INDEX_SLOW_LOGS" }, { "log_type" : "SEARCH_SLOW_LOGS" }]
-
-cloudwatch_log_group_retention_in_days = 60
-
-cloudwatch_log_group_class = null
-
-ebs_options = { "ebs_enabled" : true, "volume_size" : 64, "volume_type" : "gp3" }
-
-encrypt_at_rest = { "enabled" : true }
+create = true
 
 create_access_policy = true
 
-access_policies = null
+create_cloudwatch_log_groups = true
 
-access_policy_statements = {}
-
-security_group_use_name_prefix = true
-
-create = true
-
-ip_address_type = null
+create_cloudwatch_log_resource_policy = true
 
 create_saml_options = false
 
+create_security_group = true
+
+domain_endpoint_options = { "enforce_https" : true, "tls_security_policy" : "Policy-Min-TLS-1-2-2019-07" }
+
+domain_name = ""
+
+ebs_options = { "ebs_enabled" : true, "volume_size" : 64, "volume_type" : "gp3" }
+
+enable_access_policy = true
+
+encrypt_at_rest = { "enabled" : true }
+
+engine_version = null
+
+ip_address_type = null
+
+log_publishing_options = [{ "log_type" : "INDEX_SLOW_LOGS" }, { "log_type" : "SEARCH_SLOW_LOGS" }]
+
+node_to_node_encryption = { "enabled" : true }
+
+off_peak_window_options = { "enabled" : true, "off_peak_window" : { "hours" : 7 } }
+
+outbound_connections = {}
+
+package_associations = {}
+
+saml_options = {}
+
 security_group_description = null
 
+security_group_name = null
+
 security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+software_update_options = { "auto_software_update_enabled" : true }
+
+tags = {}
+
+timeouts = {}
+
+vpc_endpoints = {}
+
+vpc_options = {}

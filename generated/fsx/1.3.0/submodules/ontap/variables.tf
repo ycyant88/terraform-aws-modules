@@ -1,90 +1,6 @@
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "disk_iops_configuration" {
-  description = "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system"
-  type        = map(string)
-  default     = {}
-}
-
-variable "security_group_egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type        = any
-  default     = {}
-}
-
-variable "security_group_name" {
-  description = "Name to use on security group created"
-  type        = string
-  default     = null
-}
-
-variable "route_table_ids" {
-  description = "Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table"
-  type        = list(string)
-  default     = []
-}
-
-variable "storage_capacity" {
-  description = "The storage capacity (GiB) of the file system"
-  type        = number
-  default     = null
-}
-
-variable "throughput_capacity" {
-  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified"
-  type        = number
-  default     = null
-}
-
-variable "timeouts" {
-  description = "Create, update, and delete timeout configurations for the file system"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ha_pairs" {
-  description = "The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs"
-  type        = number
-  default     = null
-}
-
-variable "preferred_subnet_id" {
-  description = "The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC)"
-  type        = string
-  default     = ""
-}
-
-variable "storage_type" {
-  description = "The filesystem storage type. defaults to SSD"
-  type        = string
-  default     = null
-}
-
-variable "weekly_maintenance_start_time" {
-  description = "The preferred start time (in d:HH:MM format) to perform weekly maintenance, in the UTC time zone"
-  type        = string
-  default     = null
-}
-
 variable "automatic_backup_retention_days" {
   description = "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days"
   type        = number
-  default     = null
-}
-
-variable "deployment_type" {
-  description = "The filesystem deployment type. One of: MULTI_AZ_1 or SINGLE_AZ_1"
-  type        = string
-  default     = "MULTI_AZ_1"
-}
-
-variable "fsx_admin_password" {
-  description = "The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API"
-  type        = string
   default     = null
 }
 
@@ -94,20 +10,26 @@ variable "create" {
   default     = true
 }
 
-variable "security_group_ids" {
-  description = "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces"
-  type        = list(string)
-  default     = []
-}
-
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+variable "create_security_group" {
+  description = "Determines if a security group is created"
   type        = bool
   default     = true
 }
 
-variable "volumes_timeouts" {
-  description = "Create, update, and delete timeout configurations for the volumes"
+variable "daily_automatic_backup_start_time" {
+  description = "A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires automatic_backup_retention_days to be set"
+  type        = string
+  default     = null
+}
+
+variable "deployment_type" {
+  description = "The filesystem deployment type. One of: MULTI_AZ_1 or SINGLE_AZ_1"
+  type        = string
+  default     = "MULTI_AZ_1"
+}
+
+variable "disk_iops_configuration" {
+  description = "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system"
   type        = map(string)
   default     = {}
 }
@@ -118,22 +40,22 @@ variable "endpoint_ip_address_range" {
   default     = null
 }
 
-variable "subnet_ids" {
-  description = "A list of IDs for the subnets that the file system will be accessible from"
-  type        = list(string)
-  default     = []
+variable "fsx_admin_password" {
+  description = "The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API"
+  type        = string
+  default     = null
 }
 
-variable "throughput_capacity_per_ha_pair" {
-  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 3072, 6144. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified"
+variable "ha_pairs" {
+  description = "The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs"
   type        = number
   default     = null
 }
 
-variable "storage_virtual_machines_timeouts" {
-  description = "Create, update, and delete timeout configurations for the storage virtual machines"
-  type        = map(string)
-  default     = {}
+variable "kms_key_id" {
+  description = "ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key"
+  type        = string
+  default     = null
 }
 
 variable "name" {
@@ -142,10 +64,16 @@ variable "name" {
   default     = ""
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
-  type        = bool
-  default     = true
+variable "preferred_subnet_id" {
+  description = "The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC)"
+  type        = string
+  default     = ""
+}
+
+variable "route_table_ids" {
+  description = "Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table"
+  type        = list(string)
+  default     = []
 }
 
 variable "security_group_description" {
@@ -154,20 +82,50 @@ variable "security_group_description" {
   default     = null
 }
 
+variable "security_group_egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_ids" {
+  description = "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces"
+  type        = list(string)
+  default     = []
+}
+
 variable "security_group_ingress_rules" {
   description = "Security group ingress rules to add to the security group created"
   type        = any
   default     = {}
 }
 
-variable "daily_automatic_backup_start_time" {
-  description = "A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires automatic_backup_retention_days to be set"
+variable "security_group_name" {
+  description = "Name to use on security group created"
   type        = string
   default     = null
 }
 
-variable "kms_key_id" {
-  description = "ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key"
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "storage_capacity" {
+  description = "The storage capacity (GiB) of the file system"
+  type        = number
+  default     = null
+}
+
+variable "storage_type" {
+  description = "The filesystem storage type. defaults to SSD"
   type        = string
   default     = null
 }
@@ -178,8 +136,50 @@ variable "storage_virtual_machines" {
   default     = {}
 }
 
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
+variable "storage_virtual_machines_timeouts" {
+  description = "Create, update, and delete timeout configurations for the storage virtual machines"
   type        = map(string)
   default     = {}
+}
+
+variable "subnet_ids" {
+  description = "A list of IDs for the subnets that the file system will be accessible from"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "throughput_capacity" {
+  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 128, 256, 512, 1024, 2048, and 4096. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified"
+  type        = number
+  default     = null
+}
+
+variable "throughput_capacity_per_ha_pair" {
+  description = "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are 3072, 6144. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified"
+  type        = number
+  default     = null
+}
+
+variable "timeouts" {
+  description = "Create, update, and delete timeout configurations for the file system"
+  type        = map(string)
+  default     = {}
+}
+
+variable "volumes_timeouts" {
+  description = "Create, update, and delete timeout configurations for the volumes"
+  type        = map(string)
+  default     = {}
+}
+
+variable "weekly_maintenance_start_time" {
+  description = "The preferred start time (in d:HH:MM format) to perform weekly maintenance, in the UTC time zone"
+  type        = string
+  default     = null
 }

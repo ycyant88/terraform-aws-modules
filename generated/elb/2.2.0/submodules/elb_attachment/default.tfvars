@@ -1,5 +1,5 @@
-number_of_instances = ""
-
 elb = ""
 
 instances = ""
+
+number_of_instances = ""

@@ -1,7 +1,7 @@
-variable "cluster_identifier" {
-  description = "Custom name of the cluster"
-  type        = string
-  default     = ""
+variable "automated_snapshot_retention_period" {
+  description = "How long will we retain backups"
+  type        = number
+  default     = 0
 }
 
 variable "cluster_database_name" {
@@ -16,40 +16,22 @@ variable "cluster_iam_roles" {
   default     = []
 }
 
-variable "parameter_group_name" {
-  description = "The name of the parameter group to be associated with this cluster. If not specified new parameter group will be created."
+variable "cluster_identifier" {
+  description = "Custom name of the cluster"
   type        = string
   default     = ""
 }
 
-variable "automated_snapshot_retention_period" {
-  description = "How long will we retain backups"
-  type        = number
-  default     = 0
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(any)
-  default     = {}
-}
-
-variable "cluster_port" {
+variable "cluster_master_password" {
   description = ""
-  type        = number
-  default     = 5439
-}
-
-variable "cluster_parameter_group" {
-  description = "Parameter group, depends on DB engine used"
   type        = string
-  default     = "redshift-1.0"
+  default     = ""
 }
 
-variable "subnets" {
-  description = "List of subnets DB should be available at. It might be one subnet."
-  type        = list(any)
-  default     = []
+variable "cluster_master_username" {
+  description = ""
+  type        = string
+  default     = ""
 }
 
 variable "cluster_node_type" {
@@ -64,28 +46,16 @@ variable "cluster_number_of_nodes" {
   default     = 3
 }
 
-variable "vpc_security_group_ids" {
-  description = "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster."
-  type        = list(any)
-  default     = []
-}
-
-variable "skip_final_snapshot" {
-  description = "If true (default), no snapshot will be made before deleting DB"
-  type        = bool
-  default     = true
-}
-
-variable "preferred_maintenance_window" {
-  description = "When AWS can run snapshot, can't overlap with maintenance window"
+variable "cluster_parameter_group" {
+  description = "Parameter group, depends on DB engine used"
   type        = string
-  default     = "sat:10:00-sat:10:30"
+  default     = "redshift-1.0"
 }
 
-variable "encrypted" {
-  description = "(Optional) If true , the data in the cluster is encrypted at rest."
-  type        = bool
-  default     = false
+variable "cluster_port" {
+  description = ""
+  type        = number
+  default     = 5439
 }
 
 variable "cluster_version" {
@@ -94,16 +64,28 @@ variable "cluster_version" {
   default     = "1.0"
 }
 
-variable "cluster_master_username" {
-  description = ""
+variable "encrypted" {
+  description = "(Optional) If true , the data in the cluster is encrypted at rest."
+  type        = bool
+  default     = false
+}
+
+variable "kms_key_id" {
+  description = "(Optional) The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true."
   type        = string
   default     = ""
 }
 
-variable "cluster_master_password" {
-  description = ""
+variable "parameter_group_name" {
+  description = "The name of the parameter group to be associated with this cluster. If not specified new parameter group will be created."
   type        = string
   default     = ""
+}
+
+variable "preferred_maintenance_window" {
+  description = "When AWS can run snapshot, can't overlap with maintenance window"
+  type        = string
+  default     = "sat:10:00-sat:10:30"
 }
 
 variable "publicly_accessible" {
@@ -118,14 +100,32 @@ variable "redshift_subnet_group_name" {
   default     = ""
 }
 
+variable "skip_final_snapshot" {
+  description = "If true (default), no snapshot will be made before deleting DB"
+  type        = bool
+  default     = true
+}
+
+variable "subnets" {
+  description = "List of subnets DB should be available at. It might be one subnet."
+  type        = list(any)
+  default     = []
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(any)
+  default     = {}
+}
+
+variable "vpc_security_group_ids" {
+  description = "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster."
+  type        = list(any)
+  default     = []
+}
+
 variable "wlm_json_configuration" {
   description = ""
   type        = string
   default     = "[{\"query_concurrency\": 5}]"
-}
-
-variable "kms_key_id" {
-  description = "(Optional) The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true."
-  type        = string
-  default     = ""
 }

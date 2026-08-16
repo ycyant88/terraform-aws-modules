@@ -1,51 +1,51 @@
-display_name = null
-
-fifo_topic = false
-
-sqs_feedback = {}
-
-tracing_config = null
+application_feedback = {}
 
 archive_policy = null
 
-override_topic_policy_documents = []
-
-enable_default_topic_policy = true
+content_based_deduplication = false
 
 create = true
 
-use_name_prefix = false
+create_subscription = true
 
-application_feedback = {}
+create_topic_policy = true
+
+data_protection_policy = null
 
 delivery_policy = null
 
+display_name = null
+
+enable_default_topic_policy = true
+
+fifo_topic = false
+
 firehose_feedback = {}
+
+http_feedback = {}
 
 kms_master_key_id = null
 
 lambda_feedback = {}
 
-signature_version = null
-
-tags = {}
-
 name = null
 
-topic_policy = null
+override_topic_policy_documents = []
 
-create_topic_policy = true
+signature_version = null
 
 source_topic_policy_documents = []
 
-topic_policy_statements = {}
-
-create_subscription = true
+sqs_feedback = {}
 
 subscriptions = {}
 
-http_feedback = {}
+tags = {}
 
-data_protection_policy = null
+topic_policy = null
 
-content_based_deduplication = false
+topic_policy_statements = {}
+
+tracing_config = null
+
+use_name_prefix = false

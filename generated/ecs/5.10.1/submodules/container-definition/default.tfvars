@@ -1,97 +1,97 @@
-linux_parameters = {}
-
-resource_requirements = []
-
-memory = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-volumes_from = []
-
-ulimits = []
-
-cloudwatch_log_group_retention_in_days = 30
-
-dependencies = []
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-cloudwatch_log_group_kms_key_id = null
+cloudwatch_log_group_retention_in_days = 30
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = []
 
 cpu = null
 
-entrypoint = []
+create_cloudwatch_log_group = true
 
-environment_files = []
+dependencies = []
 
-memory_reservation = null
-
-mount_points = []
-
-secrets = []
-
-tags = {}
-
-hostname = null
-
-repository_credentials = {}
-
-start_timeout = 30
-
-docker_labels = {}
-
-firelens_configuration = {}
-
-image = null
-
-interactive = false
-
-user = null
+disable_networking = null
 
 dns_search_domains = []
 
 dns_servers = []
 
-essential = null
-
-disable_networking = null
+docker_labels = {}
 
 docker_security_options = []
 
-enable_execute_command = false
-
-service = ""
-
-log_configuration = {}
-
-privileged = false
-
-readonly_root_filesystem = true
-
-system_controls = []
-
-stop_timeout = 120
-
-links = []
-
-pseudo_terminal = false
-
-name = null
-
-port_mappings = []
-
-working_directory = null
-
 enable_cloudwatch_logging = true
 
-create_cloudwatch_log_group = true
+enable_execute_command = false
 
-operating_system_family = "LINUX"
+entrypoint = []
 
-command = []
+environment = []
+
+environment_files = []
+
+essential = null
 
 extra_hosts = []
 
+firelens_configuration = {}
+
 health_check = {}
 
-environment = []
+hostname = null
+
+image = null
+
+interactive = false
+
+links = []
+
+linux_parameters = {}
+
+log_configuration = {}
+
+memory = null
+
+memory_reservation = null
+
+mount_points = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+port_mappings = []
+
+privileged = false
+
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
+
+stop_timeout = 120
+
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
+working_directory = null

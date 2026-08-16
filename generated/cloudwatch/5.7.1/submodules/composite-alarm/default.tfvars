@@ -4,16 +4,16 @@ actions_suppressor = {}
 
 alarm_actions = null
 
-tags = {}
+alarm_description = null
 
-insufficient_data_actions = null
-
-ok_actions = null
+alarm_name = null
 
 alarm_rule = null
 
 create = true
 
-alarm_name = null
+insufficient_data_actions = null
 
-alarm_description = null
+ok_actions = null
+
+tags = {}

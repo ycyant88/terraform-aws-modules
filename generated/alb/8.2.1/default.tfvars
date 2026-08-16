@@ -1,73 +1,73 @@
+access_logs = {}
+
 create_lb = true
-
-drop_invalid_header_fields = false
-
-preserve_host_header = false
-
-https_listener_rules = []
-
-http_tcp_listener_rules = []
-
-name_prefix = null
-
-https_listeners_tags = {}
-
-enable_waf_fail_open = false
-
-extra_ssl_certs = []
-
-https_listeners = []
-
-http_tcp_listeners = []
-
-http_tcp_listener_rules_tags = {}
 
 desync_mitigation_mode = "defensive"
 
-putin_khuylo = true
+drop_invalid_header_fields = false
 
-load_balancer_create_timeout = "10m"
-
-load_balancer_update_timeout = "10m"
-
-tags = {}
-
-lb_tags = {}
-
-http_tcp_listeners_tags = {}
-
-ip_address_type = "ipv4"
-
-internal = false
-
-subnet_mapping = []
-
-target_group_tags = {}
-
-https_listener_rules_tags = {}
-
-target_groups = []
+enable_cross_zone_load_balancing = false
 
 enable_deletion_protection = false
 
 enable_http2 = true
 
-enable_cross_zone_load_balancing = false
+enable_waf_fail_open = false
 
-load_balancer_delete_timeout = "10m"
+extra_ssl_certs = []
 
-name = null
+http_tcp_listener_rules = []
 
-subnets = null
+http_tcp_listener_rules_tags = {}
 
-security_groups = []
+http_tcp_listeners = []
 
-load_balancer_type = "application"
+http_tcp_listeners_tags = {}
 
-access_logs = {}
+https_listener_rules = []
 
-vpc_id = null
+https_listener_rules_tags = {}
+
+https_listeners = []
+
+https_listeners_tags = {}
 
 idle_timeout = 60
 
+internal = false
+
+ip_address_type = "ipv4"
+
+lb_tags = {}
+
 listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
+
+load_balancer_create_timeout = "10m"
+
+load_balancer_delete_timeout = "10m"
+
+load_balancer_type = "application"
+
+load_balancer_update_timeout = "10m"
+
+name = null
+
+name_prefix = null
+
+preserve_host_header = false
+
+putin_khuylo = true
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = null
+
+tags = {}
+
+target_group_tags = {}
+
+target_groups = []
+
+vpc_id = null

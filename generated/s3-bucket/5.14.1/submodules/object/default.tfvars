@@ -1,8 +1,14 @@
-server_side_encryption = null
+acl = null
 
-region = null
+bucket = ""
 
-key = ""
+bucket_key_enabled = null
+
+cache_control = null
+
+content = null
+
+content_base64 = null
 
 content_disposition = null
 
@@ -12,42 +18,36 @@ content_language = null
 
 content_type = null
 
-object_lock_legal_hold_status = null
-
-object_lock_mode = null
-
-storage_class = null
+create = true
 
 etag = null
+
+file_source = null
+
+force_destroy = false
+
+key = ""
 
 kms_key_id = null
 
 metadata = {}
 
-tags = {}
+object_lock_legal_hold_status = null
 
-force_destroy = false
+object_lock_mode = null
 
 object_lock_retain_until_date = null
 
-source_hash = null
-
-create = true
-
-file_source = null
-
-content = null
-
-content_base64 = null
-
-bucket_key_enabled = null
-
 override_default_tags = false
 
-bucket = ""
+region = null
 
-acl = null
+server_side_encryption = null
 
-cache_control = null
+source_hash = null
+
+storage_class = null
+
+tags = {}
 
 website_redirect = null

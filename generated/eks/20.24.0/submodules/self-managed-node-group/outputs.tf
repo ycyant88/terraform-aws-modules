@@ -1,6 +1,11 @@
-output "launch_template_id" {
-  value       = module.eks_self-managed-node-group.launch_template_id
-  description = "The ID of the launch template"
+output "access_entry_arn" {
+  value       = module.eks_self-managed-node-group.access_entry_arn
+  description = "Amazon Resource Name (ARN) of the Access Entry"
+}
+
+output "autoscaling_group_arn" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_arn
+  description = "The ARN for this autoscaling group"
 }
 
 output "autoscaling_group_availability_zones" {
@@ -8,44 +13,9 @@ output "autoscaling_group_availability_zones" {
   description = "The availability zones of the autoscaling group"
 }
 
-output "autoscaling_group_schedule_arns" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_schedule_arns
-  description = "ARNs of autoscaling group schedules"
-}
-
-output "platform" {
-  value       = module.eks_self-managed-node-group.platform
-  description = "[DEPRECATED - Will be removed in v21.0] Identifies the OS platform as bottlerocket, linux (AL2), al2023, or windows"
-}
-
 output "autoscaling_group_default_cooldown" {
   value       = module.eks_self-managed-node-group.autoscaling_group_default_cooldown
   description = "Time between a scaling activity and the succeeding scaling activity"
-}
-
-output "iam_instance_profile_arn" {
-  value       = module.eks_self-managed-node-group.iam_instance_profile_arn
-  description = "ARN assigned by AWS to the instance profile"
-}
-
-output "user_data" {
-  value       = module.eks_self-managed-node-group.user_data
-  description = "Base64 encoded user data"
-}
-
-output "iam_role_unique_id" {
-  value       = module.eks_self-managed-node-group.iam_role_unique_id
-  description = "Stable and unique string identifying the IAM role"
-}
-
-output "launch_template_arn" {
-  value       = module.eks_self-managed-node-group.launch_template_arn
-  description = "The ARN of the launch template"
-}
-
-output "autoscaling_group_arn" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_arn
-  description = "The ARN for this autoscaling group"
 }
 
 output "autoscaling_group_desired_capacity" {
@@ -63,14 +33,39 @@ output "autoscaling_group_health_check_type" {
   description = "EC2 or ELB. Controls how health checking is done"
 }
 
+output "autoscaling_group_id" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_id
+  description = "The autoscaling group id"
+}
+
+output "autoscaling_group_max_size" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_max_size
+  description = "The maximum size of the autoscaling group"
+}
+
+output "autoscaling_group_min_size" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_min_size
+  description = "The minimum size of the autoscaling group"
+}
+
+output "autoscaling_group_name" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_name
+  description = "The autoscaling group name"
+}
+
+output "autoscaling_group_schedule_arns" {
+  value       = module.eks_self-managed-node-group.autoscaling_group_schedule_arns
+  description = "ARNs of autoscaling group schedules"
+}
+
 output "autoscaling_group_vpc_zone_identifier" {
   value       = module.eks_self-managed-node-group.autoscaling_group_vpc_zone_identifier
   description = "The VPC zone identifier"
 }
 
-output "iam_role_arn" {
-  value       = module.eks_self-managed-node-group.iam_role_arn
-  description = "The Amazon Resource Name (ARN) specifying the IAM role"
+output "iam_instance_profile_arn" {
+  value       = module.eks_self-managed-node-group.iam_instance_profile_arn
+  description = "ARN assigned by AWS to the instance profile"
 }
 
 output "iam_instance_profile_id" {
@@ -83,14 +78,34 @@ output "iam_instance_profile_unique" {
   description = "Stable and unique string identifying the IAM instance profile"
 }
 
-output "access_entry_arn" {
-  value       = module.eks_self-managed-node-group.access_entry_arn
-  description = "Amazon Resource Name (ARN) of the Access Entry"
+output "iam_role_arn" {
+  value       = module.eks_self-managed-node-group.iam_role_arn
+  description = "The Amazon Resource Name (ARN) specifying the IAM role"
+}
+
+output "iam_role_name" {
+  value       = module.eks_self-managed-node-group.iam_role_name
+  description = "The name of the IAM role"
+}
+
+output "iam_role_unique_id" {
+  value       = module.eks_self-managed-node-group.iam_role_unique_id
+  description = "Stable and unique string identifying the IAM role"
 }
 
 output "image_id" {
   value       = module.eks_self-managed-node-group.image_id
   description = "ID of the image"
+}
+
+output "launch_template_arn" {
+  value       = module.eks_self-managed-node-group.launch_template_arn
+  description = "The ARN of the launch template"
+}
+
+output "launch_template_id" {
+  value       = module.eks_self-managed-node-group.launch_template_id
+  description = "The ID of the launch template"
 }
 
 output "launch_template_latest_version" {
@@ -103,27 +118,12 @@ output "launch_template_name" {
   description = "The name of the launch template"
 }
 
-output "autoscaling_group_id" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_id
-  description = "The autoscaling group id"
+output "platform" {
+  value       = module.eks_self-managed-node-group.platform
+  description = "[DEPRECATED - Will be removed in v21.0] Identifies the OS platform as bottlerocket, linux (AL2), al2023, or windows"
 }
 
-output "autoscaling_group_name" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_name
-  description = "The autoscaling group name"
-}
-
-output "autoscaling_group_min_size" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_min_size
-  description = "The minimum size of the autoscaling group"
-}
-
-output "autoscaling_group_max_size" {
-  value       = module.eks_self-managed-node-group.autoscaling_group_max_size
-  description = "The maximum size of the autoscaling group"
-}
-
-output "iam_role_name" {
-  value       = module.eks_self-managed-node-group.iam_role_name
-  description = "The name of the IAM role"
+output "user_data" {
+  value       = module.eks_self-managed-node-group.user_data
+  description = "Base64 encoded user data"
 }

@@ -1,107 +1,107 @@
-iam_role_path = null
+cloudwatch_log_group_kms_key_id = null
 
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
-
-create_cloudwatch_log_group = true
-
-fargate_profile_defaults = {}
-
-cluster_name = ""
+cloudwatch_log_group_retention_in_days = 90
 
 cluster_additional_security_group_ids = []
 
-eks_managed_node_groups = {}
+cluster_addons = {}
 
-cluster_version = null
+cluster_enabled_log_types = ["audit", "api", "authenticator"]
 
-create_cluster_security_group = true
+cluster_encryption_config = []
 
-vpc_id = null
+cluster_endpoint_private_access = false
 
-iam_role_additional_policies = []
+cluster_endpoint_public_access = true
+
+cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
+
+cluster_identity_providers = {}
 
 cluster_ip_family = null
 
-enable_irsa = true
+cluster_name = ""
 
-iam_role_name = null
+cluster_security_group_additional_rules = {}
 
-fargate_profiles = {}
+cluster_security_group_description = "EKS cluster security group"
 
-node_security_group_description = "EKS node shared security group"
+cluster_security_group_id = ""
 
-cloudwatch_log_group_retention_in_days = 90
+cluster_security_group_name = null
+
+cluster_security_group_tags = {}
 
 cluster_security_group_use_name_prefix = true
 
 cluster_service_ipv4_cidr = null
 
-iam_role_arn = null
-
-cluster_addons = {}
-
-cluster_encryption_config = []
-
-cluster_identity_providers = {}
-
-cluster_security_group_tags = {}
-
-iam_role_description = null
-
-prefix_separator = "-"
+cluster_tags = {}
 
 cluster_timeouts = {}
 
-cluster_security_group_description = "EKS cluster security group"
+cluster_version = null
 
-node_security_group_id = ""
+create = true
 
-node_security_group_additional_rules = {}
+create_cloudwatch_log_group = true
 
-subnet_ids = []
+create_cluster_security_group = true
 
-node_security_group_use_name_prefix = true
+create_cni_ipv6_iam_policy = false
 
-node_security_group_tags = {}
+create_iam_role = true
 
-cluster_security_group_id = ""
+create_node_security_group = true
 
-node_security_group_name = null
+eks_managed_node_group_defaults = {}
 
-openid_connect_audiences = []
+eks_managed_node_groups = {}
+
+enable_irsa = true
+
+fargate_profile_defaults = {}
+
+fargate_profiles = {}
+
+iam_role_additional_policies = []
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
+iam_role_use_name_prefix = true
+
+node_security_group_additional_rules = {}
+
+node_security_group_description = "EKS node shared security group"
+
+node_security_group_id = ""
+
+node_security_group_name = null
+
+node_security_group_tags = {}
+
+node_security_group_use_name_prefix = true
+
+openid_connect_audiences = []
+
+prefix_separator = "-"
+
 self_managed_node_group_defaults = {}
-
-cloudwatch_log_group_kms_key_id = null
-
-create_iam_role = true
 
 self_managed_node_groups = {}
 
-cluster_endpoint_public_access = true
-
-create_node_security_group = true
-
-iam_role_use_name_prefix = true
-
-eks_managed_node_group_defaults = {}
-
-cluster_security_group_additional_rules = {}
-
-cluster_tags = {}
-
-create_cni_ipv6_iam_policy = false
-
-create = true
-
-cluster_enabled_log_types = ["audit", "api", "authenticator"]
-
-cluster_endpoint_private_access = false
-
-cluster_security_group_name = null
+subnet_ids = []
 
 tags = {}
+
+vpc_id = null

@@ -1,17 +1,17 @@
-subnets = []
-
-create_fargate_pod_execution_role = true
-
-iam_path = "/"
-
-fargate_profiles = {}
-
-permissions_boundary = null
-
-tags = {}
+cluster_name = ""
 
 create_eks = true
 
-cluster_name = ""
+create_fargate_pod_execution_role = true
 
 fargate_pod_execution_role_name = null
+
+fargate_profiles = {}
+
+iam_path = "/"
+
+permissions_boundary = null
+
+subnets = []
+
+tags = {}

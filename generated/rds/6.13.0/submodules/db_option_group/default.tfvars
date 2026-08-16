@@ -1,19 +1,19 @@
-major_engine_version = null
-
-options = []
-
-tags = {}
-
-option_group_description = null
-
-skip_destroy = null
-
-timeouts = {}
-
 create = true
+
+engine_name = null
+
+major_engine_version = null
 
 name = ""
 
-use_name_prefix = true
+option_group_description = null
 
-engine_name = null
+options = []
+
+skip_destroy = null
+
+tags = {}
+
+timeouts = {}
+
+use_name_prefix = true

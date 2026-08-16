@@ -4,7 +4,7 @@ module "iam_iam-group-with-assumable-roles-policy" {
   assumable_roles                    = var.assumable_roles
   assumable_roles_policy_name_suffix = var.assumable_roles_policy_name_suffix
   group_users                        = var.group_users
-  tags                               = var.tags
   name                               = var.name
   path                               = var.path
+  tags                               = var.tags
 }

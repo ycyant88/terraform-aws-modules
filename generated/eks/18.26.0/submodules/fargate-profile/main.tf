@@ -1,22 +1,22 @@
 module "eks_fargate-profile" {
   source                        = "terraform-aws-modules/eks/aws//modules/fargate-profile"
   version                       = "18.26.0"
-  iam_role_name                 = var.iam_role_name
-  tags                          = var.tags
-  create_iam_role               = var.create_iam_role
   cluster_ip_family             = var.cluster_ip_family
-  iam_role_arn                  = var.iam_role_arn
-  subnet_ids                    = var.subnet_ids
-  selectors                     = var.selectors
-  create                        = var.create
-  iam_role_additional_policies  = var.iam_role_additional_policies
-  iam_role_tags                 = var.iam_role_tags
-  timeouts                      = var.timeouts
-  iam_role_path                 = var.iam_role_path
-  iam_role_description          = var.iam_role_description
-  iam_role_permissions_boundary = var.iam_role_permissions_boundary
-  iam_role_attach_cni_policy    = var.iam_role_attach_cni_policy
   cluster_name                  = var.cluster_name
-  name                          = var.name
+  create                        = var.create
+  create_iam_role               = var.create_iam_role
+  iam_role_additional_policies  = var.iam_role_additional_policies
+  iam_role_arn                  = var.iam_role_arn
+  iam_role_attach_cni_policy    = var.iam_role_attach_cni_policy
+  iam_role_description          = var.iam_role_description
+  iam_role_name                 = var.iam_role_name
+  iam_role_path                 = var.iam_role_path
+  iam_role_permissions_boundary = var.iam_role_permissions_boundary
+  iam_role_tags                 = var.iam_role_tags
   iam_role_use_name_prefix      = var.iam_role_use_name_prefix
+  name                          = var.name
+  selectors                     = var.selectors
+  subnet_ids                    = var.subnet_ids
+  tags                          = var.tags
+  timeouts                      = var.timeouts
 }

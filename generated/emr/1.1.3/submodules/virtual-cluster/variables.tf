@@ -1,73 +1,7 @@
-variable "oidc_provider_arn" {
-  description = "OIDC provider ARN for the EKS cluster"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_description" {
-  description = "Description of the job execution role"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events. Default retention - 7 days"
-  type        = number
-  default     = 7
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
+variable "annotations" {
+  description = "A map of annotations to add to all Kubernetes resources"
   type        = map(string)
   default     = {}
-}
-
-variable "name" {
-  description = "Name of the EMR on EKS virtual cluster"
-  type        = string
-  default     = ""
-}
-
-variable "eks_cluster_id" {
-  description = "EKS cluster ID"
-  type        = string
-  default     = ""
-}
-
-variable "create_kubernetes_role" {
-  description = "Determines whether a Kubernetes role is created for EMR on EKS"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_path" {
-  description = "Job execution IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "create_iam_role" {
-  description = "Determines whether an IAM role is created for EMR on EKS job execution role"
-  type        = bool
-  default     = true
-}
-
-variable "s3_bucket_arns" {
-  description = "S3 bucket ARNs for EMR on EKS job execution role to list, get objects, and put objects"
-  type        = list(string)
-  default     = ["*"]
-}
-
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the job execution IAM role"
-  type        = string
-  default     = null
 }
 
 variable "cloudwatch_log_group_arn" {
@@ -82,14 +16,74 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
+variable "cloudwatch_log_group_retention_in_days" {
+  description = "Number of days to retain log events. Default retention - 7 days"
+  type        = number
+  default     = 7
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role" {
+  description = "Determines whether an IAM role is created for EMR on EKS job execution role"
+  type        = bool
+  default     = true
+}
+
+variable "create_kubernetes_role" {
+  description = "Determines whether a Kubernetes role is created for EMR on EKS"
+  type        = bool
+  default     = true
+}
+
+variable "create_namespace" {
+  description = "Determines whether a Kubernetes namespace is created for EMR on EKS"
+  type        = bool
+  default     = true
+}
+
+variable "eks_cluster_id" {
+  description = "EKS cluster ID"
+  type        = string
+  default     = ""
+}
+
 variable "iam_role_additional_policies" {
   description = "Additional policies to be added to the job execution IAM role"
   type        = any
   default     = {}
 }
 
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled"
+variable "iam_role_description" {
+  description = "Description of the job execution role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_path" {
+  description = "Job execution IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the job execution IAM role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM job execution role name (role_name) is used as a prefix"
   type        = bool
   default     = true
 }
@@ -100,16 +94,10 @@ variable "labels" {
   default     = {}
 }
 
-variable "annotations" {
-  description = "A map of annotations to add to all Kubernetes resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_namespace" {
-  description = "Determines whether a Kubernetes namespace is created for EMR on EKS"
-  type        = bool
-  default     = true
+variable "name" {
+  description = "Name of the EMR on EKS virtual cluster"
+  type        = string
+  default     = ""
 }
 
 variable "namespace" {
@@ -118,14 +106,26 @@ variable "namespace" {
   default     = "emr-containers"
 }
 
+variable "oidc_provider_arn" {
+  description = "OIDC provider ARN for the EKS cluster"
+  type        = string
+  default     = ""
+}
+
 variable "role_name" {
   description = "Name to use on IAM role created for EMR on EKS job execution role as well as Kubernetes RBAC role"
   type        = string
   default     = null
 }
 
-variable "iam_role_use_name_prefix" {
-  description = "Determines whether the IAM job execution role name (role_name) is used as a prefix"
-  type        = bool
-  default     = true
+variable "s3_bucket_arns" {
+  description = "S3 bucket ARNs for EMR on EKS job execution role to list, get objects, and put objects"
+  type        = list(string)
+  default     = ["*"]
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

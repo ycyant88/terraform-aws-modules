@@ -1,31 +1,31 @@
-bucket_prefix = ""
+acceleration_status = ""
 
 acl = "private"
 
-versioning_inputs = ""
-
 bucket = ""
 
-policy = ""
+bucket_prefix = ""
+
+cors_rule_inputs = ""
 
 force_destroy = false
 
-acceleration_status = ""
-
-request_payer = ""
+lifecycle_rule_inputs = ""
 
 logging_inputs = ""
+
+policy = ""
+
+region = ""
+
+replication_configuration_inputs = ""
+
+request_payer = ""
 
 server_side_encryption_configuration_inputs = ""
 
 tags = {}
 
-region = ""
+versioning_inputs = ""
 
 website_inputs = ""
-
-cors_rule_inputs = ""
-
-lifecycle_rule_inputs = ""
-
-replication_configuration_inputs = ""

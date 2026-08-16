@@ -1,3 +1,15 @@
+variable "attach_iam_self_management_policy" {
+  description = "Whether to attach IAM policy which allows IAM users to manage their credentials and MFA"
+  type        = bool
+  default     = true
+}
+
+variable "aws_account_id" {
+  description = "AWS account id to use inside IAM policies. If empty, current AWS account ID will be used."
+  type        = string
+  default     = ""
+}
+
 variable "create_group" {
   description = "Whether to create IAM group"
   type        = bool
@@ -7,30 +19,6 @@ variable "create_group" {
 variable "custom_group_policies" {
   description = "List of maps of inline IAM policies to attach to IAM group. Should have name and policy keys in each element."
   type        = list(map(string))
-  default     = []
-}
-
-variable "iam_self_management_policy_name_prefix" {
-  description = "Name prefix for IAM policy to create with IAM self-management permissions"
-  type        = string
-  default     = "IAMSelfManagement-"
-}
-
-variable "aws_account_id" {
-  description = "AWS account id to use inside IAM policies. If empty, current AWS account ID will be used."
-  type        = string
-  default     = ""
-}
-
-variable "name" {
-  description = "Name of IAM group"
-  type        = string
-  default     = ""
-}
-
-variable "group_users" {
-  description = "List of IAM users to have in an IAM group which can assume the role"
-  type        = list(string)
   default     = []
 }
 
@@ -46,10 +34,22 @@ variable "enable_mfa_enforcment" {
   default     = true
 }
 
-variable "attach_iam_self_management_policy" {
-  description = "Whether to attach IAM policy which allows IAM users to manage their credentials and MFA"
-  type        = bool
-  default     = true
+variable "group_users" {
+  description = "List of IAM users to have in an IAM group which can assume the role"
+  type        = list(string)
+  default     = []
+}
+
+variable "iam_self_management_policy_name_prefix" {
+  description = "Name prefix for IAM policy to create with IAM self-management permissions"
+  type        = string
+  default     = "IAMSelfManagement-"
+}
+
+variable "name" {
+  description = "Name of IAM group"
+  type        = string
+  default     = ""
 }
 
 variable "tags" {

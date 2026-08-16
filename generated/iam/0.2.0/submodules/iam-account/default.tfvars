@@ -1,23 +1,23 @@
-minimum_password_length = 8
+account_alias = ""
 
 allow_users_to_change_password = true
 
-hard_expiry = false
-
-password_reuse_prevention = true
-
-require_symbols = true
-
-max_password_age = 0
-
-require_lowercase_characters = true
-
-require_uppercase_characters = true
-
-require_numbers = true
+create_account_password_policy = true
 
 get_caller_identity = true
 
-account_alias = ""
+hard_expiry = false
 
-create_account_password_policy = true
+max_password_age = 0
+
+minimum_password_length = 8
+
+password_reuse_prevention = true
+
+require_lowercase_characters = true
+
+require_numbers = true
+
+require_symbols = true
+
+require_uppercase_characters = true

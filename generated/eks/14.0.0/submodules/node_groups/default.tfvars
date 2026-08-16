@@ -1,15 +1,15 @@
-node_groups = {}
-
-ng_depends_on = null
+cluster_name = ""
 
 create_eks = true
 
-cluster_name = ""
-
 default_iam_role_arn = ""
 
-workers_group_defaults = ""
+ng_depends_on = null
+
+node_groups = {}
+
+node_groups_defaults = ""
 
 tags = ""
 
-node_groups_defaults = ""
+workers_group_defaults = ""

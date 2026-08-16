@@ -1,13 +1,13 @@
-variable "pgp_key" {
-  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key."
-  type        = string
-  default     = ""
+variable "create_iam_access_key" {
+  description = "Whether to create IAM access key"
+  type        = bool
+  default     = true
 }
 
-variable "policy_arns" {
-  description = "The list of ARNs of policies directly assigned to the IAM user"
-  type        = list(string)
-  default     = []
+variable "create_iam_user_login_profile" {
+  description = "Whether to create IAM user login profile"
+  type        = bool
+  default     = true
 }
 
 variable "create_user" {
@@ -22,22 +22,10 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "ssh_public_key" {
-  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
+variable "iam_access_key_status" {
+  description = "Access key status to apply."
   type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_iam_user_login_profile" {
-  description = "Whether to create IAM user login profile"
-  type        = bool
-  default     = true
+  default     = null
 }
 
 variable "name" {
@@ -52,20 +40,8 @@ variable "password_length" {
   default     = 20
 }
 
-variable "upload_iam_user_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
-  type        = bool
-  default     = false
-}
-
-variable "ssh_key_encoding" {
-  description = "Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format, use PEM"
-  type        = string
-  default     = "SSH"
-}
-
-variable "create_iam_access_key" {
-  description = "Whether to create IAM access key"
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login."
   type        = bool
   default     = true
 }
@@ -76,20 +52,44 @@ variable "path" {
   default     = "/"
 }
 
-variable "iam_access_key_status" {
-  description = "Access key status to apply."
-  type        = string
-  default     = null
-}
-
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login."
-  type        = bool
-  default     = true
-}
-
 variable "permissions_boundary" {
   description = "The ARN of the policy that is used to set the permissions boundary for the user."
   type        = string
   default     = ""
+}
+
+variable "pgp_key" {
+  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key."
+  type        = string
+  default     = ""
+}
+
+variable "policy_arns" {
+  description = "The list of ARNs of policies directly assigned to the IAM user"
+  type        = list(string)
+  default     = []
+}
+
+variable "ssh_key_encoding" {
+  description = "Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format, use PEM"
+  type        = string
+  default     = "SSH"
+}
+
+variable "ssh_public_key" {
+  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "upload_iam_user_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
+  type        = bool
+  default     = false
 }

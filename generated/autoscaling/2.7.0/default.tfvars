@@ -1,83 +1,83 @@
+asg_name = ""
+
+associate_public_ip_address = false
+
+create_asg = true
+
+create_lc = true
+
+default_cooldown = 300
+
+desired_capacity = ""
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+force_delete = false
+
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
+image_id = ""
+
+instance_type = ""
+
 key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+recreate_asg_when_lc_changes = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = ""
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
 
 target_group_arns = []
 
 termination_policies = ["Default"]
 
-min_elb_capacity = 0
-
-create_lc = true
-
-name = ""
-
-min_size = ""
-
-desired_capacity = ""
-
-health_check_grace_period = 300
-
-wait_for_elb_capacity = false
-
-associate_public_ip_address = false
-
-lc_name = ""
-
-image_id = ""
-
-iam_instance_profile = ""
-
-suspended_processes = []
-
-tags_as_map = {}
-
-placement_group = ""
-
-protect_from_scale_in = false
-
-instance_type = ""
-
-ebs_optimized = false
-
-placement_tenancy = "default"
-
-tags = []
-
 user_data = " "
-
-recreate_asg_when_lc_changes = false
-
-asg_name = ""
-
-security_groups = ""
-
-ebs_block_device = []
-
-ephemeral_block_device = []
-
-spot_price = ""
 
 vpc_zone_identifier = ""
 
-launch_configuration = ""
-
-enable_monitoring = true
-
-force_delete = false
-
-load_balancers = []
-
 wait_for_capacity_timeout = "10m"
 
-health_check_type = ""
-
-create_asg = true
-
-root_block_device = []
-
-max_size = ""
-
-default_cooldown = 300
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-metrics_granularity = "1Minute"
+wait_for_elb_capacity = false

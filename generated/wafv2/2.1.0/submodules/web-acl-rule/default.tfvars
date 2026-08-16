@@ -1,23 +1,23 @@
 action = null
 
-override_action = null
-
 captcha_config = null
 
 challenge_config = null
 
 create = true
 
+name = ""
+
+override_action = null
+
+priority = ""
+
 putin_khuylo = true
 
-web_acl_arn = ""
+rule_label = []
 
 statement = ""
 
 visibility_config = ""
 
-rule_label = []
-
-name = ""
-
-priority = ""
+web_acl_arn = ""

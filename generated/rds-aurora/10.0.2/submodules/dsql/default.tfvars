@@ -1,19 +1,19 @@
-name = ""
+clusters = null
 
-kms_encryption_key = null
+create = true
 
 create_cluster_peering = false
 
-clusters = null
+deletion_protection_enabled = null
 
-witness_region = null
+kms_encryption_key = null
 
-timeouts = null
+name = ""
 
 region = null
 
 tags = {}
 
-deletion_protection_enabled = null
+timeouts = null
 
-create = true
+witness_region = null

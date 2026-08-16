@@ -1,23 +1,5 @@
-variable "create" {
-  description = "Determines whether to create user-data or not"
-  type        = bool
-  default     = true
-}
-
-variable "is_eks_managed_node_group" {
-  description = "Determines whether the user data is used on nodes in an EKS managed node group. Used to determine if user data will be appended or not"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-  default     = ""
-}
-
-variable "cluster_endpoint" {
-  description = "Endpoint of associated EKS cluster"
+variable "bootstrap_extra_args" {
+  description = "Additional arguments passed to the bootstrap script. When platform = bottlerocket; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
   type        = string
   default     = ""
 }
@@ -28,16 +10,16 @@ variable "cluster_auth_base64" {
   default     = ""
 }
 
-variable "platform" {
-  description = "Identifies if the OS platform is bottlerocket, linux, or windows based"
+variable "cluster_endpoint" {
+  description = "Endpoint of associated EKS cluster"
   type        = string
-  default     = "linux"
+  default     = ""
 }
 
-variable "enable_bootstrap_user_data" {
-  description = "Determines whether the bootstrap configurations are populated within the user data template"
-  type        = bool
-  default     = false
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+  default     = ""
 }
 
 variable "cluster_service_ipv4_cidr" {
@@ -46,10 +28,28 @@ variable "cluster_service_ipv4_cidr" {
   default     = null
 }
 
-variable "pre_bootstrap_user_data" {
-  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when platform = bottlerocket"
+variable "create" {
+  description = "Determines whether to create user-data or not"
+  type        = bool
+  default     = true
+}
+
+variable "enable_bootstrap_user_data" {
+  description = "Determines whether the bootstrap configurations are populated within the user data template"
+  type        = bool
+  default     = false
+}
+
+variable "is_eks_managed_node_group" {
+  description = "Determines whether the user data is used on nodes in an EKS managed node group. Used to determine if user data will be appended or not"
+  type        = bool
+  default     = true
+}
+
+variable "platform" {
+  description = "Identifies if the OS platform is bottlerocket, linux, or windows based"
   type        = string
-  default     = ""
+  default     = "linux"
 }
 
 variable "post_bootstrap_user_data" {
@@ -58,8 +58,8 @@ variable "post_bootstrap_user_data" {
   default     = ""
 }
 
-variable "bootstrap_extra_args" {
-  description = "Additional arguments passed to the bootstrap script. When platform = bottlerocket; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
+variable "pre_bootstrap_user_data" {
+  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when platform = bottlerocket"
   type        = string
   default     = ""
 }

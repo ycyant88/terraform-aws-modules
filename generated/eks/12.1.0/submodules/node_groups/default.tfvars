@@ -1,13 +1,13 @@
-create_eks = true
-
 cluster_name = ""
+
+create_eks = true
 
 default_iam_role_arn = ""
 
-workers_group_defaults = ""
-
-tags = ""
+node_groups = {}
 
 node_groups_defaults = ""
 
-node_groups = {}
+tags = ""
+
+workers_group_defaults = ""

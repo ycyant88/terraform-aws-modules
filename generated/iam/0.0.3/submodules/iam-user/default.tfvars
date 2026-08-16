@@ -1,17 +1,17 @@
-name = ""
-
-pgp_key = ""
-
-create_user = true
+create_iam_access_key = true
 
 create_iam_user_login_profile = true
 
-path = "/"
+create_user = true
 
 force_destroy = false
 
-password_reset_required = true
+name = ""
 
 password_length = 20
 
-create_iam_access_key = true
+password_reset_required = true
+
+path = "/"
+
+pgp_key = ""

@@ -1,27 +1,27 @@
-path = null
-
-source_inline_policy_documents = []
-
-override_inline_policy_documents = []
-
 allow_cloudwatch_logs_query = true
-
-tags = {}
-
-description = null
-
-allowed_services = []
 
 allow_predefined_sts_actions = true
 
 allow_web_console_services = true
 
-web_console_services = ["resource-groups", "tag", "health", "ce"]
+allowed_services = []
 
 create = true
 
 create_policy = true
 
+description = null
+
 name = null
 
+override_inline_policy_documents = []
+
+path = null
+
+source_inline_policy_documents = []
+
+tags = {}
+
 use_name_prefix = true
+
+web_console_services = ["resource-groups", "tag", "health", "ce"]

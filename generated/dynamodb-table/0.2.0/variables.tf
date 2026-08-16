@@ -1,13 +1,7 @@
-variable "timeouts" {
-  description = "Updated Terraform resource management timeouts"
-  type        = map(string)
-  default     = { "create" : "10m", "delete" : "10m", "update" : "60m" }
-}
-
-variable "create_table" {
-  description = "Controls if DynamoDB table and associated resources are created"
-  type        = bool
-  default     = true
+variable "attributes" {
+  description = "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties: name - (Required) The name of the attribute, type - (Required) Attribute type, which must be a scalar type: S, N, or B for (S)tring, (N)umber or (B)inary data"
+  type        = list(map(string))
+  default     = []
 }
 
 variable "billing_mode" {
@@ -16,22 +10,28 @@ variable "billing_mode" {
   default     = "PAY_PER_REQUEST"
 }
 
-variable "write_capacity" {
-  description = "The number of write units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
-  type        = number
-  default     = ""
+variable "create_table" {
+  description = "Controls if DynamoDB table and associated resources are created"
+  type        = bool
+  default     = true
 }
 
-variable "ttl_attribute_name" {
-  description = "The name of the table attribute to store the TTL timestamp in"
+variable "global_secondary_indexes" {
+  description = "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc."
+  type        = list(any)
+  default     = []
+}
+
+variable "hash_key" {
+  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
   type        = string
   default     = ""
 }
 
-variable "server_side_encryption_kms_key_arn" {
-  description = "The ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, alias/aws/dynamodb."
-  type        = string
-  default     = ""
+variable "local_secondary_indexes" {
+  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
+  type        = list(any)
+  default     = []
 }
 
 variable "name" {
@@ -40,16 +40,22 @@ variable "name" {
   default     = ""
 }
 
+variable "point_in_time_recovery_enabled" {
+  description = "Whether to enable point-in-time recovery"
+  type        = bool
+  default     = false
+}
+
 variable "range_key" {
   description = "The attribute to use as the range (sort) key. Must also be defined as an attribute"
   type        = string
   default     = ""
 }
 
-variable "stream_enabled" {
-  description = "Indicates whether Streams are to be enabled (true) or disabled (false)."
-  type        = bool
-  default     = false
+variable "read_capacity" {
+  description = "The number of read units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
+  type        = number
+  default     = ""
 }
 
 variable "server_side_encryption_enabled" {
@@ -58,16 +64,16 @@ variable "server_side_encryption_enabled" {
   default     = false
 }
 
-variable "attributes" {
-  description = "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties: name - (Required) The name of the attribute, type - (Required) Attribute type, which must be a scalar type: S, N, or B for (S)tring, (N)umber or (B)inary data"
-  type        = list(map(string))
-  default     = []
+variable "server_side_encryption_kms_key_arn" {
+  description = "The ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, alias/aws/dynamodb."
+  type        = string
+  default     = ""
 }
 
-variable "global_secondary_indexes" {
-  description = "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc."
-  type        = list(any)
-  default     = []
+variable "stream_enabled" {
+  description = "Indicates whether Streams are to be enabled (true) or disabled (false)."
+  type        = bool
+  default     = false
 }
 
 variable "stream_view_type" {
@@ -82,22 +88,16 @@ variable "tags" {
   default     = {}
 }
 
-variable "hash_key" {
-  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
+variable "timeouts" {
+  description = "Updated Terraform resource management timeouts"
+  type        = map(string)
+  default     = { "create" : "10m", "delete" : "10m", "update" : "60m" }
+}
+
+variable "ttl_attribute_name" {
+  description = "The name of the table attribute to store the TTL timestamp in"
   type        = string
   default     = ""
-}
-
-variable "read_capacity" {
-  description = "The number of read units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
-  type        = number
-  default     = ""
-}
-
-variable "point_in_time_recovery_enabled" {
-  description = "Whether to enable point-in-time recovery"
-  type        = bool
-  default     = false
 }
 
 variable "ttl_enabled" {
@@ -106,8 +106,8 @@ variable "ttl_enabled" {
   default     = false
 }
 
-variable "local_secondary_indexes" {
-  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
-  type        = list(any)
-  default     = []
+variable "write_capacity" {
+  description = "The number of write units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
+  type        = number
+  default     = ""
 }

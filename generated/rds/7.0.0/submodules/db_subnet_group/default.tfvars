@@ -1,8 +1,8 @@
-name = ""
-
-use_name_prefix = true
+create = true
 
 description = null
+
+name = ""
 
 region = null
 
@@ -10,4 +10,4 @@ subnet_ids = []
 
 tags = {}
 
-create = true
+use_name_prefix = true

@@ -1,55 +1,55 @@
-tags = {}
-
-key_usage = null
-
-enable_default_policy = true
-
-key_material_base64 = null
-
-key_symmetric_encryption_users = []
-
-key_asymmetric_public_encryption_users = []
-
-key_administrators = []
-
-key_owners = []
-
-key_users = []
-
-override_policy_documents = []
+aliases = []
 
 aliases_use_name_prefix = false
 
-customer_master_key_spec = null
-
-description = null
-
-is_enabled = null
-
-valid_to = null
-
-grants = {}
-
-create_external = false
-
-key_hmac_users = []
-
-key_asymmetric_sign_verify_users = []
+bypass_policy_lockout_safety_check = null
 
 create = true
 
-bypass_policy_lockout_safety_check = null
+create_external = false
 
-enable_key_rotation = true
-
-multi_region = false
-
-aliases = []
+customer_master_key_spec = null
 
 deletion_window_in_days = null
 
-policy = null
+description = null
+
+enable_default_policy = true
+
+enable_key_rotation = true
+
+grants = {}
+
+is_enabled = null
+
+key_administrators = []
+
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
+key_hmac_users = []
+
+key_material_base64 = null
+
+key_owners = []
 
 key_service_users = []
 
+key_symmetric_encryption_users = []
+
+key_usage = null
+
+key_users = []
+
+multi_region = false
+
+override_policy_documents = []
+
+policy = null
+
 source_policy_documents = []
+
+tags = {}
+
+valid_to = null

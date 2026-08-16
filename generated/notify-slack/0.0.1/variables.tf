@@ -1,5 +1,5 @@
-variable "slack_webhook_url" {
-  description = "The URL of Slack webhook"
+variable "kms_key_arn" {
+  description = "ARN of the KMS key used for decrypting slack webhook url"
   type        = string
   default     = ""
 }
@@ -10,14 +10,14 @@ variable "slack_channel" {
   default     = ""
 }
 
-variable "kms_key_arn" {
-  description = "ARN of the KMS key used for decrypting slack webhook url"
+variable "slack_topic_name" {
+  description = "The name of the SNS topic for slack"
   type        = string
   default     = ""
 }
 
-variable "slack_topic_name" {
-  description = "The name of the SNS topic for slack"
+variable "slack_webhook_url" {
+  description = "The URL of Slack webhook"
   type        = string
   default     = ""
 }

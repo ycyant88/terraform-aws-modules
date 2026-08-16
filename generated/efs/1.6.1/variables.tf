@@ -1,7 +1,7 @@
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "access_points" {
+  description = "A map of access point definitions to create"
+  type        = any
+  default     = {}
 }
 
 variable "attach_policy" {
@@ -10,116 +10,8 @@ variable "attach_policy" {
   default     = true
 }
 
-variable "source_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "create_replication_configuration" {
-  description = "Determines whether a replication configuration is created"
-  type        = bool
-  default     = false
-}
-
-variable "override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "security_group_vpc_id" {
-  description = "The VPC ID where the security group will be created"
-  type        = string
-  default     = null
-}
-
-variable "create_backup_policy" {
-  description = "Determines whether a backup policy is created"
-  type        = bool
-  default     = true
-}
-
-variable "encrypted" {
-  description = "If true, the disk will be encrypted"
-  type        = bool
-  default     = true
-}
-
-variable "policy_statements" {
-  description = "A list of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = []
-}
-
-variable "create_security_group" {
-  description = "Determines whether a security group is created"
-  type        = bool
-  default     = true
-}
-
-variable "security_group_rules" {
-  description = "Map of security group rule definitions to create"
-  type        = any
-  default     = {}
-}
-
-variable "replication_configuration_destination" {
-  description = "A destination configuration block"
-  type        = any
-  default     = {}
-}
-
-variable "deny_nonsecure_transport" {
-  description = "Determines whether aws:SecureTransport is required when connecting to elastic file system"
-  type        = bool
-  default     = true
-}
-
-variable "security_group_name" {
-  description = "Name to assign to the security group. If omitted, Terraform will assign a random, unique name"
-  type        = string
-  default     = null
-}
-
-variable "security_group_description" {
-  description = "Security group description. Defaults to Managed by Terraform"
-  type        = string
-  default     = null
-}
-
-variable "security_group_use_name_prefix" {
-  description = "Determines whether to use a name prefix for the security group. If true, the security_group_name value will be used as a prefix"
-  type        = bool
-  default     = false
-}
-
-variable "name" {
-  description = "The name of the file system"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "availability_zone_name" {
   description = "The AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes"
-  type        = string
-  default     = null
-}
-
-variable "kms_key_arn" {
-  description = "The ARN for the KMS encryption key. When specifying kms_key_arn, encrypted needs to be set to true"
-  type        = string
-  default     = null
-}
-
-variable "throughput_mode" {
-  description = "Throughput mode for the file system. Defaults to bursting. Valid values: bursting, elastic, and provisioned. When using provisioned, also set provisioned_throughput_in_mibps"
   type        = string
   default     = null
 }
@@ -130,22 +22,28 @@ variable "bypass_policy_lockout_safety_check" {
   default     = null
 }
 
-variable "mount_targets" {
-  description = "A map of mount target definitions to create"
-  type        = any
-  default     = {}
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
-variable "access_points" {
-  description = "A map of access point definitions to create"
-  type        = any
-  default     = {}
+variable "create_backup_policy" {
+  description = "Determines whether a backup policy is created"
+  type        = bool
+  default     = true
 }
 
-variable "performance_mode" {
-  description = "The file system performance mode. Can be either generalPurpose or maxIO. Default is generalPurpose"
-  type        = string
-  default     = null
+variable "create_replication_configuration" {
+  description = "Determines whether a replication configuration is created"
+  type        = bool
+  default     = false
+}
+
+variable "create_security_group" {
+  description = "Determines whether a security group is created"
+  type        = bool
+  default     = true
 }
 
 variable "creation_token" {
@@ -154,9 +52,27 @@ variable "creation_token" {
   default     = null
 }
 
-variable "provisioned_throughput_in_mibps" {
-  description = "The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with throughput_mode set to provisioned"
-  type        = number
+variable "deny_nonsecure_transport" {
+  description = "Determines whether aws:SecureTransport is required when connecting to elastic file system"
+  type        = bool
+  default     = true
+}
+
+variable "enable_backup_policy" {
+  description = "Determines whether a backup policy is ENABLED or DISABLED"
+  type        = bool
+  default     = true
+}
+
+variable "encrypted" {
+  description = "If true, the disk will be encrypted"
+  type        = bool
+  default     = true
+}
+
+variable "kms_key_arn" {
+  description = "The ARN for the KMS encryption key. When specifying kms_key_arn, encrypted needs to be set to true"
+  type        = string
   default     = null
 }
 
@@ -166,8 +82,92 @@ variable "lifecycle_policy" {
   default     = {}
 }
 
-variable "enable_backup_policy" {
-  description = "Determines whether a backup policy is ENABLED or DISABLED"
+variable "mount_targets" {
+  description = "A map of mount target definitions to create"
+  type        = any
+  default     = {}
+}
+
+variable "name" {
+  description = "The name of the file system"
+  type        = string
+  default     = ""
+}
+
+variable "override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "performance_mode" {
+  description = "The file system performance mode. Can be either generalPurpose or maxIO. Default is generalPurpose"
+  type        = string
+  default     = null
+}
+
+variable "policy_statements" {
+  description = "A list of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = any
+  default     = []
+}
+
+variable "provisioned_throughput_in_mibps" {
+  description = "The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with throughput_mode set to provisioned"
+  type        = number
+  default     = null
+}
+
+variable "replication_configuration_destination" {
+  description = "A destination configuration block"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_description" {
+  description = "Security group description. Defaults to Managed by Terraform"
+  type        = string
+  default     = null
+}
+
+variable "security_group_name" {
+  description = "Name to assign to the security group. If omitted, Terraform will assign a random, unique name"
+  type        = string
+  default     = null
+}
+
+variable "security_group_rules" {
+  description = "Map of security group rule definitions to create"
+  type        = any
+  default     = {}
+}
+
+variable "security_group_use_name_prefix" {
+  description = "Determines whether to use a name prefix for the security group. If true, the security_group_name value will be used as a prefix"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "security_group_vpc_id" {
+  description = "The VPC ID where the security group will be created"
+  type        = string
+  default     = null
+}
+
+variable "source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "throughput_mode" {
+  description = "Throughput mode for the file system. Defaults to bursting. Valid values: bursting, elastic, and provisioned. When using provisioned, also set provisioned_throughput_in_mibps"
+  type        = string
+  default     = null
 }

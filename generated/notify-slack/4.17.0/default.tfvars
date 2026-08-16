@@ -1,55 +1,55 @@
+cloudwatch_log_group_kms_key_id = ""
+
 cloudwatch_log_group_retention_in_days = 0
+
+cloudwatch_log_group_tags = {}
+
+create = true
+
+create_sns_topic = true
+
+iam_role_boundary_policy_arn = ""
 
 iam_role_name_prefix = "lambda"
 
+iam_role_tags = {}
+
+kms_key_arn = ""
+
 lambda_description = ""
 
-subscription_filter_policy = ""
+lambda_function_name = "notify_slack"
+
+lambda_function_s3_bucket = ""
+
+lambda_function_store_on_s3 = false
+
+lambda_function_tags = {}
+
+lambda_function_vpc_security_group_ids = ""
+
+lambda_function_vpc_subnet_ids = ""
 
 lambda_role = ""
 
 log_events = false
 
-sns_topic_name = ""
-
-lambda_function_vpc_security_group_ids = ""
-
-cloudwatch_log_group_tags = {}
-
-slack_emoji = ":aws:"
-
-lambda_function_tags = {}
-
-lambda_function_store_on_s3 = false
+reserved_concurrent_executions = -1
 
 slack_channel = ""
 
-iam_role_boundary_policy_arn = ""
+slack_emoji = ":aws:"
 
 slack_username = ""
-
-sns_topic_tags = {}
-
-create_sns_topic = true
-
-lambda_function_name = "notify_slack"
 
 slack_webhook_url = ""
 
 sns_topic_kms_key_id = ""
 
-kms_key_arn = ""
+sns_topic_name = ""
 
-lambda_function_vpc_subnet_ids = ""
+sns_topic_tags = {}
 
-reserved_concurrent_executions = -1
+subscription_filter_policy = ""
 
 tags = {}
-
-iam_role_tags = {}
-
-create = true
-
-cloudwatch_log_group_kms_key_id = ""
-
-lambda_function_s3_bucket = ""

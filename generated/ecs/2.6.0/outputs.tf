@@ -1,11 +1,11 @@
-output "this_ecs_cluster_id" {
-  value       = module.ecs.this_ecs_cluster_id
-  description = "ID of the ECS Cluster"
-}
-
 output "this_ecs_cluster_arn" {
   value       = module.ecs.this_ecs_cluster_arn
   description = "ARN of the ECS Cluster"
+}
+
+output "this_ecs_cluster_id" {
+  value       = module.ecs.this_ecs_cluster_id
+  description = "ID of the ECS Cluster"
 }
 
 output "this_ecs_cluster_name" {

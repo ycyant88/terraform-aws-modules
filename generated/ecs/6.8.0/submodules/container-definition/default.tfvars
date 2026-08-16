@@ -1,26 +1,72 @@
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = 14
+
+cloudwatch_log_group_use_name_prefix = false
+
 command = null
 
 cpu = null
 
+create_cloudwatch_log_group = true
+
+credentialSpecs = null
+
+dependsOn = null
+
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
+
+dockerLabels = null
+
 dockerSecurityOptions = null
 
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = null
+
 environment = null
+
+environmentFiles = null
+
+essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
 
 image = null
 
 interactive = false
 
-startTimeout = 30
+links = null
 
-enable_cloudwatch_logging = true
+linuxParameters = {}
+
+logConfiguration = {}
 
 memory = null
 
+memoryReservation = null
+
+mountPoints = null
+
+name = null
+
 operating_system_family = "LINUX"
-
-tags = {}
-
-environmentFiles = null
 
 portMappings = null
 
@@ -28,80 +74,34 @@ privileged = false
 
 pseudoTerminal = false
 
-repositoryCredentials = null
+readonlyRootFilesystem = true
 
 region = null
 
-entrypoint = null
+repositoryCredentials = null
 
-healthCheck = null
-
-hostname = null
-
-name = null
+resourceRequirements = null
 
 restartPolicy = { "enabled" : true }
 
-ulimits = null
+secrets = null
 
-enable_execute_command = false
+service = null
 
-memoryReservation = null
-
-readonlyRootFilesystem = true
-
-systemControls = null
-
-user = null
-
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_retention_in_days = 14
-
-credentialSpecs = null
-
-disableNetworking = null
-
-links = null
-
-dnsServers = null
-
-essential = null
-
-firelensConfiguration = null
-
-logConfiguration = {}
+startTimeout = 30
 
 stopTimeout = 120
 
-dependsOn = null
+systemControls = null
 
-dockerLabels = null
+tags = {}
 
-extraHosts = null
+ulimits = null
 
-linuxParameters = {}
+user = null
 
 versionConsistency = "disabled"
 
 volumesFrom = null
 
 workingDirectory = null
-
-create_cloudwatch_log_group = true
-
-dnsSearchDomains = null
-
-mountPoints = null
-
-resourceRequirements = null
-
-secrets = null
-
-service = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-cloudwatch_log_group_class = null
-
-cloudwatch_log_group_kms_key_id = null

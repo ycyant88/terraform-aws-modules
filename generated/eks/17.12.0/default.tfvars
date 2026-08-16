@@ -1,135 +1,135 @@
-cluster_log_kms_key_id = ""
+attach_worker_cni_policy = true
 
-worker_ami_name_filter_windows = ""
+aws_auth_additional_labels = {}
 
-worker_ami_owner_id = "amazon"
+cluster_create_endpoint_private_access_sg_rule = false
+
+cluster_create_security_group = true
 
 cluster_create_timeout = "30m"
 
-worker_create_security_group = true
+cluster_delete_timeout = "15m"
+
+cluster_egress_cidrs = ["0.0.0.0/0"]
+
+cluster_enabled_log_types = []
+
+cluster_encryption_config = []
+
+cluster_endpoint_private_access = false
 
 cluster_endpoint_private_access_cidrs = null
 
-map_roles = []
+cluster_endpoint_private_access_sg = null
 
-manage_cluster_iam_resources = true
+cluster_endpoint_public_access = true
 
-node_groups_defaults = {}
+cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 
-wait_for_cluster_timeout = 300
+cluster_iam_role_name = ""
 
-timeouts = {}
+cluster_log_kms_key_id = ""
+
+cluster_log_retention_in_days = 90
+
+cluster_name = ""
+
+cluster_security_group_id = ""
+
+cluster_service_ipv4_cidr = null
+
+cluster_tags = {}
+
+cluster_version = ""
+
+create_eks = true
+
+create_fargate_pod_execution_role = true
+
+eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
+
+enable_irsa = false
+
+fargate_pod_execution_role_name = null
+
+fargate_profiles = {}
+
+iam_path = "/"
+
+kubeconfig_aws_authenticator_additional_args = []
+
+kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
 
 kubeconfig_aws_authenticator_command_args = []
 
 kubeconfig_aws_authenticator_env_variables = {}
 
-worker_create_cluster_primary_security_group_rules = false
-
-create_fargate_pod_execution_role = true
-
 kubeconfig_file_permission = "0600"
-
-map_accounts = []
-
-worker_groups_launch_template = []
-
-cluster_delete_timeout = "15m"
-
-workers_role_name = ""
-
-cluster_name = ""
-
-cluster_tags = {}
-
-worker_ami_owner_id_windows = "amazon"
-
-manage_worker_iam_resources = true
-
-openid_connect_audiences = []
-
-cluster_version = ""
-
-worker_sg_ingress_from_port = 1025
-
-cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
-
-create_eks = true
-
-node_groups = {}
-
-enable_irsa = false
-
-manage_aws_auth = true
-
-tags = {}
-
-workers_additional_policies = []
-
-kubeconfig_aws_authenticator_additional_args = []
-
-cluster_endpoint_public_access = true
-
-worker_additional_security_group_ids = []
 
 kubeconfig_name = ""
 
-cluster_endpoint_private_access_sg = null
+kubeconfig_output_path = "./"
 
-cluster_iam_role_name = ""
+manage_aws_auth = true
 
-fargate_profiles = {}
+manage_cluster_iam_resources = true
 
-cluster_create_security_group = true
+manage_worker_iam_resources = true
 
-eks_oidc_root_ca_thumbprint = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
+map_accounts = []
 
-fargate_pod_execution_role_name = null
-
-cluster_service_ipv4_cidr = null
-
-cluster_security_group_id = ""
+map_roles = []
 
 map_users = []
 
-worker_groups = []
+node_groups = {}
 
-kubeconfig_aws_authenticator_command = "aws-iam-authenticator"
+node_groups_defaults = {}
 
-cluster_endpoint_private_access = false
-
-subnets = ""
-
-cluster_encryption_config = []
-
-workers_egress_cidrs = ["0.0.0.0/0"]
-
-attach_worker_cni_policy = true
-
-write_kubeconfig = true
-
-aws_auth_additional_labels = {}
-
-worker_create_initial_lifecycle_hooks = false
+openid_connect_audiences = []
 
 permissions_boundary = null
 
-iam_path = "/"
+subnets = ""
 
-cluster_create_endpoint_private_access_sg_rule = false
+tags = {}
 
-cluster_enabled_log_types = []
-
-kubeconfig_output_path = "./"
+timeouts = {}
 
 vpc_id = ""
 
-workers_group_defaults = {}
+wait_for_cluster_timeout = 300
+
+worker_additional_security_group_ids = []
 
 worker_ami_name_filter = ""
 
-cluster_egress_cidrs = ["0.0.0.0/0"]
+worker_ami_name_filter_windows = ""
 
-cluster_log_retention_in_days = 90
+worker_ami_owner_id = "amazon"
+
+worker_ami_owner_id_windows = "amazon"
+
+worker_create_cluster_primary_security_group_rules = false
+
+worker_create_initial_lifecycle_hooks = false
+
+worker_create_security_group = true
+
+worker_groups = []
+
+worker_groups_launch_template = []
 
 worker_security_group_id = ""
+
+worker_sg_ingress_from_port = 1025
+
+workers_additional_policies = []
+
+workers_egress_cidrs = ["0.0.0.0/0"]
+
+workers_group_defaults = {}
+
+workers_role_name = ""
+
+write_kubeconfig = true

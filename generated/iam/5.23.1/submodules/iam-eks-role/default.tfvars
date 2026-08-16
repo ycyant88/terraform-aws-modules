@@ -1,25 +1,25 @@
+allow_self_assume_role = false
+
 assume_role_condition_test = "StringEquals"
-
-role_name_prefix = null
-
-role_policy_arns = {}
 
 cluster_service_accounts = {}
 
-tags = {}
+create_role = true
 
 force_detach_policies = false
 
-create_role = true
+max_session_duration = 43200
+
+role_description = ""
 
 role_name = null
+
+role_name_prefix = null
 
 role_path = "/"
 
 role_permissions_boundary_arn = ""
 
-role_description = ""
+role_policy_arns = {}
 
-max_session_duration = 43200
-
-allow_self_assume_role = false
+tags = {}

@@ -1,19 +1,19 @@
-name_prefix = null
+create = true
+
+exclude_filter = {}
 
 firehose_arn = ""
 
-output_format = ""
-
-tags = {}
-
-create = true
+include_filter = {}
 
 name = null
 
-include_filter = {}
+name_prefix = null
 
-statistics_configuration = []
+output_format = ""
 
 role_arn = ""
 
-exclude_filter = {}
+statistics_configuration = []
+
+tags = {}

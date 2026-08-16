@@ -1,13 +1,13 @@
+variable "allowed_triggers" {
+  description = "Map of allowed triggers to create Lambda permissions"
+  type        = map(any)
+  default     = {}
+}
+
 variable "create" {
   description = "Controls whether resources should be created"
   type        = bool
   default     = true
-}
-
-variable "use_existing_alias" {
-  description = "Whether to manage existing alias instead of creating a new one. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
-  type        = bool
-  default     = false
 }
 
 variable "create_async_event_config" {
@@ -16,20 +16,8 @@ variable "create_async_event_config" {
   default     = false
 }
 
-variable "function_version" {
-  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
-  type        = string
-  default     = ""
-}
-
-variable "routing_additional_version_weights" {
-  description = "A map that defines the proportion of events that should be sent to different versions of a lambda function."
-  type        = map(number)
-  default     = {}
-}
-
-variable "refresh_alias" {
-  description = "Whether to refresh function version used in the alias. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
+variable "create_qualified_alias_allowed_triggers" {
+  description = "Whether to allow triggers on qualified alias"
   type        = bool
   default     = true
 }
@@ -46,9 +34,21 @@ variable "create_version_allowed_triggers" {
   default     = true
 }
 
-variable "maximum_retry_attempts" {
-  description = "Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2."
-  type        = number
+variable "create_version_async_event_config" {
+  description = "Whether to allow async event configuration on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "Description of the alias."
+  type        = string
+  default     = ""
+}
+
+variable "destination_on_failure" {
+  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
+  type        = string
   default     = null
 }
 
@@ -58,20 +58,14 @@ variable "destination_on_success" {
   default     = null
 }
 
-variable "create_version_async_event_config" {
-  description = "Whether to allow async event configuration on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name for the alias you are creating."
+variable "function_name" {
+  description = "The function ARN of the Lambda function for which you want to create an alias."
   type        = string
   default     = ""
 }
 
-variable "function_name" {
-  description = "The function ARN of the Lambda function for which you want to create an alias."
+variable "function_version" {
+  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
   type        = string
   default     = ""
 }
@@ -82,26 +76,32 @@ variable "maximum_event_age_in_seconds" {
   default     = null
 }
 
-variable "destination_on_failure" {
-  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
-  type        = string
+variable "maximum_retry_attempts" {
+  description = "Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2."
+  type        = number
   default     = null
 }
 
-variable "allowed_triggers" {
-  description = "Map of allowed triggers to create Lambda permissions"
-  type        = map(any)
-  default     = {}
+variable "name" {
+  description = "Name for the alias you are creating."
+  type        = string
+  default     = ""
 }
 
-variable "create_qualified_alias_allowed_triggers" {
-  description = "Whether to allow triggers on qualified alias"
+variable "refresh_alias" {
+  description = "Whether to refresh function version used in the alias. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
   type        = bool
   default     = true
 }
 
-variable "description" {
-  description = "Description of the alias."
-  type        = string
-  default     = ""
+variable "routing_additional_version_weights" {
+  description = "A map that defines the proportion of events that should be sent to different versions of a lambda function."
+  type        = map(number)
+  default     = {}
+}
+
+variable "use_existing_alias" {
+  description = "Whether to manage existing alias instead of creating a new one. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
+  type        = bool
+  default     = false
 }

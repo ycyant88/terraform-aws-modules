@@ -1,35 +1,35 @@
-ingress_rules = {}
-
-vpc_associations = {}
-
-enable_exclusive_rules = true
-
-tags = {}
+create = true
 
 description = "Security Group managed by Terraform"
 
-preset_ingress_rules = { "mysql" : { "description" : "MySQL/Aurora", "from_port" : 3306, "ip_protocol" : "tcp", "to_port" : 3306 } }
+egress_rules = {}
 
-ingress_cidr_ipv6 = {}
-
-region = null
-
-vpc_id = null
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
 
-egress_rules = {}
-
-create = true
-
-revoke_rules_on_delete = false
+ingress_cidr_ipv6 = {}
 
 ingress_prefix_list_id = {}
 
+ingress_referenced_security_group_id = {}
+
+ingress_rules = {}
+
 name = ""
 
-use_name_prefix = true
+preset_ingress_rules = { "mysql" : { "description" : "MySQL/Aurora", "from_port" : 3306, "ip_protocol" : "tcp", "to_port" : 3306 } }
+
+region = null
+
+revoke_rules_on_delete = false
+
+tags = {}
 
 timeouts = null
 
-ingress_referenced_security_group_id = {}
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

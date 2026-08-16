@@ -1,11 +1,17 @@
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "ingress_rules" {
-  description = "Additional security group ingress rules to merge with the preset rules"
+variable "description" {
+  description = "Description of security group"
+  type        = string
+  default     = "Security Group managed by Terraform"
+}
+
+variable "egress_rules" {
+  description = "Security group egress rules to add to the security group created"
   type = map(object({
     name = optional(string)
 
@@ -28,28 +34,10 @@ variable "enable_exclusive_rules" {
   default     = true
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
+variable "ingress_cidr_ipv4" {
+  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
   type        = map(string)
   default     = {}
-}
-
-variable "use_name_prefix" {
-  description = "Whether to use the name (name) as a prefix, appending a random suffix"
-  type        = bool
-  default     = true
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the security group is created"
-  type        = string
-  default     = null
 }
 
 variable "ingress_cidr_ipv6" {
@@ -70,34 +58,8 @@ variable "ingress_referenced_security_group_id" {
   default     = {}
 }
 
-variable "preset_ingress_rules" {
-  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
-  type = map(object({
-    from_port   = number
-    to_port     = number
-    ip_protocol = string
-    description = optional(string)
-  }))
-  default = { "nfs" : { "description" : "NFS/EFS", "from_port" : 2049, "ip_protocol" : "tcp", "to_port" : 2049 } }
-}
-
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the security group"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "ingress_cidr_ipv4" {
-  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
-}
-
-variable "egress_rules" {
-  description = "Security group egress rules to add to the security group created"
+variable "ingress_rules" {
+  description = "Additional security group ingress rules to merge with the preset rules"
   type = map(object({
     name = optional(string)
 
@@ -114,6 +76,56 @@ variable "egress_rules" {
   default = {}
 }
 
+variable "name" {
+  description = "Name of security group"
+  type        = string
+  default     = ""
+}
+
+variable "preset_ingress_rules" {
+  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    ip_protocol = string
+    description = optional(string)
+  }))
+  default = { "nfs" : { "description" : "NFS/EFS", "from_port" : 2049, "ip_protocol" : "tcp", "to_port" : 2049 } }
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the security group"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
+variable "use_name_prefix" {
+  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+  type        = bool
+  default     = true
+}
+
 variable "vpc_associations" {
   description = "Map of VPC IDs to associate the security group to"
   type = map(object({
@@ -122,20 +134,8 @@ variable "vpc_associations" {
   default = {}
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name of security group"
+variable "vpc_id" {
+  description = "ID of the VPC where the security group is created"
   type        = string
-  default     = ""
-}
-
-variable "description" {
-  description = "Description of security group"
-  type        = string
-  default     = "Security Group managed by Terraform"
+  default     = null
 }

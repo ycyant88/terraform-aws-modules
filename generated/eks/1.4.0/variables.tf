@@ -1,7 +1,25 @@
-variable "workers_group_defaults" {
-  description = "Default values for target groups as defined by the list of maps."
-  type        = map(any)
-  default     = { "additional_userdata" : "", "ami_id" : "", "asg_desired_capacity" : "1", "asg_max_size" : "3", "asg_min_size" : "1", "ebs_optimized" : true, "instance_type" : "m4.large", "key_name" : "", "kubelet_node_labels" : "", "name" : "count.index", "pre_userdata" : "", "public_ip" : false, "root_iops" : "0", "root_volume_size" : "20", "root_volume_type" : "gp2", "subnets" : "" }
+variable "cluster_name" {
+  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_security_group_id" {
+  description = "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the workers and provide API access to your current IP/32."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_version" {
+  description = "Kubernetes version to use for the EKS cluster."
+  type        = string
+  default     = "1.10"
+}
+
+variable "config_output_path" {
+  description = "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory. Should end in a forward slash / ."
+  type        = string
+  default     = "./"
 }
 
 variable "kubeconfig_aws_authenticator_additional_args" {
@@ -10,10 +28,28 @@ variable "kubeconfig_aws_authenticator_additional_args" {
   default     = []
 }
 
-variable "cluster_name" {
-  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+variable "kubeconfig_aws_authenticator_command" {
+  description = "Command to use to to fetch AWS EKS credentials."
+  type        = string
+  default     = "aws-iam-authenticator"
+}
+
+variable "kubeconfig_aws_authenticator_env_variables" {
+  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
+  type        = map(any)
+  default     = {}
+}
+
+variable "kubeconfig_name" {
+  description = "Override the default name used for items kubeconfig."
   type        = string
   default     = ""
+}
+
+variable "manage_aws_auth" {
+  description = "Whether to write and apply the aws-auth configmap file."
+  type        = bool
+  default     = true
 }
 
 variable "map_accounts" {
@@ -28,28 +64,16 @@ variable "map_roles" {
   default     = []
 }
 
-variable "kubeconfig_aws_authenticator_command" {
-  description = "Command to use to to fetch AWS EKS credentials."
-  type        = string
-  default     = "aws-iam-authenticator"
-}
-
-variable "kubeconfig_name" {
-  description = "Override the default name used for items kubeconfig."
-  type        = string
-  default     = ""
-}
-
-variable "write_kubeconfig" {
-  description = "Whether to write a kubeconfig file containing the cluster configuration."
-  type        = bool
-  default     = true
-}
-
 variable "map_users" {
   description = "Additional IAM users to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
   type        = list(any)
   default     = []
+}
+
+variable "subnets" {
+  description = "A list of subnets to place the EKS cluster and workers within."
+  type        = list(any)
+  default     = ""
 }
 
 variable "tags" {
@@ -64,28 +88,10 @@ variable "vpc_id" {
   default     = ""
 }
 
-variable "kubeconfig_aws_authenticator_env_variables" {
-  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
-  type        = map(any)
-  default     = {}
-}
-
-variable "workstation_cidr" {
-  description = "Override the default ingress rule that allows communication with the EKS cluster API. If not given, will use current IP/32. "
+variable "worker_group_count" {
+  description = "The number of maps contained within the worker_groups list."
   type        = string
-  default     = ""
-}
-
-variable "cluster_version" {
-  description = "Kubernetes version to use for the EKS cluster."
-  type        = string
-  default     = "1.10"
-}
-
-variable "subnets" {
-  description = "A list of subnets to place the EKS cluster and workers within."
-  type        = list(any)
-  default     = ""
+  default     = "1"
 }
 
 variable "worker_groups" {
@@ -106,26 +112,20 @@ variable "worker_sg_ingress_from_port" {
   default     = "1025"
 }
 
-variable "cluster_security_group_id" {
-  description = "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the workers and provide API access to your current IP/32."
+variable "workers_group_defaults" {
+  description = "Default values for target groups as defined by the list of maps."
+  type        = map(any)
+  default     = { "additional_userdata" : "", "ami_id" : "", "asg_desired_capacity" : "1", "asg_max_size" : "3", "asg_min_size" : "1", "ebs_optimized" : true, "instance_type" : "m4.large", "key_name" : "", "kubelet_node_labels" : "", "name" : "count.index", "pre_userdata" : "", "public_ip" : false, "root_iops" : "0", "root_volume_size" : "20", "root_volume_type" : "gp2", "subnets" : "" }
+}
+
+variable "workstation_cidr" {
+  description = "Override the default ingress rule that allows communication with the EKS cluster API. If not given, will use current IP/32. "
   type        = string
   default     = ""
 }
 
-variable "config_output_path" {
-  description = "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory. Should end in a forward slash / ."
-  type        = string
-  default     = "./"
-}
-
-variable "manage_aws_auth" {
-  description = "Whether to write and apply the aws-auth configmap file."
+variable "write_kubeconfig" {
+  description = "Whether to write a kubeconfig file containing the cluster configuration."
   type        = bool
   default     = true
-}
-
-variable "worker_group_count" {
-  description = "The number of maps contained within the worker_groups list."
-  type        = string
-  default     = "1"
 }

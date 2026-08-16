@@ -10,14 +10,14 @@ variable "bucket_arn" {
   default     = ""
 }
 
-variable "lambda_notifications" {
-  description = "Map of S3 bucket notifications to Lambda function"
-  type        = any
-  default     = {}
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
 }
 
-variable "sqs_notifications" {
-  description = "Map of S3 bucket notifications to SQS queue"
+variable "lambda_notifications" {
+  description = "Map of S3 bucket notifications to Lambda function"
   type        = any
   default     = {}
 }
@@ -28,8 +28,8 @@ variable "sns_notifications" {
   default     = {}
 }
 
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
+variable "sqs_notifications" {
+  description = "Map of S3 bucket notifications to SQS queue"
+  type        = any
+  default     = {}
 }

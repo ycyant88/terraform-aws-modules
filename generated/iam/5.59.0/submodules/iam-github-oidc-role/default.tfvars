@@ -1,14 +1,12 @@
-tags = {}
+additional_trust_policy_conditions = []
 
-permissions_boundary_arn = null
+audience = "sts.amazonaws.com"
 
-force_detach_policies = true
-
-subject_condition = "StringLike"
-
-path = "/"
+create = true
 
 description = null
+
+force_detach_policies = true
 
 max_session_duration = null
 
@@ -16,14 +14,16 @@ name = null
 
 name_prefix = null
 
-audience = "sts.amazonaws.com"
+path = "/"
 
-subjects = []
-
-provider_url = "token.actions.githubusercontent.com"
-
-additional_trust_policy_conditions = []
+permissions_boundary_arn = null
 
 policies = {}
 
-create = true
+provider_url = "token.actions.githubusercontent.com"
+
+subject_condition = "StringLike"
+
+subjects = []
+
+tags = {}

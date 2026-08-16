@@ -1,13 +1,31 @@
+variable "attach_resource_policy" {
+  description = "Controls if a resource policy should be attached to the firewall policy"
+  type        = bool
+  default     = false
+}
+
 variable "create" {
   description = "Controls if resources should be created"
   type        = bool
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "create_resource_policy" {
+  description = "Controls if a resource policy should be created"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "A friendly description of the firewall policy"
+  type        = string
+  default     = null
+}
+
+variable "enable_tls_session_holding" {
+  description = "Whether to allow the firewall to hold TLS sessions to allow TLS traffic processing before downstream connection establishment. When set to true, adds latency \u2014 enable only if TLS.SNI rule groups are active in the policy"
+  type        = bool
+  default     = null
 }
 
 variable "encryption_configuration" {
@@ -19,28 +37,10 @@ variable "encryption_configuration" {
   default = null
 }
 
-variable "resource_policy_actions" {
-  description = "A list of IAM actions allowed in the resource policy"
-  type        = list(string)
-  default     = []
-}
-
-variable "resource_policy" {
-  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
+variable "name" {
+  description = "A friendly name of the firewall policy"
   type        = string
   default     = ""
-}
-
-variable "ram_resource_associations" {
-  description = "A map of RAM resource associations for the created firewall policy"
-  type        = map(string)
-  default     = {}
-}
-
-variable "description" {
-  description = "A friendly description of the firewall policy"
-  type        = string
-  default     = null
 }
 
 variable "policy_variables" {
@@ -56,28 +56,52 @@ variable "policy_variables" {
   default = null
 }
 
-variable "stateful_default_actions" {
-  description = "Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a stateful_engine_options block with a rule_order value of STRICT_ORDER. You can specify one of either or neither values of aws:drop_strict or aws:drop_established, as well as any combination of aws:alert_strict and aws:alert_established"
-  type        = list(string)
-  default     = []
-}
-
-variable "stateless_default_actions" {
-  description = "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
-  type        = list(string)
-  default     = ["aws:pass"]
-}
-
-variable "enable_tls_session_holding" {
-  description = "Whether to allow the firewall to hold TLS sessions to allow TLS traffic processing before downstream connection establishment. When set to true, adds latency \u2014 enable only if TLS.SNI rule groups are active in the policy"
-  type        = bool
-  default     = null
+variable "ram_resource_associations" {
+  description = "A map of RAM resource associations for the created firewall policy"
+  type        = map(string)
+  default     = {}
 }
 
 variable "region" {
   description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
   type        = string
   default     = null
+}
+
+variable "resource_policy" {
+  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
+  type        = string
+  default     = ""
+}
+
+variable "resource_policy_actions" {
+  description = "A list of IAM actions allowed in the resource policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "resource_policy_principals" {
+  description = "A list of IAM principals allowed in the resource policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "stateful_default_actions" {
+  description = "Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a stateful_engine_options block with a rule_order value of STRICT_ORDER. You can specify one of either or neither values of aws:drop_strict or aws:drop_established, as well as any combination of aws:alert_strict and aws:alert_established"
+  type        = list(string)
+  default     = []
+}
+
+variable "stateful_engine_options" {
+  description = "A configuration block that defines options on how the policy handles stateful rules. See [Stateful Engine Options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-engine-options) for details"
+  type = object({
+    flow_timeouts = optional(object({
+      tcp_idle_timeout_seconds = optional(number)
+    }))
+    rule_order              = optional(string)
+    stream_exception_policy = optional(string)
+  })
+  default = null
 }
 
 variable "stateful_rule_group_reference" {
@@ -90,48 +114,6 @@ variable "stateful_rule_group_reference" {
     priority     = optional(number)
     resource_arn = string
   }))
-  default = null
-}
-
-variable "stateless_fragment_default_actions" {
-  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
-  type        = list(string)
-  default     = ["aws:pass"]
-}
-
-variable "name" {
-  description = "A friendly name of the firewall policy"
-  type        = string
-  default     = ""
-}
-
-variable "tls_inspection_configuration_arn" {
-  description = "The ARN of the TLS inspection configuration to associate with the firewall policy"
-  type        = string
-  default     = null
-}
-
-variable "create_resource_policy" {
-  description = "Controls if a resource policy should be created"
-  type        = bool
-  default     = false
-}
-
-variable "attach_resource_policy" {
-  description = "Controls if a resource policy should be attached to the firewall policy"
-  type        = bool
-  default     = false
-}
-
-variable "stateful_engine_options" {
-  description = "A configuration block that defines options on how the policy handles stateful rules. See [Stateful Engine Options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-engine-options) for details"
-  type = object({
-    flow_timeouts = optional(object({
-      tcp_idle_timeout_seconds = optional(number)
-    }))
-    rule_order              = optional(string)
-    stream_exception_policy = optional(string)
-  })
   default = null
 }
 
@@ -148,6 +130,18 @@ variable "stateless_custom_action" {
   default = null
 }
 
+variable "stateless_default_actions" {
+  description = "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
+  type        = list(string)
+  default     = ["aws:pass"]
+}
+
+variable "stateless_fragment_default_actions" {
+  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
+  type        = list(string)
+  default     = ["aws:pass"]
+}
+
 variable "stateless_rule_group_reference" {
   description = "Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See [Stateless Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateless-rule-group-reference) for details"
   type = map(object({
@@ -157,8 +151,14 @@ variable "stateless_rule_group_reference" {
   default = null
 }
 
-variable "resource_policy_principals" {
-  description = "A list of IAM principals allowed in the resource policy"
-  type        = list(string)
-  default     = []
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "tls_inspection_configuration_arn" {
+  description = "The ARN of the TLS inspection configuration to associate with the firewall policy"
+  type        = string
+  default     = null
 }

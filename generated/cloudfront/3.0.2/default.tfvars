@@ -1,47 +1,47 @@
-wait_for_deployment = true
+aliases = null
 
-logging_config = {}
+comment = null
 
-ordered_cache_behavior = []
-
-realtime_metrics_subscription_status = "Enabled"
-
-origin_access_identities = {}
-
-retain_on_delete = false
+create_distribution = true
 
 create_monitoring_subscription = false
 
-is_ipv6_enabled = null
+create_origin_access_identity = false
 
-origin = null
+custom_error_response = {}
+
+default_cache_behavior = null
 
 default_root_object = null
 
 enabled = true
 
+geo_restriction = {}
+
 http_version = "http2"
 
-price_class = null
+is_ipv6_enabled = null
 
-tags = null
+logging_config = {}
 
-custom_error_response = {}
+ordered_cache_behavior = []
 
-aliases = null
+origin = null
 
-comment = null
-
-web_acl_id = null
+origin_access_identities = {}
 
 origin_group = {}
 
+price_class = null
+
+realtime_metrics_subscription_status = "Enabled"
+
+retain_on_delete = false
+
+tags = null
+
 viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
 
-geo_restriction = {}
+wait_for_deployment = true
 
-default_cache_behavior = null
-
-create_distribution = true
-
-create_origin_access_identity = false
+web_acl_id = null

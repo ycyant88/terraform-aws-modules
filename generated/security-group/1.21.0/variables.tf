@@ -1,117 +1,3 @@
-variable "tags" {
-  description = "A mapping of tags to assign to security group"
-  type        = map(any)
-  default     = {}
-}
-
-variable "rules" {
-  description = "Map of known security group rules (define as 'name' = ['from port', 'to port', 'protocol', 'description'])"
-  type        = map(any)
-  default     = { "_" : ["", "", ""], "all-all" : [-1, -1, "-1", "All protocols"], "all-icmp" : [-1, -1, "icmp", "All IPV4 ICMP"], "all-ipv6-icmp" : [-1, -1, 58, "All IPV6 ICMP"], "all-tcp" : [0, 65535, "tcp", "All TCP ports"], "all-udp" : [0, 65535, "udp", "All UDP ports"], "carbon-admin-tcp" : [2004, 2004, "tcp", "Carbon admin"], "carbon-gui-udp" : [8081, 8081, "tcp", "Carbon GUI"], "carbon-line-in-tcp" : [2003, 2003, "tcp", "Carbon line-in"], "carbon-line-in-udp" : [2003, 2003, "udp", "Carbon line-in"], "carbon-pickle-tcp" : [2013, 2013, "tcp", "Carbon pickle"], "carbon-pickle-udp" : [2013, 2013, "udp", "Carbon pickle"], "cassandra-clients-tcp" : [9042, 9042, "tcp", "Cassandra clients"], "cassandra-jmx-tcp" : [7199, 7199, "tcp", "JMX"], "cassandra-thrift-clients-tcp" : [9160, 9160, "tcp", "Cassandra Thrift clients"], "consul-dns-tcp" : [8600, 8600, "tcp", "Consul DNS"], "consul-dns-udp" : [8600, 8600, "udp", "Consul DNS"], "consul-serf-lan-tcp" : [8301, 8301, "tcp", "Serf LAN"], "consul-serf-lan-udp" : [8301, 8301, "udp", "Serf LAN"], "consul-serf-wan-tcp" : [8302, 8302, "tcp", "Serf WAN"], "consul-serf-wan-udp" : [8302, 8302, "udp", "Serf WAN"], "consul-tcp" : [8300, 8300, "tcp", "Consul server"], "consul-webui-tcp" : [8500, 8500, "tcp", "Consul web UI"], "dns-tcp" : [53, 53, "tcp", "DNS"], "dns-udp" : [53, 53, "udp", "DNS"], "docker-swarm-mngmt-tcp" : [2377, 2377, "tcp", "Docker Swarm cluster management"], "docker-swarm-node-tcp" : [7946, 7946, "tcp", "Docker Swarm node"], "docker-swarm-node-udp" : [7946, 7946, "udp", "Docker Swarm node"], "docker-swarm-overlay-udp" : [4789, 4789, "udp", "Docker Swarm Overlay Network Traffic"], "elasticsearch-java-tcp" : [9300, 9300, "tcp", "Elasticsearch Java interface"], "elasticsearch-rest-tcp" : [9200, 9200, "tcp", "Elasticsearch REST interface"], "http-80-tcp" : [80, 80, "tcp", "HTTP"], "http-8080-tcp" : [8080, 8080, "tcp", "HTTP"], "https-443-tcp" : [443, 443, "tcp", "HTTPS"], "ipsec-4500-udp" : [4500, 4500, "udp", "IPSEC NAT-T"], "ipsec-500-udp" : [500, 500, "udp", "IPSEC ISAKMP"], "kafka-broker-tcp" : [9092, 9092, "tcp", "Kafka broker 0.8.2+"], "ldaps-tcp" : [636, 636, "tcp", "LDAPS"], "memcached-tcp" : [11211, 11211, "tcp", "Memcached"], "mssql-analytics-tcp" : [2383, 2383, "tcp", "MSSQL Analytics"], "mssql-broker-tcp" : [4022, 4022, "tcp", "MSSQL Broker"], "mssql-tcp" : [1433, 1433, "tcp", "MSSQL Server"], "mssql-udp" : [1434, 1434, "udp", "MSSQL Browser"], "mysql-tcp" : [3306, 3306, "tcp", "MySQL/Aurora"], "nfs-tcp" : [2049, 2049, "tcp", "NFS/EFS"], "nomad-http-tcp" : [4646, 4646, "tcp", "Nomad HTTP"], "nomad-rpc-tcp" : [4647, 4647, "tcp", "Nomad RPC"], "nomad-serf-tcp" : [4648, 4648, "tcp", "Serf"], "nomad-serf-udp" : [4648, 4648, "udp", "Serf"], "openvpn-https-tcp" : [443, 443, "tcp", "OpenVPN"], "openvpn-tcp" : [943, 943, "tcp", "OpenVPN"], "openvpn-udp" : [1194, 1194, "udp", "OpenVPN"], "oracle-db-tcp" : [1521, 1521, "tcp", "Oracle"], "postgresql-tcp" : [5432, 5432, "tcp", "PostgreSQL"], "puppet-tcp" : [8140, 8140, "tcp", "Puppet"], "rdp-tcp" : [3389, 3389, "tcp", "Remote Desktop"], "rdp-udp" : [3389, 3389, "udp", "Remote Desktop"], "redis-tcp" : [6379, 6379, "tcp", "Redis"], "redshift-tcp" : [5439, 5439, "tcp", "Redshift"], "splunk-clients-tcp" : [8080, 8080, "tcp", "Splunk clients"], "splunk-indexer-tcp" : [9997, 9997, "tcp", "Splunk indexer"], "splunk-splunkd-tcp" : [8089, 8089, "tcp", "Splunkd"], "ssh-tcp" : [22, 22, "tcp", "SSH"], "storm-nimbus-tcp" : [6627, 6627, "tcp", "Nimbus"], "storm-supervisor-tcp" : [6700, 6703, "tcp", "Supervisor"], "storm-ui-tcp" : [8080, 8080, "tcp", "Storm UI"], "web-jmx-tcp" : [1099, 1099, "tcp", "JMX"], "zipkin-admin-query-tcp" : [9901, 9901, "tcp", "Zipkin Admin port query"], "zipkin-admin-tcp" : [9990, 9990, "tcp", "Zipkin Admin port collector"], "zipkin-admin-web-tcp" : [9991, 9991, "tcp", "Zipkin Admin port web"], "zipkin-query-tcp" : [9411, 9411, "tcp", "Zipkin query port"], "zipkin-web-tcp" : [8080, 8080, "tcp", "Zipkin web port"], "zookeeper-2181-tcp" : [2181, 2181, "tcp", "Zookeeper"], "zookeeper-2888-tcp" : [2888, 2888, "tcp", "Zookeeper"], "zookeeper-3888-tcp" : [3888, 3888, "tcp", "Zookeeper"], "zookeeper-jmx-tcp" : [7199, 7199, "tcp", "JMX"] }
-}
-
-variable "ingress_prefix_list_ids" {
-  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_with_ipv6_cidr_blocks" {
-  description = "List of egress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_with_source_security_group_id" {
-  description = "List of egress rules to create where 'source_security_group_id' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_cidr_blocks" {
-  description = "List of IPv4 CIDR ranges to use on all egress rules"
-  type        = list(any)
-  default     = ["0.0.0.0/0"]
-}
-
-variable "egress_prefix_list_ids" {
-  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_ipv6_cidr_blocks" {
-  description = "List of IPv6 CIDR ranges to use on all ingress rules"
-  type        = list(any)
-  default     = []
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where to create security group"
-  type        = string
-  default     = ""
-}
-
-variable "ingress_with_self" {
-  description = "List of ingress rules to create where 'self' is defined"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_with_cidr_blocks" {
-  description = "List of ingress rules to create where 'cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_rules" {
-  description = "List of egress rules to create by name"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_ipv6_cidr_blocks" {
-  description = "List of IPv6 CIDR ranges to use on all egress rules"
-  type        = list(any)
-  default     = ["::/0"]
-}
-
-variable "ingress_rules" {
-  description = "List of ingress rules to create by name"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_with_self" {
-  description = "List of egress rules to create where 'self' is defined"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_with_cidr_blocks" {
-  description = "List of egress rules to create where 'cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_with_ipv6_cidr_blocks" {
-  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_with_source_security_group_id" {
-  description = "List of ingress rules to create where 'source_security_group_id' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_cidr_blocks" {
-  description = "List of IPv4 CIDR ranges to use on all ingress rules"
-  type        = list(any)
-  default     = []
-}
-
 variable "auto_groups" {
   description = "Map of groups of security group rules to use to generate modules (see update_groups.sh)"
   type        = map(any)
@@ -124,14 +10,128 @@ variable "create" {
   default     = true
 }
 
+variable "description" {
+  description = "Description of security group"
+  type        = string
+  default     = "Security Group managed by Terraform"
+}
+
+variable "egress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all egress rules"
+  type        = list(any)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "egress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all egress rules"
+  type        = list(any)
+  default     = ["::/0"]
+}
+
+variable "egress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_rules" {
+  description = "List of egress rules to create by name"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_with_cidr_blocks" {
+  description = "List of egress rules to create where 'cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_with_ipv6_cidr_blocks" {
+  description = "List of egress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_with_self" {
+  description = "List of egress rules to create where 'self' is defined"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_with_source_security_group_id" {
+  description = "List of egress rules to create where 'source_security_group_id' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all ingress rules"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all ingress rules"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_rules" {
+  description = "List of ingress rules to create by name"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_cidr_blocks" {
+  description = "List of ingress rules to create where 'cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_ipv6_cidr_blocks" {
+  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_self" {
+  description = "List of ingress rules to create where 'self' is defined"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_source_security_group_id" {
+  description = "List of ingress rules to create where 'source_security_group_id' is used"
+  type        = list(any)
+  default     = []
+}
+
 variable "name" {
   description = "Name of security group"
   type        = string
   default     = ""
 }
 
-variable "description" {
-  description = "Description of security group"
+variable "rules" {
+  description = "Map of known security group rules (define as 'name' = ['from port', 'to port', 'protocol', 'description'])"
+  type        = map(any)
+  default     = { "_" : ["", "", ""], "all-all" : [-1, -1, "-1", "All protocols"], "all-icmp" : [-1, -1, "icmp", "All IPV4 ICMP"], "all-ipv6-icmp" : [-1, -1, 58, "All IPV6 ICMP"], "all-tcp" : [0, 65535, "tcp", "All TCP ports"], "all-udp" : [0, 65535, "udp", "All UDP ports"], "carbon-admin-tcp" : [2004, 2004, "tcp", "Carbon admin"], "carbon-gui-udp" : [8081, 8081, "tcp", "Carbon GUI"], "carbon-line-in-tcp" : [2003, 2003, "tcp", "Carbon line-in"], "carbon-line-in-udp" : [2003, 2003, "udp", "Carbon line-in"], "carbon-pickle-tcp" : [2013, 2013, "tcp", "Carbon pickle"], "carbon-pickle-udp" : [2013, 2013, "udp", "Carbon pickle"], "cassandra-clients-tcp" : [9042, 9042, "tcp", "Cassandra clients"], "cassandra-jmx-tcp" : [7199, 7199, "tcp", "JMX"], "cassandra-thrift-clients-tcp" : [9160, 9160, "tcp", "Cassandra Thrift clients"], "consul-dns-tcp" : [8600, 8600, "tcp", "Consul DNS"], "consul-dns-udp" : [8600, 8600, "udp", "Consul DNS"], "consul-serf-lan-tcp" : [8301, 8301, "tcp", "Serf LAN"], "consul-serf-lan-udp" : [8301, 8301, "udp", "Serf LAN"], "consul-serf-wan-tcp" : [8302, 8302, "tcp", "Serf WAN"], "consul-serf-wan-udp" : [8302, 8302, "udp", "Serf WAN"], "consul-tcp" : [8300, 8300, "tcp", "Consul server"], "consul-webui-tcp" : [8500, 8500, "tcp", "Consul web UI"], "dns-tcp" : [53, 53, "tcp", "DNS"], "dns-udp" : [53, 53, "udp", "DNS"], "docker-swarm-mngmt-tcp" : [2377, 2377, "tcp", "Docker Swarm cluster management"], "docker-swarm-node-tcp" : [7946, 7946, "tcp", "Docker Swarm node"], "docker-swarm-node-udp" : [7946, 7946, "udp", "Docker Swarm node"], "docker-swarm-overlay-udp" : [4789, 4789, "udp", "Docker Swarm Overlay Network Traffic"], "elasticsearch-java-tcp" : [9300, 9300, "tcp", "Elasticsearch Java interface"], "elasticsearch-rest-tcp" : [9200, 9200, "tcp", "Elasticsearch REST interface"], "http-80-tcp" : [80, 80, "tcp", "HTTP"], "http-8080-tcp" : [8080, 8080, "tcp", "HTTP"], "https-443-tcp" : [443, 443, "tcp", "HTTPS"], "ipsec-4500-udp" : [4500, 4500, "udp", "IPSEC NAT-T"], "ipsec-500-udp" : [500, 500, "udp", "IPSEC ISAKMP"], "kafka-broker-tcp" : [9092, 9092, "tcp", "Kafka broker 0.8.2+"], "ldaps-tcp" : [636, 636, "tcp", "LDAPS"], "memcached-tcp" : [11211, 11211, "tcp", "Memcached"], "mssql-analytics-tcp" : [2383, 2383, "tcp", "MSSQL Analytics"], "mssql-broker-tcp" : [4022, 4022, "tcp", "MSSQL Broker"], "mssql-tcp" : [1433, 1433, "tcp", "MSSQL Server"], "mssql-udp" : [1434, 1434, "udp", "MSSQL Browser"], "mysql-tcp" : [3306, 3306, "tcp", "MySQL/Aurora"], "nfs-tcp" : [2049, 2049, "tcp", "NFS/EFS"], "nomad-http-tcp" : [4646, 4646, "tcp", "Nomad HTTP"], "nomad-rpc-tcp" : [4647, 4647, "tcp", "Nomad RPC"], "nomad-serf-tcp" : [4648, 4648, "tcp", "Serf"], "nomad-serf-udp" : [4648, 4648, "udp", "Serf"], "openvpn-https-tcp" : [443, 443, "tcp", "OpenVPN"], "openvpn-tcp" : [943, 943, "tcp", "OpenVPN"], "openvpn-udp" : [1194, 1194, "udp", "OpenVPN"], "oracle-db-tcp" : [1521, 1521, "tcp", "Oracle"], "postgresql-tcp" : [5432, 5432, "tcp", "PostgreSQL"], "puppet-tcp" : [8140, 8140, "tcp", "Puppet"], "rdp-tcp" : [3389, 3389, "tcp", "Remote Desktop"], "rdp-udp" : [3389, 3389, "udp", "Remote Desktop"], "redis-tcp" : [6379, 6379, "tcp", "Redis"], "redshift-tcp" : [5439, 5439, "tcp", "Redshift"], "splunk-clients-tcp" : [8080, 8080, "tcp", "Splunk clients"], "splunk-indexer-tcp" : [9997, 9997, "tcp", "Splunk indexer"], "splunk-splunkd-tcp" : [8089, 8089, "tcp", "Splunkd"], "ssh-tcp" : [22, 22, "tcp", "SSH"], "storm-nimbus-tcp" : [6627, 6627, "tcp", "Nimbus"], "storm-supervisor-tcp" : [6700, 6703, "tcp", "Supervisor"], "storm-ui-tcp" : [8080, 8080, "tcp", "Storm UI"], "web-jmx-tcp" : [1099, 1099, "tcp", "JMX"], "zipkin-admin-query-tcp" : [9901, 9901, "tcp", "Zipkin Admin port query"], "zipkin-admin-tcp" : [9990, 9990, "tcp", "Zipkin Admin port collector"], "zipkin-admin-web-tcp" : [9991, 9991, "tcp", "Zipkin Admin port web"], "zipkin-query-tcp" : [9411, 9411, "tcp", "Zipkin query port"], "zipkin-web-tcp" : [8080, 8080, "tcp", "Zipkin web port"], "zookeeper-2181-tcp" : [2181, 2181, "tcp", "Zookeeper"], "zookeeper-2888-tcp" : [2888, 2888, "tcp", "Zookeeper"], "zookeeper-3888-tcp" : [3888, 3888, "tcp", "Zookeeper"], "zookeeper-jmx-tcp" : [7199, 7199, "tcp", "JMX"] }
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to security group"
+  type        = map(any)
+  default     = {}
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where to create security group"
   type        = string
-  default     = "Security Group managed by Terraform"
+  default     = ""
 }

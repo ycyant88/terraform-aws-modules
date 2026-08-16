@@ -1,85 +1,85 @@
-identifier = ""
-
-parameter_group_name = ""
-
-publicly_accessible = false
-
-monitoring_role_arn = ""
-
-copy_tags_to_snapshot = false
-
-backup_window = ""
-
-vpc_security_group_ids = []
-
-multi_az = false
-
-auto_minor_version_upgrade = true
-
-maintenance_window = ""
-
-option_group_name = ""
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-kms_key_id = ""
-
-snapshot_identifier = ""
-
-engine = ""
-
-instance_class = ""
+allocated_storage = ""
 
 allow_major_version_upgrade = false
 
-tags = {}
+apply_immediately = false
 
-enabled_cloudwatch_logs_exports = []
-
-final_snapshot_identifier = false
-
-db_subnet_group_name = ""
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
-monitoring_interval = 0
+backup_retention_period = 1
+
+backup_window = ""
 
 character_set_name = ""
 
-create_monitoring_role = false
+copy_tags_to_snapshot = false
 
 create = true
 
-storage_type = "gp2"
+create_monitoring_role = false
 
-storage_encrypted = false
+db_subnet_group_name = ""
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
 
 license_model = ""
+
+maintenance_window = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_name = ""
+
+parameter_group_name = ""
 
 password = ""
 
 port = ""
 
-monitoring_role_name = "rds-monitoring-role"
-
-iops = 0
-
-backup_retention_period = 1
-
-timezone = ""
-
-allocated_storage = ""
+publicly_accessible = false
 
 replicate_source_db = ""
 
-iam_database_authentication_enabled = false
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
 
 username = ""
 
-apply_immediately = false
-
-engine_version = ""
-
-name = ""
-
-skip_final_snapshot = true
+vpc_security_group_ids = []

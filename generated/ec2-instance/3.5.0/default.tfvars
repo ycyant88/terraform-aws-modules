@@ -1,101 +1,101 @@
-ebs_block_device = []
-
-monitoring = false
-
-secondary_private_ips = ""
-
-create_spot_instance = false
-
-spot_launch_group = ""
-
-spot_valid_until = ""
-
-name = ""
-
-private_ip = ""
-
-tags = {}
-
-hibernation = ""
-
-instance_initiated_shutdown_behavior = ""
-
-key_name = ""
-
-user_data_base64 = ""
-
-cpu_credits = ""
-
-capacity_reservation_specification = ""
-
-launch_template = ""
-
-metadata_options = {}
-
-vpc_security_group_ids = ""
-
 ami = ""
-
-disable_api_termination = ""
-
-ipv6_addresses = ""
-
-timeouts = {}
-
-cpu_threads_per_core = ""
-
-spot_wait_for_fulfillment = ""
 
 associate_public_ip_address = ""
 
-iam_instance_profile = ""
-
-placement_group = ""
-
-source_dest_check = true
-
-tenancy = ""
-
-enclave_options_enabled = ""
-
 availability_zone = ""
 
+capacity_reservation_specification = ""
+
+cpu_core_count = ""
+
+cpu_credits = ""
+
+cpu_threads_per_core = ""
+
+create = true
+
+create_spot_instance = false
+
+disable_api_termination = ""
+
+ebs_block_device = []
+
 ebs_optimized = ""
+
+enable_volume_tags = true
+
+enclave_options_enabled = ""
 
 ephemeral_block_device = []
 
 get_password_data = ""
 
+hibernation = ""
+
+host_id = ""
+
+iam_instance_profile = ""
+
+instance_initiated_shutdown_behavior = ""
+
 instance_type = "t3.micro"
-
-root_block_device = []
-
-subnet_id = ""
-
-create = true
-
-volume_tags = {}
-
-enable_volume_tags = true
-
-cpu_core_count = ""
-
-spot_block_duration_minutes = ""
-
-user_data = ""
 
 ipv6_address_count = ""
 
+ipv6_addresses = ""
+
+key_name = ""
+
+launch_template = ""
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
 network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+putin_khuylo = true
+
+root_block_device = []
+
+secondary_private_ips = ""
+
+source_dest_check = true
+
+spot_block_duration_minutes = ""
+
+spot_instance_interruption_behavior = ""
+
+spot_launch_group = ""
 
 spot_price = ""
 
 spot_type = ""
 
-spot_instance_interruption_behavior = ""
-
 spot_valid_from = ""
 
-putin_khuylo = true
+spot_valid_until = ""
 
-host_id = ""
+spot_wait_for_fulfillment = ""
+
+subnet_id = ""
+
+tags = {}
+
+tenancy = ""
+
+timeouts = {}
+
+user_data = ""
+
+user_data_base64 = ""
+
+volume_tags = {}
+
+vpc_security_group_ids = ""

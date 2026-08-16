@@ -4,6 +4,12 @@ variable "create" {
   default     = true
 }
 
+variable "log_group_names" {
+  description = "Specific log groups to use with the query."
+  type        = list(string)
+  default     = null
+}
+
 variable "name" {
   description = "The name of the query."
   type        = string
@@ -14,10 +20,4 @@ variable "query_string" {
   description = "The The query to save."
   type        = string
   default     = ""
-}
-
-variable "log_group_names" {
-  description = "Specific log groups to use with the query."
-  type        = list(string)
-  default     = null
 }

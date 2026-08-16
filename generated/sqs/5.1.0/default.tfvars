@@ -1,83 +1,83 @@
-dlq_name = null
-
-dlq_fifo_throughput_limit = null
-
-region = null
-
-create_dlq_redrive_allow_policy = true
-
-dlq_queue_policy_statements = null
+content_based_deduplication = null
 
 create = true
 
-fifo_throughput_limit = null
+create_dlq = false
 
-redrive_policy = {}
+create_dlq_queue_policy = false
 
-override_queue_policy_documents = []
+create_dlq_redrive_allow_policy = true
+
+create_queue_policy = false
+
+deduplication_scope = null
+
+delay_seconds = null
+
+dlq_content_based_deduplication = null
+
+dlq_deduplication_scope = null
+
+dlq_delay_seconds = null
+
+dlq_fifo_throughput_limit = null
+
+dlq_kms_data_key_reuse_period_seconds = null
 
 dlq_kms_master_key_id = null
 
 dlq_message_retention_seconds = null
 
-dlq_redrive_allow_policy = {}
+dlq_name = null
 
-tags = {}
-
-queue_policy_statements = null
-
-dlq_visibility_timeout_seconds = null
-
-dlq_tags = {}
-
-source_dlq_queue_policy_documents = []
-
-content_based_deduplication = null
-
-delay_seconds = null
-
-name = null
+dlq_queue_policy_statements = null
 
 dlq_receive_wait_time_seconds = null
 
+dlq_redrive_allow_policy = {}
+
 dlq_sqs_managed_sse_enabled = true
+
+dlq_tags = {}
+
+dlq_visibility_timeout_seconds = null
 
 fifo_queue = false
 
+fifo_throughput_limit = null
+
 kms_data_key_reuse_period_seconds = null
+
+kms_master_key_id = null
 
 max_message_size = null
 
-use_name_prefix = false
+message_retention_seconds = null
 
-sqs_managed_sse_enabled = true
+name = null
 
-dlq_delay_seconds = null
+override_dlq_queue_policy_documents = []
 
-create_dlq_queue_policy = false
+override_queue_policy_documents = []
 
-deduplication_scope = null
-
-kms_master_key_id = null
+queue_policy_statements = null
 
 receive_wait_time_seconds = null
 
 redrive_allow_policy = {}
 
-create_queue_policy = false
+redrive_policy = {}
+
+region = null
+
+source_dlq_queue_policy_documents = []
 
 source_queue_policy_documents = []
 
-message_retention_seconds = null
+sqs_managed_sse_enabled = true
+
+tags = {}
+
+use_name_prefix = false
 
 visibility_timeout_seconds = null
-
-dlq_content_based_deduplication = null
-
-override_dlq_queue_policy_documents = []
-
-create_dlq = false
-
-dlq_deduplication_scope = null
-
-dlq_kms_data_key_reuse_period_seconds = null

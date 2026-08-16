@@ -1,29 +1,29 @@
-cloudinit_post_nodeadm = []
-
-cluster_service_cidr = ""
-
 bootstrap_extra_args = ""
 
-is_eks_managed_node_group = true
+cloudinit_post_nodeadm = []
 
-cluster_name = ""
-
-cluster_endpoint = ""
+cloudinit_pre_nodeadm = []
 
 cluster_auth_base64 = ""
 
-post_bootstrap_user_data = ""
+cluster_endpoint = ""
 
-create = true
+cluster_name = ""
 
-platform = "linux"
-
-user_data_template_path = ""
+cluster_service_cidr = ""
 
 cluster_service_ipv4_cidr = null
 
-pre_bootstrap_user_data = ""
+create = true
 
 enable_bootstrap_user_data = false
 
-cloudinit_pre_nodeadm = []
+is_eks_managed_node_group = true
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+user_data_template_path = ""

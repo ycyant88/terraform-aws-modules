@@ -1,15 +1,3 @@
-variable "comparison_operator" {
-  description = "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold."
-  type        = string
-  default     = ""
-}
-
-variable "unit" {
-  description = "The unit for the alarm's associated metric."
-  type        = string
-  default     = ""
-}
-
 variable "actions_enabled" {
   description = "Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to true."
   type        = bool
@@ -22,8 +10,20 @@ variable "alarm_actions" {
   default     = ""
 }
 
-variable "extended_statistic" {
-  description = "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100."
+variable "alarm_description" {
+  description = "The description for the alarm."
+  type        = string
+  default     = ""
+}
+
+variable "alarm_name" {
+  description = "The descriptive name for the alarm. This name must be unique within the user's AWS account."
+  type        = string
+  default     = ""
+}
+
+variable "comparison_operator" {
+  description = "The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, LessThanOrEqualToThreshold."
   type        = string
   default     = ""
 }
@@ -34,28 +34,22 @@ variable "create_metric_alarm" {
   default     = true
 }
 
-variable "alarm_name" {
-  description = "The descriptive name for the alarm. This name must be unique within the user's AWS account."
-  type        = string
+variable "datapoints_to_alarm" {
+  description = "The number of datapoints that must be breaching to trigger the alarm."
+  type        = number
   default     = ""
 }
 
-variable "alarm_description" {
-  description = "The description for the alarm."
-  type        = string
+variable "dimensions" {
+  description = "The dimensions for the alarm's associated metric."
+  type        = any
   default     = ""
 }
 
-variable "treat_missing_data" {
-  description = "Sets how this alarm is to handle missing data points. The following values are supported: missing, ignore, breaching and notBreaching."
+variable "evaluate_low_sample_count_percentiles" {
+  description = "Used only for alarms based on percentiles. If you specify ignore, the alarm state will not change during periods with too few data points to be statistically significant. If you specify evaluate or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available. The following values are supported: ignore, and evaluate."
   type        = string
-  default     = "missing"
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(string)
-  default     = {}
+  default     = ""
 }
 
 variable "evaluation_periods" {
@@ -64,14 +58,8 @@ variable "evaluation_periods" {
   default     = ""
 }
 
-variable "metric_name" {
-  description = "The name for the alarm's associated metric. See docs for supported metrics."
-  type        = string
-  default     = ""
-}
-
-variable "period" {
-  description = "The period in seconds over which the specified statistic is applied."
+variable "extended_statistic" {
+  description = "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100."
   type        = string
   default     = ""
 }
@@ -82,33 +70,9 @@ variable "insufficient_data_actions" {
   default     = ""
 }
 
-variable "evaluate_low_sample_count_percentiles" {
-  description = "Used only for alarms based on percentiles. If you specify ignore, the alarm state will not change during periods with too few data points to be statistically significant. If you specify evaluate or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available. The following values are supported: ignore, and evaluate."
+variable "metric_name" {
+  description = "The name for the alarm's associated metric. See docs for supported metrics."
   type        = string
-  default     = ""
-}
-
-variable "threshold" {
-  description = "The value against which the specified statistic is compared."
-  type        = number
-  default     = ""
-}
-
-variable "threshold_metric_id" {
-  description = "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function."
-  type        = string
-  default     = ""
-}
-
-variable "statistic" {
-  description = "The statistic to apply to the alarm's associated metric. Either of the following is supported: SampleCount, Average, Sum, Minimum, Maximum"
-  type        = string
-  default     = ""
-}
-
-variable "ok_actions" {
-  description = "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
-  type        = list(string)
   default     = ""
 }
 
@@ -124,14 +88,50 @@ variable "namespace" {
   default     = ""
 }
 
-variable "datapoints_to_alarm" {
-  description = "The number of datapoints that must be breaching to trigger the alarm."
+variable "ok_actions" {
+  description = "The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
+  type        = list(string)
+  default     = ""
+}
+
+variable "period" {
+  description = "The period in seconds over which the specified statistic is applied."
+  type        = string
+  default     = ""
+}
+
+variable "statistic" {
+  description = "The statistic to apply to the alarm's associated metric. Either of the following is supported: SampleCount, Average, Sum, Minimum, Maximum"
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "threshold" {
+  description = "The value against which the specified statistic is compared."
   type        = number
   default     = ""
 }
 
-variable "dimensions" {
-  description = "The dimensions for the alarm's associated metric."
-  type        = any
+variable "threshold_metric_id" {
+  description = "If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function."
+  type        = string
+  default     = ""
+}
+
+variable "treat_missing_data" {
+  description = "Sets how this alarm is to handle missing data points. The following values are supported: missing, ignore, breaching and notBreaching."
+  type        = string
+  default     = "missing"
+}
+
+variable "unit" {
+  description = "The unit for the alarm's associated metric."
+  type        = string
   default     = ""
 }

@@ -1,81 +1,81 @@
-deletion_window_in_days = null
-
-enable_key_rotation = true
-
-key_asymmetric_sign_verify_users = []
-
-override_policy_documents = []
-
-create_external = false
-
-key_owners = []
-
-key_symmetric_encryption_users = []
-
-create_replica = false
-
-bypass_policy_lockout_safety_check = null
-
-key_material_base64 = null
-
-policy = null
-
-key_service_roles_for_autoscaling = []
-
-key_hmac_users = []
-
-key_spec = null
-
-primary_external_key_arn = null
-
-custom_key_store_id = null
-
-key_asymmetric_public_encryption_users = []
-
-key_statements = null
-
-enable_route53_dnssec = false
-
-rotation_period_in_days = null
-
-create = true
-
-region = null
-
-tags = {}
-
-enable_default_policy = true
-
-key_administrators = []
-
-key_users = []
-
-create_replica_external = false
-
-computed_aliases = {}
-
-description = null
-
-is_enabled = null
-
-multi_region = false
-
-source_policy_documents = []
-
-primary_key_arn = null
-
 aliases = []
-
-grants = null
-
-key_usage = null
-
-valid_to = null
-
-key_service_users = []
 
 aliases_use_name_prefix = false
 
+bypass_policy_lockout_safety_check = null
+
+computed_aliases = {}
+
+create = true
+
+create_external = false
+
+create_replica = false
+
+create_replica_external = false
+
+custom_key_store_id = null
+
 customer_master_key_spec = null
 
+deletion_window_in_days = null
+
+description = null
+
+enable_default_policy = true
+
+enable_key_rotation = true
+
+enable_route53_dnssec = false
+
+grants = null
+
+is_enabled = null
+
+key_administrators = []
+
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
+key_hmac_users = []
+
+key_material_base64 = null
+
+key_owners = []
+
+key_service_roles_for_autoscaling = []
+
+key_service_users = []
+
+key_spec = null
+
+key_statements = null
+
+key_symmetric_encryption_users = []
+
+key_usage = null
+
+key_users = []
+
+multi_region = false
+
+override_policy_documents = []
+
+policy = null
+
+primary_external_key_arn = null
+
+primary_key_arn = null
+
+region = null
+
+rotation_period_in_days = null
+
 route53_dnssec_sources = null
+
+source_policy_documents = []
+
+tags = {}
+
+valid_to = null

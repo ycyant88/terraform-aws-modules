@@ -1,50 +1,80 @@
-https_listeners_tags = {}
+access_logs = {}
 
 create_lb = true
 
-enable_cross_zone_load_balancing = false
+create_security_group = true
 
-security_groups = []
-
-security_group_tags = {}
-
-subnet_mapping = []
-
-https_listener_rules_tags = {}
-
-putin_khuylo = true
-
-security_group_use_name_prefix = true
+desync_mitigation_mode = "defensive"
 
 drop_invalid_header_fields = false
 
-ip_address_type = "ipv4"
+enable_cross_zone_load_balancing = false
 
-load_balancer_create_timeout = "10m"
-
-name_prefix = null
-
-security_group_rules = {}
+enable_deletion_protection = false
 
 enable_http2 = true
 
-load_balancer_type = "application"
+enable_waf_fail_open = false
 
-subnets = null
-
-vpc_id = null
-
-create_security_group = true
-
-https_listener_rules = []
+extra_ssl_certs = []
 
 http_tcp_listener_rules = []
 
+http_tcp_listener_rules_tags = {}
+
+http_tcp_listeners = []
+
+http_tcp_listeners_tags = {}
+
+https_listener_rules = []
+
+https_listener_rules_tags = {}
+
+https_listeners = []
+
+https_listeners_tags = {}
+
 idle_timeout = 60
+
+internal = false
+
+ip_address_type = "ipv4"
+
+lb_tags = {}
+
+listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
+
+load_balancer_create_timeout = "10m"
 
 load_balancer_delete_timeout = "10m"
 
+load_balancer_type = "application"
+
+load_balancer_update_timeout = "10m"
+
 name = null
+
+name_prefix = null
+
+preserve_host_header = false
+
+putin_khuylo = true
+
+security_group_description = null
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = null
 
 tags = {}
 
@@ -52,34 +82,4 @@ target_group_tags = {}
 
 target_groups = []
 
-https_listeners = []
-
-listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
-
-load_balancer_update_timeout = "10m"
-
-http_tcp_listener_rules_tags = {}
-
-enable_waf_fail_open = false
-
-desync_mitigation_mode = "defensive"
-
-security_group_name = null
-
-preserve_host_header = false
-
-enable_deletion_protection = false
-
-extra_ssl_certs = []
-
-access_logs = {}
-
-lb_tags = {}
-
-http_tcp_listeners_tags = {}
-
-security_group_description = null
-
-http_tcp_listeners = []
-
-internal = false
+vpc_id = null

@@ -1,31 +1,13 @@
-variable "tags" {
-  description = "A map of tags for the Route53 resolver endpoint"
-  type        = map(string)
-  default     = {}
-}
-
-variable "security_group_name_prefix" {
-  description = "The prefix of the security group"
-  type        = string
-  default     = null
-}
-
-variable "security_group_ingress_cidr_blocks" {
-  description = "A list of CIDR blocks to allow on security group ingress rules"
-  type        = list(string)
-  default     = []
-}
-
 variable "create" {
   description = "Whether to create Route53 resolver endpoints"
   type        = bool
   default     = true
 }
 
-variable "protocols" {
-  description = "The resolver endpoint protocols"
-  type        = list(string)
-  default     = []
+variable "create_security_group" {
+  description = "Whether to create Security Groups for Route53 Resolver Endpoints"
+  type        = bool
+  default     = true
 }
 
 variable "direction" {
@@ -34,8 +16,26 @@ variable "direction" {
   default     = "INBOUND"
 }
 
-variable "security_group_name" {
-  description = "The name of the security group"
+variable "ip_address" {
+  description = "A list of IP addresses and subnets where Route53 resolver endpoints will be deployed"
+  type        = list(any)
+  default     = []
+}
+
+variable "name" {
+  description = "The resolver endpoint name"
+  type        = string
+  default     = null
+}
+
+variable "protocols" {
+  description = "The resolver endpoint protocols"
+  type        = list(string)
+  default     = []
+}
+
+variable "security_group_description" {
+  description = "The security group description"
   type        = string
   default     = null
 }
@@ -46,22 +46,28 @@ variable "security_group_egress_cidr_blocks" {
   default     = []
 }
 
-variable "type" {
-  description = "The resolver endpoint IP type"
-  type        = string
-  default     = "IPV4"
-}
-
 variable "security_group_ids" {
   description = "A list of security group IDs"
   type        = list(string)
   default     = []
 }
 
-variable "create_security_group" {
-  description = "Whether to create Security Groups for Route53 Resolver Endpoints"
-  type        = bool
-  default     = true
+variable "security_group_ingress_cidr_blocks" {
+  description = "A list of CIDR blocks to allow on security group ingress rules"
+  type        = list(string)
+  default     = []
+}
+
+variable "security_group_name" {
+  description = "The name of the security group"
+  type        = string
+  default     = null
+}
+
+variable "security_group_name_prefix" {
+  description = "The prefix of the security group"
+  type        = string
+  default     = null
 }
 
 variable "security_group_tags" {
@@ -70,28 +76,22 @@ variable "security_group_tags" {
   default     = {}
 }
 
-variable "name" {
-  description = "The resolver endpoint name"
-  type        = string
-  default     = null
-}
-
-variable "ip_address" {
-  description = "A list of IP addresses and subnets where Route53 resolver endpoints will be deployed"
-  type        = list(any)
-  default     = []
-}
-
-variable "security_group_description" {
-  description = "The security group description"
-  type        = string
-  default     = null
-}
-
 variable "subnet_ids" {
   description = "A list of subnets where Route53 resolver endpoints will be deployed"
   type        = list(any)
   default     = []
+}
+
+variable "tags" {
+  description = "A map of tags for the Route53 resolver endpoint"
+  type        = map(string)
+  default     = {}
+}
+
+variable "type" {
+  description = "The resolver endpoint IP type"
+  type        = string
+  default     = "IPV4"
 }
 
 variable "vpc_id" {

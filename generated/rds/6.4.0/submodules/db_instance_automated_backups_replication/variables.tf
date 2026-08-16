@@ -1,3 +1,9 @@
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
 variable "kms_key_arn" {
   description = "The KMS encryption key ARN in the destination AWS Region"
   type        = string
@@ -20,10 +26,4 @@ variable "source_db_instance_arn" {
   description = "The ARN of the source DB instance for the replicated automated backups"
   type        = string
   default     = null
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
 }

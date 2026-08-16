@@ -8,6 +8,11 @@ output "topic_arn" {
   description = "The ARN of the SNS topic, as a more obvious property (clone of id)"
 }
 
+output "topic_beginning_archive_time" {
+  value       = module.sns.topic_beginning_archive_time
+  description = "The oldest timestamp at which a FIFO topic subscriber can start a replay"
+}
+
 output "topic_id" {
   value       = module.sns.topic_id
   description = "The ARN of the SNS topic"
@@ -21,9 +26,4 @@ output "topic_name" {
 output "topic_owner" {
   value       = module.sns.topic_owner
   description = "The AWS Account ID of the SNS topic owner"
-}
-
-output "topic_beginning_archive_time" {
-  value       = module.sns.topic_beginning_archive_time
-  description = "The oldest timestamp at which a FIFO topic subscriber can start a replay"
 }

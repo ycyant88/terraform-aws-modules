@@ -1,27 +1,3 @@
-variable "name" {
-  description = "The name of the ELB"
-  type        = string
-  default     = ""
-}
-
-variable "subnets" {
-  description = "A list of subnet IDs to attach to the ELB"
-  type        = list(any)
-  default     = ""
-}
-
-variable "security_groups" {
-  description = "A list of security group IDs to assign to the ELB"
-  type        = list(any)
-  default     = ""
-}
-
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(any)
-  default     = ""
-}
-
 variable "access_logs" {
   description = "An access logs block"
   type        = list(any)
@@ -40,34 +16,16 @@ variable "connection_draining_timeout" {
   default     = 300
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(any)
-  default     = {}
+variable "cross_zone_load_balancing" {
+  description = "Enable cross-zone load balancing"
+  type        = string
+  default     = true
 }
 
 variable "health_check" {
   description = "A health check block"
   type        = list(any)
   default     = ""
-}
-
-variable "number_of_instances" {
-  description = "Number of instances to attach to ELB"
-  type        = string
-  default     = 0
-}
-
-variable "internal" {
-  description = "If true, ELB will be an internal ELB"
-  type        = string
-  default     = ""
-}
-
-variable "cross_zone_load_balancing" {
-  description = "Enable cross-zone load balancing"
-  type        = string
-  default     = true
 }
 
 variable "idle_timeout" {
@@ -80,4 +38,46 @@ variable "instances" {
   description = "List of instances ID to place in the ELB pool"
   type        = list(any)
   default     = []
+}
+
+variable "internal" {
+  description = "If true, ELB will be an internal ELB"
+  type        = string
+  default     = ""
+}
+
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(any)
+  default     = ""
+}
+
+variable "name" {
+  description = "The name of the ELB"
+  type        = string
+  default     = ""
+}
+
+variable "number_of_instances" {
+  description = "Number of instances to attach to ELB"
+  type        = string
+  default     = 0
+}
+
+variable "security_groups" {
+  description = "A list of security group IDs to assign to the ELB"
+  type        = list(any)
+  default     = ""
+}
+
+variable "subnets" {
+  description = "A list of subnet IDs to attach to the ELB"
+  type        = list(any)
+  default     = ""
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(any)
+  default     = {}
 }

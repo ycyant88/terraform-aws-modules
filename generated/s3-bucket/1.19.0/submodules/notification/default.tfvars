@@ -1,15 +1,15 @@
+bucket = ""
+
 bucket_arn = ""
 
-create_sqs_policy = true
+create = true
 
 create_sns_policy = true
 
-bucket = ""
+create_sqs_policy = true
 
 lambda_notifications = {}
 
-sqs_notifications = {}
-
 sns_notifications = {}
 
-create = true
+sqs_notifications = {}

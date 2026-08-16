@@ -1,37 +1,13 @@
-variable "name" {
-  description = "Desired name for the IAM user"
-  type        = string
-  default     = ""
-}
-
-variable "path" {
-  description = "Desired path for the IAM user"
-  type        = string
-  default     = "/"
-}
-
-variable "pgp_key" {
-  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key. pgp_key is required when create_iam_user_login_profile is set to true"
-  type        = string
-  default     = ""
-}
-
-variable "upload_iam_user_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
+variable "create_iam_access_key" {
+  description = "Whether to create IAM access key"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "ssh_key_encoding" {
-  description = "Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format, use PEM"
-  type        = string
-  default     = "SSH"
-}
-
-variable "permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the user."
-  type        = string
-  default     = ""
+variable "create_iam_user_login_profile" {
+  description = "Whether to create IAM user login profile"
+  type        = bool
+  default     = true
 }
 
 variable "create_user" {
@@ -46,16 +22,46 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login."
-  type        = bool
-  default     = true
+variable "name" {
+  description = "Desired name for the IAM user"
+  type        = string
+  default     = ""
 }
 
 variable "password_length" {
   description = "The length of the generated password"
   type        = number
   default     = 20
+}
+
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login."
+  type        = bool
+  default     = true
+}
+
+variable "path" {
+  description = "Desired path for the IAM user"
+  type        = string
+  default     = "/"
+}
+
+variable "permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the user."
+  type        = string
+  default     = ""
+}
+
+variable "pgp_key" {
+  description = "Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Used to encrypt password and access key. pgp_key is required when create_iam_user_login_profile is set to true"
+  type        = string
+  default     = ""
+}
+
+variable "ssh_key_encoding" {
+  description = "Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format, use PEM"
+  type        = string
+  default     = "SSH"
 }
 
 variable "ssh_public_key" {
@@ -70,14 +76,8 @@ variable "tags" {
   default     = {}
 }
 
-variable "create_iam_user_login_profile" {
-  description = "Whether to create IAM user login profile"
+variable "upload_iam_user_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
   type        = bool
-  default     = true
-}
-
-variable "create_iam_access_key" {
-  description = "Whether to create IAM access key"
-  type        = bool
-  default     = true
+  default     = false
 }

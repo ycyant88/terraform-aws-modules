@@ -1,69 +1,69 @@
-volumes = {}
+automatic_backup_retention_days = null
+
+backup_id = null
+
+copy_tags_to_backups = false
+
+copy_tags_to_volumes = false
+
+create = true
 
 create_security_group = true
 
-security_group_description = null
-
-skip_final_backup = null
-
-storage_type = null
-
-throughput_capacity = null
-
-timeouts = {}
-
-security_group_use_name_prefix = true
+create_snapshot = false
 
 daily_automatic_backup_start_time = null
 
 deployment_type = null
 
-security_group_ids = []
-
-weekly_maintenance_start_time = null
-
-copy_tags_to_backups = false
-
-volumes_timeouts = {}
-
-security_group_ingress_rules = {}
-
-security_group_egress_rules = {}
-
-security_group_name = null
-
-security_group_tags = {}
-
-automatic_backup_retention_days = null
-
-copy_tags_to_volumes = false
-
-name = ""
-
-root_volume_configuration = {}
-
-create = true
-
 disk_iops_configuration = {}
-
-snapshot_name = null
-
-preferred_subnet_id = null
-
-route_table_ids = []
-
-subnet_ids = []
-
-snapshot_timeouts = {}
-
-backup_id = null
 
 endpoint_ip_address_range = null
 
 kms_key_id = null
 
+name = ""
+
+preferred_subnet_id = null
+
+root_volume_configuration = {}
+
+route_table_ids = []
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ids = []
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+skip_final_backup = null
+
+snapshot_name = null
+
+snapshot_timeouts = {}
+
 storage_capacity = null
+
+storage_type = null
+
+subnet_ids = []
 
 tags = {}
 
-create_snapshot = false
+throughput_capacity = null
+
+timeouts = {}
+
+volumes = {}
+
+volumes_timeouts = {}
+
+weekly_maintenance_start_time = null

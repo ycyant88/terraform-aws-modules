@@ -1,11 +1,11 @@
-tags = {}
-
 create_policy = true
+
+description = "IAM Policy"
 
 name = ""
 
 path = "/"
 
-description = "IAM Policy"
-
 policy = ""
+
+tags = {}

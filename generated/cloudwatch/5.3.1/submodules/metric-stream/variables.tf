@@ -1,11 +1,17 @@
-variable "firehose_arn" {
-  description = "ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream."
-  type        = string
-  default     = ""
+variable "create" {
+  description = "Whether to create the Cloudwatch metric stream."
+  type        = bool
+  default     = true
 }
 
-variable "output_format" {
-  description = " Output format for the stream. Possible values are json, opentelemetry0.7, and opentelemetry1.0"
+variable "exclude_filter" {
+  description = "Map of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with include_filter."
+  type        = any
+  default     = {}
+}
+
+variable "firehose_arn" {
+  description = "ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream."
   type        = string
   default     = ""
 }
@@ -16,10 +22,10 @@ variable "include_filter" {
   default     = {}
 }
 
-variable "statistics_configuration" {
-  description = "Map of statistics configuration."
-  type        = any
-  default     = []
+variable "name" {
+  description = "Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with name_prefix."
+  type        = string
+  default     = null
 }
 
 variable "name_prefix" {
@@ -28,10 +34,10 @@ variable "name_prefix" {
   default     = null
 }
 
-variable "name" {
-  description = "Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with name_prefix."
+variable "output_format" {
+  description = " Output format for the stream. Possible values are json, opentelemetry0.7, and opentelemetry1.0"
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "role_arn" {
@@ -40,20 +46,14 @@ variable "role_arn" {
   default     = ""
 }
 
-variable "exclude_filter" {
-  description = "Map of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with include_filter."
+variable "statistics_configuration" {
+  description = "Map of statistics configuration."
   type        = any
-  default     = {}
+  default     = []
 }
 
 variable "tags" {
   description = "A map of tags to add to the Cloudwatch Metric Stream."
   type        = map(string)
   default     = {}
-}
-
-variable "create" {
-  description = "Whether to create the Cloudwatch metric stream."
-  type        = bool
-  default     = true
 }

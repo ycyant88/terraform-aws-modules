@@ -1,63 +1,63 @@
+azs = []
+
 cidr = ""
 
-single_nat_gateway = false
-
-enable_s3_endpoint = false
-
-enable_dns_support = false
+create_database_subnet_group = true
 
 database_subnet_tags = {}
 
+database_subnets = []
+
 dhcp_options_domain_name = ""
-
-dhcp_options_netbios_node_type = ""
-
-private_subnets = []
-
-elasticache_subnets = []
-
-enable_vpn_gateway = false
-
-elasticache_subnet_tags = {}
-
-azs = []
-
-enable_dns_hostnames = false
-
-map_public_ip_on_launch = true
 
 dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
 dhcp_options_netbios_name_servers = []
 
-name = ""
+dhcp_options_netbios_node_type = ""
 
-instance_tenancy = "default"
+dhcp_options_ntp_servers = []
 
-enable_nat_gateway = false
+elasticache_subnet_tags = {}
 
-private_propagating_vgws = []
-
-database_subnets = []
-
-create_database_subnet_group = true
-
-tags = {}
-
-public_subnet_tags = {}
-
-private_subnet_tags = {}
-
-public_route_table_tags = {}
-
-private_route_table_tags = {}
+elasticache_subnets = []
 
 enable_dhcp_options = false
 
-public_subnets = []
+enable_dns_hostnames = false
+
+enable_dns_support = false
 
 enable_dynamodb_endpoint = false
 
+enable_nat_gateway = false
+
+enable_s3_endpoint = false
+
+enable_vpn_gateway = false
+
+instance_tenancy = "default"
+
+map_public_ip_on_launch = true
+
+name = ""
+
+private_propagating_vgws = []
+
+private_route_table_tags = {}
+
+private_subnet_tags = {}
+
+private_subnets = []
+
 public_propagating_vgws = []
 
-dhcp_options_ntp_servers = []
+public_route_table_tags = {}
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+single_nat_gateway = false
+
+tags = {}

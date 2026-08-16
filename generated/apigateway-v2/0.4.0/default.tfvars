@@ -1,32 +1,12 @@
-name = ""
+api_key_selection_expression = "$request.header.x-api-key"
 
-credentials_arn = ""
-
-default_stage_access_log_format = ""
-
-default_stage_tags = {}
-
-security_group_ids = []
-
-vpc_link_tags = {}
-
-create_vpc_link = false
-
-domain_name = ""
-
-integrations = {}
-
-create_api_domain_name = true
-
-protocol_type = "HTTP"
-
-route_selection_expression = "$request.method $request.path"
+api_version = ""
 
 cors_configuration = {}
 
-default_stage_access_log_destination_arn = ""
+create = true
 
-domain_name_certificate_arn = ""
+create_api_domain_name = true
 
 create_api_gateway = true
 
@@ -34,22 +14,42 @@ create_default_stage = true
 
 create_default_stage_api_mapping = true
 
-create = true
-
 create_routes_and_integrations = true
 
-route_key = ""
+create_vpc_link = false
 
-domain_name_tags = {}
+credentials_arn = ""
 
-api_key_selection_expression = "$request.header.x-api-key"
+default_stage_access_log_destination_arn = ""
 
-target = ""
+default_stage_access_log_format = ""
 
-api_version = ""
+default_stage_tags = {}
 
 description = ""
 
-tags = {}
+domain_name = ""
+
+domain_name_certificate_arn = ""
+
+domain_name_tags = {}
+
+integrations = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = ""
+
+route_selection_expression = "$request.method $request.path"
+
+security_group_ids = []
 
 subnet_ids = []
+
+tags = {}
+
+target = ""
+
+vpc_link_tags = {}

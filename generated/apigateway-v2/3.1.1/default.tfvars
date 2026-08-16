@@ -1,67 +1,67 @@
 api_key_selection_expression = "$request.header.x-api-key"
 
-target = null
+api_version = null
 
-domain_name_ownership_verification_certificate_arn = null
+authorizers = {}
 
-mutual_tls_authentication = {}
+body = null
+
+cors_configuration = {}
+
+create = true
+
+create_api_domain_name = true
+
+create_api_gateway = true
+
+create_default_stage = true
+
+create_default_stage_api_mapping = true
 
 create_routes_and_integrations = true
+
+create_vpc_link = true
+
+credentials_arn = null
+
+default_route_settings = {}
+
+default_stage_access_log_destination_arn = null
+
+default_stage_access_log_format = null
+
+default_stage_tags = {}
 
 description = null
 
 disable_execute_api_endpoint = false
 
-create_api_domain_name = true
-
-tags = {}
-
-create_default_stage = true
-
 domain_name = null
-
-api_version = null
-
-vpc_links = {}
-
-default_stage_access_log_format = null
 
 domain_name_certificate_arn = null
 
+domain_name_ownership_verification_certificate_arn = null
+
 domain_name_tags = {}
-
-integrations = {}
-
-name = ""
 
 fail_on_warnings = false
 
-body = null
+integrations = {}
 
-route_selection_expression = "$request.method $request.path"
+mutual_tls_authentication = {}
 
-default_stage_access_log_destination_arn = null
+name = ""
 
-default_stage_tags = {}
-
-vpc_link_tags = {}
-
-create = true
-
-create_default_stage_api_mapping = true
+protocol_type = "HTTP"
 
 route_key = null
 
-default_route_settings = {}
+route_selection_expression = "$request.method $request.path"
 
-cors_configuration = {}
+tags = {}
 
-credentials_arn = null
+target = null
 
-authorizers = {}
+vpc_link_tags = {}
 
-create_api_gateway = true
-
-create_vpc_link = true
-
-protocol_type = "HTTP"
+vpc_links = {}

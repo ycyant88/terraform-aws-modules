@@ -1,199 +1,199 @@
-security_group_ids = []
-
-create_task_definition = true
-
-task_exec_iam_role_permissions_boundary = null
-
-capacity_provider_strategy = {}
-
-desired_count = 1
-
-tasks_iam_role_policies = {}
-
-wait_until_stable = null
-
-task_exec_iam_role_arn = null
-
-tasks_iam_role_tags = {}
-
-launch_type = "FARGATE"
-
-iam_role_use_name_prefix = true
-
-task_exec_iam_role_policies = {}
-
-security_group_description = null
-
-triggers = {}
-
-task_exec_iam_role_name = null
-
-create_service = true
-
-scheduling_strategy = null
-
-enable_autoscaling = true
-
-tasks_iam_role_statements = {}
-
-tasks_iam_role_path = null
-
-force_new_deployment = true
-
-iam_role_name = null
-
-network_mode = "awsvpc"
-
-pid_mode = null
-
-scale = {}
-
-create_security_group = true
-
-security_group_use_name_prefix = true
-
-security_group_tags = {}
-
-name = null
-
-placement_constraints = {}
-
-task_exec_iam_role_description = null
-
-ephemeral_storage = {}
-
-iam_role_arn = null
-
-autoscaling_scheduled_actions = {}
-
-task_exec_iam_role_path = null
-
-external_id = null
-
-enable_execute_command = false
-
-service_tags = {}
-
-create_task_exec_policy = true
-
-task_exec_secret_arns = ["arn:aws:secretsmanager:*:*:secret:*"]
-
-deployment_controller = {}
+alarms = {}
 
 assign_public_ip = false
 
-tasks_iam_role_permissions_boundary = null
-
-create_tasks_iam_role = true
-
-family = null
-
-cluster_arn = ""
-
-service_connect_configuration = {}
-
-iam_role_description = null
-
-volume = {}
-
 autoscaling_max_capacity = 10
-
-container_definitions = {}
-
-tasks_iam_role_use_name_prefix = true
 
 autoscaling_min_capacity = 1
 
-security_group_rules = {}
-
-create = true
-
-deployment_maximum_percent = 200
-
-memory = 2048
-
-task_definition_placement_constraints = {}
-
-proxy_configuration = {}
-
-tasks_iam_role_name = null
-
-tasks_iam_role_description = null
-
-task_exec_iam_role_use_name_prefix = true
-
-tasks_iam_role_arn = null
-
-tags = {}
-
-iam_role_statements = {}
-
-alarms = {}
-
-task_exec_iam_role_tags = {}
-
-timeouts = {}
-
-task_definition_arn = null
-
-runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
-
-deployment_circuit_breaker = {}
-
-platform_version = null
-
-skip_destroy = null
-
-task_exec_ssm_param_arns = ["arn:aws:ssm:*:*:parameter/*"]
-
-task_exec_iam_statements = {}
-
-security_group_name = null
-
-ignore_task_definition_changes = false
-
-cpu = 1024
-
 autoscaling_policies = { "cpu" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageCPUUtilization" } } }, "memory" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageMemoryUtilization" } } } }
 
-iam_role_path = null
+autoscaling_scheduled_actions = {}
 
-task_tags = {}
+capacity_provider_strategy = {}
+
+cluster_arn = ""
 
 container_definition_defaults = {}
 
-requires_compatibilities = ["FARGATE"]
+container_definitions = {}
 
-propagate_tags = null
+cpu = 1024
+
+create = true
 
 create_iam_role = true
 
-inference_accelerator = {}
+create_security_group = true
 
-subnet_ids = []
+create_service = true
+
+create_task_definition = true
 
 create_task_exec_iam_role = true
 
-wait_until_stable_timeout = null
+create_task_exec_policy = true
+
+create_tasks_iam_role = true
+
+deployment_circuit_breaker = {}
+
+deployment_controller = {}
+
+deployment_maximum_percent = 200
 
 deployment_minimum_healthy_percent = 66
 
-ordered_placement_strategy = {}
+desired_count = 1
 
-service_registries = {}
-
-force_delete = null
+enable_autoscaling = true
 
 enable_ecs_managed_tags = true
 
+enable_execute_command = false
+
+ephemeral_storage = {}
+
+external_id = null
+
+family = null
+
+force_delete = null
+
+force_new_deployment = true
+
 health_check_grace_period_seconds = null
 
-wait_for_steady_state = null
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
+iam_role_statements = {}
+
 iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+ignore_task_definition_changes = false
+
+inference_accelerator = {}
 
 ipc_mode = null
 
+launch_type = "FARGATE"
+
 load_balancer = {}
+
+memory = 2048
+
+name = null
+
+network_mode = "awsvpc"
+
+ordered_placement_strategy = {}
+
+pid_mode = null
+
+placement_constraints = {}
+
+platform_version = null
+
+propagate_tags = null
+
+proxy_configuration = {}
+
+requires_compatibilities = ["FARGATE"]
+
+runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
+
+scale = {}
+
+scheduling_strategy = null
+
+security_group_description = null
+
+security_group_ids = []
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+service_connect_configuration = {}
+
+service_registries = {}
+
+service_tags = {}
+
+skip_destroy = null
+
+subnet_ids = []
+
+tags = {}
+
+task_definition_arn = null
+
+task_definition_placement_constraints = {}
+
+task_exec_iam_role_arn = null
+
+task_exec_iam_role_description = null
+
+task_exec_iam_role_name = null
+
+task_exec_iam_role_path = null
+
+task_exec_iam_role_permissions_boundary = null
+
+task_exec_iam_role_policies = {}
+
+task_exec_iam_role_tags = {}
+
+task_exec_iam_role_use_name_prefix = true
+
+task_exec_iam_statements = {}
+
+task_exec_secret_arns = ["arn:aws:secretsmanager:*:*:secret:*"]
+
+task_exec_ssm_param_arns = ["arn:aws:ssm:*:*:parameter/*"]
+
+task_tags = {}
+
+tasks_iam_role_arn = null
+
+tasks_iam_role_description = null
+
+tasks_iam_role_name = null
+
+tasks_iam_role_path = null
+
+tasks_iam_role_permissions_boundary = null
+
+tasks_iam_role_policies = {}
+
+tasks_iam_role_statements = {}
+
+tasks_iam_role_tags = {}
+
+tasks_iam_role_use_name_prefix = true
+
+timeouts = {}
+
+triggers = {}
+
+volume = {}
+
+wait_for_steady_state = null
+
+wait_until_stable = null
+
+wait_until_stable_timeout = null

@@ -1,40 +1,98 @@
-cpu_credits = ""
-
-launch_template = ""
-
-monitoring = false
-
-network_interface = []
-
-source_dest_check = true
-
-create = true
-
 ami = ""
+
+associate_public_ip_address = ""
+
+availability_zone = ""
 
 capacity_reservation_specification = ""
 
+cpu_core_count = ""
+
+cpu_credits = ""
+
+cpu_threads_per_core = ""
+
+create = true
+
+create_spot_instance = false
+
+disable_api_termination = ""
+
+ebs_block_device = []
+
+ebs_optimized = ""
+
+enable_volume_tags = true
+
+enclave_options_enabled = ""
+
+ephemeral_block_device = []
+
+get_password_data = ""
+
+hibernation = ""
+
+host_id = ""
+
+iam_instance_profile = ""
+
+instance_initiated_shutdown_behavior = ""
+
+instance_type = "t3.micro"
+
+ipv6_address_count = ""
+
+ipv6_addresses = ""
+
+key_name = ""
+
+launch_template = ""
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+putin_khuylo = true
+
+root_block_device = []
+
+secondary_private_ips = ""
+
+source_dest_check = true
+
+spot_block_duration_minutes = ""
+
+spot_instance_interruption_behavior = ""
+
 spot_launch_group = ""
 
-subnet_id = ""
-
-user_data = ""
-
-vpc_security_group_ids = ""
-
-spot_wait_for_fulfillment = ""
+spot_price = ""
 
 spot_type = ""
 
 spot_valid_from = ""
 
-associate_public_ip_address = ""
+spot_valid_until = ""
 
-hibernation = ""
+spot_wait_for_fulfillment = ""
 
-placement_group = ""
+subnet_id = ""
 
-private_ip = ""
+tags = {}
+
+tenancy = ""
+
+timeouts = {}
+
+user_data = ""
 
 user_data_base64 = ""
 
@@ -42,62 +100,4 @@ user_data_replace_on_change = false
 
 volume_tags = {}
 
-timeouts = {}
-
-ebs_optimized = ""
-
-host_id = ""
-
-metadata_options = {}
-
-cpu_core_count = ""
-
-cpu_threads_per_core = ""
-
-name = ""
-
-ephemeral_block_device = []
-
-tags = {}
-
-tenancy = ""
-
-spot_valid_until = ""
-
-ebs_block_device = []
-
-enclave_options_enabled = ""
-
-instance_initiated_shutdown_behavior = ""
-
-secondary_private_ips = ""
-
-putin_khuylo = true
-
-iam_instance_profile = ""
-
-ipv6_address_count = ""
-
-key_name = ""
-
-root_block_device = []
-
-spot_price = ""
-
-spot_instance_interruption_behavior = ""
-
-disable_api_termination = ""
-
-instance_type = "t3.micro"
-
-ipv6_addresses = ""
-
-create_spot_instance = false
-
-spot_block_duration_minutes = ""
-
-availability_zone = ""
-
-get_password_data = ""
-
-enable_volume_tags = true
+vpc_security_group_ids = ""

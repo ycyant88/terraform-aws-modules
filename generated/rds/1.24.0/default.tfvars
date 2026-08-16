@@ -1,109 +1,109 @@
-db_subnet_group_name = ""
-
-copy_tags_to_snapshot = false
-
-timezone = ""
-
-deletion_protection = false
-
-use_parameter_group_name_prefix = true
-
-enabled_cloudwatch_logs_exports = []
-
-identifier = ""
-
 allocated_storage = ""
-
-monitoring_role_name = "rds-monitoring-role"
-
-parameter_group_name = ""
-
-create_db_parameter_group = true
-
-snapshot_identifier = ""
-
-license_model = ""
-
-name = ""
-
-skip_final_snapshot = true
-
-backup_retention_period = 1
-
-username = ""
-
-vpc_security_group_ids = []
-
-maintenance_window = ""
-
-final_snapshot_identifier = false
-
-backup_window = ""
-
-option_group_description = ""
-
-options = []
-
-engine = ""
-
-multi_az = false
-
-publicly_accessible = false
-
-tags = {}
-
-major_engine_version = ""
-
-availability_zone = ""
 
 allow_major_version_upgrade = false
 
 apply_immediately = false
 
-subnet_ids = []
+auto_minor_version_upgrade = true
 
-family = ""
+availability_zone = ""
+
+backup_retention_period = 1
+
+backup_window = ""
 
 character_set_name = ""
 
-storage_encrypted = false
-
-iam_database_authentication_enabled = false
-
-port = ""
+copy_tags_to_snapshot = false
 
 create_db_instance = true
 
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+create_db_option_group = true
 
-parameter_group_description = ""
-
-parameters = []
+create_db_parameter_group = true
 
 create_db_subnet_group = true
 
-auto_minor_version_upgrade = true
+create_monitoring_role = false
 
-option_group_name = ""
+db_subnet_group_name = ""
 
-create_db_option_group = true
+deletion_protection = false
 
-instance_class = ""
+enabled_cloudwatch_logs_exports = []
 
-password = ""
-
-monitoring_interval = 0
-
-storage_type = "gp2"
+engine = ""
 
 engine_version = ""
 
-create_monitoring_role = false
+family = ""
 
-monitoring_role_arn = ""
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
 
 kms_key_id = ""
 
+license_model = ""
+
+maintenance_window = ""
+
+major_engine_version = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_description = ""
+
+option_group_name = ""
+
+options = []
+
+parameter_group_description = ""
+
+parameter_group_name = ""
+
+parameters = []
+
+password = ""
+
+port = ""
+
+publicly_accessible = false
+
 replicate_source_db = ""
 
-iops = 0
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
+
+use_parameter_group_name_prefix = true
+
+username = ""
+
+vpc_security_group_ids = []

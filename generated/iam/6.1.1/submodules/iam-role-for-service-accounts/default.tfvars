@@ -1,117 +1,117 @@
-name = ""
+amazon_managed_service_prometheus_workspace_arns = []
 
-source_policy_documents = []
+attach_amazon_managed_service_prometheus_policy = false
 
-attach_ebs_csi_policy = false
+attach_aws_gateway_controller_policy = false
 
-vpc_cni_enable_ipv6 = false
+attach_cert_manager_policy = false
 
-path = "/"
+attach_cloudwatch_observability_policy = false
 
 attach_cluster_autoscaler_policy = false
 
+attach_ebs_csi_policy = false
+
 attach_efs_csi_policy = false
 
-external_dns_hosted_zone_arns = []
+attach_external_dns_policy = false
 
-override_inline_policy_documents = []
+attach_external_secrets_policy = false
 
-tags = {}
+attach_fsx_lustre_csi_policy = false
 
-override_policy_documents = []
+attach_fsx_openzfs_csi_policy = false
 
-cert_manager_hosted_zone_arns = []
+attach_load_balancer_controller_policy = false
 
-create_inline_policy = false
-
-oidc_providers = {}
+attach_load_balancer_controller_targetgroup_binding_only_policy = false
 
 attach_mountpoint_s3_csi_policy = false
 
+attach_node_termination_handler_policy = false
+
+attach_velero_policy = false
+
+attach_vpc_cni_policy = false
+
+cert_manager_hosted_zone_arns = []
+
+cluster_autoscaler_cluster_names = []
+
+create = true
+
+create_inline_policy = false
+
+create_policy = true
+
+description = null
+
+ebs_csi_kms_cmk_arns = []
+
+external_dns_hosted_zone_arns = []
+
+external_secrets_kms_key_arns = []
+
 external_secrets_secrets_manager_arns = []
 
-permissions = null
+external_secrets_secrets_manager_create_permission = false
 
 external_secrets_ssm_parameter_arns = []
+
+fsx_lustre_csi_service_role_arns = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
 
 fsx_openzfs_csi_service_role_arns = ["arn:aws:iam::*:role/aws-service-role/fsx.amazonaws.com/*"]
 
 inline_policy_permissions = null
 
-policy_description = null
+load_balancer_controller_targetgroup_arns = []
 
-attach_aws_gateway_controller_policy = false
-
-mountpoint_s3_csi_path_arns = []
-
-attach_amazon_managed_service_prometheus_policy = false
-
-permissions_boundary = null
-
-policy_path = null
-
-attach_cert_manager_policy = false
+max_session_duration = null
 
 mountpoint_s3_csi_bucket_arns = []
 
 mountpoint_s3_csi_kms_arns = []
 
-attach_load_balancer_controller_targetgroup_binding_only_policy = false
+mountpoint_s3_csi_path_arns = []
 
-use_name_prefix = true
+name = ""
 
-max_session_duration = null
+node_termination_handler_sqs_queue_arns = []
 
-ebs_csi_kms_cmk_arns = []
+oidc_providers = {}
 
-attach_external_secrets_policy = false
+override_inline_policy_documents = []
 
-attach_fsx_openzfs_csi_policy = false
+override_policy_documents = []
 
-vpc_cni_enable_ipv4 = false
+path = "/"
 
-attach_node_termination_handler_policy = false
+permissions = null
 
-source_inline_policy_documents = []
+permissions_boundary = null
 
-external_secrets_secrets_manager_create_permission = false
+policies = {}
 
-amazon_managed_service_prometheus_workspace_arns = []
-
-attach_cloudwatch_observability_policy = false
-
-create = true
-
-create_policy = true
-
-fsx_lustre_csi_service_role_arns = ["arn:aws:iam::*:role/aws-service-role/s3.data-source.lustre.fsx.amazonaws.com/*"]
+policy_description = null
 
 policy_name = null
 
-cluster_autoscaler_cluster_names = []
+policy_path = null
 
-attach_external_dns_policy = false
+source_inline_policy_documents = []
 
-attach_fsx_lustre_csi_policy = false
+source_policy_documents = []
 
-description = null
+tags = {}
 
-external_secrets_kms_key_arns = []
+trust_condition_test = "StringEquals"
 
-attach_load_balancer_controller_policy = false
+use_name_prefix = true
 
 velero_s3_bucket_arns = []
 
 vpc_cni_enable_cloudwatch_logs = false
 
-trust_condition_test = "StringEquals"
+vpc_cni_enable_ipv4 = false
 
-policies = {}
-
-attach_velero_policy = false
-
-node_termination_handler_sqs_queue_arns = []
-
-load_balancer_controller_targetgroup_arns = []
-
-attach_vpc_cni_policy = false
+vpc_cni_enable_ipv6 = false

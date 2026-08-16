@@ -1,4 +1,4 @@
-vpc_id = null
+create = true
 
 endpoints = {}
 
@@ -10,4 +10,4 @@ tags = {}
 
 timeouts = {}
 
-create = true
+vpc_id = null

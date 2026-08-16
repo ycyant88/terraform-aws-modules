@@ -1,13 +1,13 @@
 create = true
 
-name = ""
-
-use_name_prefix = true
-
 description = null
+
+name = ""
 
 region = null
 
 subnet_ids = []
 
 tags = {}
+
+use_name_prefix = true

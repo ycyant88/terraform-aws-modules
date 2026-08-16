@@ -1,10 +1,6 @@
-kms_key_id = null
+anomaly_visibility_time = null
 
 create = true
-
-log_group_arns = null
-
-anomaly_visibility_time = null
 
 detector_name = null
 
@@ -13,3 +9,7 @@ enabled = null
 evaluation_frequency = null
 
 filter_pattern = null
+
+kms_key_id = null
+
+log_group_arns = null

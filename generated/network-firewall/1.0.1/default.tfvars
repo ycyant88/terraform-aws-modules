@@ -1,61 +1,61 @@
-policy_ram_resource_associations = {}
-
 create = true
 
-subnet_mapping = {}
+create_logging_configuration = false
 
-logging_configuration_destination_config = []
-
-policy_stateful_default_actions = []
-
-tags = {}
-
-vpc_id = ""
-
-policy_description = null
-
-policy_tags = {}
+create_policy = true
 
 create_policy_resource_policy = false
 
-policy_resource_policy_actions = []
-
-firewall_policy_arn = ""
-
-name = ""
-
-policy_stateless_fragment_default_actions = ["aws:pass"]
-
-policy_resource_policy_principals = []
-
 delete_protection = true
-
-policy_name = ""
-
-policy_resource_policy = ""
 
 description = ""
 
-subnet_change_protection = true
+encryption_configuration = {}
 
-create_logging_configuration = false
+firewall_policy_arn = ""
+
+firewall_policy_change_protection = null
+
+logging_configuration_destination_config = []
+
+name = ""
+
+policy_attach_resource_policy = false
+
+policy_description = null
+
+policy_encryption_configuration = {}
+
+policy_name = ""
+
+policy_ram_resource_associations = {}
+
+policy_resource_policy = ""
+
+policy_resource_policy_actions = []
+
+policy_resource_policy_principals = []
+
+policy_stateful_default_actions = []
+
+policy_stateful_engine_options = {}
+
+policy_stateful_rule_group_reference = {}
 
 policy_stateless_custom_action = {}
 
 policy_stateless_default_actions = ["aws:pass"]
 
+policy_stateless_fragment_default_actions = ["aws:pass"]
+
 policy_stateless_rule_group_reference = {}
 
-policy_attach_resource_policy = false
+policy_tags = {}
 
-encryption_configuration = {}
+subnet_change_protection = true
 
-firewall_policy_change_protection = null
+subnet_mapping = {}
 
-create_policy = true
+tags = {}
 
-policy_encryption_configuration = {}
-
-policy_stateful_engine_options = {}
-
-policy_stateful_rule_group_reference = {}
+vpc_id = ""

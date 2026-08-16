@@ -8,16 +8,6 @@ output "cluster_endpoint" {
   description = "The endpoint for your EKS Kubernetes API."
 }
 
-output "kubeconfig" {
-  value       = module.eks.kubeconfig
-  description = "kubectl config file contents for this EKS cluster."
-}
-
-output "workers_asg_arns" {
-  value       = module.eks.workers_asg_arns
-  description = "IDs of the autoscaling groups containing workers."
-}
-
 output "cluster_id" {
   value       = module.eks.cluster_id
   description = "The name/id of the EKS cluster."
@@ -28,9 +18,19 @@ output "cluster_security_group_id" {
   description = "Security group ID attached to the EKS cluster."
 }
 
+output "cluster_version" {
+  value       = module.eks.cluster_version
+  description = "The Kubernetes server version for the EKS cluster."
+}
+
 output "config_map_aws_auth" {
   value       = module.eks.config_map_aws_auth
   description = "A kubernetes configuration to authenticate to this EKS cluster."
+}
+
+output "kubeconfig" {
+  value       = module.eks.kubeconfig
+  description = "kubectl config file contents for this EKS cluster."
 }
 
 output "worker_security_group_id" {
@@ -38,7 +38,7 @@ output "worker_security_group_id" {
   description = "Security group ID attached to the EKS workers."
 }
 
-output "cluster_version" {
-  value       = module.eks.cluster_version
-  description = "The Kubernetes server version for the EKS cluster."
+output "workers_asg_arns" {
+  value       = module.eks.workers_asg_arns
+  description = "IDs of the autoscaling groups containing workers."
 }

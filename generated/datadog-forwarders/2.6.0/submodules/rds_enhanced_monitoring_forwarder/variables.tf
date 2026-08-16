@@ -1,55 +1,13 @@
-variable "use_role_name_prefix" {
-  description = "Whether to use unique name beginning with the specified role_name for the forwarder role"
+variable "create" {
+  description = "Controls whether the forwarder resources should be created"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "role_max_session_duration" {
-  description = "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours."
-  type        = number
-  default     = null
-}
-
-variable "role_tags" {
-  description = "A map of tags to apply to the forwarder role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "memory_size" {
-  description = "Memory size for the forwarder lambda function"
-  type        = number
-  default     = 256
-}
-
-variable "kms_key_arn" {
-  description = "KMS key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key"
-  type        = string
-  default     = null
-}
-
-variable "role_arn" {
-  description = "IAM role arn for forwarder lambda function to utilize"
+variable "dd_api_key" {
+  description = "The Datadog API key, which can be found from the APIs page (/account/settings#api). It will be stored in AWS Secrets Manager securely"
   type        = string
   default     = ""
-}
-
-variable "role_permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the forwarder role."
-  type        = string
-  default     = null
-}
-
-variable "security_group_ids" {
-  description = "List of security group ids when Lambda Function should run in the VPC."
-  type        = list(string)
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to use on all resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "dd_api_key_secret_arn" {
@@ -64,20 +22,26 @@ variable "dd_site" {
   default     = "datadoghq.com"
 }
 
-variable "role_name" {
-  description = "Forwarder role name"
-  type        = string
-  default     = ""
-}
-
-variable "policy_name" {
-  description = "Forwarder policy name"
-  type        = string
-  default     = ""
-}
-
 variable "environment_variables" {
   description = "A map of environment variables for the forwarder lambda function"
+  type        = map(string)
+  default     = {}
+}
+
+variable "forwarder_version" {
+  description = "Forwarder version - see https://github.com/DataDog/datadog-serverless-functions/releases"
+  type        = string
+  default     = "3.29.0"
+}
+
+variable "kms_key_arn" {
+  description = "KMS key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key"
+  type        = string
+  default     = null
+}
+
+variable "lambda_tags" {
+  description = "A map of tags to apply to the forwarder lambda function"
   type        = map(string)
   default     = {}
 }
@@ -88,10 +52,22 @@ variable "layers" {
   default     = []
 }
 
-variable "timeout" {
-  description = "The amount of time the forwarder lambda has to execute in seconds"
+variable "log_retention_days" {
+  description = "Forwarder CloudWatch log group retention in days"
   type        = number
-  default     = 10
+  default     = 7
+}
+
+variable "memory_size" {
+  description = "Memory size for the forwarder lambda function"
+  type        = number
+  default     = 256
+}
+
+variable "name" {
+  description = "Forwarder lambda name"
+  type        = string
+  default     = "datadog-rds-enhanced-monitoring-forwarder"
 }
 
 variable "policy_arn" {
@@ -100,28 +76,10 @@ variable "policy_arn" {
   default     = ""
 }
 
-variable "log_retention_days" {
-  description = "Forwarder CloudWatch log group retention in days"
-  type        = number
-  default     = 7
-}
-
-variable "subnet_ids" {
-  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
-  type        = list(string)
-  default     = null
-}
-
-variable "role_path" {
-  description = "Forwarder role path"
+variable "policy_name" {
+  description = "Forwarder policy name"
   type        = string
-  default     = null
-}
-
-variable "use_policy_name_prefix" {
-  description = "Whether to use unique name beginning with the specified policy_name for the forwarder policy"
-  type        = bool
-  default     = false
+  default     = ""
 }
 
 variable "policy_path" {
@@ -142,22 +100,40 @@ variable "reserved_concurrent_executions" {
   default     = 10
 }
 
-variable "dd_api_key" {
-  description = "The Datadog API key, which can be found from the APIs page (/account/settings#api). It will be stored in AWS Secrets Manager securely"
+variable "role_arn" {
+  description = "IAM role arn for forwarder lambda function to utilize"
   type        = string
   default     = ""
 }
 
-variable "forwarder_version" {
-  description = "Forwarder version - see https://github.com/DataDog/datadog-serverless-functions/releases"
-  type        = string
-  default     = "3.29.0"
+variable "role_max_session_duration" {
+  description = "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours."
+  type        = number
+  default     = null
 }
 
-variable "name" {
-  description = "Forwarder lambda name"
+variable "role_name" {
+  description = "Forwarder role name"
   type        = string
-  default     = "datadog-rds-enhanced-monitoring-forwarder"
+  default     = ""
+}
+
+variable "role_path" {
+  description = "Forwarder role path"
+  type        = string
+  default     = null
+}
+
+variable "role_permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the forwarder role."
+  type        = string
+  default     = null
+}
+
+variable "role_tags" {
+  description = "A map of tags to apply to the forwarder role"
+  type        = map(string)
+  default     = {}
 }
 
 variable "runtime" {
@@ -166,14 +142,38 @@ variable "runtime" {
   default     = "python3.7"
 }
 
-variable "lambda_tags" {
-  description = "A map of tags to apply to the forwarder lambda function"
+variable "security_group_ids" {
+  description = "List of security group ids when Lambda Function should run in the VPC."
+  type        = list(string)
+  default     = null
+}
+
+variable "subnet_ids" {
+  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
+  type        = list(string)
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to use on all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "create" {
-  description = "Controls whether the forwarder resources should be created"
+variable "timeout" {
+  description = "The amount of time the forwarder lambda has to execute in seconds"
+  type        = number
+  default     = 10
+}
+
+variable "use_policy_name_prefix" {
+  description = "Whether to use unique name beginning with the specified policy_name for the forwarder policy"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "use_role_name_prefix" {
+  description = "Whether to use unique name beginning with the specified role_name for the forwarder role"
+  type        = bool
+  default     = false
 }

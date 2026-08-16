@@ -1,32 +1,19 @@
+variable "attach_resource_policy" {
+  description = "Controls if a resource policy should be attached to the firewall policy"
+  type        = bool
+  default     = false
+}
+
 variable "create" {
   description = "Controls if resources should be created"
   type        = bool
   default     = true
 }
 
-variable "policy_variables" {
-  description = "Contains variables that you can use to override default Suricata settings in your firewall policy"
-  type = object({
-    rule_variables = list(object({
-      ip_set = optional(object({
-        definition = list(string)
-      }))
-      key = string
-    }))
-  })
-  default = null
-}
-
-variable "resource_policy_principals" {
-  description = "A list of IAM principals allowed in the resource policy"
-  type        = list(string)
-  default     = []
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
+variable "create_resource_policy" {
+  description = "Controls if a resource policy should be created"
+  type        = bool
+  default     = false
 }
 
 variable "description" {
@@ -44,29 +31,23 @@ variable "encryption_configuration" {
   default = null
 }
 
-variable "stateful_rule_group_reference" {
-  description = "Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See [Stateful Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-rule-group-reference) for details"
-  type = map(object({
-    deep_threat_inspection = optional(bool)
-    override = optional(object({
-      action = optional(string)
-    }))
-    priority     = optional(number)
-    resource_arn = string
-  }))
-  default = null
-}
-
-variable "create_resource_policy" {
-  description = "Controls if a resource policy should be created"
-  type        = bool
-  default     = false
-}
-
-variable "resource_policy" {
-  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
+variable "name" {
+  description = "A friendly name of the firewall policy"
   type        = string
   default     = ""
+}
+
+variable "policy_variables" {
+  description = "Contains variables that you can use to override default Suricata settings in your firewall policy"
+  type = object({
+    rule_variables = list(object({
+      ip_set = optional(object({
+        definition = list(string)
+      }))
+      key = string
+    }))
+  })
+  default = null
 }
 
 variable "ram_resource_associations" {
@@ -75,43 +56,28 @@ variable "ram_resource_associations" {
   default     = {}
 }
 
-variable "stateless_rule_group_reference" {
-  description = "Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See [Stateless Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateless-rule-group-reference) for details"
-  type = map(object({
-    priority     = number
-    resource_arn = string
-  }))
-  default = null
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
 }
 
-variable "attach_resource_policy" {
-  description = "Controls if a resource policy should be attached to the firewall policy"
-  type        = bool
-  default     = false
-}
-
-variable "stateless_default_actions" {
-  description = "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
-  type        = list(string)
-  default     = ["aws:pass"]
-}
-
-variable "stateless_fragment_default_actions" {
-  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
-  type        = list(string)
-  default     = ["aws:pass"]
-}
-
-variable "name" {
-  description = "A friendly name of the firewall policy"
+variable "resource_policy" {
+  description = "The policy JSON to use for the resource policy; required when create_resource_policy is false"
   type        = string
   default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "resource_policy_actions" {
+  description = "A list of IAM actions allowed in the resource policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "resource_policy_principals" {
+  description = "A list of IAM principals allowed in the resource policy"
+  type        = list(string)
+  default     = []
 }
 
 variable "stateful_default_actions" {
@@ -132,6 +98,19 @@ variable "stateful_engine_options" {
   default = null
 }
 
+variable "stateful_rule_group_reference" {
+  description = "Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See [Stateful Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-rule-group-reference) for details"
+  type = map(object({
+    deep_threat_inspection = optional(bool)
+    override = optional(object({
+      action = optional(string)
+    }))
+    priority     = optional(number)
+    resource_arn = string
+  }))
+  default = null
+}
+
 variable "stateless_custom_action" {
   description = "Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's stateless_default_actions"
   type = map(object({
@@ -145,8 +124,29 @@ variable "stateless_custom_action" {
   default = null
 }
 
-variable "resource_policy_actions" {
-  description = "A list of IAM actions allowed in the resource policy"
+variable "stateless_default_actions" {
+  description = "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
   type        = list(string)
-  default     = []
+  default     = ["aws:pass"]
+}
+
+variable "stateless_fragment_default_actions" {
+  description = "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: aws:drop, aws:pass, or aws:forward_to_sfe"
+  type        = list(string)
+  default     = ["aws:pass"]
+}
+
+variable "stateless_rule_group_reference" {
+  description = "Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See [Stateless Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateless-rule-group-reference) for details"
+  type = map(object({
+    priority     = number
+    resource_arn = string
+  }))
+  default = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

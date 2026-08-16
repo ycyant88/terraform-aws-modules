@@ -1,43 +1,43 @@
+attach_resource_policy = false
+
 create = true
-
-tags = {}
-
-encryption_configuration = null
-
-resource_policy_actions = []
-
-resource_policy = ""
-
-ram_resource_associations = {}
-
-description = null
-
-policy_variables = null
-
-stateful_default_actions = []
-
-stateless_default_actions = ["aws:pass"]
-
-enable_tls_session_holding = null
-
-region = null
-
-stateful_rule_group_reference = null
-
-stateless_fragment_default_actions = ["aws:pass"]
-
-name = ""
-
-tls_inspection_configuration_arn = null
 
 create_resource_policy = false
 
-attach_resource_policy = false
+description = null
+
+enable_tls_session_holding = null
+
+encryption_configuration = null
+
+name = ""
+
+policy_variables = null
+
+ram_resource_associations = {}
+
+region = null
+
+resource_policy = ""
+
+resource_policy_actions = []
+
+resource_policy_principals = []
+
+stateful_default_actions = []
 
 stateful_engine_options = null
 
+stateful_rule_group_reference = null
+
 stateless_custom_action = null
+
+stateless_default_actions = ["aws:pass"]
+
+stateless_fragment_default_actions = ["aws:pass"]
 
 stateless_rule_group_reference = null
 
-resource_policy_principals = []
+tags = {}
+
+tls_inspection_configuration_arn = null

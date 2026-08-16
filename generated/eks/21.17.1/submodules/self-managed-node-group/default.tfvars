@@ -1,215 +1,215 @@
-context = null
+account_id = ""
 
-iam_role_description = "Self managed node group IAM role"
+additional_cluster_dns_ips = null
 
-cluster_name = ""
-
-cloudinit_pre_nodeadm = null
-
-launch_template_name = null
-
-maintenance_options = null
+ami_id = ""
 
 ami_type = "AL2023_x86_64_STANDARD"
 
-tag_specifications = ["instance", "volume", "network-interface"]
-
-use_name_prefix = true
-
-default_instance_warmup = null
-
-cluster_endpoint = null
-
-cluster_auth_base64 = null
-
-cluster_service_cidr = null
-
-cloudinit_post_nodeadm = null
-
-instance_initiated_shutdown_behavior = null
-
-cpu_options = null
-
-kubernetes_version = null
-
-cluster_primary_security_group_id = null
-
-post_bootstrap_user_data = null
-
-launch_template_use_name_prefix = true
-
-enclave_options = null
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "required" }
-
-launch_template_tags = {}
-
-enable_monitoring = false
-
-launch_template_version = null
-
-desired_size = 1
-
-create_launch_template = true
+autoscaling_group_tags = {}
 
 availability_zones = null
 
-max_size = 3
+block_device_mappings = null
 
-protect_from_scale_in = false
+bootstrap_extra_args = null
 
-use_mixed_instances_policy = false
+capacity_rebalance = null
+
+capacity_reservation_specification = null
+
+cloudinit_post_nodeadm = null
+
+cloudinit_pre_nodeadm = null
+
+cluster_auth_base64 = null
+
+cluster_endpoint = null
+
+cluster_ip_family = null
+
+cluster_name = ""
+
+cluster_primary_security_group_id = null
+
+cluster_service_cidr = null
+
+context = null
+
+cpu_options = null
+
+create = true
+
+create_access_entry = true
+
+create_autoscaling_group = true
 
 create_iam_instance_profile = true
+
+create_iam_role_policy = true
+
+create_launch_template = true
+
+create_placement_group = false
+
+create_security_group = true
+
+credit_specification = null
+
+default_instance_warmup = null
+
+desired_size = 1
+
+desired_size_type = null
+
+disable_api_termination = null
+
+ebs_optimized = null
+
+efa_indices = [0]
+
+enable_efa_only = true
+
+enable_efa_support = false
+
+enable_monitoring = false
+
+enabled_metrics = []
+
+enclave_options = null
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
 
 iam_instance_profile_arn = null
 
 iam_role_additional_policies = {}
 
-tags = {}
+iam_role_arn = null
 
-network_interfaces = []
+iam_role_attach_cni_policy = true
 
-enable_efa_only = true
-
-desired_size_type = null
-
-metrics_granularity = null
-
-initial_lifecycle_hooks = null
-
-mixed_instances_policy = null
-
-autoscaling_group_tags = {}
-
-placement = null
-
-min_size = 1
-
-instance_refresh = { "preferences" : { "min_healthy_percentage" : 66 }, "strategy" : "Rolling" }
-
-security_group_egress_rules = {}
-
-partition = ""
-
-update_launch_template_default_version = true
-
-capacity_reservation_specification = null
-
-license_specifications = null
-
-ami_id = ""
-
-health_check_grace_period = null
-
-create_iam_role_policy = true
-
-create_access_entry = true
-
-user_data_template_path = null
-
-launch_template_id = ""
-
-kernel_id = null
-
-max_instance_lifetime = null
-
-instance_maintenance_policy = null
-
-iam_role_tags = {}
-
-security_group_use_name_prefix = true
-
-create_placement_group = false
-
-enable_efa_support = false
-
-capacity_rebalance = null
-
-iam_role_use_name_prefix = true
-
-iam_role_policy_statements = null
-
-block_device_mappings = null
-
-instance_requirements = null
-
-create_autoscaling_group = true
-
-name = ""
+iam_role_description = "Self managed node group IAM role"
 
 iam_role_name = null
 
 iam_role_path = null
 
-security_group_ingress_rules = {}
+iam_role_permissions_boundary = null
 
-additional_cluster_dns_ips = null
+iam_role_policy_statements = null
 
-launch_template_description = null
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+ignore_failed_scaling_activities = null
+
+initial_lifecycle_hooks = null
+
+instance_initiated_shutdown_behavior = null
+
+instance_maintenance_policy = null
 
 instance_market_options = null
 
+instance_refresh = { "preferences" : { "min_healthy_percentage" : 66 }, "strategy" : "Rolling" }
+
+instance_requirements = null
+
+instance_type = "m6i.large"
+
+kernel_id = null
+
 key_name = null
 
-vpc_security_group_ids = []
+kubernetes_version = null
 
-iam_role_permissions_boundary = null
+launch_template_default_version = null
 
-security_group_name = null
+launch_template_description = null
 
-security_group_description = null
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+maintenance_options = null
+
+max_instance_lifetime = null
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "required" }
+
+metrics_granularity = null
+
+min_size = 1
+
+mixed_instances_policy = null
+
+name = ""
+
+network_interfaces = []
+
+partition = ""
+
+placement = null
+
+placement_group = null
+
+post_bootstrap_user_data = null
 
 pre_bootstrap_user_data = null
 
 private_dns_name_options = null
 
-ebs_optimized = null
-
-instance_type = "m6i.large"
-
-ignore_failed_scaling_activities = null
-
-suspended_processes = []
-
-create_security_group = true
-
-security_group_tags = {}
-
-cluster_ip_family = null
-
-launch_template_default_version = null
+protect_from_scale_in = false
 
 ram_disk_id = null
 
-credit_specification = null
+region = null
 
-efa_indices = [0]
+security_group_description = null
 
-placement_group = null
+security_group_egress_rules = {}
 
-health_check_type = null
+security_group_ingress_rules = {}
 
-force_delete = null
+security_group_name = null
 
-account_id = ""
+security_group_tags = {}
 
-timeouts = null
+security_group_use_name_prefix = true
 
-iam_role_attach_cni_policy = true
+subnet_ids = null
 
-iam_role_arn = null
+suspended_processes = []
 
-create = true
+tag_specifications = ["instance", "volume", "network-interface"]
 
-bootstrap_extra_args = null
-
-disable_api_termination = null
+tags = {}
 
 termination_policies = []
 
-enabled_metrics = []
+timeouts = null
 
-region = null
+update_launch_template_default_version = true
 
-subnet_ids = null
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data_template_path = null
+
+vpc_security_group_ids = []

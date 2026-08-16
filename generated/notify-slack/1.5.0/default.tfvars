@@ -1,15 +1,15 @@
-sns_topic_name = ""
-
-slack_webhook_url = ""
-
-slack_channel = ""
-
-slack_username = ""
-
-slack_emoji = ":aws:"
+create_sns_topic = true
 
 kms_key_arn = ""
 
-create_sns_topic = true
-
 lambda_function_name = "notify_slack"
+
+slack_channel = ""
+
+slack_emoji = ":aws:"
+
+slack_username = ""
+
+slack_webhook_url = ""
+
+sns_topic_name = ""

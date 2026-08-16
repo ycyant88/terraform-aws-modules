@@ -1,31 +1,31 @@
-user_data = ""
-
-enable_monitoring = true
-
-iam_instance_profile = ""
-
-key_name = ""
-
-ebs_block_device = []
-
-placement_tenancy = "default"
-
-security_groups = ""
-
-root_block_device = []
-
-spot_price = 0
-
-image_id = ""
-
-ebs_optimized = false
-
-ephemeral_block_device = []
+associate_public_ip_address = false
 
 count = ""
 
-name = ""
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+ephemeral_block_device = []
+
+iam_instance_profile = ""
+
+image_id = ""
 
 instance_type = ""
 
-associate_public_ip_address = false
+key_name = ""
+
+name = ""
+
+placement_tenancy = "default"
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
+
+user_data = ""

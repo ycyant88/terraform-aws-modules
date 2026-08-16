@@ -1,16 +1,11 @@
-output "size_in_bytes" {
-  value       = module.efs.size_in_bytes
-  description = "The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time"
+output "access_points" {
+  value       = module.efs.access_points
+  description = "Map of access points created and their attributes"
 }
 
-output "security_group_arn" {
-  value       = module.efs.security_group_arn
-  description = "ARN of the security group"
-}
-
-output "security_group_id" {
-  value       = module.efs.security_group_id
-  description = "ID of the security group"
+output "arn" {
+  value       = module.efs.arn
+  description = "Amazon Resource Name of the file system"
 }
 
 output "dns_name" {
@@ -28,17 +23,22 @@ output "mount_targets" {
   description = "Map of mount targets created and their attributes"
 }
 
-output "access_points" {
-  value       = module.efs.access_points
-  description = "Map of access points created and their attributes"
-}
-
 output "replication_configuration_destination_file_system_id" {
   value       = module.efs.replication_configuration_destination_file_system_id
   description = "The file system ID of the replica"
 }
 
-output "arn" {
-  value       = module.efs.arn
-  description = "Amazon Resource Name of the file system"
+output "security_group_arn" {
+  value       = module.efs.security_group_arn
+  description = "ARN of the security group"
+}
+
+output "security_group_id" {
+  value       = module.efs.security_group_id
+  description = "ID of the security group"
+}
+
+output "size_in_bytes" {
+  value       = module.efs.size_in_bytes
+  description = "The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time"
 }

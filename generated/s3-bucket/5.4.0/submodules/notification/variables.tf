@@ -4,6 +4,36 @@ variable "bucket" {
   default     = ""
 }
 
+variable "bucket_arn" {
+  description = "ARN of S3 bucket to use in policies"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
+variable "create_lambda_permission" {
+  description = "Whether to create Lambda permissions or not?"
+  type        = bool
+  default     = true
+}
+
+variable "create_sns_policy" {
+  description = "Whether to create a policy for SNS permissions or not?"
+  type        = bool
+  default     = true
+}
+
+variable "create_sqs_policy" {
+  description = "Whether to create a policy for SQS permissions or not?"
+  type        = bool
+  default     = true
+}
+
 variable "eventbridge" {
   description = "Whether to enable Amazon EventBridge notifications"
   type        = bool
@@ -22,38 +52,8 @@ variable "sns_notifications" {
   default     = {}
 }
 
-variable "create_sns_policy" {
-  description = "Whether to create a policy for SNS permissions or not?"
-  type        = bool
-  default     = true
-}
-
-variable "bucket_arn" {
-  description = "ARN of S3 bucket to use in policies"
-  type        = string
-  default     = null
-}
-
 variable "sqs_notifications" {
   description = "Map of S3 bucket notifications to SQS queue"
   type        = any
   default     = {}
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
-}
-
-variable "create_sqs_policy" {
-  description = "Whether to create a policy for SQS permissions or not?"
-  type        = bool
-  default     = true
-}
-
-variable "create_lambda_permission" {
-  description = "Whether to create Lambda permissions or not?"
-  type        = bool
-  default     = true
 }

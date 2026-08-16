@@ -4,16 +4,10 @@ variable "create" {
   default     = true
 }
 
-variable "lambda_function_name" {
-  description = "The name of the Lambda function to create"
-  type        = string
-  default     = "notify_slack"
-}
-
-variable "sns_topic_name" {
-  description = "The name of the SNS topic to create"
-  type        = string
-  default     = ""
+variable "create_sns_topic" {
+  description = "Whether to create new SNS topic"
+  type        = bool
+  default     = true
 }
 
 variable "kms_key_arn" {
@@ -22,16 +16,10 @@ variable "kms_key_arn" {
   default     = ""
 }
 
-variable "create_sns_topic" {
-  description = "Whether to create new SNS topic"
-  type        = bool
-  default     = true
-}
-
-variable "slack_webhook_url" {
-  description = "The URL of Slack webhook"
+variable "lambda_function_name" {
+  description = "The name of the Lambda function to create"
   type        = string
-  default     = ""
+  default     = "notify_slack"
 }
 
 variable "slack_channel" {
@@ -40,14 +28,26 @@ variable "slack_channel" {
   default     = ""
 }
 
+variable "slack_emoji" {
+  description = "A custom emoji that will appear on Slack messages"
+  type        = string
+  default     = ":aws:"
+}
+
 variable "slack_username" {
   description = "The username that will appear on Slack messages"
   type        = string
   default     = ""
 }
 
-variable "slack_emoji" {
-  description = "A custom emoji that will appear on Slack messages"
+variable "slack_webhook_url" {
+  description = "The URL of Slack webhook"
   type        = string
-  default     = ":aws:"
+  default     = ""
+}
+
+variable "sns_topic_name" {
+  description = "The name of the SNS topic to create"
+  type        = string
+  default     = ""
 }

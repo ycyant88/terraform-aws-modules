@@ -1,25 +1,25 @@
-tags = {}
-
-secure_type = false
-
-values = []
-
-tier = null
-
-key_id = null
-
-value = null
-
 allowed_pattern = null
-
-type = null
-
-data_type = null
 
 create = true
 
+data_type = null
+
+description = null
+
 ignore_value_changes = false
+
+key_id = null
 
 name = null
 
-description = null
+secure_type = false
+
+tags = {}
+
+tier = null
+
+type = null
+
+value = null
+
+values = []

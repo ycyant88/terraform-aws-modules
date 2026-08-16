@@ -1,11 +1,11 @@
 create = true
 
-putin_khuylo = true
-
-resource_arn = ""
-
 log_destination_configs = ""
+
+logging_filter = null
+
+putin_khuylo = true
 
 redacted_fields = []
 
-logging_filter = null
+resource_arn = ""

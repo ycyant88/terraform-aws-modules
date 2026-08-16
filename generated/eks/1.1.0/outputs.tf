@@ -1,21 +1,11 @@
+output "cluster_certificate_authority_data" {
+  value       = module.eks.cluster_certificate_authority_data
+  description = "Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster."
+}
+
 output "cluster_endpoint" {
   value       = module.eks.cluster_endpoint
   description = "The endpoint for your EKS Kubernetes API."
-}
-
-output "cluster_security_group_id" {
-  value       = module.eks.cluster_security_group_id
-  description = "Security group ID attached to the EKS cluster."
-}
-
-output "worker_security_group_id" {
-  value       = module.eks.worker_security_group_id
-  description = "Security group ID attached to the EKS workers."
-}
-
-output "worker_iam_role_name" {
-  value       = module.eks.worker_iam_role_name
-  description = "IAM role name attached to EKS workers"
 }
 
 output "cluster_id" {
@@ -23,9 +13,9 @@ output "cluster_id" {
   description = "The name/id of the EKS cluster."
 }
 
-output "cluster_certificate_authority_data" {
-  value       = module.eks.cluster_certificate_authority_data
-  description = "Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster."
+output "cluster_security_group_id" {
+  value       = module.eks.cluster_security_group_id
+  description = "Security group ID attached to the EKS cluster."
 }
 
 output "cluster_version" {
@@ -41,6 +31,16 @@ output "config_map_aws_auth" {
 output "kubeconfig" {
   value       = module.eks.kubeconfig
   description = "kubectl config file contents for this EKS cluster."
+}
+
+output "worker_iam_role_name" {
+  value       = module.eks.worker_iam_role_name
+  description = "IAM role name attached to EKS workers"
+}
+
+output "worker_security_group_id" {
+  value       = module.eks.worker_security_group_id
+  description = "Security group ID attached to the EKS workers."
 }
 
 output "workers_asg_arns" {

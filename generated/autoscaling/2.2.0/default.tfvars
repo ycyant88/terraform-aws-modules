@@ -1,81 +1,81 @@
-key_name = ""
+asg_name = ""
 
-suspended_processes = []
+associate_public_ip_address = false
 
-min_elb_capacity = 0
+create_asg = true
 
-spot_price = 0
+create_lc = true
 
-vpc_zone_identifier = ""
+default_cooldown = 300
 
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+desired_capacity = ""
 
-protect_from_scale_in = false
+ebs_block_device = []
 
 ebs_optimized = false
 
-root_block_device = []
+enable_monitoring = true
 
-desired_capacity = ""
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+force_delete = false
 
 health_check_grace_period = 300
 
 health_check_type = ""
 
-security_groups = ""
-
-enable_monitoring = true
-
-ebs_block_device = []
-
-ephemeral_block_device = []
-
-tags_as_map = {}
-
-placement_group = ""
-
-metrics_granularity = "1Minute"
-
-create_asg = true
-
-instance_type = ""
-
-associate_public_ip_address = false
-
-placement_tenancy = "default"
-
-name = ""
-
-asg_name = ""
-
-launch_configuration = ""
+iam_instance_profile = ""
 
 image_id = ""
 
+instance_type = ""
+
+key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
 load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
 
 target_group_arns = []
 
 termination_policies = ["Default"]
 
-wait_for_capacity_timeout = "10m"
-
-create_lc = true
-
-lc_name = ""
-
-iam_instance_profile = ""
-
-max_size = ""
-
-default_cooldown = 300
-
 user_data = ""
 
-min_size = ""
+vpc_zone_identifier = ""
 
-force_delete = false
-
-tags = []
+wait_for_capacity_timeout = "10m"
 
 wait_for_elb_capacity = false

@@ -1,21 +1,6 @@
-output "workspace_iam_role_arn" {
-  value       = module.managed-service-grafana.workspace_iam_role_arn
-  description = "IAM role ARN of the Grafana workspace"
-}
-
-output "workspace_iam_role_unique_id" {
-  value       = module.managed-service-grafana.workspace_iam_role_unique_id
-  description = "Stable and unique string identifying the IAM role"
-}
-
-output "saml_configuration_status" {
-  value       = module.managed-service-grafana.saml_configuration_status
-  description = "Status of the SAML configuration"
-}
-
-output "workspace_iam_role_name" {
-  value       = module.managed-service-grafana.workspace_iam_role_name
-  description = "IAM role name of the Grafana workspace"
+output "license_expiration" {
+  value       = module.managed-service-grafana.license_expiration
+  description = "If license_type is set to ENTERPRISE, this is the expiration date of the enterprise license"
 }
 
 output "license_free_trial_expiration" {
@@ -23,9 +8,9 @@ output "license_free_trial_expiration" {
   description = "If license_type is set to ENTERPRISE_FREE_TRIAL, this is the expiration date of the free trial"
 }
 
-output "license_expiration" {
-  value       = module.managed-service-grafana.license_expiration
-  description = "If license_type is set to ENTERPRISE, this is the expiration date of the enterprise license"
+output "saml_configuration_status" {
+  value       = module.managed-service-grafana.saml_configuration_status
+  description = "Status of the SAML configuration"
 }
 
 output "security_group_arn" {
@@ -38,14 +23,14 @@ output "security_group_id" {
   description = "ID of the security group"
 }
 
+output "workspace_api_keys" {
+  value       = module.managed-service-grafana.workspace_api_keys
+  description = "The workspace API keys created including their attributes"
+}
+
 output "workspace_arn" {
   value       = module.managed-service-grafana.workspace_arn
   description = "The Amazon Resource Name (ARN) of the Grafana workspace"
-}
-
-output "workspace_id" {
-  value       = module.managed-service-grafana.workspace_id
-  description = "The ID of the Grafana workspace"
 }
 
 output "workspace_endpoint" {
@@ -58,7 +43,22 @@ output "workspace_grafana_version" {
   description = "The version of Grafana running on the workspace"
 }
 
-output "workspace_api_keys" {
-  value       = module.managed-service-grafana.workspace_api_keys
-  description = "The workspace API keys created including their attributes"
+output "workspace_iam_role_arn" {
+  value       = module.managed-service-grafana.workspace_iam_role_arn
+  description = "IAM role ARN of the Grafana workspace"
+}
+
+output "workspace_iam_role_name" {
+  value       = module.managed-service-grafana.workspace_iam_role_name
+  description = "IAM role name of the Grafana workspace"
+}
+
+output "workspace_iam_role_unique_id" {
+  value       = module.managed-service-grafana.workspace_iam_role_unique_id
+  description = "Stable and unique string identifying the IAM role"
+}
+
+output "workspace_id" {
+  value       = module.managed-service-grafana.workspace_id
+  description = "The ID of the Grafana workspace"
 }

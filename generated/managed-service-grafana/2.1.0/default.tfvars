@@ -1,82 +1,74 @@
-iam_role_max_session_duration = null
-
-saml_org_assertion = null
-
-saml_role_assertion = null
-
-security_group_name = null
-
 account_access_type = "CURRENT_ACCOUNT"
 
-use_iam_role_name_prefix = true
-
-role_associations = {}
-
-create_security_group = true
-
-security_group_description = null
-
-iam_role_name = null
-
-create_saml_configuration = true
-
-saml_editor_role_values = []
-
-security_group_use_name_prefix = true
-
-security_group_tags = {}
-
-create = true
-
-description = null
-
-network_access_control = {}
-
-organization_role_name = null
-
-iam_role_permissions_boundary = null
-
-saml_allowed_organizations = []
-
-saml_groups_assertion = null
-
-saml_idp_metadata_url = null
+associate_license = true
 
 authentication_providers = ["AWS_SSO"]
 
 configuration = null
 
-data_sources = []
-
-name = null
-
-notification_destinations = []
-
-organizational_units = []
+create = true
 
 create_iam_role = true
 
+create_saml_configuration = true
+
+create_security_group = true
+
+create_workspace = true
+
+data_sources = []
+
+description = null
+
+enable_alerts = false
+
+grafana_version = null
+
+iam_role_arn = null
+
 iam_role_description = null
 
-stack_set_name = null
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
 
 iam_role_policy_arns = []
 
-workspace_api_keys = {}
+iam_role_tags = {}
 
-saml_name_assertion = null
+license_type = "ENTERPRISE"
 
-security_group_rules = {}
+name = null
 
-tags = {}
+network_access_control = {}
+
+notification_destinations = []
+
+organization_role_name = null
+
+organizational_units = []
 
 permission_type = "SERVICE_MANAGED"
 
-vpc_configuration = {}
+role_associations = {}
 
 saml_admin_role_values = []
 
+saml_allowed_organizations = []
+
+saml_editor_role_values = []
+
 saml_email_assertion = null
+
+saml_groups_assertion = null
+
+saml_idp_metadata_url = null
 
 saml_idp_metadata_xml = null
 
@@ -84,22 +76,30 @@ saml_login_assertion = null
 
 saml_login_validity_duration = null
 
-iam_role_arn = null
+saml_name_assertion = null
 
-iam_role_path = null
+saml_org_assertion = null
 
-iam_role_tags = {}
+saml_role_assertion = null
 
-enable_alerts = false
+security_group_description = null
 
-associate_license = true
+security_group_name = null
 
-license_type = "ENTERPRISE"
+security_group_rules = {}
 
-create_workspace = true
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+stack_set_name = null
+
+tags = {}
+
+use_iam_role_name_prefix = true
+
+vpc_configuration = {}
+
+workspace_api_keys = {}
 
 workspace_id = ""
-
-grafana_version = null
-
-iam_role_force_detach_policies = true

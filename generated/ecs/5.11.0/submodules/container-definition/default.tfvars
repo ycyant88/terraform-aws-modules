@@ -1,97 +1,97 @@
-readonly_root_filesystem = true
-
-resource_requirements = []
-
-user = null
-
-cloudwatch_log_group_retention_in_days = 30
-
-entrypoint = []
-
-links = []
-
-memory = null
-
-enable_cloudwatch_logging = true
-
-dns_servers = []
-
-interactive = false
-
-extra_hosts = []
-
-linux_parameters = {}
-
-log_configuration = {}
-
-memory_reservation = null
-
-system_controls = []
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-cpu = null
-
-environment = []
-
-repository_credentials = {}
-
-ulimits = []
-
-command = []
-
-dependencies = []
-
-working_directory = null
-
-name = null
-
-privileged = false
-
-pseudo_terminal = false
+cloudwatch_log_group_retention_in_days = 30
 
 cloudwatch_log_group_use_name_prefix = false
 
-disable_networking = null
+command = []
 
-essential = null
-
-image = null
-
-enable_execute_command = false
-
-mount_points = []
-
-stop_timeout = 120
-
-hostname = null
-
-port_mappings = []
-
-secrets = []
+cpu = null
 
 create_cloudwatch_log_group = true
 
-tags = {}
+dependencies = []
+
+disable_networking = null
+
+dns_search_domains = []
+
+dns_servers = []
+
+docker_labels = {}
 
 docker_security_options = []
 
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
 environment_files = []
 
-docker_labels = {}
+essential = null
+
+extra_hosts = []
 
 firelens_configuration = {}
 
 health_check = {}
 
-start_timeout = 30
+hostname = null
 
-cloudwatch_log_group_kms_key_id = null
+image = null
 
-service = ""
+interactive = false
+
+links = []
+
+linux_parameters = {}
+
+log_configuration = {}
+
+memory = null
+
+memory_reservation = null
+
+mount_points = []
+
+name = null
 
 operating_system_family = "LINUX"
 
-dns_search_domains = []
+port_mappings = []
+
+privileged = false
+
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
+
+stop_timeout = 120
+
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
 
 volumes_from = []
+
+working_directory = null

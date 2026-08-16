@@ -1,11 +1,11 @@
-create_github_repository_webhook = true
+atlantis_allowed_repo_names = ""
 
-github_token = ""
+create_github_repository_webhook = true
 
 github_owner = ""
 
-atlantis_allowed_repo_names = ""
-
-webhook_url = ""
+github_token = ""
 
 webhook_secret = ""
+
+webhook_url = ""

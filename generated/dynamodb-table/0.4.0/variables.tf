@@ -4,10 +4,28 @@ variable "attributes" {
   default     = []
 }
 
-variable "hash_key" {
-  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
-  type        = string
-  default     = ""
+variable "autoscaling_defaults" {
+  description = "A map of default autoscaling settings"
+  type        = map(string)
+  default     = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
+}
+
+variable "autoscaling_indexes" {
+  description = "A map of index autoscaling configurations. See example in examples/autoscaling"
+  type        = map(map(string))
+  default     = {}
+}
+
+variable "autoscaling_read" {
+  description = "A map of read autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
+  type        = map(string)
+  default     = {}
+}
+
+variable "autoscaling_write" {
+  description = "A map of write autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
+  type        = map(string)
+  default     = {}
 }
 
 variable "billing_mode" {
@@ -16,28 +34,28 @@ variable "billing_mode" {
   default     = "PAY_PER_REQUEST"
 }
 
-variable "read_capacity" {
-  description = "The number of read units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
-  type        = number
+variable "create_table" {
+  description = "Controls if DynamoDB table and associated resources are created"
+  type        = bool
+  default     = true
+}
+
+variable "global_secondary_indexes" {
+  description = "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc."
+  type        = list(any)
+  default     = []
+}
+
+variable "hash_key" {
+  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
+  type        = string
   default     = ""
 }
 
-variable "ttl_enabled" {
-  description = "Indicates whether ttl is enabled"
-  type        = bool
-  default     = false
-}
-
-variable "point_in_time_recovery_enabled" {
-  description = "Whether to enable point-in-time recovery"
-  type        = bool
-  default     = false
-}
-
-variable "timeouts" {
-  description = "Updated Terraform resource management timeouts"
-  type        = map(string)
-  default     = { "create" : "10m", "delete" : "10m", "update" : "60m" }
+variable "local_secondary_indexes" {
+  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
+  type        = list(any)
+  default     = []
 }
 
 variable "name" {
@@ -46,14 +64,20 @@ variable "name" {
   default     = ""
 }
 
+variable "point_in_time_recovery_enabled" {
+  description = "Whether to enable point-in-time recovery"
+  type        = bool
+  default     = false
+}
+
 variable "range_key" {
   description = "The attribute to use as the range (sort) key. Must also be defined as an attribute"
   type        = string
   default     = ""
 }
 
-variable "write_capacity" {
-  description = "The number of write units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
+variable "read_capacity" {
+  description = "The number of read units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
   type        = number
   default     = ""
 }
@@ -64,40 +88,10 @@ variable "server_side_encryption_enabled" {
   default     = false
 }
 
-variable "autoscaling_defaults" {
-  description = "A map of default autoscaling settings"
-  type        = map(string)
-  default     = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
-}
-
-variable "autoscaling_read" {
-  description = "A map of read autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
-  type        = map(string)
-  default     = {}
-}
-
-variable "autoscaling_indexes" {
-  description = "A map of index autoscaling configurations. See example in examples/autoscaling"
-  type        = map(map(string))
-  default     = {}
-}
-
 variable "server_side_encryption_kms_key_arn" {
   description = "The ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, alias/aws/dynamodb."
   type        = string
   default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "global_secondary_indexes" {
-  description = "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc."
-  type        = list(any)
-  default     = []
 }
 
 variable "stream_enabled" {
@@ -112,10 +106,16 @@ variable "stream_view_type" {
   default     = ""
 }
 
-variable "autoscaling_write" {
-  description = "A map of write autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
+variable "tags" {
+  description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
+}
+
+variable "timeouts" {
+  description = "Updated Terraform resource management timeouts"
+  type        = map(string)
+  default     = { "create" : "10m", "delete" : "10m", "update" : "60m" }
 }
 
 variable "ttl_attribute_name" {
@@ -124,14 +124,14 @@ variable "ttl_attribute_name" {
   default     = ""
 }
 
-variable "local_secondary_indexes" {
-  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
-  type        = list(any)
-  default     = []
+variable "ttl_enabled" {
+  description = "Indicates whether ttl is enabled"
+  type        = bool
+  default     = false
 }
 
-variable "create_table" {
-  description = "Controls if DynamoDB table and associated resources are created"
-  type        = bool
-  default     = true
+variable "write_capacity" {
+  description = "The number of write units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0"
+  type        = number
+  default     = ""
 }

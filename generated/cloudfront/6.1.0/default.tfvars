@@ -1,57 +1,57 @@
-web_acl_id = null
+aliases = null
 
 anycast_ip_list_id = null
 
-wait_for_deployment = null
+cloudfront_functions = null
+
+comment = null
+
+continuous_deployment_policy_id = null
 
 create = true
 
-aliases = null
+create_monitoring_subscription = false
+
+custom_error_response = null
+
+default_cache_behavior = ""
 
 default_root_object = null
 
 enabled = true
 
-staging = null
+http_version = "http2"
 
-tags = {}
+is_ipv6_enabled = true
+
+logging_config = null
 
 ordered_cache_behavior = []
 
-price_class = null
-
-create_monitoring_subscription = false
-
-continuous_deployment_policy_id = null
-
-custom_error_response = null
-
-restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
+origin = {}
 
 origin_access_control = { "s3" : { "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
+
+origin_group = null
+
+price_class = null
 
 realtime_metrics_subscription_status = "Enabled"
 
 response_headers_policies = null
 
-logging_config = null
+restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
 
-origin_group = null
+retain_on_delete = null
 
-origin = {}
+staging = null
 
-comment = null
-
-default_cache_behavior = ""
-
-http_version = "http2"
-
-is_ipv6_enabled = true
+tags = {}
 
 viewer_certificate = {}
 
 vpc_origin = null
 
-cloudfront_functions = null
+wait_for_deployment = null
 
-retain_on_delete = null
+web_acl_id = null

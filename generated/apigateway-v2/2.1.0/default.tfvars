@@ -1,65 +1,65 @@
-create_routes_and_integrations = true
+api_key_selection_expression = "$request.header.x-api-key"
 
-cors_configuration = {}
-
-target = null
+api_version = null
 
 authorizers = {}
 
 body = null
 
-domain_name_ownership_verification_certificate_arn = null
+cors_configuration = {}
 
-domain_name_tags = {}
+create = true
 
-default_stage_access_log_format = null
+create_api_domain_name = true
 
-domain_name = null
+create_api_gateway = true
 
 create_default_stage = true
 
 create_default_stage_api_mapping = true
 
-tags = {}
-
-name = ""
-
-mutual_tls_authentication = {}
-
-vpc_links = {}
-
-integrations = {}
+create_routes_and_integrations = true
 
 create_vpc_link = true
 
-route_selection_expression = "$request.method $request.path"
-
-default_stage_tags = {}
-
-api_version = null
+credentials_arn = null
 
 default_route_settings = {}
 
-disable_execute_api_endpoint = false
+default_stage_access_log_destination_arn = null
 
-protocol_type = "HTTP"
+default_stage_access_log_format = null
 
-api_key_selection_expression = "$request.header.x-api-key"
-
-route_key = null
-
-credentials_arn = null
-
-domain_name_certificate_arn = null
-
-vpc_link_tags = {}
-
-create = true
-
-create_api_gateway = true
+default_stage_tags = {}
 
 description = null
 
-create_api_domain_name = true
+disable_execute_api_endpoint = false
 
-default_stage_access_log_destination_arn = null
+domain_name = null
+
+domain_name_certificate_arn = null
+
+domain_name_ownership_verification_certificate_arn = null
+
+domain_name_tags = {}
+
+integrations = {}
+
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = null
+
+route_selection_expression = "$request.method $request.path"
+
+tags = {}
+
+target = null
+
+vpc_link_tags = {}
+
+vpc_links = {}

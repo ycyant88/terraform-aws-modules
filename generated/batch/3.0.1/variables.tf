@@ -1,69 +1,3 @@
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "spot_fleet_iam_role_path" {
-  description = "Spot fleet IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "spot_fleet_iam_role_description" {
-  description = "Spot fleet IAM role description"
-  type        = string
-  default     = null
-}
-
-variable "spot_fleet_iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "instance_iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "service_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "instance_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (instance_iam_role_name) is used as a prefix"
-  type        = string
-  default     = true
-}
-
-variable "instance_iam_role_path" {
-  description = "Cluster instance IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "instance_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_job_queues" {
-  description = "Determines whether to create job queues"
-  type        = bool
-  default     = true
-}
-
 variable "compute_environments" {
   description = "Map of compute environment definitions to create"
   type = map(object({
@@ -110,114 +44,22 @@ variable "compute_environments" {
   default = null
 }
 
-variable "instance_iam_role_description" {
-  description = "Cluster instance IAM role description"
-  type        = string
-  default     = null
-}
-
-variable "spot_fleet_iam_role_name" {
-  description = "Spot fleet IAM role name"
-  type        = string
-  default     = null
-}
-
-variable "spot_fleet_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "service_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "spot_fleet_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (spot_fleet_iam_role_name) is used as a prefix"
-  type        = string
-  default     = true
-}
-
-variable "instance_iam_role_name" {
-  description = "Cluster instance IAM role name"
-  type        = string
-  default     = null
-}
-
-variable "service_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (service_iam_role_name) is used as a prefix"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
   default     = true
 }
 
-variable "service_iam_role_path" {
-  description = "Batch service IAM role path"
-  type        = string
-  default     = null
+variable "create_instance_iam_role" {
+  description = "Determines whether a an IAM role is created or to use an existing IAM role"
+  type        = bool
+  default     = true
 }
 
-variable "service_iam_role_description" {
-  description = "Batch service IAM role description"
-  type        = string
-  default     = null
-}
-
-variable "service_iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "job_queues" {
-  description = "Map of job queue and scheduling policy defintions to create"
-  type = map(object({
-    compute_environment_order = map(object({
-      compute_environment_key = string
-      order                   = optional(number) # Will fall back to use map key as order
-    }))
-    job_state_time_limit_action = optional(map(object({
-      action           = optional(string, "CANCEL")
-      max_time_seconds = number
-      reason           = optional(string)
-      state            = optional(string, "RUNNABLE")
-    })))
-    name                  = optional(string) # Will fall back to use map key as queue name
-    priority              = number
-    scheduling_policy_arn = optional(string)
-    state                 = optional(string, "ENABLED")
-    tags                  = optional(map(string), {})
-    timeouts = optional(object({
-      create = optional(string, "10m")
-      update = optional(string, "10m")
-      delete = optional(string, "10m")
-    }))
-
-    # Scheduling policy
-    create_scheduling_policy = optional(bool, true)
-    fair_share_policy = optional(object({
-      compute_reservation = optional(number)
-      share_decay_seconds = optional(number)
-      share_distribution = optional(list(object({
-        share_identifier = string
-        weight_factor    = optional(number)
-      })))
-    }))
-  }))
-  default = null
-}
-
-variable "instance_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
+variable "create_job_queues" {
+  description = "Determines whether to create job queues"
+  type        = bool
+  default     = true
 }
 
 variable "create_service_iam_role" {
@@ -232,10 +74,46 @@ variable "create_spot_fleet_iam_role" {
   default     = false
 }
 
-variable "spot_fleet_iam_role_permissions_boundary" {
+variable "instance_iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "instance_iam_role_description" {
+  description = "Cluster instance IAM role description"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_name" {
+  description = "Cluster instance IAM role name"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_path" {
+  description = "Cluster instance IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_permissions_boundary" {
   description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
   type        = string
   default     = null
+}
+
+variable "instance_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "instance_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (instance_iam_role_name) is used as a prefix"
+  type        = string
+  default     = true
 }
 
 variable "job_definitions" {
@@ -344,14 +222,136 @@ variable "job_definitions" {
   default = null
 }
 
-variable "create_instance_iam_role" {
-  description = "Determines whether a an IAM role is created or to use an existing IAM role"
-  type        = bool
-  default     = true
+variable "job_queues" {
+  description = "Map of job queue and scheduling policy defintions to create"
+  type = map(object({
+    compute_environment_order = map(object({
+      compute_environment_key = string
+      order                   = optional(number) # Will fall back to use map key as order
+    }))
+    job_state_time_limit_action = optional(map(object({
+      action           = optional(string, "CANCEL")
+      max_time_seconds = number
+      reason           = optional(string)
+      state            = optional(string, "RUNNABLE")
+    })))
+    name                  = optional(string) # Will fall back to use map key as queue name
+    priority              = number
+    scheduling_policy_arn = optional(string)
+    state                 = optional(string, "ENABLED")
+    tags                  = optional(map(string), {})
+    timeouts = optional(object({
+      create = optional(string, "10m")
+      update = optional(string, "10m")
+      delete = optional(string, "10m")
+    }))
+
+    # Scheduling policy
+    create_scheduling_policy = optional(bool, true)
+    fair_share_policy = optional(object({
+      compute_reservation = optional(number)
+      share_decay_seconds = optional(number)
+      share_distribution = optional(list(object({
+        share_identifier = string
+        weight_factor    = optional(number)
+      })))
+    }))
+  }))
+  default = null
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "service_iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "service_iam_role_description" {
+  description = "Batch service IAM role description"
+  type        = string
+  default     = null
 }
 
 variable "service_iam_role_name" {
   description = "Batch service IAM role name"
   type        = string
   default     = null
+}
+
+variable "service_iam_role_path" {
+  description = "Batch service IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "service_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "service_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "service_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (service_iam_role_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "spot_fleet_iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "spot_fleet_iam_role_description" {
+  description = "Spot fleet IAM role description"
+  type        = string
+  default     = null
+}
+
+variable "spot_fleet_iam_role_name" {
+  description = "Spot fleet IAM role name"
+  type        = string
+  default     = null
+}
+
+variable "spot_fleet_iam_role_path" {
+  description = "Spot fleet IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "spot_fleet_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "spot_fleet_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "spot_fleet_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (spot_fleet_iam_role_name) is used as a prefix"
+  type        = string
+  default     = true
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

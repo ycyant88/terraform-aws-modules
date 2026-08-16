@@ -1,113 +1,113 @@
-create_role = true
+api_destinations = {}
 
-create_rules = true
+append_connection_postfix = true
 
-attach_policy_json = false
+append_destination_postfix = true
+
+append_rule_postfix = true
+
+archives = {}
+
+attach_api_destination_policy = false
+
+attach_cloudwatch_policy = false
+
+attach_ecs_policy = false
+
+attach_kinesis_firehose_policy = false
+
+attach_kinesis_policy = false
+
+attach_lambda_policy = false
+
+attach_policies = false
 
 attach_policy = false
 
-trusted_entities = []
+attach_policy_json = false
 
-append_destination_postfix = true
+attach_policy_jsons = false
+
+attach_policy_statements = false
+
+attach_sfn_policy = false
+
+attach_sqs_policy = false
+
+attach_tracing_policy = false
+
+bus_name = "default"
+
+cloudwatch_target_arns = []
+
+connections = {}
+
+create = true
+
+create_api_destinations = false
+
+create_archives = false
 
 create_bus = true
 
 create_connections = false
 
-cloudwatch_target_arns = []
-
-role_description = null
-
-attach_sfn_policy = false
-
-attach_policies = false
-
-create = true
-
-role_name = null
-
-number_of_policy_jsons = 0
-
-policies = []
-
-rules = {}
-
-role_force_detach_policies = true
-
-attach_sqs_policy = false
-
-attach_ecs_policy = false
-
-targets = {}
-
-role_path = null
-
-attach_kinesis_policy = false
-
-attach_cloudwatch_policy = false
-
-lambda_target_arns = []
-
-sfn_target_arns = []
-
-kinesis_target_arns = []
-
-kinesis_firehose_target_arns = []
-
-policy_jsons = []
-
-role_tags = {}
-
-attach_kinesis_firehose_policy = false
-
-ecs_target_arns = []
-
-number_of_policies = 0
-
-api_destinations = {}
-
-tags = {}
-
-attach_api_destination_policy = false
-
 create_permissions = true
 
-bus_name = "default"
+create_role = true
 
-connections = {}
-
-sqs_target_arns = []
-
-attach_policy_statements = false
-
-append_connection_postfix = true
-
-create_targets = true
-
-create_archives = false
-
-permissions = {}
-
-attach_lambda_policy = false
-
-policy_json = null
-
-append_rule_postfix = true
+create_rules = true
 
 create_schemas_discoverer = false
 
-archives = {}
+create_targets = true
 
-attach_tracing_policy = false
+ecs_target_arns = []
 
-attach_policy_jsons = false
+kinesis_firehose_target_arns = []
 
-create_api_destinations = false
+kinesis_target_arns = []
 
-schemas_discoverer_description = "Auto schemas discoverer event"
+lambda_target_arns = []
 
-role_permissions_boundary = null
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permissions = {}
+
+policies = []
 
 policy = null
 
+policy_json = null
+
+policy_jsons = []
+
 policy_statements = {}
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+rules = {}
+
+schemas_discoverer_description = "Auto schemas discoverer event"
+
+sfn_target_arns = []
+
+sqs_target_arns = []
+
+tags = {}
+
+targets = {}
+
+trusted_entities = []

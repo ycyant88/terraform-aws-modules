@@ -1,37 +1,19 @@
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
-}
-
 variable "aws_saml_endpoint" {
   description = "AWS SAML Endpoint"
   type        = string
   default     = "https://signin.aws.amazon.com/saml"
 }
 
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
 }
 
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = null
-}
-
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
 }
 
 variable "max_session_duration" {
@@ -58,6 +40,24 @@ variable "provider_ids" {
   default     = []
 }
 
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
+}
+
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = null
+}
+
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
+}
+
 variable "role_path" {
   description = "Path of IAM role"
   type        = string
@@ -76,8 +76,8 @@ variable "role_policy_arns" {
   default     = []
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }

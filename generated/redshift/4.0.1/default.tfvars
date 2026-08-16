@@ -1,137 +1,137 @@
-snapshot_schedule_description = null
-
-endpoint_vpc_security_group_ids = []
-
-default_iam_role_arn = null
-
-kms_key_arn = null
-
-owner_account = null
-
-snapshot_cluster_identifier = null
-
-iam_role_arns = []
-
-parameter_group_tags = {}
-
-create_subnet_group = true
-
-create_scheduled_action_iam_role = false
-
-subnet_group_tags = {}
-
-endpoint_name = ""
+allow_version_upgrade = null
 
 apply_immediately = null
 
-create_parameter_group = true
+aqua_configuration_status = null
 
-final_snapshot_identifier = null
+authentication_profiles = {}
 
-random_password_length = 16
-
-number_of_nodes = 1
-
-vpc_security_group_ids = []
-
-subnet_ids = []
-
-iam_role_description = null
-
-tags = {}
-
-manual_snapshot_retention_period = null
-
-master_username = "awsuser"
-
-port = null
-
-parameter_group_name = null
-
-maintenance_track_name = null
-
-parameter_group_parameters = {}
-
-snapshot_schedule_force_destroy = null
-
-iam_role_use_name_prefix = true
-
-skip_final_snapshot = true
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-publicly_accessible = false
-
-iam_role_path = null
-
-cluster_version = null
-
-subnet_group_description = null
-
-subnet_group_name = null
-
-snapshot_schedule_definitions = []
-
-scheduled_actions = {}
-
-logging = {}
-
-iam_role_name = null
-
-allow_version_upgrade = null
-
-cluster_identifier = ""
-
-use_snapshot_identifier_prefix = true
-
-endpoint_resource_owner = null
-
-endpoint_subnet_group_name = ""
+automated_snapshot_retention_period = null
 
 availability_zone = null
 
 availability_zone_relocation_enabled = null
 
-usage_limits = {}
+cluster_identifier = ""
+
+cluster_timeouts = {}
+
+cluster_version = null
 
 create = true
 
-master_password = null
+create_endpoint_access = false
 
-snapshot_identifier = null
-
-parameter_group_family = "redshift-1.0"
-
-create_snapshot_schedule = false
-
-snapshot_schedule_identifier = null
-
-authentication_profiles = {}
-
-enhanced_vpc_routing = null
-
-node_type = ""
-
-parameter_group_description = null
-
-encrypted = true
-
-aqua_configuration_status = null
-
-elastic_ip = null
+create_parameter_group = true
 
 create_random_password = true
 
+create_scheduled_action_iam_role = false
+
+create_snapshot_schedule = false
+
+create_subnet_group = true
+
 database_name = null
 
-snapshot_copy = {}
+default_iam_role_arn = null
 
-cluster_timeouts = {}
+elastic_ip = null
+
+encrypted = true
+
+endpoint_name = ""
+
+endpoint_resource_owner = null
+
+endpoint_subnet_group_name = ""
+
+endpoint_vpc_security_group_ids = []
+
+enhanced_vpc_routing = null
+
+final_snapshot_identifier = null
+
+iam_role_arns = []
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-create_endpoint_access = false
+iam_role_use_name_prefix = true
 
-automated_snapshot_retention_period = null
+kms_key_arn = null
+
+logging = {}
+
+maintenance_track_name = null
+
+manual_snapshot_retention_period = null
+
+master_password = null
+
+master_username = "awsuser"
+
+node_type = ""
+
+number_of_nodes = 1
+
+owner_account = null
+
+parameter_group_description = null
+
+parameter_group_family = "redshift-1.0"
+
+parameter_group_name = null
+
+parameter_group_parameters = {}
+
+parameter_group_tags = {}
+
+port = null
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
+
+publicly_accessible = false
+
+random_password_length = 16
+
+scheduled_actions = {}
+
+skip_final_snapshot = true
+
+snapshot_cluster_identifier = null
+
+snapshot_copy = {}
+
+snapshot_identifier = null
+
+snapshot_schedule_definitions = []
+
+snapshot_schedule_description = null
+
+snapshot_schedule_force_destroy = null
+
+snapshot_schedule_identifier = null
+
+subnet_group_description = null
+
+subnet_group_name = null
+
+subnet_group_tags = {}
+
+subnet_ids = []
+
+tags = {}
+
+usage_limits = {}
+
+use_snapshot_identifier_prefix = true
+
+vpc_security_group_ids = []

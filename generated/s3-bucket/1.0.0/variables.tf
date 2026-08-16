@@ -1,19 +1,7 @@
-variable "cors_rule" {
-  description = "Map containing a rule of Cross-Origin Resource Sharing."
-  type        = any
-  default     = {}
-}
-
-variable "object_lock_configuration" {
-  description = "Map containing S3 object locking configuration."
-  type        = any
-  default     = {}
-}
-
-variable "create_bucket" {
-  description = "Controls if S3 bucket should be created"
-  type        = bool
-  default     = true
+variable "acceleration_status" {
+  description = "(Optional) Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended."
+  type        = string
+  default     = ""
 }
 
 variable "acl" {
@@ -22,20 +10,8 @@ variable "acl" {
   default     = "private"
 }
 
-variable "tags" {
-  description = "(Optional) A mapping of tags to assign to the bucket."
-  type        = map(string)
-  default     = {}
-}
-
-variable "acceleration_status" {
-  description = "(Optional) Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended."
-  type        = string
-  default     = ""
-}
-
-variable "request_payer" {
-  description = "(Optional) Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information."
+variable "bucket" {
+  description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."
   type        = string
   default     = ""
 }
@@ -46,16 +22,16 @@ variable "bucket_prefix" {
   default     = ""
 }
 
-variable "versioning" {
-  description = "Map containing versioning configuration."
-  type        = map(string)
+variable "cors_rule" {
+  description = "Map containing a rule of Cross-Origin Resource Sharing."
+  type        = any
   default     = {}
 }
 
-variable "replication_configuration" {
-  description = "Map containing cross-region replication configuration."
-  type        = any
-  default     = {}
+variable "create_bucket" {
+  description = "Controls if S3 bucket should be created"
+  type        = bool
+  default     = true
 }
 
 variable "force_destroy" {
@@ -64,22 +40,22 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "website" {
-  description = "Map containing static web-site hosting or redirect configuration."
+variable "lifecycle_rule" {
+  description = "List of maps containing configuration of object lifecycle management."
+  type        = any
+  default     = []
+}
+
+variable "logging" {
+  description = "Map containing access bucket logging configuration."
   type        = map(string)
   default     = {}
 }
 
-variable "server_side_encryption_configuration" {
-  description = "Map containing server-side encryption configuration."
+variable "object_lock_configuration" {
+  description = "Map containing S3 object locking configuration."
   type        = any
   default     = {}
-}
-
-variable "bucket" {
-  description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."
-  type        = string
-  default     = ""
 }
 
 variable "policy" {
@@ -94,14 +70,38 @@ variable "region" {
   default     = ""
 }
 
-variable "logging" {
-  description = "Map containing access bucket logging configuration."
+variable "replication_configuration" {
+  description = "Map containing cross-region replication configuration."
+  type        = any
+  default     = {}
+}
+
+variable "request_payer" {
+  description = "(Optional) Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information."
+  type        = string
+  default     = ""
+}
+
+variable "server_side_encryption_configuration" {
+  description = "Map containing server-side encryption configuration."
+  type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "(Optional) A mapping of tags to assign to the bucket."
   type        = map(string)
   default     = {}
 }
 
-variable "lifecycle_rule" {
-  description = "List of maps containing configuration of object lifecycle management."
-  type        = any
-  default     = []
+variable "versioning" {
+  description = "Map containing versioning configuration."
+  type        = map(string)
+  default     = {}
+}
+
+variable "website" {
+  description = "Map containing static web-site hosting or redirect configuration."
+  type        = map(string)
+  default     = {}
 }

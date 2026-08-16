@@ -1,137 +1,137 @@
-final_snapshot_identifier = null
+allocated_storage = ""
 
-db_subnet_group_name = ""
-
-create_db_parameter_group = true
-
-domain = ""
-
-skip_final_snapshot = false
-
-create_monitoring_role = false
-
-auto_minor_version_upgrade = true
-
-major_engine_version = ""
-
-availability_zone = ""
+allow_major_version_upgrade = false
 
 apply_immediately = false
 
-copy_tags_to_snapshot = false
+auto_minor_version_upgrade = true
 
-password = ""
-
-identifier = ""
-
-final_snapshot_identifier_prefix = "final"
-
-vpc_security_group_ids = []
-
-monitoring_role_name = "rds-monitoring-role"
-
-s3_import = null
-
-character_set_name = ""
-
-enabled_cloudwatch_logs_exports = []
+availability_zone = ""
 
 backup_retention_period = null
 
-allocated_storage = ""
-
-storage_type = "gp2"
-
-engine = ""
-
-instance_class = ""
-
-port = ""
-
-multi_az = false
-
-monitoring_role_arn = ""
-
-db_subnet_group_description = ""
-
-subnet_ids = []
-
-max_allocated_storage = 0
-
-storage_encrypted = false
-
-replicate_source_db = null
-
-snapshot_identifier = null
-
-domain_iam_role_name = ""
-
-maintenance_window = ""
-
-performance_insights_retention_period = 7
-
-timezone = ""
-
-publicly_accessible = false
-
-options = []
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-performance_insights_kms_key_id = null
+backup_window = ""
 
 ca_cert_identifier = "rds-ca-2019"
 
-monitoring_interval = 0
+character_set_name = ""
 
-create_db_subnet_group = true
+copy_tags_to_snapshot = false
 
-parameters = []
+create_db_instance = true
 
 create_db_option_group = true
 
-option_group_use_name_prefix = true
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
+
+db_subnet_group_description = ""
+
+db_subnet_group_name = ""
+
+db_subnet_group_use_name_prefix = true
+
+delete_automated_backups = true
 
 deletion_protection = false
 
-kms_key_id = ""
+domain = ""
+
+domain_iam_role_name = ""
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = null
+
+final_snapshot_identifier_prefix = "final"
 
 iam_database_authentication_enabled = false
 
-parameter_group_description = ""
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+major_engine_version = ""
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
 
 option_group_description = ""
+
+option_group_name = null
+
+option_group_timeouts = { "delete" : "15m" }
+
+option_group_use_name_prefix = true
+
+options = []
+
+parameter_group_description = ""
 
 parameter_group_name = null
 
 parameter_group_use_name_prefix = true
 
-option_group_timeouts = { "delete" : "15m" }
+parameters = []
 
-license_model = ""
-
-username = ""
-
-backup_window = ""
-
-tags = {}
-
-engine_version = ""
-
-iops = 0
-
-allow_major_version_upgrade = false
-
-db_subnet_group_use_name_prefix = true
-
-family = ""
-
-option_group_name = null
+password = ""
 
 performance_insights_enabled = false
 
-name = ""
+performance_insights_kms_key_id = null
 
-create_db_instance = true
+performance_insights_retention_period = 7
 
-delete_automated_backups = true
+port = ""
+
+publicly_accessible = false
+
+replicate_source_db = null
+
+s3_import = null
+
+skip_final_snapshot = false
+
+snapshot_identifier = null
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

@@ -1,17 +1,17 @@
-putin_khuylo = true
-
-web_acl_arn = ""
-
-override_action = null
+create = true
 
 managed_rule_group = null
 
+override_action = null
+
+priority = ""
+
+putin_khuylo = true
+
 rule_group_reference = null
-
-visibility_config = null
-
-create = true
 
 rule_name = ""
 
-priority = ""
+visibility_config = null
+
+web_acl_arn = ""

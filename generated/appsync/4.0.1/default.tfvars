@@ -1,99 +1,99 @@
-certificate_arn = ""
-
-caching_behavior = "FULL_REQUEST_CACHING"
-
-lambda_authorizer_config = {}
-
-tags = {}
-
-direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
-
-caching_enabled = false
-
-logs_role_description = null
-
-log_field_log_level = null
-
-log_exclude_verbose_content = false
-
-cache_ttl = 1
-
-functions = {}
-
-schema = ""
-
-user_pool_config = {}
-
-lambda_allowed_actions = ["lambda:invokeFunction"]
-
-datasources = {}
-
-introspection_config = null
-
-resolver_count_limit = null
-
-region = null
-
-domain_name_association_enabled = false
-
-xray_enabled = false
-
-name = ""
-
-authentication_type = "API_KEY"
-
-graphql_api_tags = {}
-
-eventbridge_allowed_actions = ["events:PutEvents"]
-
-relational_database_allowed_actions = ["rds-data:BatchExecuteStatement", "rds-data:BeginTransaction", "rds-data:CommitTransaction", "rds-data:ExecuteStatement", "rds-data:RollbackTransaction"]
-
-secrets_manager_allowed_actions = ["secretsmanager:GetSecretValue"]
-
-visibility = null
-
-openid_connect_config = {}
-
-domain_name = ""
-
-cache_at_rest_encryption_enabled = false
+additional_authentication_provider = {}
 
 api_keys = {}
 
-direct_lambda_response_template = "$util.toJson($ctx.result)\n"
+authentication_type = "API_KEY"
 
-resolver_caching_ttl = 60
+cache_at_rest_encryption_enabled = false
 
-resolvers = {}
+cache_transit_encryption_enabled = false
 
-logs_role_name = null
-
-log_cloudwatch_logs_role_arn = null
-
-logs_role_tags = {}
-
-opensearchservice_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
-
-domain_name_description = null
+cache_ttl = 1
 
 cache_type = "SMALL"
 
-cache_transit_encryption_enabled = false
+caching_behavior = "FULL_REQUEST_CACHING"
+
+caching_enabled = false
+
+certificate_arn = ""
+
+create_graphql_api = true
+
+create_logs_role = true
+
+datasources = {}
+
+direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
+
+direct_lambda_response_template = "$util.toJson($ctx.result)\n"
+
+domain_name = ""
+
+domain_name_association_enabled = false
+
+domain_name_description = null
 
 dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
 
 elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
 
+enhanced_metrics_config = {}
+
+eventbridge_allowed_actions = ["events:PutEvents"]
+
+functions = {}
+
+graphql_api_tags = {}
+
 iam_permissions_boundary = null
 
-query_depth_limit = null
+introspection_config = null
 
-create_graphql_api = true
+lambda_allowed_actions = ["lambda:invokeFunction"]
+
+lambda_authorizer_config = {}
+
+log_cloudwatch_logs_role_arn = null
+
+log_exclude_verbose_content = false
+
+log_field_log_level = null
 
 logging_enabled = false
 
-create_logs_role = true
+logs_role_description = null
 
-additional_authentication_provider = {}
+logs_role_name = null
 
-enhanced_metrics_config = {}
+logs_role_tags = {}
+
+name = ""
+
+openid_connect_config = {}
+
+opensearchservice_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+
+query_depth_limit = null
+
+region = null
+
+relational_database_allowed_actions = ["rds-data:BatchExecuteStatement", "rds-data:BeginTransaction", "rds-data:CommitTransaction", "rds-data:ExecuteStatement", "rds-data:RollbackTransaction"]
+
+resolver_caching_ttl = 60
+
+resolver_count_limit = null
+
+resolvers = {}
+
+schema = ""
+
+secrets_manager_allowed_actions = ["secretsmanager:GetSecretValue"]
+
+tags = {}
+
+user_pool_config = {}
+
+visibility = null
+
+xray_enabled = false

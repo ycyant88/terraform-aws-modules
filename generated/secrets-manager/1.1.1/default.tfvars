@@ -1,47 +1,47 @@
-create = true
-
-replica = {}
-
 block_public_policy = null
 
-secret_binary = null
+create = true
+
+create_policy = false
+
+create_random_password = false
+
+description = null
 
 enable_rotation = false
 
-rotation_rules = {}
+force_overwrite_replica_secret = null
+
+ignore_secret_changes = false
+
+kms_key_id = null
+
+name = null
 
 name_prefix = null
-
-recovery_window_in_days = null
 
 override_policy_documents = []
 
 policy_statements = {}
 
-ignore_secret_changes = false
-
-version_stages = null
+random_password_length = 32
 
 random_password_override_special = "!@#$%&*()-_=+[]{}<>:?"
 
-tags = {}
+recovery_window_in_days = null
 
-force_overwrite_replica_secret = null
+replica = {}
 
-kms_key_id = null
+rotation_lambda_arn = ""
 
-source_policy_documents = []
+rotation_rules = {}
 
-create_random_password = false
-
-random_password_length = 32
-
-description = null
-
-name = null
-
-create_policy = false
+secret_binary = null
 
 secret_string = null
 
-rotation_lambda_arn = ""
+source_policy_documents = []
+
+tags = {}
+
+version_stages = null

@@ -1,37 +1,37 @@
-keep_locally = false
-
-use_image_tag = true
-
-image_tag = null
-
-source_path = null
-
-ecr_force_delete = true
-
-create_sam_metadata = false
-
-ecr_repo_tags = {}
-
-triggers = {}
-
-platform = null
-
-ecr_repo = null
-
-scan_on_push = false
-
-ecr_repo_lifecycle_policy = null
-
-keep_remotely = false
-
 build_args = {}
-
-force_remove = false
 
 create_ecr_repo = false
 
-ecr_address = null
+create_sam_metadata = false
 
 docker_file_path = "Dockerfile"
 
+ecr_address = null
+
+ecr_force_delete = true
+
+ecr_repo = null
+
+ecr_repo_lifecycle_policy = null
+
+ecr_repo_tags = {}
+
+force_remove = false
+
+image_tag = null
+
 image_tag_mutability = "MUTABLE"
+
+keep_locally = false
+
+keep_remotely = false
+
+platform = null
+
+scan_on_push = false
+
+source_path = null
+
+triggers = {}
+
+use_image_tag = true

@@ -1,16 +1,16 @@
-output "security_group_arn" {
-  value       = module.efs.security_group_arn
-  description = "ARN of the security group"
-}
-
-output "replication_configuration_destination_file_system_id" {
-  value       = module.efs.replication_configuration_destination_file_system_id
-  description = "The file system ID of the replica"
+output "access_points" {
+  value       = module.efs.access_points
+  description = "Map of access points created and their attributes"
 }
 
 output "arn" {
   value       = module.efs.arn
   description = "Amazon Resource Name of the file system"
+}
+
+output "dns_name" {
+  value       = module.efs.dns_name
+  description = "The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html)"
 }
 
 output "id" {
@@ -23,19 +23,19 @@ output "mount_targets" {
   description = "Map of mount targets created and their attributes"
 }
 
+output "replication_configuration_destination_file_system_id" {
+  value       = module.efs.replication_configuration_destination_file_system_id
+  description = "The file system ID of the replica"
+}
+
+output "security_group_arn" {
+  value       = module.efs.security_group_arn
+  description = "ARN of the security group"
+}
+
 output "security_group_id" {
   value       = module.efs.security_group_id
   description = "ID of the security group"
-}
-
-output "access_points" {
-  value       = module.efs.access_points
-  description = "Map of access points created and their attributes"
-}
-
-output "dns_name" {
-  value       = module.efs.dns_name
-  description = "The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html)"
 }
 
 output "size_in_bytes" {

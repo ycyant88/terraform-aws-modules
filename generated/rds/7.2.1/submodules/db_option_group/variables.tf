@@ -4,38 +4,26 @@ variable "create" {
   default     = true
 }
 
-variable "name" {
-  description = "The name of the option group"
-  type        = string
-  default     = ""
-}
-
-variable "use_name_prefix" {
-  description = "Determines whether to use name as is or create a unique name beginning with name as the specified prefix"
-  type        = bool
-  default     = true
-}
-
 variable "engine_name" {
   description = "Specifies the name of the engine that this option group should be associated with"
   type        = string
   default     = null
 }
 
-variable "region" {
-  description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
+variable "major_engine_version" {
+  description = "Specifies the major version of the engine that this option group should be associated with"
   type        = string
   default     = null
+}
+
+variable "name" {
+  description = "The name of the option group"
+  type        = string
+  default     = ""
 }
 
 variable "option_group_description" {
   description = "The description of the option group"
-  type        = string
-  default     = null
-}
-
-variable "major_engine_version" {
-  description = "Specifies the major version of the engine that this option group should be associated with"
   type        = string
   default     = null
 }
@@ -56,10 +44,22 @@ variable "options" {
   default = null
 }
 
+variable "region" {
+  description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
 variable "skip_destroy" {
   description = "Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Terraform state"
   type        = bool
   default     = null
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeouts" {
@@ -70,8 +70,8 @@ variable "timeouts" {
   default = null
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
+variable "use_name_prefix" {
+  description = "Determines whether to use name as is or create a unique name beginning with name as the specified prefix"
+  type        = bool
+  default     = true
 }

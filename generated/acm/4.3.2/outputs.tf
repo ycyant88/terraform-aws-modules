@@ -1,13 +1,3 @@
-output "distinct_domain_names" {
-  value       = module.acm.distinct_domain_names
-  description = "List of distinct domains names used for the validation."
-}
-
-output "validation_domains" {
-  value       = module.acm.validation_domains
-  description = "List of distinct domain validation options. This is useful if subject alternative names contain wildcards."
-}
-
 output "acm_certificate_arn" {
   value       = module.acm.acm_certificate_arn
   description = "The ARN of the certificate"
@@ -26,6 +16,16 @@ output "acm_certificate_status" {
 output "acm_certificate_validation_emails" {
   value       = module.acm.acm_certificate_validation_emails
   description = "A list of addresses that received a validation E-Mail. Only set if EMAIL-validation was used."
+}
+
+output "distinct_domain_names" {
+  value       = module.acm.distinct_domain_names
+  description = "List of distinct domains names used for the validation."
+}
+
+output "validation_domains" {
+  value       = module.acm.validation_domains
+  description = "List of distinct domain validation options. This is useful if subject alternative names contain wildcards."
 }
 
 output "validation_route53_record_fqdns" {

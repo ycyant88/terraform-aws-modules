@@ -1,16 +1,10 @@
-tags = {}
+allow_self_assume_role = false
 
-role_description = ""
+aws_account_id = ""
 
-role_permissions_boundary_arn = ""
-
-oidc_subjects_with_wildcards = []
+create_role = false
 
 force_detach_policies = false
-
-provider_urls = []
-
-role_path = "/"
 
 max_session_duration = 3600
 
@@ -20,16 +14,22 @@ oidc_fully_qualified_audiences = []
 
 oidc_fully_qualified_subjects = []
 
-create_role = false
+oidc_subjects_with_wildcards = []
 
 provider_url = ""
 
-aws_account_id = ""
+provider_urls = []
+
+role_description = ""
+
+role_name = null
 
 role_name_prefix = null
 
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
 role_policy_arns = []
 
-allow_self_assume_role = false
-
-role_name = null
+tags = {}

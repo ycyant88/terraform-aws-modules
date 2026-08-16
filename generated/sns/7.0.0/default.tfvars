@@ -1,38 +1,22 @@
-tags = {}
-
-name = null
-
-topic_policy = null
-
-tracing_config = null
-
-create_topic_policy = true
-
-topic_policy_statements = null
-
-subscriptions = {}
-
 application_feedback = {}
-
-content_based_deduplication = false
-
-http_feedback = {}
-
-sqs_feedback = {}
 
 archive_policy = null
 
-source_topic_policy_documents = []
-
-create_subscription = true
+content_based_deduplication = false
 
 create = true
 
-use_name_prefix = false
+create_subscription = true
+
+create_topic_policy = true
+
+data_protection_policy = null
 
 delivery_policy = null
 
 display_name = null
+
+enable_default_topic_policy = true
 
 fifo_throughput_scope = null
 
@@ -40,16 +24,32 @@ fifo_topic = false
 
 firehose_feedback = {}
 
-lambda_feedback = {}
-
-region = null
+http_feedback = {}
 
 kms_master_key_id = null
 
-signature_version = null
+lambda_feedback = {}
+
+name = null
 
 override_topic_policy_documents = []
 
-enable_default_topic_policy = true
+region = null
 
-data_protection_policy = null
+signature_version = null
+
+source_topic_policy_documents = []
+
+sqs_feedback = {}
+
+subscriptions = {}
+
+tags = {}
+
+topic_policy = null
+
+topic_policy_statements = null
+
+tracing_config = null
+
+use_name_prefix = false

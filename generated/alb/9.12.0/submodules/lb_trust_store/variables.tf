@@ -1,9 +1,3 @@
-variable "create" {
-  description = "Controls if resources should be created."
-  type        = bool
-  default     = true
-}
-
 variable "ca_certificates_bundle_s3_bucket" {
   description = "S3 bucket name holding the client certificate CA bundle."
   type        = string
@@ -22,22 +16,16 @@ variable "ca_certificates_bundle_s3_object_version" {
   default     = null
 }
 
+variable "create" {
+  description = "Controls if resources should be created."
+  type        = bool
+  default     = true
+}
+
 variable "create_trust_store_revocation" {
   description = "Whether to create a trust store revocation for use with an application load balancer."
   type        = bool
   default     = false
-}
-
-variable "revocation_lists" {
-  description = "Map of revocation list configurations."
-  type        = any
-  default     = {}
-}
-
-variable "tags" {
-  description = "Map of tags to assign to the resource."
-  type        = map(string)
-  default     = {}
 }
 
 variable "name" {
@@ -50,4 +38,16 @@ variable "name_prefix" {
   description = "Creates a unique name beginning with the specified prefix. Conflicts with name. Cannot be longer than 6 characters."
   type        = string
   default     = null
+}
+
+variable "revocation_lists" {
+  description = "Map of revocation list configurations."
+  type        = any
+  default     = {}
+}
+
+variable "tags" {
+  description = "Map of tags to assign to the resource."
+  type        = map(string)
+  default     = {}
 }

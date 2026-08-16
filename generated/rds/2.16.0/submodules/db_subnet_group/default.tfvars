@@ -1,8 +1,8 @@
 create = true
 
-name_prefix = ""
-
 identifier = ""
+
+name_prefix = ""
 
 subnet_ids = []
 

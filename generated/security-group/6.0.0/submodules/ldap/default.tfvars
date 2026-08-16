@@ -1,35 +1,35 @@
 create = true
 
-region = null
-
-ingress_cidr_ipv6 = {}
+description = "Security Group managed by Terraform"
 
 egress_rules = {}
 
-tags = {}
-
-use_name_prefix = true
-
-timeouts = null
-
-ingress_rules = {}
-
-vpc_associations = {}
-
-description = "Security Group managed by Terraform"
-
-preset_ingress_rules = { "ldap" : { "description" : "LDAP", "from_port" : 389, "ip_protocol" : "tcp", "to_port" : 389 } }
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
 
+ingress_cidr_ipv6 = {}
+
+ingress_prefix_list_id = {}
+
 ingress_referenced_security_group_id = {}
 
-enable_exclusive_rules = true
+ingress_rules = {}
 
 name = ""
 
+preset_ingress_rules = { "ldap" : { "description" : "LDAP", "from_port" : 389, "ip_protocol" : "tcp", "to_port" : 389 } }
+
+region = null
+
 revoke_rules_on_delete = false
 
-vpc_id = null
+tags = {}
 
-ingress_prefix_list_id = {}
+timeouts = null
+
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

@@ -1,19 +1,79 @@
-variable "opensearchservice_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AMAZON_OPENSEARCH_SERVICE"
-  type        = list(string)
-  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+variable "additional_authentication_provider" {
+  description = "One or more additional authentication providers for the GraphqlApi."
+  type        = any
+  default     = {}
 }
 
-variable "relational_database_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type RELATIONAL_DATABASE"
-  type        = list(string)
-  default     = ["rds-data:BatchExecuteStatement", "rds-data:BeginTransaction", "rds-data:CommitTransaction", "rds-data:ExecuteStatement", "rds-data:RollbackTransaction"]
+variable "api_keys" {
+  description = "Map of API keys to create"
+  type        = map(string)
+  default     = {}
 }
 
-variable "iam_permissions_boundary" {
-  description = "ARN for iam permissions boundary"
+variable "authentication_type" {
+  description = "The authentication type to use by GraphQL API"
   type        = string
-  default     = null
+  default     = "API_KEY"
+}
+
+variable "cache_at_rest_encryption_enabled" {
+  description = "At-rest encryption flag for cache."
+  type        = bool
+  default     = false
+}
+
+variable "cache_transit_encryption_enabled" {
+  description = "Transit encryption flag when connecting to cache."
+  type        = bool
+  default     = false
+}
+
+variable "cache_ttl" {
+  description = "TTL in seconds for cache entries"
+  type        = number
+  default     = 1
+}
+
+variable "cache_type" {
+  description = "The cache instance type."
+  type        = string
+  default     = "SMALL"
+}
+
+variable "caching_behavior" {
+  description = "Caching behavior."
+  type        = string
+  default     = "FULL_REQUEST_CACHING"
+}
+
+variable "caching_enabled" {
+  description = "Whether caching with Elasticache is enabled."
+  type        = bool
+  default     = false
+}
+
+variable "certificate_arn" {
+  description = "The Amazon Resource Name (ARN) of the certificate."
+  type        = string
+  default     = ""
+}
+
+variable "create_graphql_api" {
+  description = "Whether to create GraphQL API"
+  type        = bool
+  default     = true
+}
+
+variable "create_logs_role" {
+  description = "Whether to create service role for Cloudwatch logs"
+  type        = bool
+  default     = true
+}
+
+variable "datasources" {
+  description = "Map of datasources to create"
+  type        = any
+  default     = {}
 }
 
 variable "direct_lambda_request_template" {
@@ -28,82 +88,10 @@ variable "direct_lambda_response_template" {
   default     = "$util.toJson($ctx.result)\n"
 }
 
-variable "graphql_api_tags" {
-  description = "Map of tags to add to GraphQL API"
-  type        = map(string)
-  default     = {}
-}
-
-variable "api_keys" {
-  description = "Map of API keys to create"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_logs_role" {
-  description = "Whether to create service role for Cloudwatch logs"
-  type        = bool
-  default     = true
-}
-
-variable "logs_role_name" {
-  description = "Name of IAM role to create for Cloudwatch logs"
-  type        = string
-  default     = null
-}
-
-variable "user_pool_config" {
-  description = "The Amazon Cognito User Pool configuration."
-  type        = map(string)
-  default     = {}
-}
-
-variable "tags" {
-  description = "Map of tags to add to all GraphQL resources created by this module"
-  type        = map(string)
-  default     = {}
-}
-
 variable "domain_name" {
   description = "The domain name that AppSync gets associated with."
   type        = string
   default     = ""
-}
-
-variable "domain_name_description" {
-  description = "A description of the Domain Name."
-  type        = string
-  default     = null
-}
-
-variable "caching_enabled" {
-  description = "Whether caching with Elasticache is enabled."
-  type        = bool
-  default     = false
-}
-
-variable "xray_enabled" {
-  description = "Whether tracing with X-ray is enabled."
-  type        = bool
-  default     = false
-}
-
-variable "lambda_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AWS_LAMBDA"
-  type        = list(string)
-  default     = ["lambda:invokeFunction"]
-}
-
-variable "cache_transit_encryption_enabled" {
-  description = "Transit encryption flag when connecting to cache."
-  type        = bool
-  default     = false
-}
-
-variable "datasources" {
-  description = "Map of datasources to create"
-  type        = any
-  default     = {}
 }
 
 variable "domain_name_association_enabled" {
@@ -112,16 +100,28 @@ variable "domain_name_association_enabled" {
   default     = false
 }
 
-variable "logs_role_tags" {
-  description = "Map of tags to add to Cloudwatch logs IAM role"
-  type        = map(string)
-  default     = {}
+variable "domain_name_description" {
+  description = "A description of the Domain Name."
+  type        = string
+  default     = null
 }
 
-variable "cache_ttl" {
-  description = "TTL in seconds for cache entries"
-  type        = number
-  default     = 1
+variable "dynamodb_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AMAZON_DYNAMODB"
+  type        = list(string)
+  default     = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
+}
+
+variable "elasticsearch_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AMAZON_ELASTICSEARCH"
+  type        = list(string)
+  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+}
+
+variable "enhanced_metrics_config" {
+  description = "Nested argument containing Lambda Ehanced metrics configuration."
+  type        = map(string)
+  default     = {}
 }
 
 variable "eventbridge_allowed_actions" {
@@ -130,38 +130,44 @@ variable "eventbridge_allowed_actions" {
   default     = ["events:PutEvents"]
 }
 
-variable "resolvers" {
-  description = "Map of resolvers to create"
-  type        = any
-  default     = {}
-}
-
 variable "functions" {
   description = "Map of functions to create"
   type        = any
   default     = {}
 }
 
-variable "log_cloudwatch_logs_role_arn" {
-  description = "Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account."
+variable "graphql_api_tags" {
+  description = "Map of tags to add to GraphQL API"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_permissions_boundary" {
+  description = "ARN for iam permissions boundary"
   type        = string
   default     = null
 }
 
-variable "additional_authentication_provider" {
-  description = "One or more additional authentication providers for the GraphqlApi."
-  type        = any
+variable "introspection_config" {
+  description = "Whether to enable or disable introspection of the GraphQL API."
+  type        = string
+  default     = null
+}
+
+variable "lambda_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AWS_LAMBDA"
+  type        = list(string)
+  default     = ["lambda:invokeFunction"]
+}
+
+variable "lambda_authorizer_config" {
+  description = "Nested argument containing Lambda authorizer configuration."
+  type        = map(string)
   default     = {}
 }
 
-variable "secrets_manager_allowed_actions" {
-  description = "List of allowed IAM actions for secrets manager datasources type RELATIONAL_DATABASE"
-  type        = list(string)
-  default     = ["secretsmanager:GetSecretValue"]
-}
-
-variable "visibility" {
-  description = "The API visibility. Valid values: GLOBAL, PRIVATE."
+variable "log_cloudwatch_logs_role_arn" {
+  description = "Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account."
   type        = string
   default     = null
 }
@@ -172,14 +178,8 @@ variable "log_exclude_verbose_content" {
   default     = false
 }
 
-variable "dynamodb_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AMAZON_DYNAMODB"
-  type        = list(string)
-  default     = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
-}
-
-variable "introspection_config" {
-  description = "Whether to enable or disable introspection of the GraphQL API."
+variable "log_field_log_level" {
+  description = "Field logging level. Valid values: ALL, ERROR, NONE."
   type        = string
   default     = null
 }
@@ -190,46 +190,16 @@ variable "logging_enabled" {
   default     = false
 }
 
-variable "lambda_authorizer_config" {
-  description = "Nested argument containing Lambda authorizer configuration."
+variable "logs_role_name" {
+  description = "Name of IAM role to create for Cloudwatch logs"
+  type        = string
+  default     = null
+}
+
+variable "logs_role_tags" {
+  description = "Map of tags to add to Cloudwatch logs IAM role"
   type        = map(string)
   default     = {}
-}
-
-variable "certificate_arn" {
-  description = "The Amazon Resource Name (ARN) of the certificate."
-  type        = string
-  default     = ""
-}
-
-variable "caching_behavior" {
-  description = "Caching behavior."
-  type        = string
-  default     = "FULL_REQUEST_CACHING"
-}
-
-variable "cache_type" {
-  description = "The cache instance type."
-  type        = string
-  default     = "SMALL"
-}
-
-variable "cache_at_rest_encryption_enabled" {
-  description = "At-rest encryption flag for cache."
-  type        = bool
-  default     = false
-}
-
-variable "elasticsearch_allowed_actions" {
-  description = "List of allowed IAM actions for datasources type AMAZON_ELASTICSEARCH"
-  type        = list(string)
-  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
-}
-
-variable "resolver_caching_ttl" {
-  description = "Default caching TTL for resolvers when caching is enabled"
-  type        = number
-  default     = 60
 }
 
 variable "name" {
@@ -238,34 +208,16 @@ variable "name" {
   default     = ""
 }
 
-variable "schema" {
-  description = "The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration."
-  type        = string
-  default     = ""
-}
-
-variable "resolver_count_limit" {
-  description = "The maximum number of resolvers that can be invoked in a single request."
-  type        = number
-  default     = null
-}
-
-variable "log_field_log_level" {
-  description = "Field logging level. Valid values: ALL, ERROR, NONE."
-  type        = string
-  default     = null
-}
-
 variable "openid_connect_config" {
   description = "Nested argument containing OpenID Connect configuration."
   type        = map(string)
   default     = {}
 }
 
-variable "enhanced_metrics_config" {
-  description = "Nested argument containing Lambda Ehanced metrics configuration."
-  type        = map(string)
-  default     = {}
+variable "opensearchservice_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type AMAZON_OPENSEARCH_SERVICE"
+  type        = list(string)
+  default     = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
 }
 
 variable "query_depth_limit" {
@@ -274,14 +226,62 @@ variable "query_depth_limit" {
   default     = null
 }
 
-variable "create_graphql_api" {
-  description = "Whether to create GraphQL API"
-  type        = bool
-  default     = true
+variable "relational_database_allowed_actions" {
+  description = "List of allowed IAM actions for datasources type RELATIONAL_DATABASE"
+  type        = list(string)
+  default     = ["rds-data:BatchExecuteStatement", "rds-data:BeginTransaction", "rds-data:CommitTransaction", "rds-data:ExecuteStatement", "rds-data:RollbackTransaction"]
 }
 
-variable "authentication_type" {
-  description = "The authentication type to use by GraphQL API"
+variable "resolver_caching_ttl" {
+  description = "Default caching TTL for resolvers when caching is enabled"
+  type        = number
+  default     = 60
+}
+
+variable "resolver_count_limit" {
+  description = "The maximum number of resolvers that can be invoked in a single request."
+  type        = number
+  default     = null
+}
+
+variable "resolvers" {
+  description = "Map of resolvers to create"
+  type        = any
+  default     = {}
+}
+
+variable "schema" {
+  description = "The schema definition, in GraphQL schema language format. Terraform cannot perform drift detection of this configuration."
   type        = string
-  default     = "API_KEY"
+  default     = ""
+}
+
+variable "secrets_manager_allowed_actions" {
+  description = "List of allowed IAM actions for secrets manager datasources type RELATIONAL_DATABASE"
+  type        = list(string)
+  default     = ["secretsmanager:GetSecretValue"]
+}
+
+variable "tags" {
+  description = "Map of tags to add to all GraphQL resources created by this module"
+  type        = map(string)
+  default     = {}
+}
+
+variable "user_pool_config" {
+  description = "The Amazon Cognito User Pool configuration."
+  type        = map(string)
+  default     = {}
+}
+
+variable "visibility" {
+  description = "The API visibility. Valid values: GLOBAL, PRIVATE."
+  type        = string
+  default     = null
+}
+
+variable "xray_enabled" {
+  description = "Whether tracing with X-ray is enabled."
+  type        = bool
+  default     = false
 }

@@ -1,105 +1,105 @@
-bucket_prefix = null
+acceleration_status = null
 
-request_payer = null
+access_log_delivery_policy_source_accounts = []
 
-owner = {}
+access_log_delivery_policy_source_buckets = []
 
-object_lock_configuration = {}
+acl = null
+
+allowed_kms_key_arn = null
 
 analytics_configuration = {}
 
-force_destroy = false
+analytics_self_source_destination = false
+
+analytics_source_account_id = null
+
+analytics_source_bucket_arn = null
+
+attach_access_log_delivery_policy = false
+
+attach_analytics_destination_policy = false
+
+attach_deny_incorrect_encryption_headers = false
+
+attach_deny_incorrect_kms_key_sse = false
+
+attach_deny_insecure_transport_policy = false
+
+attach_deny_unencrypted_object_uploads = false
+
+attach_elb_log_delivery_policy = false
+
+attach_inventory_destination_policy = false
+
+attach_lb_log_delivery_policy = false
+
+attach_policy = false
+
+attach_public_policy = true
+
+attach_require_latest_tls_policy = false
+
+block_public_acls = true
 
 block_public_policy = true
 
-logging = {}
+bucket = null
 
-inventory_source_account_id = null
+bucket_prefix = null
 
-ignore_public_acls = true
-
-block_public_acls = true
+control_object_ownership = false
 
 cors_rule = []
 
 create_bucket = true
 
-control_object_ownership = false
-
-intelligent_tiering = {}
-
-object_lock_enabled = false
-
-versioning = {}
-
 expected_bucket_owner = null
 
-analytics_self_source_destination = false
-
-attach_lb_log_delivery_policy = false
-
-access_log_delivery_policy_source_buckets = []
+force_destroy = false
 
 grant = []
 
-object_ownership = "BucketOwnerEnforced"
+ignore_public_acls = true
 
-putin_khuylo = true
-
-attach_access_log_delivery_policy = false
-
-attach_deny_insecure_transport_policy = false
-
-acceleration_status = null
-
-replication_configuration = {}
-
-bucket = null
-
-analytics_source_account_id = null
-
-lifecycle_rule = []
-
-inventory_source_bucket_arn = null
-
-restrict_public_buckets = true
-
-attach_deny_incorrect_encryption_headers = false
-
-access_log_delivery_policy_source_accounts = []
-
-attach_deny_unencrypted_object_uploads = false
-
-attach_require_latest_tls_policy = false
-
-policy = null
-
-tags = {}
-
-analytics_source_bucket_arn = null
-
-website = {}
+intelligent_tiering = {}
 
 inventory_configuration = {}
 
-server_side_encryption_configuration = {}
+inventory_self_source_destination = false
+
+inventory_source_account_id = null
+
+inventory_source_bucket_arn = null
+
+lifecycle_rule = []
+
+logging = {}
 
 metric_configuration = []
 
-inventory_self_source_destination = false
+object_lock_configuration = {}
 
-attach_inventory_destination_policy = false
+object_lock_enabled = false
 
-acl = null
+object_ownership = "BucketOwnerEnforced"
 
-attach_public_policy = true
+owner = {}
 
-attach_analytics_destination_policy = false
+policy = null
 
-attach_deny_incorrect_kms_key_sse = false
+putin_khuylo = true
 
-attach_elb_log_delivery_policy = false
+replication_configuration = {}
 
-attach_policy = false
+request_payer = null
 
-allowed_kms_key_arn = null
+restrict_public_buckets = true
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

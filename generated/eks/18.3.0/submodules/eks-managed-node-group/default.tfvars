@@ -1,153 +1,153 @@
-launch_template_use_name_prefix = true
+ami_id = ""
 
-disable_api_termination = null
-
-enable_monitoring = true
-
-security_group_tags = {}
-
-iam_role_name = null
-
-ebs_optimized = null
-
-credit_specification = null
-
-launch_template_tags = {}
-
-desired_size = 1
-
-name = ""
-
-taints = {}
-
-update_launch_template_default_version = true
-
-capacity_type = "ON_DEMAND"
-
-security_group_description = "EKS managed node group security group"
-
-iam_role_additional_policies = []
-
-cluster_service_ipv4_cidr = null
-
-key_name = null
-
-pre_bootstrap_user_data = ""
-
-network_interfaces = []
-
-min_size = 0
-
-block_device_mappings = {}
-
-instance_market_options = null
-
-license_specifications = null
-
-security_group_name = null
-
-timeouts = {}
-
-enable_bootstrap_user_data = false
-
-cluster_endpoint = ""
-
-bootstrap_extra_args = ""
-
-launch_template_default_version = null
-
-enclave_options = null
+ami_release_version = null
 
 ami_type = null
 
-labels = null
+block_device_mappings = {}
+
+bootstrap_extra_args = ""
+
+capacity_reservation_specification = null
+
+capacity_type = "ON_DEMAND"
 
 cluster_auth_base64 = ""
 
-elastic_gpu_specifications = null
+cluster_endpoint = ""
 
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+cluster_ip_family = null
+
+cluster_name = null
 
 cluster_security_group_id = null
 
-iam_role_path = null
-
-user_data_template_path = ""
-
-subnet_ids = null
-
-use_name_prefix = true
-
-force_update_version = null
+cluster_service_ipv4_cidr = null
 
 cluster_version = null
 
-security_group_use_name_prefix = true
+cpu_options = null
+
+create = true
 
 create_iam_role = true
 
-tags = {}
-
 create_launch_template = true
 
-instance_types = null
+create_security_group = true
 
-launch_template_version = null
+credit_specification = null
 
-iam_role_use_name_prefix = true
+desired_size = 1
 
-iam_role_permissions_boundary = null
+disable_api_termination = null
 
-launch_template_name = ""
+disk_size = null
 
-ram_disk_id = null
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = null
+
+force_update_version = null
+
+iam_role_additional_policies = []
 
 iam_role_arn = null
 
 iam_role_attach_cni_policy = true
 
-platform = "linux"
-
-cpu_options = null
-
-create_security_group = true
-
-create = true
-
-ami_id = ""
-
-placement = null
-
-disk_size = null
-
-cluster_ip_family = null
-
 iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-post_bootstrap_user_data = ""
+iam_role_use_name_prefix = true
 
-vpc_security_group_ids = []
+instance_market_options = null
+
+instance_types = null
 
 kernel_id = null
 
-elastic_inference_accelerator = null
+key_name = null
 
-remote_access = {}
+labels = null
 
-security_group_rules = {}
-
-cluster_name = null
+launch_template_default_version = null
 
 launch_template_description = null
 
-capacity_reservation_specification = null
+launch_template_name = ""
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
 
 max_size = 3
 
-ami_release_version = null
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = null
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+ram_disk_id = null
+
+remote_access = {}
+
+security_group_description = "EKS managed node group security group"
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+subnet_ids = null
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
 
 update_config = {}
 
+update_launch_template_default_version = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
 vpc_id = null
+
+vpc_security_group_ids = []

@@ -1,81 +1,81 @@
-metrics_granularity = "1Minute"
+asg_name = ""
 
-iam_instance_profile = ""
-
-security_groups = ""
-
-user_data = " "
-
-enable_monitoring = true
-
-health_check_type = ""
-
-min_elb_capacity = 0
+associate_public_ip_address = false
 
 create_asg = true
 
-launch_configuration = ""
+create_lc = true
+
+default_cooldown = 300
+
+desired_capacity = ""
+
+ebs_block_device = []
 
 ebs_optimized = false
 
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
 ephemeral_block_device = []
 
-spot_price = ""
-
-vpc_zone_identifier = ""
+force_delete = false
 
 health_check_grace_period = 300
 
-tags = []
+health_check_type = ""
 
-name = ""
+iam_instance_profile = ""
+
+image_id = ""
+
+instance_type = ""
+
+key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
 
 min_size = ""
 
-load_balancers = []
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = ""
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+user_data = " "
+
+vpc_zone_identifier = ""
 
 wait_for_capacity_timeout = "10m"
 
 wait_for_elb_capacity = false
-
-desired_capacity = ""
-
-root_block_device = []
-
-placement_tenancy = "default"
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-protect_from_scale_in = false
-
-instance_type = ""
-
-ebs_block_device = []
-
-max_size = ""
-
-force_delete = false
-
-termination_policies = ["Default"]
-
-suspended_processes = []
-
-lc_name = ""
-
-image_id = ""
-
-tags_as_map = {}
-
-placement_group = ""
-
-create_lc = true
-
-asg_name = ""
-
-key_name = ""
-
-associate_public_ip_address = false
-
-default_cooldown = 300
-
-target_group_arns = []

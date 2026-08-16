@@ -1,53 +1,35 @@
-variable "ingress_rules" {
-  description = "List of ingress rules to create by name"
+variable "auto_groups" {
+  description = "Map of groups of security group rules to use to generate modules (see update_groups.sh)"
+  type        = map(map(list(string)))
+  default     = { "activemq" : { "egress_rules" : ["all-all"], "ingress_rules" : ["activemq-5671-tcp", "activemq-8883-tcp", "activemq-61614-tcp", "activemq-61617-tcp", "activemq-61619-tcp"], "ingress_with_self" : ["all-all"] }, "alertmanager" : { "egress_rules" : ["all-all"], "ingress_rules" : ["alertmanager-9093-tcp", "alertmanager-9094-tcp"], "ingress_with_self" : ["all-all"] }, "carbon-relay-ng" : { "egress_rules" : ["all-all"], "ingress_rules" : ["carbon-line-in-tcp", "carbon-line-in-udp", "carbon-pickle-tcp", "carbon-pickle-udp", "carbon-gui-udp"], "ingress_with_self" : ["all-all"] }, "cassandra" : { "egress_rules" : ["all-all"], "ingress_rules" : ["cassandra-clients-tcp", "cassandra-thrift-clients-tcp", "cassandra-jmx-tcp"], "ingress_with_self" : ["all-all"] }, "consul" : { "egress_rules" : ["all-all"], "ingress_rules" : ["consul-tcp", "consul-cli-rpc-tcp", "consul-webui-tcp", "consul-dns-tcp", "consul-dns-udp", "consul-serf-lan-tcp", "consul-serf-lan-udp", "consul-serf-wan-tcp", "consul-serf-wan-udp"], "ingress_with_self" : ["all-all"] }, "docker-swarm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["docker-swarm-mngmt-tcp", "docker-swarm-node-tcp", "docker-swarm-node-udp", "docker-swarm-overlay-udp"], "ingress_with_self" : ["all-all"] }, "elasticsearch" : { "egress_rules" : ["all-all"], "ingress_rules" : ["elasticsearch-rest-tcp", "elasticsearch-java-tcp"], "ingress_with_self" : ["all-all"] }, "grafana" : { "egress_rules" : ["all-all"], "ingress_rules" : ["grafana-tcp"], "ingress_with_self" : ["all-all"] }, "graphite-statsd" : { "egress_rules" : ["all-all"], "ingress_rules" : ["graphite-webui", "graphite-2003-tcp", "graphite-2004-tcp", "graphite-2023-tcp", "graphite-2024-tcp", "graphite-8080-tcp", "graphite-8125-tcp", "graphite-8125-udp", "graphite-8126-tcp"], "ingress_with_self" : ["all-all"] }, "http-80" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-80-tcp"], "ingress_with_self" : ["all-all"] }, "http-8080" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-8080-tcp"], "ingress_with_self" : ["all-all"] }, "https-443" : { "egress_rules" : ["all-all"], "ingress_rules" : ["https-443-tcp"], "ingress_with_self" : ["all-all"] }, "https-8443" : { "egress_rules" : ["all-all"], "ingress_rules" : ["https-8443-tcp"], "ingress_with_self" : ["all-all"] }, "ipsec-4500" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ipsec-4500-udp"], "ingress_with_self" : ["all-all"] }, "ipsec-500" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ipsec-500-udp"], "ingress_with_self" : ["all-all"] }, "kafka" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kafka-broker-tcp", "kafka-broker-tls-tcp", "kafka-jmx-exporter-tcp", "kafka-node-exporter-tcp"], "ingress_with_self" : ["all-all"] }, "kibana" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kibana-tcp"], "ingress_with_self" : ["all-all"] }, "kubernetes-api" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kubernetes-api-tcp"], "ingress_with_self" : ["all-all"] }, "ldaps" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ldaps-tcp"], "ingress_with_self" : ["all-all"] }, "logstash" : { "egress_rules" : ["all-all"], "ingress_rules" : ["logstash-tcp"], "ingress_with_self" : ["all-all"] }, "memcached" : { "egress_rules" : ["all-all"], "ingress_rules" : ["memcached-tcp"], "ingress_with_self" : ["all-all"] }, "minio" : { "egress_rules" : ["all-all"], "ingress_rules" : ["minio-tcp"], "ingress_with_self" : ["all-all"] }, "mongodb" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mongodb-27017-tcp", "mongodb-27018-tcp", "mongodb-27019-tcp"], "ingress_with_self" : ["all-all"] }, "mssql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mssql-tcp", "mssql-udp", "mssql-analytics-tcp", "mssql-broker-tcp"], "ingress_with_self" : ["all-all"] }, "mysql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mysql-tcp"], "ingress_with_self" : ["all-all"] }, "nfs" : { "egress_rules" : ["all-all"], "ingress_rules" : ["nfs-tcp"], "ingress_with_self" : ["all-all"] }, "nomad" : { "egress_rules" : ["all-all"], "ingress_rules" : ["nomad-http-tcp", "nomad-rpc-tcp", "nomad-serf-tcp", "nomad-serf-udp"], "ingress_with_self" : ["all-all"] }, "ntp" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ntp-udp"], "ingress_with_self" : ["all-all"] }, "openvpn" : { "egress_rules" : ["all-all"], "ingress_rules" : ["openvpn-udp", "openvpn-tcp", "openvpn-https-tcp"], "ingress_with_self" : ["all-all"] }, "oracle-db" : { "egress_rules" : ["all-all"], "ingress_rules" : ["oracle-db-tcp"], "ingress_with_self" : ["all-all"] }, "postgresql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["postgresql-tcp"], "ingress_with_self" : ["all-all"] }, "prometheus" : { "egress_rules" : ["all-all"], "ingress_rules" : ["prometheus-http-tcp", "prometheus-pushgateway-http-tcp"], "ingress_with_self" : ["all-all"] }, "puppet" : { "egress_rules" : ["all-all"], "ingress_rules" : ["puppet-tcp", "puppetdb-tcp"], "ingress_with_self" : ["all-all"] }, "rabbitmq" : { "egress_rules" : ["all-all"], "ingress_rules" : ["rabbitmq-4369-tcp", "rabbitmq-5671-tcp", "rabbitmq-5672-tcp", "rabbitmq-15672-tcp", "rabbitmq-25672-tcp"], "ingress_with_self" : ["all-all"] }, "rdp" : { "egress_rules" : ["all-all"], "ingress_rules" : ["rdp-tcp", "rdp-udp"], "ingress_with_self" : ["all-all"] }, "redis" : { "egress_rules" : ["all-all"], "ingress_rules" : ["redis-tcp"], "ingress_with_self" : ["all-all"] }, "redshift" : { "egress_rules" : ["all-all"], "ingress_rules" : ["redshift-tcp"], "ingress_with_self" : ["all-all"] }, "solr" : { "egress_rules" : ["all-all"], "ingress_rules" : ["solr-tcp"], "ingress_with_self" : ["all-all"] }, "splunk" : { "egress_rules" : ["all-all"], "ingress_rules" : ["splunk-indexer-tcp", "splunk-clients-tcp", "splunk-splunkd-tcp", "splunk-hec-tcp"], "ingress_with_self" : ["all-all"] }, "squid" : { "egress_rules" : ["all-all"], "ingress_rules" : ["squid-proxy-tcp"], "ingress_with_self" : ["all-all"] }, "ssh" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ssh-tcp"], "ingress_with_self" : ["all-all"] }, "storm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["storm-nimbus-tcp", "storm-ui-tcp", "storm-supervisor-tcp"], "ingress_with_self" : ["all-all"] }, "web" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-80-tcp", "http-8080-tcp", "https-443-tcp", "web-jmx-tcp"], "ingress_with_self" : ["all-all"] }, "winrm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["winrm-http-tcp", "winrm-https-tcp"], "ingress_with_self" : ["all-all"] }, "zipkin" : { "egress_rules" : ["all-all"], "ingress_rules" : ["zipkin-admin-tcp", "zipkin-admin-query-tcp", "zipkin-admin-web-tcp", "zipkin-query-tcp", "zipkin-web-tcp"], "ingress_with_self" : ["all-all"] }, "zookeeper" : { "egress_rules" : ["all-all"], "ingress_rules" : ["zookeeper-2181-tcp", "zookeeper-2888-tcp", "zookeeper-3888-tcp", "zookeeper-jmx-tcp"], "ingress_with_self" : ["all-all"] } }
+}
+
+variable "computed_egress_rules" {
+  description = "List of computed egress rules to create by name"
   type        = list(string)
   default     = []
 }
 
-variable "ingress_cidr_blocks" {
-  description = "List of IPv4 CIDR ranges to use on all ingress rules"
-  type        = list(string)
-  default     = []
-}
-
-variable "computed_ingress_with_ipv6_cidr_blocks" {
-  description = "List of computed ingress rules to create where 'ipv6_cidr_blocks' is used"
+variable "computed_egress_with_cidr_blocks" {
+  description = "List of computed egress rules to create where 'cidr_blocks' is used"
   type        = list(map(string))
   default     = []
 }
 
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. Enable for EMR."
-  type        = bool
-  default     = false
+variable "computed_egress_with_ipv6_cidr_blocks" {
+  description = "List of computed egress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(map(string))
+  default     = []
 }
 
-variable "number_of_computed_ingress_with_cidr_blocks" {
-  description = "Number of computed ingress rules to create where 'cidr_blocks' is used"
-  type        = number
-  default     = 0
+variable "computed_egress_with_self" {
+  description = "List of computed egress rules to create where 'self' is defined"
+  type        = list(map(string))
+  default     = []
 }
 
 variable "computed_egress_with_source_security_group_id" {
   description = "List of computed egress rules to create where 'source_security_group_id' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "number_of_computed_egress_rules" {
-  description = "Number of computed egress rules to create by name"
-  type        = number
-  default     = 0
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where to create security group"
-  type        = string
-  default     = ""
-}
-
-variable "ingress_with_cidr_blocks" {
-  description = "List of ingress rules to create where 'cidr_blocks' is used"
   type        = list(map(string))
   default     = []
 }
@@ -58,40 +40,58 @@ variable "computed_ingress_rules" {
   default     = []
 }
 
-variable "number_of_computed_ingress_with_source_security_group_id" {
-  description = "Number of computed ingress rules to create where 'source_security_group_id' is used"
-  type        = number
-  default     = 0
-}
-
-variable "egress_with_self" {
-  description = "List of egress rules to create where 'self' is defined"
+variable "computed_ingress_with_cidr_blocks" {
+  description = "List of computed ingress rules to create where 'cidr_blocks' is used"
   type        = list(map(string))
   default     = []
 }
 
-variable "number_of_computed_egress_with_cidr_blocks" {
-  description = "Number of computed egress rules to create where 'cidr_blocks' is used"
-  type        = number
-  default     = 0
+variable "computed_ingress_with_ipv6_cidr_blocks" {
+  description = "List of computed ingress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(map(string))
+  default     = []
 }
 
-variable "number_of_computed_egress_with_source_security_group_id" {
-  description = "Number of computed egress rules to create where 'source_security_group_id' is used"
-  type        = number
-  default     = 0
+variable "computed_ingress_with_self" {
+  description = "List of computed ingress rules to create where 'self' is defined"
+  type        = list(map(string))
+  default     = []
 }
 
-variable "auto_groups" {
-  description = "Map of groups of security group rules to use to generate modules (see update_groups.sh)"
-  type        = map(map(list(string)))
-  default     = { "activemq" : { "egress_rules" : ["all-all"], "ingress_rules" : ["activemq-5671-tcp", "activemq-8883-tcp", "activemq-61614-tcp", "activemq-61617-tcp", "activemq-61619-tcp"], "ingress_with_self" : ["all-all"] }, "alertmanager" : { "egress_rules" : ["all-all"], "ingress_rules" : ["alertmanager-9093-tcp", "alertmanager-9094-tcp"], "ingress_with_self" : ["all-all"] }, "carbon-relay-ng" : { "egress_rules" : ["all-all"], "ingress_rules" : ["carbon-line-in-tcp", "carbon-line-in-udp", "carbon-pickle-tcp", "carbon-pickle-udp", "carbon-gui-udp"], "ingress_with_self" : ["all-all"] }, "cassandra" : { "egress_rules" : ["all-all"], "ingress_rules" : ["cassandra-clients-tcp", "cassandra-thrift-clients-tcp", "cassandra-jmx-tcp"], "ingress_with_self" : ["all-all"] }, "consul" : { "egress_rules" : ["all-all"], "ingress_rules" : ["consul-tcp", "consul-cli-rpc-tcp", "consul-webui-tcp", "consul-dns-tcp", "consul-dns-udp", "consul-serf-lan-tcp", "consul-serf-lan-udp", "consul-serf-wan-tcp", "consul-serf-wan-udp"], "ingress_with_self" : ["all-all"] }, "docker-swarm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["docker-swarm-mngmt-tcp", "docker-swarm-node-tcp", "docker-swarm-node-udp", "docker-swarm-overlay-udp"], "ingress_with_self" : ["all-all"] }, "elasticsearch" : { "egress_rules" : ["all-all"], "ingress_rules" : ["elasticsearch-rest-tcp", "elasticsearch-java-tcp"], "ingress_with_self" : ["all-all"] }, "grafana" : { "egress_rules" : ["all-all"], "ingress_rules" : ["grafana-tcp"], "ingress_with_self" : ["all-all"] }, "graphite-statsd" : { "egress_rules" : ["all-all"], "ingress_rules" : ["graphite-webui", "graphite-2003-tcp", "graphite-2004-tcp", "graphite-2023-tcp", "graphite-2024-tcp", "graphite-8080-tcp", "graphite-8125-tcp", "graphite-8125-udp", "graphite-8126-tcp"], "ingress_with_self" : ["all-all"] }, "http-80" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-80-tcp"], "ingress_with_self" : ["all-all"] }, "http-8080" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-8080-tcp"], "ingress_with_self" : ["all-all"] }, "https-443" : { "egress_rules" : ["all-all"], "ingress_rules" : ["https-443-tcp"], "ingress_with_self" : ["all-all"] }, "https-8443" : { "egress_rules" : ["all-all"], "ingress_rules" : ["https-8443-tcp"], "ingress_with_self" : ["all-all"] }, "ipsec-4500" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ipsec-4500-udp"], "ingress_with_self" : ["all-all"] }, "ipsec-500" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ipsec-500-udp"], "ingress_with_self" : ["all-all"] }, "kafka" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kafka-broker-tcp", "kafka-broker-tls-tcp", "kafka-jmx-exporter-tcp", "kafka-node-exporter-tcp"], "ingress_with_self" : ["all-all"] }, "kibana" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kibana-tcp"], "ingress_with_self" : ["all-all"] }, "kubernetes-api" : { "egress_rules" : ["all-all"], "ingress_rules" : ["kubernetes-api-tcp"], "ingress_with_self" : ["all-all"] }, "ldaps" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ldaps-tcp"], "ingress_with_self" : ["all-all"] }, "logstash" : { "egress_rules" : ["all-all"], "ingress_rules" : ["logstash-tcp"], "ingress_with_self" : ["all-all"] }, "memcached" : { "egress_rules" : ["all-all"], "ingress_rules" : ["memcached-tcp"], "ingress_with_self" : ["all-all"] }, "minio" : { "egress_rules" : ["all-all"], "ingress_rules" : ["minio-tcp"], "ingress_with_self" : ["all-all"] }, "mongodb" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mongodb-27017-tcp", "mongodb-27018-tcp", "mongodb-27019-tcp"], "ingress_with_self" : ["all-all"] }, "mssql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mssql-tcp", "mssql-udp", "mssql-analytics-tcp", "mssql-broker-tcp"], "ingress_with_self" : ["all-all"] }, "mysql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["mysql-tcp"], "ingress_with_self" : ["all-all"] }, "nfs" : { "egress_rules" : ["all-all"], "ingress_rules" : ["nfs-tcp"], "ingress_with_self" : ["all-all"] }, "nomad" : { "egress_rules" : ["all-all"], "ingress_rules" : ["nomad-http-tcp", "nomad-rpc-tcp", "nomad-serf-tcp", "nomad-serf-udp"], "ingress_with_self" : ["all-all"] }, "ntp" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ntp-udp"], "ingress_with_self" : ["all-all"] }, "openvpn" : { "egress_rules" : ["all-all"], "ingress_rules" : ["openvpn-udp", "openvpn-tcp", "openvpn-https-tcp"], "ingress_with_self" : ["all-all"] }, "oracle-db" : { "egress_rules" : ["all-all"], "ingress_rules" : ["oracle-db-tcp"], "ingress_with_self" : ["all-all"] }, "postgresql" : { "egress_rules" : ["all-all"], "ingress_rules" : ["postgresql-tcp"], "ingress_with_self" : ["all-all"] }, "prometheus" : { "egress_rules" : ["all-all"], "ingress_rules" : ["prometheus-http-tcp", "prometheus-pushgateway-http-tcp"], "ingress_with_self" : ["all-all"] }, "puppet" : { "egress_rules" : ["all-all"], "ingress_rules" : ["puppet-tcp", "puppetdb-tcp"], "ingress_with_self" : ["all-all"] }, "rabbitmq" : { "egress_rules" : ["all-all"], "ingress_rules" : ["rabbitmq-4369-tcp", "rabbitmq-5671-tcp", "rabbitmq-5672-tcp", "rabbitmq-15672-tcp", "rabbitmq-25672-tcp"], "ingress_with_self" : ["all-all"] }, "rdp" : { "egress_rules" : ["all-all"], "ingress_rules" : ["rdp-tcp", "rdp-udp"], "ingress_with_self" : ["all-all"] }, "redis" : { "egress_rules" : ["all-all"], "ingress_rules" : ["redis-tcp"], "ingress_with_self" : ["all-all"] }, "redshift" : { "egress_rules" : ["all-all"], "ingress_rules" : ["redshift-tcp"], "ingress_with_self" : ["all-all"] }, "solr" : { "egress_rules" : ["all-all"], "ingress_rules" : ["solr-tcp"], "ingress_with_self" : ["all-all"] }, "splunk" : { "egress_rules" : ["all-all"], "ingress_rules" : ["splunk-indexer-tcp", "splunk-clients-tcp", "splunk-splunkd-tcp", "splunk-hec-tcp"], "ingress_with_self" : ["all-all"] }, "squid" : { "egress_rules" : ["all-all"], "ingress_rules" : ["squid-proxy-tcp"], "ingress_with_self" : ["all-all"] }, "ssh" : { "egress_rules" : ["all-all"], "ingress_rules" : ["ssh-tcp"], "ingress_with_self" : ["all-all"] }, "storm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["storm-nimbus-tcp", "storm-ui-tcp", "storm-supervisor-tcp"], "ingress_with_self" : ["all-all"] }, "web" : { "egress_rules" : ["all-all"], "ingress_rules" : ["http-80-tcp", "http-8080-tcp", "https-443-tcp", "web-jmx-tcp"], "ingress_with_self" : ["all-all"] }, "winrm" : { "egress_rules" : ["all-all"], "ingress_rules" : ["winrm-http-tcp", "winrm-https-tcp"], "ingress_with_self" : ["all-all"] }, "zipkin" : { "egress_rules" : ["all-all"], "ingress_rules" : ["zipkin-admin-tcp", "zipkin-admin-query-tcp", "zipkin-admin-web-tcp", "zipkin-query-tcp", "zipkin-web-tcp"], "ingress_with_self" : ["all-all"] }, "zookeeper" : { "egress_rules" : ["all-all"], "ingress_rules" : ["zookeeper-2181-tcp", "zookeeper-2888-tcp", "zookeeper-3888-tcp", "zookeeper-jmx-tcp"], "ingress_with_self" : ["all-all"] } }
+variable "computed_ingress_with_source_security_group_id" {
+  description = "List of computed ingress rules to create where 'source_security_group_id' is used"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "create" {
+  description = "Whether to create security group and all rules"
+  type        = bool
+  default     = true
 }
 
 variable "description" {
   description = "Description of security group"
   type        = string
   default     = "Security Group managed by Terraform"
+}
+
+variable "egress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all egress rules"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "egress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all egress rules"
+  type        = list(string)
+  default     = ["::/0"]
+}
+
+variable "egress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
+  type        = list(string)
+  default     = []
 }
 
 variable "egress_rules" {
@@ -112,10 +112,82 @@ variable "egress_with_ipv6_cidr_blocks" {
   default     = []
 }
 
-variable "egress_ipv6_cidr_blocks" {
-  description = "List of IPv6 CIDR ranges to use on all egress rules"
+variable "egress_with_self" {
+  description = "List of egress rules to create where 'self' is defined"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "egress_with_source_security_group_id" {
+  description = "List of egress rules to create where 'source_security_group_id' is used"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ingress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all ingress rules"
   type        = list(string)
-  default     = ["::/0"]
+  default     = []
+}
+
+variable "ingress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all ingress rules"
+  type        = list(string)
+  default     = []
+}
+
+variable "ingress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules"
+  type        = list(string)
+  default     = []
+}
+
+variable "ingress_rules" {
+  description = "List of ingress rules to create by name"
+  type        = list(string)
+  default     = []
+}
+
+variable "ingress_with_cidr_blocks" {
+  description = "List of ingress rules to create where 'cidr_blocks' is used"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ingress_with_ipv6_cidr_blocks" {
+  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ingress_with_self" {
+  description = "List of ingress rules to create where 'self' is defined"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ingress_with_source_security_group_id" {
+  description = "List of ingress rules to create where 'source_security_group_id' is used"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "name" {
+  description = "Name of security group"
+  type        = string
+  default     = ""
+}
+
+variable "number_of_computed_egress_rules" {
+  description = "Number of computed egress rules to create by name"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_egress_with_cidr_blocks" {
+  description = "Number of computed egress rules to create where 'cidr_blocks' is used"
+  type        = number
+  default     = 0
 }
 
 variable "number_of_computed_egress_with_ipv6_cidr_blocks" {
@@ -124,10 +196,52 @@ variable "number_of_computed_egress_with_ipv6_cidr_blocks" {
   default     = 0
 }
 
-variable "ingress_with_source_security_group_id" {
-  description = "List of ingress rules to create where 'source_security_group_id' is used"
-  type        = list(map(string))
-  default     = []
+variable "number_of_computed_egress_with_self" {
+  description = "Number of computed egress rules to create where 'self' is defined"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_egress_with_source_security_group_id" {
+  description = "Number of computed egress rules to create where 'source_security_group_id' is used"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_ingress_rules" {
+  description = "Number of computed ingress rules to create by name"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_ingress_with_cidr_blocks" {
+  description = "Number of computed ingress rules to create where 'cidr_blocks' is used"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_ingress_with_ipv6_cidr_blocks" {
+  description = "Number of computed ingress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_ingress_with_self" {
+  description = "Number of computed ingress rules to create where 'self' is defined"
+  type        = number
+  default     = 0
+}
+
+variable "number_of_computed_ingress_with_source_security_group_id" {
+  description = "Number of computed ingress rules to create where 'source_security_group_id' is used"
+  type        = number
+  default     = 0
+}
+
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. Enable for EMR."
+  type        = bool
+  default     = false
 }
 
 variable "rules" {
@@ -142,128 +256,14 @@ variable "tags" {
   default     = {}
 }
 
-variable "ingress_with_ipv6_cidr_blocks" {
-  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "number_of_computed_ingress_rules" {
-  description = "Number of computed ingress rules to create by name"
-  type        = number
-  default     = 0
-}
-
-variable "egress_prefix_list_ids" {
-  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
-  type        = list(string)
-  default     = []
-}
-
-variable "computed_egress_with_ipv6_cidr_blocks" {
-  description = "List of computed egress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "ingress_with_self" {
-  description = "List of ingress rules to create where 'self' is defined"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "ingress_prefix_list_ids" {
-  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules"
-  type        = list(string)
-  default     = []
-}
-
-variable "computed_ingress_with_self" {
-  description = "List of computed ingress rules to create where 'self' is defined"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "computed_ingress_with_source_security_group_id" {
-  description = "List of computed ingress rules to create where 'source_security_group_id' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "egress_with_source_security_group_id" {
-  description = "List of egress rules to create where 'source_security_group_id' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "egress_cidr_blocks" {
-  description = "List of IPv4 CIDR ranges to use on all egress rules"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-}
-
-variable "computed_egress_with_cidr_blocks" {
-  description = "List of computed egress rules to create where 'cidr_blocks' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "name" {
-  description = "Name of security group"
-  type        = string
-  default     = ""
-}
-
 variable "use_name_prefix" {
   description = "Whether to use name_prefix or fixed name. Should be true to able to update security group name after initial creation"
   type        = bool
   default     = true
 }
 
-variable "computed_ingress_with_cidr_blocks" {
-  description = "List of computed ingress rules to create where 'cidr_blocks' is used"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "number_of_computed_ingress_with_self" {
-  description = "Number of computed ingress rules to create where 'self' is defined"
-  type        = number
-  default     = 0
-}
-
-variable "number_of_computed_ingress_with_ipv6_cidr_blocks" {
-  description = "Number of computed ingress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = number
-  default     = 0
-}
-
-variable "computed_egress_rules" {
-  description = "List of computed egress rules to create by name"
-  type        = list(string)
-  default     = []
-}
-
-variable "number_of_computed_egress_with_self" {
-  description = "Number of computed egress rules to create where 'self' is defined"
-  type        = number
-  default     = 0
-}
-
-variable "create" {
-  description = "Whether to create security group and all rules"
-  type        = bool
-  default     = true
-}
-
-variable "ingress_ipv6_cidr_blocks" {
-  description = "List of IPv6 CIDR ranges to use on all ingress rules"
-  type        = list(string)
-  default     = []
-}
-
-variable "computed_egress_with_self" {
-  description = "List of computed egress rules to create where 'self' is defined"
-  type        = list(map(string))
-  default     = []
+variable "vpc_id" {
+  description = "ID of the VPC where to create security group"
+  type        = string
+  default     = ""
 }

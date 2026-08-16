@@ -1,20 +1,6 @@
+audience = "sts.amazonaws.com"
+
 create = true
-
-tags = {}
-
-permissions_boundary_arn = null
-
-name_prefix = null
-
-policies = {}
-
-subjects = []
-
-provider_url = "token.actions.githubusercontent.com"
-
-name = null
-
-path = "/"
 
 description = null
 
@@ -22,4 +8,18 @@ force_detach_policies = true
 
 max_session_duration = null
 
-audience = "sts.amazonaws.com"
+name = null
+
+name_prefix = null
+
+path = "/"
+
+permissions_boundary_arn = null
+
+policies = {}
+
+provider_url = "token.actions.githubusercontent.com"
+
+subjects = []
+
+tags = {}

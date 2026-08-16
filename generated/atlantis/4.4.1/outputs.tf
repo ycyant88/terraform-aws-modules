@@ -8,14 +8,14 @@ output "cluster" {
   description = "ECS cluster created and all of its associated outputs"
 }
 
-output "service" {
-  value       = module.atlantis.service
-  description = "ECS service created and all of its associated outputs"
-}
-
 output "efs" {
   value       = module.atlantis.efs
   description = "EFS created and all of its associated outputs"
+}
+
+output "service" {
+  value       = module.atlantis.service
+  description = "ECS service created and all of its associated outputs"
 }
 
 output "url" {

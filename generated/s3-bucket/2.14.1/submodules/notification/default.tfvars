@@ -1,8 +1,6 @@
-lambda_notifications = {}
+bucket = ""
 
-sqs_notifications = {}
-
-sns_notifications = {}
+bucket_arn = ""
 
 create = true
 
@@ -10,6 +8,8 @@ create_sns_policy = true
 
 create_sqs_policy = true
 
-bucket = ""
+lambda_notifications = {}
 
-bucket_arn = ""
+sns_notifications = {}
+
+sqs_notifications = {}

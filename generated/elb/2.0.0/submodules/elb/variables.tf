@@ -1,25 +1,7 @@
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(map(string))
-  default     = ""
-}
-
 variable "access_logs" {
   description = "An access logs block"
   type        = map(string)
   default     = {}
-}
-
-variable "name_prefix" {
-  description = "The prefix name of the ELB"
-  type        = string
-  default     = ""
-}
-
-variable "internal" {
-  description = "If true, ELB will be an internal ELB"
-  type        = bool
-  default     = ""
 }
 
 variable "connection_draining" {
@@ -34,16 +16,10 @@ variable "connection_draining_timeout" {
   default     = 300
 }
 
-variable "idle_timeout" {
-  description = "The time in seconds that the connection is allowed to be idle"
-  type        = number
-  default     = 60
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
+variable "cross_zone_load_balancing" {
+  description = "Enable cross-zone load balancing"
+  type        = bool
+  default     = true
 }
 
 variable "health_check" {
@@ -52,8 +28,32 @@ variable "health_check" {
   default     = ""
 }
 
+variable "idle_timeout" {
+  description = "The time in seconds that the connection is allowed to be idle"
+  type        = number
+  default     = 60
+}
+
+variable "internal" {
+  description = "If true, ELB will be an internal ELB"
+  type        = bool
+  default     = ""
+}
+
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(map(string))
+  default     = ""
+}
+
 variable "name" {
   description = "The name of the ELB"
+  type        = string
+  default     = ""
+}
+
+variable "name_prefix" {
+  description = "The prefix name of the ELB"
   type        = string
   default     = ""
 }
@@ -70,8 +70,8 @@ variable "subnets" {
   default     = ""
 }
 
-variable "cross_zone_load_balancing" {
-  description = "Enable cross-zone load balancing"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }

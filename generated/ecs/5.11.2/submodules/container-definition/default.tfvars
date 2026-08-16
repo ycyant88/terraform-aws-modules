@@ -1,97 +1,97 @@
-enable_execute_command = false
-
-working_directory = null
-
-image = null
-
-resource_requirements = []
-
-interactive = false
-
-cpu = null
-
-essential = null
-
-docker_labels = {}
-
-port_mappings = []
-
-pseudo_terminal = false
-
 cloudwatch_log_group_kms_key_id = null
-
-operating_system_family = "LINUX"
-
-secrets = []
-
-system_controls = []
-
-cloudwatch_log_group_retention_in_days = 30
-
-volumes_from = []
 
 cloudwatch_log_group_name = null
 
-mount_points = []
+cloudwatch_log_group_retention_in_days = 30
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = []
+
+cpu = null
+
+create_cloudwatch_log_group = true
+
+dependencies = []
+
+disable_networking = null
+
+dns_search_domains = []
+
+dns_servers = []
+
+docker_labels = {}
+
+docker_security_options = []
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
+environment_files = []
+
+essential = null
+
+extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
+
+image = null
+
+interactive = false
+
+links = []
+
+linux_parameters = {}
 
 log_configuration = {}
 
 memory = null
 
-repository_credentials = {}
+memory_reservation = null
+
+mount_points = []
 
 name = null
 
-command = []
+operating_system_family = "LINUX"
 
-service = ""
-
-hostname = null
-
-links = []
+port_mappings = []
 
 privileged = false
 
-user = null
-
-cloudwatch_log_group_use_name_prefix = false
-
-tags = {}
-
-dns_search_domains = []
-
-health_check = {}
-
-ulimits = []
-
-environment = []
-
-start_timeout = 30
-
-dns_servers = []
-
-linux_parameters = {}
-
-enable_cloudwatch_logging = true
-
-docker_security_options = []
-
-firelens_configuration = {}
+pseudo_terminal = false
 
 readonly_root_filesystem = true
 
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
+
 stop_timeout = 120
 
-dependencies = []
+system_controls = []
 
-entrypoint = []
+tags = {}
 
-environment_files = []
+ulimits = []
 
-extra_hosts = []
+user = null
 
-memory_reservation = null
+volumes_from = []
 
-create_cloudwatch_log_group = true
-
-disable_networking = null
+working_directory = null

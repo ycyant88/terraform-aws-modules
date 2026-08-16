@@ -1,87 +1,87 @@
-monitoring_role_arn = ""
-
-create = true
-
 allocated_storage = ""
-
-snapshot_identifier = ""
-
-iam_database_authentication_enabled = false
-
-publicly_accessible = false
-
-multi_az = false
-
-iops = 0
-
-tags = {}
-
-replicate_source_db = ""
-
-instance_class = ""
-
-apply_immediately = false
-
-character_set_name = ""
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-kms_key_id = ""
-
-engine_version = ""
-
-parameter_group_name = ""
-
-maintenance_window = ""
-
-backup_window = ""
-
-identifier = ""
-
-license_model = ""
-
-final_snapshot_identifier = false
-
-monitoring_role_name = "rds-monitoring-role"
-
-auto_minor_version_upgrade = true
-
-db_subnet_group_name = ""
-
-monitoring_interval = 0
 
 allow_major_version_upgrade = false
 
-storage_encrypted = false
+apply_immediately = false
+
+auto_minor_version_upgrade = true
+
+availability_zone = ""
+
+backup_retention_period = 1
+
+backup_window = ""
+
+character_set_name = ""
+
+copy_tags_to_snapshot = false
+
+create = true
+
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
 
 engine = ""
+
+engine_version = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_name = ""
+
+parameter_group_name = ""
 
 password = ""
 
 port = ""
 
-vpc_security_group_ids = []
+publicly_accessible = false
 
-option_group_name = ""
-
-timezone = ""
-
-storage_type = "gp2"
-
-name = ""
-
-username = ""
+replicate_source_db = ""
 
 skip_final_snapshot = true
 
-copy_tags_to_snapshot = false
+snapshot_identifier = ""
 
-availability_zone = ""
+storage_encrypted = false
 
-create_monitoring_role = false
+storage_type = "gp2"
 
-backup_retention_period = 1
+tags = {}
 
-enabled_cloudwatch_logs_exports = []
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
-deletion_protection = false
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

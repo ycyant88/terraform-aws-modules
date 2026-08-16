@@ -4,16 +4,10 @@ variable "certificate_transparency_logging_preference" {
   default     = true
 }
 
-variable "subject_alternative_names" {
-  description = "A list of domains that should be SANs in the issued certificate"
-  type        = list(string)
-  default     = []
-}
-
-variable "dns_ttl" {
-  description = "The TTL of DNS recursive resolvers to cache information about this record."
-  type        = number
-  default     = 60
+variable "create_certificate" {
+  description = "Whether to create ACM certificate"
+  type        = bool
+  default     = true
 }
 
 variable "create_route53_records" {
@@ -22,34 +16,10 @@ variable "create_route53_records" {
   default     = true
 }
 
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_certificate" {
-  description = "Whether to create ACM certificate"
-  type        = bool
-  default     = true
-}
-
-variable "validation_allow_overwrite_records" {
-  description = "Whether to allow overwrite of Route53 records"
-  type        = bool
-  default     = true
-}
-
-variable "wait_for_validation" {
-  description = "Whether to wait for the validation to complete"
-  type        = bool
-  default     = true
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
 }
 
 variable "domain_name" {
@@ -58,8 +28,32 @@ variable "domain_name" {
   default     = ""
 }
 
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
+}
+
+variable "subject_alternative_names" {
+  description = "A list of domains that should be SANs in the issued certificate"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
+}
+
 variable "validate_certificate" {
   description = "Whether to validate certificate by creating Route53 record"
+  type        = bool
+  default     = true
+}
+
+variable "validation_allow_overwrite_records" {
+  description = "Whether to allow overwrite of Route53 records"
   type        = bool
   default     = true
 }
@@ -82,8 +76,14 @@ variable "validation_record_fqdns" {
   default     = []
 }
 
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+variable "wait_for_validation" {
+  description = "Whether to wait for the validation to complete"
   type        = bool
   default     = true
+}
+
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
+  type        = string
+  default     = ""
 }

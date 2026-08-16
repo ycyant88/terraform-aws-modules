@@ -1,7 +1,13 @@
-variable "github_token" {
-  description = "Github token to use when creating webhook"
-  type        = string
+variable "atlantis_allowed_repo_names" {
+  description = "List of names of repositories which belong to the organization specified in github_organization"
+  type        = list(any)
   default     = ""
+}
+
+variable "create_github_repository_webhook" {
+  description = "Whether to create Github repository webhook for Atlantis"
+  type        = bool
+  default     = true
 }
 
 variable "github_organization" {
@@ -10,14 +16,8 @@ variable "github_organization" {
   default     = ""
 }
 
-variable "atlantis_allowed_repo_names" {
-  description = "List of names of repositories which belong to the organization specified in github_organization"
-  type        = list(any)
-  default     = ""
-}
-
-variable "webhook_url" {
-  description = "Webhook URL"
+variable "github_token" {
+  description = "Github token to use when creating webhook"
   type        = string
   default     = ""
 }
@@ -28,8 +28,8 @@ variable "webhook_secret" {
   default     = ""
 }
 
-variable "create_github_repository_webhook" {
-  description = "Whether to create Github repository webhook for Atlantis"
-  type        = bool
-  default     = true
+variable "webhook_url" {
+  description = "Webhook URL"
+  type        = string
+  default     = ""
 }

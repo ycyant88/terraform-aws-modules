@@ -1,13 +1,25 @@
-variable "allow_web_console_services" {
-  description = "Allows List/Get/Describe/View actions for services used when browsing AWS console (e.g. resource-groups, tag, health services)"
+variable "additional_policy_json" {
+  description = "JSON policy document if you want to add custom actions"
+  type        = string
+  default     = "{}"
+}
+
+variable "allow_cloudwatch_logs_query" {
+  description = "Allows StartQuery/StopQuery/FilterLogEvents CloudWatch actions"
   type        = bool
   default     = true
 }
 
-variable "description" {
-  description = "The description of the policy"
-  type        = string
-  default     = "IAM Policy"
+variable "allow_predefined_sts_actions" {
+  description = "Allows GetCallerIdentity/GetSessionToken/GetAccessKeyInfo sts actions"
+  type        = bool
+  default     = true
+}
+
+variable "allow_web_console_services" {
+  description = "Allows List/Get/Describe/View actions for services used when browsing AWS console (e.g. resource-groups, tag, health services)"
+  type        = bool
+  default     = true
 }
 
 variable "allowed_services" {
@@ -16,16 +28,16 @@ variable "allowed_services" {
   default     = ""
 }
 
-variable "web_console_services" {
-  description = "List of web console services to allow"
-  type        = list(string)
-  default     = ["resource-groups", "tag", "health", "ce"]
-}
-
 variable "create_policy" {
   description = "Whether to create the IAM policy"
   type        = bool
   default     = true
+}
+
+variable "description" {
+  description = "The description of the policy"
+  type        = string
+  default     = "IAM Policy"
 }
 
 variable "name" {
@@ -40,26 +52,14 @@ variable "path" {
   default     = "/"
 }
 
-variable "additional_policy_json" {
-  description = "JSON policy document if you want to add custom actions"
-  type        = string
-  default     = "{}"
-}
-
 variable "tags" {
   description = "A map of tags to add to all resources."
   type        = map(string)
   default     = {}
 }
 
-variable "allow_cloudwatch_logs_query" {
-  description = "Allows StartQuery/StopQuery/FilterLogEvents CloudWatch actions"
-  type        = bool
-  default     = true
-}
-
-variable "allow_predefined_sts_actions" {
-  description = "Allows GetCallerIdentity/GetSessionToken/GetAccessKeyInfo sts actions"
-  type        = bool
-  default     = true
+variable "web_console_services" {
+  description = "List of web console services to allow"
+  type        = list(string)
+  default     = ["resource-groups", "tag", "health", "ce"]
 }

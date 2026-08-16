@@ -1,56 +1,42 @@
-security_group_name = null
-
-security_group_egress_rules = null
-
-web_acl_arn = null
-
-enable_tls_version_and_cipher_suite_headers = null
-
-name_prefix = null
-
-vpc_id = null
-
-connection_logs = null
-
-enable_deletion_protection = true
-
-enable_zonal_shift = null
-
-ip_address_type = null
-
-ipam_pools = null
+access_logs = null
 
 additional_target_group_attachments = null
 
-create_security_group = true
-
-security_group_tags = {}
-
-desync_mitigation_mode = null
-
-security_groups = []
-
-subnets = null
-
 associate_web_acl = false
 
-putin_khuylo = true
+client_keep_alive = null
+
+connection_logs = null
 
 create = true
 
-tags = {}
+create_security_group = true
+
+customer_owned_ipv4_pool = null
+
+default_port = 80
+
+default_protocol = "HTTP"
+
+desync_mitigation_mode = null
+
+dns_record_client_routing_policy = null
 
 drop_invalid_header_fields = true
 
+enable_cross_zone_load_balancing = true
+
+enable_deletion_protection = true
+
 enable_http2 = null
+
+enable_tls_version_and_cipher_suite_headers = null
 
 enable_waf_fail_open = null
 
-region = null
+enable_xff_client_port = null
 
-access_logs = null
-
-enable_cross_zone_load_balancing = true
+enable_zonal_shift = null
 
 enforce_security_group_inbound_rules_on_private_link_traffic = null
 
@@ -58,40 +44,54 @@ idle_timeout = null
 
 internal = null
 
-minimum_load_balancer_capacity = null
+ip_address_type = null
 
-default_port = 80
-
-client_keep_alive = null
-
-name = null
-
-xff_header_processing_mode = null
+ipam_pools = null
 
 listeners = {}
 
-security_group_use_name_prefix = true
-
-security_group_description = null
-
-security_group_ingress_rules = null
-
-dns_record_client_routing_policy = null
-
 load_balancer_type = "application"
 
-subnet_mapping = null
+minimum_load_balancer_capacity = null
 
-timeouts = null
+name = null
 
-default_protocol = "HTTP"
+name_prefix = null
 
-target_groups = null
+preserve_host_header = null
+
+putin_khuylo = true
+
+region = null
 
 route53_records = null
 
-customer_owned_ipv4_pool = null
+security_group_description = null
 
-enable_xff_client_port = null
+security_group_egress_rules = null
 
-preserve_host_header = null
+security_group_ingress_rules = null
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = null
+
+subnets = null
+
+tags = {}
+
+target_groups = null
+
+timeouts = null
+
+vpc_id = null
+
+web_acl_arn = null
+
+xff_header_processing_mode = null

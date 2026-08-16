@@ -1,37 +1,13 @@
-variable "create_qualified_alias_async_event_config" {
-  description = "Whether to allow async event configuration on qualified alias"
-  type        = bool
-  default     = true
-}
-
-variable "create_version_allowed_triggers" {
-  description = "Whether to allow triggers on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name for the alias you are creating."
-  type        = string
-  default     = ""
-}
-
-variable "destination_on_failure" {
-  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
-  type        = string
-  default     = null
-}
-
-variable "event_source_mapping" {
-  description = "Map of event source mapping"
-  type        = any
+variable "allowed_triggers" {
+  description = "Map of allowed triggers to create Lambda permissions"
+  type        = map(any)
   default     = {}
 }
 
-variable "use_existing_alias" {
-  description = "Whether to manage existing alias instead of creating a new one. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
+variable "create" {
+  description = "Controls whether resources should be created"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "create_async_event_config" {
@@ -46,10 +22,46 @@ variable "create_qualified_alias_allowed_triggers" {
   default     = true
 }
 
+variable "create_qualified_alias_async_event_config" {
+  description = "Whether to allow async event configuration on qualified alias"
+  type        = bool
+  default     = true
+}
+
+variable "create_version_allowed_triggers" {
+  description = "Whether to allow triggers on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_version_async_event_config" {
+  description = "Whether to allow async event configuration on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
+  type        = bool
+  default     = true
+}
+
 variable "description" {
   description = "Description of the alias."
   type        = string
   default     = ""
+}
+
+variable "destination_on_failure" {
+  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
+  type        = string
+  default     = null
+}
+
+variable "destination_on_success" {
+  description = "Amazon Resource Name (ARN) of the destination resource for successful asynchronous invocations"
+  type        = string
+  default     = null
+}
+
+variable "event_source_mapping" {
+  description = "Map of event source mapping"
+  type        = any
+  default     = {}
 }
 
 variable "function_name" {
@@ -58,16 +70,10 @@ variable "function_name" {
   default     = ""
 }
 
-variable "allowed_triggers" {
-  description = "Map of allowed triggers to create Lambda permissions"
-  type        = map(any)
-  default     = {}
-}
-
-variable "refresh_alias" {
-  description = "Whether to refresh function version used in the alias. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
-  type        = bool
-  default     = true
+variable "function_version" {
+  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
+  type        = string
+  default     = ""
 }
 
 variable "maximum_event_age_in_seconds" {
@@ -82,22 +88,16 @@ variable "maximum_retry_attempts" {
   default     = null
 }
 
-variable "create" {
-  description = "Controls whether resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "create_version_async_event_config" {
-  description = "Whether to allow async event configuration on version of Lambda Function used by alias (this will revoke permissions from previous version because Terraform manages only current resources)"
-  type        = bool
-  default     = true
-}
-
-variable "function_version" {
-  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
+variable "name" {
+  description = "Name for the alias you are creating."
   type        = string
   default     = ""
+}
+
+variable "refresh_alias" {
+  description = "Whether to refresh function version used in the alias. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
+  type        = bool
+  default     = true
 }
 
 variable "routing_additional_version_weights" {
@@ -106,8 +106,8 @@ variable "routing_additional_version_weights" {
   default     = {}
 }
 
-variable "destination_on_success" {
-  description = "Amazon Resource Name (ARN) of the destination resource for successful asynchronous invocations"
-  type        = string
-  default     = null
+variable "use_existing_alias" {
+  description = "Whether to manage existing alias instead of creating a new one. Useful when using this module together with external tool do deployments (eg, AWS CodeDeploy)."
+  type        = bool
+  default     = false
 }

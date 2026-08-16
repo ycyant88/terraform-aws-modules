@@ -1,83 +1,83 @@
-default_stage_tags = {}
-
-default_stage_access_log_group_kms_key_id = null
-
-domain_name = null
-
-create_vpc_link = true
-
-protocol_type = "HTTP"
-
 api_key_selection_expression = "$request.header.x-api-key"
-
-credentials_arn = null
-
-default_stage_access_log_format = null
-
-create_api_domain_name = true
-
-default_route_settings = {}
-
-route_selection_expression = "$request.method $request.path"
 
 api_version = null
 
-create_api_gateway = true
+authorizers = {}
+
+body = null
 
 cors_configuration = {}
 
-default_stage_access_log_group_tags = {}
+create = true
 
-vpc_link_tags = {}
+create_api_domain_name = true
+
+create_api_gateway = true
+
+create_default_stage = true
+
+create_default_stage_access_log_group = false
 
 create_default_stage_api_mapping = true
 
 create_routes_and_integrations = true
 
-body = null
+create_vpc_link = true
 
-create_default_stage = true
+credentials_arn = null
 
-name = ""
+default_route_settings = {}
+
+default_stage_access_log_destination_arn = null
+
+default_stage_access_log_format = null
+
+default_stage_access_log_group_class = null
+
+default_stage_access_log_group_kms_key_id = null
+
+default_stage_access_log_group_name = null
 
 default_stage_access_log_group_name_suffix = ""
-
-target = null
 
 default_stage_access_log_group_retention_in_days = null
 
 default_stage_access_log_group_skip_destroy = false
 
-domain_name_tags = {}
+default_stage_access_log_group_tags = {}
 
-create_default_stage_access_log_group = false
-
-disable_execute_api_endpoint = false
-
-fail_on_warnings = false
-
-route_key = null
-
-integrations = {}
-
-vpc_links = {}
-
-domain_name_ownership_verification_certificate_arn = null
-
-create = true
+default_stage_tags = {}
 
 description = null
 
-default_stage_access_log_group_class = null
+disable_execute_api_endpoint = false
+
+domain_name = null
 
 domain_name_certificate_arn = null
 
-authorizers = {}
+domain_name_ownership_verification_certificate_arn = null
+
+domain_name_tags = {}
+
+fail_on_warnings = false
+
+integrations = {}
+
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = null
+
+route_selection_expression = "$request.method $request.path"
 
 tags = {}
 
-default_stage_access_log_destination_arn = null
+target = null
 
-default_stage_access_log_group_name = null
+vpc_link_tags = {}
 
-mutual_tls_authentication = {}
+vpc_links = {}

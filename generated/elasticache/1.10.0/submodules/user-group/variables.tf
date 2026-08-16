@@ -4,26 +4,14 @@ variable "create" {
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_group" {
-  description = "Determines whether a user group will be created"
+variable "create_default_user" {
+  description = "Determines whether a default user will be created"
   type        = bool
   default     = true
 }
 
-variable "user_group_id" {
-  description = "The ID of the user group"
-  type        = string
-  default     = ""
-}
-
-variable "create_default_user" {
-  description = "Determines whether a default user will be created"
+variable "create_group" {
+  description = "Determines whether a user group will be created"
   type        = bool
   default     = true
 }
@@ -34,20 +22,32 @@ variable "default_user" {
   default     = {}
 }
 
+variable "default_user_id" {
+  description = "The ID of the default user"
+  type        = string
+  default     = "default"
+}
+
 variable "engine" {
   description = "The current supported value is REDIS"
   type        = string
   default     = "redis"
 }
 
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "user_group_id" {
+  description = "The ID of the user group"
+  type        = string
+  default     = ""
+}
+
 variable "users" {
   description = "A map of users to create"
   type        = any
   default     = {}
-}
-
-variable "default_user_id" {
-  description = "The ID of the default user"
-  type        = string
-  default     = "default"
 }

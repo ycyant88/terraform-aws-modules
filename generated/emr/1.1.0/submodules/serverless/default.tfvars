@@ -1,37 +1,37 @@
 architecture = null
 
-initial_capacity = {}
-
-release_label_prefix = "emr-6"
-
-create_security_group = true
-
-security_group_description = null
-
-security_group_tags = {}
-
-tags = {}
-
 auto_start_configuration = {}
-
-image_configuration = {}
-
-name = ""
-
-security_group_use_name_prefix = true
-
-create = true
 
 auto_stop_configuration = {}
 
-network_configuration = {}
+create = true
 
-type = "spark"
+create_security_group = true
 
-security_group_name = null
+image_configuration = {}
+
+initial_capacity = {}
 
 maximum_capacity = {}
 
+name = ""
+
+network_configuration = {}
+
 release_label = null
 
+release_label_prefix = "emr-6"
+
+security_group_description = null
+
+security_group_name = null
+
 security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+tags = {}
+
+type = "spark"

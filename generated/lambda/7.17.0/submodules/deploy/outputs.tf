@@ -13,14 +13,9 @@ output "appspec_sha256" {
   description = "SHA256 of Appspec JSON"
 }
 
-output "script" {
-  value       = module.lambda_deploy.script
-  description = "Deployment script"
-}
-
-output "deploy_script" {
-  value       = module.lambda_deploy.deploy_script
-  description = "Path to a deployment script"
+output "codedeploy_app_name" {
+  value       = module.lambda_deploy.codedeploy_app_name
+  description = "Name of CodeDeploy application"
 }
 
 output "codedeploy_deployment_group_id" {
@@ -38,7 +33,12 @@ output "codedeploy_iam_role_name" {
   description = "Name of IAM role used by CodeDeploy"
 }
 
-output "codedeploy_app_name" {
-  value       = module.lambda_deploy.codedeploy_app_name
-  description = "Name of CodeDeploy application"
+output "deploy_script" {
+  value       = module.lambda_deploy.deploy_script
+  description = "Path to a deployment script"
+}
+
+output "script" {
+  value       = module.lambda_deploy.script
+  description = "Deployment script"
 }

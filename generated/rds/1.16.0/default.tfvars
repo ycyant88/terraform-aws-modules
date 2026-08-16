@@ -1,89 +1,89 @@
-snapshot_identifier = ""
-
-monitoring_role_name = "rds-monitoring-role"
-
-copy_tags_to_snapshot = false
-
-replicate_source_db = ""
-
-multi_az = false
-
-monitoring_interval = 0
-
-auto_minor_version_upgrade = true
-
-backup_retention_period = 1
-
-subnet_ids = []
-
-create_db_parameter_group = true
-
-engine_version = ""
-
-storage_encrypted = false
-
-name = ""
-
-port = ""
-
-availability_zone = ""
-
-tags = {}
-
-character_set_name = ""
-
-storage_type = "gp2"
-
-engine = ""
-
-iops = 0
-
-apply_immediately = false
-
-backup_window = ""
-
-create_db_instance = true
-
-timezone = ""
-
-iam_database_authentication_enabled = false
-
-instance_class = ""
-
-parameter_group_name = ""
-
-monitoring_role_arn = ""
-
-parameters = []
-
-identifier = ""
-
-publicly_accessible = false
+allocated_storage = ""
 
 allow_major_version_upgrade = false
 
-maintenance_window = ""
+apply_immediately = false
 
-skip_final_snapshot = true
+auto_minor_version_upgrade = true
+
+availability_zone = ""
+
+backup_retention_period = 1
+
+backup_window = ""
+
+character_set_name = ""
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
+
+create_db_parameter_group = true
 
 create_db_subnet_group = true
 
-allocated_storage = ""
-
-vpc_security_group_ids = []
+create_monitoring_role = false
 
 db_subnet_group_name = ""
 
-create_monitoring_role = false
+engine = ""
+
+engine_version = ""
 
 family = ""
 
-kms_key_id = ""
-
 final_snapshot_identifier = false
 
-username = ""
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+parameter_group_name = ""
+
+parameters = []
 
 password = ""
 
-license_model = ""
+port = ""
+
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

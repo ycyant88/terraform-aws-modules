@@ -1,3 +1,3 @@
-delegation_sets = {}
-
 create = true
+
+delegation_sets = {}

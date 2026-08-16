@@ -1,28 +1,3 @@
-output "id" {
-  value       = module.alb.id
-  description = "The ID and ARN of the load balancer we created"
-}
-
-output "zone_id" {
-  value       = module.alb.zone_id
-  description = "The zone_id of the load balancer to assist with creating DNS records"
-}
-
-output "listener_rules" {
-  value       = module.alb.listener_rules
-  description = "Map of listeners rules created and their attributes"
-}
-
-output "target_groups" {
-  value       = module.alb.target_groups
-  description = "Map of target groups created and their attributes"
-}
-
-output "route53_records" {
-  value       = module.alb.route53_records
-  description = "The Route53 records created and attached to the load balancer"
-}
-
 output "arn" {
   value       = module.alb.arn
   description = "The ID and ARN of the load balancer we created"
@@ -38,9 +13,24 @@ output "dns_name" {
   description = "The DNS name of the load balancer"
 }
 
+output "id" {
+  value       = module.alb.id
+  description = "The ID and ARN of the load balancer we created"
+}
+
+output "listener_rules" {
+  value       = module.alb.listener_rules
+  description = "Map of listeners rules created and their attributes"
+}
+
 output "listeners" {
   value       = module.alb.listeners
   description = "Map of listeners created and their attributes"
+}
+
+output "route53_records" {
+  value       = module.alb.route53_records
+  description = "The Route53 records created and attached to the load balancer"
 }
 
 output "security_group_arn" {
@@ -51,4 +41,14 @@ output "security_group_arn" {
 output "security_group_id" {
   value       = module.alb.security_group_id
   description = "ID of the security group"
+}
+
+output "target_groups" {
+  value       = module.alb.target_groups
+  description = "Map of target groups created and their attributes"
+}
+
+output "zone_id" {
+  value       = module.alb.zone_id
+  description = "The zone_id of the load balancer to assist with creating DNS records"
 }

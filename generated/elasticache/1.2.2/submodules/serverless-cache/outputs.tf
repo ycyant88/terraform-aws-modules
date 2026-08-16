@@ -1,3 +1,8 @@
+output "serverless_cache_arn" {
+  value       = module.elasticache_serverless-cache.serverless_cache_arn
+  description = "The amazon resource name of the serverless cache"
+}
+
 output "serverless_cache_create_time" {
   value       = module.elasticache_serverless-cache.serverless_cache_create_time
   description = "Timestamp of when the serverless cache was created"
@@ -26,9 +31,4 @@ output "serverless_cache_reader_endpoint" {
 output "serverless_cache_status" {
   value       = module.elasticache_serverless-cache.serverless_cache_status
   description = "The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING"
-}
-
-output "serverless_cache_arn" {
-  value       = module.elasticache_serverless-cache.serverless_cache_arn
-  description = "The amazon resource name of the serverless cache"
 }

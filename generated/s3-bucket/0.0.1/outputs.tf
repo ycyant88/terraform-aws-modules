@@ -1,3 +1,8 @@
+output "arn" {
+  value       = module.s3-bucket.arn
+  description = "The ARN of the bucket. Will be of format arn:aws:s3:::bucketname."
+}
+
 output "bucket_domain_name" {
   value       = module.s3-bucket.bucket_domain_name
   description = "The bucket domain name. Will be of format bucketname.s3.amazonaws.com."
@@ -13,14 +18,14 @@ output "hosted_zone_id" {
   description = "The Route 53 Hosted Zone ID for this bucket's region."
 }
 
+output "id" {
+  value       = module.s3-bucket.id
+  description = "The name of the bucket."
+}
+
 output "region" {
   value       = module.s3-bucket.region
   description = "The AWS region this bucket resides in."
-}
-
-output "website_endpoint" {
-  value       = module.s3-bucket.website_endpoint
-  description = "The website endpoint, if the bucket is configured with a website. If not, this will be an empty string."
 }
 
 output "website_domain" {
@@ -28,12 +33,7 @@ output "website_domain" {
   description = "The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. "
 }
 
-output "id" {
-  value       = module.s3-bucket.id
-  description = "The name of the bucket."
-}
-
-output "arn" {
-  value       = module.s3-bucket.arn
-  description = "The ARN of the bucket. Will be of format arn:aws:s3:::bucketname."
+output "website_endpoint" {
+  value       = module.s3-bucket.website_endpoint
+  description = "The website endpoint, if the bucket is configured with a website. If not, this will be an empty string."
 }

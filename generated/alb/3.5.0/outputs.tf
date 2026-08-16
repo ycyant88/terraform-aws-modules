@@ -1,11 +1,6 @@
-output "target_group_arn_suffixes" {
-  value       = module.alb.target_group_arn_suffixes
-  description = "ARN suffixes of our target groups - can be used with CloudWatch."
-}
-
-output "target_group_names" {
-  value       = module.alb.target_group_names
-  description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group."
+output "dns_name" {
+  value       = module.alb.dns_name
+  description = "The DNS name of the load balancer."
 }
 
 output "http_tcp_listener_arns" {
@@ -43,12 +38,17 @@ output "load_balancer_zone_id" {
   description = "The zone_id of the load balancer to assist with creating DNS records."
 }
 
+output "target_group_arn_suffixes" {
+  value       = module.alb.target_group_arn_suffixes
+  description = "ARN suffixes of our target groups - can be used with CloudWatch."
+}
+
 output "target_group_arns" {
   value       = module.alb.target_group_arns
   description = "ARNs of the target groups. Useful for passing to your Auto Scaling group."
 }
 
-output "dns_name" {
-  value       = module.alb.dns_name
-  description = "The DNS name of the load balancer."
+output "target_group_names" {
+  value       = module.alb.target_group_names
+  description = "Name of the target group. Useful for passing to your CodeDeploy Deployment Group."
 }

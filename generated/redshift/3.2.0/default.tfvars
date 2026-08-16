@@ -1,75 +1,75 @@
-cluster_number_of_nodes = 3
+allow_version_upgrade = true
 
-cluster_master_username = ""
-
-cluster_master_password = ""
-
-publicly_accessible = false
-
-redshift_subnet_group_name = ""
-
-tags = {}
-
-cluster_identifier = ""
-
-cluster_port = 5439
-
-cluster_parameter_group = "redshift-1.0"
-
-cluster_iam_roles = []
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-enable_user_activity_logging = "false"
-
-enhanced_vpc_routing = false
+automated_snapshot_retention_period = 0
 
 cluster_database_name = ""
 
-enable_logging = false
+cluster_iam_roles = []
 
-use_fips_ssl = "false"
+cluster_identifier = ""
+
+cluster_master_password = ""
+
+cluster_master_username = ""
+
+cluster_node_type = ""
+
+cluster_number_of_nodes = 3
+
+cluster_parameter_group = "redshift-1.0"
+
+cluster_port = 5439
 
 cluster_version = "1.0"
 
-vpc_security_group_ids = ""
+elastic_ip = null
+
+enable_case_sensitive_identifier = false
+
+enable_logging = false
+
+enable_user_activity_logging = "false"
+
+encrypted = false
+
+enhanced_vpc_routing = false
+
+final_snapshot_identifier = ""
+
+kms_key_id = ""
 
 logging_bucket_name = null
 
 logging_s3_key_prefix = null
 
-snapshot_copy_destination_region = null
+max_concurrency_scaling_clusters = "1"
 
 owner_account = null
 
-subnets = []
-
-allow_version_upgrade = true
-
-max_concurrency_scaling_clusters = "1"
-
-elastic_ip = null
-
-wlm_json_configuration = "[{\"query_concurrency\": 5}]"
-
 parameter_group_name = ""
 
-final_snapshot_identifier = ""
+preferred_maintenance_window = "sat:10:00-sat:10:30"
 
-automated_snapshot_retention_period = 0
+publicly_accessible = false
+
+redshift_subnet_group_name = ""
 
 require_ssl = "false"
-
-snapshot_identifier = null
-
-enable_case_sensitive_identifier = false
-
-cluster_node_type = ""
 
 skip_final_snapshot = true
 
 snapshot_cluster_identifier = null
 
-encrypted = false
+snapshot_copy_destination_region = null
 
-kms_key_id = ""
+snapshot_identifier = null
+
+subnets = []
+
+tags = {}
+
+use_fips_ssl = "false"
+
+vpc_security_group_ids = ""
+
+wlm_json_configuration = "[{\"query_concurrency\": 5}]"

@@ -1,7 +1,7 @@
-variable "tags" {
-  description = "A map of tags to add to instance profile role"
-  type        = map(string)
-  default     = {}
+variable "include_ssm" {
+  description = "Whether to include policies needed for AmazonSSM"
+  type        = bool
+  default     = false
 }
 
 variable "name" {
@@ -10,8 +10,8 @@ variable "name" {
   default     = ""
 }
 
-variable "include_ssm" {
-  description = "Whether to include policies needed for AmazonSSM"
-  type        = bool
-  default     = false
+variable "tags" {
+  description = "A map of tags to add to instance profile role"
+  type        = map(string)
+  default     = {}
 }

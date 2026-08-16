@@ -1,16 +1,35 @@
-variable "preset_ingress_rules" {
-  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
-  type = map(object({
-    from_port   = number
-    to_port     = number
-    ip_protocol = string
-    description = optional(string)
-  }))
-  default = { "mssql-analytics" : { "description" : "MSSQL Analytics", "from_port" : 2383, "ip_protocol" : "tcp", "to_port" : 2383 }, "mssql-broker" : { "description" : "MSSQL Broker", "from_port" : 4022, "ip_protocol" : "tcp", "to_port" : 4022 }, "mssql-browser" : { "description" : "MSSQL Browser", "from_port" : 1434, "ip_protocol" : "udp", "to_port" : 1434 }, "mssql-server" : { "description" : "MSSQL Server", "from_port" : 1433, "ip_protocol" : "tcp", "to_port" : 1433 } }
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
+  type        = bool
+  default     = true
 }
 
-variable "use_name_prefix" {
-  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+variable "description" {
+  description = "Description of security group"
+  type        = string
+  default     = "Security Group managed by Terraform"
+}
+
+variable "egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(number)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(number)
+  }))
+  default = {}
+}
+
+variable "enable_exclusive_rules" {
+  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
   type        = bool
   default     = true
 }
@@ -39,32 +58,6 @@ variable "ingress_referenced_security_group_id" {
   default     = {}
 }
 
-variable "vpc_associations" {
-  description = "Map of VPC IDs to associate the security group to"
-  type = map(object({
-    vpc_id = string
-  }))
-  default = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "description" {
-  description = "Description of security group"
-  type        = string
-  default     = "Security Group managed by Terraform"
-}
-
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
-  type        = bool
-  default     = false
-}
-
 variable "ingress_rules" {
   description = "Additional security group ingress rules to merge with the preset rules"
   type = map(object({
@@ -83,28 +76,21 @@ variable "ingress_rules" {
   default = {}
 }
 
-variable "egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(number)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(number)
-  }))
-  default = {}
+variable "name" {
+  description = "Name of security group"
+  type        = string
+  default     = ""
 }
 
-variable "enable_exclusive_rules" {
-  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
-  type        = bool
-  default     = true
+variable "preset_ingress_rules" {
+  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    ip_protocol = string
+    description = optional(string)
+  }))
+  default = { "mssql-analytics" : { "description" : "MSSQL Analytics", "from_port" : 2383, "ip_protocol" : "tcp", "to_port" : 2383 }, "mssql-broker" : { "description" : "MSSQL Broker", "from_port" : 4022, "ip_protocol" : "tcp", "to_port" : 4022 }, "mssql-browser" : { "description" : "MSSQL Browser", "from_port" : 1434, "ip_protocol" : "udp", "to_port" : 1434 }, "mssql-server" : { "description" : "MSSQL Server", "from_port" : 1433, "ip_protocol" : "tcp", "to_port" : 1433 } }
 }
 
 variable "region" {
@@ -113,10 +99,16 @@ variable "region" {
   default     = null
 }
 
-variable "name" {
-  description = "Name of security group"
-  type        = string
-  default     = ""
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeouts" {
@@ -128,10 +120,18 @@ variable "timeouts" {
   default = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
+variable "use_name_prefix" {
+  description = "Whether to use the name (name) as a prefix, appending a random suffix"
   type        = bool
   default     = true
+}
+
+variable "vpc_associations" {
+  description = "Map of VPC IDs to associate the security group to"
+  type = map(object({
+    vpc_id = string
+  }))
+  default = {}
 }
 
 variable "vpc_id" {

@@ -1,24 +1,24 @@
 module "wafv2" {
   source                          = "terraform-aws-modules/wafv2/aws"
   version                         = "1.0.0"
-  name                            = var.name
-  rule_json                       = var.rule_json
-  challenge_config                = var.challenge_config
-  logging_filter                  = var.logging_filter
-  create                          = var.create
-  scope                           = var.scope
   association_config              = var.association_config
+  association_resource_arns       = var.association_resource_arns
+  captcha_config                  = var.captcha_config
+  challenge_config                = var.challenge_config
+  create                          = var.create
   create_logging_configuration    = var.create_logging_configuration
+  custom_response_bodies          = var.custom_response_bodies
+  default_action                  = var.default_action
+  description                     = var.description
+  logging_filter                  = var.logging_filter
   logging_log_destination_configs = var.logging_log_destination_configs
   logging_redacted_fields         = var.logging_redacted_fields
+  name                            = var.name
   putin_khuylo                    = var.putin_khuylo
-  tags                            = var.tags
+  rule_json                       = var.rule_json
   rules                           = var.rules
-  custom_response_bodies          = var.custom_response_bodies
+  scope                           = var.scope
+  tags                            = var.tags
   token_domains                   = var.token_domains
-  association_resource_arns       = var.association_resource_arns
-  description                     = var.description
-  default_action                  = var.default_action
   visibility_config               = var.visibility_config
-  captcha_config                  = var.captcha_config
 }

@@ -1,3 +1,9 @@
+variable "create_key_pair" {
+  description = "Controls if key pair should be created"
+  type        = bool
+  default     = true
+}
+
 variable "key_name" {
   description = "The name for the key pair."
   type        = string
@@ -20,10 +26,4 @@ variable "tags" {
   description = "A map of tags to add to key pair resource."
   type        = map(string)
   default     = {}
-}
-
-variable "create_key_pair" {
-  description = "Controls if key pair should be created"
-  type        = bool
-  default     = true
 }

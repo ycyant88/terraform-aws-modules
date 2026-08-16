@@ -1,19 +1,19 @@
-control_overrides = {}
-
-namespace = "CISBenchmark"
-
-log_group_name = ""
+actions_enabled = true
 
 alarm_actions = []
 
-tags = {}
+control_overrides = {}
 
 create = true
 
-use_random_name_prefix = false
+disabled_controls = []
+
+log_group_name = ""
 
 name_prefix = ""
 
-disabled_controls = []
+namespace = "CISBenchmark"
 
-actions_enabled = true
+tags = {}
+
+use_random_name_prefix = false

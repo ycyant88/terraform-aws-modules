@@ -1,35 +1,35 @@
-name = ""
+create = true
 
-timeouts = null
+description = "Security Group managed by Terraform"
+
+egress_rules = {}
+
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
 
 ingress_cidr_ipv6 = {}
 
-enable_exclusive_rules = true
-
-description = "Security Group managed by Terraform"
-
-ingress_rules = {}
-
-vpc_associations = {}
-
-create = true
-
-region = null
-
-tags = {}
-
-revoke_rules_on_delete = false
-
-egress_rules = {}
-
-use_name_prefix = true
-
-vpc_id = null
-
-preset_ingress_rules = { "rdp-tcp" : { "description" : "Remote desktop protocol", "from_port" : 3389, "ip_protocol" : "tcp", "to_port" : 3389 }, "rdp-udp" : { "description" : "Remote desktop protocol", "from_port" : 3389, "ip_protocol" : "udp", "to_port" : 3389 } }
-
 ingress_prefix_list_id = {}
 
 ingress_referenced_security_group_id = {}
+
+ingress_rules = {}
+
+name = ""
+
+preset_ingress_rules = { "rdp-tcp" : { "description" : "Remote desktop protocol", "from_port" : 3389, "ip_protocol" : "tcp", "to_port" : 3389 }, "rdp-udp" : { "description" : "Remote desktop protocol", "from_port" : 3389, "ip_protocol" : "udp", "to_port" : 3389 } }
+
+region = null
+
+revoke_rules_on_delete = false
+
+tags = {}
+
+timeouts = null
+
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

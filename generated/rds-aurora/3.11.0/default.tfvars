@@ -1,145 +1,145 @@
-performance_insights_enabled = false
+allow_major_version_upgrade = false
 
-enabled_cloudwatch_logs_exports = []
+allowed_cidr_blocks = []
 
-port = ""
+allowed_security_groups = []
 
-db_cluster_parameter_group_name = ""
+apply_immediately = false
 
-enable_http_endpoint = false
+auto_minor_version_upgrade = true
 
-iam_database_authentication_enabled = false
+backtrack_window = 0
+
+backup_retention_period = 7
 
 ca_cert_identifier = "rds-ca-2019"
 
-s3_import = ""
+cluster_tags = {}
+
+copy_tags_to_snapshot = false
+
+create_cluster = true
 
 create_monitoring_role = true
 
-username = "root"
+create_random_password = true
 
-password = ""
+create_security_group = true
 
-scaling_configuration = {}
+database_name = ""
+
+db_cluster_parameter_group_name = ""
+
+db_parameter_group_name = ""
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enable_http_endpoint = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
+
+engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
+iam_role_description = ""
+
+iam_role_force_detach_policies = ""
 
 iam_role_managed_policy_arns = ""
 
-performance_insights_kms_key_id = ""
+iam_role_max_session_duration = ""
 
-security_group_description = "Managed by Terraform"
+iam_role_name = ""
+
+iam_role_path = ""
+
+iam_role_permissions_boundary = ""
+
+iam_role_use_name_prefix = false
+
+iam_roles = []
 
 instance_type = ""
 
-allow_major_version_upgrade = false
+instance_type_replica = ""
+
+instances_parameters = []
+
+is_primary_cluster = true
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_connections = 700
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
 
 replica_scale_min = 2
 
 replica_scale_out_cooldown = 300
 
-replica_count = 1
+replication_source_identifier = ""
 
-publicly_accessible = false
+s3_import = ""
 
-replica_scale_connections = 700
+scaling_configuration = {}
 
-subnets = []
-
-kms_key_id = ""
-
-engine_version = "5.6.10a"
-
-tags = {}
-
-source_region = ""
-
-auto_minor_version_upgrade = true
-
-db_parameter_group_name = ""
-
-replica_scale_in_cooldown = 300
-
-allowed_cidr_blocks = []
-
-snapshot_identifier = ""
-
-monitoring_interval = 0
-
-engine = "aurora"
-
-copy_tags_to_snapshot = false
-
-iam_role_name = ""
-
-create_cluster = true
-
-preferred_backup_window = "02:00-03:00"
-
-replica_scale_max = 0
-
-iam_role_force_detach_policies = ""
-
-storage_encrypted = true
-
-engine_mode = "provisioned"
-
-iam_role_description = ""
+security_group_description = "Managed by Terraform"
 
 skip_final_snapshot = false
 
-preferred_maintenance_window = "sun:05:00-sun:06:00"
+snapshot_identifier = ""
 
-is_primary_cluster = true
+source_region = ""
 
-backup_retention_period = 7
+storage_encrypted = true
 
-replication_source_identifier = ""
+subnets = []
 
-vpc_security_group_ids = []
+tags = {}
 
-backtrack_window = 0
-
-name = ""
-
-allowed_security_groups = []
-
-instance_type_replica = ""
-
-iam_role_use_name_prefix = false
-
-instances_parameters = []
-
-iam_role_max_session_duration = ""
-
-cluster_tags = {}
-
-global_cluster_identifier = ""
-
-db_subnet_group_name = ""
-
-apply_immediately = false
-
-replica_scale_enabled = false
-
-replica_scale_cpu = 70
-
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
-
-iam_role_permissions_boundary = ""
-
-create_security_group = true
+username = "root"
 
 vpc_id = ""
 
-deletion_protection = false
-
-iam_roles = []
-
-monitoring_role_arn = ""
-
-iam_role_path = ""
-
-database_name = ""
-
-create_random_password = true
-
-final_snapshot_identifier_prefix = "final"
+vpc_security_group_ids = []

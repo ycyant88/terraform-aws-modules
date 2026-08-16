@@ -4,14 +4,14 @@ variable "create" {
   default     = true
 }
 
-variable "name_prefix" {
-  description = "Creates a unique name beginning with the specified prefix"
+variable "identifier" {
+  description = "The identifier of the resource"
   type        = string
   default     = ""
 }
 
-variable "identifier" {
-  description = "The identifier of the resource"
+variable "name_prefix" {
+  description = "Creates a unique name beginning with the specified prefix"
   type        = string
   default     = ""
 }

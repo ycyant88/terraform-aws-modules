@@ -1,115 +1,115 @@
-create_role = true
+api_destinations = {}
+
+append_connection_postfix = true
 
 append_destination_postfix = true
 
-create_permissions = true
+append_rule_postfix = true
 
-attach_tracing_policy = false
+archives = {}
 
-number_of_policy_jsons = 0
+attach_api_destination_policy = false
 
-create_bus = true
+attach_cloudwatch_policy = false
 
-role_permissions_boundary = null
+attach_ecs_policy = false
 
-sfn_target_arns = []
+attach_kinesis_firehose_policy = false
 
-bus_name = "default"
+attach_kinesis_policy = false
 
 attach_lambda_policy = false
 
 attach_policies = false
 
-policy_jsons = []
-
-create_connections = false
-
-archives = {}
-
-attach_ecs_policy = false
-
-policies = []
-
-permissions = {}
-
-attach_sfn_policy = false
-
-lambda_target_arns = []
+attach_policy = false
 
 attach_policy_json = false
 
-attach_policy = false
-
-attach_cloudwatch_policy = false
-
-kinesis_firehose_target_arns = []
-
-trusted_entities = []
-
-connections = {}
+attach_policy_jsons = false
 
 attach_policy_statements = false
 
-create_schemas_discoverer = false
+attach_sfn_policy = false
+
+attach_sqs_policy = false
+
+attach_tracing_policy = false
+
+bus_name = "default"
+
+cloudwatch_target_arns = []
+
+connections = {}
 
 create = true
 
 create_api_destinations = false
 
-role_name = null
-
-role_force_detach_policies = true
-
-policy_json = null
-
-create_targets = true
-
-api_destinations = {}
-
-role_tags = {}
-
-policy = null
-
-event_source_name = null
-
-attach_kinesis_policy = false
-
-cloudwatch_target_arns = []
-
-number_of_policies = 0
-
-schemas_discoverer_description = "Auto schemas discoverer event"
-
-role_description = null
-
-role_path = null
-
-attach_kinesis_firehose_policy = false
-
-kinesis_target_arns = []
-
-append_rule_postfix = true
-
 create_archives = false
 
-attach_sqs_policy = false
+create_bus = true
 
-sqs_target_arns = []
+create_connections = false
 
-policy_statements = {}
+create_permissions = true
 
-attach_api_destination_policy = false
-
-ecs_target_arns = []
-
-attach_policy_jsons = false
-
-append_connection_postfix = true
+create_role = true
 
 create_rules = true
 
+create_schemas_discoverer = false
+
+create_targets = true
+
+ecs_target_arns = []
+
+event_source_name = null
+
+kinesis_firehose_target_arns = []
+
+kinesis_target_arns = []
+
+lambda_target_arns = []
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permissions = {}
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_statements = {}
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
 rules = {}
+
+schemas_discoverer_description = "Auto schemas discoverer event"
+
+sfn_target_arns = []
+
+sqs_target_arns = []
+
+tags = {}
 
 targets = {}
 
-tags = {}
+trusted_entities = []

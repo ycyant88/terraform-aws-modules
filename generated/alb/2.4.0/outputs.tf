@@ -13,9 +13,9 @@ output "alb_dns_name" {
   description = "The DNS name of the ALB presumably to be used with a friendlier CNAME."
 }
 
-output "alb_listener_https_arn" {
-  value       = module.alb.alb_listener_https_arn
-  description = "The ARN of the HTTPS ALB Listener we created."
+output "alb_id" {
+  value       = module.alb.alb_id
+  description = "The ID of the ALB we created."
 }
 
 output "alb_listener_http_arn" {
@@ -23,14 +23,14 @@ output "alb_listener_http_arn" {
   description = "The ARN of the HTTP ALB Listener we created."
 }
 
-output "alb_zone_id" {
-  value       = module.alb.alb_zone_id
-  description = "The zone_id of the ALB to assist with creating DNS records."
+output "alb_listener_http_id" {
+  value       = module.alb.alb_listener_http_id
+  description = "The ID of the ALB Listener we created."
 }
 
-output "alb_id" {
-  value       = module.alb.alb_id
-  description = "The ID of the ALB we created."
+output "alb_listener_https_arn" {
+  value       = module.alb.alb_listener_https_arn
+  description = "The ARN of the HTTPS ALB Listener we created."
 }
 
 output "alb_listener_https_id" {
@@ -38,9 +38,9 @@ output "alb_listener_https_id" {
   description = "The ID of the ALB Listener we created."
 }
 
-output "alb_listener_http_id" {
-  value       = module.alb.alb_listener_http_id
-  description = "The ID of the ALB Listener we created."
+output "alb_zone_id" {
+  value       = module.alb.alb_zone_id
+  description = "The zone_id of the ALB to assist with creating DNS records."
 }
 
 output "principal_account_id" {

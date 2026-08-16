@@ -1,91 +1,13 @@
-variable "map_accounts" {
-  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
-  type        = list(any)
-  default     = []
-}
-
-variable "map_accounts_count" {
-  description = "The count of accounts in the map_accounts list."
-  type        = string
-  default     = 0
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(any)
-  default     = {}
-}
-
-variable "worker_group_tags" {
-  description = "A map defining extra tags to be applied to the worker group ASG."
-  type        = map(any)
-  default     = { "default" : [] }
-}
-
-variable "kubeconfig_aws_authenticator_command_args" {
-  description = "Default arguments passed to the authenticator command. Defaults to [token -i $cluster_name]."
-  type        = list(any)
-  default     = []
-}
-
 variable "cluster_create_security_group" {
   description = "Whether to create a security group for the cluster or attach the cluster to cluster_security_group_id."
   type        = bool
   default     = true
 }
 
-variable "vpc_id" {
-  description = "VPC where the cluster and workers will be deployed."
+variable "cluster_create_timeout" {
+  description = "Timeout value when creating the EKS cluster."
   type        = string
-  default     = ""
-}
-
-variable "worker_groups" {
-  description = "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys."
-  type        = list(any)
-  default     = [{ "name" : "default" }]
-}
-
-variable "workers_group_defaults" {
-  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
-  type        = map(any)
-  default     = {}
-}
-
-variable "kubeconfig_aws_authenticator_additional_args" {
-  description = "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"]."
-  type        = list(any)
-  default     = []
-}
-
-variable "manage_aws_auth" {
-  description = "Whether to apply the aws-auth configmap file."
-  type        = bool
-  default     = true
-}
-
-variable "map_roles" {
-  description = "Additional IAM roles to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
-  type        = list(any)
-  default     = []
-}
-
-variable "map_users_count" {
-  description = "The count of roles in the map_users list."
-  type        = string
-  default     = 0
-}
-
-variable "subnets" {
-  description = "A list of subnets to place the EKS cluster and workers within."
-  type        = list(any)
-  default     = ""
-}
-
-variable "worker_groups_launch_template" {
-  description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
-  type        = list(any)
-  default     = [{ "name" : "default" }]
+  default     = "15m"
 }
 
 variable "cluster_delete_timeout" {
@@ -94,10 +16,10 @@ variable "cluster_delete_timeout" {
   default     = "15m"
 }
 
-variable "worker_create_security_group" {
-  description = "Whether to create a security group for the workers or attach the workers to worker_security_group_id."
-  type        = bool
-  default     = true
+variable "cluster_name" {
+  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+  type        = string
+  default     = ""
 }
 
 variable "cluster_security_group_id" {
@@ -118,8 +40,20 @@ variable "config_output_path" {
   default     = "./"
 }
 
-variable "worker_additional_security_group_ids" {
-  description = "A list of additional security group ids to attach to worker instances"
+variable "kubeconfig_aws_authenticator_additional_args" {
+  description = "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"]."
+  type        = list(any)
+  default     = []
+}
+
+variable "kubeconfig_aws_authenticator_command" {
+  description = "Command to use to fetch AWS EKS credentials."
+  type        = string
+  default     = "aws-iam-authenticator"
+}
+
+variable "kubeconfig_aws_authenticator_command_args" {
+  description = "Default arguments passed to the authenticator command. Defaults to [token -i $cluster_name]."
   type        = list(any)
   default     = []
 }
@@ -130,22 +64,94 @@ variable "kubeconfig_aws_authenticator_env_variables" {
   default     = {}
 }
 
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster."
+variable "kubeconfig_name" {
+  description = "Override the default name used for items kubeconfig."
   type        = string
   default     = ""
 }
 
-variable "cluster_name" {
-  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+variable "local_exec_interpreter" {
+  description = "Command to run for local-exec resources. Must be a shell-style interpreter. If you are on Windows Git Bash is a good choice."
+  type        = list(any)
+  default     = ["/bin/sh", "-c"]
+}
+
+variable "manage_aws_auth" {
+  description = "Whether to apply the aws-auth configmap file."
+  type        = bool
+  default     = true
+}
+
+variable "map_accounts" {
+  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
+  type        = list(any)
+  default     = []
+}
+
+variable "map_accounts_count" {
+  description = "The count of accounts in the map_accounts list."
   type        = string
-  default     = ""
+  default     = 0
+}
+
+variable "map_roles" {
+  description = "Additional IAM roles to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
+  type        = list(any)
+  default     = []
+}
+
+variable "map_roles_count" {
+  description = "The count of roles in the map_roles list."
+  type        = string
+  default     = 0
 }
 
 variable "map_users" {
   description = "Additional IAM users to add to the aws-auth configmap. See examples/eks_test_fixture/variables.tf for example format."
   type        = list(any)
   default     = []
+}
+
+variable "map_users_count" {
+  description = "The count of roles in the map_users list."
+  type        = string
+  default     = 0
+}
+
+variable "permissions_boundary" {
+  description = "If provided, all IAM roles will be created with this permissions boundary attached."
+  type        = string
+  default     = ""
+}
+
+variable "subnets" {
+  description = "A list of subnets to place the EKS cluster and workers within."
+  type        = list(any)
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(any)
+  default     = {}
+}
+
+variable "vpc_id" {
+  description = "VPC where the cluster and workers will be deployed."
+  type        = string
+  default     = ""
+}
+
+variable "worker_additional_security_group_ids" {
+  description = "A list of additional security group ids to attach to worker instances"
+  type        = list(any)
+  default     = []
+}
+
+variable "worker_create_security_group" {
+  description = "Whether to create a security group for the workers or attach the workers to worker_security_group_id."
+  type        = bool
+  default     = true
 }
 
 variable "worker_group_count" {
@@ -160,34 +166,34 @@ variable "worker_group_launch_template_count" {
   default     = "0"
 }
 
-variable "workers_group_launch_template_defaults" {
-  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
-  type        = map(any)
-  default     = {}
-}
-
-variable "cluster_create_timeout" {
-  description = "Timeout value when creating the EKS cluster."
-  type        = string
-  default     = "15m"
-}
-
-variable "local_exec_interpreter" {
-  description = "Command to run for local-exec resources. Must be a shell-style interpreter. If you are on Windows Git Bash is a good choice."
-  type        = list(any)
-  default     = ["/bin/sh", "-c"]
-}
-
-variable "write_aws_auth_config" {
-  description = "Whether to write the aws-auth configmap file."
-  type        = bool
-  default     = true
-}
-
 variable "worker_group_launch_template_tags" {
   description = "A map defining extra tags to be applied to the worker group template ASG."
   type        = map(any)
   default     = { "default" : [] }
+}
+
+variable "worker_group_tags" {
+  description = "A map defining extra tags to be applied to the worker group ASG."
+  type        = map(any)
+  default     = { "default" : [] }
+}
+
+variable "worker_groups" {
+  description = "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys."
+  type        = list(any)
+  default     = [{ "name" : "default" }]
+}
+
+variable "worker_groups_launch_template" {
+  description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
+  type        = list(any)
+  default     = [{ "name" : "default" }]
+}
+
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster."
+  type        = string
+  default     = ""
 }
 
 variable "worker_sg_ingress_from_port" {
@@ -196,32 +202,26 @@ variable "worker_sg_ingress_from_port" {
   default     = "1025"
 }
 
-variable "permissions_boundary" {
-  description = "If provided, all IAM roles will be created with this permissions boundary attached."
-  type        = string
-  default     = ""
+variable "workers_group_defaults" {
+  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
+  type        = map(any)
+  default     = {}
+}
+
+variable "workers_group_launch_template_defaults" {
+  description = "Override default values for target groups. See workers_group_defaults_defaults in locals.tf for valid keys."
+  type        = map(any)
+  default     = {}
+}
+
+variable "write_aws_auth_config" {
+  description = "Whether to write the aws-auth configmap file."
+  type        = bool
+  default     = true
 }
 
 variable "write_kubeconfig" {
   description = "Whether to write a Kubectl config file containing the cluster configuration. Saved to config_output_path."
   type        = bool
   default     = true
-}
-
-variable "map_roles_count" {
-  description = "The count of roles in the map_roles list."
-  type        = string
-  default     = 0
-}
-
-variable "kubeconfig_aws_authenticator_command" {
-  description = "Command to use to fetch AWS EKS credentials."
-  type        = string
-  default     = "aws-iam-authenticator"
-}
-
-variable "kubeconfig_name" {
-  description = "Override the default name used for items kubeconfig."
-  type        = string
-  default     = ""
 }

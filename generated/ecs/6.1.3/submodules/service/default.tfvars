@@ -1,231 +1,231 @@
-task_definition_arn = null
-
-track_latest = true
-
-tasks_iam_role_name = null
-
-security_group_ingress_rules = {}
-
-create_task_exec_iam_role = true
-
 alarms = null
 
-task_tags = {}
+assign_public_ip = false
 
-deployment_minimum_healthy_percent = 66
+autoscaling_max_capacity = 10
 
-volume_configuration = null
+autoscaling_min_capacity = 1
 
-task_exec_iam_role_arn = null
+autoscaling_policies = { "cpu" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageCPUUtilization" } } }, "memory" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageMemoryUtilization" } } } }
 
-load_balancer = null
+autoscaling_scheduled_actions = null
 
-propagate_tags = null
+availability_zone_rebalancing = null
 
-service_tags = {}
+capacity_provider_strategy = null
 
-enable_fault_injection = null
-
-family = null
-
-proxy_configuration = null
-
-infrastructure_iam_role_arn = null
-
-deployment_circuit_breaker = null
-
-pid_mode = null
-
-task_exec_secret_arns = []
-
-create = true
-
-enable_execute_command = false
-
-timeouts = null
-
-enable_autoscaling = true
-
-infrastructure_iam_role_tags = {}
-
-create_infrastructure_iam_role = true
+cluster_arn = ""
 
 container_definitions = {}
 
-desired_count = 1
+cpu = 1024
 
-force_delete = null
-
-create_tasks_iam_role = true
-
-task_exec_iam_role_permissions_boundary = null
-
-external_id = null
-
-infrastructure_iam_role_name = null
-
-subnet_ids = []
-
-ipc_mode = null
+create = true
 
 create_iam_role = true
 
-memory = 2048
+create_infrastructure_iam_role = true
 
-tasks_iam_role_policies = {}
+create_security_group = true
 
-security_group_tags = {}
+create_service = true
+
+create_task_definition = true
+
+create_task_exec_iam_role = true
+
+create_task_exec_policy = true
+
+create_tasks_iam_role = true
+
+deployment_circuit_breaker = null
+
+deployment_configuration = null
+
+deployment_controller = null
+
+deployment_maximum_percent = 200
+
+deployment_minimum_healthy_percent = 66
+
+desired_count = 1
+
+enable_autoscaling = true
+
+enable_ecs_managed_tags = true
+
+enable_execute_command = false
+
+enable_fault_injection = null
+
+ephemeral_storage = null
+
+external_id = null
+
+family = null
+
+force_delete = null
+
+force_new_deployment = true
+
+health_check_grace_period_seconds = null
+
+iam_role_arn = null
+
+iam_role_description = null
+
+iam_role_name = null
 
 iam_role_path = null
 
 iam_role_permissions_boundary = null
 
-volume = null
-
-infrastructure_iam_role_use_name_prefix = true
-
-wait_for_steady_state = null
-
-task_exec_iam_role_tags = {}
-
-security_group_description = null
-
-name = null
-
-placement_constraints = null
-
-tasks_iam_role_path = null
-
-scale = null
-
-autoscaling_min_capacity = 1
-
-health_check_grace_period_seconds = null
-
-iam_role_description = null
-
-task_definition_placement_constraints = null
-
-task_exec_iam_role_max_session_duration = null
-
-create_task_exec_policy = true
-
-create_service = true
-
-tags = {}
-
-runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
-
-task_exec_iam_role_policies = {}
-
-task_exec_iam_statements = null
-
-tasks_iam_role_permissions_boundary = null
-
-deployment_maximum_percent = 200
-
-ignore_task_definition_changes = false
-
-availability_zone_rebalancing = null
-
-triggers = null
-
-wait_until_stable = null
-
-infrastructure_iam_role_permissions_boundary = null
-
-security_group_ids = []
-
-service_registries = null
-
-vpc_lattice_configurations = null
-
-tasks_iam_role_tags = {}
-
-deployment_controller = null
-
-enable_ecs_managed_tags = true
-
-ephemeral_storage = null
-
-infrastructure_iam_role_description = null
-
-force_new_deployment = true
-
-launch_type = "FARGATE"
-
-task_exec_iam_role_description = null
-
-autoscaling_max_capacity = 10
-
-autoscaling_scheduled_actions = null
-
-skip_destroy = null
-
-task_exec_iam_policy_path = null
-
-tasks_iam_role_use_name_prefix = true
-
-autoscaling_policies = { "cpu" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageCPUUtilization" } } }, "memory" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageMemoryUtilization" } } } }
-
 iam_role_statements = null
-
-create_task_definition = true
-
-tasks_iam_role_arn = null
-
-create_security_group = true
-
-infrastructure_iam_role_path = null
-
-capacity_provider_strategy = null
-
-assign_public_ip = false
-
-scheduling_strategy = null
-
-task_exec_ssm_param_arns = []
-
-tasks_iam_role_description = null
-
-cluster_arn = ""
-
-iam_role_arn = null
-
-task_exec_iam_role_use_name_prefix = true
-
-task_exec_iam_role_path = null
 
 iam_role_tags = {}
 
-tasks_iam_role_statements = null
-
-task_exec_iam_role_name = null
-
-wait_until_stable_timeout = null
-
-security_group_name = null
-
-iam_role_name = null
-
 iam_role_use_name_prefix = true
 
-requires_compatibilities = ["FARGATE"]
+ignore_task_definition_changes = false
 
-security_group_use_name_prefix = true
+infrastructure_iam_role_arn = null
 
-security_group_egress_rules = {}
+infrastructure_iam_role_description = null
 
-deployment_configuration = null
+infrastructure_iam_role_name = null
 
-cpu = 1024
+infrastructure_iam_role_path = null
+
+infrastructure_iam_role_permissions_boundary = null
+
+infrastructure_iam_role_tags = {}
+
+infrastructure_iam_role_use_name_prefix = true
+
+ipc_mode = null
+
+launch_type = "FARGATE"
+
+load_balancer = null
+
+memory = 2048
+
+name = null
 
 network_mode = "awsvpc"
 
-region = null
-
 ordered_placement_strategy = null
+
+pid_mode = null
+
+placement_constraints = null
 
 platform_version = null
 
+propagate_tags = null
+
+proxy_configuration = null
+
+region = null
+
+requires_compatibilities = ["FARGATE"]
+
+runtime_platform = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
+
+scale = null
+
+scheduling_strategy = null
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ids = []
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
 service_connect_configuration = null
+
+service_registries = null
+
+service_tags = {}
+
+skip_destroy = null
+
+subnet_ids = []
+
+tags = {}
+
+task_definition_arn = null
+
+task_definition_placement_constraints = null
+
+task_exec_iam_policy_path = null
+
+task_exec_iam_role_arn = null
+
+task_exec_iam_role_description = null
+
+task_exec_iam_role_max_session_duration = null
+
+task_exec_iam_role_name = null
+
+task_exec_iam_role_path = null
+
+task_exec_iam_role_permissions_boundary = null
+
+task_exec_iam_role_policies = {}
+
+task_exec_iam_role_tags = {}
+
+task_exec_iam_role_use_name_prefix = true
+
+task_exec_iam_statements = null
+
+task_exec_secret_arns = []
+
+task_exec_ssm_param_arns = []
+
+task_tags = {}
+
+tasks_iam_role_arn = null
+
+tasks_iam_role_description = null
+
+tasks_iam_role_name = null
+
+tasks_iam_role_path = null
+
+tasks_iam_role_permissions_boundary = null
+
+tasks_iam_role_policies = {}
+
+tasks_iam_role_statements = null
+
+tasks_iam_role_tags = {}
+
+tasks_iam_role_use_name_prefix = true
+
+timeouts = null
+
+track_latest = true
+
+triggers = null
+
+volume = null
+
+volume_configuration = null
+
+vpc_lattice_configurations = null
+
+wait_for_steady_state = null
+
+wait_until_stable = null
+
+wait_until_stable_timeout = null

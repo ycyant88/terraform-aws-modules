@@ -1,23 +1,23 @@
 module "notify-slack" {
   source                                 = "terraform-aws-modules/notify-slack/aws"
   version                                = "2.8.0"
-  lambda_function_name                   = var.lambda_function_name
-  sns_topic_name                         = var.sns_topic_name
-  log_events                             = var.log_events
-  reserved_concurrent_executions         = var.reserved_concurrent_executions
-  create_sns_topic                       = var.create_sns_topic
-  slack_webhook_url                      = var.slack_webhook_url
-  kms_key_arn                            = var.kms_key_arn
   cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
-  tags                                   = var.tags
+  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
   cloudwatch_log_group_tags              = var.cloudwatch_log_group_tags
   create                                 = var.create
+  create_sns_topic                       = var.create_sns_topic
+  iam_role_tags                          = var.iam_role_tags
+  kms_key_arn                            = var.kms_key_arn
+  lambda_description                     = var.lambda_description
+  lambda_function_name                   = var.lambda_function_name
+  lambda_function_tags                   = var.lambda_function_tags
+  log_events                             = var.log_events
+  reserved_concurrent_executions         = var.reserved_concurrent_executions
   slack_channel                          = var.slack_channel
   slack_emoji                            = var.slack_emoji
-  iam_role_tags                          = var.iam_role_tags
-  lambda_description                     = var.lambda_description
   slack_username                         = var.slack_username
-  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
-  lambda_function_tags                   = var.lambda_function_tags
+  slack_webhook_url                      = var.slack_webhook_url
+  sns_topic_name                         = var.sns_topic_name
   sns_topic_tags                         = var.sns_topic_tags
+  tags                                   = var.tags
 }

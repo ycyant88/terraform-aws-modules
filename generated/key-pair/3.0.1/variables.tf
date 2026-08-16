@@ -1,25 +1,13 @@
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "key_name_prefix" {
-  description = "Creates a unique name beginning with the specified prefix. Conflicts with key_name"
-  type        = string
-  default     = null
-}
-
 variable "create" {
   description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
+}
+
+variable "create_private_key" {
+  description = "Determines whether a private key will be created"
+  type        = bool
+  default     = false
 }
 
 variable "key_name" {
@@ -28,16 +16,10 @@ variable "key_name" {
   default     = null
 }
 
-variable "public_key" {
-  description = "The public key material"
+variable "key_name_prefix" {
+  description = "Creates a unique name beginning with the specified prefix. Conflicts with key_name"
   type        = string
-  default     = ""
-}
-
-variable "create_private_key" {
-  description = "Determines whether a private key will be created"
-  type        = bool
-  default     = false
+  default     = null
 }
 
 variable "private_key_algorithm" {
@@ -56,4 +38,22 @@ variable "private_key_rsa_bits" {
   description = "When algorithm is RSA, the size of the generated RSA key, in bits (default: 4096)"
   type        = number
   default     = 4096
+}
+
+variable "public_key" {
+  description = "The public key material"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

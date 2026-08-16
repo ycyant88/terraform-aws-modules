@@ -1,95 +1,95 @@
-subnets = []
+allowed_security_groups = []
 
 allowed_security_groups_count = 0
 
-enabled_cloudwatch_logs_exports = []
-
-source_region = ""
-
-copy_tags_to_snapshot = false
-
-tags = {}
-
-skip_final_snapshot = false
-
-preferred_backup_window = "02:00-03:00"
-
-port = ""
-
-storage_encrypted = true
-
-replica_scale_enabled = false
-
-instance_type = ""
-
-deletion_protection = false
-
-backup_retention_period = 7
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-iam_database_authentication_enabled = false
-
-replica_count = 1
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-engine_version = "5.6.10a"
-
-replica_scale_cpu = 70
-
-replica_scale_in_cooldown = 300
-
-performance_insights_kms_key_id = ""
-
-name = ""
-
-database_name = ""
-
-db_parameter_group_name = "default.aurora5.6"
-
-kms_key_id = ""
-
-engine_mode = "provisioned"
-
-publicly_accessible = false
-
-password = ""
-
-replica_scale_min = 2
-
-replication_source_identifier = ""
-
-global_cluster_identifier = ""
-
-final_snapshot_identifier_prefix = "final"
-
 apply_immediately = false
-
-monitoring_interval = 0
 
 auto_minor_version_upgrade = true
 
-engine = "aurora"
+backtrack_window = 0
 
-replica_scale_max = 0
+backup_retention_period = 7
 
-replica_scale_out_cooldown = 300
+copy_tags_to_snapshot = false
+
+database_name = ""
+
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
 
 db_subnet_group_name = ""
 
-allowed_security_groups = []
+deletion_protection = false
 
-vpc_id = ""
+enabled_cloudwatch_logs_exports = []
 
-username = "root"
+engine = "aurora"
 
-scaling_configuration = {}
+engine_mode = "provisioned"
 
-snapshot_identifier = ""
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
+instance_type = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+name = ""
+
+password = ""
 
 performance_insights_enabled = false
 
-vpc_security_group_ids = []
+performance_insights_kms_key_id = ""
 
-backtrack_window = 0
+port = ""
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+replication_source_identifier = ""
+
+scaling_configuration = {}
+
+skip_final_snapshot = false
+
+snapshot_identifier = ""
+
+source_region = ""
+
+storage_encrypted = true
+
+subnets = []
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""
+
+vpc_security_group_ids = []

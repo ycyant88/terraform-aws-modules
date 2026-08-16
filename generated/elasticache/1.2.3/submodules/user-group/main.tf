@@ -1,13 +1,13 @@
 module "elasticache_user-group" {
   source              = "terraform-aws-modules/elasticache/aws//modules/user-group"
   version             = "1.2.3"
-  users               = var.users
+  create              = var.create
   create_default_user = var.create_default_user
+  create_group        = var.create_group
+  default_user        = var.default_user
   default_user_id     = var.default_user_id
   engine              = var.engine
   tags                = var.tags
-  create_group        = var.create_group
   user_group_id       = var.user_group_id
-  default_user        = var.default_user
-  create              = var.create
+  users               = var.users
 }

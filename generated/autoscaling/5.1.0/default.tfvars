@@ -1,147 +1,147 @@
-min_elb_capacity = null
+availability_zone = null
 
-license_specifications = null
+block_device_mappings = []
+
+capacity_rebalance = null
+
+capacity_reservation_specification = null
+
+cpu_options = null
+
+create = true
+
+create_launch_template = true
+
+create_scaling_policy = true
+
+create_schedule = true
+
+credit_specification = null
+
+default_cooldown = null
 
 default_version = null
 
-instance_initiated_shutdown_behavior = null
+delete_timeout = null
 
-launch_template = null
+desired_capacity = null
 
-metrics_granularity = null
+disable_api_termination = null
 
-use_mixed_instances_policy = false
-
-warm_pool = null
-
-cpu_options = null
+ebs_optimized = null
 
 elastic_gpu_specifications = null
 
 elastic_inference_accelerator = null
 
+enable_monitoring = null
+
+enabled_metrics = null
+
+enclave_options = null
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = null
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+ignore_desired_capacity_changes = false
+
+image_id = ""
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = null
+
+instance_name = ""
+
+instance_refresh = null
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
+launch_template = null
+
+launch_template_description = null
+
+launch_template_name = ""
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+load_balancers = []
+
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = null
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
+
+network_interfaces = []
+
+placement = null
+
+placement_group = null
+
+protect_from_scale_in = false
+
+ram_disk_id = null
+
+scaling_policies = {}
+
+schedules = {}
+
+security_groups = null
+
+service_linked_role_arn = null
+
+suspended_processes = null
+
+tag_specifications = []
+
+tags = {}
+
+target_group_arns = []
+
+termination_policies = null
+
+update_default_version = null
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data_base64 = null
+
 vpc_zone_identifier = null
 
 wait_for_capacity_timeout = null
 
-termination_policies = null
-
-suspended_processes = null
-
-launch_template_description = null
-
-block_device_mappings = []
-
-network_interfaces = []
-
 wait_for_elb_capacity = null
 
-delete_timeout = null
-
-enable_monitoring = null
-
-instance_market_options = null
-
-target_group_arns = []
-
-max_instance_lifetime = null
-
-mixed_instances_policy = null
-
-enclave_options = null
-
-create_scaling_policy = true
-
-user_data_base64 = null
-
-launch_template_use_name_prefix = true
-
-availability_zone = null
-
-kernel_id = null
-
-iam_instance_profile_arn = null
-
-tag_specifications = []
-
-use_name_prefix = true
-
-health_check_grace_period = null
-
-instance_refresh = null
-
-key_name = null
-
-security_groups = null
-
-placement = null
-
-scaling_policies = {}
-
-ram_disk_id = null
-
-launch_template_version = null
-
-capacity_rebalance = null
-
-default_cooldown = null
-
-force_delete = null
-
-service_linked_role_arn = null
-
-tags = {}
-
-iam_instance_profile_name = null
-
-launch_template_name = ""
-
-update_default_version = null
-
-instance_name = ""
-
-desired_capacity = null
-
-ebs_optimized = null
-
-image_id = ""
-
-create_launch_template = true
-
-ignore_desired_capacity_changes = false
-
-initial_lifecycle_hooks = []
-
-hibernation_options = null
-
-max_size = null
-
-disable_api_termination = null
-
-create = true
-
-name = ""
-
-protect_from_scale_in = false
-
-health_check_type = null
-
-instance_type = ""
-
-capacity_reservation_specification = null
-
-enabled_metrics = null
-
-min_size = null
-
-load_balancers = []
-
-placement_group = null
-
-credit_specification = null
-
-create_schedule = true
-
-metadata_options = null
-
-schedules = {}
+warm_pool = null

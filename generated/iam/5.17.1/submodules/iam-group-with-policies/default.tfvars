@@ -1,19 +1,19 @@
-iam_self_management_policy_name_prefix = "IAMSelfManagement-"
+attach_iam_self_management_policy = true
 
-name = ""
+aws_account_id = ""
 
-group_users = []
+create_group = true
+
+custom_group_policies = []
 
 custom_group_policy_arns = []
 
 enable_mfa_enforcment = true
 
-attach_iam_self_management_policy = true
+group_users = []
 
-aws_account_id = ""
+iam_self_management_policy_name_prefix = "IAMSelfManagement-"
+
+name = ""
 
 tags = {}
-
-create_group = true
-
-custom_group_policies = []

@@ -1,15 +1,3 @@
-variable "daily_snapshot_time" {
-  description = "The daily time that snapshots will be created from the new serverless cache. Only supported for engine type redis. Defaults to 0."
-  type        = string
-  default     = null
-}
-
-variable "subnet_ids" {
-  description = "A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed."
-  type        = list(string)
-  default     = []
-}
-
 variable "cache_name" {
   description = "The name which serves as a unique identifier to the serverless cache."
   type        = string
@@ -20,6 +8,24 @@ variable "cache_usage_limits" {
   description = "Sets the cache usage limits for storage and ElastiCache Processing Units for the cache."
   type        = map(any)
   default     = {}
+}
+
+variable "create" {
+  description = "Determines whether serverless resource will be created."
+  type        = bool
+  default     = true
+}
+
+variable "daily_snapshot_time" {
+  description = "The daily time that snapshots will be created from the new serverless cache. Only supported for engine type redis. Defaults to 0."
+  type        = string
+  default     = null
+}
+
+variable "description" {
+  description = "User-created description for the serverless cache."
+  type        = string
+  default     = null
 }
 
 variable "engine" {
@@ -52,22 +58,22 @@ variable "snapshot_arns_to_restore" {
   default     = null
 }
 
-variable "create" {
-  description = "Determines whether serverless resource will be created."
-  type        = bool
-  default     = true
-}
-
 variable "snapshot_retention_limit" {
   description = "(Redis only) The number of snapshots that will be retained for the serverless cache that is being created."
   type        = number
   default     = null
 }
 
-variable "user_group_id" {
-  description = "The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL."
-  type        = string
-  default     = null
+variable "subnet_ids" {
+  description = "A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed."
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeouts" {
@@ -76,14 +82,8 @@ variable "timeouts" {
   default     = {}
 }
 
-variable "description" {
-  description = "User-created description for the serverless cache."
+variable "user_group_id" {
+  description = "The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL."
   type        = string
   default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }

@@ -1,35 +1,35 @@
-lambda_function_name = "notify_slack"
+cloudwatch_log_group_kms_key_id = ""
 
-sns_topic_name = ""
-
-log_events = false
-
-tags = {}
-
-sns_topic_tags = {}
+cloudwatch_log_group_retention_in_days = 0
 
 cloudwatch_log_group_tags = {}
 
 create = true
 
-slack_emoji = ":aws:"
+create_sns_topic = true
+
+iam_role_tags = {}
 
 kms_key_arn = ""
 
-reserved_concurrent_executions = -1
-
-cloudwatch_log_group_kms_key_id = ""
+lambda_function_name = "notify_slack"
 
 lambda_function_tags = {}
 
+log_events = false
+
+reserved_concurrent_executions = -1
+
 slack_channel = ""
+
+slack_emoji = ":aws:"
 
 slack_username = ""
 
 slack_webhook_url = ""
 
-cloudwatch_log_group_retention_in_days = 0
+sns_topic_name = ""
 
-iam_role_tags = {}
+sns_topic_tags = {}
 
-create_sns_topic = true
+tags = {}

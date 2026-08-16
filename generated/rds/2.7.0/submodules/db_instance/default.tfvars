@@ -1,95 +1,95 @@
-iops = 0
+allocated_storage = ""
 
-create_monitoring_role = false
+allow_major_version_upgrade = false
 
-skip_final_snapshot = true
+apply_immediately = false
 
-iam_database_authentication_enabled = false
-
-port = ""
-
-parameter_group_name = ""
-
-name = ""
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
-monitoring_role_arn = ""
+backup_retention_period = 1
 
-timezone = ""
+backup_window = ""
 
-license_model = ""
+ca_cert_identifier = "rds-ca-2015"
+
+character_set_name = ""
+
+copy_tags_to_snapshot = false
+
+create = true
+
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
 
 engine = ""
 
 engine_version = ""
 
-create = true
+final_snapshot_identifier = null
 
-option_group_name = ""
-
-max_allocated_storage = 0
-
-password = ""
-
-monitoring_interval = 0
-
-apply_immediately = false
-
-copy_tags_to_snapshot = false
-
-performance_insights_enabled = false
+iam_database_authentication_enabled = false
 
 identifier = ""
 
-storage_type = "gp2"
+instance_class = ""
 
-storage_encrypted = false
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-deletion_protection = false
-
-ca_cert_identifier = "rds-ca-2015"
-
-allocated_storage = ""
-
-snapshot_identifier = ""
-
-auto_minor_version_upgrade = true
-
-username = ""
-
-final_snapshot_identifier = null
-
-db_subnet_group_name = ""
-
-multi_az = false
-
-backup_retention_period = 1
+iops = 0
 
 kms_key_id = ""
 
-replicate_source_db = ""
-
-instance_class = ""
+license_model = ""
 
 maintenance_window = ""
 
-tags = {}
+max_allocated_storage = 0
 
-character_set_name = ""
+monitoring_interval = 0
 
-performance_insights_retention_period = 7
-
-vpc_security_group_ids = []
+monitoring_role_arn = ""
 
 monitoring_role_name = "rds-monitoring-role"
 
-allow_major_version_upgrade = false
+multi_az = false
+
+name = ""
+
+option_group_name = ""
+
+parameter_group_name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_retention_period = 7
+
+port = ""
 
 publicly_accessible = false
 
-backup_window = ""
+replicate_source_db = ""
 
-enabled_cloudwatch_logs_exports = []
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

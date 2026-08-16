@@ -1,13 +1,13 @@
-variable "db_instance_identifier" {
-  description = "The database instance identifier to associate the role"
-  type        = string
-  default     = null
-}
-
 variable "create" {
   description = "Determines whether to create a DB instance role association"
   type        = bool
   default     = true
+}
+
+variable "db_instance_identifier" {
+  description = "The database instance identifier to associate the role"
+  type        = string
+  default     = null
 }
 
 variable "feature_name" {

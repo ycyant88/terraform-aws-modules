@@ -4,10 +4,28 @@ variable "create" {
   default     = true
 }
 
-variable "name" {
-  description = "The name of the accelerator"
-  type        = string
-  default     = ""
+variable "create_listeners" {
+  description = "Controls if listeners should be created (affects only listeners)"
+  type        = bool
+  default     = true
+}
+
+variable "enabled" {
+  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
+  type        = bool
+  default     = true
+}
+
+variable "endpoint_groups_timeouts" {
+  description = "Create, update, and delete timeout configurations for the endpoint groups"
+  type        = map(string)
+  default     = {}
+}
+
+variable "flow_logs_enabled" {
+  description = "Indicates whether flow logs are enabled. Defaults to false"
+  type        = bool
+  default     = false
 }
 
 variable "flow_logs_s3_bucket" {
@@ -22,40 +40,10 @@ variable "flow_logs_s3_prefix" {
   default     = null
 }
 
-variable "endpoint_groups_timeouts" {
-  description = "Create, update, and delete timeout configurations for the endpoint groups"
-  type        = map(string)
-  default     = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "ip_address_type" {
   description = "The value for the address type. Defaults to IPV4. Valid values: IPV4"
   type        = string
   default     = "IPV4"
-}
-
-variable "enabled" {
-  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
-  type        = bool
-  default     = true
-}
-
-variable "flow_logs_enabled" {
-  description = "Indicates whether flow logs are enabled. Defaults to false"
-  type        = bool
-  default     = false
-}
-
-variable "create_listeners" {
-  description = "Controls if listeners should be created (affects only listeners)"
-  type        = bool
-  default     = true
 }
 
 variable "listeners" {
@@ -66,6 +54,18 @@ variable "listeners" {
 
 variable "listeners_timeouts" {
   description = "Create, update, and delete timeout configurations for the listeners"
+  type        = map(string)
+  default     = {}
+}
+
+variable "name" {
+  description = "The name of the accelerator"
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
 }

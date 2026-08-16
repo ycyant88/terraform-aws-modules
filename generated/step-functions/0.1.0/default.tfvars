@@ -1,57 +1,57 @@
-use_existing_role = false
-
-definition = ""
-
-role_arn = ""
-
-service_integrations = {}
-
-attach_policy_statements = false
-
-create = true
-
-policy_json = null
-
-role_name = null
-
-trusted_entities = []
-
-policies = []
-
-role_description = null
-
-role_path = null
-
-role_force_detach_policies = true
-
-role_permissions_boundary = null
-
-attach_policy_jsons = false
-
-attach_policy_json = false
-
-attach_policy = false
-
-number_of_policy_jsons = 0
-
-tags = {}
-
-aws_region_assume_role = ""
+attach_policies = false
 
 attach_policies_for_integrations = true
 
-name = ""
+attach_policy = false
 
-attach_policies = false
+attach_policy_json = false
 
-number_of_policies = 0
+attach_policy_jsons = false
 
-policy_statements = {}
+attach_policy_statements = false
+
+aws_region_assume_role = ""
+
+create = true
 
 create_role = true
 
-role_tags = {}
+definition = ""
+
+name = ""
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
 
 policy_jsons = []
 
-policy = null
+policy_statements = {}
+
+role_arn = ""
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+service_integrations = {}
+
+tags = {}
+
+trusted_entities = []
+
+use_existing_role = false

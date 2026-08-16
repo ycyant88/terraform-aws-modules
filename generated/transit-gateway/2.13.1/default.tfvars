@@ -1,53 +1,53 @@
-name = ""
-
-tags = {}
-
-description = null
-
 amazon_side_asn = null
 
-enable_vpn_ecmp_support = true
-
-tgw_vpc_attachment_tags = {}
-
-tgw_route_table_tags = {}
-
-ram_name = ""
-
-enable_auto_accept_shared_attachments = false
-
-enable_multicast_support = false
-
-timeouts = {}
-
-enable_sg_referencing_support = true
+create_tgw = true
 
 create_tgw_routes = true
 
-transit_gateway_route_table_id = null
+description = null
 
-share_tgw = true
-
-ram_principals = []
+enable_auto_accept_shared_attachments = false
 
 enable_default_route_table_association = true
 
+enable_default_route_table_propagation = true
+
 enable_dns_support = true
 
-tgw_tags = {}
+enable_multicast_support = false
 
-vpc_attachments = {}
+enable_sg_referencing_support = true
+
+enable_vpn_ecmp_support = true
+
+name = ""
 
 ram_allow_external_principals = false
+
+ram_name = ""
+
+ram_principals = []
 
 ram_resource_share_arn = ""
 
 ram_tags = {}
 
-create_tgw = true
+share_tgw = true
 
-enable_default_route_table_propagation = true
+tags = {}
+
+tgw_default_route_table_tags = {}
+
+tgw_route_table_tags = {}
+
+tgw_tags = {}
+
+tgw_vpc_attachment_tags = {}
+
+timeouts = {}
 
 transit_gateway_cidr_blocks = []
 
-tgw_default_route_table_tags = {}
+transit_gateway_route_table_id = null
+
+vpc_attachments = {}

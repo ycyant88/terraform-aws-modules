@@ -1,10 +1,10 @@
 module "rds_db_parameter_group" {
   source      = "terraform-aws-modules/rds/aws//modules/db_parameter_group"
   version     = "1.11.0"
-  name_prefix = var.name_prefix
-  identifier  = var.identifier
+  count       = var.count
   family      = var.family
+  identifier  = var.identifier
+  name_prefix = var.name_prefix
   parameters  = var.parameters
   tags        = var.tags
-  count       = var.count
 }

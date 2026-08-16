@@ -1,9 +1,3 @@
-variable "readonly_role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for readonly role"
-  type        = string
-  default     = ""
-}
-
 variable "admin_role_name" {
   description = "IAM role with admin access"
   type        = string
@@ -16,26 +10,20 @@ variable "admin_role_path" {
   default     = "/"
 }
 
-variable "poweruser_role_name" {
-  description = "IAM role with poweruser access"
-  type        = string
-  default     = "poweruser"
-}
-
-variable "poweruser_role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for poweruser role"
+variable "admin_role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for admin role"
   type        = string
   default     = ""
 }
 
-variable "readonly_role_name" {
-  description = "IAM role with readonly access"
+variable "admin_role_policy_arn" {
+  description = "Policy ARN to use for admin role"
   type        = string
-  default     = "readonly"
+  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
-variable "readonly_role_requires_mfa" {
-  description = "Whether readonly role requires MFA"
+variable "admin_role_requires_mfa" {
+  description = "Whether admin role requires MFA"
   type        = bool
   default     = true
 }
@@ -46,16 +34,16 @@ variable "create_admin_role" {
   default     = false
 }
 
-variable "admin_role_requires_mfa" {
-  description = "Whether admin role requires MFA"
+variable "create_poweruser_role" {
+  description = "Whether to create poweruser role"
   type        = bool
-  default     = true
+  default     = false
 }
 
-variable "poweruser_role_path" {
-  description = "Path of poweruser IAM role"
-  type        = string
-  default     = "/"
+variable "create_readonly_role" {
+  description = "Whether to create readonly role"
+  type        = bool
+  default     = false
 }
 
 variable "max_session_duration" {
@@ -70,10 +58,22 @@ variable "mfa_age" {
   default     = 86400
 }
 
-variable "admin_role_policy_arn" {
-  description = "Policy ARN to use for admin role"
+variable "poweruser_role_name" {
+  description = "IAM role with poweruser access"
   type        = string
-  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
+  default     = "poweruser"
+}
+
+variable "poweruser_role_path" {
+  description = "Path of poweruser IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "poweruser_role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for poweruser role"
+  type        = string
+  default     = ""
 }
 
 variable "poweruser_role_policy_arn" {
@@ -82,44 +82,44 @@ variable "poweruser_role_policy_arn" {
   default     = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
 
-variable "readonly_role_path" {
-  description = "Path of readonly IAM role"
-  type        = string
-  default     = "/"
-}
-
-variable "trusted_role_arns" {
-  description = "ARNs of AWS entities who can assume these roles"
-  type        = list(any)
-  default     = []
-}
-
-variable "admin_role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for admin role"
-  type        = string
-  default     = ""
-}
-
-variable "create_poweruser_role" {
-  description = "Whether to create poweruser role"
-  type        = bool
-  default     = false
-}
-
 variable "poweruser_role_requires_mfa" {
   description = "Whether poweruser role requires MFA"
   type        = bool
   default     = true
 }
 
-variable "create_readonly_role" {
-  description = "Whether to create readonly role"
-  type        = bool
-  default     = false
+variable "readonly_role_name" {
+  description = "IAM role with readonly access"
+  type        = string
+  default     = "readonly"
+}
+
+variable "readonly_role_path" {
+  description = "Path of readonly IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "readonly_role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for readonly role"
+  type        = string
+  default     = ""
 }
 
 variable "readonly_role_policy_arn" {
   description = "Policy ARN to use for readonly role"
   type        = string
   default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
+variable "readonly_role_requires_mfa" {
+  description = "Whether readonly role requires MFA"
+  type        = bool
+  default     = true
+}
+
+variable "trusted_role_arns" {
+  description = "ARNs of AWS entities who can assume these roles"
+  type        = list(any)
+  default     = []
 }

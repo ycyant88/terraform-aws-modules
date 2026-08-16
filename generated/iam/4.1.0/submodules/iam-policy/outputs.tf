@@ -8,6 +8,11 @@ output "description" {
   description = "The description of the policy"
 }
 
+output "id" {
+  value       = module.iam_iam-policy.id
+  description = "The policy's ID"
+}
+
 output "name" {
   value       = module.iam_iam-policy.name
   description = "The name of the policy"
@@ -21,9 +26,4 @@ output "path" {
 output "policy" {
   value       = module.iam_iam-policy.policy
   description = "The policy document"
-}
-
-output "id" {
-  value       = module.iam_iam-policy.id
-  description = "The policy's ID"
 }

@@ -1,41 +1,41 @@
-create_origin_access_identity = false
+aliases = null
+
+cache_behavior = null
 
 comment = null
+
+create_distribution = true
+
+create_origin_access_identity = false
+
+custom_error_response = {}
 
 default_root_object = null
 
 enabled = true
 
-price_class = null
-
-wait_for_deployment = true
-
-cache_behavior = null
-
-web_acl_id = null
-
-logging_config = {}
-
-create_distribution = true
-
-origin_access_identities = {}
-
-aliases = null
+geo_restriction = {}
 
 http_version = "http2"
 
+is_ipv6_enabled = null
+
+logging_config = {}
+
 origin = null
+
+origin_access_identities = {}
 
 origin_group = {}
 
-viewer_certificate = null
-
-geo_restriction = {}
-
-custom_error_response = {}
-
-is_ipv6_enabled = null
+price_class = null
 
 retain_on_delete = false
 
 tags = null
+
+viewer_certificate = null
+
+wait_for_deployment = true
+
+web_acl_id = null

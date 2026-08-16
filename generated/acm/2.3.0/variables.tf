@@ -1,25 +1,13 @@
-variable "validation_method" {
-  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
-  type        = string
-  default     = "DNS"
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
-
 variable "create_certificate" {
   description = "Whether to create ACM certificate"
   type        = bool
   default     = true
 }
 
-variable "validate_certificate" {
-  description = "Whether to validate certificate by creating Route53 record"
-  type        = bool
-  default     = true
+variable "domain_name" {
+  description = "A domain name for which the certificate should be issued"
+  type        = string
+  default     = ""
 }
 
 variable "subject_alternative_names" {
@@ -28,10 +16,16 @@ variable "subject_alternative_names" {
   default     = []
 }
 
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
-  type        = string
-  default     = ""
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
+}
+
+variable "validate_certificate" {
+  description = "Whether to validate certificate by creating Route53 record"
+  type        = bool
+  default     = true
 }
 
 variable "validation_allow_overwrite_records" {
@@ -40,14 +34,20 @@ variable "validation_allow_overwrite_records" {
   default     = true
 }
 
+variable "validation_method" {
+  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
+  type        = string
+  default     = "DNS"
+}
+
 variable "wait_for_validation" {
   description = "Whether to wait for the validation to complete"
   type        = bool
   default     = true
 }
 
-variable "domain_name" {
-  description = "A domain name for which the certificate should be issued"
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record."
   type        = string
   default     = ""
 }

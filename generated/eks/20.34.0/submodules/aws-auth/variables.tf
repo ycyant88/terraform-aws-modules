@@ -4,6 +4,18 @@ variable "aws_auth_accounts" {
   default     = []
 }
 
+variable "aws_auth_roles" {
+  description = "List of role maps to add to the aws-auth configmap"
+  type        = list(any)
+  default     = []
+}
+
+variable "aws_auth_users" {
+  description = "List of user maps to add to the aws-auth configmap"
+  type        = list(any)
+  default     = []
+}
+
 variable "create" {
   description = "Controls if resources should be created (affects all resources)"
   type        = bool
@@ -20,16 +32,4 @@ variable "manage_aws_auth_configmap" {
   description = "Determines whether to manage the aws-auth configmap"
   type        = bool
   default     = true
-}
-
-variable "aws_auth_roles" {
-  description = "List of role maps to add to the aws-auth configmap"
-  type        = list(any)
-  default     = []
-}
-
-variable "aws_auth_users" {
-  description = "List of user maps to add to the aws-auth configmap"
-  type        = list(any)
-  default     = []
 }

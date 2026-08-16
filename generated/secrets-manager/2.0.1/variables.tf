@@ -1,12 +1,42 @@
-variable "kms_key_id" {
-  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
+variable "block_public_policy" {
+  description = "Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret"
+  type        = bool
+  default     = null
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_policy" {
+  description = "Determines whether a policy will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_random_password" {
+  description = "Determines whether an ephemeral random password will be generated for secret_string_wo"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "A description of the secret"
   type        = string
   default     = null
 }
 
-variable "recovery_window_in_days" {
-  description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be 0 to force deletion without recovery or range from 7 to 30 days. The default value is 30"
-  type        = number
+variable "enable_rotation" {
+  description = "Determines whether secret rotation is enabled"
+  type        = bool
+  default     = false
+}
+
+variable "force_overwrite_replica_secret" {
+  description = "Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region"
+  type        = bool
   default     = null
 }
 
@@ -16,20 +46,14 @@ variable "ignore_secret_changes" {
   default     = false
 }
 
-variable "rotate_immediately" {
-  description = "Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in rotation_rules"
-  type        = bool
+variable "kms_key_id" {
+  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
+  type        = string
   default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "description" {
-  description = "A description of the secret"
+variable "name" {
+  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
   type        = string
   default     = null
 }
@@ -40,32 +64,8 @@ variable "name_prefix" {
   default     = null
 }
 
-variable "secret_string" {
-  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary or secret_string_wo is not set"
-  type        = string
-  default     = null
-}
-
-variable "create_random_password" {
-  description = "Determines whether an ephemeral random password will be generated for secret_string_wo"
-  type        = bool
-  default     = false
-}
-
-variable "random_password_override_special" {
-  description = "Supply your own list of special characters to use for string generation. This overrides the default character list in the special argument"
-  type        = string
-  default     = "!@#$%&*()-_=+[]{}<>:?"
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "source_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+variable "override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
   type        = list(string)
   default     = []
 }
@@ -96,42 +96,26 @@ variable "policy_statements" {
   default = null
 }
 
-variable "block_public_policy" {
-  description = "Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret"
-  type        = bool
-  default     = null
-}
-
-variable "secret_binary" {
-  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string or secret_string_wo is not set. Needs to be encoded to base64"
-  type        = string
-  default     = null
-}
-
-variable "version_stages" {
-  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
-  type        = list(string)
-  default     = null
-}
-
 variable "random_password_length" {
   description = "The length of the generated random password"
   type        = number
   default     = 32
 }
 
-variable "rotation_rules" {
-  description = "A structure that defines the rotation configuration for this secret"
-  type = object({
-    automatically_after_days = optional(number)
-    duration                 = optional(string)
-    schedule_expression      = optional(string)
-  })
-  default = null
+variable "random_password_override_special" {
+  description = "Supply your own list of special characters to use for string generation. This overrides the default character list in the special argument"
+  type        = string
+  default     = "!@#$%&*()-_=+[]{}<>:?"
 }
 
-variable "name" {
-  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
+variable "recovery_window_in_days" {
+  description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be 0 to force deletion without recovery or range from 7 to 30 days. The default value is 30"
+  type        = number
+  default     = null
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
   type        = string
   default     = null
 }
@@ -145,16 +129,38 @@ variable "replica" {
   default = null
 }
 
-variable "create_policy" {
-  description = "Determines whether a policy will be created"
+variable "rotate_immediately" {
+  description = "Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in rotation_rules"
   type        = bool
-  default     = false
+  default     = null
 }
 
-variable "override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
+variable "rotation_lambda_arn" {
+  description = "Specifies the ARN of the Lambda function that can rotate the secret"
+  type        = string
+  default     = ""
+}
+
+variable "rotation_rules" {
+  description = "A structure that defines the rotation configuration for this secret"
+  type = object({
+    automatically_after_days = optional(number)
+    duration                 = optional(string)
+    schedule_expression      = optional(string)
+  })
+  default = null
+}
+
+variable "secret_binary" {
+  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string or secret_string_wo is not set. Needs to be encoded to base64"
+  type        = string
+  default     = null
+}
+
+variable "secret_string" {
+  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary or secret_string_wo is not set"
+  type        = string
+  default     = null
 }
 
 variable "secret_string_wo" {
@@ -169,26 +175,20 @@ variable "secret_string_wo_version" {
   default     = null
 }
 
-variable "enable_rotation" {
-  description = "Determines whether secret rotation is enabled"
-  type        = bool
-  default     = false
+variable "source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
 }
 
-variable "rotation_lambda_arn" {
-  description = "Specifies the ARN of the Lambda function that can rotate the secret"
-  type        = string
-  default     = ""
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "force_overwrite_replica_secret" {
-  description = "Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region"
-  type        = bool
+variable "version_stages" {
+  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
+  type        = list(string)
   default     = null
 }

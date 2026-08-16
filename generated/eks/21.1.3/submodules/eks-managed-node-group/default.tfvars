@@ -1,183 +1,183 @@
-tags = {}
-
-capacity_reservation_specification = null
-
-enable_efa_only = true
-
-security_group_tags = {}
-
-user_data_template_path = null
-
-desired_size = 1
-
-security_group_description = null
-
-launch_template_use_name_prefix = true
-
-efa_indices = [0]
-
-min_size = 1
-
-cluster_ip_family = "ipv4"
-
-iam_role_name = null
-
-security_group_ingress_rules = {}
-
-create_launch_template = true
-
-launch_template_id = ""
-
-launch_template_default_version = null
-
-enable_efa_support = false
-
-network_interfaces = []
-
-placement = null
-
-kubernetes_version = null
-
-update_config = { "max_unavailable_percentage" : 33 }
-
-cloudinit_post_nodeadm = null
-
-use_custom_launch_template = true
-
-cpu_options = null
-
-license_specifications = null
-
-tag_specifications = ["instance", "volume", "network-interface"]
-
-use_name_prefix = true
-
-labels = null
-
-iam_role_description = "EKS managed node group IAM role"
-
-ebs_optimized = null
-
-create = true
-
-region = null
-
-cloudinit_pre_nodeadm = null
-
-launch_template_name = null
-
-name = ""
-
-force_update_version = null
-
-iam_role_path = null
-
-enable_bootstrap_user_data = false
-
-pre_bootstrap_user_data = null
-
-iam_role_permissions_boundary = null
-
-create_security_group = true
-
-security_group_egress_rules = {}
-
-cluster_endpoint = null
-
-cluster_service_cidr = null
-
-key_name = null
-
-update_launch_template_default_version = true
-
-ram_disk_id = null
-
-private_dns_name_options = null
-
-remote_access = null
-
-iam_role_attach_cni_policy = true
-
-bootstrap_extra_args = null
-
-launch_template_version = null
-
-iam_role_arn = null
-
-iam_role_policy_statements = null
-
-post_bootstrap_user_data = null
-
-disable_api_termination = null
-
-iam_role_use_name_prefix = true
+account_id = ""
 
 ami_id = ""
 
+ami_release_version = null
+
+ami_type = "AL2023_x86_64_STANDARD"
+
+block_device_mappings = null
+
+bootstrap_extra_args = null
+
+capacity_reservation_specification = null
+
+capacity_type = "ON_DEMAND"
+
+cloudinit_post_nodeadm = null
+
+cloudinit_pre_nodeadm = null
+
+cluster_auth_base64 = null
+
+cluster_endpoint = null
+
+cluster_ip_family = "ipv4"
+
+cluster_name = ""
+
 cluster_primary_security_group_id = null
 
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "required" }
+cluster_service_cidr = null
 
-subnet_ids = null
+cpu_options = null
 
-node_repair_config = null
+create = true
 
 create_iam_role = true
 
 create_iam_role_policy = true
 
-block_device_mappings = null
-
-enclave_options = null
-
-max_size = 3
-
-launch_template_description = null
-
-vpc_security_group_ids = []
-
-kernel_id = null
-
-credit_specification = null
-
-enable_monitoring = false
-
-use_latest_ami_release_version = true
-
-taints = null
-
-iam_role_additional_policies = {}
-
-partition = ""
-
-cluster_name = ""
+create_launch_template = true
 
 create_placement_group = false
 
-launch_template_tags = {}
+create_security_group = true
 
-instance_types = null
+credit_specification = null
 
-iam_role_tags = {}
+desired_size = 1
 
-security_group_name = null
-
-cluster_auth_base64 = null
-
-instance_market_options = null
-
-maintenance_options = null
-
-capacity_type = "ON_DEMAND"
+disable_api_termination = null
 
 disk_size = null
 
-timeouts = null
+ebs_optimized = null
 
-account_id = ""
+efa_indices = [0]
 
-ami_type = "AL2023_x86_64_STANDARD"
+enable_bootstrap_user_data = false
 
-ami_release_version = null
+enable_efa_only = true
+
+enable_efa_support = false
+
+enable_monitoring = false
+
+enclave_options = null
+
+force_update_version = null
+
+iam_role_additional_policies = {}
+
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = "EKS managed node group IAM role"
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_policy_statements = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+instance_market_options = null
+
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+kubernetes_version = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+maintenance_options = null
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "required" }
+
+min_size = 1
+
+name = ""
+
+network_interfaces = []
+
+node_repair_config = null
+
+partition = ""
+
+placement = null
+
+post_bootstrap_user_data = null
+
+pre_bootstrap_user_data = null
+
+private_dns_name_options = null
+
+ram_disk_id = null
+
+region = null
+
+remote_access = null
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
 
 security_group_use_name_prefix = true
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface"]
+
+tags = {}
+
+taints = null
+
+timeouts = null
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_latest_ami_release_version = true
+
+use_name_prefix = true
+
+user_data_template_path = null
+
+vpc_security_group_ids = []

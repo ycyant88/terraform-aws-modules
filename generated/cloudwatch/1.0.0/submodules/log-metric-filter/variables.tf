@@ -1,7 +1,7 @@
-variable "pattern" {
-  description = "A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events."
-  type        = string
-  default     = ""
+variable "create_cloudwatch_log_metric_filter" {
+  description = "Whether to create the Cloudwatch log metric filter"
+  type        = bool
+  default     = true
 }
 
 variable "log_group_name" {
@@ -10,20 +10,14 @@ variable "log_group_name" {
   default     = ""
 }
 
-variable "metric_transformation_name" {
-  description = "The name of the CloudWatch metric to which the monitored log information should be published (e.g. ErrorCount)"
+variable "metric_transformation_default_value" {
+  description = "The value to emit when a filter pattern does not match a log event."
   type        = string
   default     = ""
 }
 
-variable "create_cloudwatch_log_metric_filter" {
-  description = "Whether to create the Cloudwatch log metric filter"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "A name for the metric filter."
+variable "metric_transformation_name" {
+  description = "The name of the CloudWatch metric to which the monitored log information should be published (e.g. ErrorCount)"
   type        = string
   default     = ""
 }
@@ -40,8 +34,14 @@ variable "metric_transformation_value" {
   default     = 1
 }
 
-variable "metric_transformation_default_value" {
-  description = "The value to emit when a filter pattern does not match a log event."
+variable "name" {
+  description = "A name for the metric filter."
+  type        = string
+  default     = ""
+}
+
+variable "pattern" {
+  description = "A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events."
   type        = string
   default     = ""
 }

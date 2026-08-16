@@ -1,77 +1,77 @@
-network_configuration = {}
-
-instance_iam_role_name = null
-
-vpc_connector_security_groups = []
-
-instance_iam_role_permissions_boundary = null
-
-create = true
-
-health_check_configuration = {}
-
-access_iam_role_use_name_prefix = true
-
-access_iam_role_path = null
-
 access_iam_role_description = null
-
-access_iam_role_permissions_boundary = null
-
-private_ecr_arn = null
-
-access_iam_role_policies = {}
-
-tags = {}
-
-service_name = ""
 
 access_iam_role_name = null
 
-ingress_vpc_id = ""
+access_iam_role_path = null
 
-ingress_vpc_endpoint_id = ""
+access_iam_role_permissions_boundary = null
 
-auto_scaling_configurations = {}
+access_iam_role_policies = {}
 
-create_vpc_connector = false
-
-encryption_configuration = {}
-
-instance_iam_role_use_name_prefix = true
-
-domain_name = ""
-
-instance_iam_role_description = null
-
-create_custom_domain_association = false
-
-vpc_connector_name = ""
-
-enable_observability_configuration = true
+access_iam_role_use_name_prefix = true
 
 auto_scaling_configuration_arn = null
 
-create_access_iam_role = false
-
-instance_iam_role_policies = {}
-
-create_instance_iam_role = true
-
-instance_iam_role_path = null
-
-enable_www_subdomain = null
-
-create_service = true
-
-instance_configuration = {}
-
-observability_configuration = {}
+auto_scaling_configurations = {}
 
 connections = {}
 
-source_configuration = {}
+create = true
+
+create_access_iam_role = false
+
+create_custom_domain_association = false
 
 create_ingress_vpc_connection = false
+
+create_instance_iam_role = true
+
+create_service = true
+
+create_vpc_connector = false
+
+domain_name = ""
+
+enable_observability_configuration = true
+
+enable_www_subdomain = null
+
+encryption_configuration = {}
+
+health_check_configuration = {}
+
+ingress_vpc_endpoint_id = ""
+
+ingress_vpc_id = ""
+
+instance_configuration = {}
+
+instance_iam_role_description = null
+
+instance_iam_role_name = null
+
+instance_iam_role_path = null
+
+instance_iam_role_permissions_boundary = null
+
+instance_iam_role_policies = {}
+
+instance_iam_role_use_name_prefix = true
+
+network_configuration = {}
+
+observability_configuration = {}
+
+private_ecr_arn = null
+
+service_name = ""
+
+source_configuration = {}
+
+tags = {}
+
+vpc_connector_name = ""
+
+vpc_connector_security_groups = []
 
 vpc_connector_subnets = []

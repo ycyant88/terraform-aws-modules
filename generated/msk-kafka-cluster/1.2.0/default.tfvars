@@ -1,26 +1,36 @@
-tags = {}
+broker_node_client_subnets = []
 
-connect_custom_plugin_timeouts = { "create" : null }
+broker_node_ebs_volume_size = null
 
-connect_worker_config_description = null
+broker_node_instance_type = null
 
-kafka_version = null
+broker_node_security_groups = []
 
-encryption_in_transit_in_cluster = null
+client_authentication_sasl_iam = false
 
-s3_logs_enabled = false
+client_authentication_sasl_scram = false
 
-s3_logs_prefix = null
+client_authentication_tls_certificate_authority_arns = []
 
 cloudwatch_log_group_kms_key_id = null
 
-firehose_logs_enabled = false
-
-firehose_delivery_stream = null
+cloudwatch_log_group_name = null
 
 cloudwatch_log_group_retention_in_days = 0
 
-scaling_max_capacity = 250
+cloudwatch_logs_enabled = false
+
+configuration_description = null
+
+configuration_name = null
+
+configuration_server_properties = {}
+
+connect_custom_plugin_timeouts = { "create" : null }
+
+connect_custom_plugins = {}
+
+connect_worker_config_description = null
 
 connect_worker_config_name = null
 
@@ -28,64 +38,54 @@ connect_worker_config_properties_file_content = null
 
 create = true
 
-number_of_broker_nodes = null
+create_cloudwatch_log_group = true
+
+create_connect_worker_configuration = false
+
+create_schema_registry = true
+
+create_scram_secret_association = false
+
+encryption_at_rest_kms_key_arn = null
+
+encryption_in_transit_client_broker = null
+
+encryption_in_transit_in_cluster = null
+
+enhanced_monitoring = null
+
+firehose_delivery_stream = null
+
+firehose_logs_enabled = false
+
+jmx_exporter_enabled = false
+
+kafka_version = null
+
+name = "msk"
 
 node_exporter_enabled = false
 
-scram_secret_association_secret_arn_list = []
+number_of_broker_nodes = null
 
-create_schema_registry = true
+s3_logs_bucket = null
+
+s3_logs_enabled = false
+
+s3_logs_prefix = null
+
+scaling_max_capacity = 250
+
+scaling_role_arn = null
+
+scaling_target_value = 70
 
 schema_registries = {}
 
 schemas = {}
 
-name = "msk"
+scram_secret_association_secret_arn_list = []
 
-broker_node_ebs_volume_size = null
-
-encryption_in_transit_client_broker = null
-
-cloudwatch_logs_enabled = false
-
-s3_logs_bucket = null
-
-cloudwatch_log_group_name = null
-
-scaling_role_arn = null
-
-enhanced_monitoring = null
-
-broker_node_instance_type = null
-
-create_cloudwatch_log_group = true
-
-broker_node_client_subnets = []
-
-configuration_description = null
-
-configuration_server_properties = {}
-
-create_scram_secret_association = false
-
-broker_node_security_groups = []
-
-client_authentication_sasl_scram = false
-
-jmx_exporter_enabled = false
+tags = {}
 
 timeouts = {}
-
-configuration_name = null
-
-scaling_target_value = 70
-
-connect_custom_plugins = {}
-
-create_connect_worker_configuration = false
-
-client_authentication_tls_certificate_authority_arns = []
-
-client_authentication_sasl_iam = false
-
-encryption_at_rest_kms_key_arn = null

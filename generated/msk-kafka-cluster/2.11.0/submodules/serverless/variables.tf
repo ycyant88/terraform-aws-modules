@@ -1,11 +1,5 @@
-variable "create_cluster_policy" {
-  description = "Determines whether to create an MSK cluster policy"
-  type        = bool
-  default     = false
-}
-
-variable "cluster_source_policy_documents" {
-  description = "Source policy documents for cluster policy"
+variable "cluster_override_policy_documents" {
+  description = "Override policy documents for cluster policy"
   type        = list(string)
   default     = null
 }
@@ -16,10 +10,28 @@ variable "cluster_policy_statements" {
   default     = null
 }
 
+variable "cluster_source_policy_documents" {
+  description = "Source policy documents for cluster policy"
+  type        = list(string)
+  default     = null
+}
+
 variable "create" {
   description = "Determines whether cluster resources will be created"
   type        = bool
   default     = true
+}
+
+variable "create_cluster_policy" {
+  description = "Determines whether to create an MSK cluster policy"
+  type        = bool
+  default     = false
+}
+
+variable "name" {
+  description = "Name of the MSK serverless cluster"
+  type        = string
+  default     = null
 }
 
 variable "security_group_ids" {
@@ -38,16 +50,4 @@ variable "tags" {
   description = "A map of tags to assign to the resources created"
   type        = map(string)
   default     = {}
-}
-
-variable "cluster_override_policy_documents" {
-  description = "Override policy documents for cluster policy"
-  type        = list(string)
-  default     = null
-}
-
-variable "name" {
-  description = "Name of the MSK serverless cluster"
-  type        = string
-  default     = null
 }

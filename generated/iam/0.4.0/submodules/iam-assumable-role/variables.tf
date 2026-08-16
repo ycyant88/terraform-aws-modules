@@ -1,43 +1,13 @@
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
-}
-
-variable "role_permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
+variable "admin_role_policy_arn" {
+  description = "Policy ARN to use for admin role"
   type        = string
-  default     = ""
+  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
-variable "custom_role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(any)
-  default     = []
-}
-
-variable "trusted_role_arns" {
-  description = "ARNs of AWS entities who can assume these roles"
-  type        = list(any)
-  default     = []
-}
-
-variable "mfa_age" {
-  description = "Max age of valid MFA (in seconds) for roles which require MFA"
-  type        = number
-  default     = 86400
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
+variable "attach_admin_policy" {
+  description = "Whether to attach an admin policy to a role"
   type        = bool
   default     = false
-}
-
-variable "poweruser_role_policy_arn" {
-  description = "Policy ARN to use for poweruser role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
 
 variable "attach_poweruser_policy" {
@@ -46,34 +16,40 @@ variable "attach_poweruser_policy" {
   default     = false
 }
 
-variable "role_path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = "/"
-}
-
-variable "role_requires_mfa" {
-  description = "Whether role requires MFA"
-  type        = bool
-  default     = true
-}
-
 variable "attach_readonly_policy" {
   description = "Whether to attach a readonly policy to a role"
   type        = bool
   default     = false
 }
 
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = ""
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
 }
 
-variable "admin_role_policy_arn" {
-  description = "Policy ARN to use for admin role"
+variable "custom_role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(any)
+  default     = []
+}
+
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
+}
+
+variable "mfa_age" {
+  description = "Max age of valid MFA (in seconds) for roles which require MFA"
+  type        = number
+  default     = 86400
+}
+
+variable "poweruser_role_policy_arn" {
+  description = "Policy ARN to use for poweruser role"
   type        = string
-  default     = "arn:aws:iam::aws:policy/AdministratorAccess"
+  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
 
 variable "readonly_role_policy_arn" {
@@ -82,8 +58,32 @@ variable "readonly_role_policy_arn" {
   default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 
-variable "attach_admin_policy" {
-  description = "Whether to attach an admin policy to a role"
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = ""
+}
+
+variable "role_path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "role_permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = ""
+}
+
+variable "role_requires_mfa" {
+  description = "Whether role requires MFA"
   type        = bool
-  default     = false
+  default     = true
+}
+
+variable "trusted_role_arns" {
+  description = "ARNs of AWS entities who can assume these roles"
+  type        = list(any)
+  default     = []
 }

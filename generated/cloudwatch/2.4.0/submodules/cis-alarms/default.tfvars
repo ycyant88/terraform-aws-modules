@@ -1,17 +1,17 @@
-create = true
-
-use_random_name_prefix = false
-
-disabled_controls = []
+actions_enabled = true
 
 alarm_actions = []
 
-tags = {}
+create = true
+
+disabled_controls = []
+
+log_group_name = ""
 
 name_prefix = ""
 
 namespace = "CISBenchmark"
 
-log_group_name = ""
+tags = {}
 
-actions_enabled = true
+use_random_name_prefix = false

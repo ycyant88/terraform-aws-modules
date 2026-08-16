@@ -1,129 +1,129 @@
-data_redundancy = null
-
-attach_inventory_destination_policy = false
-
-attach_deny_ssec_encrypted_object_uploads = false
-
-bucket_prefix = null
-
-request_payer = null
-
-object_ownership = "BucketOwnerEnforced"
-
-attach_access_log_delivery_policy = false
-
-object_lock_configuration = {}
-
-inventory_configuration = {}
-
-type = "Directory"
-
-create_bucket = true
-
-attach_analytics_destination_policy = false
-
-tags = {}
-
-access_log_delivery_policy_source_organizations = []
-
-block_public_acls = true
-
-location_type = null
-
-force_destroy = false
-
-lb_log_delivery_policy_source_organizations = []
-
-inventory_source_bucket_arn = null
-
-analytics_source_bucket_arn = null
-
-allowed_kms_key_arn = null
-
-versioning = {}
-
-grant = []
-
-attach_require_latest_tls_policy = false
-
-region = null
-
-object_lock_enabled = false
-
-restrict_public_buckets = true
-
-attach_elb_log_delivery_policy = false
-
-attach_deny_incorrect_kms_key_sse = false
-
-attach_deny_unencrypted_object_uploads = false
-
-policy = null
-
-logging = {}
-
-access_log_delivery_policy_source_buckets = []
-
-owner = {}
-
-transition_default_minimum_object_size = null
-
-acl = null
-
-replication_configuration = {}
-
-inventory_source_account_id = null
-
-inventory_self_source_destination = false
-
-analytics_source_account_id = null
-
-ignore_public_acls = true
-
-attach_cloudtrail_log_delivery_policy = false
-
-attach_public_policy = true
+acceleration_status = null
 
 access_log_delivery_policy_source_accounts = []
 
-lifecycle_rule = []
+access_log_delivery_policy_source_buckets = []
 
-metric_configuration = []
+access_log_delivery_policy_source_organizations = []
 
-is_directory_bucket = false
+acl = null
 
-bucket = null
+allowed_kms_key_arn = null
 
-acceleration_status = null
+analytics_configuration = {}
 
-website = {}
+analytics_self_source_destination = false
 
-intelligent_tiering = {}
+analytics_source_account_id = null
 
-control_object_ownership = false
+analytics_source_bucket_arn = null
+
+attach_access_log_delivery_policy = false
+
+attach_analytics_destination_policy = false
+
+attach_cloudtrail_log_delivery_policy = false
+
+attach_deny_incorrect_encryption_headers = false
+
+attach_deny_incorrect_kms_key_sse = false
 
 attach_deny_insecure_transport_policy = false
 
-cors_rule = []
+attach_deny_ssec_encrypted_object_uploads = false
 
-server_side_encryption_configuration = {}
+attach_deny_unencrypted_object_uploads = false
 
-block_public_policy = true
+attach_elb_log_delivery_policy = false
 
-attach_waf_log_delivery_policy = false
-
-availability_zone_id = null
-
-putin_khuylo = true
+attach_inventory_destination_policy = false
 
 attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
+attach_public_policy = true
+
+attach_require_latest_tls_policy = false
+
+attach_waf_log_delivery_policy = false
+
+availability_zone_id = null
+
+block_public_acls = true
+
+block_public_policy = true
+
+bucket = null
+
+bucket_prefix = null
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+data_redundancy = null
+
 expected_bucket_owner = null
 
-attach_deny_incorrect_encryption_headers = false
+force_destroy = false
 
-analytics_configuration = {}
+grant = []
 
-analytics_self_source_destination = false
+ignore_public_acls = true
+
+intelligent_tiering = {}
+
+inventory_configuration = {}
+
+inventory_self_source_destination = false
+
+inventory_source_account_id = null
+
+inventory_source_bucket_arn = null
+
+is_directory_bucket = false
+
+lb_log_delivery_policy_source_organizations = []
+
+lifecycle_rule = []
+
+location_type = null
+
+logging = {}
+
+metric_configuration = []
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "BucketOwnerEnforced"
+
+owner = {}
+
+policy = null
+
+putin_khuylo = true
+
+region = null
+
+replication_configuration = {}
+
+request_payer = null
+
+restrict_public_buckets = true
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+transition_default_minimum_object_size = null
+
+type = "Directory"
+
+versioning = {}
+
+website = {}

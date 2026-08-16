@@ -1,13 +1,91 @@
-variable "vpc_link_tags" {
-  description = "A map of tags to add to the VPC Link"
-  type        = map(string)
+variable "api_key_selection_expression" {
+  description = "An API key selection expression. Valid values: $context.authorizer.usageIdentifierKey, $request.header.x-api-key."
+  type        = string
+  default     = "$request.header.x-api-key"
+}
+
+variable "api_version" {
+  description = "A version identifier for the API"
+  type        = string
+  default     = ""
+}
+
+variable "authorizers" {
+  description = "Map of API gateway authorizers"
+  type        = map(any)
   default     = {}
+}
+
+variable "body" {
+  description = "An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs."
+  type        = string
+  default     = ""
+}
+
+variable "cors_configuration" {
+  description = "The cross-origin resource sharing (CORS) configuration. Applicable for HTTP APIs."
+  type        = any
+  default     = {}
+}
+
+variable "create" {
+  description = "Controls if API Gateway resources should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_api_domain_name" {
+  description = "Whether to create API domain name resource"
+  type        = bool
+  default     = true
+}
+
+variable "create_api_gateway" {
+  description = "Whether to create API Gateway"
+  type        = bool
+  default     = true
+}
+
+variable "create_default_stage" {
+  description = "Whether to create default stage"
+  type        = bool
+  default     = true
 }
 
 variable "create_default_stage_api_mapping" {
   description = "Whether to create default stage API mapping"
   type        = bool
   default     = true
+}
+
+variable "create_routes_and_integrations" {
+  description = "Whether to create routes and integrations resources"
+  type        = bool
+  default     = true
+}
+
+variable "create_vpc_link" {
+  description = "Whether to create VPC links"
+  type        = bool
+  default     = true
+}
+
+variable "credentials_arn" {
+  description = "Part of quick create. Specifies any credentials required for the integration. Applicable for HTTP APIs."
+  type        = string
+  default     = ""
+}
+
+variable "default_route_settings" {
+  description = "Settings for default route"
+  type        = map(string)
+  default     = {}
+}
+
+variable "default_stage_access_log_destination_arn" {
+  description = "Default stage's ARN of the CloudWatch Logs log group to receive access logs. Any trailing :* is trimmed from the ARN."
+  type        = string
+  default     = ""
 }
 
 variable "default_stage_access_log_format" {
@@ -22,64 +100,10 @@ variable "default_stage_tags" {
   default     = {}
 }
 
-variable "domain_name_tags" {
-  description = "A mapping of tags to assign to API domain name resource."
-  type        = map(string)
-  default     = {}
-}
-
-variable "domain_name" {
-  description = "The domain name to use for API gateway"
+variable "description" {
+  description = "The description of the API."
   type        = string
   default     = ""
-}
-
-variable "integrations" {
-  description = "Map of API gateway routes with integrations"
-  type        = map(any)
-  default     = {}
-}
-
-variable "authorizers" {
-  description = "Map of API gateway authorizers"
-  type        = map(any)
-  default     = {}
-}
-
-variable "create_vpc_link" {
-  description = "Whether to create VPC links"
-  type        = bool
-  default     = true
-}
-
-variable "protocol_type" {
-  description = "The API protocol. Valid values: HTTP, WEBSOCKET"
-  type        = string
-  default     = "HTTP"
-}
-
-variable "cors_configuration" {
-  description = "The cross-origin resource sharing (CORS) configuration. Applicable for HTTP APIs."
-  type        = any
-  default     = {}
-}
-
-variable "api_version" {
-  description = "A version identifier for the API"
-  type        = string
-  default     = ""
-}
-
-variable "create_default_stage" {
-  description = "Whether to create default stage"
-  type        = bool
-  default     = true
-}
-
-variable "create_routes_and_integrations" {
-  description = "Whether to create routes and integrations resources"
-  type        = bool
-  default     = true
 }
 
 variable "disable_execute_api_endpoint" {
@@ -88,10 +112,28 @@ variable "disable_execute_api_endpoint" {
   default     = false
 }
 
-variable "route_selection_expression" {
-  description = "The route selection expression for the API."
+variable "domain_name" {
+  description = "The domain name to use for API gateway"
   type        = string
-  default     = "$request.method $request.path"
+  default     = ""
+}
+
+variable "domain_name_certificate_arn" {
+  description = "The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name"
+  type        = string
+  default     = ""
+}
+
+variable "domain_name_tags" {
+  description = "A mapping of tags to assign to API domain name resource."
+  type        = map(string)
+  default     = {}
+}
+
+variable "integrations" {
+  description = "Map of API gateway routes with integrations"
+  type        = map(any)
+  default     = {}
 }
 
 variable "mutual_tls_authentication" {
@@ -106,52 +148,22 @@ variable "name" {
   default     = ""
 }
 
-variable "default_stage_access_log_destination_arn" {
-  description = "Default stage's ARN of the CloudWatch Logs log group to receive access logs. Any trailing :* is trimmed from the ARN."
+variable "protocol_type" {
+  description = "The API protocol. Valid values: HTTP, WEBSOCKET"
+  type        = string
+  default     = "HTTP"
+}
+
+variable "route_key" {
+  description = "Part of quick create. Specifies any route key. Applicable for HTTP APIs."
   type        = string
   default     = ""
 }
 
-variable "description" {
-  description = "The description of the API."
+variable "route_selection_expression" {
+  description = "The route selection expression for the API."
   type        = string
-  default     = ""
-}
-
-variable "body" {
-  description = "An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs."
-  type        = string
-  default     = ""
-}
-
-variable "vpc_links" {
-  description = "Map of VPC Links details to create"
-  type        = map(any)
-  default     = {}
-}
-
-variable "domain_name_certificate_arn" {
-  description = "The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name"
-  type        = string
-  default     = ""
-}
-
-variable "create_api_domain_name" {
-  description = "Whether to create API domain name resource"
-  type        = bool
-  default     = true
-}
-
-variable "default_route_settings" {
-  description = "Settings for default route"
-  type        = map(string)
-  default     = {}
-}
-
-variable "credentials_arn" {
-  description = "Part of quick create. Specifies any credentials required for the integration. Applicable for HTTP APIs."
-  type        = string
-  default     = ""
+  default     = "$request.method $request.path"
 }
 
 variable "tags" {
@@ -166,26 +178,14 @@ variable "target" {
   default     = ""
 }
 
-variable "create" {
-  description = "Controls if API Gateway resources should be created"
-  type        = bool
-  default     = true
+variable "vpc_link_tags" {
+  description = "A map of tags to add to the VPC Link"
+  type        = map(string)
+  default     = {}
 }
 
-variable "create_api_gateway" {
-  description = "Whether to create API Gateway"
-  type        = bool
-  default     = true
-}
-
-variable "api_key_selection_expression" {
-  description = "An API key selection expression. Valid values: $context.authorizer.usageIdentifierKey, $request.header.x-api-key."
-  type        = string
-  default     = "$request.header.x-api-key"
-}
-
-variable "route_key" {
-  description = "Part of quick create. Specifies any route key. Applicable for HTTP APIs."
-  type        = string
-  default     = ""
+variable "vpc_links" {
+  description = "Map of VPC Links details to create"
+  type        = map(any)
+  default     = {}
 }

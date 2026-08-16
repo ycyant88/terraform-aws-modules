@@ -1,75 +1,75 @@
-write_capacity = null
+attributes = []
 
-ttl_attribute_name = ""
+autoscaling_defaults = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
 
-region = null
+autoscaling_enabled = false
 
-create_table = true
-
-name = null
-
-local_secondary_indexes = []
-
-server_side_encryption_enabled = false
+autoscaling_indexes = {}
 
 autoscaling_read = {}
 
 autoscaling_write = {}
 
-warm_throughput = {}
-
-restore_source_name = null
-
-autoscaling_indexes = {}
-
-table_class = null
-
-range_key = null
-
 billing_mode = "PAY_PER_REQUEST"
 
-read_capacity = null
+create_table = true
 
-ttl_enabled = false
-
-tags = {}
-
-timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
-
-attributes = []
-
-server_side_encryption_kms_key_arn = null
-
-import_table = {}
-
-on_demand_throughput = {}
+deletion_protection_enabled = null
 
 global_secondary_indexes = []
 
 hash_key = null
 
+ignore_changes_global_secondary_index = false
+
+import_table = {}
+
+local_secondary_indexes = []
+
+name = null
+
+on_demand_throughput = {}
+
+point_in_time_recovery_enabled = false
+
 point_in_time_recovery_period_in_days = null
 
-ignore_changes_global_secondary_index = false
+range_key = null
+
+read_capacity = null
+
+region = null
+
+replica_regions = []
+
+resource_policy = null
+
+restore_date_time = null
+
+restore_source_name = null
 
 restore_source_table_arn = null
 
 restore_to_latest_time = null
 
-autoscaling_enabled = false
+server_side_encryption_enabled = false
 
-autoscaling_defaults = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
-
-replica_regions = []
-
-stream_view_type = null
-
-restore_date_time = null
-
-resource_policy = null
-
-point_in_time_recovery_enabled = false
+server_side_encryption_kms_key_arn = null
 
 stream_enabled = false
 
-deletion_protection_enabled = null
+stream_view_type = null
+
+table_class = null
+
+tags = {}
+
+timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
+
+ttl_attribute_name = ""
+
+ttl_enabled = false
+
+warm_throughput = {}
+
+write_capacity = null

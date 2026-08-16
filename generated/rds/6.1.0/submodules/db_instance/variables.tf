@@ -1,24 +1,6 @@
-variable "restore_to_point_in_time" {
-  description = "Restore to a point in time (MySQL is NOT supported)"
-  type        = map(string)
-  default     = null
-}
-
-variable "domain_iam_role_name" {
-  description = "(Required if domain is provided) The name of the IAM role to be used when making API calls to the Directory Service"
+variable "allocated_storage" {
+  description = "The allocated storage in gigabytes"
   type        = string
-  default     = null
-}
-
-variable "nchar_character_set_name" {
-  description = "The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed."
-  type        = string
-  default     = null
-}
-
-variable "iops" {
-  description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1' or gp3. See notes for limitations regarding this variable for gp3"
-  type        = number
   default     = null
 }
 
@@ -28,82 +10,22 @@ variable "allow_major_version_upgrade" {
   default     = false
 }
 
-variable "option_group_name" {
-  description = "Name of the DB option group to associate."
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_kms_key_id" {
-  description = "The ARN of the KMS Key to use when encrypting log data"
-  type        = string
-  default     = null
-}
-
-variable "use_identifier_prefix" {
-  description = "Determines whether to use identifier as is or create a unique identifier beginning with identifier as the specified prefix"
+variable "apply_immediately" {
+  description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window"
   type        = bool
   default     = false
 }
 
-variable "master_user_secret_kms_key_id" {
-  description = "  The key ARN, key ID, alias ARN or alias name for the KMS key to encrypt the master user password secret in Secrets Manager.\n  If not specified, the default KMS key for your Amazon Web Services account is used.\n"
-  type        = string
-  default     = null
-}
-
-variable "vpc_security_group_ids" {
-  description = "List of VPC security groups to associate"
-  type        = list(string)
-  default     = []
-}
-
-variable "monitoring_role_description" {
-  description = "Description of the monitoring IAM role"
-  type        = string
-  default     = null
-}
-
-variable "character_set_name" {
-  description = "The character set name to use for DB encoding in Oracle instances. This can't be changed. See Oracle Character Sets Supported in Amazon RDS and Collations and Character Sets for Microsoft SQL Server for more information. This can only be set on creation."
-  type        = string
-  default     = null
-}
-
-variable "domain" {
-  description = "The ID of the Directory Service Active Directory domain to create the instance in"
-  type        = string
-  default     = null
-}
-
-variable "engine_version" {
-  description = "The engine version to use"
-  type        = string
-  default     = null
-}
-
-variable "replicate_source_db" {
-  description = "Specifies that this resource is a Replicate database, and to use this value as the source database. This correlates to the identifier of another Amazon RDS Database to replicate."
-  type        = string
-  default     = null
-}
-
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether a CloudWatch log group is created for each enabled_cloudwatch_logs_exports"
-  type        = bool
-  default     = false
-}
-
-variable "storage_throughput" {
-  description = "Storage throughput value for the DB instance. This setting applies only to the gp3 storage type. See notes for limitations regarding this variable for gp3"
-  type        = number
-  default     = null
-}
-
-variable "storage_encrypted" {
-  description = "Specifies whether the DB instance is encrypted"
+variable "auto_minor_version_upgrade" {
+  description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
   type        = bool
   default     = true
+}
+
+variable "availability_zone" {
+  description = "The Availability Zone of the RDS instance"
+  type        = string
+  default     = null
 }
 
 variable "backup_retention_period" {
@@ -118,22 +40,106 @@ variable "backup_window" {
   default     = null
 }
 
-variable "monitoring_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the monitoring IAM role"
-  type        = string
-  default     = null
-}
-
 variable "blue_green_update" {
   description = "Enables low-downtime updates using RDS Blue/Green deployments."
   type        = map(string)
   default     = {}
 }
 
-variable "timezone" {
-  description = "Time zone of the DB instance. timezone is currently only supported by Microsoft SQL Server. The timezone can only be set on creation. See MSSQL User Guide for more information."
+variable "ca_cert_identifier" {
+  description = "Specifies the identifier of the CA certificate for the DB instance"
   type        = string
   default     = null
+}
+
+variable "character_set_name" {
+  description = "The character set name to use for DB encoding in Oracle instances. This can't be changed. See Oracle Character Sets Supported in Amazon RDS and Collations and Character Sets for Microsoft SQL Server for more information. This can only be set on creation."
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_kms_key_id" {
+  description = "The ARN of the KMS Key to use when encrypting log data"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_retention_in_days" {
+  description = "The number of days to retain CloudWatch logs for the DB instance"
+  type        = number
+  default     = 7
+}
+
+variable "copy_tags_to_snapshot" {
+  description = "On delete, copy all Instance tags to the final snapshot"
+  type        = bool
+  default     = false
+}
+
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether a CloudWatch log group is created for each enabled_cloudwatch_logs_exports"
+  type        = bool
+  default     = false
+}
+
+variable "create_monitoring_role" {
+  description = "Create IAM role with a defined name that permits RDS to send enhanced monitoring metrics to CloudWatch Logs."
+  type        = bool
+  default     = false
+}
+
+variable "custom_iam_instance_profile" {
+  description = "RDS custom iam instance profile"
+  type        = string
+  default     = null
+}
+
+variable "db_name" {
+  description = "The DB name to create. If omitted, no database is created initially"
+  type        = string
+  default     = null
+}
+
+variable "db_subnet_group_name" {
+  description = "Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the default VPC"
+  type        = string
+  default     = null
+}
+
+variable "delete_automated_backups" {
+  description = "Specifies whether to remove automated backups immediately after the DB instance is deleted"
+  type        = bool
+  default     = true
+}
+
+variable "deletion_protection" {
+  description = "The database can't be deleted when this value is set to true."
+  type        = bool
+  default     = false
+}
+
+variable "domain" {
+  description = "The ID of the Directory Service Active Directory domain to create the instance in"
+  type        = string
+  default     = null
+}
+
+variable "domain_iam_role_name" {
+  description = "(Required if domain is provided) The name of the IAM role to be used when making API calls to the Directory Service"
+  type        = string
+  default     = null
+}
+
+variable "enabled_cloudwatch_logs_exports" {
+  description = "List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on engine): alert, audit, error, general, listener, slowquery, trace, postgresql (PostgreSQL), upgrade (PostgreSQL)."
+  type        = list(string)
+  default     = []
 }
 
 variable "engine" {
@@ -142,10 +148,148 @@ variable "engine" {
   default     = null
 }
 
-variable "apply_immediately" {
-  description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window"
+variable "engine_version" {
+  description = "The engine version to use"
+  type        = string
+  default     = null
+}
+
+variable "final_snapshot_identifier_prefix" {
+  description = "The name which is prefixed to the final snapshot on cluster destroy"
+  type        = string
+  default     = "final"
+}
+
+variable "iam_database_authentication_enabled" {
+  description = "Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled"
   type        = bool
   default     = false
+}
+
+variable "identifier" {
+  description = "The name of the RDS instance"
+  type        = string
+  default     = ""
+}
+
+variable "instance_class" {
+  description = "The instance type of the RDS instance"
+  type        = string
+  default     = null
+}
+
+variable "iops" {
+  description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1' or gp3. See notes for limitations regarding this variable for gp3"
+  type        = number
+  default     = null
+}
+
+variable "kms_key_id" {
+  description = "The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN. If storage_encrypted is set to true and kms_key_id is not specified the default KMS key created in your account will be used"
+  type        = string
+  default     = null
+}
+
+variable "license_model" {
+  description = "License model information for this DB instance. Optional, but required for some DB engines, i.e. Oracle SE1"
+  type        = string
+  default     = null
+}
+
+variable "maintenance_window" {
+  description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
+  type        = string
+  default     = null
+}
+
+variable "manage_master_user_password" {
+  description = "Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if password is provided"
+  type        = bool
+  default     = false
+}
+
+variable "master_user_secret_kms_key_id" {
+  description = "  The key ARN, key ID, alias ARN or alias name for the KMS key to encrypt the master user password secret in Secrets Manager.\n  If not specified, the default KMS key for your Amazon Web Services account is used.\n"
+  type        = string
+  default     = null
+}
+
+variable "max_allocated_storage" {
+  description = "Specifies the value for Storage Autoscaling"
+  type        = number
+  default     = 0
+}
+
+variable "monitoring_interval" {
+  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60."
+  type        = number
+  default     = 0
+}
+
+variable "monitoring_role_arn" {
+  description = "The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. Must be specified if monitoring_interval is non-zero."
+  type        = string
+  default     = null
+}
+
+variable "monitoring_role_description" {
+  description = "Description of the monitoring IAM role"
+  type        = string
+  default     = null
+}
+
+variable "monitoring_role_name" {
+  description = "Name of the IAM role which will be created when create_monitoring_role is enabled."
+  type        = string
+  default     = "rds-monitoring-role"
+}
+
+variable "monitoring_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the monitoring IAM role"
+  type        = string
+  default     = null
+}
+
+variable "monitoring_role_use_name_prefix" {
+  description = "Determines whether to use monitoring_role_name as is or create a unique identifier beginning with monitoring_role_name as the specified prefix"
+  type        = bool
+  default     = false
+}
+
+variable "multi_az" {
+  description = "Specifies if the RDS instance is multi-AZ"
+  type        = bool
+  default     = false
+}
+
+variable "nchar_character_set_name" {
+  description = "The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed."
+  type        = string
+  default     = null
+}
+
+variable "network_type" {
+  description = "The type of network stack"
+  type        = string
+  default     = null
+}
+
+variable "option_group_name" {
+  description = "Name of the DB option group to associate."
+  type        = string
+  default     = null
+}
+
+variable "parameter_group_name" {
+  description = "Name of the DB parameter group to associate"
+  type        = string
+  default     = null
+}
+
+variable "password" {
+  description = "Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file"
+  type        = string
+  default     = null
 }
 
 variable "performance_insights_enabled" {
@@ -160,92 +304,14 @@ variable "performance_insights_kms_key_id" {
   default     = null
 }
 
-variable "custom_iam_instance_profile" {
-  description = "RDS custom iam instance profile"
-  type        = string
-  default     = null
+variable "performance_insights_retention_period" {
+  description = "The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years)."
+  type        = number
+  default     = 7
 }
 
-variable "iam_database_authentication_enabled" {
-  description = "Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled"
-  type        = bool
-  default     = false
-}
-
-variable "username" {
-  description = "Username for the master DB user"
-  type        = string
-  default     = null
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
-}
-
-variable "license_model" {
-  description = "License model information for this DB instance. Optional, but required for some DB engines, i.e. Oracle SE1"
-  type        = string
-  default     = null
-}
-
-variable "copy_tags_to_snapshot" {
-  description = "On delete, copy all Instance tags to the final snapshot"
-  type        = bool
-  default     = false
-}
-
-variable "monitoring_role_arn" {
-  description = "The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. Must be specified if monitoring_interval is non-zero."
-  type        = string
-  default     = null
-}
-
-variable "monitoring_role_name" {
-  description = "Name of the IAM role which will be created when create_monitoring_role is enabled."
-  type        = string
-  default     = "rds-monitoring-role"
-}
-
-variable "monitoring_role_use_name_prefix" {
-  description = "Determines whether to use monitoring_role_name as is or create a unique identifier beginning with monitoring_role_name as the specified prefix"
-  type        = bool
-  default     = false
-}
-
-variable "ca_cert_identifier" {
-  description = "Specifies the identifier of the CA certificate for the DB instance"
-  type        = string
-  default     = null
-}
-
-variable "network_type" {
-  description = "The type of network stack"
-  type        = string
-  default     = null
-}
-
-variable "identifier" {
-  description = "The name of the RDS instance"
-  type        = string
-  default     = ""
-}
-
-variable "manage_master_user_password" {
-  description = "Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if password is provided"
-  type        = bool
-  default     = false
-}
-
-variable "enabled_cloudwatch_logs_exports" {
-  description = "List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on engine): alert, audit, error, general, listener, slowquery, trace, postgresql (PostgreSQL), upgrade (PostgreSQL)."
-  type        = list(string)
-  default     = []
-}
-
-variable "db_subnet_group_name" {
-  description = "Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the default VPC"
+variable "port" {
+  description = "The port on which the DB accepts connections"
   type        = string
   default     = null
 }
@@ -256,88 +322,22 @@ variable "publicly_accessible" {
   default     = false
 }
 
-variable "parameter_group_name" {
-  description = "Name of the DB parameter group to associate"
-  type        = string
-  default     = null
-}
-
-variable "deletion_protection" {
-  description = "The database can't be deleted when this value is set to true."
-  type        = bool
-  default     = false
-}
-
-variable "instance_class" {
-  description = "The instance type of the RDS instance"
-  type        = string
-  default     = null
-}
-
-variable "final_snapshot_identifier_prefix" {
-  description = "The name which is prefixed to the final snapshot on cluster destroy"
-  type        = string
-  default     = "final"
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "allocated_storage" {
-  description = "The allocated storage in gigabytes"
-  type        = string
-  default     = null
-}
-
 variable "replica_mode" {
   description = "Specifies whether the replica is in either mounted or open-read-only mode. This attribute is only supported by Oracle instances. Oracle replicas operate in open-read-only mode unless otherwise specified"
   type        = string
   default     = null
 }
 
-variable "port" {
-  description = "The port on which the DB accepts connections"
+variable "replicate_source_db" {
+  description = "Specifies that this resource is a Replicate database, and to use this value as the source database. This correlates to the identifier of another Amazon RDS Database to replicate."
   type        = string
   default     = null
 }
 
-variable "availability_zone" {
-  description = "The Availability Zone of the RDS instance"
-  type        = string
-  default     = null
-}
-
-variable "max_allocated_storage" {
-  description = "Specifies the value for Storage Autoscaling"
-  type        = number
-  default     = 0
-}
-
-variable "db_name" {
-  description = "The DB name to create. If omitted, no database is created initially"
-  type        = string
-  default     = null
-}
-
-variable "password" {
-  description = "Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file"
-  type        = string
-  default     = null
-}
-
-variable "maintenance_window" {
-  description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
-  type        = string
-  default     = null
-}
-
-variable "timeouts" {
-  description = "Updated Terraform resource management timeouts. Applies to aws_db_instance in particular to permit resource management times"
+variable "restore_to_point_in_time" {
+  description = "Restore to a point in time (MySQL is NOT supported)"
   type        = map(string)
-  default     = {}
+  default     = null
 }
 
 variable "s3_import" {
@@ -346,44 +346,8 @@ variable "s3_import" {
   default     = null
 }
 
-variable "monitoring_interval" {
-  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60."
-  type        = number
-  default     = 0
-}
-
-variable "create_monitoring_role" {
-  description = "Create IAM role with a defined name that permits RDS to send enhanced monitoring metrics to CloudWatch Logs."
-  type        = bool
-  default     = false
-}
-
-variable "auto_minor_version_upgrade" {
-  description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
-  type        = bool
-  default     = true
-}
-
-variable "performance_insights_retention_period" {
-  description = "The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years)."
-  type        = number
-  default     = 7
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "The number of days to retain CloudWatch logs for the DB instance"
-  type        = number
-  default     = 7
-}
-
 variable "skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted"
-  type        = bool
-  default     = false
-}
-
-variable "multi_az" {
-  description = "Specifies if the RDS instance is multi-AZ"
   type        = bool
   default     = false
 }
@@ -394,10 +358,16 @@ variable "snapshot_identifier" {
   default     = null
 }
 
-variable "delete_automated_backups" {
-  description = "Specifies whether to remove automated backups immediately after the DB instance is deleted"
+variable "storage_encrypted" {
+  description = "Specifies whether the DB instance is encrypted"
   type        = bool
   default     = true
+}
+
+variable "storage_throughput" {
+  description = "Storage throughput value for the DB instance. This setting applies only to the gp3 storage type. See notes for limitations regarding this variable for gp3"
+  type        = number
+  default     = null
 }
 
 variable "storage_type" {
@@ -406,8 +376,38 @@ variable "storage_type" {
   default     = null
 }
 
-variable "kms_key_id" {
-  description = "The ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN. If storage_encrypted is set to true and kms_key_id is not specified the default KMS key created in your account will be used"
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Updated Terraform resource management timeouts. Applies to aws_db_instance in particular to permit resource management times"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timezone" {
+  description = "Time zone of the DB instance. timezone is currently only supported by Microsoft SQL Server. The timezone can only be set on creation. See MSSQL User Guide for more information."
   type        = string
   default     = null
+}
+
+variable "use_identifier_prefix" {
+  description = "Determines whether to use identifier as is or create a unique identifier beginning with identifier as the specified prefix"
+  type        = bool
+  default     = false
+}
+
+variable "username" {
+  description = "Username for the master DB user"
+  type        = string
+  default     = null
+}
+
+variable "vpc_security_group_ids" {
+  description = "List of VPC security groups to associate"
+  type        = list(string)
+  default     = []
 }

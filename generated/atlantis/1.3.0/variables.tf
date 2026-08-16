@@ -1,31 +1,13 @@
-variable "create_github_repository_webhook" {
-  description = "Whether to create Github repository webhook for Atlantis. This requires valid Github credentials specified as github_token and github_organization."
-  type        = bool
-  default     = true
-}
-
-variable "vpc_id" {
-  description = "ID of an existing VPC where resources will be created"
+variable "acm_certificate_domain_name" {
+  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
   type        = string
   default     = ""
 }
 
-variable "public_subnet_ids" {
-  description = "A list of IDs of existing public subnets inside the VPC"
-  type        = list(any)
-  default     = []
-}
-
-variable "private_subnets" {
-  description = "A list of private subnets inside the VPC"
-  type        = list(any)
-  default     = []
-}
-
-variable "atlantis_version" {
-  description = "Verion of Atlantis to run. If not specified latest will be used"
+variable "allow_repo_config" {
+  description = "When true allows the use of atlantis.yaml config files within the source repos."
   type        = string
-  default     = "latest"
+  default     = "false"
 }
 
 variable "atlantis_github_user" {
@@ -40,22 +22,52 @@ variable "atlantis_github_user_token" {
   default     = ""
 }
 
+variable "atlantis_image" {
+  description = "Docker image to run Atlantis with. If not specified, official Atlantis image will be used"
+  type        = string
+  default     = ""
+}
+
 variable "atlantis_repo_whitelist" {
   description = "List of allowed repositories Atlantis can be used with"
   type        = list(any)
   default     = ""
 }
 
-variable "allow_repo_config" {
-  description = "When true allows the use of atlantis.yaml config files within the source repos."
+variable "atlantis_version" {
+  description = "Verion of Atlantis to run. If not specified latest will be used"
   type        = string
-  default     = "false"
+  default     = "latest"
 }
 
-variable "acm_certificate_domain_name" {
-  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
+variable "azs" {
+  description = "A list of availability zones in the region"
+  type        = list(any)
+  default     = []
+}
+
+variable "certificate_arn" {
+  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
   type        = string
   default     = ""
+}
+
+variable "cidr" {
+  description = "The CIDR block for the VPC which will be created if vpc_id is not specified"
+  type        = string
+  default     = ""
+}
+
+variable "cloudwatch_log_retention_in_days" {
+  description = "Retention period of Atlantis CloudWatch logs"
+  type        = number
+  default     = 7
+}
+
+variable "create_github_repository_webhook" {
+  description = "Whether to create Github repository webhook for Atlantis. This requires valid Github credentials specified as github_token and github_organization."
+  type        = bool
+  default     = true
 }
 
 variable "create_route53_record" {
@@ -70,44 +82,20 @@ variable "ecs_service_assign_public_ip" {
   default     = false
 }
 
-variable "atlantis_image" {
-  description = "Docker image to run Atlantis with. If not specified, official Atlantis image will be used"
+variable "github_organization" {
+  description = "Github organization"
   type        = string
   default     = ""
 }
 
-variable "private_subnet_ids" {
-  description = "A list of IDs of existing private subnets inside the VPC"
+variable "github_repo_names" {
+  description = "Github repositories where webhook should be created"
   type        = list(any)
   default     = []
-}
-
-variable "azs" {
-  description = "A list of availability zones in the region"
-  type        = list(any)
-  default     = []
-}
-
-variable "public_subnets" {
-  description = "A list of public subnets inside the VPC"
-  type        = list(any)
-  default     = []
-}
-
-variable "cloudwatch_log_retention_in_days" {
-  description = "Retention period of Atlantis CloudWatch logs"
-  type        = number
-  default     = 7
 }
 
 variable "github_token" {
   description = "Github token"
-  type        = string
-  default     = ""
-}
-
-variable "github_organization" {
-  description = "Github organization"
   type        = string
   default     = ""
 }
@@ -118,16 +106,28 @@ variable "name" {
   default     = "atlantis"
 }
 
-variable "cidr" {
-  description = "The CIDR block for the VPC which will be created if vpc_id is not specified"
-  type        = string
-  default     = ""
+variable "private_subnet_ids" {
+  description = "A list of IDs of existing private subnets inside the VPC"
+  type        = list(any)
+  default     = []
 }
 
-variable "certificate_arn" {
-  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
-  type        = string
-  default     = ""
+variable "private_subnets" {
+  description = "A list of private subnets inside the VPC"
+  type        = list(any)
+  default     = []
+}
+
+variable "public_subnet_ids" {
+  description = "A list of IDs of existing public subnets inside the VPC"
+  type        = list(any)
+  default     = []
+}
+
+variable "public_subnets" {
+  description = "A list of public subnets inside the VPC"
+  type        = list(any)
+  default     = []
 }
 
 variable "route53_zone_name" {
@@ -136,8 +136,8 @@ variable "route53_zone_name" {
   default     = ""
 }
 
-variable "github_repo_names" {
-  description = "Github repositories where webhook should be created"
-  type        = list(any)
-  default     = []
+variable "vpc_id" {
+  description = "ID of an existing VPC where resources will be created"
+  type        = string
+  default     = ""
 }

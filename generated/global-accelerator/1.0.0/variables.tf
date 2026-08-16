@@ -1,13 +1,7 @@
-variable "enabled" {
-  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
   default     = true
-}
-
-variable "flow_logs_enabled" {
-  description = "Indicates whether flow logs are enabled. Defaults to false"
-  type        = bool
-  default     = false
 }
 
 variable "create_listeners" {
@@ -16,46 +10,22 @@ variable "create_listeners" {
   default     = true
 }
 
-variable "listeners" {
-  description = "A map of listener defintions to create"
-  type        = any
-  default     = {}
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
+variable "enabled" {
+  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
   type        = bool
   default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "name" {
-  description = "The name of the accelerator"
-  type        = string
-  default     = ""
-}
-
-variable "ip_address_type" {
-  description = "The value for the address type. Defaults to IPV4. Valid values: IPV4"
-  type        = string
-  default     = "IPV4"
-}
-
-variable "listeners_timeouts" {
-  description = "Create, update, and delete timeout configurations for the listeners"
-  type        = map(string)
-  default     = {}
 }
 
 variable "endpoint_groups_timeouts" {
   description = "Create, update, and delete timeout configurations for the endpoint groups"
   type        = map(string)
   default     = {}
+}
+
+variable "flow_logs_enabled" {
+  description = "Indicates whether flow logs are enabled. Defaults to false"
+  type        = bool
+  default     = false
 }
 
 variable "flow_logs_s3_bucket" {
@@ -68,4 +38,34 @@ variable "flow_logs_s3_prefix" {
   description = "The prefix for the location in the Amazon S3 bucket for the flow logs. Required if flow_logs_enabled is true"
   type        = string
   default     = null
+}
+
+variable "ip_address_type" {
+  description = "The value for the address type. Defaults to IPV4. Valid values: IPV4"
+  type        = string
+  default     = "IPV4"
+}
+
+variable "listeners" {
+  description = "A map of listener defintions to create"
+  type        = any
+  default     = {}
+}
+
+variable "listeners_timeouts" {
+  description = "Create, update, and delete timeout configurations for the listeners"
+  type        = map(string)
+  default     = {}
+}
+
+variable "name" {
+  description = "The name of the accelerator"
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

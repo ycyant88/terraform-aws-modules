@@ -1,131 +1,131 @@
-final_snapshot_identifier = null
+apply_immediately = null
 
-auth_token_update_strategy = null
-
-description = null
-
-cluster_id = ""
+at_rest_encryption_enabled = true
 
 auth_token = null
 
+auth_token_update_strategy = null
+
 auto_minor_version_upgrade = null
 
-notification_topic_arn = null
+automatic_failover_enabled = null
 
-port = null
+availability_zone = null
 
-transit_encryption_enabled = true
+az_mode = null
 
-global_replication_group_id = null
+cluster_id = ""
+
+cluster_mode = null
+
+cluster_mode_enabled = false
+
+create = true
+
+create_cluster = false
+
+create_parameter_group = false
 
 create_primary_global_replication_group = false
 
-subnet_group_description = null
-
-network_type = null
-
-snapshot_name = null
-
-preferred_cache_cluster_azs = []
+create_replication_group = true
 
 create_secondary_global_replication_group = false
+
+create_security_group = true
 
 create_subnet_group = true
 
 data_tiering_enabled = null
 
+description = null
+
+engine = "redis"
+
+engine_version = null
+
+final_snapshot_identifier = null
+
+global_replication_group_id = null
+
+ip_discovery = null
+
+kms_key_arn = null
+
 log_delivery_configuration = { "slow-log" : { "destination_type" : "cloudwatch-logs", "log_format" : "json" } }
 
+maintenance_window = null
+
+multi_az_enabled = false
+
+network_type = null
+
+node_type = null
+
+notification_topic_arn = null
+
+num_cache_clusters = null
+
 num_cache_nodes = 1
+
+num_node_groups = null
+
+outpost_mode = null
+
+parameter_group_description = null
+
+parameter_group_family = ""
+
+parameter_group_name = null
+
+parameters = []
+
+port = null
+
+preferred_availability_zones = []
+
+preferred_cache_cluster_azs = []
+
+preferred_outpost_arn = null
+
+replicas_per_node_group = null
+
+replication_group_id = null
+
+security_group_description = null
+
+security_group_ids = []
+
+security_group_name = null
+
+security_group_names = []
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+snapshot_arns = []
+
+snapshot_name = null
+
+snapshot_retention_limit = null
+
+snapshot_window = null
+
+subnet_group_description = null
+
+subnet_group_name = null
+
+subnet_ids = []
+
+tags = {}
+
+transit_encryption_enabled = true
+
+transit_encryption_mode = null
 
 user_group_ids = null
 
 vpc_id = null
-
-apply_immediately = null
-
-parameter_group_description = null
-
-tags = {}
-
-replicas_per_node_group = null
-
-create_parameter_group = false
-
-security_group_use_name_prefix = true
-
-security_group_tags = {}
-
-az_mode = null
-
-engine = "redis"
-
-num_node_groups = null
-
-replication_group_id = null
-
-cluster_mode_enabled = false
-
-subnet_group_name = null
-
-maintenance_window = null
-
-snapshot_arns = []
-
-snapshot_retention_limit = null
-
-cluster_mode = null
-
-security_group_name = null
-
-automatic_failover_enabled = null
-
-ip_discovery = null
-
-node_type = null
-
-transit_encryption_mode = null
-
-parameter_group_name = null
-
-outpost_mode = null
-
-security_group_ids = []
-
-multi_az_enabled = false
-
-security_group_names = []
-
-subnet_ids = []
-
-preferred_outpost_arn = null
-
-create_replication_group = true
-
-kms_key_arn = null
-
-parameter_group_family = ""
-
-create_security_group = true
-
-security_group_description = null
-
-engine_version = null
-
-create = true
-
-preferred_availability_zones = []
-
-at_rest_encryption_enabled = true
-
-num_cache_clusters = null
-
-parameters = []
-
-create_cluster = false
-
-availability_zone = null
-
-snapshot_window = null
-
-security_group_rules = {}

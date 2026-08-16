@@ -1,35 +1,35 @@
-egress_rules = {}
+create = true
 
-vpc_associations = {}
+description = "Security Group managed by Terraform"
+
+egress_rules = {}
 
 enable_exclusive_rules = true
 
-revoke_rules_on_delete = false
-
-vpc_id = null
+ingress_cidr_ipv4 = {}
 
 ingress_cidr_ipv6 = {}
 
 ingress_prefix_list_id = {}
 
-region = null
+ingress_referenced_security_group_id = {}
 
-timeouts = null
-
-create = true
-
-tags = {}
+ingress_rules = {}
 
 name = ""
 
 preset_ingress_rules = { "promtail" : { "description" : "Promtail endpoint", "from_port" : 9080, "ip_protocol" : "tcp", "to_port" : 9080 } }
 
-ingress_cidr_ipv4 = {}
+region = null
+
+revoke_rules_on_delete = false
+
+tags = {}
+
+timeouts = null
 
 use_name_prefix = true
 
-description = "Security Group managed by Terraform"
+vpc_associations = {}
 
-ingress_referenced_security_group_id = {}
-
-ingress_rules = {}
+vpc_id = null

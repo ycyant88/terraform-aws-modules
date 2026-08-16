@@ -1,107 +1,107 @@
-dependsOn = null
-
-enable_execute_command = false
-
-environmentFiles = null
-
-extraHosts = null
-
-cloudwatch_log_group_retention_in_days = 14
+cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-credentialSpecs = null
+cloudwatch_log_group_name = null
 
-firelensConfiguration = null
-
-portMappings = null
-
-privileged = false
-
-readonlyRootFilesystem = true
-
-resourceRequirements = null
-
-versionConsistency = "disabled"
-
-cloudwatch_log_group_class = null
-
-region = null
-
-dnsSearchDomains = null
-
-dockerSecurityOptions = null
-
-essential = null
-
-name = null
-
-repositoryCredentials = null
-
-restartPolicy = { "enabled" : true }
-
-systemControls = null
-
-tags = {}
-
-healthCheck = null
-
-image = null
-
-memoryReservation = null
-
-startTimeout = 30
-
-volumesFrom = null
+cloudwatch_log_group_retention_in_days = 14
 
 cloudwatch_log_group_use_name_prefix = false
 
 command = null
 
+cpu = null
+
+create_cloudwatch_log_group = true
+
+credentialSpecs = null
+
+dependsOn = null
+
 disableNetworking = null
 
-hostname = null
-
-interactive = false
-
-links = null
-
-mountPoints = null
-
-secrets = null
-
-stopTimeout = 120
+dnsSearchDomains = null
 
 dnsServers = null
 
 dockerLabels = null
 
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
 entrypoint = null
 
 environment = null
 
-memory = null
+environmentFiles = null
 
-ulimits = null
+essential = null
 
-operating_system_family = "LINUX"
+extraHosts = null
 
-cpu = null
+firelensConfiguration = null
 
-logConfiguration = {}
+healthCheck = null
 
-pseudoTerminal = false
+hostname = null
 
-user = null
+image = null
 
-workingDirectory = null
+interactive = false
 
-enable_cloudwatch_logging = true
-
-create_cloudwatch_log_group = true
+links = null
 
 linuxParameters = {}
 
+logConfiguration = {}
+
+memory = null
+
+memoryReservation = null
+
+mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
 service = null
 
-cloudwatch_log_group_name = null
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = null
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = null
+
+workingDirectory = null

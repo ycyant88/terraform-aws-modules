@@ -1,13 +1,13 @@
-variable "create" {
-  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
+variable "actions_enabled" {
+  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
   type        = bool
   default     = true
 }
 
-variable "name_prefix" {
-  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
-  type        = string
-  default     = ""
+variable "alarm_actions" {
+  description = "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)"
+  type        = list(string)
+  default     = []
 }
 
 variable "control_overrides" {
@@ -16,32 +16,20 @@ variable "control_overrides" {
   default     = {}
 }
 
-variable "namespace" {
-  description = "The namespace where metric filter and metric alarm should be cleated"
-  type        = string
-  default     = "CISBenchmark"
-}
-
-variable "insufficient_data_actions" {
-  description = "List of ARNs to put as Cloudwatch insuficient data actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
-}
-
-variable "ok_actions" {
-  description = "List of ARNs to put as Cloudwatch OK actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
-}
-
-variable "use_random_name_prefix" {
-  description = "Whether to prefix resource names with random prefix"
+variable "create" {
+  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "disabled_controls" {
   description = "List of IDs of disabled CIS controls"
+  type        = list(string)
+  default     = []
+}
+
+variable "insufficient_data_actions" {
+  description = "List of ARNs to put as Cloudwatch insuficient data actions (eg, ARN of SNS topic)"
   type        = list(string)
   default     = []
 }
@@ -52,20 +40,32 @@ variable "log_group_name" {
   default     = ""
 }
 
-variable "alarm_actions" {
-  description = "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
+variable "name_prefix" {
+  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
+  type        = string
+  default     = ""
 }
 
-variable "actions_enabled" {
-  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
-  type        = bool
-  default     = true
+variable "namespace" {
+  description = "The namespace where metric filter and metric alarm should be cleated"
+  type        = string
+  default     = "CISBenchmark"
+}
+
+variable "ok_actions" {
+  description = "List of ARNs to put as Cloudwatch OK actions (eg, ARN of SNS topic)"
+  type        = list(string)
+  default     = []
 }
 
 variable "tags" {
   description = "A mapping of tags to assign to all resources"
   type        = map(string)
   default     = {}
+}
+
+variable "use_random_name_prefix" {
+  description = "Whether to prefix resource names with random prefix"
+  type        = bool
+  default     = false
 }

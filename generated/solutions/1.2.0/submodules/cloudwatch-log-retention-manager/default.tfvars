@@ -1,33 +1,33 @@
-name = "cloudwatch-log-retention-manager"
-
 cloudwatch_logs_retention_in_days = 90
-
-schedule_expression = "rate(12 hours)"
-
-role_arn = null
-
-putin_khuylo = true
-
-eventbridge_tags = {}
-
-description = "CloudWatch Log Retention Manager"
-
-timeout = 30
 
 create = true
 
-source_path = null
+create_package = false
 
-memory_size = 256
+description = "CloudWatch Log Retention Manager"
 
 environment_variables = {}
 
 eventbridge_role_name = null
 
-create_package = false
-
-tags = {}
+eventbridge_tags = {}
 
 lambda_tags = {}
 
+memory_size = 256
+
+name = "cloudwatch-log-retention-manager"
+
+putin_khuylo = true
+
+role_arn = null
+
 runtime = "python3.14"
+
+schedule_expression = "rate(12 hours)"
+
+source_path = null
+
+tags = {}
+
+timeout = 30

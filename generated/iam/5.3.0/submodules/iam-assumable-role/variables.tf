@@ -1,19 +1,19 @@
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "admin_role_policy_arn" {
   description = "Policy ARN to use for admin role"
   type        = string
   default     = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
-variable "poweruser_role_policy_arn" {
-  description = "Policy ARN to use for poweruser role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
+variable "attach_admin_policy" {
+  description = "Whether to attach an admin policy to a role"
+  type        = bool
+  default     = false
+}
+
+variable "attach_poweruser_policy" {
+  description = "Whether to attach a poweruser policy to a role"
+  type        = bool
+  default     = false
 }
 
 variable "attach_readonly_policy" {
@@ -22,26 +22,14 @@ variable "attach_readonly_policy" {
   default     = false
 }
 
-variable "role_sts_externalid" {
-  description = "STS ExternalId condition values to use with a role (when MFA is not required)"
-  type        = any
-  default     = []
-}
-
-variable "max_session_duration" {
-  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
-  type        = number
-  default     = 3600
-}
-
-variable "role_requires_mfa" {
-  description = "Whether role requires MFA"
+variable "create_instance_profile" {
+  description = "Whether to create an instance profile"
   type        = bool
-  default     = true
+  default     = false
 }
 
-variable "attach_poweruser_policy" {
-  description = "Whether to attach a poweruser policy to a role"
+variable "create_role" {
+  description = "Whether to create a role"
   type        = bool
   default     = false
 }
@@ -52,22 +40,58 @@ variable "custom_role_policy_arns" {
   default     = []
 }
 
-variable "trusted_role_arns" {
-  description = "ARNs of AWS entities who can assume these roles"
-  type        = list(string)
-  default     = []
+variable "custom_role_trust_policy" {
+  description = "A custom role trust policy"
+  type        = string
+  default     = ""
 }
 
-variable "create_role" {
-  description = "Whether to create a role"
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
   type        = bool
   default     = false
 }
 
-variable "create_instance_profile" {
-  description = "Whether to create an instance profile"
-  type        = bool
-  default     = false
+variable "max_session_duration" {
+  description = "Maximum CLI/API session duration in seconds between 3600 and 43200"
+  type        = number
+  default     = 3600
+}
+
+variable "mfa_age" {
+  description = "Max age of valid MFA (in seconds) for roles which require MFA"
+  type        = number
+  default     = 86400
+}
+
+variable "number_of_custom_role_policy_arns" {
+  description = "Number of IAM policies to attach to IAM role"
+  type        = number
+  default     = null
+}
+
+variable "poweruser_role_policy_arn" {
+  description = "Policy ARN to use for poweruser role"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/PowerUserAccess"
+}
+
+variable "readonly_role_policy_arn" {
+  description = "Policy ARN to use for readonly role"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+}
+
+variable "role_description" {
+  description = "IAM Role description"
+  type        = string
+  default     = ""
+}
+
+variable "role_name" {
+  description = "IAM role name"
+  type        = string
+  default     = ""
 }
 
 variable "role_path" {
@@ -82,16 +106,22 @@ variable "role_permissions_boundary_arn" {
   default     = ""
 }
 
-variable "number_of_custom_role_policy_arns" {
-  description = "Number of IAM policies to attach to IAM role"
-  type        = number
-  default     = null
+variable "role_requires_mfa" {
+  description = "Whether role requires MFA"
+  type        = bool
+  default     = true
 }
 
-variable "attach_admin_policy" {
-  description = "Whether to attach an admin policy to a role"
-  type        = bool
-  default     = false
+variable "role_sts_externalid" {
+  description = "STS ExternalId condition values to use with a role (when MFA is not required)"
+  type        = any
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "trusted_role_actions" {
@@ -100,44 +130,14 @@ variable "trusted_role_actions" {
   default     = ["sts:AssumeRole"]
 }
 
-variable "trusted_role_services" {
-  description = "AWS Services that can assume these roles"
+variable "trusted_role_arns" {
+  description = "ARNs of AWS entities who can assume these roles"
   type        = list(string)
   default     = []
 }
 
-variable "readonly_role_policy_arn" {
-  description = "Policy ARN to use for readonly role"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/ReadOnlyAccess"
-}
-
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
-}
-
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
-}
-
-variable "custom_role_trust_policy" {
-  description = "A custom role trust policy"
-  type        = string
-  default     = ""
-}
-
-variable "mfa_age" {
-  description = "Max age of valid MFA (in seconds) for roles which require MFA"
-  type        = number
-  default     = 86400
-}
-
-variable "role_name" {
-  description = "IAM role name"
-  type        = string
-  default     = ""
+variable "trusted_role_services" {
+  description = "AWS Services that can assume these roles"
+  type        = list(string)
+  default     = []
 }

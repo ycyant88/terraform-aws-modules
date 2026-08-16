@@ -1,11 +1,11 @@
-redacted_fields = []
+create = true
+
+log_destination_configs = ""
 
 logging_filter = null
 
-create = true
-
 putin_khuylo = true
 
-resource_arn = ""
+redacted_fields = []
 
-log_destination_configs = ""
+resource_arn = ""

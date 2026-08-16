@@ -1,35 +1,35 @@
 create = true
 
-region = null
+description = "Security Group managed by Terraform"
 
-vpc_id = null
+egress_rules = {}
+
+enable_exclusive_rules = true
+
+ingress_cidr_ipv4 = {}
 
 ingress_cidr_ipv6 = {}
 
-tags = {}
-
-revoke_rules_on_delete = false
-
-preset_ingress_rules = { "kibana" : { "description" : "Kibana Web Interface", "from_port" : 5601, "ip_protocol" : "tcp", "to_port" : 5601 } }
+ingress_prefix_list_id = {}
 
 ingress_referenced_security_group_id = {}
 
 ingress_rules = {}
 
-vpc_associations = {}
-
-enable_exclusive_rules = true
-
 name = ""
 
-use_name_prefix = true
+preset_ingress_rules = { "kibana" : { "description" : "Kibana Web Interface", "from_port" : 5601, "ip_protocol" : "tcp", "to_port" : 5601 } }
 
-description = "Security Group managed by Terraform"
+region = null
 
-ingress_cidr_ipv4 = {}
+revoke_rules_on_delete = false
 
-ingress_prefix_list_id = {}
+tags = {}
 
 timeouts = null
 
-egress_rules = {}
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

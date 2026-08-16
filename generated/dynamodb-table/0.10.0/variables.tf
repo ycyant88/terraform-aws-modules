@@ -1,7 +1,7 @@
-variable "ttl_enabled" {
-  description = "Indicates whether ttl is enabled"
-  type        = bool
-  default     = false
+variable "attributes" {
+  description = "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties: name - (Required) The name of the attribute, type - (Required) Attribute type, which must be a scalar type: S, N, or B for (S)tring, (N)umber or (B)inary data"
+  type        = list(map(string))
+  default     = []
 }
 
 variable "autoscaling_defaults" {
@@ -10,16 +10,34 @@ variable "autoscaling_defaults" {
   default     = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
 }
 
+variable "autoscaling_indexes" {
+  description = "A map of index autoscaling configurations. See example in examples/autoscaling"
+  type        = map(map(string))
+  default     = {}
+}
+
 variable "autoscaling_read" {
   description = "A map of read autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
   type        = map(string)
   default     = {}
 }
 
-variable "ttl_attribute_name" {
-  description = "The name of the table attribute to store the TTL timestamp in"
+variable "autoscaling_write" {
+  description = "A map of write autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
+  type        = map(string)
+  default     = {}
+}
+
+variable "billing_mode" {
+  description = "Controls how you are billed for read/write throughput and how you manage capacity. The valid values are PROVISIONED or PAY_PER_REQUEST"
   type        = string
-  default     = ""
+  default     = "PAY_PER_REQUEST"
+}
+
+variable "create_table" {
+  description = "Controls if DynamoDB table and associated resources are created"
+  type        = bool
+  default     = true
 }
 
 variable "global_secondary_indexes" {
@@ -28,32 +46,20 @@ variable "global_secondary_indexes" {
   default     = []
 }
 
-variable "replica_regions" {
-  description = "Region names for creating replicas for a global DynamoDB table."
-  type        = list(string)
+variable "hash_key" {
+  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
+  type        = string
+  default     = ""
+}
+
+variable "local_secondary_indexes" {
+  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
+  type        = any
   default     = []
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "autoscaling_indexes" {
-  description = "A map of index autoscaling configurations. See example in examples/autoscaling"
-  type        = map(map(string))
-  default     = {}
-}
-
-variable "attributes" {
-  description = "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties: name - (Required) The name of the attribute, type - (Required) Attribute type, which must be a scalar type: S, N, or B for (S)tring, (N)umber or (B)inary data"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "range_key" {
-  description = "The attribute to use as the range (sort) key. Must also be defined as an attribute"
+variable "name" {
+  description = "Name of the DynamoDB table"
   type        = string
   default     = ""
 }
@@ -64,34 +70,10 @@ variable "point_in_time_recovery_enabled" {
   default     = false
 }
 
-variable "local_secondary_indexes" {
-  description = "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource."
-  type        = any
-  default     = []
-}
-
-variable "stream_enabled" {
-  description = "Indicates whether Streams are to be enabled (true) or disabled (false)."
-  type        = bool
-  default     = false
-}
-
-variable "server_side_encryption_enabled" {
-  description = "Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK)"
-  type        = bool
-  default     = false
-}
-
-variable "hash_key" {
-  description = "The attribute to use as the hash (partition) key. Must also be defined as an attribute"
+variable "range_key" {
+  description = "The attribute to use as the range (sort) key. Must also be defined as an attribute"
   type        = string
   default     = ""
-}
-
-variable "billing_mode" {
-  description = "Controls how you are billed for read/write throughput and how you manage capacity. The valid values are PROVISIONED or PAY_PER_REQUEST"
-  type        = string
-  default     = "PAY_PER_REQUEST"
 }
 
 variable "read_capacity" {
@@ -100,10 +82,16 @@ variable "read_capacity" {
   default     = ""
 }
 
-variable "stream_view_type" {
-  description = "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES."
-  type        = string
-  default     = ""
+variable "replica_regions" {
+  description = "Region names for creating replicas for a global DynamoDB table."
+  type        = list(string)
+  default     = []
+}
+
+variable "server_side_encryption_enabled" {
+  description = "Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK)"
+  type        = bool
+  default     = false
 }
 
 variable "server_side_encryption_kms_key_arn" {
@@ -112,28 +100,40 @@ variable "server_side_encryption_kms_key_arn" {
   default     = ""
 }
 
+variable "stream_enabled" {
+  description = "Indicates whether Streams are to be enabled (true) or disabled (false)."
+  type        = bool
+  default     = false
+}
+
+variable "stream_view_type" {
+  description = "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES."
+  type        = string
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
 variable "timeouts" {
   description = "Updated Terraform resource management timeouts"
   type        = map(string)
   default     = { "create" : "10m", "delete" : "10m", "update" : "60m" }
 }
 
-variable "autoscaling_write" {
-  description = "A map of write autoscaling settings. max_capacity is the only required key. See example in examples/autoscaling"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_table" {
-  description = "Controls if DynamoDB table and associated resources are created"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name of the DynamoDB table"
+variable "ttl_attribute_name" {
+  description = "The name of the table attribute to store the TTL timestamp in"
   type        = string
   default     = ""
+}
+
+variable "ttl_enabled" {
+  description = "Indicates whether ttl is enabled"
+  type        = bool
+  default     = false
 }
 
 variable "write_capacity" {

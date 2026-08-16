@@ -1,105 +1,105 @@
-network_interface = []
-
-root_block_device = []
-
-subnet_id = null
-
-spot_wait_for_fulfillment = null
-
-disable_api_stop = null
-
-capacity_reservation_specification = null
-
-enable_volume_tags = true
-
-get_password_data = null
-
-spot_valid_until = null
-
-spot_valid_from = null
-
-timeouts = {}
-
-source_dest_check = true
-
-tags = {}
-
-user_data = null
-
-name = ""
-
-spot_instance_interruption_behavior = null
-
-secondary_private_ips = null
-
-tenancy = null
-
-availability_zone = null
-
-instance_type = "t3.micro"
-
-monitoring = false
-
-putin_khuylo = true
+ami = ""
 
 associate_public_ip_address = null
 
-iam_instance_profile = null
+availability_zone = null
 
-spot_price = null
-
-user_data_base64 = null
-
-create_spot_instance = false
-
-placement_group = null
-
-user_data_replace_on_change = false
-
-hibernation = null
-
-create = true
-
-host_id = null
-
-spot_block_duration_minutes = null
-
-disable_api_termination = null
-
-instance_initiated_shutdown_behavior = null
-
-spot_launch_group = null
-
-ami = ""
+capacity_reservation_specification = null
 
 cpu_core_count = null
 
-key_name = null
+cpu_credits = null
 
-metadata_options = {}
+cpu_threads_per_core = null
+
+create = true
+
+create_spot_instance = false
+
+disable_api_stop = null
+
+disable_api_termination = null
+
+ebs_block_device = []
 
 ebs_optimized = null
 
+enable_volume_tags = true
+
+enclave_options_enabled = null
+
 ephemeral_block_device = []
+
+get_password_data = null
+
+hibernation = null
+
+host_id = null
+
+iam_instance_profile = null
+
+instance_initiated_shutdown_behavior = null
+
+instance_type = "t3.micro"
+
+ipv6_address_count = null
+
+ipv6_addresses = null
+
+key_name = null
+
+launch_template = null
+
+metadata_options = {}
+
+monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = null
 
 private_ip = null
 
+putin_khuylo = true
+
+root_block_device = []
+
+secondary_private_ips = null
+
+source_dest_check = true
+
+spot_block_duration_minutes = null
+
+spot_instance_interruption_behavior = null
+
+spot_launch_group = null
+
+spot_price = null
+
 spot_type = null
+
+spot_valid_from = null
+
+spot_valid_until = null
+
+spot_wait_for_fulfillment = null
+
+subnet_id = null
+
+tags = {}
+
+tenancy = null
+
+timeouts = {}
+
+user_data = null
+
+user_data_base64 = null
+
+user_data_replace_on_change = false
 
 volume_tags = {}
 
 vpc_security_group_ids = null
-
-cpu_credits = null
-
-enclave_options_enabled = null
-
-launch_template = null
-
-ipv6_addresses = null
-
-cpu_threads_per_core = null
-
-ebs_block_device = []
-
-ipv6_address_count = null

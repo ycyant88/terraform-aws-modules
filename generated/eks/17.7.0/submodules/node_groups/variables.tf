@@ -1,13 +1,7 @@
-variable "node_groups" {
-  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
-  type        = any
-  default     = {}
-}
-
-variable "ng_depends_on" {
-  description = "List of references to other resources this submodule depends on"
-  type        = any
-  default     = null
+variable "cluster_name" {
+  description = "Name of parent cluster"
+  type        = string
+  default     = ""
 }
 
 variable "create_eks" {
@@ -19,6 +13,30 @@ variable "create_eks" {
 variable "default_iam_role_arn" {
   description = "ARN of the default IAM worker role to use if one is not specified in var.node_groups or var.node_groups_defaults"
   type        = string
+  default     = ""
+}
+
+variable "ebs_optimized_not_supported" {
+  description = "List of instance types that do not support EBS optimization"
+  type        = list(string)
+  default     = []
+}
+
+variable "ng_depends_on" {
+  description = "List of references to other resources this submodule depends on"
+  type        = any
+  default     = null
+}
+
+variable "node_groups" {
+  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+  type        = any
+  default     = {}
+}
+
+variable "node_groups_defaults" {
+  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+  type        = any
   default     = ""
 }
 
@@ -34,20 +52,8 @@ variable "worker_additional_security_group_ids" {
   default     = []
 }
 
-variable "node_groups_defaults" {
-  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
-  type        = any
-  default     = ""
-}
-
-variable "ebs_optimized_not_supported" {
-  description = "List of instance types that do not support EBS optimization"
-  type        = list(string)
-  default     = []
-}
-
-variable "cluster_name" {
-  description = "Name of parent cluster"
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
   type        = string
   default     = ""
 }
@@ -55,11 +61,5 @@ variable "cluster_name" {
 variable "workers_group_defaults" {
   description = "Workers group defaults from parent"
   type        = any
-  default     = ""
-}
-
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
-  type        = string
   default     = ""
 }

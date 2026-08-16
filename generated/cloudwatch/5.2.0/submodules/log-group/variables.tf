@@ -1,19 +1,19 @@
-variable "skip_destroy" {
-  description = "Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the Terraform state"
-  type        = bool
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to Cloudwatch log group"
-  type        = map(string)
-  default     = {}
-}
-
 variable "create" {
   description = "Whether to create the Cloudwatch log group"
   type        = bool
   default     = true
+}
+
+variable "kms_key_id" {
+  description = "The ARN of the KMS Key to use when encrypting logs"
+  type        = string
+  default     = null
+}
+
+variable "log_group_class" {
+  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
+  type        = string
+  default     = null
 }
 
 variable "name" {
@@ -34,14 +34,14 @@ variable "retention_in_days" {
   default     = null
 }
 
-variable "kms_key_id" {
-  description = "The ARN of the KMS Key to use when encrypting logs"
-  type        = string
+variable "skip_destroy" {
+  description = "Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the Terraform state"
+  type        = bool
   default     = null
 }
 
-variable "log_group_class" {
-  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
-  type        = string
-  default     = null
+variable "tags" {
+  description = "A map of tags to add to Cloudwatch log group"
+  type        = map(string)
+  default     = {}
 }

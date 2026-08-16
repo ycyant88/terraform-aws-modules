@@ -1,179 +1,179 @@
-iam_role_arn = null
+ami_id = ""
 
-launch_template_name = null
+ami_release_version = null
 
-maintenance_options = {}
+ami_type = null
 
-license_specifications = {}
+block_device_mappings = {}
 
-enable_efa_support = false
+bootstrap_extra_args = ""
 
-network_interfaces = []
+capacity_reservation_specification = {}
 
-iam_role_additional_policies = {}
+capacity_type = "ON_DEMAND"
 
-update_launch_template_default_version = true
+cloudinit_post_nodeadm = []
 
-placement_group_strategy = "cluster"
+cloudinit_pre_nodeadm = []
 
-disk_size = null
+cluster_auth_base64 = ""
 
-update_config = { "max_unavailable_percentage" : 33 }
+cluster_endpoint = ""
 
-iam_role_use_name_prefix = true
+cluster_ip_family = "ipv4"
+
+cluster_name = null
 
 cluster_primary_security_group_id = null
 
 cluster_service_cidr = ""
 
-launch_template_description = null
-
-disable_api_termination = null
-
-private_dns_name_options = {}
-
-force_update_version = null
-
-remote_access = {}
-
-timeouts = {}
-
-launch_template_default_version = null
-
-user_data_template_path = ""
-
-enable_efa_only = false
-
-max_size = 3
-
-iam_role_name = null
-
-iam_role_attach_cni_policy = true
-
-schedules = {}
-
-launch_template_tags = {}
-
-iam_role_policy_statements = []
-
-create_schedule = true
-
-enable_bootstrap_user_data = false
-
-cloudinit_pre_nodeadm = []
-
-placement = {}
-
-ami_release_version = null
-
-launch_template_version = null
-
-tags = {}
-
-cluster_auth_base64 = ""
-
-key_name = null
-
-capacity_reservation_specification = {}
-
-instance_types = null
-
-iam_role_permissions_boundary = null
-
 cluster_service_ipv4_cidr = null
 
-launch_template_id = ""
-
-elastic_inference_accelerator = {}
-
-desired_size = 1
-
-name = ""
-
-iam_role_tags = {}
-
-kernel_id = null
-
-min_size = 0
-
-labels = null
-
-taints = {}
-
-iam_role_description = null
-
-block_device_mappings = {}
+cluster_version = null
 
 cpu_options = {}
+
+create = true
 
 create_iam_role = true
 
 create_iam_role_policy = true
 
-vpc_security_group_ids = []
-
-create = true
-
-cloudinit_post_nodeadm = []
-
-elastic_gpu_specifications = {}
-
-efa_indices = [0]
+create_launch_template = true
 
 create_placement_group = false
 
-placement_group_az = null
-
-use_name_prefix = true
-
-cluster_endpoint = ""
-
-pre_bootstrap_user_data = ""
-
-post_bootstrap_user_data = ""
-
-enable_monitoring = true
-
-node_repair_config = null
-
-cluster_ip_family = "ipv4"
-
-iam_role_path = null
-
-cluster_name = null
-
-use_custom_launch_template = true
-
-subnet_ids = null
-
-use_latest_ami_release_version = false
-
-platform = "linux"
-
-create_launch_template = true
-
-launch_template_use_name_prefix = true
-
-ebs_optimized = null
-
-ram_disk_id = null
+create_schedule = true
 
 credit_specification = {}
 
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+efa_indices = [0]
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_bootstrap_user_data = false
+
+enable_efa_only = false
+
+enable_efa_support = false
+
+enable_monitoring = true
+
 enclave_options = {}
 
-tag_specifications = ["instance", "volume", "network-interface"]
+force_update_version = null
 
-bootstrap_extra_args = ""
+iam_role_additional_policies = {}
 
-ami_id = ""
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_policy_statements = []
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
 
 instance_market_options = {}
 
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = {}
+
+maintenance_options = {}
+
+max_size = 3
+
 metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
 
-ami_type = null
+min_size = 0
 
-capacity_type = "ON_DEMAND"
+name = ""
 
-cluster_version = null
+network_interfaces = []
+
+node_repair_config = null
+
+placement = {}
+
+placement_group_az = null
+
+placement_group_strategy = "cluster"
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+private_dns_name_options = {}
+
+ram_disk_id = null
+
+remote_access = {}
+
+schedules = {}
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface"]
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_latest_ami_release_version = false
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []

@@ -1,12 +1,12 @@
+certificate_transparency_logging_preference = true
+
 create_certificate = true
 
-wait_for_validation = true
-
-certificate_transparency_logging_preference = true
+dns_ttl = 60
 
 domain_name = ""
 
-zone_id = ""
+subject_alternative_names = []
 
 tags = {}
 
@@ -14,8 +14,8 @@ validate_certificate = true
 
 validation_allow_overwrite_records = true
 
-subject_alternative_names = []
-
 validation_method = "DNS"
 
-dns_ttl = 60
+wait_for_validation = true
+
+zone_id = ""

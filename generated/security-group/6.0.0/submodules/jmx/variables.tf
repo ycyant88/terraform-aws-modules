@@ -1,5 +1,5 @@
-variable "use_name_prefix" {
-  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
   default     = true
 }
@@ -10,10 +10,22 @@ variable "description" {
   default     = "Security Group managed by Terraform"
 }
 
-variable "vpc_id" {
-  description = "ID of the VPC where the security group is created"
-  type        = string
-  default     = null
+variable "egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(number)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(number)
+  }))
+  default = {}
 }
 
 variable "enable_exclusive_rules" {
@@ -22,18 +34,16 @@ variable "enable_exclusive_rules" {
   default     = true
 }
 
-variable "ingress_cidr_ipv6" {
-  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+variable "ingress_cidr_ipv4" {
+  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
   type        = map(string)
   default     = {}
 }
 
-variable "vpc_associations" {
-  description = "Map of VPC IDs to associate the security group to"
-  type = map(object({
-    vpc_id = string
-  }))
-  default = {}
+variable "ingress_cidr_ipv6" {
+  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
 }
 
 variable "ingress_prefix_list_id" {
@@ -66,31 +76,10 @@ variable "ingress_rules" {
   default = {}
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "name" {
   description = "Name of security group"
   type        = string
   default     = ""
-}
-
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
-  type        = bool
-  default     = false
-}
-
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the security group"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
 }
 
 variable "preset_ingress_rules" {
@@ -104,38 +93,49 @@ variable "preset_ingress_rules" {
   default = { "jmx" : { "description" : "JMX", "from_port" : 1099, "ip_protocol" : "tcp", "to_port" : 1099 } }
 }
 
-variable "ingress_cidr_ipv4" {
-  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(number)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(number)
-  }))
-  default = {}
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the security group"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
+variable "use_name_prefix" {
+  description = "Whether to use the name (name) as a prefix, appending a random suffix"
   type        = bool
   default     = true
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+variable "vpc_associations" {
+  description = "Map of VPC IDs to associate the security group to"
+  type = map(object({
+    vpc_id = string
+  }))
+  default = {}
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where the security group is created"
   type        = string
   default     = null
 }

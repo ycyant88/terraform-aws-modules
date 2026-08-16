@@ -2,24 +2,24 @@ audience = "sts.amazonaws.com"
 
 create = true
 
-name = null
-
-permissions_boundary_arn = null
+description = null
 
 force_detach_policies = true
 
-subjects = []
+max_session_duration = null
 
-provider_url = "token.actions.githubusercontent.com"
-
-tags = {}
-
-path = "/"
-
-description = null
+name = null
 
 name_prefix = null
 
+path = "/"
+
+permissions_boundary_arn = null
+
 policies = {}
 
-max_session_duration = null
+provider_url = "token.actions.githubusercontent.com"
+
+subjects = []
+
+tags = {}

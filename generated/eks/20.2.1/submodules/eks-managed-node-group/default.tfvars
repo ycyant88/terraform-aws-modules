@@ -1,153 +1,153 @@
-subnet_ids = null
-
-remote_access = {}
-
-timeouts = {}
-
-iam_role_tags = {}
-
-create_schedule = true
-
-tag_specifications = ["instance", "volume", "network-interface"]
-
-disk_size = null
-
-launch_template_version = null
-
-cluster_primary_security_group_id = null
-
-elastic_inference_accelerator = {}
-
-min_size = 0
-
-cluster_name = null
-
-pre_bootstrap_user_data = ""
-
-bootstrap_extra_args = ""
-
 ami_id = ""
-
-vpc_security_group_ids = []
-
-use_name_prefix = true
-
-iam_role_description = null
-
-iam_role_additional_policies = {}
-
-create_iam_role = true
-
-schedules = {}
-
-user_data_template_path = ""
-
-ebs_optimized = null
-
-disable_api_termination = null
-
-license_specifications = {}
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
-
-cpu_options = {}
-
-instance_market_options = {}
-
-iam_role_name = null
-
-post_bootstrap_user_data = ""
-
-launch_template_default_version = null
-
-launch_template_tags = {}
-
-max_size = 3
 
 ami_release_version = null
 
-create = true
-
-tags = {}
-
-cluster_endpoint = ""
-
-cluster_auth_base64 = ""
-
-update_launch_template_default_version = true
-
-platform = "linux"
-
-launch_template_description = null
-
-maintenance_options = {}
-
 ami_type = null
-
-capacity_type = "ON_DEMAND"
-
-force_update_version = null
-
-instance_types = null
-
-taints = {}
-
-iam_role_permissions_boundary = null
-
-cluster_service_ipv4_cidr = null
-
-launch_template_name = null
 
 block_device_mappings = {}
 
-elastic_gpu_specifications = {}
-
-private_dns_name_options = {}
-
-use_custom_launch_template = true
-
-launch_template_use_name_prefix = true
-
-credit_specification = {}
-
-labels = null
-
-enable_bootstrap_user_data = false
-
-create_launch_template = true
-
-launch_template_id = ""
-
-iam_role_use_name_prefix = true
+bootstrap_extra_args = ""
 
 capacity_reservation_specification = {}
 
-placement = {}
+capacity_type = "ON_DEMAND"
 
-desired_size = 1
+cluster_auth_base64 = ""
+
+cluster_endpoint = ""
 
 cluster_ip_family = null
 
-iam_role_attach_cni_policy = true
+cluster_name = null
 
-update_config = { "max_unavailable_percentage" : 33 }
+cluster_primary_security_group_id = null
 
-iam_role_path = null
-
-ram_disk_id = null
-
-enable_monitoring = true
-
-network_interfaces = []
-
-name = ""
+cluster_service_ipv4_cidr = null
 
 cluster_version = null
 
+cpu_options = {}
+
+create = true
+
+create_iam_role = true
+
+create_launch_template = true
+
+create_schedule = true
+
+credit_specification = {}
+
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = {}
+
+elastic_inference_accelerator = {}
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = {}
+
+force_update_version = null
+
+iam_role_additional_policies = {}
+
 iam_role_arn = null
 
-key_name = null
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+instance_market_options = {}
+
+instance_types = null
 
 kernel_id = null
 
-enclave_options = {}
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = {}
+
+maintenance_options = {}
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+private_dns_name_options = {}
+
+ram_disk_id = null
+
+remote_access = {}
+
+schedules = {}
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface"]
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []

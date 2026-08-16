@@ -1,105 +1,105 @@
-suspended_processes = []
+asg_name = ""
 
-tags = []
-
-wait_for_elb_capacity = null
-
-security_groups = []
+associate_public_ip_address = false
 
 create_asg = true
 
-recreate_asg_when_lc_changes = false
+create_asg_with_initial_lifecycle_hook = false
 
-name = ""
+create_lc = true
 
-image_id = ""
+default_cooldown = 300
 
 desired_capacity = ""
 
-termination_policies = ["Default"]
+ebs_block_device = []
 
-protect_from_scale_in = false
+ebs_optimized = false
 
 enable_monitoring = true
 
-force_delete = false
-
-target_group_arns = []
-
-max_instance_lifetime = 0
-
-initial_lifecycle_hook_notification_metadata = ""
-
-launch_configuration = ""
-
-key_name = ""
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
 ephemeral_block_device = []
 
-spot_price = ""
+force_delete = false
 
 health_check_grace_period = 300
 
 health_check_type = ""
 
-tags_as_map = {}
-
-initial_lifecycle_hook_notification_target_arn = ""
-
-instance_type = ""
-
 iam_instance_profile = ""
 
-associate_public_ip_address = false
-
-user_data = null
-
-placement_tenancy = "default"
-
-max_size = ""
-
-vpc_zone_identifier = ""
-
-root_block_device = []
-
-ebs_block_device = []
-
-lc_name = ""
-
-create_asg_with_initial_lifecycle_hook = false
-
-initial_lifecycle_hook_name = ""
-
-initial_lifecycle_hook_role_arn = ""
-
-min_size = ""
-
-default_cooldown = 300
-
-create_lc = true
-
-asg_name = ""
-
-load_balancers = []
-
-placement_group = ""
-
-metrics_granularity = "1Minute"
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-wait_for_capacity_timeout = "10m"
-
-min_elb_capacity = 0
-
-initial_lifecycle_hook_lifecycle_transition = ""
-
-ebs_optimized = false
-
-service_linked_role_arn = ""
+image_id = ""
 
 initial_lifecycle_hook_default_result = "ABANDON"
 
 initial_lifecycle_hook_heartbeat_timeout = "60"
 
+initial_lifecycle_hook_lifecycle_transition = ""
+
+initial_lifecycle_hook_name = ""
+
+initial_lifecycle_hook_notification_metadata = ""
+
+initial_lifecycle_hook_notification_target_arn = ""
+
+initial_lifecycle_hook_role_arn = ""
+
+instance_type = ""
+
+key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_instance_lifetime = 0
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+recreate_asg_when_lc_changes = false
+
+root_block_device = []
+
+security_groups = []
+
+service_linked_role_arn = ""
+
+spot_price = ""
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = ["Default"]
+
+user_data = null
+
 user_data_base64 = null
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = null

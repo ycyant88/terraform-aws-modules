@@ -1,63 +1,63 @@
-create = true
-
-alias_name = ""
-
-function_name = ""
-
-description = ""
-
-create_app = false
+after_allow_traffic_hook_arn = ""
 
 alarm_enabled = false
 
-alarms = []
-
-aws_cli_command = "aws"
-
-force_deploy = false
-
-deployment_config_name = "CodeDeployDefault.LambdaAllAtOnce"
-
-auto_rollback_events = ["DEPLOYMENT_STOP_ON_ALARM"]
-
-wait_deployment_completion = false
-
-create_codedeploy_role = true
-
-codedeploy_role_name = ""
-
-attach_triggers_policy = false
-
-target_version = ""
-
-before_allow_traffic_hook_arn = ""
-
-triggers = {}
-
-after_allow_traffic_hook_arn = ""
-
-create_deployment_group = false
-
 alarm_ignore_poll_alarm_failure = false
 
-current_version = ""
+alarms = []
 
-use_existing_app = false
+alias_name = ""
 
 app_name = ""
 
-use_existing_deployment_group = false
+attach_triggers_policy = false
 
-save_deploy_script = false
+auto_rollback_enabled = true
 
-create_deployment = false
+auto_rollback_events = ["DEPLOYMENT_STOP_ON_ALARM"]
+
+aws_cli_command = "aws"
+
+before_allow_traffic_hook_arn = ""
 
 codedeploy_principals = ["codedeploy.amazonaws.com"]
 
-tags = {}
+codedeploy_role_name = ""
 
-interpreter = ["/bin/bash", "-c"]
+create = true
+
+create_app = false
+
+create_codedeploy_role = true
+
+create_deployment = false
+
+create_deployment_group = false
+
+current_version = ""
+
+deployment_config_name = "CodeDeployDefault.LambdaAllAtOnce"
 
 deployment_group_name = ""
 
-auto_rollback_enabled = true
+description = ""
+
+force_deploy = false
+
+function_name = ""
+
+interpreter = ["/bin/bash", "-c"]
+
+save_deploy_script = false
+
+tags = {}
+
+target_version = ""
+
+triggers = {}
+
+use_existing_app = false
+
+use_existing_deployment_group = false
+
+wait_deployment_completion = false

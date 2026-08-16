@@ -3,6 +3,11 @@ output "dns_name" {
   description = "The DNS name of the load balancer."
 }
 
+output "http_tcp_listener_arns" {
+  value       = module.alb.http_tcp_listener_arns
+  description = "The ARN of the TCP and HTTP load balancer listeners created."
+}
+
 output "http_tcp_listener_ids" {
   value       = module.alb.http_tcp_listener_ids
   description = "The IDs of the TCP and HTTP load balancer listeners created."
@@ -11,11 +16,6 @@ output "http_tcp_listener_ids" {
 output "https_listener_arns" {
   value       = module.alb.https_listener_arns
   description = "The ARN of the HTTPS load balancer listeners created."
-}
-
-output "http_tcp_listener_arns" {
-  value       = module.alb.http_tcp_listener_arns
-  description = "The ARN of the TCP and HTTP load balancer listeners created."
 }
 
 output "https_listner_ids" {

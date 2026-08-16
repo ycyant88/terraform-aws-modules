@@ -1,7 +1,7 @@
-query_string = ""
+create = true
 
 log_group_names = null
 
-create = true
-
 name = ""
+
+query_string = ""

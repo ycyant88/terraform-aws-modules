@@ -1,35 +1,35 @@
-create_role = false
-
-tags = {}
-
-role_name = null
-
-oidc_fully_qualified_subjects = []
-
-oidc_fully_qualified_audiences = []
-
 allow_self_assume_role = false
 
-provider_url = ""
+aws_account_id = ""
 
-role_permissions_boundary_arn = ""
+create_role = false
+
+force_detach_policies = false
 
 max_session_duration = 3600
 
 number_of_role_policy_arns = null
 
-aws_account_id = ""
+oidc_fully_qualified_audiences = []
 
-role_name_prefix = null
-
-role_description = ""
+oidc_fully_qualified_subjects = []
 
 oidc_subjects_with_wildcards = []
 
+provider_url = ""
+
 provider_urls = []
+
+role_description = ""
+
+role_name = null
+
+role_name_prefix = null
 
 role_path = "/"
 
+role_permissions_boundary_arn = ""
+
 role_policy_arns = []
 
-force_detach_policies = false
+tags = {}

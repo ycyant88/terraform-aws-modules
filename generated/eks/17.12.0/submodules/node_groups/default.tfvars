@@ -1,23 +1,23 @@
-node_groups = {}
-
-ng_depends_on = null
+cluster_name = ""
 
 create_eks = true
 
-cluster_name = ""
+default_iam_role_arn = ""
 
-workers_group_defaults = ""
+ebs_optimized_not_supported = []
 
-worker_security_group_id = ""
+ng_depends_on = null
 
-timeouts = ""
+node_groups = {}
 
 node_groups_defaults = ""
 
-default_iam_role_arn = ""
+tags = ""
+
+timeouts = ""
 
 worker_additional_security_group_ids = []
 
-tags = ""
+worker_security_group_id = ""
 
-ebs_optimized_not_supported = []
+workers_group_defaults = ""

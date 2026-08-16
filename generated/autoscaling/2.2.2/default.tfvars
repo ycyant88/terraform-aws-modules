@@ -1,81 +1,81 @@
-name = ""
-
-placement_tenancy = "default"
-
-max_size = ""
-
-wait_for_elb_capacity = false
-
-image_id = ""
-
-iam_instance_profile = ""
-
-default_cooldown = 300
-
-target_group_arns = []
-
-suspended_processes = []
-
-protect_from_scale_in = false
-
-instance_type = ""
-
-ephemeral_block_device = []
-
-min_elb_capacity = 0
-
-enable_monitoring = true
-
-tags_as_map = {}
-
-wait_for_capacity_timeout = "10m"
-
-lc_name = ""
-
 asg_name = ""
-
-launch_configuration = ""
-
-security_groups = ""
-
-ebs_block_device = []
-
-min_size = ""
-
-vpc_zone_identifier = ""
-
-force_delete = false
-
-create_asg = true
-
-key_name = ""
 
 associate_public_ip_address = false
 
-ebs_optimized = false
-
-desired_capacity = ""
-
-placement_group = ""
-
-metrics_granularity = "1Minute"
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+create_asg = true
 
 create_lc = true
 
-user_data = " "
+default_cooldown = 300
 
-spot_price = 0
+desired_capacity = ""
 
-load_balancers = []
+ebs_block_device = []
 
-tags = []
+ebs_optimized = false
 
-root_block_device = []
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+force_delete = false
 
 health_check_grace_period = 300
 
 health_check_type = ""
 
+iam_instance_profile = ""
+
+image_id = ""
+
+instance_type = ""
+
+key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
+
+suspended_processes = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
 termination_policies = ["Default"]
+
+user_data = " "
+
+vpc_zone_identifier = ""
+
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

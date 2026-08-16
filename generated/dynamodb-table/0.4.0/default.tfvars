@@ -1,45 +1,45 @@
 attributes = []
 
-hash_key = ""
-
-billing_mode = "PAY_PER_REQUEST"
-
-read_capacity = ""
-
-ttl_enabled = false
-
-point_in_time_recovery_enabled = false
-
-timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
-
-name = ""
-
-range_key = ""
-
-write_capacity = ""
-
-server_side_encryption_enabled = false
-
 autoscaling_defaults = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
-
-autoscaling_read = {}
 
 autoscaling_indexes = {}
 
-server_side_encryption_kms_key_arn = ""
+autoscaling_read = {}
 
-tags = {}
+autoscaling_write = {}
+
+billing_mode = "PAY_PER_REQUEST"
+
+create_table = true
 
 global_secondary_indexes = []
+
+hash_key = ""
+
+local_secondary_indexes = []
+
+name = ""
+
+point_in_time_recovery_enabled = false
+
+range_key = ""
+
+read_capacity = ""
+
+server_side_encryption_enabled = false
+
+server_side_encryption_kms_key_arn = ""
 
 stream_enabled = false
 
 stream_view_type = ""
 
-autoscaling_write = {}
+tags = {}
+
+timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
 
 ttl_attribute_name = ""
 
-local_secondary_indexes = []
+ttl_enabled = false
 
-create_table = true
+write_capacity = ""

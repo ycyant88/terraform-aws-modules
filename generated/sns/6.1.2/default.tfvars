@@ -1,51 +1,51 @@
-create = true
+application_feedback = {}
 
-name = null
+archive_policy = null
 
 content_based_deduplication = false
 
-firehose_feedback = {}
+create = true
 
-lambda_feedback = {}
+create_subscription = true
 
-override_topic_policy_documents = []
+create_topic_policy = true
 
 data_protection_policy = null
 
-tags = {}
-
-use_name_prefix = false
+delivery_policy = null
 
 display_name = null
+
+enable_default_topic_policy = true
+
+fifo_topic = false
+
+firehose_feedback = {}
 
 http_feedback = {}
 
 kms_master_key_id = null
 
-topic_policy = null
+lambda_feedback = {}
 
-create_topic_policy = true
+name = null
+
+override_topic_policy_documents = []
+
+signature_version = null
 
 source_topic_policy_documents = []
 
 sqs_feedback = {}
 
-archive_policy = null
+subscriptions = {}
+
+tags = {}
+
+topic_policy = null
 
 topic_policy_statements = {}
 
-create_subscription = true
-
-subscriptions = {}
-
-application_feedback = {}
-
-delivery_policy = null
-
-fifo_topic = false
-
-signature_version = null
-
 tracing_config = null
 
-enable_default_topic_policy = true
+use_name_prefix = false

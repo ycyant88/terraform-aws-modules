@@ -1,15 +1,15 @@
-tags = {}
-
-log_group_name = ""
+actions_enabled = true
 
 alarm_actions = []
 
-actions_enabled = true
-
 create = true
-
-use_random_name_prefix = false
 
 disabled_controls = []
 
+log_group_name = ""
+
 namespace = "CISBenchmark"
+
+tags = {}
+
+use_random_name_prefix = false

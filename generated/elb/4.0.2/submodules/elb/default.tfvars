@@ -1,27 +1,27 @@
-listener = ""
+access_logs = {}
 
-security_groups = ""
-
-subnets = ""
-
-internal = ""
+connection_draining = false
 
 connection_draining_timeout = 300
 
-tags = {}
+create_elb = true
 
-access_logs = {}
+cross_zone_load_balancing = true
 
 health_check = ""
 
-create_elb = true
+idle_timeout = 60
+
+internal = ""
+
+listener = ""
 
 name = null
 
 name_prefix = null
 
-cross_zone_load_balancing = true
+security_groups = ""
 
-idle_timeout = 60
+subnets = ""
 
-connection_draining = false
+tags = {}

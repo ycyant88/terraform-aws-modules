@@ -1,49 +1,49 @@
-website_redirect = null
+acl = null
 
-kms_key_id = null
+bucket = ""
 
-object_lock_mode = null
-
-source_hash = null
-
-file_source = null
-
-content_type = null
-
-content_encoding = null
-
-etag = null
-
-server_side_encryption = null
-
-force_destroy = false
-
-object_lock_legal_hold_status = null
-
-create = true
+bucket_key_enabled = null
 
 cache_control = null
+
+content = null
 
 content_base64 = null
 
 content_disposition = null
 
+content_encoding = null
+
 content_language = null
 
-bucket_key_enabled = null
+content_type = null
 
-tags = {}
+create = true
 
-object_lock_retain_until_date = null
+etag = null
 
-bucket = ""
+file_source = null
+
+force_destroy = false
 
 key = ""
 
-storage_class = null
+kms_key_id = null
 
 metadata = {}
 
-content = null
+object_lock_legal_hold_status = null
 
-acl = null
+object_lock_mode = null
+
+object_lock_retain_until_date = null
+
+server_side_encryption = null
+
+source_hash = null
+
+storage_class = null
+
+tags = {}
+
+website_redirect = null

@@ -1,12 +1,12 @@
 module "wafv2_ip-set" {
   source             = "terraform-aws-modules/wafv2/aws//modules/ip-set"
   version            = "1.3.0"
-  description        = var.description
-  scope              = var.scope
-  ip_address_version = var.ip_address_version
   addresses          = var.addresses
   create             = var.create
-  putin_khuylo       = var.putin_khuylo
-  tags               = var.tags
+  description        = var.description
+  ip_address_version = var.ip_address_version
   name               = var.name
+  putin_khuylo       = var.putin_khuylo
+  scope              = var.scope
+  tags               = var.tags
 }

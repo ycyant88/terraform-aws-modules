@@ -1,20 +1,20 @@
 module "iam_iam-assumable-role-with-saml" {
   source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-saml"
   version                       = "5.60.0"
-  aws_saml_endpoint             = var.aws_saml_endpoint
-  role_description              = var.role_description
-  role_path                     = var.role_path
-  role_permissions_boundary_arn = var.role_permissions_boundary_arn
   allow_self_assume_role        = var.allow_self_assume_role
-  trusted_role_actions          = var.trusted_role_actions
+  aws_saml_endpoint             = var.aws_saml_endpoint
   create_role                   = var.create_role
-  role_name                     = var.role_name
   force_detach_policies         = var.force_detach_policies
-  tags                          = var.tags
   max_session_duration          = var.max_session_duration
-  role_policy_arns              = var.role_policy_arns
+  number_of_role_policy_arns    = var.number_of_role_policy_arns
   provider_id                   = var.provider_id
   provider_ids                  = var.provider_ids
+  role_description              = var.role_description
+  role_name                     = var.role_name
   role_name_prefix              = var.role_name_prefix
-  number_of_role_policy_arns    = var.number_of_role_policy_arns
+  role_path                     = var.role_path
+  role_permissions_boundary_arn = var.role_permissions_boundary_arn
+  role_policy_arns              = var.role_policy_arns
+  tags                          = var.tags
+  trusted_role_actions          = var.trusted_role_actions
 }

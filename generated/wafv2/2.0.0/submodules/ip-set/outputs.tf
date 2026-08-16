@@ -1,11 +1,11 @@
-output "id" {
-  value       = module.wafv2_ip-set.id
-  description = "The ID of the IP set"
-}
-
 output "arn" {
   value       = module.wafv2_ip-set.arn
   description = "The ARN of the IP set"
+}
+
+output "id" {
+  value       = module.wafv2_ip-set.id
+  description = "The ID of the IP set"
 }
 
 output "lock_token" {

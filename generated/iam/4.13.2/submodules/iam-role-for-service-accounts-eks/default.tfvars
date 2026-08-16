@@ -1,53 +1,53 @@
-create_role = true
+attach_cluster_autoscaler_policy = false
 
-role_name_prefix = null
-
-role_policy_arns = []
-
-attach_karpenter_controller_policy = false
-
-karpenter_controller_node_iam_role_arns = ["*"]
-
-attach_load_balancer_controller_policy = false
+attach_ebs_csi_policy = false
 
 attach_external_dns_policy = false
 
-role_path = null
+attach_karpenter_controller_policy = false
 
-role_permissions_boundary_arn = null
+attach_load_balancer_controller_policy = false
 
-role_description = null
+attach_node_termination_handler_policy = false
 
-oidc_providers = {}
+attach_vpc_cni_policy = false
+
+cluster_autoscaler_cluster_ids = []
+
+create_role = true
+
+ebs_csi_kms_cmk_ids = []
+
+external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/*"]
+
+force_detach_policies = true
+
+karpenter_controller_cluster_ids = []
+
+karpenter_controller_node_iam_role_arns = ["*"]
+
+karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
 
 max_session_duration = null
 
 node_termination_handler_sqs_queue_arns = ["*"]
 
-tags = {}
+oidc_providers = {}
 
-attach_ebs_csi_policy = false
-
-attach_vpc_cni_policy = false
-
-vpc_cni_enable_ipv4 = false
-
-karpenter_controller_cluster_ids = []
-
-karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
-
-cluster_autoscaler_cluster_ids = []
+role_description = null
 
 role_name = null
 
-force_detach_policies = true
+role_name_prefix = null
 
-attach_cluster_autoscaler_policy = false
+role_path = null
 
-external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/*"]
+role_permissions_boundary_arn = null
 
-ebs_csi_kms_cmk_ids = []
+role_policy_arns = []
+
+tags = {}
+
+vpc_cni_enable_ipv4 = false
 
 vpc_cni_enable_ipv6 = false
-
-attach_node_termination_handler_policy = false

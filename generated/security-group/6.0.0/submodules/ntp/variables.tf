@@ -1,43 +1,7 @@
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
-  default     = false
-}
-
-variable "ingress_cidr_ipv6" {
-  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ingress_prefix_list_id" {
-  description = "Map of prefix list IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the prefix list IDs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
-}
-
-variable "egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(number)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(number)
-  }))
-  default = {}
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
+  default     = true
 }
 
 variable "description" {
@@ -46,46 +10,8 @@ variable "description" {
   default     = "Security Group managed by Terraform"
 }
 
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the security group"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "ingress_cidr_ipv4" {
-  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ingress_referenced_security_group_id" {
-  description = "Map of source security group IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the security group IDs. Use self as a value to reference the security group created by this module. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the security group is created"
-  type        = string
-  default     = null
-}
-
-variable "preset_ingress_rules" {
-  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
-  type = map(object({
-    from_port   = number
-    to_port     = number
-    ip_protocol = string
-    description = optional(string)
-  }))
-  default = { "ntp" : { "description" : "NTP", "from_port" : 123, "ip_protocol" : "udp", "to_port" : 123 } }
-}
-
-variable "ingress_rules" {
-  description = "Additional security group ingress rules to merge with the preset rules"
+variable "egress_rules" {
+  description = "Security group egress rules to add to the security group created"
   type = map(object({
     name = optional(string)
 
@@ -108,10 +34,96 @@ variable "enable_exclusive_rules" {
   default     = true
 }
 
+variable "ingress_cidr_ipv4" {
+  description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_cidr_ipv6" {
+  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_prefix_list_id" {
+  description = "Map of prefix list IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the prefix list IDs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_referenced_security_group_id" {
+  description = "Map of source security group IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the security group IDs. Use self as a value to reference the security group created by this module. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_rules" {
+  description = "Additional security group ingress rules to merge with the preset rules"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(number)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(number)
+  }))
+  default = {}
+}
+
+variable "name" {
+  description = "Name of security group"
+  type        = string
+  default     = ""
+}
+
+variable "preset_ingress_rules" {
+  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    ip_protocol = string
+    description = optional(string)
+  }))
+  default = { "ntp" : { "description" : "NTP", "from_port" : 123, "ip_protocol" : "udp", "to_port" : 123 } }
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
+}
+
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the security group"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
+variable "use_name_prefix" {
+  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+  type        = bool
+  default     = true
 }
 
 variable "vpc_associations" {
@@ -122,20 +134,8 @@ variable "vpc_associations" {
   default = {}
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name of security group"
+variable "vpc_id" {
+  description = "ID of the VPC where the security group is created"
   type        = string
-  default     = ""
-}
-
-variable "use_name_prefix" {
-  description = "Whether to use the name (name) as a prefix, appending a random suffix"
-  type        = bool
-  default     = true
+  default     = null
 }

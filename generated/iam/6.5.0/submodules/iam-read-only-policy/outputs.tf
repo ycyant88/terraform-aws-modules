@@ -1,11 +1,11 @@
-output "id" {
-  value       = module.iam_iam-read-only-policy.id
-  description = "The policy's ID"
-}
-
 output "arn" {
   value       = module.iam_iam-read-only-policy.arn
   description = "The ARN assigned by AWS to this policy"
+}
+
+output "id" {
+  value       = module.iam_iam-read-only-policy.id
+  description = "The policy's ID"
 }
 
 output "name" {

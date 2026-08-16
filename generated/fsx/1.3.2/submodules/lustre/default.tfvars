@@ -1,99 +1,99 @@
-create_file_cache = false
-
-security_group_description = null
-
-security_group_egress_rules = {}
-
-cloudwatch_log_group_use_name_prefix = true
+automatic_backup_retention_days = null
 
 backup_id = null
 
-efa_enabled = null
-
-name = ""
-
-metadata_configuration = {}
-
-storage_type = null
+backup_tags = {}
 
 backup_timeouts = {}
 
-file_cache_type_version = "2.12"
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = 90
+
+cloudwatch_log_group_tags = {}
+
+cloudwatch_log_group_use_name_prefix = true
+
+copy_tags_to_backups = false
+
+create = true
+
+create_backup = false
+
+create_cloudwatch_log_group = true
+
+create_file_cache = false
+
+create_security_group = true
+
+daily_automatic_backup_start_time = null
+
+data_compression_type = null
+
+data_read_cache_configuration = {}
+
+data_repository_associations = {}
+
+data_repository_associations_timeouts = {}
 
 deployment_type = null
 
 drive_cache_type = null
 
-log_configuration = { "level" : "WARN_ERROR" }
-
-create_cloudwatch_log_group = true
-
-cloudwatch_log_group_class = null
-
-data_repository_associations_timeouts = {}
-
-file_cache_storage_capacity = null
-
-security_group_use_name_prefix = true
-
-file_system_type_version = null
-
-throughput_capacity = null
-
-timeouts = {}
-
-cloudwatch_log_group_tags = {}
+efa_enabled = null
 
 file_cache_copy_tags_to_data_repository_associations = null
 
 file_cache_kms_key_id = null
 
-copy_tags_to_backups = false
+file_cache_lustre_configuration = {}
+
+file_cache_storage_capacity = null
+
+file_cache_type_version = "2.12"
+
+file_system_type_version = null
+
+kms_key_id = null
+
+log_configuration = { "level" : "WARN_ERROR" }
+
+metadata_configuration = {}
+
+name = ""
 
 per_unit_storage_throughput = null
 
-storage_capacity = null
+root_squash_configuration = {}
 
-create_security_group = true
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ids = []
+
+security_group_ingress_rules = {}
 
 security_group_name = null
 
 security_group_tags = {}
 
-data_compression_type = null
+security_group_use_name_prefix = true
 
-kms_key_id = null
+storage_capacity = null
 
-security_group_ids = []
+storage_type = null
 
 subnet_ids = []
 
-file_cache_lustre_configuration = {}
-
 tags = {}
 
-data_read_cache_configuration = {}
+throughput_capacity = null
+
+timeouts = {}
 
 weekly_maintenance_start_time = null
-
-cloudwatch_log_group_retention_in_days = 90
-
-security_group_ingress_rules = {}
-
-create = true
-
-daily_automatic_backup_start_time = null
-
-create_backup = false
-
-backup_tags = {}
-
-data_repository_associations = {}
-
-automatic_backup_retention_days = null
-
-root_squash_configuration = {}
-
-cloudwatch_log_group_name = null
-
-cloudwatch_log_group_kms_key_id = null

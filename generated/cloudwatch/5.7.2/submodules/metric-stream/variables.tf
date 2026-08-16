@@ -4,10 +4,10 @@ variable "create" {
   default     = true
 }
 
-variable "name" {
-  description = "Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with name_prefix."
-  type        = string
-  default     = null
+variable "exclude_filter" {
+  description = "Map of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with include_filter."
+  type        = any
+  default     = {}
 }
 
 variable "firehose_arn" {
@@ -16,22 +16,16 @@ variable "firehose_arn" {
   default     = ""
 }
 
-variable "role_arn" {
-  description = "ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources."
-  type        = string
-  default     = ""
-}
-
-variable "exclude_filter" {
-  description = "Map of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with include_filter."
-  type        = any
-  default     = {}
-}
-
 variable "include_filter" {
   description = "Map of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with exclude_filter."
   type        = any
   default     = {}
+}
+
+variable "name" {
+  description = "Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with name_prefix."
+  type        = string
+  default     = null
 }
 
 variable "name_prefix" {
@@ -42,6 +36,12 @@ variable "name_prefix" {
 
 variable "output_format" {
   description = " Output format for the stream. Possible values are json, opentelemetry0.7, and opentelemetry1.0"
+  type        = string
+  default     = ""
+}
+
+variable "role_arn" {
+  description = "ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources."
   type        = string
   default     = ""
 }

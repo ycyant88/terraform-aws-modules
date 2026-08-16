@@ -1,471 +1,471 @@
-secretsmanager_endpoint_private_dns_enabled = false
+amazon_side_asn = "64512"
 
-enable_ec2_endpoint = false
+apigw_endpoint_private_dns_enabled = false
 
-ecs_agent_endpoint_subnet_ids = []
+apigw_endpoint_security_group_ids = []
 
-enable_ecs_telemetry_endpoint = false
+apigw_endpoint_subnet_ids = []
 
-kinesis_firehose_endpoint_security_group_ids = []
+assign_ipv6_address_on_creation = false
 
-database_subnet_ipv6_prefixes = []
+azs = []
 
-private_acl_tags = {}
-
-default_vpc_enable_dns_support = true
-
-intra_subnets = []
-
-ecs_telemetry_endpoint_security_group_ids = []
-
-vpn_gateway_id = ""
-
-nat_eip_tags = {}
-
-codecommit_endpoint_private_dns_enabled = false
-
-sns_endpoint_security_group_ids = []
-
-logs_endpoint_private_dns_enabled = false
+cidr = "0.0.0.0/0"
 
 cloudtrail_endpoint_private_dns_enabled = false
 
-codebuild_endpoint_private_dns_enabled = false
-
-codecommit_endpoint_security_group_ids = []
-
-enable_git_codecommit_endpoint = false
-
-ecs_telemetry_endpoint_subnet_ids = []
-
-intra_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+cloudtrail_endpoint_security_group_ids = []
 
 cloudtrail_endpoint_subnet_ids = []
 
+codebuild_endpoint_private_dns_enabled = false
+
+codebuild_endpoint_security_group_ids = []
+
+codebuild_endpoint_subnet_ids = []
+
+codecommit_endpoint_private_dns_enabled = false
+
+codecommit_endpoint_security_group_ids = []
+
+codecommit_endpoint_subnet_ids = []
+
+config_endpoint_private_dns_enabled = false
+
+config_endpoint_security_group_ids = []
+
+config_endpoint_subnet_ids = []
+
+create_database_internet_gateway_route = false
+
+create_database_nat_gateway_route = false
+
+create_database_subnet_group = true
+
+create_database_subnet_route_table = false
+
+create_elasticache_subnet_group = true
+
+create_elasticache_subnet_route_table = false
+
+create_redshift_subnet_group = true
+
+create_redshift_subnet_route_table = false
+
+create_vpc = true
+
+database_acl_tags = {}
+
+database_dedicated_network_acl = false
+
+database_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+database_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+database_route_table_tags = {}
+
+database_subnet_assign_ipv6_address_on_creation = null
+
+database_subnet_group_tags = {}
+
+database_subnet_ipv6_prefixes = []
+
+database_subnet_suffix = "db"
+
+database_subnet_tags = {}
+
+database_subnets = []
+
+default_network_acl_egress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+
+default_network_acl_ingress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+
+default_network_acl_name = ""
+
+default_network_acl_tags = {}
+
+default_vpc_enable_classiclink = false
+
+default_vpc_enable_dns_hostnames = false
+
+default_vpc_enable_dns_support = true
+
+default_vpc_name = ""
+
+default_vpc_tags = {}
+
+dhcp_options_domain_name = ""
+
+dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
+
 dhcp_options_netbios_name_servers = []
 
-private_subnet_suffix = "private"
+dhcp_options_netbios_node_type = ""
 
-enable_dynamodb_endpoint = false
+dhcp_options_ntp_servers = []
 
-sns_endpoint_private_dns_enabled = false
+dhcp_options_tags = {}
 
-private_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+ec2_endpoint_private_dns_enabled = false
 
-git_codecommit_endpoint_private_dns_enabled = false
+ec2_endpoint_security_group_ids = []
 
-kinesis_streams_endpoint_subnet_ids = []
+ec2_endpoint_subnet_ids = []
 
-enable_kinesis_firehose_endpoint = false
+ec2messages_endpoint_private_dns_enabled = false
 
-external_nat_ip_ids = []
+ec2messages_endpoint_security_group_ids = []
 
-enable_sqs_endpoint = false
+ec2messages_endpoint_subnet_ids = []
 
-enable_ecs_endpoint = false
+ecr_api_endpoint_private_dns_enabled = false
 
-events_endpoint_security_group_ids = []
+ecr_api_endpoint_security_group_ids = []
 
-enable_vpn_gateway = false
+ecr_api_endpoint_subnet_ids = []
 
-propagate_private_route_tables_vgw = false
+ecr_dkr_endpoint_private_dns_enabled = false
 
-monitoring_endpoint_private_dns_enabled = false
+ecr_dkr_endpoint_security_group_ids = []
 
-sagemaker_notebook_endpoint_subnet_ids = []
+ecr_dkr_endpoint_subnet_ids = []
 
-public_subnets = []
+ecs_agent_endpoint_private_dns_enabled = false
 
-enable_dns_hostnames = false
+ecs_agent_endpoint_security_group_ids = []
 
-transferserver_endpoint_private_dns_enabled = false
+ecs_agent_endpoint_subnet_ids = []
 
-kms_endpoint_subnet_ids = []
+ecs_endpoint_private_dns_enabled = false
 
-events_endpoint_subnet_ids = []
+ecs_endpoint_security_group_ids = []
+
+ecs_endpoint_subnet_ids = []
+
+ecs_telemetry_endpoint_private_dns_enabled = false
+
+ecs_telemetry_endpoint_security_group_ids = []
+
+ecs_telemetry_endpoint_subnet_ids = []
+
+elasticache_acl_tags = {}
 
 elasticache_dedicated_network_acl = false
 
-private_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+elasticache_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+elasticache_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+elasticache_route_table_tags = {}
+
+elasticache_subnet_assign_ipv6_address_on_creation = null
+
+elasticache_subnet_ipv6_prefixes = []
+
+elasticache_subnet_suffix = "elasticache"
+
+elasticache_subnet_tags = {}
+
+elasticache_subnets = []
+
+elasticloadbalancing_endpoint_private_dns_enabled = false
+
+elasticloadbalancing_endpoint_security_group_ids = []
+
+elasticloadbalancing_endpoint_subnet_ids = []
+
+enable_apigw_endpoint = false
+
+enable_cloudtrail_endpoint = false
+
+enable_codebuild_endpoint = false
+
+enable_codecommit_endpoint = false
+
+enable_config_endpoint = false
+
+enable_dhcp_options = false
+
+enable_dns_hostnames = false
+
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_ec2_endpoint = false
 
 enable_ec2messages_endpoint = false
 
 enable_ecr_api_endpoint = false
 
-default_network_acl_egress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+enable_ecr_dkr_endpoint = false
 
-database_subnet_tags = {}
+enable_ecs_agent_endpoint = false
 
-secondary_cidr_blocks = []
+enable_ecs_endpoint = false
 
-enable_codebuild_endpoint = false
+enable_ecs_telemetry_endpoint = false
 
-sqs_endpoint_subnet_ids = []
+enable_elasticloadbalancing_endpoint = false
 
-ec2messages_endpoint_private_dns_enabled = false
+enable_events_endpoint = false
 
-sns_endpoint_subnet_ids = []
+enable_git_codecommit_endpoint = false
 
-public_subnet_suffix = "public"
+enable_glue_endpoint = false
 
-enable_nat_gateway = false
+enable_ipv6 = false
 
-transferserver_endpoint_security_group_ids = []
+enable_kinesis_firehose_endpoint = false
 
-elasticache_subnet_tags = {}
-
-intra_acl_tags = {}
-
-intra_subnet_assign_ipv6_address_on_creation = null
-
-enable_config_endpoint = false
-
-apigw_endpoint_security_group_ids = []
+enable_kinesis_streams_endpoint = false
 
 enable_kms_endpoint = false
 
-glue_endpoint_subnet_ids = []
+enable_logs_endpoint = false
 
-cidr = "0.0.0.0/0"
+enable_monitoring_endpoint = false
 
-glue_endpoint_private_dns_enabled = false
+enable_nat_gateway = false
 
-vpc_endpoint_tags = {}
+enable_public_redshift = false
 
-private_subnet_ipv6_prefixes = []
+enable_s3_endpoint = false
 
-one_nat_gateway_per_az = false
+enable_sagemaker_notebook_endpoint = false
 
-elasticache_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+enable_secretsmanager_endpoint = false
 
-create_database_subnet_group = true
+enable_sns_endpoint = false
 
-dhcp_options_tags = {}
+enable_sqs_endpoint = false
 
-manage_default_network_acl = false
+enable_ssm_endpoint = false
 
-default_network_acl_ingress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+enable_ssmmessages_endpoint = false
 
-instance_tenancy = "default"
+enable_sts_endpoint = false
 
-vpn_gateway_tags = {}
+enable_transferserver_endpoint = false
 
-ec2_endpoint_security_group_ids = []
+enable_vpn_gateway = false
 
-enable_ecr_dkr_endpoint = false
+events_endpoint_private_dns_enabled = false
+
+events_endpoint_security_group_ids = []
+
+events_endpoint_subnet_ids = []
+
+external_nat_ip_ids = []
+
+git_codecommit_endpoint_private_dns_enabled = false
 
 git_codecommit_endpoint_security_group_ids = []
 
 git_codecommit_endpoint_subnet_ids = []
 
-enable_cloudtrail_endpoint = false
-
-enable_sts_endpoint = false
-
-ec2_endpoint_subnet_ids = []
-
-enable_transferserver_endpoint = false
-
-intra_subnet_ipv6_prefixes = []
-
-redshift_subnets = []
-
-azs = []
+glue_endpoint_private_dns_enabled = false
 
 glue_endpoint_security_group_ids = []
 
-database_dedicated_network_acl = false
-
-enable_s3_endpoint = false
-
-ecs_agent_endpoint_security_group_ids = []
-
-monitoring_endpoint_security_group_ids = []
-
-redshift_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-ssm_endpoint_private_dns_enabled = false
-
-elasticloadbalancing_endpoint_private_dns_enabled = false
-
-secretsmanager_endpoint_security_group_ids = []
-
-kms_endpoint_private_dns_enabled = false
-
-logs_endpoint_security_group_ids = []
+glue_endpoint_subnet_ids = []
 
 igw_tags = {}
 
-nat_gateway_tags = {}
+instance_tenancy = "default"
 
-database_subnet_assign_ipv6_address_on_creation = null
-
-redshift_subnet_assign_ipv6_address_on_creation = null
-
-transferserver_endpoint_subnet_ids = []
-
-sqs_endpoint_private_dns_enabled = false
-
-ecr_api_endpoint_security_group_ids = []
-
-sts_endpoint_private_dns_enabled = false
-
-amazon_side_asn = "64512"
-
-database_subnet_group_tags = {}
-
-manage_default_vpc = false
-
-elasticache_subnets = []
-
-sagemaker_notebook_endpoint_region = ""
-
-ecs_agent_endpoint_private_dns_enabled = false
-
-map_public_ip_on_launch = true
-
-database_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-database_subnets = []
-
-default_network_acl_name = ""
-
-redshift_dedicated_network_acl = false
-
-intra_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-redshift_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-create_redshift_subnet_route_table = false
-
-codebuild_endpoint_subnet_ids = []
-
-ecs_telemetry_endpoint_private_dns_enabled = false
-
-elasticache_subnet_assign_ipv6_address_on_creation = null
-
-create_database_subnet_route_table = false
-
-events_endpoint_private_dns_enabled = false
-
-public_subnet_tags = {}
-
-private_route_table_tags = {}
-
-dhcp_options_domain_name = ""
-
-database_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-database_route_table_tags = {}
-
-redshift_subnet_tags = {}
-
-private_subnets = []
-
-create_redshift_subnet_group = true
-
-kinesis_firehose_endpoint_private_dns_enabled = false
-
-vpc_tags = {}
-
-enable_sagemaker_notebook_endpoint = false
-
-redshift_route_table_tags = {}
-
-redshift_subnet_group_tags = {}
-
-ecr_dkr_endpoint_security_group_ids = []
-
-ssmmessages_endpoint_security_group_ids = []
-
-ssmmessages_endpoint_private_dns_enabled = false
-
-elasticloadbalancing_endpoint_security_group_ids = []
-
-cloudtrail_endpoint_security_group_ids = []
-
-elasticache_acl_tags = {}
-
-default_vpc_enable_dns_hostnames = false
-
-create_vpc = true
-
-public_subnet_ipv6_prefixes = []
-
-config_endpoint_subnet_ids = []
-
-monitoring_endpoint_subnet_ids = []
-
-enable_elasticloadbalancing_endpoint = false
-
-enable_ipv6 = false
-
-create_database_nat_gateway_route = false
-
-config_endpoint_private_dns_enabled = false
-
-kinesis_streams_endpoint_security_group_ids = []
-
-default_vpc_enable_classiclink = false
-
-codebuild_endpoint_security_group_ids = []
-
-enable_logs_endpoint = false
-
-sts_endpoint_subnet_ids = []
-
-public_acl_tags = {}
-
-dhcp_options_netbios_node_type = ""
-
-private_dedicated_network_acl = false
-
-enable_dns_support = true
-
-ssm_endpoint_security_group_ids = []
-
-dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
-
-ec2messages_endpoint_security_group_ids = []
-
-propagate_public_route_tables_vgw = false
-
-enable_dhcp_options = false
-
-secretsmanager_endpoint_subnet_ids = []
-
-apigw_endpoint_private_dns_enabled = false
-
-sts_endpoint_security_group_ids = []
-
-kinesis_firehose_endpoint_subnet_ids = []
-
-create_elasticache_subnet_route_table = false
-
-single_nat_gateway = false
-
-codecommit_endpoint_subnet_ids = []
-
-enable_monitoring_endpoint = false
-
-ec2messages_endpoint_subnet_ids = []
-
-ecr_dkr_endpoint_subnet_ids = []
-
-ecr_dkr_endpoint_private_dns_enabled = false
-
-public_subnet_assign_ipv6_address_on_creation = null
-
-elasticache_subnet_ipv6_prefixes = []
-
-enable_public_redshift = false
-
-intra_subnet_suffix = "intra"
-
-create_database_internet_gateway_route = false
-
-ssmmessages_endpoint_subnet_ids = []
-
-ecr_api_endpoint_private_dns_enabled = false
-
-tags = {}
-
-default_vpc_name = ""
-
-assign_ipv6_address_on_creation = false
-
-elasticache_subnet_suffix = "elasticache"
-
-enable_secretsmanager_endpoint = false
-
-sagemaker_notebook_endpoint_private_dns_enabled = false
-
-public_route_table_tags = {}
-
-redshift_acl_tags = {}
-
-redshift_subnet_suffix = "redshift"
-
-ecs_endpoint_security_group_ids = []
-
-logs_endpoint_subnet_ids = []
-
-public_dedicated_network_acl = false
+intra_acl_tags = {}
 
 intra_dedicated_network_acl = false
 
-redshift_subnet_ipv6_prefixes = []
+intra_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
 
-private_subnet_assign_ipv6_address_on_creation = null
-
-enable_ssm_endpoint = false
-
-ecs_endpoint_subnet_ids = []
-
-public_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-reuse_nat_ips = false
-
-config_endpoint_security_group_ids = []
-
-apigw_endpoint_subnet_ids = []
-
-enable_ecs_agent_endpoint = false
-
-enable_kinesis_streams_endpoint = false
-
-database_acl_tags = {}
-
-enable_events_endpoint = false
-
-private_subnet_tags = {}
-
-sqs_endpoint_security_group_ids = []
-
-ec2_endpoint_private_dns_enabled = false
-
-enable_sns_endpoint = false
-
-elasticache_route_table_tags = {}
-
-ssm_endpoint_subnet_ids = []
-
-elasticloadbalancing_endpoint_subnet_ids = []
-
-public_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-database_subnet_suffix = "db"
-
-kms_endpoint_security_group_ids = []
-
-dhcp_options_ntp_servers = []
-
-enable_glue_endpoint = false
+intra_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
 
 intra_route_table_tags = {}
 
-enable_ssmmessages_endpoint = false
+intra_subnet_assign_ipv6_address_on_creation = null
 
-ecr_api_endpoint_subnet_ids = []
+intra_subnet_ipv6_prefixes = []
 
-sagemaker_notebook_endpoint_security_group_ids = []
-
-create_elasticache_subnet_group = true
-
-ecs_endpoint_private_dns_enabled = false
-
-default_vpc_tags = {}
-
-elasticache_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-name = ""
-
-enable_apigw_endpoint = false
+intra_subnet_suffix = "intra"
 
 intra_subnet_tags = {}
 
-enable_codecommit_endpoint = false
+intra_subnets = []
+
+kinesis_firehose_endpoint_private_dns_enabled = false
+
+kinesis_firehose_endpoint_security_group_ids = []
+
+kinesis_firehose_endpoint_subnet_ids = []
 
 kinesis_streams_endpoint_private_dns_enabled = false
 
-default_network_acl_tags = {}
+kinesis_streams_endpoint_security_group_ids = []
+
+kinesis_streams_endpoint_subnet_ids = []
+
+kms_endpoint_private_dns_enabled = false
+
+kms_endpoint_security_group_ids = []
+
+kms_endpoint_subnet_ids = []
+
+logs_endpoint_private_dns_enabled = false
+
+logs_endpoint_security_group_ids = []
+
+logs_endpoint_subnet_ids = []
+
+manage_default_network_acl = false
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+monitoring_endpoint_private_dns_enabled = false
+
+monitoring_endpoint_security_group_ids = []
+
+monitoring_endpoint_subnet_ids = []
+
+name = ""
+
+nat_eip_tags = {}
+
+nat_gateway_tags = {}
+
+one_nat_gateway_per_az = false
+
+private_acl_tags = {}
+
+private_dedicated_network_acl = false
+
+private_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+private_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+private_route_table_tags = {}
+
+private_subnet_assign_ipv6_address_on_creation = null
+
+private_subnet_ipv6_prefixes = []
+
+private_subnet_suffix = "private"
+
+private_subnet_tags = {}
+
+private_subnets = []
+
+propagate_private_route_tables_vgw = false
+
+propagate_public_route_tables_vgw = false
+
+public_acl_tags = {}
+
+public_dedicated_network_acl = false
+
+public_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+public_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+public_route_table_tags = {}
+
+public_subnet_assign_ipv6_address_on_creation = null
+
+public_subnet_ipv6_prefixes = []
+
+public_subnet_suffix = "public"
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_acl_tags = {}
+
+redshift_dedicated_network_acl = false
+
+redshift_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+redshift_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+redshift_route_table_tags = {}
+
+redshift_subnet_assign_ipv6_address_on_creation = null
+
+redshift_subnet_group_tags = {}
+
+redshift_subnet_ipv6_prefixes = []
+
+redshift_subnet_suffix = "redshift"
+
+redshift_subnet_tags = {}
+
+redshift_subnets = []
+
+reuse_nat_ips = false
+
+sagemaker_notebook_endpoint_private_dns_enabled = false
+
+sagemaker_notebook_endpoint_region = ""
+
+sagemaker_notebook_endpoint_security_group_ids = []
+
+sagemaker_notebook_endpoint_subnet_ids = []
+
+secondary_cidr_blocks = []
+
+secretsmanager_endpoint_private_dns_enabled = false
+
+secretsmanager_endpoint_security_group_ids = []
+
+secretsmanager_endpoint_subnet_ids = []
+
+single_nat_gateway = false
+
+sns_endpoint_private_dns_enabled = false
+
+sns_endpoint_security_group_ids = []
+
+sns_endpoint_subnet_ids = []
+
+sqs_endpoint_private_dns_enabled = false
+
+sqs_endpoint_security_group_ids = []
+
+sqs_endpoint_subnet_ids = []
+
+ssm_endpoint_private_dns_enabled = false
+
+ssm_endpoint_security_group_ids = []
+
+ssm_endpoint_subnet_ids = []
+
+ssmmessages_endpoint_private_dns_enabled = false
+
+ssmmessages_endpoint_security_group_ids = []
+
+ssmmessages_endpoint_subnet_ids = []
+
+sts_endpoint_private_dns_enabled = false
+
+sts_endpoint_security_group_ids = []
+
+sts_endpoint_subnet_ids = []
+
+tags = {}
+
+transferserver_endpoint_private_dns_enabled = false
+
+transferserver_endpoint_security_group_ids = []
+
+transferserver_endpoint_subnet_ids = []
+
+vpc_endpoint_tags = {}
+
+vpc_tags = {}
+
+vpn_gateway_id = ""
+
+vpn_gateway_tags = {}

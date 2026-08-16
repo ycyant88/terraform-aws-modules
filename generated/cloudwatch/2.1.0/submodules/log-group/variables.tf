@@ -1,25 +1,13 @@
-variable "retention_in_days" {
-  description = "Specifies the number of days you want to retain log events in the specified log group"
-  type        = number
-  default     = ""
+variable "create" {
+  description = "Whether to create the Cloudwatch log group"
+  type        = bool
+  default     = true
 }
 
 variable "kms_key_id" {
   description = "The ARN of the KMS Key to use when encrypting logs"
   type        = string
   default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to Cloudwatch log group"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create" {
-  description = "Whether to create the Cloudwatch log group"
-  type        = bool
-  default     = true
 }
 
 variable "name" {
@@ -32,4 +20,16 @@ variable "name_prefix" {
   description = "A name prefix for the log group"
   type        = string
   default     = ""
+}
+
+variable "retention_in_days" {
+  description = "Specifies the number of days you want to retain log events in the specified log group"
+  type        = number
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to Cloudwatch log group"
+  type        = map(string)
+  default     = {}
 }

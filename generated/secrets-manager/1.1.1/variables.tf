@@ -1,23 +1,29 @@
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "replica" {
-  description = "Configuration block to support secret replication"
-  type        = map(any)
-  default     = {}
-}
-
 variable "block_public_policy" {
   description = "Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret"
   type        = bool
   default     = null
 }
 
-variable "secret_binary" {
-  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64"
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_policy" {
+  description = "Determines whether a policy will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_random_password" {
+  description = "Determines whether a random password will be generated"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "A description of the secret"
   type        = string
   default     = null
 }
@@ -28,21 +34,33 @@ variable "enable_rotation" {
   default     = false
 }
 
-variable "rotation_rules" {
-  description = "A structure that defines the rotation configuration for this secret"
-  type        = map(any)
-  default     = {}
+variable "force_overwrite_replica_secret" {
+  description = "Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region"
+  type        = bool
+  default     = null
+}
+
+variable "ignore_secret_changes" {
+  description = "Determines whether or not Terraform will ignore changes made externally to secret_string or secret_binary. Changing this value after creation is a destructive operation"
+  type        = bool
+  default     = false
+}
+
+variable "kms_key_id" {
+  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
+  type        = string
+  default     = null
+}
+
+variable "name" {
+  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
+  type        = string
+  default     = null
 }
 
 variable "name_prefix" {
   description = "Creates a unique name beginning with the specified prefix"
   type        = string
-  default     = null
-}
-
-variable "recovery_window_in_days" {
-  description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be 0 to force deletion without recovery or range from 7 to 30 days. The default value is 30"
-  type        = number
   default     = null
 }
 
@@ -58,16 +76,10 @@ variable "policy_statements" {
   default     = {}
 }
 
-variable "ignore_secret_changes" {
-  description = "Determines whether or not Terraform will ignore changes made externally to secret_string or secret_binary. Changing this value after creation is a destructive operation"
-  type        = bool
-  default     = false
-}
-
-variable "version_stages" {
-  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
-  type        = list(string)
-  default     = null
+variable "random_password_length" {
+  description = "The length of the generated random password"
+  type        = number
+  default     = 32
 }
 
 variable "random_password_override_special" {
@@ -76,20 +88,38 @@ variable "random_password_override_special" {
   default     = "!@#$%&*()-_=+[]{}<>:?"
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "force_overwrite_replica_secret" {
-  description = "Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region"
-  type        = bool
+variable "recovery_window_in_days" {
+  description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be 0 to force deletion without recovery or range from 7 to 30 days. The default value is 30"
+  type        = number
   default     = null
 }
 
-variable "kms_key_id" {
-  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
+variable "replica" {
+  description = "Configuration block to support secret replication"
+  type        = map(any)
+  default     = {}
+}
+
+variable "rotation_lambda_arn" {
+  description = "Specifies the ARN of the Lambda function that can rotate the secret"
+  type        = string
+  default     = ""
+}
+
+variable "rotation_rules" {
+  description = "A structure that defines the rotation configuration for this secret"
+  type        = map(any)
+  default     = {}
+}
+
+variable "secret_binary" {
+  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64"
+  type        = string
+  default     = null
+}
+
+variable "secret_string" {
+  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set"
   type        = string
   default     = null
 }
@@ -100,44 +130,14 @@ variable "source_policy_documents" {
   default     = []
 }
 
-variable "create_random_password" {
-  description = "Determines whether a random password will be generated"
-  type        = bool
-  default     = false
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
-variable "random_password_length" {
-  description = "The length of the generated random password"
-  type        = number
-  default     = 32
-}
-
-variable "description" {
-  description = "A description of the secret"
-  type        = string
+variable "version_stages" {
+  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
+  type        = list(string)
   default     = null
-}
-
-variable "name" {
-  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
-  type        = string
-  default     = null
-}
-
-variable "create_policy" {
-  description = "Determines whether a policy will be created"
-  type        = bool
-  default     = false
-}
-
-variable "secret_string" {
-  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set"
-  type        = string
-  default     = null
-}
-
-variable "rotation_lambda_arn" {
-  description = "Specifies the ARN of the Lambda function that can rotate the secret"
-  type        = string
-  default     = ""
 }

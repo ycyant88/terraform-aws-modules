@@ -1,57 +1,57 @@
-create_role = false
+admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 
-role_name = null
-
-role_requires_mfa = true
-
-role_description = ""
-
-create_custom_role_trust_policy = false
+allow_self_assume_role = false
 
 attach_admin_policy = false
 
-custom_role_policy_arns = []
-
-role_requires_session_name = false
+attach_poweruser_policy = false
 
 attach_readonly_policy = false
 
-trusted_role_actions = ["sts:AssumeRole", "sts:TagSession"]
+create_custom_role_trust_policy = false
 
-mfa_age = 86400
+create_instance_profile = false
+
+create_role = false
+
+custom_role_policy_arns = []
 
 custom_role_trust_policy = ""
 
-admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+force_detach_policies = false
+
+max_session_duration = 3600
+
+mfa_age = 86400
+
+number_of_custom_role_policy_arns = null
+
+poweruser_role_policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
 
 readonly_role_policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 
-attach_poweruser_policy = false
+role_description = ""
 
-trusted_role_arns = []
+role_name = null
+
+role_name_prefix = null
 
 role_path = "/"
 
 role_permissions_boundary_arn = ""
 
-force_detach_policies = false
+role_requires_mfa = true
 
-role_session_name = ["${aws:username}"]
+role_requires_session_name = false
 
-trusted_role_services = []
-
-max_session_duration = 3600
-
-role_name_prefix = null
-
-tags = {}
-
-poweruser_role_policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
+role_session_name = ["$${aws:username}"]
 
 role_sts_externalid = []
 
-allow_self_assume_role = false
+tags = {}
 
-create_instance_profile = false
+trusted_role_actions = ["sts:AssumeRole", "sts:TagSession"]
 
-number_of_custom_role_policy_arns = null
+trusted_role_arns = []
+
+trusted_role_services = []

@@ -1,10 +1,4 @@
-timeouts = { "delete" : "15m" }
-
-tags = {}
-
 create = true
-
-use_name_prefix = true
 
 engine_name = ""
 
@@ -15,3 +9,9 @@ name = ""
 option_group_description = ""
 
 options = []
+
+tags = {}
+
+timeouts = { "delete" : "15m" }
+
+use_name_prefix = true

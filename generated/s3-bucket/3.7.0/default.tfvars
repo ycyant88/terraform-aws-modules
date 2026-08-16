@@ -1,91 +1,91 @@
-acl = null
-
-logging = {}
-
-server_side_encryption_configuration = {}
-
-analytics_source_account_id = null
-
-object_ownership = "ObjectWriter"
-
-attach_inventory_destination_policy = false
-
 acceleration_status = null
 
-grant = []
-
-owner = {}
-
-inventory_source_account_id = null
-
-analytics_self_source_destination = false
-
-control_object_ownership = false
-
-force_destroy = false
-
-request_payer = null
-
-versioning = {}
-
-object_lock_configuration = {}
-
-inventory_configuration = {}
+acl = null
 
 analytics_configuration = {}
 
-block_public_acls = false
+analytics_self_source_destination = false
 
-attach_lb_log_delivery_policy = false
+analytics_source_account_id = null
+
+analytics_source_bucket_arn = null
+
+attach_analytics_destination_policy = false
 
 attach_deny_insecure_transport_policy = false
 
-bucket = null
+attach_elb_log_delivery_policy = false
 
-bucket_prefix = null
+attach_inventory_destination_policy = false
 
-policy = null
-
-tags = {}
-
-ignore_public_acls = false
-
-putin_khuylo = true
-
-create_bucket = true
-
-lifecycle_rule = []
-
-inventory_source_bucket_arn = null
-
-restrict_public_buckets = false
-
-attach_require_latest_tls_policy = false
+attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
 attach_public_policy = true
 
-website = {}
+attach_require_latest_tls_policy = false
 
-analytics_source_bucket_arn = null
-
-object_lock_enabled = false
-
-attach_elb_log_delivery_policy = false
-
-expected_bucket_owner = null
-
-replication_configuration = {}
-
-intelligent_tiering = {}
-
-inventory_self_source_destination = false
+block_public_acls = false
 
 block_public_policy = false
 
-attach_analytics_destination_policy = false
+bucket = null
+
+bucket_prefix = null
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+expected_bucket_owner = null
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+intelligent_tiering = {}
+
+inventory_configuration = {}
+
+inventory_self_source_destination = false
+
+inventory_source_account_id = null
+
+inventory_source_bucket_arn = null
+
+lifecycle_rule = []
+
+logging = {}
 
 metric_configuration = []
 
-cors_rule = []
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "ObjectWriter"
+
+owner = {}
+
+policy = null
+
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = null
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

@@ -1,7 +1,7 @@
-variable "rotation_lambda_arn" {
-  description = "Specifies the ARN of the Lambda function that can rotate the secret"
-  type        = string
-  default     = ""
+variable "block_public_policy" {
+  description = "Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret"
+  type        = bool
+  default     = null
 }
 
 variable "create" {
@@ -10,9 +10,51 @@ variable "create" {
   default     = true
 }
 
+variable "create_policy" {
+  description = "Determines whether a policy will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_random_password" {
+  description = "Determines whether a random password will be generated"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "A description of the secret"
+  type        = string
+  default     = null
+}
+
+variable "enable_rotation" {
+  description = "Determines whether secret rotation is enabled"
+  type        = bool
+  default     = false
+}
+
 variable "force_overwrite_replica_secret" {
   description = "Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region"
   type        = bool
+  default     = null
+}
+
+variable "ignore_secret_changes" {
+  description = "Determines whether or not Terraform will ignore changes made externally to secret_string or secret_binary. Changing this value after creation is a destructive operation"
+  type        = bool
+  default     = false
+}
+
+variable "kms_key_id" {
+  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
+  type        = string
+  default     = null
+}
+
+variable "name" {
+  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
+  type        = string
   default     = null
 }
 
@@ -28,10 +70,10 @@ variable "override_policy_documents" {
   default     = []
 }
 
-variable "secret_binary" {
-  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64"
-  type        = string
-  default     = null
+variable "policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = map(any)
+  default     = {}
 }
 
 variable "random_password_length" {
@@ -40,82 +82,10 @@ variable "random_password_length" {
   default     = 32
 }
 
-variable "description" {
-  description = "A description of the secret"
-  type        = string
-  default     = null
-}
-
-variable "block_public_policy" {
-  description = "Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret"
-  type        = bool
-  default     = null
-}
-
-variable "ignore_secret_changes" {
-  description = "Determines whether or not Terraform will ignore changes made externally to secret_string or secret_binary. Changing this value after creation is a destructive operation"
-  type        = bool
-  default     = false
-}
-
-variable "enable_rotation" {
-  description = "Determines whether secret rotation is enabled"
-  type        = bool
-  default     = false
-}
-
-variable "name" {
-  description = "Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: /_+=.@-"
-  type        = string
-  default     = null
-}
-
-variable "source_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = map(any)
-  default     = {}
-}
-
-variable "secret_string" {
-  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set"
-  type        = string
-  default     = null
-}
-
-variable "version_stages" {
-  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
-  type        = list(string)
-  default     = null
-}
-
 variable "random_password_override_special" {
   description = "Supply your own list of special characters to use for string generation. This overrides the default character list in the special argument"
   type        = string
   default     = "!@#$%&*()-_=+[]{}<>:?"
-}
-
-variable "rotation_rules" {
-  description = "A structure that defines the rotation configuration for this secret"
-  type        = map(any)
-  default     = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "kms_key_id" {
-  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named aws/secretsmanager"
-  type        = string
-  default     = null
 }
 
 variable "recovery_window_in_days" {
@@ -130,14 +100,44 @@ variable "replica" {
   default     = {}
 }
 
-variable "create_policy" {
-  description = "Determines whether a policy will be created"
-  type        = bool
-  default     = false
+variable "rotation_lambda_arn" {
+  description = "Specifies the ARN of the Lambda function that can rotate the secret"
+  type        = string
+  default     = ""
 }
 
-variable "create_random_password" {
-  description = "Determines whether a random password will be generated"
-  type        = bool
-  default     = false
+variable "rotation_rules" {
+  description = "A structure that defines the rotation configuration for this secret"
+  type        = map(any)
+  default     = {}
+}
+
+variable "secret_binary" {
+  description = "Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64"
+  type        = string
+  default     = null
+}
+
+variable "secret_string" {
+  description = "Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set"
+  type        = string
+  default     = null
+}
+
+variable "source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "version_stages" {
+  description = "Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret"
+  type        = list(string)
+  default     = null
 }

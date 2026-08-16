@@ -1,87 +1,87 @@
-memory_size = 1024
+architectures = ["x86_64"]
 
-environment_variables = {}
+bucket_attach_deny_insecure_transport_policy = false
 
-tags = {}
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
 
-log_retention_days = 7
+bucket_name = ""
+
+bucket_prefix = ""
+
+create = true
 
 create_bucket = true
 
-s3_zip_server_side_encryption = null
+create_role = true
 
-s3_zip_kms_key_id = null
+create_role_policy = true
+
+dd_api_key = ""
+
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.42.0"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_retention_days = 7
+
+memory_size = 1024
+
+name = "datadog-log-forwarder"
+
+policy_arn = null
+
+policy_name = ""
+
+policy_path = null
+
+publish = false
+
+reserved_concurrent_executions = 100
+
+role_arn = null
+
+role_max_session_duration = null
 
 role_name = ""
 
 role_path = null
 
-policy_arn = null
-
-forwarder_version = "3.42.0"
-
-name = "datadog-log-forwarder"
-
-bucket_attach_deny_insecure_transport_policy = false
-
-bucket_prefix = ""
-
-policy_path = null
-
-runtime = "python3.9"
-
-publish = false
-
-lambda_tags = {}
-
-dd_api_key_secret_arn = ""
-
-bucket_name = ""
-
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
-
-s3_zip_metadata = {}
-
-create_role_policy = true
-
-policy_name = ""
-
-s3_log_bucket_arns = []
-
-timeout = 120
-
-role_max_session_duration = null
+role_permissions_boundary = null
 
 role_tags = {}
 
-dd_api_key = ""
+runtime = "python3.9"
 
-role_permissions_boundary = null
+s3_log_bucket_arns = []
 
-layers = []
+s3_zip_kms_key_id = null
 
-architectures = ["x86_64"]
+s3_zip_metadata = {}
 
-security_group_ids = null
-
-create_role = true
-
-use_policy_name_prefix = false
-
-reserved_concurrent_executions = 100
-
-kms_key_arn = null
-
-subnet_ids = null
-
-create = true
-
-dd_site = "datadoghq.com"
+s3_zip_server_side_encryption = null
 
 s3_zip_storage_class = null
 
 s3_zip_tags = {}
 
-role_arn = null
+security_group_ids = null
+
+subnet_ids = null
+
+tags = {}
+
+timeout = 120
+
+use_policy_name_prefix = false
 
 use_role_name_prefix = false

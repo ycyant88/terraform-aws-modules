@@ -10,14 +10,14 @@ variable "repositories" {
   default     = []
 }
 
-variable "webhook_url" {
-  description = "Webhook URL"
+variable "webhook_secret" {
+  description = "Webhook secret"
   type        = string
   default     = ""
 }
 
-variable "webhook_secret" {
-  description = "Webhook secret"
+variable "webhook_url" {
+  description = "Webhook URL"
   type        = string
   default     = ""
 }

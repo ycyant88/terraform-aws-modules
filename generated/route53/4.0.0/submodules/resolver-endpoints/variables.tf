@@ -1,7 +1,7 @@
-variable "protocols" {
-  description = "The resolver endpoint protocols"
-  type        = list(string)
-  default     = []
+variable "create" {
+  description = "Whether to create Route53 resolver endpoints"
+  type        = bool
+  default     = true
 }
 
 variable "create_security_group" {
@@ -10,22 +10,28 @@ variable "create_security_group" {
   default     = true
 }
 
-variable "security_group_description" {
-  description = "The security group description"
+variable "direction" {
+  description = "The resolver endpoint flow direction"
+  type        = string
+  default     = "INBOUND"
+}
+
+variable "name" {
+  description = "The resolver endpoint name"
   type        = string
   default     = null
 }
 
-variable "security_group_ingress_cidr_blocks" {
-  description = "A list of CIDR blocks to allow on security group"
+variable "protocols" {
+  description = "The resolver endpoint protocols"
   type        = list(string)
   default     = []
 }
 
-variable "create" {
-  description = "Whether to create Route53 resolver endpoints"
-  type        = bool
-  default     = true
+variable "security_group_description" {
+  description = "The security group description"
+  type        = string
+  default     = null
 }
 
 variable "security_group_ids" {
@@ -34,34 +40,16 @@ variable "security_group_ids" {
   default     = []
 }
 
-variable "tags" {
-  description = "A map of tags for the Route53 resolver endpoint"
-  type        = map(string)
-  default     = {}
+variable "security_group_ingress_cidr_blocks" {
+  description = "A list of CIDR blocks to allow on security group"
+  type        = list(string)
+  default     = []
 }
 
 variable "security_group_name" {
   description = "The name of the security group"
   type        = string
   default     = null
-}
-
-variable "direction" {
-  description = "The resolver endpoint flow direction"
-  type        = string
-  default     = "INBOUND"
-}
-
-variable "subnet_ids" {
-  description = "A list of subnets where Route53 resolver endpoints will be deployed"
-  type        = list(string)
-  default     = []
-}
-
-variable "vpc_id" {
-  description = "The VPC ID for all the Route53 Resolver Endpoints"
-  type        = string
-  default     = ""
 }
 
 variable "security_group_name_prefix" {
@@ -76,14 +64,26 @@ variable "security_group_tags" {
   default     = {}
 }
 
-variable "name" {
-  description = "The resolver endpoint name"
-  type        = string
-  default     = null
+variable "subnet_ids" {
+  description = "A list of subnets where Route53 resolver endpoints will be deployed"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags for the Route53 resolver endpoint"
+  type        = map(string)
+  default     = {}
 }
 
 variable "type" {
   description = "The resolver endpoint IP type"
   type        = string
   default     = "IPV4"
+}
+
+variable "vpc_id" {
+  description = "The VPC ID for all the Route53 Resolver Endpoints"
+  type        = string
+  default     = ""
 }

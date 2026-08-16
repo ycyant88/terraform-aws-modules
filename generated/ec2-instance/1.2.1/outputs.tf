@@ -1,16 +1,11 @@
-output "tags" {
-  value       = module.ec2-instance.tags
-  description = "List of tags of instances"
+output "availability_zone" {
+  value       = module.ec2-instance.availability_zone
+  description = "List of availability zones of instances"
 }
 
 output "id" {
   value       = module.ec2-instance.id
   description = "List of IDs of instances"
-}
-
-output "availability_zone" {
-  value       = module.ec2-instance.availability_zone
-  description = "List of availability zones of instances"
 }
 
 output "key_name" {
@@ -23,19 +18,19 @@ output "network_interface_id" {
   description = "List of IDs of the network interface of instances"
 }
 
+output "primary_network_interface_id" {
+  value       = module.ec2-instance.primary_network_interface_id
+  description = "List of IDs of the primary network interface of instances"
+}
+
 output "private_dns" {
   value       = module.ec2-instance.private_dns
   description = "List of private DNS names assigned to the instances. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC"
 }
 
-output "security_groups" {
-  value       = module.ec2-instance.security_groups
-  description = "List of associated security groups of instances"
-}
-
-output "subnet_id" {
-  value       = module.ec2-instance.subnet_id
-  description = "List of IDs of VPC subnets of instances"
+output "private_ip" {
+  value       = module.ec2-instance.private_ip
+  description = "List of private IP addresses assigned to the instances"
 }
 
 output "public_dns" {
@@ -48,14 +43,19 @@ output "public_ip" {
   description = "List of public IP addresses assigned to the instances, if applicable"
 }
 
-output "primary_network_interface_id" {
-  value       = module.ec2-instance.primary_network_interface_id
-  description = "List of IDs of the primary network interface of instances"
+output "security_groups" {
+  value       = module.ec2-instance.security_groups
+  description = "List of associated security groups of instances"
 }
 
-output "private_ip" {
-  value       = module.ec2-instance.private_ip
-  description = "List of private IP addresses assigned to the instances"
+output "subnet_id" {
+  value       = module.ec2-instance.subnet_id
+  description = "List of IDs of VPC subnets of instances"
+}
+
+output "tags" {
+  value       = module.ec2-instance.tags
+  description = "List of tags of instances"
 }
 
 output "vpc_security_group_ids" {

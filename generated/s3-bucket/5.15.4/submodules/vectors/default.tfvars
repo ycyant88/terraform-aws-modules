@@ -1,17 +1,17 @@
-vector_bucket_name = null
-
-force_destroy = false
-
-region = null
-
-encryption_configuration = null
+create = true
 
 create_policy = false
 
-policy = null
+encryption_configuration = null
+
+force_destroy = false
 
 indexes = {}
 
-create = true
+policy = null
+
+region = null
 
 tags = {}
+
+vector_bucket_name = null

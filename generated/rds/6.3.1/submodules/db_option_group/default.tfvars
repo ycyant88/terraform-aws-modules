@@ -1,17 +1,17 @@
+create = true
+
+engine_name = null
+
+major_engine_version = null
+
 name = ""
 
 option_group_description = null
 
-major_engine_version = null
-
 options = []
+
+tags = {}
 
 timeouts = {}
 
-create = true
-
 use_name_prefix = true
-
-engine_name = null
-
-tags = {}

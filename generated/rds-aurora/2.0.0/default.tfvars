@@ -1,81 +1,81 @@
-name = ""
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-global_cluster_identifier = ""
-
-engine_mode = "provisioned"
-
-replica_count = 1
+allowed_security_groups = []
 
 allowed_security_groups_count = 0
 
-publicly_accessible = false
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
 apply_immediately = false
-
-password = ""
-
-replica_scale_enabled = false
-
-subnets = ""
-
-skip_final_snapshot = false
-
-monitoring_interval = 0
-
-username = "root"
-
-final_snapshot_identifier_prefix = "final"
 
 auto_minor_version_upgrade = true
 
-db_parameter_group_name = "default.aurora5.6"
-
-storage_encrypted = true
-
-performance_insights_kms_key_id = ""
-
-enabled_cloudwatch_logs_exports = []
-
 backup_retention_period = 7
-
-engine_version = "5.6.10a"
-
-replica_scale_cpu = 70
-
-replica_scale_out_cooldown = 300
-
-tags = {}
-
-performance_insights_enabled = false
-
-vpc_id = ""
 
 database_name = ""
 
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
+
 engine = "aurora"
 
-replica_scale_max = 0
+engine_mode = "provisioned"
 
-replica_scale_min = 2
+engine_version = "5.6.10a"
 
-kms_key_id = ""
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
 
 iam_database_authentication_enabled = false
 
 instance_type = ""
 
-deletion_protection = false
+kms_key_id = ""
 
-preferred_backup_window = "02:00-03:00"
+monitoring_interval = 0
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
 
 port = ""
 
-snapshot_identifier = ""
+preferred_backup_window = "02:00-03:00"
 
-allowed_security_groups = []
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
 
 replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+skip_final_snapshot = false
+
+snapshot_identifier = ""
+
+storage_encrypted = true
+
+subnets = ""
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""

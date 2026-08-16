@@ -23,9 +23,9 @@ output "appsync_function_function_id" {
   description = "Map of function IDs of functions"
 }
 
-output "appsync_graphql_api_id" {
-  value       = module.appsync.appsync_graphql_api_id
-  description = "ID of GraphQL API"
+output "appsync_function_id" {
+  value       = module.appsync.appsync_function_id
+  description = "Map of IDs of functions"
 }
 
 output "appsync_graphql_api_arn" {
@@ -33,14 +33,14 @@ output "appsync_graphql_api_arn" {
   description = "ARN of GraphQL API"
 }
 
-output "appsync_function_id" {
-  value       = module.appsync.appsync_function_id
-  description = "Map of IDs of functions"
-}
-
 output "appsync_graphql_api_fqdns" {
   value       = module.appsync.appsync_graphql_api_fqdns
   description = "Map of FQDNs associated with the API (no protocol and path)"
+}
+
+output "appsync_graphql_api_id" {
+  value       = module.appsync.appsync_graphql_api_id
+  description = "ID of GraphQL API"
 }
 
 output "appsync_graphql_api_uris" {

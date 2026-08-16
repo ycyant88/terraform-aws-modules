@@ -1,83 +1,83 @@
-use_existing_cloudwatch_log_group = false
-
-tags = {}
-
-cloudwatch_log_group_kms_key_id = null
-
-service_integrations = {}
+attach_cloudwatch_logs_policy = true
 
 attach_policies = false
-
-number_of_policies = 0
-
-trusted_entities = []
-
-name = ""
-
-cloudwatch_log_group_name = null
-
-role_arn = ""
-
-type = "STANDARD"
-
-cloudwatch_log_group_tags = {}
-
-role_name = null
-
-role_path = null
-
-attach_policy_jsons = false
-
-policy_path = null
-
-sfn_state_machine_timeouts = {}
-
-logging_configuration = {}
-
-policy_json = null
-
-policy_jsons = []
-
-region = null
-
-publish = false
-
-encryption_configuration = {}
-
-cloudwatch_log_group_retention_in_days = null
-
-number_of_policy_jsons = 0
-
-policy_statements = {}
-
-aws_region_assume_role = ""
-
-attach_policy_json = false
-
-attach_policy_statements = false
-
-create_role = true
-
-definition = ""
-
-role_force_detach_policies = true
-
-role_tags = {}
 
 attach_policies_for_integrations = true
 
 attach_policy = false
 
-policy = null
+attach_policy_json = false
+
+attach_policy_jsons = false
+
+attach_policy_statements = false
+
+aws_region_assume_role = ""
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = null
+
+cloudwatch_log_group_tags = {}
 
 create = true
 
-attach_cloudwatch_logs_policy = true
+create_role = true
+
+definition = ""
+
+encryption_configuration = {}
+
+logging_configuration = {}
+
+name = ""
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_path = null
+
+policy_statements = {}
+
+publish = false
+
+region = null
+
+role_arn = ""
 
 role_description = null
 
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
 role_permissions_boundary = null
 
-policies = []
+role_tags = {}
+
+service_integrations = {}
+
+sfn_state_machine_timeouts = {}
+
+tags = {}
+
+trusted_entities = []
+
+type = "STANDARD"
+
+use_existing_cloudwatch_log_group = false
 
 use_existing_role = false

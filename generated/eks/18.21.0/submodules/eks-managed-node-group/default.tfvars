@@ -1,155 +1,155 @@
-cpu_options = null
+ami_id = ""
 
-elastic_inference_accelerator = null
+ami_release_version = null
 
-cluster_version = null
+ami_type = null
 
-update_config = {}
-
-create_security_group = true
-
-iam_role_attach_cni_policy = true
-
-platform = "linux"
-
-cluster_primary_security_group_id = null
-
-network_interfaces = []
-
-user_data_template_path = ""
-
-ram_disk_id = null
+block_device_mappings = {}
 
 bootstrap_extra_args = ""
 
-launch_template_description = null
+capacity_reservation_specification = null
 
-disable_api_termination = null
+capacity_type = "ON_DEMAND"
 
-license_specifications = null
-
-desired_size = 1
-
-iam_role_arn = null
+cluster_auth_base64 = ""
 
 cluster_endpoint = ""
 
-post_bootstrap_user_data = ""
+cluster_ip_family = null
 
-instance_types = null
+cluster_name = null
 
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+cluster_primary_security_group_id = null
 
-max_size = 3
+cluster_security_group_id = null
 
-ami_id = ""
+cluster_service_ipv4_cidr = null
+
+cluster_version = null
+
+cpu_options = null
+
+create = true
+
+create_iam_role = true
+
+create_launch_template = true
+
+create_security_group = true
+
+credit_specification = null
+
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = null
+
+force_update_version = null
+
+iam_role_additional_policies = []
+
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
-use_name_prefix = true
+iam_role_tags = {}
 
-taints = {}
+iam_role_use_name_prefix = true
 
-security_group_tags = {}
+instance_market_options = null
 
-iam_role_additional_policies = []
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_name = ""
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
 
 min_size = 0
 
 name = ""
 
-elastic_gpu_specifications = null
-
-enable_monitoring = true
-
-create_launch_template = true
-
-key_name = null
-
-launch_template_use_name_prefix = true
-
-enclave_options = null
-
-ami_release_version = null
-
-security_group_name = null
-
-security_group_description = "EKS managed node group security group"
-
-iam_role_name = null
-
-create = true
-
-pre_bootstrap_user_data = ""
-
-disk_size = null
-
-force_update_version = null
-
-remote_access = {}
-
-create_iam_role = true
-
-iam_role_use_name_prefix = true
-
-launch_template_default_version = null
-
-credit_specification = null
-
-kernel_id = null
-
-capacity_type = "ON_DEMAND"
-
-launch_template_version = null
-
-cluster_security_group_id = null
-
-iam_role_description = null
-
-cluster_service_ipv4_cidr = null
-
-capacity_reservation_specification = null
-
-instance_market_options = null
-
-launch_template_tags = {}
-
-subnet_ids = null
-
-labels = null
-
-security_group_use_name_prefix = true
-
-cluster_ip_family = null
-
-tags = {}
-
-block_device_mappings = {}
-
-ebs_optimized = null
-
-update_launch_template_default_version = true
-
-cluster_name = null
-
-launch_template_name = ""
-
-enable_bootstrap_user_data = false
-
-ami_type = null
+network_interfaces = []
 
 placement = null
 
-timeouts = {}
+platform = "linux"
 
-vpc_id = null
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+ram_disk_id = null
+
+remote_access = {}
+
+security_group_description = "EKS managed node group security group"
+
+security_group_name = null
 
 security_group_rules = {}
 
-iam_role_path = null
+security_group_tags = {}
 
-iam_role_tags = {}
+security_group_use_name_prefix = true
 
-cluster_auth_base64 = ""
+subnet_ids = null
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = {}
+
+update_launch_template_default_version = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_id = null
 
 vpc_security_group_ids = []

@@ -1,43 +1,43 @@
-custom_error_response = {}
-
 aliases = null
-
-tags = null
-
-origin = null
-
-geo_restriction = {}
-
-logging_config = {}
-
-default_cache_behavior = null
-
-ordered_cache_behavior = []
-
-create_distribution = true
 
 comment = null
 
-price_class = null
-
-wait_for_deployment = true
-
-origin_group = {}
-
-origin_access_identities = {}
-
-enabled = true
-
-is_ipv6_enabled = null
-
-retain_on_delete = false
-
-viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+create_distribution = true
 
 create_origin_access_identity = false
 
+custom_error_response = {}
+
+default_cache_behavior = null
+
 default_root_object = null
 
+enabled = true
+
+geo_restriction = {}
+
 http_version = "http2"
+
+is_ipv6_enabled = null
+
+logging_config = {}
+
+ordered_cache_behavior = []
+
+origin = null
+
+origin_access_identities = {}
+
+origin_group = {}
+
+price_class = null
+
+retain_on_delete = false
+
+tags = null
+
+viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+
+wait_for_deployment = true
 
 web_acl_id = null

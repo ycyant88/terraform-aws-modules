@@ -1,93 +1,93 @@
-monitoring_role_arn = ""
+allocated_storage = ""
+
+allow_major_version_upgrade = false
 
 apply_immediately = false
 
-character_set_name = ""
-
-identifier = ""
-
-snapshot_identifier = ""
-
-name = ""
-
-parameter_group_name = ""
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
-kms_key_id = ""
+backup_retention_period = 1
 
-vpc_security_group_ids = []
+backup_window = ""
+
+character_set_name = ""
 
 copy_tags_to_snapshot = false
 
-storage_encrypted = false
+create = true
 
-port = ""
+create_monitoring_role = false
 
-tags = {}
+db_subnet_group_name = ""
 
 deletion_protection = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+final_snapshot_identifier = null
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_name = ""
+
+parameter_group_name = ""
+
+password = ""
 
 performance_insights_enabled = false
 
 performance_insights_retention_period = 7
 
-create = true
-
-final_snapshot_identifier = null
-
-create_monitoring_role = false
-
-allow_major_version_upgrade = false
-
-skip_final_snapshot = true
-
-backup_window = ""
-
-username = ""
-
-password = ""
-
-iops = 0
+port = ""
 
 publicly_accessible = false
 
-monitoring_role_name = "rds-monitoring-role"
+replicate_source_db = ""
 
-allocated_storage = ""
+skip_final_snapshot = true
 
-db_subnet_group_name = ""
+snapshot_identifier = ""
 
-maintenance_window = ""
-
-enabled_cloudwatch_logs_exports = []
-
-max_allocated_storage = 0
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-iam_database_authentication_enabled = false
-
-engine_version = ""
-
-instance_class = ""
-
-multi_az = false
-
-monitoring_interval = 0
-
-backup_retention_period = 1
-
-option_group_name = ""
-
-timezone = ""
+storage_encrypted = false
 
 storage_type = "gp2"
 
-replicate_source_db = ""
+tags = {}
 
-license_model = ""
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
-engine = ""
+timezone = ""
 
-auto_minor_version_upgrade = true
+username = ""
+
+vpc_security_group_ids = []

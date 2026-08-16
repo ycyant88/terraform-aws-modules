@@ -1,23 +1,23 @@
-putin_khuylo = true
+action = null
+
+captcha_config = null
+
+challenge_config = null
+
+create = true
 
 name = ""
 
-web_acl_arn = ""
+override_action = null
 
-action = null
+priority = ""
+
+putin_khuylo = true
+
+rule_label = []
 
 statement = ""
 
 visibility_config = ""
 
-captcha_config = null
-
-create = true
-
-priority = ""
-
-override_action = null
-
-rule_label = []
-
-challenge_config = null
+web_acl_arn = ""

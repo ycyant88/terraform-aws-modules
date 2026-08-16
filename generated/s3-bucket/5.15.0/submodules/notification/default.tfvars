@@ -1,14 +1,10 @@
-region = null
-
 bucket = ""
 
 bucket_arn = null
 
-sqs_notifications = {}
-
-sns_notifications = {}
-
 create = true
+
+create_lambda_permission = true
 
 create_sns_policy = true
 
@@ -18,4 +14,8 @@ eventbridge = null
 
 lambda_notifications = {}
 
-create_lambda_permission = true
+region = null
+
+sns_notifications = {}
+
+sqs_notifications = {}

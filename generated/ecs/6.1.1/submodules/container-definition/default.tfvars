@@ -1,30 +1,10 @@
-service = null
+cloudwatch_log_group_class = null
 
-create_cloudwatch_log_group = true
+cloudwatch_log_group_kms_key_id = null
 
-environment = []
+cloudwatch_log_group_name = null
 
-region = null
-
-dnsServers = null
-
-volumesFrom = []
-
-workingDirectory = null
-
-operating_system_family = "LINUX"
-
-logConfiguration = {}
-
-mountPoints = []
-
-privileged = false
-
-systemControls = []
-
-user = null
-
-versionConsistency = "disabled"
+cloudwatch_log_group_retention_in_days = 14
 
 cloudwatch_log_group_use_name_prefix = false
 
@@ -32,74 +12,94 @@ command = null
 
 cpu = null
 
-dnsSearchDomains = null
-
-firelensConfiguration = null
-
-hostname = null
-
-readonlyRootFilesystem = true
-
-enable_cloudwatch_logging = true
-
-cloudwatch_log_group_name = null
-
-dockerLabels = null
-
-enable_execute_command = false
-
-entrypoint = []
-
-environmentFiles = []
-
-essential = null
-
-image = null
-
-memoryReservation = null
-
-secrets = null
+create_cloudwatch_log_group = true
 
 dependsOn = null
 
 disableNetworking = null
 
+dnsSearchDomains = null
+
+dnsServers = null
+
+dockerLabels = null
+
 dockerSecurityOptions = null
 
-portMappings = null
+enable_cloudwatch_logging = true
 
-startTimeout = 30
+enable_execute_command = false
 
-stopTimeout = 120
+entrypoint = []
 
-cloudwatch_log_group_retention_in_days = 14
+environment = []
 
-tags = {}
+environmentFiles = []
+
+essential = null
 
 extraHosts = null
 
+firelensConfiguration = null
+
 healthCheck = null
 
-name = null
+hostname = null
 
-pseudoTerminal = false
+image = null
 
-resourceRequirements = null
-
-cloudwatch_log_group_kms_key_id = null
+interactive = false
 
 links = null
 
 linuxParameters = { "initProcessEnabled" : false }
 
+logConfiguration = {}
+
 memory = null
 
-cloudwatch_log_group_class = null
+memoryReservation = null
 
-interactive = false
+mountPoints = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
+pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
 
 repositoryCredentials = null
 
+resourceRequirements = null
+
 restartPolicy = { "enabled" : true }
 
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = []
+
+tags = {}
+
 ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = []
+
+workingDirectory = null

@@ -1,37 +1,37 @@
-create_version_async_event_config = true
+allowed_triggers = {}
 
-create_version_allowed_triggers = true
+create = true
+
+create_async_event_config = false
 
 create_qualified_alias_allowed_triggers = true
 
-name = ""
+create_qualified_alias_async_event_config = true
 
-routing_additional_version_weights = {}
+create_version_allowed_triggers = true
 
-refresh_alias = true
+create_version_async_event_config = true
 
-maximum_retry_attempts = null
+description = ""
+
+destination_on_failure = null
 
 destination_on_success = null
 
 event_source_mapping = {}
 
-function_version = ""
-
-use_existing_alias = false
-
-create_async_event_config = false
-
-create_qualified_alias_async_event_config = true
-
-destination_on_failure = null
-
-allowed_triggers = {}
-
-create = true
-
 function_name = ""
+
+function_version = ""
 
 maximum_event_age_in_seconds = null
 
-description = ""
+maximum_retry_attempts = null
+
+name = ""
+
+refresh_alias = true
+
+routing_additional_version_weights = {}
+
+use_existing_alias = false

@@ -1,79 +1,79 @@
+asg_name = ""
+
+associate_public_ip_address = false
+
+create_asg = true
+
 create_lc = true
 
-user_data = ""
+default_cooldown = 300
+
+desired_capacity = ""
 
 ebs_block_device = []
 
-health_check_grace_period = 300
-
-suspended_processes = []
-
-name = ""
-
-key_name = ""
+ebs_optimized = false
 
 enable_monitoring = true
 
-termination_policies = ["Default"]
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
-wait_for_elb_capacity = false
+ephemeral_block_device = []
+
+force_delete = false
+
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
+image_id = ""
+
+instance_type = ""
+
+key_name = ""
+
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
 
 security_groups = ""
 
 spot_price = 0
 
-min_size = ""
-
-vpc_zone_identifier = ""
-
-placement_group = ""
-
-min_elb_capacity = 0
-
-ephemeral_block_device = []
-
-max_size = ""
-
-default_cooldown = 300
-
-target_group_arns = []
-
-create_asg = true
-
-launch_configuration = ""
-
-image_id = ""
+suspended_processes = []
 
 tags = []
 
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+target_group_arns = []
 
-protect_from_scale_in = false
+termination_policies = ["Default"]
 
-lc_name = ""
+user_data = ""
 
-asg_name = ""
-
-placement_tenancy = "default"
-
-desired_capacity = ""
-
-health_check_type = ""
-
-force_delete = false
-
-load_balancers = []
+vpc_zone_identifier = ""
 
 wait_for_capacity_timeout = "10m"
 
-instance_type = ""
-
-iam_instance_profile = ""
-
-associate_public_ip_address = false
-
-ebs_optimized = false
-
-root_block_device = []
-
-metrics_granularity = "1Minute"
+wait_for_elb_capacity = false

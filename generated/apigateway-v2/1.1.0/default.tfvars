@@ -1,61 +1,61 @@
-name = ""
-
-disable_execute_api_endpoint = false
-
-protocol_type = "HTTP"
-
-vpc_links = {}
-
-create_default_stage = true
-
-create_vpc_link = true
-
-route_key = ""
-
-credentials_arn = ""
-
-domain_name_certificate_arn = ""
-
-mutual_tls_authentication = {}
-
-integrations = {}
-
-create = true
-
-create_routes_and_integrations = true
-
 api_key_selection_expression = "$request.header.x-api-key"
-
-domain_name_tags = {}
-
-vpc_link_tags = {}
-
-create_default_stage_api_mapping = true
-
-route_selection_expression = "$request.method $request.path"
-
-default_stage_tags = {}
-
-create_api_gateway = true
-
-cors_configuration = {}
-
-default_stage_access_log_destination_arn = ""
-
-domain_name = ""
-
-create_api_domain_name = true
-
-target = ""
-
-tags = {}
-
-description = ""
-
-default_route_settings = {}
-
-body = ""
 
 api_version = ""
 
+body = ""
+
+cors_configuration = {}
+
+create = true
+
+create_api_domain_name = true
+
+create_api_gateway = true
+
+create_default_stage = true
+
+create_default_stage_api_mapping = true
+
+create_routes_and_integrations = true
+
+create_vpc_link = true
+
+credentials_arn = ""
+
+default_route_settings = {}
+
+default_stage_access_log_destination_arn = ""
+
 default_stage_access_log_format = ""
+
+default_stage_tags = {}
+
+description = ""
+
+disable_execute_api_endpoint = false
+
+domain_name = ""
+
+domain_name_certificate_arn = ""
+
+domain_name_tags = {}
+
+integrations = {}
+
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = ""
+
+route_selection_expression = "$request.method $request.path"
+
+tags = {}
+
+target = ""
+
+vpc_link_tags = {}
+
+vpc_links = {}

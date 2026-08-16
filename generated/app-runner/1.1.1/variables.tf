@@ -1,3 +1,15 @@
+variable "access_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "access_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
 variable "access_iam_role_path" {
   description = "IAM role path"
   type        = string
@@ -10,20 +22,14 @@ variable "access_iam_role_permissions_boundary" {
   default     = null
 }
 
-variable "create_ingress_vpc_connection" {
-  description = "Determines whether a VPC ingress configuration will be created"
-  type        = bool
-  default     = false
+variable "access_iam_role_policies" {
+  description = "IAM policies to attach to the IAM role"
+  type        = map(string)
+  default     = {}
 }
 
-variable "domain_name" {
-  description = "The custom domain endpoint to association. Specify a base domain e.g., example.com or a subdomain e.g., subdomain.example.com"
-  type        = string
-  default     = ""
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
+variable "access_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
 }
@@ -34,52 +40,46 @@ variable "auto_scaling_configuration_arn" {
   default     = null
 }
 
-variable "encryption_configuration" {
-  description = "The encryption configuration for the service"
+variable "auto_scaling_configurations" {
+  description = "Map of auto-scaling configuration definitions to create"
   type        = any
   default     = {}
 }
 
-variable "instance_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "create_vpc_connector" {
-  description = "Determines whether a VPC Connector will be created"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
+variable "connections" {
+  description = "Map of connection definitions to create"
+  type        = any
   default     = {}
 }
 
-variable "service_name" {
-  description = "The name of the service"
-  type        = string
-  default     = ""
-}
-
-variable "access_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
 }
 
-variable "ingress_vpc_id" {
-  description = "The ID of the VPC that is used for the VPC ingress configuration"
-  type        = string
-  default     = ""
+variable "create_access_iam_role" {
+  description = "Determines whether an IAM role is created or to use an existing IAM role"
+  type        = bool
+  default     = false
 }
 
-variable "vpc_connector_security_groups" {
-  description = "The security groups to use for the VPC Connector"
-  type        = list(string)
-  default     = []
+variable "create_custom_domain_association" {
+  description = "Determines whether a Custom Domain Association will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_ingress_vpc_connection" {
+  description = "Determines whether a VPC ingress configuration will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_instance_iam_role" {
+  description = "Determines whether an IAM role is created or to use an existing IAM role"
+  type        = bool
+  default     = true
 }
 
 variable "create_service" {
@@ -88,13 +88,85 @@ variable "create_service" {
   default     = true
 }
 
-variable "private_ecr_arn" {
-  description = "The ARN of the private ECR repository that contains the service image to launch"
+variable "create_vpc_connector" {
+  description = "Determines whether a VPC Connector will be created"
+  type        = bool
+  default     = false
+}
+
+variable "domain_name" {
+  description = "The custom domain endpoint to association. Specify a base domain e.g., example.com or a subdomain e.g., subdomain.example.com"
+  type        = string
+  default     = ""
+}
+
+variable "enable_observability_configuration" {
+  description = "Determines whether an X-Ray Observability Configuration will be created and assigned to the service"
+  type        = bool
+  default     = true
+}
+
+variable "enable_www_subdomain" {
+  description = "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to true"
+  type        = bool
+  default     = null
+}
+
+variable "encryption_configuration" {
+  description = "The encryption configuration for the service"
+  type        = any
+  default     = {}
+}
+
+variable "health_check_configuration" {
+  description = "The health check configuration for the service"
+  type        = any
+  default     = {}
+}
+
+variable "ingress_vpc_endpoint_id" {
+  description = "The ID of the VPC endpoint that is used for the VPC ingress configuration"
+  type        = string
+  default     = ""
+}
+
+variable "ingress_vpc_id" {
+  description = "The ID of the VPC that is used for the VPC ingress configuration"
+  type        = string
+  default     = ""
+}
+
+variable "instance_configuration" {
+  description = "The instance configuration for the service"
+  type        = any
+  default     = {}
+}
+
+variable "instance_iam_role_description" {
+  description = "Description of the role"
   type        = string
   default     = null
 }
 
-variable "access_iam_role_policies" {
+variable "instance_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "instance_iam_role_policies" {
   description = "IAM policies to attach to the IAM role"
   type        = map(string)
   default     = {}
@@ -104,12 +176,6 @@ variable "instance_iam_role_use_name_prefix" {
   description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
-}
-
-variable "connections" {
-  description = "Map of connection definitions to create"
-  type        = any
-  default     = {}
 }
 
 variable "network_configuration" {
@@ -124,28 +190,16 @@ variable "observability_configuration" {
   default     = {}
 }
 
-variable "access_iam_role_name" {
-  description = "Name to use on IAM role created"
+variable "private_ecr_arn" {
+  description = "The ARN of the private ECR repository that contains the service image to launch"
   type        = string
   default     = null
 }
 
-variable "enable_www_subdomain" {
-  description = "Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to true"
-  type        = bool
-  default     = null
-}
-
-variable "auto_scaling_configurations" {
-  description = "Map of auto-scaling configuration definitions to create"
-  type        = any
-  default     = {}
-}
-
-variable "create_custom_domain_association" {
-  description = "Determines whether a Custom Domain Association will be created"
-  type        = bool
-  default     = false
+variable "service_name" {
+  description = "The name of the service"
+  type        = string
+  default     = ""
 }
 
 variable "source_configuration" {
@@ -154,16 +208,10 @@ variable "source_configuration" {
   default     = {}
 }
 
-variable "instance_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "ingress_vpc_endpoint_id" {
-  description = "The ID of the VPC endpoint that is used for the VPC ingress configuration"
-  type        = string
-  default     = ""
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "vpc_connector_name" {
@@ -172,62 +220,14 @@ variable "vpc_connector_name" {
   default     = ""
 }
 
-variable "vpc_connector_subnets" {
-  description = "The subnets to use for the VPC Connector"
+variable "vpc_connector_security_groups" {
+  description = "The security groups to use for the VPC Connector"
   type        = list(string)
   default     = []
 }
 
-variable "health_check_configuration" {
-  description = "The health check configuration for the service"
-  type        = any
-  default     = {}
-}
-
-variable "instance_configuration" {
-  description = "The instance configuration for the service"
-  type        = any
-  default     = {}
-}
-
-variable "access_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "instance_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "instance_iam_role_policies" {
-  description = "IAM policies to attach to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "enable_observability_configuration" {
-  description = "Determines whether an X-Ray Observability Configuration will be created and assigned to the service"
-  type        = bool
-  default     = true
-}
-
-variable "create_access_iam_role" {
-  description = "Determines whether an IAM role is created or to use an existing IAM role"
-  type        = bool
-  default     = false
-}
-
-variable "create_instance_iam_role" {
-  description = "Determines whether an IAM role is created or to use an existing IAM role"
-  type        = bool
-  default     = true
-}
-
-variable "instance_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
+variable "vpc_connector_subnets" {
+  description = "The subnets to use for the VPC Connector"
+  type        = list(string)
+  default     = []
 }

@@ -10,24 +10,6 @@ variable "bucket_arn" {
   default     = ""
 }
 
-variable "lambda_notifications" {
-  description = "Map of S3 bucket notifications to Lambda function"
-  type        = any
-  default     = {}
-}
-
-variable "sqs_notifications" {
-  description = "Map of S3 bucket notifications to SQS queue"
-  type        = any
-  default     = {}
-}
-
-variable "sns_notifications" {
-  description = "Map of S3 bucket notifications to SNS topic"
-  type        = any
-  default     = {}
-}
-
 variable "create" {
   description = "Whether to create this resource or not?"
   type        = bool
@@ -44,4 +26,22 @@ variable "create_sqs_policy" {
   description = "Whether to create a policy for SQS permissions or not?"
   type        = bool
   default     = true
+}
+
+variable "lambda_notifications" {
+  description = "Map of S3 bucket notifications to Lambda function"
+  type        = any
+  default     = {}
+}
+
+variable "sns_notifications" {
+  description = "Map of S3 bucket notifications to SNS topic"
+  type        = any
+  default     = {}
+}
+
+variable "sqs_notifications" {
+  description = "Map of S3 bucket notifications to SQS queue"
+  type        = any
+  default     = {}
 }

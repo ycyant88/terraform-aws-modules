@@ -1,59 +1,59 @@
-aliases_use_name_prefix = false
-
-deletion_window_in_days = null
-
-is_enabled = null
-
-key_statements = {}
-
-enable_default_policy = true
-
-key_users = []
-
-key_service_users = []
-
-key_asymmetric_sign_verify_users = []
-
-tags = {}
-
-description = null
-
-key_material_base64 = null
-
-policy = null
-
 aliases = []
 
-override_policy_documents = []
-
-key_symmetric_encryption_users = []
-
-key_asymmetric_public_encryption_users = []
-
-computed_aliases = {}
+aliases_use_name_prefix = false
 
 bypass_policy_lockout_safety_check = null
 
-key_usage = null
-
-source_policy_documents = []
-
-grants = {}
+computed_aliases = {}
 
 create = true
 
 create_external = false
 
-multi_region = false
+customer_master_key_spec = null
 
-key_owners = []
+deletion_window_in_days = null
+
+description = null
+
+enable_default_policy = true
+
+enable_key_rotation = true
+
+grants = {}
+
+is_enabled = null
 
 key_administrators = []
 
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
 key_hmac_users = []
 
-customer_master_key_spec = null
+key_material_base64 = null
 
-enable_key_rotation = true
+key_owners = []
+
+key_service_users = []
+
+key_statements = {}
+
+key_symmetric_encryption_users = []
+
+key_usage = null
+
+key_users = []
+
+multi_region = false
+
+override_policy_documents = []
+
+policy = null
+
+source_policy_documents = []
+
+tags = {}
 
 valid_to = null

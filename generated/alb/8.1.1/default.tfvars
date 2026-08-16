@@ -1,71 +1,71 @@
-http_tcp_listeners = []
+access_logs = {}
 
-name_prefix = null
+create_lb = true
 
-subnets = null
-
-target_group_tags = {}
+desync_mitigation_mode = "defensive"
 
 drop_invalid_header_fields = false
 
-https_listeners = []
+enable_cross_zone_load_balancing = false
+
+enable_deletion_protection = false
+
+enable_http2 = true
+
+enable_waf_fail_open = false
+
+extra_ssl_certs = []
+
+http_tcp_listener_rules = []
+
+http_tcp_listener_rules_tags = {}
+
+http_tcp_listeners = []
+
+http_tcp_listeners_tags = {}
 
 https_listener_rules = []
 
-http_tcp_listener_rules = []
+https_listener_rules_tags = {}
+
+https_listeners = []
+
+https_listeners_tags = {}
+
+idle_timeout = 60
+
+internal = false
+
+ip_address_type = "ipv4"
+
+lb_tags = {}
+
+listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
+
+load_balancer_create_timeout = "10m"
 
 load_balancer_delete_timeout = "10m"
 
 load_balancer_type = "application"
 
-http_tcp_listeners_tags = {}
+load_balancer_update_timeout = "10m"
 
 name = null
 
-tags = {}
+name_prefix = null
 
-https_listener_rules_tags = {}
+putin_khuylo = true
 
 security_groups = []
 
-extra_ssl_certs = []
-
-access_logs = {}
-
-http_tcp_listener_rules_tags = {}
-
-vpc_id = null
-
-internal = false
-
-load_balancer_create_timeout = "10m"
-
-load_balancer_update_timeout = "10m"
-
 subnet_mapping = []
 
-enable_deletion_protection = false
+subnets = null
 
-enable_cross_zone_load_balancing = false
+tags = {}
 
-ip_address_type = "ipv4"
-
-https_listeners_tags = {}
+target_group_tags = {}
 
 target_groups = []
 
-enable_waf_fail_open = false
-
-desync_mitigation_mode = "defensive"
-
-enable_http2 = true
-
-create_lb = true
-
-idle_timeout = 60
-
-listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
-
-lb_tags = {}
-
-putin_khuylo = true
+vpc_id = null

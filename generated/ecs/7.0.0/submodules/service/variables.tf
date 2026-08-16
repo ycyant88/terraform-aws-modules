@@ -1,410 +1,3 @@
-variable "sigint_rollback" {
-  description = "Whether to enable graceful termination of deployments using SIGINT signals. Only applicable when using ECS deployment controller and requires wait_for_steady_state = true. Default is false"
-  type        = bool
-  default     = null
-}
-
-variable "enable_fault_injection" {
-  description = "Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is false"
-  type        = bool
-  default     = null
-}
-
-variable "ephemeral_storage" {
-  description = "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate"
-  type = object({
-    size_in_gib = number
-  })
-  default = null
-}
-
-variable "scale" {
-  description = "A floating-point percentage of the desired number of tasks to place and keep running in the task set"
-  type = object({
-    unit  = optional(string)
-    value = optional(number)
-  })
-  default = null
-}
-
-variable "autoscaling_suspended_state" {
-  description = "Configuration block that specifies whether the scaling activities for the service are in a suspended state"
-  type = object({
-    dynamic_scaling_in_suspended  = optional(bool, false)
-    dynamic_scaling_out_suspended = optional(bool, false)
-    scheduled_scaling_suspended   = optional(bool, false)
-  })
-  default = null
-}
-
-variable "task_tags" {
-  description = "A map of additional tags to add to the task definition/set created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "infrastructure_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "name" {
-  description = "Name of the service (up to 255 letters, numbers, hyphens, and underscores)"
-  type        = string
-  default     = ""
-}
-
-variable "placement_constraints" {
-  description = "Configuration block for rules that are taken into consideration during task placement (up to max of 10). This is set at the service, see task_definition_placement_constraints for setting at the task definition"
-  type = map(object({
-    expression = optional(string)
-    type       = string
-  }))
-  default = null
-}
-
-variable "create_iam_role" {
-  description = "Determines whether the ECS service IAM role should be created"
-  type        = bool
-  default     = true
-}
-
-variable "ordered_placement_strategy" {
-  description = "Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence"
-  type = list(object({
-    field = optional(string)
-    type  = string
-  }))
-  default = null
-}
-
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "tasks_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "tasks_iam_role_policies" {
-  description = "Map of additioanl IAM role policy ARNs to attach to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "tasks_iam_role_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type = list(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string)
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      values   = list(string)
-      variable = string
-    })))
-  }))
-  default = null
-}
-
-variable "task_exec_iam_role_arn" {
-  description = "Existing IAM role ARN"
-  type        = string
-  default     = null
-}
-
-variable "tasks_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "enable_execute_command" {
-  description = "Specifies whether to enable Amazon ECS Exec for the tasks within the service"
-  type        = bool
-  default     = false
-}
-
-variable "memory" {
-  description = "Amount (in MiB) of memory used by the task. If the requires_compatibilities is FARGATE this field is required"
-  type        = number
-  default     = 2048
-}
-
-variable "availability_zone_rebalancing" {
-  description = "ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are ENABLED and DISABLED. Defaults to DISABLED"
-  type        = string
-  default     = null
-}
-
-variable "load_balancer" {
-  description = "Configuration block for load balancers"
-  type = map(object({
-    container_name   = string
-    container_port   = number
-    elb_name         = optional(string)
-    target_group_arn = optional(string)
-    advanced_configuration = optional(object({
-      alternate_target_group_arn = string
-      production_listener_rule   = string # Should be optional but bug in provider
-      role_arn                   = optional(string)
-      test_listener_rule         = optional(string)
-    }))
-  }))
-  default = null
-}
-
-variable "task_exec_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "deployment_circuit_breaker" {
-  description = "Configuration block for deployment circuit breaker"
-  type = object({
-    enable   = bool
-    rollback = bool
-  })
-  default = null
-}
-
-variable "desired_count" {
-  description = "Number of instances of the task definition to place and keep running"
-  type        = number
-  default     = 1
-}
-
-variable "health_check_grace_period_seconds" {
-  description = "Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers"
-  type        = number
-  default     = null
-}
-
-variable "timeouts" {
-  description = "Create, update, and delete timeout configurations for the service"
-  type = object({
-    create = optional(string)
-    update = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "task_exec_iam_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type = list(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string)
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      values   = list(string)
-      variable = string
-    })))
-  }))
-  default = null
-}
-
-variable "tasks_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_service" {
-  description = "Determines whether service resource will be created (set to false in case you want to create task definition only)"
-  type        = bool
-  default     = true
-}
-
-variable "cpu" {
-  description = "Number of cpu units used by the task. If the requires_compatibilities is FARGATE this field is required"
-  type        = number
-  default     = 1024
-}
-
-variable "tasks_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "tasks_iam_role_max_session_duration" {
-  description = "Maximum session duration (in seconds) for ECS tasks role. Default is 3600."
-  type        = number
-  default     = null
-}
-
-variable "wait_for_steady_state" {
-  description = "If true, Terraform will wait for the service to reach a steady state before continuing. Default is false"
-  type        = bool
-  default     = null
-}
-
-variable "tasks_iam_role_arn" {
-  description = "Existing IAM role ARN"
-  type        = string
-  default     = null
-}
-
-variable "infrastructure_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "deployment_controller" {
-  description = "Configuration block for deployment controller configuration"
-  type = object({
-    type = optional(string)
-  })
-  default = null
-}
-
-variable "vpc_id" {
-  description = "The VPC ID where to deploy the task or service. If not provided, the VPC ID is derived from the subnets provided"
-  type        = string
-  default     = null
-}
-
-variable "task_definition_arn" {
-  description = "Existing task definition ARN. Required when create_task_definition is false"
-  type        = string
-  default     = null
-}
-
-variable "requires_compatibilities" {
-  description = "Set of launch types required by the task. The valid values are EC2, FARGATE, EXTERNAL, and MANAGED_INSTANCES"
-  type        = list(string)
-  default     = ["FARGATE"]
-}
-
-variable "task_definition_placement_constraints" {
-  description = "Configuration block for rules that are taken into consideration during task placement (up to max of 10). This is set at the task definition, see placement_constraints for setting at the service"
-  type = map(object({
-    expression = optional(string)
-    type       = string
-  }))
-  default = null
-}
-
-variable "enable_autoscaling" {
-  description = "Determines whether to enable autoscaling for the service"
-  type        = bool
-  default     = true
-}
-
-variable "security_group_egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(string)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(string)
-  }))
-  default = {}
-}
-
-variable "infrastructure_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type = list(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string)
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      values   = list(string)
-      variable = string
-    })))
-  }))
-  default = null
-}
-
-variable "runtime_platform" {
-  description = "Configuration block for runtime_platform that containers in your task may use"
-  type = object({
-    cpu_architecture        = optional(string, "X86_64")
-    operating_system_family = optional(string, "LINUX")
-  })
-  default = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
-}
-
-variable "tasks_iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
 variable "alarms" {
   description = "Information about the CloudWatch alarms"
   type = object({
@@ -415,70 +8,22 @@ variable "alarms" {
   default = null
 }
 
-variable "enable_ecs_managed_tags" {
-  description = "Specifies whether to enable Amazon ECS managed tags for the tasks within the service"
+variable "assign_public_ip" {
+  description = "Assign a public IP address to the ENI (Fargate launch type only)"
   type        = bool
-  default     = true
+  default     = false
 }
 
-variable "family" {
-  description = "A unique name for your task definition"
-  type        = string
-  default     = null
-}
-
-variable "task_exec_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (task_exec_iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "wait_until_stable_timeout" {
-  description = "Wait timeout for task set to reach STEADY_STATE. Valid time units include ns, us (or \u00b5s), ms, s, m, and h. Default 10m"
-  type        = string
-  default     = null
-}
-
-variable "infrastructure_iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "ipc_mode" {
-  description = "IPC resource namespace to be used for the containers in the task The valid values are host, task, and none"
-  type        = string
-  default     = null
+variable "autoscaling_max_capacity" {
+  description = "Maximum number of tasks to run in your service"
+  type        = number
+  default     = 10
 }
 
 variable "autoscaling_min_capacity" {
   description = "Minimum number of tasks to run in your service"
   type        = number
   default     = 1
-}
-
-variable "deployment_maximum_percent" {
-  description = "Upper limit (as a percentage of the service's desired_count) of the number of running tasks that can be running in a service during a deployment"
-  type        = number
-  default     = 200
-}
-
-variable "service_tags" {
-  description = "A map of additional tags to add to the service"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_task_exec_iam_role" {
-  description = "Determines whether the ECS task definition IAM role should be created"
-  type        = bool
-  default     = true
-}
-
-variable "task_exec_ssm_param_arns" {
-  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
-  type        = list(string)
-  default     = []
 }
 
 variable "autoscaling_policies" {
@@ -620,20 +165,32 @@ variable "autoscaling_policies" {
   default = { "cpu" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageCPUUtilization" } } }, "memory" : { "policy_type" : "TargetTrackingScaling", "target_tracking_scaling_policy_configuration" : { "predefined_metric_specification" : { "predefined_metric_type" : "ECSServiceAverageMemoryUtilization" } } } }
 }
 
-variable "security_group_use_name_prefix" {
-  description = "Determines whether the security group name (security_group_name) is used as a prefix"
-  type        = bool
-  default     = true
+variable "autoscaling_scheduled_actions" {
+  description = "Map of autoscaling scheduled actions to create for the service"
+  type = map(object({
+    name         = optional(string)
+    min_capacity = number
+    max_capacity = number
+    schedule     = string
+    start_time   = optional(string)
+    end_time     = optional(string)
+    timezone     = optional(string)
+  }))
+  default = null
 }
 
-variable "create_infrastructure_iam_role" {
-  description = "Determines whether the ECS infrastructure IAM role should be created"
-  type        = bool
-  default     = true
+variable "autoscaling_suspended_state" {
+  description = "Configuration block that specifies whether the scaling activities for the service are in a suspended state"
+  type = object({
+    dynamic_scaling_in_suspended  = optional(bool, false)
+    dynamic_scaling_out_suspended = optional(bool, false)
+    scheduled_scaling_suspended   = optional(bool, false)
+  })
+  default = null
 }
 
-variable "infrastructure_iam_role_arn" {
-  description = "Existing IAM role ARN"
+variable "availability_zone_rebalancing" {
+  description = "ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are ENABLED and DISABLED. Defaults to DISABLED"
   type        = string
   default     = null
 }
@@ -648,21 +205,10 @@ variable "capacity_provider_strategy" {
   default = null
 }
 
-variable "subnet_ids" {
-  description = "List of subnets to associate with the task or service"
-  type        = list(string)
-  default     = []
-}
-
-variable "service_registries" {
-  description = "Service discovery registries for the service"
-  type = object({
-    container_name = optional(string)
-    container_port = optional(number)
-    port           = optional(number)
-    registry_arn   = string
-  })
-  default = null
+variable "cluster_arn" {
+  description = "ARN of the ECS cluster where the resources will be provisioned"
+  type        = string
+  default     = ""
 }
 
 variable "container_definitions" {
@@ -811,22 +357,172 @@ variable "container_definitions" {
   default = {}
 }
 
-variable "triggers" {
-  description = "Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with timestamp()"
-  type        = map(string)
-  default     = null
+variable "cpu" {
+  description = "Number of cpu units used by the task. If the requires_compatibilities is FARGATE this field is required"
+  type        = number
+  default     = 1024
 }
 
-variable "track_latest" {
-  description = "Whether should track latest ACTIVE task definition on AWS or the one created with the resource stored in state. Useful in the event the task definition is modified outside of this resource"
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
   type        = bool
   default     = true
+}
+
+variable "create_iam_role" {
+  description = "Determines whether the ECS service IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_infrastructure_iam_role" {
+  description = "Determines whether the ECS infrastructure IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_security_group" {
+  description = "Determines if a security group is created"
+  type        = bool
+  default     = true
+}
+
+variable "create_service" {
+  description = "Determines whether service resource will be created (set to false in case you want to create task definition only)"
+  type        = bool
+  default     = true
+}
+
+variable "create_task_definition" {
+  description = "Determines whether to create a task definition or use existing/provided"
+  type        = bool
+  default     = true
+}
+
+variable "create_task_exec_iam_role" {
+  description = "Determines whether the ECS task definition IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_task_exec_policy" {
+  description = "Determines whether the ECS task definition IAM policy should be created. This includes permissions included in AmazonECSTaskExecutionRolePolicy as well as access to secrets and SSM parameters"
+  type        = bool
+  default     = true
+}
+
+variable "create_tasks_iam_role" {
+  description = "Determines whether the ECS tasks IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "deployment_circuit_breaker" {
+  description = "Configuration block for deployment circuit breaker"
+  type = object({
+    enable   = bool
+    rollback = bool
+  })
+  default = null
+}
+
+variable "deployment_configuration" {
+  description = "Configuration block for deployment settings"
+  type = object({
+    strategy             = optional(string)
+    bake_time_in_minutes = optional(string)
+    canary_configuration = optional(object({
+      canary_bake_time_in_minutes = optional(string)
+      canary_percent              = optional(string)
+    }))
+    linear_configuration = optional(object({
+      step_bake_time_in_minutes = optional(string)
+      step_percent              = optional(string)
+    }))
+    lifecycle_hook = optional(map(object({
+      hook_target_arn  = string
+      role_arn         = optional(string)
+      lifecycle_stages = list(string)
+      hook_details     = optional(string)
+    })))
+  })
+  default = null
+}
+
+variable "deployment_controller" {
+  description = "Configuration block for deployment controller configuration"
+  type = object({
+    type = optional(string)
+  })
+  default = null
+}
+
+variable "deployment_maximum_percent" {
+  description = "Upper limit (as a percentage of the service's desired_count) of the number of running tasks that can be running in a service during a deployment"
+  type        = number
+  default     = 200
+}
+
+variable "deployment_minimum_healthy_percent" {
+  description = "Lower limit (as a percentage of the service's desired_count) of the number of running tasks that must remain running and healthy in a service during a deployment"
+  type        = number
+  default     = 66
+}
+
+variable "desired_count" {
+  description = "Number of instances of the task definition to place and keep running"
+  type        = number
+  default     = 1
 }
 
 variable "disable_v7_default_name_description" {
   description = "[DEPRECATED - will be removed in v8.0] Determines whether to disable the default postfix added to resource names and descriptions added in v7.0"
   type        = bool
   default     = false
+}
+
+variable "enable_autoscaling" {
+  description = "Determines whether to enable autoscaling for the service"
+  type        = bool
+  default     = true
+}
+
+variable "enable_ecs_managed_tags" {
+  description = "Specifies whether to enable Amazon ECS managed tags for the tasks within the service"
+  type        = bool
+  default     = true
+}
+
+variable "enable_execute_command" {
+  description = "Specifies whether to enable Amazon ECS Exec for the tasks within the service"
+  type        = bool
+  default     = false
+}
+
+variable "enable_fault_injection" {
+  description = "Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is false"
+  type        = bool
+  default     = null
+}
+
+variable "ephemeral_storage" {
+  description = "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate"
+  type = object({
+    size_in_gib = number
+  })
+  default = null
+}
+
+variable "external_id" {
+  description = "The external ID associated with the task set"
+  type        = string
+  default     = null
+}
+
+variable "family" {
+  description = "A unique name for your task definition"
+  type        = string
+  default     = null
 }
 
 variable "force_delete" {
@@ -841,8 +537,14 @@ variable "force_new_deployment" {
   default     = true
 }
 
-variable "platform_version" {
-  description = "Platform version on which to run your service. Only applicable for launch_type set to FARGATE. Defaults to LATEST"
+variable "health_check_grace_period_seconds" {
+  description = "Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers"
+  type        = number
+  default     = null
+}
+
+variable "iam_role_arn" {
+  description = "Existing IAM role ARN"
   type        = string
   default     = null
 }
@@ -853,97 +555,58 @@ variable "iam_role_description" {
   default     = null
 }
 
-variable "pid_mode" {
-  description = "Process namespace to use for the containers in the task. The valid values are host and task"
+variable "iam_role_name" {
+  description = "Name to use on IAM role created"
   type        = string
   default     = null
 }
 
-variable "task_exec_iam_role_policies" {
-  description = "Map of IAM role policy ARNs to attach to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_task_exec_policy" {
-  description = "Determines whether the ECS task definition IAM policy should be created. This includes permissions included in AmazonECSTaskExecutionRolePolicy as well as access to secrets and SSM parameters"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_arn" {
-  description = "Existing IAM role ARN"
+variable "iam_role_path" {
+  description = "IAM role path"
   type        = string
   default     = null
 }
 
-variable "external_id" {
-  description = "The external ID associated with the task set"
-  type        = string
-  default     = null
-}
-
-variable "wait_until_stable" {
-  description = "Whether terraform should wait until the task set has reached STEADY_STATE"
-  type        = bool
-  default     = null
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "infrastructure_iam_role_permissions_boundary" {
+variable "iam_role_permissions_boundary" {
   description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
   type        = string
   default     = null
 }
 
-variable "security_group_ids" {
-  description = "List of security groups to associate with the task or service"
-  type        = list(string)
-  default     = []
-}
-
-variable "volume_configuration" {
-  description = "Configuration for a volume specified in the task definition as a volume that is configured at launch time"
-  type = object({
-    name = string
-    managed_ebs_volume = object({
-      encrypted        = optional(bool)
-      file_system_type = optional(string)
-      iops             = optional(number)
-      kms_key_id       = optional(string)
-      size_in_gb       = optional(number)
-      snapshot_id      = optional(string)
-      tag_specifications = optional(list(object({
-        propagate_tags = optional(string, "TASK_DEFINITION")
-        resource_type  = string
-        tags           = optional(map(string))
-      })))
-      throughput  = optional(number)
-      volume_type = optional(string)
-    })
-  })
+variable "iam_role_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type = list(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string)
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      values   = list(string)
+      variable = string
+    })))
+  }))
   default = null
 }
 
-variable "create_task_definition" {
-  description = "Determines whether to create a task definition or use existing/provided"
-  type        = bool
-  default     = true
-}
-
-variable "task_exec_iam_role_tags" {
+variable "iam_role_tags" {
   description = "A map of additional tags to add to the IAM role created"
   type        = map(string)
   default     = {}
 }
 
-variable "create_security_group" {
-  description = "Determines if a security group is created"
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
 }
@@ -954,38 +617,127 @@ variable "ignore_task_definition_changes" {
   default     = false
 }
 
-variable "scheduling_strategy" {
-  description = "Scheduling strategy to use for the service. The valid values are REPLICA and DAEMON. Defaults to REPLICA"
+variable "infrastructure_iam_role_arn" {
+  description = "Existing IAM role ARN"
   type        = string
   default     = null
 }
 
-variable "task_exec_iam_role_description" {
+variable "infrastructure_iam_role_description" {
   description = "Description of the role"
   type        = string
   default     = null
 }
 
-variable "tasks_iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (tasks_iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
+variable "infrastructure_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "infrastructure_iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
 }
 
-variable "iam_role_use_name_prefix" {
+variable "infrastructure_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "infrastructure_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "infrastructure_iam_role_use_name_prefix" {
   description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
 }
 
-variable "iam_role_path" {
-  description = "IAM role path"
+variable "ipc_mode" {
+  description = "IPC resource namespace to be used for the containers in the task The valid values are host, task, and none"
+  type        = string
+  default     = null
+}
+
+variable "launch_type" {
+  description = "Launch type on which to run your service. The valid values are EC2, FARGATE, and EXTERNAL. Defaults to FARGATE"
+  type        = string
+  default     = "FARGATE"
+}
+
+variable "load_balancer" {
+  description = "Configuration block for load balancers"
+  type = map(object({
+    container_name   = string
+    container_port   = number
+    elb_name         = optional(string)
+    target_group_arn = optional(string)
+    advanced_configuration = optional(object({
+      alternate_target_group_arn = string
+      production_listener_rule   = string # Should be optional but bug in provider
+      role_arn                   = optional(string)
+      test_listener_rule         = optional(string)
+    }))
+  }))
+  default = null
+}
+
+variable "memory" {
+  description = "Amount (in MiB) of memory used by the task. If the requires_compatibilities is FARGATE this field is required"
+  type        = number
+  default     = 2048
+}
+
+variable "name" {
+  description = "Name of the service (up to 255 letters, numbers, hyphens, and underscores)"
+  type        = string
+  default     = ""
+}
+
+variable "network_mode" {
+  description = "Docker networking mode to use for the containers in the task. Valid values are none, bridge, awsvpc, and host"
+  type        = string
+  default     = "awsvpc"
+}
+
+variable "ordered_placement_strategy" {
+  description = "Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence"
+  type = list(object({
+    field = optional(string)
+    type  = string
+  }))
+  default = null
+}
+
+variable "pid_mode" {
+  description = "Process namespace to use for the containers in the task. The valid values are host and task"
+  type        = string
+  default     = null
+}
+
+variable "placement_constraints" {
+  description = "Configuration block for rules that are taken into consideration during task placement (up to max of 10). This is set at the service, see task_definition_placement_constraints for setting at the task definition"
+  type = map(object({
+    expression = optional(string)
+    type       = string
+  }))
+  default = null
+}
+
+variable "platform_version" {
+  description = "Platform version on which to run your service. Only applicable for launch_type set to FARGATE. Defaults to LATEST"
+  type        = string
+  default     = null
+}
+
+variable "propagate_tags" {
+  description = "Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are SERVICE and TASK_DEFINITION"
   type        = string
   default     = null
 }
@@ -1000,58 +752,106 @@ variable "proxy_configuration" {
   default = null
 }
 
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "requires_compatibilities" {
+  description = "Set of launch types required by the task. The valid values are EC2, FARGATE, EXTERNAL, and MANAGED_INSTANCES"
+  type        = list(string)
+  default     = ["FARGATE"]
+}
+
+variable "runtime_platform" {
+  description = "Configuration block for runtime_platform that containers in your task may use"
+  type = object({
+    cpu_architecture        = optional(string, "X86_64")
+    operating_system_family = optional(string, "LINUX")
+  })
+  default = { "cpu_architecture" : "X86_64", "operating_system_family" : "LINUX" }
+}
+
+variable "scale" {
+  description = "A floating-point percentage of the desired number of tasks to place and keep running in the task set"
+  type = object({
+    unit  = optional(string)
+    value = optional(number)
+  })
+  default = null
+}
+
+variable "scheduling_strategy" {
+  description = "Scheduling strategy to use for the service. The valid values are REPLICA and DAEMON. Defaults to REPLICA"
+  type        = string
+  default     = null
+}
+
 variable "security_group_description" {
   description = "Description of the security group created"
   type        = string
   default     = null
 }
 
-variable "cluster_arn" {
-  description = "ARN of the ECS cluster where the resources will be provisioned"
-  type        = string
-  default     = ""
+variable "security_group_egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(string)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(string)
+  }))
+  default = {}
 }
 
-variable "network_mode" {
-  description = "Docker networking mode to use for the containers in the task. Valid values are none, bridge, awsvpc, and host"
-  type        = string
-  default     = "awsvpc"
+variable "security_group_ids" {
+  description = "List of security groups to associate with the task or service"
+  type        = list(string)
+  default     = []
 }
 
-variable "task_exec_iam_policy_path" {
-  description = "Path for the iam role"
+variable "security_group_ingress_rules" {
+  description = "Security group ingress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(string)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(string)
+  }))
+  default = {}
+}
+
+variable "security_group_name" {
+  description = "Name to use on security group created"
   type        = string
   default     = null
 }
 
-variable "task_exec_iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
 }
 
-variable "task_exec_iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "create_tasks_iam_role" {
-  description = "Determines whether the ECS tasks IAM role should be created"
+variable "security_group_use_name_prefix" {
+  description = "Determines whether the security group name (security_group_name) is used as a prefix"
   type        = bool
   default     = true
-}
-
-variable "autoscaling_max_capacity" {
-  description = "Maximum number of tasks to run in your service"
-  type        = number
-  default     = 10
-}
-
-variable "launch_type" {
-  description = "Launch type on which to run your service. The valid values are EC2, FARGATE, and EXTERNAL. Defaults to FARGATE"
-  type        = string
-  default     = "FARGATE"
 }
 
 variable "service_connect_configuration" {
@@ -1099,8 +899,76 @@ variable "service_connect_configuration" {
   default = null
 }
 
-variable "propagate_tags" {
-  description = "Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are SERVICE and TASK_DEFINITION"
+variable "service_registries" {
+  description = "Service discovery registries for the service"
+  type = object({
+    container_name = optional(string)
+    container_port = optional(number)
+    port           = optional(number)
+    registry_arn   = string
+  })
+  default = null
+}
+
+variable "service_tags" {
+  description = "A map of additional tags to add to the service"
+  type        = map(string)
+  default     = {}
+}
+
+variable "sigint_rollback" {
+  description = "Whether to enable graceful termination of deployments using SIGINT signals. Only applicable when using ECS deployment controller and requires wait_for_steady_state = true. Default is false"
+  type        = bool
+  default     = null
+}
+
+variable "skip_destroy" {
+  description = "If true, the task is not deleted when the service is deleted"
+  type        = bool
+  default     = null
+}
+
+variable "subnet_ids" {
+  description = "List of subnets to associate with the task or service"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_definition_arn" {
+  description = "Existing task definition ARN. Required when create_task_definition is false"
+  type        = string
+  default     = null
+}
+
+variable "task_definition_placement_constraints" {
+  description = "Configuration block for rules that are taken into consideration during task placement (up to max of 10). This is set at the task definition, see placement_constraints for setting at the service"
+  type = map(object({
+    expression = optional(string)
+    type       = string
+  }))
+  default = null
+}
+
+variable "task_exec_iam_policy_path" {
+  description = "Path for the iam role"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_arn" {
+  description = "Existing IAM role ARN"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_description" {
+  description = "Description of the role"
   type        = string
   default     = null
 }
@@ -1111,99 +979,186 @@ variable "task_exec_iam_role_max_session_duration" {
   default     = null
 }
 
-variable "infrastructure_iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "deployment_configuration" {
-  description = "Configuration block for deployment settings"
-  type = object({
-    strategy             = optional(string)
-    bake_time_in_minutes = optional(string)
-    canary_configuration = optional(object({
-      canary_bake_time_in_minutes = optional(string)
-      canary_percent              = optional(string)
-    }))
-    linear_configuration = optional(object({
-      step_bake_time_in_minutes = optional(string)
-      step_percent              = optional(string)
-    }))
-    lifecycle_hook = optional(map(object({
-      hook_target_arn  = string
-      role_arn         = optional(string)
-      lifecycle_stages = list(string)
-      hook_details     = optional(string)
-    })))
-  })
-  default = null
-}
-
-variable "deployment_minimum_healthy_percent" {
-  description = "Lower limit (as a percentage of the service's desired_count) of the number of running tasks that must remain running and healthy in a service during a deployment"
-  type        = number
-  default     = 66
-}
-
-variable "assign_public_ip" {
-  description = "Assign a public IP address to the ENI (Fargate launch type only)"
-  type        = bool
-  default     = false
-}
-
-variable "vpc_lattice_configurations" {
-  description = "The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs"
-  type = object({
-    role_arn         = string
-    target_group_arn = string
-    port_name        = string
-  })
-  default = null
-}
-
-variable "iam_role_name" {
+variable "task_exec_iam_role_name" {
   description = "Name to use on IAM role created"
   type        = string
   default     = null
 }
 
-variable "skip_destroy" {
-  description = "If true, the task is not deleted when the service is deleted"
-  type        = bool
+variable "task_exec_iam_role_path" {
+  description = "IAM role path"
+  type        = string
   default     = null
 }
 
-variable "autoscaling_scheduled_actions" {
-  description = "Map of autoscaling scheduled actions to create for the service"
-  type = map(object({
-    name         = optional(string)
-    min_capacity = number
-    max_capacity = number
-    schedule     = string
-    start_time   = optional(string)
-    end_time     = optional(string)
-    timezone     = optional(string)
+variable "task_exec_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "task_exec_iam_role_policies" {
+  description = "Map of IAM role policy ARNs to attach to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "task_exec_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (task_exec_iam_role_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "task_exec_iam_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type = list(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string)
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      values   = list(string)
+      variable = string
+    })))
   }))
   default = null
 }
 
-variable "security_group_ingress_rules" {
-  description = "Security group ingress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
+variable "task_exec_secret_arns" {
+  description = "List of SecretsManager secret ARNs the task execution role will be permitted to get/read"
+  type        = list(string)
+  default     = []
+}
 
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(string)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(string)
+variable "task_exec_ssm_param_arns" {
+  description = "List of SSM parameter ARNs the task execution role will be permitted to get/read"
+  type        = list(string)
+  default     = []
+}
+
+variable "task_tags" {
+  description = "A map of additional tags to add to the task definition/set created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "tasks_iam_role_arn" {
+  description = "Existing IAM role ARN"
+  type        = string
+  default     = null
+}
+
+variable "tasks_iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "tasks_iam_role_max_session_duration" {
+  description = "Maximum session duration (in seconds) for ECS tasks role. Default is 3600."
+  type        = number
+  default     = null
+}
+
+variable "tasks_iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "tasks_iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "tasks_iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "tasks_iam_role_policies" {
+  description = "Map of additioanl IAM role policy ARNs to attach to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "tasks_iam_role_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type = list(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string)
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      values   = list(string)
+      variable = string
+    })))
   }))
-  default = {}
+  default = null
+}
+
+variable "tasks_iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "tasks_iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (tasks_iam_role_name) is used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "timeouts" {
+  description = "Create, update, and delete timeout configurations for the service"
+  type = object({
+    create = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
+variable "track_latest" {
+  description = "Whether should track latest ACTIVE task definition on AWS or the one created with the resource stored in state. Useful in the event the task definition is modified outside of this resource"
+  type        = bool
+  default     = true
+}
+
+variable "triggers" {
+  description = "Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with timestamp()"
+  type        = map(string)
+  default     = null
 }
 
 variable "volume" {
@@ -1241,14 +1196,59 @@ variable "volume" {
   default = null
 }
 
-variable "task_exec_secret_arns" {
-  description = "List of SecretsManager secret ARNs the task execution role will be permitted to get/read"
-  type        = list(string)
-  default     = []
+variable "volume_configuration" {
+  description = "Configuration for a volume specified in the task definition as a volume that is configured at launch time"
+  type = object({
+    name = string
+    managed_ebs_volume = object({
+      encrypted        = optional(bool)
+      file_system_type = optional(string)
+      iops             = optional(number)
+      kms_key_id       = optional(string)
+      size_in_gb       = optional(number)
+      snapshot_id      = optional(string)
+      tag_specifications = optional(list(object({
+        propagate_tags = optional(string, "TASK_DEFINITION")
+        resource_type  = string
+        tags           = optional(map(string))
+      })))
+      throughput  = optional(number)
+      volume_type = optional(string)
+    })
+  })
+  default = null
 }
 
-variable "security_group_name" {
-  description = "Name to use on security group created"
+variable "vpc_id" {
+  description = "The VPC ID where to deploy the task or service. If not provided, the VPC ID is derived from the subnets provided"
+  type        = string
+  default     = null
+}
+
+variable "vpc_lattice_configurations" {
+  description = "The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs"
+  type = object({
+    role_arn         = string
+    target_group_arn = string
+    port_name        = string
+  })
+  default = null
+}
+
+variable "wait_for_steady_state" {
+  description = "If true, Terraform will wait for the service to reach a steady state before continuing. Default is false"
+  type        = bool
+  default     = null
+}
+
+variable "wait_until_stable" {
+  description = "Whether terraform should wait until the task set has reached STEADY_STATE"
+  type        = bool
+  default     = null
+}
+
+variable "wait_until_stable_timeout" {
+  description = "Wait timeout for task set to reach STEADY_STATE. Valid time units include ns, us (or \u00b5s), ms, s, m, and h. Default 10m"
   type        = string
   default     = null
 }

@@ -1,12 +1,16 @@
 create = true
 
-region = null
-
-vpc_id = null
+create_security_group = false
 
 endpoints = {}
 
-subnet_ids = []
+region = null
+
+security_group_description = null
+
+security_group_ids = []
+
+security_group_name = null
 
 security_group_name_prefix = null
 
@@ -14,14 +18,10 @@ security_group_rules = {}
 
 security_group_tags = {}
 
-security_group_ids = []
+subnet_ids = []
 
 tags = {}
 
 timeouts = {}
 
-create_security_group = false
-
-security_group_name = null
-
-security_group_description = null
+vpc_id = null

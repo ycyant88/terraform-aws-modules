@@ -1,13 +1,13 @@
+variable "acm_certificate_domain_name" {
+  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
+  type        = string
+  default     = ""
+}
+
 variable "alb_ingress_cidr_blocks" {
   description = "List of IPv4 CIDR ranges to use on all ingress rules of the ALB."
   type        = list(string)
   default     = ["0.0.0.0/0"]
-}
-
-variable "create_route53_record" {
-  description = "Whether to create Route53 record for Atlantis"
-  type        = bool
-  default     = true
 }
 
 variable "alb_log_bucket_name" {
@@ -16,40 +16,22 @@ variable "alb_log_bucket_name" {
   default     = ""
 }
 
-variable "atlantis_image" {
-  description = "Docker image to run Atlantis with. If not specified, official Atlantis image will be used"
+variable "alb_log_location_prefix" {
+  description = "S3 prefix within the log_bucket_name under which logs are stored."
   type        = string
   default     = ""
 }
 
-variable "security_group_ids" {
-  description = "List of one or more security groups to be added to the load balancer"
-  type        = list(string)
-  default     = []
+variable "alb_logging_enabled" {
+  description = "Controls if the ALB will log requests to S3."
+  type        = bool
+  default     = false
 }
 
-variable "name" {
-  description = "Name to use on all resources created (VPC, ALB, etc)"
+variable "allow_repo_config" {
+  description = "When true allows the use of atlantis.yaml config files within the source repos."
   type        = string
-  default     = "atlantis"
-}
-
-variable "atlantis_version" {
-  description = "Verion of Atlantis to run. If not specified latest will be used"
-  type        = string
-  default     = "latest"
-}
-
-variable "policies_arn" {
-  description = "A list of the ARN of the policies you want to apply"
-  type        = list(string)
-  default     = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
-}
-
-variable "container_memory_reservation" {
-  description = "The amount of memory (in MiB) to reserve for the container"
-  type        = number
-  default     = 128
+  default     = "false"
 }
 
 variable "atlantis_allowed_repo_names" {
@@ -58,10 +40,46 @@ variable "atlantis_allowed_repo_names" {
   default     = []
 }
 
-variable "atlantis_gitlab_user" {
-  description = "Gitlab username that is running the Atlantis command"
+variable "atlantis_bitbucket_base_url" {
+  description = "Base URL of Bitbucket Server, use for Bitbucket on prem (Stash)"
   type        = string
   default     = ""
+}
+
+variable "atlantis_bitbucket_user" {
+  description = "Bitbucket username that is running the Atlantis command"
+  type        = string
+  default     = ""
+}
+
+variable "atlantis_bitbucket_user_token" {
+  description = "Bitbucket token of the user that is running the Atlantis command"
+  type        = string
+  default     = ""
+}
+
+variable "atlantis_bitbucket_user_token_ssm_parameter_name" {
+  description = "Name of SSM parameter to keep atlantis_bitbucket_user_token"
+  type        = string
+  default     = "/atlantis/bitbucket/user/token"
+}
+
+variable "atlantis_github_user" {
+  description = "GitHub username that is running the Atlantis command"
+  type        = string
+  default     = ""
+}
+
+variable "atlantis_github_user_token" {
+  description = "GitHub token of the user that is running the Atlantis command"
+  type        = string
+  default     = ""
+}
+
+variable "atlantis_github_user_token_ssm_parameter_name" {
+  description = "Name of SSM parameter to keep atlantis_github_user_token"
+  type        = string
+  default     = "/atlantis/github/user/token"
 }
 
 variable "atlantis_gitlab_hostname" {
@@ -70,14 +88,26 @@ variable "atlantis_gitlab_hostname" {
   default     = "gitlab.com"
 }
 
-variable "public_subnets" {
-  description = "A list of public subnets inside the VPC"
-  type        = list(string)
-  default     = []
+variable "atlantis_gitlab_user" {
+  description = "Gitlab username that is running the Atlantis command"
+  type        = string
+  default     = ""
 }
 
-variable "acm_certificate_domain_name" {
-  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
+variable "atlantis_gitlab_user_token" {
+  description = "Gitlab token of the user that is running the Atlantis command"
+  type        = string
+  default     = ""
+}
+
+variable "atlantis_gitlab_user_token_ssm_parameter_name" {
+  description = "Name of SSM parameter to keep atlantis_gitlab_user_token"
+  type        = string
+  default     = "/atlantis/gitlab/user/token"
+}
+
+variable "atlantis_image" {
+  description = "Docker image to run Atlantis with. If not specified, official Atlantis image will be used"
   type        = string
   default     = ""
 }
@@ -88,16 +118,16 @@ variable "atlantis_port" {
   default     = 4141
 }
 
-variable "azs" {
-  description = "A list of availability zones in the region"
+variable "atlantis_repo_whitelist" {
+  description = "List of allowed repositories Atlantis can be used with"
   type        = list(string)
-  default     = []
+  default     = ""
 }
 
-variable "ecs_service_desired_count" {
-  description = "The number of instances of the task definition to place and keep running"
-  type        = number
-  default     = 1
+variable "atlantis_version" {
+  description = "Verion of Atlantis to run. If not specified latest will be used"
+  type        = string
+  default     = "latest"
 }
 
 variable "aws_ssm_path" {
@@ -106,32 +136,14 @@ variable "aws_ssm_path" {
   default     = "aws"
 }
 
-variable "ecs_task_cpu" {
-  description = "The number of cpu units used by the task"
-  type        = number
-  default     = 256
-}
-
-variable "atlantis_bitbucket_base_url" {
-  description = "Base URL of Bitbucket Server, use for Bitbucket on prem (Stash)"
-  type        = string
-  default     = ""
-}
-
-variable "cloudwatch_log_retention_in_days" {
-  description = "Retention period of Atlantis CloudWatch logs"
-  type        = number
-  default     = 7
-}
-
-variable "custom_environment_secrets" {
-  description = "List of additional secrets the container will use (list should contain maps with name and valueFrom)"
-  type        = list(map(string))
+variable "azs" {
+  description = "A list of availability zones in the region"
+  type        = list(string)
   default     = []
 }
 
-variable "alb_log_location_prefix" {
-  description = "S3 prefix within the log_bucket_name under which logs are stored."
+variable "certificate_arn" {
+  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
   type        = string
   default     = ""
 }
@@ -142,10 +154,22 @@ variable "cidr" {
   default     = ""
 }
 
-variable "private_subnets" {
-  description = "A list of private subnets inside the VPC"
-  type        = list(string)
-  default     = []
+variable "cloudwatch_log_retention_in_days" {
+  description = "Retention period of Atlantis CloudWatch logs"
+  type        = number
+  default     = 7
+}
+
+variable "container_memory_reservation" {
+  description = "The amount of memory (in MiB) to reserve for the container"
+  type        = number
+  default     = 128
+}
+
+variable "create_route53_record" {
+  description = "Whether to create Route53 record for Atlantis"
+  type        = bool
+  default     = true
 }
 
 variable "custom_container_definitions" {
@@ -154,14 +178,104 @@ variable "custom_container_definitions" {
   default     = ""
 }
 
-variable "atlantis_repo_whitelist" {
-  description = "List of allowed repositories Atlantis can be used with"
+variable "custom_environment_secrets" {
+  description = "List of additional secrets the container will use (list should contain maps with name and valueFrom)"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "custom_environment_variables" {
+  description = "List of additional environment variables the container will use (list should contain maps with name and value)"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ecs_service_assign_public_ip" {
+  description = "Should be true, if ECS service is using public subnets (more info: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_cannot_pull_image.html)"
+  type        = bool
+  default     = false
+}
+
+variable "ecs_service_deployment_maximum_percent" {
+  description = "The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment"
+  type        = number
+  default     = 200
+}
+
+variable "ecs_service_deployment_minimum_healthy_percent" {
+  description = "The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment"
+  type        = number
+  default     = 50
+}
+
+variable "ecs_service_desired_count" {
+  description = "The number of instances of the task definition to place and keep running"
+  type        = number
+  default     = 1
+}
+
+variable "ecs_task_cpu" {
+  description = "The number of cpu units used by the task"
+  type        = number
+  default     = 256
+}
+
+variable "ecs_task_memory" {
+  description = "The amount (in MiB) of memory used by the task"
+  type        = number
+  default     = 512
+}
+
+variable "name" {
+  description = "Name to use on all resources created (VPC, ALB, etc)"
+  type        = string
+  default     = "atlantis"
+}
+
+variable "policies_arn" {
+  description = "A list of the ARN of the policies you want to apply"
   type        = list(string)
+  default     = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
+}
+
+variable "private_subnet_ids" {
+  description = "A list of IDs of existing private subnets inside the VPC"
+  type        = list(string)
+  default     = []
+}
+
+variable "private_subnets" {
+  description = "A list of private subnets inside the VPC"
+  type        = list(string)
+  default     = []
+}
+
+variable "public_subnet_ids" {
+  description = "A list of IDs of existing public subnets inside the VPC"
+  type        = list(string)
+  default     = []
+}
+
+variable "public_subnets" {
+  description = "A list of public subnets inside the VPC"
+  type        = list(string)
+  default     = []
+}
+
+variable "route53_zone_name" {
+  description = "Route53 zone name to create ACM certificate in and main A-record, without trailing dot"
+  type        = string
   default     = ""
 }
 
-variable "atlantis_bitbucket_user_token" {
-  description = "Bitbucket token of the user that is running the Atlantis command"
+variable "security_group_ids" {
+  description = "List of one or more security groups to be added to the load balancer"
+  type        = list(string)
+  default     = []
+}
+
+variable "ssm_kms_key_arn" {
+  description = "ARN of KMS key to use for entryption and decryption of SSM Parameters. Required only if your key uses a custom KMS key and not the default key"
   type        = string
   default     = ""
 }
@@ -178,122 +292,8 @@ variable "vpc_id" {
   default     = ""
 }
 
-variable "ssm_kms_key_arn" {
-  description = "ARN of KMS key to use for entryption and decryption of SSM Parameters. Required only if your key uses a custom KMS key and not the default key"
-  type        = string
-  default     = ""
-}
-
-variable "ecs_service_deployment_maximum_percent" {
-  description = "The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment"
-  type        = number
-  default     = 200
-}
-
-variable "ecs_service_deployment_minimum_healthy_percent" {
-  description = "The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment"
-  type        = number
-  default     = 50
-}
-
-variable "ecs_task_memory" {
-  description = "The amount (in MiB) of memory used by the task"
-  type        = number
-  default     = 512
-}
-
-variable "certificate_arn" {
-  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
-  type        = string
-  default     = ""
-}
-
-variable "route53_zone_name" {
-  description = "Route53 zone name to create ACM certificate in and main A-record, without trailing dot"
-  type        = string
-  default     = ""
-}
-
-variable "atlantis_gitlab_user_token_ssm_parameter_name" {
-  description = "Name of SSM parameter to keep atlantis_gitlab_user_token"
-  type        = string
-  default     = "/atlantis/gitlab/user/token"
-}
-
-variable "atlantis_github_user" {
-  description = "GitHub username that is running the Atlantis command"
-  type        = string
-  default     = ""
-}
-
-variable "alb_logging_enabled" {
-  description = "Controls if the ALB will log requests to S3."
-  type        = bool
-  default     = false
-}
-
-variable "ecs_service_assign_public_ip" {
-  description = "Should be true, if ECS service is using public subnets (more info: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_cannot_pull_image.html)"
-  type        = bool
-  default     = false
-}
-
-variable "atlantis_bitbucket_user" {
-  description = "Bitbucket username that is running the Atlantis command"
-  type        = string
-  default     = ""
-}
-
-variable "allow_repo_config" {
-  description = "When true allows the use of atlantis.yaml config files within the source repos."
-  type        = string
-  default     = "false"
-}
-
-variable "private_subnet_ids" {
-  description = "A list of IDs of existing private subnets inside the VPC"
-  type        = list(string)
-  default     = []
-}
-
-variable "atlantis_github_user_token" {
-  description = "GitHub token of the user that is running the Atlantis command"
-  type        = string
-  default     = ""
-}
-
-variable "atlantis_github_user_token_ssm_parameter_name" {
-  description = "Name of SSM parameter to keep atlantis_github_user_token"
-  type        = string
-  default     = "/atlantis/github/user/token"
-}
-
-variable "atlantis_bitbucket_user_token_ssm_parameter_name" {
-  description = "Name of SSM parameter to keep atlantis_bitbucket_user_token"
-  type        = string
-  default     = "/atlantis/bitbucket/user/token"
-}
-
-variable "atlantis_gitlab_user_token" {
-  description = "Gitlab token of the user that is running the Atlantis command"
-  type        = string
-  default     = ""
-}
-
-variable "public_subnet_ids" {
-  description = "A list of IDs of existing public subnets inside the VPC"
-  type        = list(string)
-  default     = []
-}
-
 variable "webhook_ssm_parameter_name" {
   description = "Name of SSM parameter to keep webhook secret"
   type        = string
   default     = "/atlantis/webhook/secret"
-}
-
-variable "custom_environment_variables" {
-  description = "List of additional environment variables the container will use (list should contain maps with name and value)"
-  type        = list(map(string))
-  default     = []
 }

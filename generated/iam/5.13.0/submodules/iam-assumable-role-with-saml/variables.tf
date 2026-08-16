@@ -1,13 +1,25 @@
-variable "role_description" {
-  description = "IAM Role description"
-  type        = string
-  default     = ""
+variable "allow_self_assume_role" {
+  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
+  type        = bool
+  default     = false
 }
 
-variable "role_name_prefix" {
-  description = "IAM role name prefix"
+variable "aws_saml_endpoint" {
+  description = "AWS SAML Endpoint"
   type        = string
-  default     = null
+  default     = "https://signin.aws.amazon.com/saml"
+}
+
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
 }
 
 variable "max_session_duration" {
@@ -16,16 +28,10 @@ variable "max_session_duration" {
   default     = 3600
 }
 
-variable "trusted_role_actions" {
-  description = "Extra Actions of STS"
-  type        = list(string)
-  default     = [""]
-}
-
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
+variable "number_of_role_policy_arns" {
+  description = "Number of IAM policies to attach to IAM role"
+  type        = number
+  default     = null
 }
 
 variable "provider_id" {
@@ -40,10 +46,10 @@ variable "provider_ids" {
   default     = []
 }
 
-variable "aws_saml_endpoint" {
-  description = "AWS SAML Endpoint"
+variable "role_description" {
+  description = "IAM Role description"
   type        = string
-  default     = "https://signin.aws.amazon.com/saml"
+  default     = ""
 }
 
 variable "role_name" {
@@ -52,16 +58,10 @@ variable "role_name" {
   default     = null
 }
 
-variable "role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "allow_self_assume_role" {
-  description = "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)"
-  type        = bool
-  default     = false
+variable "role_name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
 }
 
 variable "role_path" {
@@ -76,20 +76,20 @@ variable "role_permissions_boundary_arn" {
   default     = ""
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
-}
-
-variable "number_of_role_policy_arns" {
-  description = "Number of IAM policies to attach to IAM role"
-  type        = number
-  default     = null
+variable "role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(string)
+  default     = []
 }
 
 variable "tags" {
   description = "A map of tags to add to IAM role resources"
   type        = map(string)
   default     = {}
+}
+
+variable "trusted_role_actions" {
+  description = "Extra Actions of STS"
+  type        = list(string)
+  default     = [""]
 }

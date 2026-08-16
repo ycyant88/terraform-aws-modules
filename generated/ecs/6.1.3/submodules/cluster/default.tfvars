@@ -1,53 +1,53 @@
-name = ""
+autoscaling_capacity_providers = null
 
-create_cloudwatch_log_group = true
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-default_capacity_provider_strategy = {}
-
-task_exec_iam_role_path = null
-
-task_exec_iam_role_tags = {}
-
-create = true
-
-tags = {}
-
 cloudwatch_log_group_retention_in_days = 90
-
-task_exec_iam_role_policies = {}
-
-task_exec_ssm_param_arns = []
-
-task_exec_iam_statements = null
 
 cloudwatch_log_group_tags = {}
 
 configuration = { "execute_command_configuration" : { "log_configuration" : { "cloud_watch_log_group_name" : "placeholder" } } }
 
-service_connect_defaults = null
+create = true
 
-cloudwatch_log_group_kms_key_id = null
-
-cloudwatch_log_group_class = null
-
-task_exec_iam_role_permissions_boundary = null
-
-create_task_exec_policy = true
-
-task_exec_secret_arns = []
-
-setting = [{ "name" : "containerInsights", "value" : "enabled" }]
+create_cloudwatch_log_group = true
 
 create_task_exec_iam_role = false
 
-task_exec_iam_role_name = null
+create_task_exec_policy = true
 
-task_exec_iam_role_use_name_prefix = true
+default_capacity_provider_strategy = {}
+
+name = ""
+
+region = null
+
+service_connect_defaults = null
+
+setting = [{ "name" : "containerInsights", "value" : "enabled" }]
+
+tags = {}
 
 task_exec_iam_role_description = null
 
-autoscaling_capacity_providers = null
+task_exec_iam_role_name = null
 
-region = null
+task_exec_iam_role_path = null
+
+task_exec_iam_role_permissions_boundary = null
+
+task_exec_iam_role_policies = {}
+
+task_exec_iam_role_tags = {}
+
+task_exec_iam_role_use_name_prefix = true
+
+task_exec_iam_statements = null
+
+task_exec_secret_arns = []
+
+task_exec_ssm_param_arns = []

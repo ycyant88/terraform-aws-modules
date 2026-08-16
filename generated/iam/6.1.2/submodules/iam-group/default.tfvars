@@ -1,29 +1,29 @@
-policy_path = null
+create = true
+
+create_policy = true
+
+enable_mfa_enforcment = true
+
+enable_self_management_permissions = true
 
 name = ""
 
 path = null
 
-users = []
-
-enable_self_management_permissions = true
+permissions = null
 
 policies = {}
 
-create_policy = true
-
-permissions = null
+policy_description = null
 
 policy_name = null
+
+policy_path = null
 
 policy_use_name_prefix = true
 
 tags = {}
 
-enable_mfa_enforcment = true
-
-policy_description = null
+users = []
 
 users_account_id = null
-
-create = true

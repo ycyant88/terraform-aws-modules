@@ -1,107 +1,107 @@
-tags = {}
+cloudwatch_log_group_class = null
 
-dnsServers = null
+cloudwatch_log_group_kms_key_id = null
 
-dockerSecurityOptions = null
+cloudwatch_log_group_name = null
 
-healthCheck = null
-
-hostname = null
-
-linuxParameters = {}
-
-mountPoints = null
-
-name = null
-
-privileged = false
-
-secrets = null
-
-volumesFrom = null
-
-enable_cloudwatch_logging = true
-
-create_cloudwatch_log_group = true
+cloudwatch_log_group_retention_in_days = 14
 
 cloudwatch_log_group_use_name_prefix = false
 
+command = null
+
+cpu = null
+
+create_cloudwatch_log_group = true
+
+credentialSpecs = null
+
+dependsOn = null
+
+disableNetworking = null
+
+dnsSearchDomains = null
+
+dnsServers = null
+
 dockerLabels = null
 
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = null
+
+environment = null
+
 environmentFiles = null
+
+essential = null
 
 extraHosts = null
 
 firelensConfiguration = null
 
-pseudoTerminal = false
+healthCheck = null
 
-repositoryCredentials = null
+hostname = null
 
-workingDirectory = null
+image = null
 
-cpu = null
+interactive = false
 
-dnsSearchDomains = null
+links = null
+
+linuxParameters = {}
 
 logConfiguration = {}
 
+memory = null
+
+memoryReservation = null
+
+mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
+pseudoTerminal = false
+
 readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
 
 restartPolicy = { "enabled" : true }
 
-entrypoint = null
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
 
 systemControls = null
+
+tags = {}
+
+ulimits = null
 
 user = null
 
 versionConsistency = "disabled"
 
-cloudwatch_log_group_name = null
+volumesFrom = null
 
-cloudwatch_log_group_kms_key_id = null
-
-credentialSpecs = null
-
-disableNetworking = null
-
-environment = null
-
-interactive = false
-
-memory = null
-
-portMappings = null
-
-resourceRequirements = null
-
-startTimeout = 30
-
-command = null
-
-enable_execute_command = false
-
-image = null
-
-links = null
-
-memoryReservation = null
-
-stopTimeout = 120
-
-ulimits = null
-
-service = null
-
-operating_system_family = "LINUX"
-
-dependsOn = null
-
-essential = null
-
-cloudwatch_log_group_class = null
-
-cloudwatch_log_group_retention_in_days = 14
-
-region = null
+workingDirectory = null

@@ -1,77 +1,77 @@
-cluster_parameter_group = "redshift-1.0"
-
-snapshot_copy_grant_name = null
-
-tags = {}
-
-encrypted = false
-
 allow_version_upgrade = true
-
-cluster_identifier = ""
-
-cluster_node_type = ""
-
-snapshot_cluster_identifier = null
-
-enhanced_vpc_routing = false
-
-elastic_ip = null
-
-skip_final_snapshot = true
 
 automated_snapshot_retention_period = 0
 
-logging_s3_key_prefix = null
+cluster_database_name = ""
+
+cluster_iam_roles = []
+
+cluster_identifier = ""
+
+cluster_master_password = ""
+
+cluster_master_username = ""
+
+cluster_node_type = ""
+
+cluster_number_of_nodes = 3
+
+cluster_parameter_group = "redshift-1.0"
+
+cluster_port = 5439
+
+cluster_version = "1.0"
+
+elastic_ip = null
 
 enable_case_sensitive_identifier = false
+
+enable_logging = false
+
+enable_user_activity_logging = "false"
+
+encrypted = false
+
+enhanced_vpc_routing = false
+
+final_snapshot_identifier = ""
+
+kms_key_id = ""
+
+logging_bucket_name = null
+
+logging_s3_key_prefix = null
+
+max_concurrency_scaling_clusters = "1"
+
+owner_account = null
+
+parameter_group_name = ""
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
 
 publicly_accessible = false
 
 redshift_subnet_group_name = ""
 
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-cluster_master_password = ""
-
-cluster_port = 5439
-
-snapshot_identifier = null
-
-enable_logging = false
-
-logging_bucket_name = null
-
-cluster_iam_roles = []
-
-parameter_group_name = ""
-
-subnets = []
-
-enable_user_activity_logging = "false"
-
 require_ssl = "false"
+
+skip_final_snapshot = true
+
+snapshot_cluster_identifier = null
 
 snapshot_copy_destination_region = null
 
-cluster_database_name = ""
+snapshot_copy_grant_name = null
 
-cluster_master_username = ""
+snapshot_identifier = null
 
-kms_key_id = ""
+subnets = []
 
-vpc_security_group_ids = ""
+tags = {}
 
 use_fips_ssl = "false"
 
-cluster_version = "1.0"
-
-cluster_number_of_nodes = 3
+vpc_security_group_ids = ""
 
 wlm_json_configuration = "[{\"query_concurrency\": 5}]"
-
-max_concurrency_scaling_clusters = "1"
-
-final_snapshot_identifier = ""
-
-owner_account = null

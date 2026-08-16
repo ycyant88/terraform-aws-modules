@@ -1,19 +1,13 @@
-variable "policy" {
-  description = "The path of the policy in IAM (tpl file)"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "create_policy" {
   description = "Whether to create the IAM policy"
   type        = bool
   default     = true
+}
+
+variable "description" {
+  description = "The description of the policy"
+  type        = string
+  default     = "IAM Policy"
 }
 
 variable "name" {
@@ -28,8 +22,14 @@ variable "path" {
   default     = "/"
 }
 
-variable "description" {
-  description = "The description of the policy"
+variable "policy" {
+  description = "The path of the policy in IAM (tpl file)"
   type        = string
-  default     = "IAM Policy"
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
 }

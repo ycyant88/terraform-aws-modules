@@ -1,20 +1,20 @@
 module "iam_iam-user" {
   source                        = "terraform-aws-modules/iam/aws//modules/iam-user"
   version                       = "5.42.0"
-  policy_arns                   = var.policy_arns
-  create_iam_user_login_profile = var.create_iam_user_login_profile
   create_iam_access_key         = var.create_iam_access_key
-  name                          = var.name
-  path                          = var.path
-  tags                          = var.tags
-  password_reset_required       = var.password_reset_required
-  password_length               = var.password_length
-  upload_iam_user_ssh_key       = var.upload_iam_user_ssh_key
-  force_destroy                 = var.force_destroy
-  pgp_key                       = var.pgp_key
-  ssh_public_key                = var.ssh_public_key
-  permissions_boundary          = var.permissions_boundary
+  create_iam_user_login_profile = var.create_iam_user_login_profile
   create_user                   = var.create_user
+  force_destroy                 = var.force_destroy
   iam_access_key_status         = var.iam_access_key_status
+  name                          = var.name
+  password_length               = var.password_length
+  password_reset_required       = var.password_reset_required
+  path                          = var.path
+  permissions_boundary          = var.permissions_boundary
+  pgp_key                       = var.pgp_key
+  policy_arns                   = var.policy_arns
   ssh_key_encoding              = var.ssh_key_encoding
+  ssh_public_key                = var.ssh_public_key
+  tags                          = var.tags
+  upload_iam_user_ssh_key       = var.upload_iam_user_ssh_key
 }

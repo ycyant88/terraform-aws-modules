@@ -1,7 +1,7 @@
-variable "create_account_password_policy" {
-  description = "Whether to create AWS IAM account password policy"
-  type        = bool
-  default     = true
+variable "account_alias" {
+  description = "AWS IAM account alias for this account"
+  type        = string
+  default     = ""
 }
 
 variable "allow_users_to_change_password" {
@@ -10,16 +10,22 @@ variable "allow_users_to_change_password" {
   default     = true
 }
 
+variable "create_account_password_policy" {
+  description = "Whether to create AWS IAM account password policy"
+  type        = bool
+  default     = true
+}
+
+variable "get_caller_identity" {
+  description = "Whether to get AWS account ID, User ID, and ARN in which Terraform is authorized"
+  type        = bool
+  default     = true
+}
+
 variable "hard_expiry" {
   description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
   type        = bool
   default     = false
-}
-
-variable "account_alias" {
-  description = "AWS IAM account alias for this account"
-  type        = string
-  default     = ""
 }
 
 variable "max_password_age" {
@@ -46,12 +52,6 @@ variable "require_lowercase_characters" {
   default     = true
 }
 
-variable "require_uppercase_characters" {
-  description = "Whether to require uppercase characters for user passwords"
-  type        = bool
-  default     = true
-}
-
 variable "require_numbers" {
   description = "Whether to require numbers for user passwords"
   type        = bool
@@ -64,8 +64,8 @@ variable "require_symbols" {
   default     = true
 }
 
-variable "get_caller_identity" {
-  description = "Whether to get AWS account ID, User ID, and ARN in which Terraform is authorized"
+variable "require_uppercase_characters" {
+  description = "Whether to require uppercase characters for user passwords"
   type        = bool
   default     = true
 }

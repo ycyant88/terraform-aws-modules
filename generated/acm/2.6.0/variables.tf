@@ -1,3 +1,9 @@
+variable "certificate_transparency_logging_preference" {
+  description = "Specifies whether certificate details should be added to a certificate transparency log"
+  type        = bool
+  default     = false
+}
+
 variable "create_certificate" {
   description = "Whether to create ACM certificate"
   type        = bool
@@ -10,16 +16,10 @@ variable "domain_name" {
   default     = ""
 }
 
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
-  type        = string
-  default     = ""
-}
-
-variable "validation_method" {
-  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
-  type        = string
-  default     = "DNS"
+variable "subject_alternative_names" {
+  description = "A list of domains that should be SANs in the issued certificate"
+  type        = list(string)
+  default     = []
 }
 
 variable "tags" {
@@ -40,20 +40,20 @@ variable "validation_allow_overwrite_records" {
   default     = true
 }
 
+variable "validation_method" {
+  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
+  type        = string
+  default     = "DNS"
+}
+
 variable "wait_for_validation" {
   description = "Whether to wait for the validation to complete"
   type        = bool
   default     = true
 }
 
-variable "certificate_transparency_logging_preference" {
-  description = "Specifies whether certificate details should be added to a certificate transparency log"
-  type        = bool
-  default     = false
-}
-
-variable "subject_alternative_names" {
-  description = "A list of domains that should be SANs in the issued certificate"
-  type        = list(string)
-  default     = []
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record."
+  type        = string
+  default     = ""
 }

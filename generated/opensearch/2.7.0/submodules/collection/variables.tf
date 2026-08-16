@@ -1,19 +1,13 @@
-variable "encryption_policy_description" {
-  description = "Description of the encryption policy"
-  type        = string
-  default     = null
-}
-
-variable "access_policy_name" {
-  description = "Name of the access policy"
-  type        = string
-  default     = null
-}
-
-variable "encryption_policy" {
-  description = "Encryption policy to apply to the collection"
+variable "access_policy" {
+  description = "Access policy to apply to the collection"
   type        = any
   default     = {}
+}
+
+variable "access_policy_collection_permissions" {
+  description = "Access policy permissions for the collection"
+  type        = list(string)
+  default     = ["aoss:*"]
 }
 
 variable "access_policy_description" {
@@ -22,82 +16,22 @@ variable "access_policy_description" {
   default     = null
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "access_policy_index_permissions" {
+  description = "Access policy permissions for the collection index"
+  type        = list(string)
+  default     = ["aoss:*"]
 }
 
-variable "region" {
-  description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
+variable "access_policy_name" {
+  description = "Name of the access policy"
   type        = string
   default     = null
 }
 
-variable "collection_group_name" {
-  description = "Name of the collection group"
-  type        = string
-  default     = ""
-}
-
-variable "collection_group_description" {
-  description = "Description of the collection group"
-  type        = string
-  default     = null
-}
-
-variable "encryption_policy_name" {
-  description = "Name of the encryption policy"
-  type        = string
-  default     = null
-}
-
-variable "type" {
-  description = "Type of collection. One of SEARCH, TIMESERIES, or VECTORSEARCH. Defaults to TIMESERIES"
-  type        = string
-  default     = null
-}
-
-variable "lifecycle_policy_description" {
-  description = "Description of the lifecycle policy"
-  type        = string
-  default     = null
-}
-
-variable "lifecycle_policy_name" {
-  description = "Name of the lifecycle policy"
-  type        = string
-  default     = null
-}
-
-variable "lifecycle_policy_min_index_retention" {
-  description = "The minimum period, in days (d) or hours (h), to retain the document in the index. The lower bound is 24h and the upper bound is 3650d"
-  type        = string
-  default     = null
-}
-
-variable "name" {
-  description = "Name of the collection"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "network_policy" {
-  description = "Network policy to apply to the collection"
-  type        = any
-  default     = {}
-}
-
-variable "create_lifecycle_policy" {
-  description = "Determines whether an lifecycle policy will be created"
-  type        = bool
-  default     = false
+variable "access_policy_principals" {
+  description = "Access policy principals"
+  type        = list(string)
+  default     = []
 }
 
 variable "collection_group_capacity_limits" {
@@ -111,47 +45,56 @@ variable "collection_group_capacity_limits" {
   default = null
 }
 
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the collection"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "access_policy_index_permissions" {
-  description = "Access policy permissions for the collection index"
-  type        = list(string)
-  default     = ["aoss:*"]
-}
-
-variable "access_policy" {
-  description = "Access policy to apply to the collection"
-  type        = any
-  default     = {}
-}
-
-variable "network_policy_name" {
-  description = "Name of the network policy"
+variable "collection_group_description" {
+  description = "Description of the collection group"
   type        = string
   default     = null
 }
 
-variable "access_policy_principals" {
-  description = "Access policy principals"
-  type        = list(string)
-  default     = []
+variable "collection_group_name" {
+  description = "Name of the collection group"
+  type        = string
+  default     = ""
 }
 
-variable "standby_replicas" {
-  description = "Indicates whether standby replicas should be used for a collection. One of ENABLED or DISABLED. Defaults to ENABLED."
+variable "collection_group_standby_replicas" {
+  description = "Indicates whether standby replicas should be used for the collection group. Valid values are ENABLED and DISABLED"
   type        = string
-  default     = null
+  default     = "ENABLED"
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_access_policy" {
+  description = "Determines whether an access policy will be created"
+  type        = bool
+  default     = false
 }
 
 variable "create_collection_group" {
   description = "Determines if a collection group is created"
+  type        = bool
+  default     = false
+}
+
+variable "create_encryption_policy" {
+  description = "Determines whether an encryption policy will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_lifecycle_policy" {
+  description = "Determines whether an lifecycle policy will be created"
+  type        = bool
+  default     = false
+}
+
+variable "create_network_policy" {
+  description = "Determines whether an network policy will be created"
   type        = bool
   default     = false
 }
@@ -162,22 +105,58 @@ variable "description" {
   default     = null
 }
 
+variable "encryption_policy" {
+  description = "Encryption policy to apply to the collection"
+  type        = any
+  default     = {}
+}
+
+variable "encryption_policy_description" {
+  description = "Description of the encryption policy"
+  type        = string
+  default     = null
+}
+
+variable "encryption_policy_name" {
+  description = "Name of the encryption policy"
+  type        = string
+  default     = null
+}
+
+variable "lifecycle_policy_description" {
+  description = "Description of the lifecycle policy"
+  type        = string
+  default     = null
+}
+
+variable "lifecycle_policy_min_index_retention" {
+  description = "The minimum period, in days (d) or hours (h), to retain the document in the index. The lower bound is 24h and the upper bound is 3650d"
+  type        = string
+  default     = null
+}
+
+variable "lifecycle_policy_name" {
+  description = "Name of the lifecycle policy"
+  type        = string
+  default     = null
+}
+
 variable "lifecycle_policy_no_min_index_retention" {
   description = "If true, OpenSearch Serverless retains documents indefinitely"
   type        = bool
   default     = null
 }
 
-variable "create_encryption_policy" {
-  description = "Determines whether an encryption policy will be created"
-  type        = bool
-  default     = true
+variable "name" {
+  description = "Name of the collection"
+  type        = string
+  default     = ""
 }
 
-variable "create_network_policy" {
-  description = "Determines whether an network policy will be created"
-  type        = bool
-  default     = false
+variable "network_policy" {
+  description = "Network policy to apply to the collection"
+  type        = any
+  default     = {}
 }
 
 variable "network_policy_description" {
@@ -186,20 +165,41 @@ variable "network_policy_description" {
   default     = null
 }
 
-variable "create_access_policy" {
-  description = "Determines whether an access policy will be created"
-  type        = bool
-  default     = false
-}
-
-variable "collection_group_standby_replicas" {
-  description = "Indicates whether standby replicas should be used for the collection group. Valid values are ENABLED and DISABLED"
+variable "network_policy_name" {
+  description = "Name of the network policy"
   type        = string
-  default     = "ENABLED"
+  default     = null
 }
 
-variable "access_policy_collection_permissions" {
-  description = "Access policy permissions for the collection"
-  type        = list(string)
-  default     = ["aoss:*"]
+variable "region" {
+  description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "standby_replicas" {
+  description = "Indicates whether standby replicas should be used for a collection. One of ENABLED or DISABLED. Defaults to ENABLED."
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the collection"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
+variable "type" {
+  description = "Type of collection. One of SEARCH, TIMESERIES, or VECTORSEARCH. Defaults to TIMESERIES"
+  type        = string
+  default     = null
 }

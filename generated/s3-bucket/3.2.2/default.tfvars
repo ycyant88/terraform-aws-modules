@@ -1,62 +1,44 @@
-attach_elb_log_delivery_policy = false
-
-attach_deny_insecure_transport_policy = false
-
-cors_rule = []
-
-versioning = {}
-
-server_side_encryption_configuration = {}
-
-putin_khuylo = true
-
-bucket = ""
-
-block_public_acls = false
-
-restrict_public_buckets = false
-
-lifecycle_rule = []
-
-create_bucket = true
-
-attach_policy = false
-
-bucket_prefix = ""
+acceleration_status = ""
 
 acl = ""
 
-policy = ""
+attach_deny_insecure_transport_policy = false
 
-owner = {}
+attach_elb_log_delivery_policy = false
 
-replication_configuration = {}
+attach_lb_log_delivery_policy = false
 
-control_object_ownership = false
+attach_policy = false
 
 attach_public_policy = true
 
-force_destroy = false
+attach_require_latest_tls_policy = false
 
-logging = {}
+block_public_acls = false
+
+block_public_policy = false
+
+bucket = ""
+
+bucket_prefix = ""
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+expected_bucket_owner = ""
+
+force_destroy = false
 
 grant = []
 
 ignore_public_acls = false
 
-tags = {}
+lifecycle_rule = []
 
-acceleration_status = ""
-
-request_payer = ""
-
-expected_bucket_owner = ""
-
-attach_lb_log_delivery_policy = false
-
-attach_require_latest_tls_policy = false
-
-website = {}
+logging = {}
 
 object_lock_configuration = {}
 
@@ -64,4 +46,22 @@ object_lock_enabled = false
 
 object_ownership = "ObjectWriter"
 
-block_public_policy = false
+owner = {}
+
+policy = ""
+
+putin_khuylo = true
+
+replication_configuration = {}
+
+request_payer = ""
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

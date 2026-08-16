@@ -1,103 +1,103 @@
-multi_az = false
+allocated_storage = ""
+
+allow_major_version_upgrade = false
+
+apply_immediately = false
+
+auto_minor_version_upgrade = true
+
+availability_zone = ""
 
 backup_retention_period = 1
 
-major_engine_version = ""
+backup_window = ""
+
+character_set_name = ""
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
+
+create_db_option_group = true
+
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
 
 identifier = ""
 
 instance_class = ""
 
-username = ""
-
-option_group_description = ""
-
-storage_type = "gp2"
-
-availability_zone = ""
-
-monitoring_role_arn = ""
-
-name = ""
-
-auto_minor_version_upgrade = true
-
-monitoring_interval = 0
-
-snapshot_identifier = ""
-
-iam_database_authentication_enabled = false
-
-port = ""
-
-create_db_subnet_group = true
-
-allocated_storage = ""
-
-backup_window = ""
-
-create_db_option_group = true
-
-timezone = ""
-
-storage_encrypted = false
-
-replicate_source_db = ""
-
-publicly_accessible = false
-
-tags = {}
+iops = 0
 
 kms_key_id = ""
 
-allow_major_version_upgrade = false
-
-family = ""
-
-engine_version = ""
+license_model = ""
 
 maintenance_window = ""
 
-options = []
+major_engine_version = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
 
 monitoring_role_name = "rds-monitoring-role"
 
-db_subnet_group_name = ""
+multi_az = false
 
-apply_immediately = false
+name = ""
 
-skip_final_snapshot = true
+option_group_description = ""
 
-engine = ""
+option_group_name = ""
 
-copy_tags_to_snapshot = false
-
-subnet_ids = []
-
-create_db_instance = true
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-create_monitoring_role = false
-
-create_db_parameter_group = true
-
-character_set_name = ""
-
-iops = 0
-
-password = ""
-
-vpc_security_group_ids = []
+options = []
 
 parameter_group_name = ""
 
 parameters = []
 
-final_snapshot_identifier = false
+password = ""
 
-option_group_name = ""
+port = ""
 
-enabled_cloudwatch_logs_exports = []
+publicly_accessible = false
 
-license_model = ""
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

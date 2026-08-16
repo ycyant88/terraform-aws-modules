@@ -1,265 +1,265 @@
-private_dedicated_network_acl = false
+amazon_side_asn = "64512"
 
-default_network_acl_ingress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+apigw_endpoint_private_dns_enabled = false
 
-elasticache_subnet_suffix = "elasticache"
-
-intra_route_table_tags = {}
-
-dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
-
-manage_default_network_acl = false
-
-private_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-propagate_private_route_tables_vgw = false
-
-dhcp_options_netbios_name_servers = []
-
-default_network_acl_name = ""
-
-public_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-ssm_endpoint_private_dns_enabled = false
-
-database_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-elasticache_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-database_subnet_group_tags = {}
-
-assign_generated_ipv6_cidr_block = false
-
-public_subnet_suffix = "public"
-
-private_subnet_suffix = "private"
-
-create_redshift_subnet_route_table = false
-
-one_nat_gateway_per_az = false
-
-intra_subnet_tags = {}
-
-database_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-elasticache_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-create_elasticache_subnet_group = true
-
-redshift_subnet_suffix = "redshift"
-
-enable_vpn_gateway = false
-
-elasticache_subnet_tags = {}
-
-create_vpc = true
-
-database_subnet_suffix = "db"
-
-ssmmessages_endpoint_security_group_ids = []
-
-ecr_dkr_endpoint_security_group_ids = []
-
-map_public_ip_on_launch = true
-
-public_subnet_tags = {}
-
-public_route_table_tags = {}
-
-elasticache_route_table_tags = {}
-
-reuse_nat_ips = false
-
-external_nat_ip_ids = []
-
-ecr_dkr_endpoint_private_dns_enabled = false
-
-nat_eip_tags = {}
-
-vpn_gateway_tags = {}
-
-intra_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-azs = []
-
-tags = {}
-
-intra_dedicated_network_acl = false
-
-enable_ecr_dkr_endpoint = false
-
-propagate_public_route_tables_vgw = false
-
-public_acl_tags = {}
-
-default_network_acl_tags = {}
-
-ecr_api_endpoint_security_group_ids = []
-
-dhcp_options_netbios_node_type = ""
-
-enable_dns_hostnames = false
+apigw_endpoint_security_group_ids = []
 
 apigw_endpoint_subnet_ids = []
 
-enable_ecr_api_endpoint = false
+assign_generated_ipv6_cidr_block = false
 
-dhcp_options_tags = {}
+azs = []
 
-default_vpc_name = ""
+cidr = "0.0.0.0/0"
 
-enable_ssmmessages_endpoint = false
-
-enable_ec2messages_endpoint = false
-
-elasticache_acl_tags = {}
-
-private_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-enable_nat_gateway = false
-
-create_redshift_subnet_group = true
+create_database_internet_gateway_route = false
 
 create_database_nat_gateway_route = false
 
 create_database_subnet_group = true
 
-intra_acl_tags = {}
-
-public_subnets = []
-
-enable_dns_support = true
-
-single_nat_gateway = false
-
-ecr_api_endpoint_subnet_ids = []
-
-default_vpc_tags = {}
-
-intra_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-cidr = "0.0.0.0/0"
-
-secondary_cidr_blocks = []
-
-ec2messages_endpoint_security_group_ids = []
-
-vpn_gateway_id = ""
-
-enable_ssm_endpoint = false
-
-enable_ec2_endpoint = false
-
-ec2messages_endpoint_private_dns_enabled = false
-
-ecr_api_endpoint_private_dns_enabled = false
-
-amazon_side_asn = "64512"
-
-manage_default_vpc = false
-
-redshift_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-private_subnets = []
-
-database_subnets = []
-
-redshift_subnets = []
-
-ssmmessages_endpoint_subnet_ids = []
-
-ecr_dkr_endpoint_subnet_ids = []
-
-database_route_table_tags = {}
-
-default_vpc_enable_classiclink = false
-
-default_network_acl_egress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
-
-ec2_endpoint_subnet_ids = []
-
-redshift_dedicated_network_acl = false
-
-enable_dynamodb_endpoint = false
-
-default_vpc_enable_dns_hostnames = false
-
-ec2_endpoint_security_group_ids = []
-
-instance_tenancy = "default"
-
-create_database_internet_gateway_route = false
-
-igw_tags = {}
-
-public_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-redshift_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
-
-ssmmessages_endpoint_private_dns_enabled = false
-
-elasticache_subnets = []
-
 create_database_subnet_route_table = false
 
-ec2messages_endpoint_subnet_ids = []
-
-elasticache_dedicated_network_acl = false
+create_elasticache_subnet_group = true
 
 create_elasticache_subnet_route_table = false
 
-private_acl_tags = {}
+create_redshift_subnet_group = true
+
+create_redshift_subnet_route_table = false
+
+create_vpc = true
+
+database_acl_tags = {}
+
+database_dedicated_network_acl = false
+
+database_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+database_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+database_route_table_tags = {}
+
+database_subnet_group_tags = {}
+
+database_subnet_suffix = "db"
+
+database_subnet_tags = {}
+
+database_subnets = []
+
+default_network_acl_egress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+
+default_network_acl_ingress = [{ "action" : "allow", "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_no" : 100, "to_port" : 0 }, { "action" : "allow", "from_port" : 0, "ipv6_cidr_block" : "::/0", "protocol" : "-1", "rule_no" : 101, "to_port" : 0 }]
+
+default_network_acl_name = ""
+
+default_network_acl_tags = {}
+
+default_vpc_enable_classiclink = false
+
+default_vpc_enable_dns_hostnames = false
+
+default_vpc_enable_dns_support = true
+
+default_vpc_name = ""
+
+default_vpc_tags = {}
+
+dhcp_options_domain_name = ""
+
+dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
+
+dhcp_options_netbios_name_servers = []
+
+dhcp_options_netbios_node_type = ""
 
 dhcp_options_ntp_servers = []
 
-ssm_endpoint_subnet_ids = []
+dhcp_options_tags = {}
+
+ec2_endpoint_private_dns_enabled = false
+
+ec2_endpoint_security_group_ids = []
+
+ec2_endpoint_subnet_ids = []
+
+ec2messages_endpoint_private_dns_enabled = false
+
+ec2messages_endpoint_security_group_ids = []
+
+ec2messages_endpoint_subnet_ids = []
+
+ecr_api_endpoint_private_dns_enabled = false
+
+ecr_api_endpoint_security_group_ids = []
+
+ecr_api_endpoint_subnet_ids = []
+
+ecr_dkr_endpoint_private_dns_enabled = false
+
+ecr_dkr_endpoint_security_group_ids = []
+
+ecr_dkr_endpoint_subnet_ids = []
+
+elasticache_acl_tags = {}
+
+elasticache_dedicated_network_acl = false
+
+elasticache_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+elasticache_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+elasticache_route_table_tags = {}
+
+elasticache_subnet_suffix = "elasticache"
+
+elasticache_subnet_tags = {}
+
+elasticache_subnets = []
 
 enable_apigw_endpoint = false
 
-apigw_endpoint_security_group_ids = []
+enable_dhcp_options = false
 
-redshift_subnet_tags = {}
+enable_dns_hostnames = false
 
-database_acl_tags = {}
+enable_dns_support = true
+
+enable_dynamodb_endpoint = false
+
+enable_ec2_endpoint = false
+
+enable_ec2messages_endpoint = false
+
+enable_ecr_api_endpoint = false
+
+enable_ecr_dkr_endpoint = false
+
+enable_nat_gateway = false
+
+enable_public_redshift = false
+
+enable_s3_endpoint = false
+
+enable_ssm_endpoint = false
+
+enable_ssmmessages_endpoint = false
+
+enable_vpn_gateway = false
+
+external_nat_ip_ids = []
+
+igw_tags = {}
+
+instance_tenancy = "default"
+
+intra_acl_tags = {}
+
+intra_dedicated_network_acl = false
+
+intra_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+intra_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+intra_route_table_tags = {}
+
+intra_subnet_suffix = "intra"
+
+intra_subnet_tags = {}
+
+intra_subnets = []
+
+manage_default_network_acl = false
+
+manage_default_vpc = false
+
+map_public_ip_on_launch = true
+
+name = ""
+
+nat_eip_tags = {}
+
+nat_gateway_tags = {}
+
+one_nat_gateway_per_az = false
+
+private_acl_tags = {}
+
+private_dedicated_network_acl = false
+
+private_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+private_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+private_route_table_tags = {}
+
+private_subnet_suffix = "private"
+
+private_subnet_tags = {}
+
+private_subnets = []
+
+propagate_private_route_tables_vgw = false
+
+propagate_public_route_tables_vgw = false
+
+public_acl_tags = {}
+
+public_dedicated_network_acl = false
+
+public_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+public_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+public_route_table_tags = {}
+
+public_subnet_suffix = "public"
+
+public_subnet_tags = {}
+
+public_subnets = []
+
+redshift_acl_tags = {}
+
+redshift_dedicated_network_acl = false
+
+redshift_inbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
+
+redshift_outbound_acl_rules = [{ "cidr_block" : "0.0.0.0/0", "from_port" : 0, "protocol" : "-1", "rule_action" : "allow", "rule_number" : 100, "to_port" : 0 }]
 
 redshift_route_table_tags = {}
 
 redshift_subnet_group_tags = {}
 
-ec2_endpoint_private_dns_enabled = false
+redshift_subnet_suffix = "redshift"
 
-enable_dhcp_options = false
+redshift_subnet_tags = {}
 
-public_dedicated_network_acl = false
+redshift_subnets = []
 
-name = ""
+reuse_nat_ips = false
 
-intra_subnet_suffix = "intra"
+secondary_cidr_blocks = []
+
+single_nat_gateway = false
+
+ssm_endpoint_private_dns_enabled = false
 
 ssm_endpoint_security_group_ids = []
 
-private_subnet_tags = {}
+ssm_endpoint_subnet_ids = []
 
-redshift_acl_tags = {}
+ssmmessages_endpoint_private_dns_enabled = false
 
-nat_gateway_tags = {}
+ssmmessages_endpoint_security_group_ids = []
 
-default_vpc_enable_dns_support = true
+ssmmessages_endpoint_subnet_ids = []
 
-database_dedicated_network_acl = false
-
-enable_public_redshift = false
-
-database_subnet_tags = {}
-
-dhcp_options_domain_name = ""
-
-apigw_endpoint_private_dns_enabled = false
-
-enable_s3_endpoint = false
-
-private_route_table_tags = {}
-
-intra_subnets = []
+tags = {}
 
 vpc_tags = {}
+
+vpn_gateway_id = ""
+
+vpn_gateway_tags = {}

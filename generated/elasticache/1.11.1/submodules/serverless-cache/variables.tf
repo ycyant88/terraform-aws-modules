@@ -4,28 +4,22 @@ variable "cache_name" {
   default     = null
 }
 
-variable "security_group_ids" {
-  description = "One or more VPC security groups associated with the serverless cache."
-  type        = list(string)
-  default     = []
-}
-
-variable "snapshot_arns_to_restore" {
-  description = "The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only."
-  type        = list(string)
-  default     = null
-}
-
-variable "snapshot_retention_limit" {
-  description = "(Redis only) The number of snapshots that will be retained for the serverless cache that is being created."
-  type        = number
-  default     = null
-}
-
 variable "cache_usage_limits" {
   description = "Sets the cache usage limits for storage and ElastiCache Processing Units for the cache."
   type        = map(any)
   default     = {}
+}
+
+variable "create" {
+  description = "Determines whether serverless resource will be created."
+  type        = bool
+  default     = true
+}
+
+variable "daily_snapshot_time" {
+  description = "The daily time that snapshots will be created from the new serverless cache. Only supported for engine type redis. Defaults to 0."
+  type        = string
+  default     = null
 }
 
 variable "description" {
@@ -46,15 +40,27 @@ variable "kms_key_id" {
   default     = null
 }
 
-variable "timeouts" {
-  description = "Define maximum timeout for creating, updating, and deleting serverless resources."
-  type        = map(string)
-  default     = {}
+variable "major_engine_version" {
+  description = "The version of the cache engine that will be used to create the serverless cache."
+  type        = string
+  default     = null
 }
 
-variable "daily_snapshot_time" {
-  description = "The daily time that snapshots will be created from the new serverless cache. Only supported for engine type redis. Defaults to 0."
-  type        = string
+variable "security_group_ids" {
+  description = "One or more VPC security groups associated with the serverless cache."
+  type        = list(string)
+  default     = []
+}
+
+variable "snapshot_arns_to_restore" {
+  description = "The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only."
+  type        = list(string)
+  default     = null
+}
+
+variable "snapshot_retention_limit" {
+  description = "(Redis only) The number of snapshots that will be retained for the serverless cache that is being created."
+  type        = number
   default     = null
 }
 
@@ -64,26 +70,20 @@ variable "subnet_ids" {
   default     = []
 }
 
-variable "create" {
-  description = "Determines whether serverless resource will be created."
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
-variable "major_engine_version" {
-  description = "The version of the cache engine that will be used to create the serverless cache."
-  type        = string
-  default     = null
+variable "timeouts" {
+  description = "Define maximum timeout for creating, updating, and deleting serverless resources."
+  type        = map(string)
+  default     = {}
 }
 
 variable "user_group_id" {
   description = "The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL."
   type        = string
   default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }

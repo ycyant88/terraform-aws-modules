@@ -1,64 +1,56 @@
 api_key_selection_expression = null
 
-fail_on_warnings = null
-
-body = null
-
-domain_name_ownership_verification_certificate_arn = null
-
-create_certificate = true
-
-stage_name = "$default"
-
-stage_variables = {}
-
-create = true
-
-cors_configuration = null
-
-credentials_arn = null
-
-domain_name_certificate_arn = null
-
-disable_execute_api_endpoint = null
-
-route_selection_expression = null
-
-mutual_tls_authentication = {}
-
-create_domain_records = true
-
-subdomains = []
-
-create_stage = true
-
-stage_access_log_settings = {}
-
-route_key = null
-
-stage_tags = {}
-
-vpc_link_tags = {}
-
-protocol_type = "HTTP"
-
 api_mapping_key = null
+
+api_version = null
 
 authorizers = {}
 
+body = null
+
+cors_configuration = null
+
+create = true
+
+create_certificate = true
+
 create_domain_name = true
 
-tags = {}
-
-description = null
-
-name = ""
-
-subdomain_record_types = ["A", "AAAA"]
+create_domain_records = true
 
 create_routes_and_integrations = true
 
+create_stage = true
+
+credentials_arn = null
+
+deploy_stage = true
+
+description = null
+
+disable_execute_api_endpoint = null
+
+domain_name = ""
+
+domain_name_certificate_arn = null
+
+domain_name_ownership_verification_certificate_arn = null
+
+fail_on_warnings = null
+
+mutual_tls_authentication = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = null
+
+route_selection_expression = null
+
 routes = {}
+
+stage_access_log_settings = {}
 
 stage_client_certificate_id = null
 
@@ -66,12 +58,20 @@ stage_default_route_settings = {}
 
 stage_description = null
 
-vpc_links = {}
+stage_name = "$default"
+
+stage_tags = {}
+
+stage_variables = {}
+
+subdomain_record_types = ["A", "AAAA"]
+
+subdomains = []
+
+tags = {}
 
 target = null
 
-api_version = null
+vpc_link_tags = {}
 
-domain_name = ""
-
-deploy_stage = true
+vpc_links = {}

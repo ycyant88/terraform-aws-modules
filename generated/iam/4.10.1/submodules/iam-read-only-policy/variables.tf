@@ -1,13 +1,7 @@
-variable "create_policy" {
-  description = "Whether to create the IAM policy"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "The name of the policy"
+variable "additional_policy_json" {
+  description = "JSON policy document if you want to add custom actions"
   type        = string
-  default     = ""
+  default     = "{}"
 }
 
 variable "allow_cloudwatch_logs_query" {
@@ -28,10 +22,16 @@ variable "allow_web_console_services" {
   default     = true
 }
 
-variable "path" {
-  description = "The path of the policy in IAM"
-  type        = string
-  default     = "/"
+variable "allowed_services" {
+  description = "List of services to allow Get/List/Describe/View options. Service name should be the same as corresponding service IAM prefix. See what it is for each service here https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
+  type        = list(string)
+  default     = ""
+}
+
+variable "create_policy" {
+  description = "Whether to create the IAM policy"
+  type        = bool
+  default     = true
 }
 
 variable "description" {
@@ -40,16 +40,16 @@ variable "description" {
   default     = "IAM Policy"
 }
 
-variable "allowed_services" {
-  description = "List of services to allow Get/List/Describe/View options. Service name should be the same as corresponding service IAM prefix. See what it is for each service here https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html"
-  type        = list(string)
+variable "name" {
+  description = "The name of the policy"
+  type        = string
   default     = ""
 }
 
-variable "additional_policy_json" {
-  description = "JSON policy document if you want to add custom actions"
+variable "path" {
+  description = "The path of the policy in IAM"
   type        = string
-  default     = "{}"
+  default     = "/"
 }
 
 variable "tags" {

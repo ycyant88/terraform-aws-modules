@@ -1,27 +1,27 @@
-secure_type = false
-
-description = null
-
-tags = {}
-
-ignore_value_changes = false
-
-values = []
-
-tier = null
-
-key_id = null
+allowed_pattern = null
 
 create = true
 
-name = null
+data_type = null
 
-value = null
+description = null
+
+ignore_value_changes = false
+
+key_id = null
+
+name = null
 
 overwrite = null
 
-data_type = null
+secure_type = false
+
+tags = {}
+
+tier = null
 
 type = null
 
-allowed_pattern = null
+value = null
+
+values = []

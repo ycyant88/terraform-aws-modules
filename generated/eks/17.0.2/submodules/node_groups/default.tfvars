@@ -1,19 +1,19 @@
 cluster_name = ""
 
+create_eks = true
+
 default_iam_role_arn = ""
-
-worker_security_group_id = ""
-
-tags = ""
-
-node_groups_defaults = ""
-
-node_groups = {}
 
 ng_depends_on = null
 
-create_eks = true
+node_groups = {}
 
-workers_group_defaults = ""
+node_groups_defaults = ""
+
+tags = ""
 
 worker_additional_security_group_ids = []
+
+worker_security_group_id = ""
+
+workers_group_defaults = ""

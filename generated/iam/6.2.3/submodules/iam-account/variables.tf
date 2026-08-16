@@ -4,10 +4,28 @@ variable "account_alias" {
   default     = ""
 }
 
+variable "allow_users_to_change_password" {
+  description = "Whether to allow users to change their own password"
+  type        = bool
+  default     = true
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
 variable "create_account_password_policy" {
   description = "Whether to create AWS IAM account password policy"
   type        = bool
   default     = true
+}
+
+variable "hard_expiry" {
+  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
+  type        = bool
+  default     = false
 }
 
 variable "max_password_age" {
@@ -28,6 +46,12 @@ variable "password_reuse_prevention" {
   default     = null
 }
 
+variable "require_lowercase_characters" {
+  description = "Whether to require lowercase characters for user passwords"
+  type        = bool
+  default     = true
+}
+
 variable "require_numbers" {
   description = "Whether to require numbers for user passwords"
   type        = bool
@@ -36,30 +60,6 @@ variable "require_numbers" {
 
 variable "require_symbols" {
   description = "Whether to require symbols for user passwords"
-  type        = bool
-  default     = true
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "allow_users_to_change_password" {
-  description = "Whether to allow users to change their own password"
-  type        = bool
-  default     = true
-}
-
-variable "hard_expiry" {
-  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
-  type        = bool
-  default     = false
-}
-
-variable "require_lowercase_characters" {
-  description = "Whether to require lowercase characters for user passwords"
   type        = bool
   default     = true
 }

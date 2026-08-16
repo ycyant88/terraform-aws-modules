@@ -1,15 +1,15 @@
+create_certificate = true
+
 domain_name = ""
 
 subject_alternative_names = []
 
-validation_method = "DNS"
-
-zone_id = ""
-
 tags = {}
-
-create_certificate = true
 
 validate_certificate = true
 
+validation_method = "DNS"
+
 wait_for_validation = true
+
+zone_id = ""

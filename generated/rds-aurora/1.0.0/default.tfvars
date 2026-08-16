@@ -1,71 +1,71 @@
-subnets = ""
-
-replica_count = 1
-
-vpc_id = ""
-
-availability_zones = []
-
-instance_type = ""
-
-username = "root"
-
-final_snapshot_identifier_prefix = "final"
-
-preferred_backup_window = "02:00-03:00"
-
-replica_scale_min = "2"
-
-identifier_prefix = ""
-
-publicly_accessible = "false"
-
-skip_final_snapshot = "false"
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-snapshot_identifier = ""
-
-kms_key_id = ""
-
-replica_scale_in_cooldown = "300"
-
-replica_scale_out_cooldown = "300"
-
 allowed_security_groups = []
-
-engine = "aurora"
-
-replica_scale_max = "0"
-
-performance_insights_kms_key_id = ""
-
-backup_retention_period = "7"
-
-port = ""
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-replica_scale_enabled = false
-
-name = ""
 
 apply_immediately = "false"
 
 auto_minor_version_upgrade = "true"
 
+availability_zones = []
+
+backup_retention_period = "7"
+
+db_cluster_parameter_group_name = "default.aurora5.6"
+
 db_parameter_group_name = "default.aurora5.6"
 
-storage_encrypted = "true"
+engine = "aurora"
 
 engine_version = "5.6.10a"
 
-tags = {}
+final_snapshot_identifier_prefix = "final"
 
-performance_insights_enabled = "false"
+identifier_prefix = ""
+
+instance_type = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+name = ""
 
 password = ""
 
+performance_insights_enabled = "false"
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = "false"
+
+replica_count = 1
+
 replica_scale_cpu = "70"
 
-monitoring_interval = 0
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = "300"
+
+replica_scale_max = "0"
+
+replica_scale_min = "2"
+
+replica_scale_out_cooldown = "300"
+
+skip_final_snapshot = "false"
+
+snapshot_identifier = ""
+
+storage_encrypted = "true"
+
+subnets = ""
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""

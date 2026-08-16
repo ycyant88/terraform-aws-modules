@@ -1,24 +1,24 @@
 module "transit-gateway" {
   source                                 = "terraform-aws-modules/transit-gateway/aws"
   version                                = "1.1.0"
-  vpc_attachments                        = var.vpc_attachments
-  transit_gateway_route_table_id         = var.transit_gateway_route_table_id
-  tags                                   = var.tags
-  tgw_tags                               = var.tgw_tags
-  tgw_route_table_tags                   = var.tgw_route_table_tags
-  share_tgw                              = var.share_tgw
-  create_tgw                             = var.create_tgw
   amazon_side_asn                        = var.amazon_side_asn
+  create_tgw                             = var.create_tgw
+  description                            = var.description
   enable_auto_accept_shared_attachments  = var.enable_auto_accept_shared_attachments
   enable_default_route_table_association = var.enable_default_route_table_association
   enable_default_route_table_propagation = var.enable_default_route_table_propagation
-  tgw_vpc_attachment_tags                = var.tgw_vpc_attachment_tags
-  name                                   = var.name
-  description                            = var.description
   enable_dns_support                     = var.enable_dns_support
-  ram_allow_external_principals          = var.ram_allow_external_principals
-  ram_tags                               = var.ram_tags
-  ram_principals                         = var.ram_principals
   enable_vpn_ecmp_support                = var.enable_vpn_ecmp_support
+  name                                   = var.name
+  ram_allow_external_principals          = var.ram_allow_external_principals
   ram_name                               = var.ram_name
+  ram_principals                         = var.ram_principals
+  ram_tags                               = var.ram_tags
+  share_tgw                              = var.share_tgw
+  tags                                   = var.tags
+  tgw_route_table_tags                   = var.tgw_route_table_tags
+  tgw_tags                               = var.tgw_tags
+  tgw_vpc_attachment_tags                = var.tgw_vpc_attachment_tags
+  transit_gateway_route_table_id         = var.transit_gateway_route_table_id
+  vpc_attachments                        = var.vpc_attachments
 }

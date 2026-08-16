@@ -1,37 +1,37 @@
-replication_configuration = {}
-
-bucket_prefix = ""
-
-region = ""
-
-cors_rule = {}
-
-versioning = {}
-
-logging = {}
-
-acl = "private"
-
-policy = ""
-
 acceleration_status = ""
 
-request_payer = ""
-
-create_bucket = true
-
-force_destroy = false
-
-website = {}
-
-server_side_encryption_configuration = {}
-
-object_lock_configuration = {}
+acl = "private"
 
 attach_elb_log_delivery_policy = false
 
 bucket = ""
 
-tags = {}
+bucket_prefix = ""
+
+cors_rule = {}
+
+create_bucket = true
+
+force_destroy = false
 
 lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+policy = ""
+
+region = ""
+
+replication_configuration = {}
+
+request_payer = ""
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

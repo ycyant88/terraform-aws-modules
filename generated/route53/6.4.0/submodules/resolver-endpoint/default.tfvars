@@ -1,35 +1,35 @@
+create = true
+
+create_security_group = true
+
+direction = "INBOUND"
+
 ip_address = []
+
+name = null
 
 protocols = []
 
-security_group_tags = {}
+region = null
 
-security_group_use_name_prefix = true
+rules = {}
 
-type = null
+security_group_description = null
+
+security_group_egress_rules = {}
 
 security_group_ids = []
 
 security_group_ingress_rules = {}
 
-rules = {}
+security_group_name = null
 
-direction = "INBOUND"
+security_group_tags = {}
 
-security_group_description = null
-
-vpc_id = null
-
-security_group_egress_rules = {}
-
-create = true
-
-region = null
+security_group_use_name_prefix = true
 
 tags = {}
 
-name = null
+type = null
 
-create_security_group = true
-
-security_group_name = null
+vpc_id = null

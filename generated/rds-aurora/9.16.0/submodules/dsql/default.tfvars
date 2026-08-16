@@ -1,15 +1,15 @@
-timeouts = {}
-
-tags = {}
+clusters = null
 
 create = true
+
+create_cluster_peering = false
 
 deletion_protection_enabled = null
 
 kms_encryption_key = null
 
-create_cluster_peering = false
+tags = {}
 
-clusters = null
+timeouts = {}
 
 witness_region = null

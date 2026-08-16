@@ -1,21 +1,11 @@
-output "launch_template_id" {
-  value       = module.eks_eks-managed-node-group.launch_template_id
-  description = "The ID of the launch template"
+output "iam_role_arn" {
+  value       = module.eks_eks-managed-node-group.iam_role_arn
+  description = "The Amazon Resource Name (ARN) specifying the IAM role"
 }
 
-output "node_group_resources" {
-  value       = module.eks_eks-managed-node-group.node_group_resources
-  description = "List of objects containing information about underlying resources"
-}
-
-output "node_group_status" {
-  value       = module.eks_eks-managed-node-group.node_group_status
-  description = "Status of the EKS Node Group"
-}
-
-output "security_group_id" {
-  value       = module.eks_eks-managed-node-group.security_group_id
-  description = "ID of the security group"
+output "iam_role_name" {
+  value       = module.eks_eks-managed-node-group.iam_role_name
+  description = "The name of the IAM role"
 }
 
 output "iam_role_unique_id" {
@@ -26,6 +16,11 @@ output "iam_role_unique_id" {
 output "launch_template_arn" {
   value       = module.eks_eks-managed-node-group.launch_template_arn
   description = "The ARN of the launch template"
+}
+
+output "launch_template_id" {
+  value       = module.eks_eks-managed-node-group.launch_template_id
+  description = "The ID of the launch template"
 }
 
 output "launch_template_latest_version" {
@@ -43,17 +38,22 @@ output "node_group_id" {
   description = "EKS Cluster name and EKS Node Group name separated by a colon (:)"
 }
 
+output "node_group_resources" {
+  value       = module.eks_eks-managed-node-group.node_group_resources
+  description = "List of objects containing information about underlying resources"
+}
+
+output "node_group_status" {
+  value       = module.eks_eks-managed-node-group.node_group_status
+  description = "Status of the EKS Node Group"
+}
+
 output "security_group_arn" {
   value       = module.eks_eks-managed-node-group.security_group_arn
   description = "Amazon Resource Name (ARN) of the security group"
 }
 
-output "iam_role_name" {
-  value       = module.eks_eks-managed-node-group.iam_role_name
-  description = "The name of the IAM role"
-}
-
-output "iam_role_arn" {
-  value       = module.eks_eks-managed-node-group.iam_role_arn
-  description = "The Amazon Resource Name (ARN) specifying the IAM role"
+output "security_group_id" {
+  value       = module.eks_eks-managed-node-group.security_group_id
+  description = "ID of the security group"
 }

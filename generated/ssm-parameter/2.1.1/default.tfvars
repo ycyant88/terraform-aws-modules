@@ -1,18 +1,12 @@
-create = true
-
-region = null
-
 allowed_pattern = null
+
+create = true
 
 data_type = null
 
 description = null
 
-tier = null
-
-value_wo_version = null
-
-secure_type = false
+ignore_value_changes = false
 
 key_id = null
 
@@ -20,12 +14,18 @@ name = null
 
 overwrite = null
 
+region = null
+
+secure_type = false
+
+tags = {}
+
+tier = null
+
 type = null
 
 value = null
 
-tags = {}
-
-ignore_value_changes = false
+value_wo_version = null
 
 values = []

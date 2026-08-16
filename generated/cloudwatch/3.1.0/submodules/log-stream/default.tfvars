@@ -1,5 +1,5 @@
-log_group_name = ""
-
 create = true
+
+log_group_name = ""
 
 name = ""

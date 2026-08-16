@@ -1,11 +1,11 @@
-output "id" {
-  value       = module.wafv2_regex-pattern-set.id
-  description = "The ID of the regex pattern set"
-}
-
 output "arn" {
   value       = module.wafv2_regex-pattern-set.arn
   description = "The ARN of the regex pattern set"
+}
+
+output "id" {
+  value       = module.wafv2_regex-pattern-set.id
+  description = "The ID of the regex pattern set"
 }
 
 output "lock_token" {

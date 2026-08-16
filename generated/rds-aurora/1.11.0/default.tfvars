@@ -1,83 +1,83 @@
-port = ""
-
-replica_scale_max = "0"
-
-subnets = ""
+allowed_security_groups = []
 
 allowed_security_groups_count = 0
 
+apply_immediately = "false"
+
+auto_minor_version_upgrade = "true"
+
 backup_retention_period = "7"
 
-username = "root"
+database_name = ""
 
-performance_insights_enabled = false
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+deletion_protection = "false"
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
 
 engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
 
 identifier_prefix = ""
 
 instance_type = ""
 
-database_name = ""
+kms_key_id = ""
 
 monitoring_interval = 0
 
-performance_insights_kms_key_id = ""
-
-iam_database_authentication_enabled = false
-
-replica_scale_enabled = false
-
-replica_scale_min = "2"
-
-replica_scale_cpu = "70"
-
-global_cluster_identifier = ""
+name = ""
 
 password = ""
 
-deletion_protection = "false"
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+port = ""
 
 preferred_backup_window = "02:00-03:00"
 
-storage_encrypted = "true"
+preferred_maintenance_window = "sun:05:00-sun:06:00"
 
-engine = "aurora"
+publicly_accessible = "false"
+
+replica_count = 1
+
+replica_scale_cpu = "70"
+
+replica_scale_enabled = false
 
 replica_scale_in_cooldown = "300"
+
+replica_scale_max = "0"
+
+replica_scale_min = "2"
 
 replica_scale_out_cooldown = "300"
 
 skip_final_snapshot = "false"
 
-auto_minor_version_upgrade = "true"
-
 snapshot_identifier = ""
 
-engine_version = "5.6.10a"
+storage_encrypted = "true"
 
-enabled_cloudwatch_logs_exports = []
-
-publicly_accessible = "false"
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-kms_key_id = ""
-
-db_parameter_group_name = "default.aurora5.6"
-
-db_cluster_parameter_group_name = "default.aurora5.6"
+subnets = ""
 
 tags = {}
 
-name = ""
-
-allowed_security_groups = []
-
-apply_immediately = "false"
-
-replica_count = 1
+username = "root"
 
 vpc_id = ""
-
-final_snapshot_identifier_prefix = "final"

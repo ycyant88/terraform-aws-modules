@@ -1,9 +1,9 @@
-tags = {}
+assumable_roles = []
+
+group_users = []
 
 name = ""
 
 path = "/"
 
-assumable_roles = []
-
-group_users = []
+tags = {}

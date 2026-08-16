@@ -1,5 +1,41 @@
-variable "iam_role_path" {
-  description = "IAM role path"
+variable "cluster_ip_family" {
+  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
+  type        = string
+  default     = "ipv4"
+}
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Determines whether to create Fargate profile or not"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role" {
+  description = "Determines whether an IAM role is created or to use an existing IAM role"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role_policy" {
+  description = "Determines whether an IAM role policy is created or not"
+  type        = bool
+  default     = true
+}
+
+variable "iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_role_arn" {
+  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
   type        = string
   default     = null
 }
@@ -10,34 +46,10 @@ variable "iam_role_attach_cni_policy" {
   default     = true
 }
 
-variable "subnet_ids" {
-  description = "A list of subnet IDs for the EKS Fargate Profile"
-  type        = list(string)
-  default     = []
-}
-
-variable "iam_role_policy_statements" {
-  description = "A list of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) - used for adding specific IAM permissions as needed"
-  type        = any
-  default     = []
-}
-
-variable "name" {
-  description = "Name of the EKS Fargate Profile"
+variable "iam_role_description" {
+  description = "Description of the role"
   type        = string
-  default     = ""
-}
-
-variable "create" {
-  description = "Determines whether to create Fargate profile or not"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_ip_family" {
-  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
-  type        = string
-  default     = "ipv4"
+  default     = null
 }
 
 variable "iam_role_name" {
@@ -46,10 +58,10 @@ variable "iam_role_name" {
   default     = ""
 }
 
-variable "iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
+variable "iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
 }
 
 variable "iam_role_permissions_boundary" {
@@ -58,22 +70,10 @@ variable "iam_role_permissions_boundary" {
   default     = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_iam_role" {
-  description = "Determines whether an IAM role is created or to use an existing IAM role"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_arn" {
-  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
-  type        = string
-  default     = null
+variable "iam_role_policy_statements" {
+  description = "A list of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) - used for adding specific IAM permissions as needed"
+  type        = any
+  default     = []
 }
 
 variable "iam_role_tags" {
@@ -82,34 +82,34 @@ variable "iam_role_tags" {
   default     = {}
 }
 
-variable "create_iam_role_policy" {
-  description = "Determines whether an IAM role policy is created or not"
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
 }
 
-variable "iam_role_description" {
-  description = "Description of the role"
+variable "name" {
+  description = "Name of the EKS Fargate Profile"
   type        = string
-  default     = null
-}
-
-variable "iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
-  type        = map(string)
-  default     = {}
-}
-
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-  default     = null
+  default     = ""
 }
 
 variable "selectors" {
   description = "Configuration block(s) for selecting Kubernetes Pods to execute with this Fargate Profile"
   type        = any
   default     = []
+}
+
+variable "subnet_ids" {
+  description = "A list of subnet IDs for the EKS Fargate Profile"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeouts" {

@@ -1,104 +1,104 @@
-dependsOn = null
-
-entrypoint = null
-
-hostname = null
-
-links = null
-
-name = null
-
-stopTimeout = 120
-
-region = null
-
-cpu = null
-
-environmentFiles = null
-
-healthCheck = null
-
-logConfiguration = {}
-
-systemControls = null
-
-cloudwatch_log_group_retention_in_days = 14
+cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-tags = {}
+cloudwatch_log_group_name = null
 
-dnsSearchDomains = null
+cloudwatch_log_group_retention_in_days = 14
 
-memoryReservation = null
-
-repositoryCredentials = null
-
-secrets = null
-
-create_cloudwatch_log_group = true
+cloudwatch_log_group_use_name_prefix = false
 
 command = null
 
+cpu = null
+
+create_cloudwatch_log_group = true
+
+dependsOn = null
+
 disableNetworking = null
 
-dockerSecurityOptions = null
-
-essential = null
-
-extraHosts = null
-
-privileged = false
-
-startTimeout = 30
-
-versionConsistency = "disabled"
-
-image = null
-
-readonlyRootFilesystem = true
-
-service = null
-
-cloudwatch_log_group_name = null
+dnsSearchDomains = null
 
 dnsServers = null
 
 dockerLabels = null
 
-enable_execute_command = false
-
-firelensConfiguration = null
-
-memory = null
-
-mountPoints = null
-
-portMappings = null
-
-resourceRequirements = null
-
-environment = null
-
-interactive = false
-
-linuxParameters = {}
-
-restartPolicy = { "enabled" : true }
+dockerSecurityOptions = null
 
 enable_cloudwatch_logging = true
 
-cloudwatch_log_group_use_name_prefix = false
+enable_execute_command = false
 
-cloudwatch_log_group_class = null
+entrypoint = null
+
+environment = null
+
+environmentFiles = null
+
+essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
+
+image = null
+
+interactive = false
+
+links = null
+
+linuxParameters = {}
+
+logConfiguration = {}
+
+memory = null
+
+memoryReservation = null
+
+mountPoints = null
+
+name = null
 
 operating_system_family = "LINUX"
 
+portMappings = null
+
+privileged = false
+
 pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = null
+
+tags = {}
 
 ulimits = null
 
 user = null
+
+versionConsistency = "disabled"
 
 volumesFrom = null
 

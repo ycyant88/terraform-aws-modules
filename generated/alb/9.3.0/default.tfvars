@@ -1,83 +1,83 @@
-enable_xff_client_port = null
-
-idle_timeout = null
-
-subnet_mapping = []
-
-security_group_egress_rules = {}
-
-customer_owned_ipv4_pool = null
-
-preserve_host_header = null
-
-security_groups = []
-
-default_port = 80
-
-security_group_name = null
-
-security_group_tags = {}
-
-create = true
-
-desync_mitigation_mode = null
-
-enable_tls_version_and_cipher_suite_headers = null
-
-ip_address_type = null
-
-subnets = []
-
-putin_khuylo = true
-
 access_logs = {}
-
-enable_waf_fail_open = null
-
-internal = null
-
-default_protocol = "HTTP"
-
-listeners = {}
-
-security_group_description = null
-
-route53_records = {}
 
 associate_web_acl = false
 
-enable_http2 = null
-
-enforce_security_group_inbound_rules_on_private_link_traffic = null
-
-name_prefix = null
-
-target_groups = {}
-
-dns_record_client_routing_policy = null
-
-load_balancer_type = "application"
-
-timeouts = {}
-
-tags = {}
-
-name = null
-
-xff_header_processing_mode = null
+create = true
 
 create_security_group = true
 
-security_group_use_name_prefix = true
+customer_owned_ipv4_pool = null
 
-vpc_id = null
+default_port = 80
 
-security_group_ingress_rules = {}
+default_protocol = "HTTP"
 
-web_acl_arn = null
+desync_mitigation_mode = null
+
+dns_record_client_routing_policy = null
 
 drop_invalid_header_fields = true
 
 enable_cross_zone_load_balancing = true
 
 enable_deletion_protection = true
+
+enable_http2 = null
+
+enable_tls_version_and_cipher_suite_headers = null
+
+enable_waf_fail_open = null
+
+enable_xff_client_port = null
+
+enforce_security_group_inbound_rules_on_private_link_traffic = null
+
+idle_timeout = null
+
+internal = null
+
+ip_address_type = null
+
+listeners = {}
+
+load_balancer_type = "application"
+
+name = null
+
+name_prefix = null
+
+preserve_host_header = null
+
+putin_khuylo = true
+
+route53_records = {}
+
+security_group_description = null
+
+security_group_egress_rules = {}
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_groups = []
+
+subnet_mapping = []
+
+subnets = []
+
+tags = {}
+
+target_groups = {}
+
+timeouts = {}
+
+vpc_id = null
+
+web_acl_arn = null
+
+xff_header_processing_mode = null

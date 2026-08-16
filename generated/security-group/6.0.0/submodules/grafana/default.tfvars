@@ -1,35 +1,35 @@
-name = ""
+create = true
 
-use_name_prefix = true
+description = "Security Group managed by Terraform"
+
+egress_rules = {}
+
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
-
-vpc_associations = {}
-
-preset_ingress_rules = { "grafana" : { "description" : "Grafana Dashboard", "from_port" : 3000, "ip_protocol" : "tcp", "to_port" : 3000 } }
 
 ingress_cidr_ipv6 = {}
 
 ingress_prefix_list_id = {}
 
-egress_rules = {}
-
-create = true
-
-revoke_rules_on_delete = false
-
 ingress_referenced_security_group_id = {}
 
 ingress_rules = {}
 
-enable_exclusive_rules = true
+name = ""
+
+preset_ingress_rules = { "grafana" : { "description" : "Grafana Dashboard", "from_port" : 3000, "ip_protocol" : "tcp", "to_port" : 3000 } }
 
 region = null
 
+revoke_rules_on_delete = false
+
 tags = {}
 
-description = "Security Group managed by Terraform"
+timeouts = null
+
+use_name_prefix = true
+
+vpc_associations = {}
 
 vpc_id = null
-
-timeouts = null

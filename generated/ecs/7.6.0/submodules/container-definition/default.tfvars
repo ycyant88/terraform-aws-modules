@@ -1,107 +1,107 @@
-operating_system_family = "LINUX"
+cloudwatch_log_group_class = null
 
-command = null
-
-credentialSpecs = null
-
-essential = null
-
-memory = null
-
-memoryReservation = null
-
-portMappings = null
-
-resourceRequirements = null
-
-entrypoint = null
-
-environmentFiles = null
-
-extraHosts = null
-
-firelensConfiguration = null
-
-workingDirectory = null
-
-enable_cloudwatch_logging = true
-
-linuxParameters = {}
-
-tags = {}
-
-dnsServers = null
-
-healthCheck = null
-
-image = null
-
-interactive = false
-
-privileged = false
-
-readonlyRootFilesystem = true
-
-dockerLabels = null
-
-environment = null
-
-secrets = null
-
-startTimeout = 30
-
-volumesFrom = null
-
-service = null
-
-create_cloudwatch_log_group = true
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
+cloudwatch_log_group_retention_in_days = 14
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = null
+
+cpu = null
+
+create_cloudwatch_log_group = true
+
+credentialSpecs = null
+
 dependsOn = null
-
-dockerSecurityOptions = null
-
-repositoryCredentials = null
-
-restartPolicy = { "enabled" : true }
-
-ulimits = null
-
-user = null
-
-cloudwatch_log_group_kms_key_id = null
 
 disableNetworking = null
 
 dnsSearchDomains = null
 
+dnsServers = null
+
+dockerLabels = null
+
+dockerSecurityOptions = null
+
+enable_cloudwatch_logging = true
+
 enable_execute_command = false
 
-name = null
+entrypoint = null
 
-stopTimeout = 120
+environment = null
 
-versionConsistency = "disabled"
+environmentFiles = null
 
-cloudwatch_log_group_use_name_prefix = false
+essential = null
 
-cloudwatch_log_group_class = null
+extraHosts = null
 
-cpu = null
+firelensConfiguration = null
+
+healthCheck = null
 
 hostname = null
 
+image = null
+
+interactive = false
+
 links = null
 
-mountPoints = null
-
-systemControls = null
-
-cloudwatch_log_group_retention_in_days = 14
-
-region = null
+linuxParameters = {}
 
 logConfiguration = {}
 
+memory = null
+
+memoryReservation = null
+
+mountPoints = null
+
+name = null
+
+operating_system_family = "LINUX"
+
+portMappings = null
+
+privileged = false
+
 pseudoTerminal = false
+
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
+resourceRequirements = null
+
+restartPolicy = { "enabled" : true }
+
+secrets = null
+
+service = null
+
+startTimeout = 30
+
+stopTimeout = 120
+
+systemControls = null
+
+tags = {}
+
+ulimits = null
+
+user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = null
+
+workingDirectory = null

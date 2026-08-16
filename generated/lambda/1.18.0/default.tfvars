@@ -1,153 +1,153 @@
 allowed_triggers = {}
 
+artifacts_dir = "builds"
+
 attach_async_event_policy = false
 
-create_current_version_async_event_config = true
+attach_cloudwatch_logs_policy = true
 
-destination_on_failure = null
+attach_dead_letter_policy = false
 
-attach_tracing_policy = false
-
-reserved_concurrent_executions = -1
-
-create_layer = false
-
-layers = null
-
-create_async_event_config = false
-
-role_name = null
-
-create_function = true
-
-publish = false
-
-destination_on_success = null
-
-role_path = null
-
-trusted_entities = []
-
-description = ""
-
-s3_object_storage_class = "ONEZONE_IA"
-
-create_current_version_allowed_triggers = true
-
-lambda_at_edge = false
-
-provisioned_concurrent_executions = -1
-
-cloudwatch_logs_kms_key_id = null
-
-attach_policy_statements = false
-
-store_on_s3 = false
-
-docker_file = ""
-
-docker_with_ssh_agent = false
-
-create_role = true
-
-compatible_runtimes = []
+attach_network_policy = false
 
 attach_policies = false
 
-number_of_policies = 0
-
-build_in_docker = false
-
-s3_object_tags = {}
-
-timeout = 3
-
-cloudwatch_logs_tags = {}
+attach_policy = false
 
 attach_policy_json = false
 
-local_existing_package = null
+attach_policy_statements = false
 
-s3_bucket = null
+attach_tracing_policy = false
 
-source_path = null
+build_in_docker = false
+
+cloudwatch_logs_kms_key_id = null
+
+cloudwatch_logs_retention_in_days = null
+
+cloudwatch_logs_tags = {}
+
+compatible_runtimes = []
+
+create = true
+
+create_async_event_config = false
+
+create_current_version_allowed_triggers = true
+
+create_current_version_async_event_config = true
+
+create_function = true
+
+create_layer = false
+
+create_package = true
+
+create_role = true
+
+create_unqualified_alias_allowed_triggers = true
+
+create_unqualified_alias_async_event_config = true
+
+dead_letter_target_arn = null
+
+description = ""
+
+destination_on_failure = null
+
+destination_on_success = null
+
+docker_build_root = ""
+
+docker_file = ""
+
+docker_image = ""
+
+docker_pip_cache = null
+
+docker_with_ssh_agent = false
+
+environment_variables = {}
+
+function_name = ""
+
+handler = ""
+
+hash_extra = ""
+
+kms_key_arn = null
+
+lambda_at_edge = false
 
 lambda_role = ""
 
 layer_name = ""
 
+layers = null
+
 license_info = ""
 
-cloudwatch_logs_retention_in_days = null
-
-policy_statements = {}
-
-s3_existing_package = null
-
-docker_pip_cache = null
-
-kms_key_arn = null
-
-dead_letter_target_arn = null
-
-vpc_security_group_ids = null
-
-function_name = ""
-
-tags = {}
-
-policies = []
-
-artifacts_dir = "builds"
-
-tracing_mode = null
-
-create_unqualified_alias_allowed_triggers = true
-
-role_tags = {}
-
-attach_policy = false
-
-policy_json = null
-
-policy = null
-
-docker_image = ""
-
-create = true
-
-use_existing_cloudwatch_log_group = false
-
-role_description = null
-
-handler = ""
-
-role_force_detach_policies = true
-
-role_permissions_boundary = null
-
-attach_cloudwatch_logs_policy = true
-
-docker_build_root = ""
-
-memory_size = 128
-
-environment_variables = {}
-
-vpc_subnet_ids = null
-
-create_unqualified_alias_async_event_config = true
-
-maximum_retry_attempts = null
-
-attach_dead_letter_policy = false
-
-create_package = true
+local_existing_package = null
 
 maximum_event_age_in_seconds = null
 
-attach_network_policy = false
+maximum_retry_attempts = null
 
-hash_extra = ""
+memory_size = 128
+
+number_of_policies = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_statements = {}
+
+provisioned_concurrent_executions = -1
+
+publish = false
+
+reserved_concurrent_executions = -1
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
 
 runtime = ""
+
+s3_bucket = null
+
+s3_existing_package = null
+
+s3_object_storage_class = "ONEZONE_IA"
+
+s3_object_tags = {}
+
+source_path = null
+
+store_on_s3 = false
+
+tags = {}
+
+timeout = 3
+
+tracing_mode = null
+
+trusted_entities = []
+
+use_existing_cloudwatch_log_group = false
+
+vpc_security_group_ids = null
+
+vpc_subnet_ids = null

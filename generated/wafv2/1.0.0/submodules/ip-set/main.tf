@@ -3,10 +3,10 @@ module "wafv2_ip-set" {
   version            = "1.0.0"
   addresses          = var.addresses
   create             = var.create
-  putin_khuylo       = var.putin_khuylo
-  tags               = var.tags
-  name               = var.name
   description        = var.description
-  scope              = var.scope
   ip_address_version = var.ip_address_version
+  name               = var.name
+  putin_khuylo       = var.putin_khuylo
+  scope              = var.scope
+  tags               = var.tags
 }

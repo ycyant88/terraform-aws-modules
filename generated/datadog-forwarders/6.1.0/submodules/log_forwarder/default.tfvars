@@ -1,93 +1,93 @@
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
-
-s3_zip_storage_class = null
-
-s3_zip_metadata = {}
-
-s3_zip_tags = {}
-
-role_tags = {}
-
-policy_arn = null
-
 architectures = ["x86_64"]
-
-kms_key_arn = null
-
-policy_name = ""
-
-dd_api_key = ""
-
-role_name = ""
-
-forwarder_version = "3.103.0"
-
-environment_variables = {}
-
-log_retention_days = 7
-
-log_kms_key_id = null
 
 bucket_attach_deny_insecure_transport_policy = false
 
-s3_zip_kms_key_id = null
-
-create_role_policy = true
-
-publish = false
-
-bucket_tags = {}
-
-s3_zip_tags_only = false
-
-use_policy_name_prefix = false
-
-subnet_ids = null
-
-create = true
-
-role_permissions_boundary = null
-
-policy_path = null
-
-layers = []
-
-lambda_tags = {}
-
-dd_site = "datadoghq.com"
-
-create_bucket = true
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
 
 bucket_name = ""
 
-s3_zip_server_side_encryption = null
-
-role_arn = null
-
-use_role_name_prefix = false
-
-s3_log_bucket_arns = []
-
-runtime = "python3.11"
-
-tags = {}
-
-dd_api_key_secret_arn = ""
-
 bucket_prefix = ""
+
+bucket_tags = {}
+
+create = true
+
+create_bucket = true
 
 create_role = true
 
-role_path = null
+create_role_policy = true
 
-role_max_session_duration = null
+dd_api_key = ""
 
-name = "datadog-log-forwarder"
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "3.103.0"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_kms_key_id = null
+
+log_retention_days = 7
 
 memory_size = 1024
 
-timeout = 120
+name = "datadog-log-forwarder"
+
+policy_arn = null
+
+policy_name = ""
+
+policy_path = null
+
+publish = false
 
 reserved_concurrent_executions = 100
 
+role_arn = null
+
+role_max_session_duration = null
+
+role_name = ""
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+runtime = "python3.11"
+
+s3_log_bucket_arns = []
+
+s3_zip_kms_key_id = null
+
+s3_zip_metadata = {}
+
+s3_zip_server_side_encryption = null
+
+s3_zip_storage_class = null
+
+s3_zip_tags = {}
+
+s3_zip_tags_only = false
+
 security_group_ids = null
+
+subnet_ids = null
+
+tags = {}
+
+timeout = 120
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

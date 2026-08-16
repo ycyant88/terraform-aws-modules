@@ -1,51 +1,51 @@
 alb = {}
 
-create_route53_records = true
-
-name = "atlantis"
-
-atlantis_uid = 100
-
-create_alb = true
-
-service_subnets = []
-
-certificate_arn = ""
-
-cluster_arn = ""
-
-certificate_domain_name = ""
-
-route53_record_name = null
-
-efs = {}
-
-atlantis = {}
-
-create = true
-
-vpc_id = ""
-
-create_cluster = true
-
-cluster = {}
-
-enable_efs = false
-
-tags = {}
-
 alb_security_group_id = ""
-
-route53_zone_id = ""
-
-atlantis_gid = 1000
-
-alb_target_group_arn = ""
-
-service = {}
 
 alb_subnets = []
 
+alb_target_group_arn = ""
+
+atlantis = {}
+
+atlantis_gid = 1000
+
+atlantis_uid = 100
+
+certificate_arn = ""
+
+certificate_domain_name = ""
+
+cluster = {}
+
+cluster_arn = ""
+
+create = true
+
+create_alb = true
+
 create_certificate = true
 
+create_cluster = true
+
+create_route53_records = true
+
+efs = {}
+
+enable_efs = false
+
+name = "atlantis"
+
+route53_record_name = null
+
+route53_zone_id = ""
+
+service = {}
+
+service_subnets = []
+
+tags = {}
+
 validate_certificate = true
+
+vpc_id = ""

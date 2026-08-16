@@ -1,13 +1,25 @@
-variable "table_bucket_policy_statements" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
-  type        = any
-  default     = {}
+variable "create" {
+  description = "Whether to create s3 table resources"
+  type        = bool
+  default     = true
 }
 
-variable "tags" {
-  description = "Key-value map of resource tags"
-  type        = map(string)
-  default     = {}
+variable "create_table_bucket_policy" {
+  description = "Whether to create s3 table bucket policy"
+  type        = bool
+  default     = false
+}
+
+variable "encryption_configuration" {
+  description = "Map of encryption configurations"
+  type        = any
+  default     = null
+}
+
+variable "maintenance_configuration" {
+  description = "Map of table bucket maintenance configurations"
+  type        = any
+  default     = null
 }
 
 variable "region" {
@@ -22,16 +34,22 @@ variable "table_bucket_name" {
   default     = null
 }
 
-variable "encryption_configuration" {
-  description = "Map of encryption configurations"
-  type        = any
-  default     = null
+variable "table_bucket_override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
 }
 
 variable "table_bucket_policy" {
   description = "Amazon Web Services resource-based policy document in JSON format"
   type        = string
   default     = null
+}
+
+variable "table_bucket_policy_statements" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
+  type        = any
+  default     = {}
 }
 
 variable "table_bucket_source_policy_documents" {
@@ -46,26 +64,8 @@ variable "tables" {
   default     = {}
 }
 
-variable "create" {
-  description = "Whether to create s3 table resources"
-  type        = bool
-  default     = true
-}
-
-variable "maintenance_configuration" {
-  description = "Map of table bucket maintenance configurations"
-  type        = any
-  default     = null
-}
-
-variable "create_table_bucket_policy" {
-  description = "Whether to create s3 table bucket policy"
-  type        = bool
-  default     = false
-}
-
-variable "table_bucket_override_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
+variable "tags" {
+  description = "Key-value map of resource tags"
+  type        = map(string)
+  default     = {}
 }

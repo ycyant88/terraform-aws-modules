@@ -1,19 +1,7 @@
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+variable "alert_manager_definition" {
+  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
   type        = string
-  default     = null
-}
-
-variable "kms_key_arn" {
-  description = "The ARN of the KMS Key to for encryption at rest"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_use_name_prefix" {
-  description = "Determines whether the log group name should be used as a prefix"
-  type        = bool
-  default     = false
+  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
 }
 
 variable "cloudwatch_log_group_class" {
@@ -22,46 +10,10 @@ variable "cloudwatch_log_group_class" {
   default     = null
 }
 
-variable "create_alert_manager" {
-  description = "Controls whether an Alert Manager definition is created along with the AMP workspace"
-  type        = bool
-  default     = true
-}
-
-variable "rule_group_namespaces" {
-  description = "A map of one or more rule group namespace definitions"
-  type = map(object({
-    name = string
-    data = string
-  }))
-  default = null
-}
-
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
-}
-
-variable "logging_configuration" {
-  description = "The logging configuration of the prometheus workspace."
-  type = object({
-    create_log_group      = optional(bool, true)
-    logging_configuration = optional(string)
-  })
-  default = null
-}
-
 variable "cloudwatch_log_group_kms_key_id" {
   description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
   type        = string
   default     = null
-}
-
-variable "alert_manager_definition" {
-  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
-  type        = string
-  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
 }
 
 variable "cloudwatch_log_group_name" {
@@ -76,10 +28,22 @@ variable "cloudwatch_log_group_retention_in_days" {
   default     = 30
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "cloudwatch_log_group_use_name_prefix" {
+  description = "Determines whether the log group name should be used as a prefix"
+  type        = bool
+  default     = false
+}
+
+variable "create" {
+  description = "Determines whether a resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_alert_manager" {
+  description = "Controls whether an Alert Manager definition is created along with the AMP workspace"
+  type        = bool
+  default     = true
 }
 
 variable "create_workspace" {
@@ -88,14 +52,50 @@ variable "create_workspace" {
   default     = true
 }
 
+variable "kms_key_arn" {
+  description = "The ARN of the KMS Key to for encryption at rest"
+  type        = string
+  default     = null
+}
+
+variable "logging_configuration" {
+  description = "The logging configuration of the prometheus workspace."
+  type = object({
+    create_log_group      = optional(bool, true)
+    logging_configuration = optional(string)
+  })
+  default = null
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "rule_group_namespaces" {
+  description = "A map of one or more rule group namespace definitions"
+  type = map(object({
+    name = string
+    data = string
+  }))
+  default = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
 variable "workspace_alias" {
   description = "The alias of the prometheus workspace. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html)"
   type        = string
   default     = null
 }
 
-variable "create" {
-  description = "Determines whether a resources will be created"
-  type        = bool
-  default     = true
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
+  type        = string
+  default     = ""
 }

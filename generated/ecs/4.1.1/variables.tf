@@ -1,7 +1,7 @@
-variable "cluster_name" {
-  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  type        = string
-  default     = ""
+variable "autoscaling_capacity_providers" {
+  description = "Map of autoscaling capacity provider definitons to create for the cluster"
+  type        = any
+  default     = {}
 }
 
 variable "cluster_configuration" {
@@ -10,10 +10,22 @@ variable "cluster_configuration" {
   default     = {}
 }
 
+variable "cluster_name" {
+  description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  type        = string
+  default     = ""
+}
+
 variable "cluster_settings" {
   description = "Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster"
   type        = map(string)
   default     = { "name" : "containerInsights", "value" : "enabled" }
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "default_capacity_provider_use_fargate" {
@@ -26,18 +38,6 @@ variable "fargate_capacity_providers" {
   description = "Map of Fargate capacity provider definitions to use for the cluster"
   type        = any
   default     = {}
-}
-
-variable "autoscaling_capacity_providers" {
-  description = "Map of autoscaling capacity provider definitons to create for the cluster"
-  type        = any
-  default     = {}
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
 }
 
 variable "tags" {

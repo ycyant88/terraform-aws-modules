@@ -1,9 +1,9 @@
-tags = {}
-
 count = 1
-
-name_prefix = ""
 
 identifier = ""
 
+name_prefix = ""
+
 subnet_ids = []
+
+tags = {}

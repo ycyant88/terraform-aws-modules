@@ -1,49 +1,49 @@
-log_bucket_name = ""
-
-log_location_prefix = ""
-
-security_policy = "ELBSecurityPolicy-2016-08"
-
 alb_is_internal = false
 
 alb_name = ""
 
 alb_protocols = ["HTTP"]
 
-backend_protocol = "HTTP"
-
-cookie_duration = 1
-
-health_check_port = "traffic-port"
-
-tags = {}
-
-region = ""
+alb_security_groups = ""
 
 backend_port = 80
 
-health_check_healthy_threshold = 3
-
-subnets = ""
-
-alb_security_groups = ""
+backend_protocol = "HTTP"
 
 bucket_policy = ""
 
-force_destroy_log_bucket = false
+certificate_arn = ""
 
-health_check_unhealthy_threshold = 3
+cookie_duration = 1
 
 create_log_bucket = false
 
-vpc_id = ""
+enable_logging = false
 
-certificate_arn = ""
+force_destroy_log_bucket = false
+
+health_check_healthy_threshold = 3
 
 health_check_interval = 10
 
 health_check_path = ""
 
+health_check_port = "traffic-port"
+
 health_check_timeout = 5
 
-enable_logging = false
+health_check_unhealthy_threshold = 3
+
+log_bucket_name = ""
+
+log_location_prefix = ""
+
+region = ""
+
+security_policy = "ELBSecurityPolicy-2016-08"
+
+subnets = ""
+
+tags = {}
+
+vpc_id = ""

@@ -1,6 +1,6 @@
-output "ram_resource_associations" {
-  value       = module.route53_resolver-firewall-rule-group.ram_resource_associations
-  description = "Map of RAM resource associations created and their attributes"
+output "arn" {
+  value       = module.route53_resolver-firewall-rule-group.arn
+  description = "The ARN (Amazon Resource Name) of the rule group"
 }
 
 output "domain_lists" {
@@ -8,19 +8,19 @@ output "domain_lists" {
   description = "Map of all domain lists created and their attributes"
 }
 
-output "rules" {
-  value       = module.route53_resolver-firewall-rule-group.rules
-  description = "Map of all rules created and their attributes"
-}
-
-output "arn" {
-  value       = module.route53_resolver-firewall-rule-group.arn
-  description = "The ARN (Amazon Resource Name) of the rule group"
-}
-
 output "id" {
   value       = module.route53_resolver-firewall-rule-group.id
   description = "The ID of the rule group"
+}
+
+output "ram_resource_associations" {
+  value       = module.route53_resolver-firewall-rule-group.ram_resource_associations
+  description = "Map of RAM resource associations created and their attributes"
+}
+
+output "rules" {
+  value       = module.route53_resolver-firewall-rule-group.rules
+  description = "Map of all rules created and their attributes"
 }
 
 output "share_status" {

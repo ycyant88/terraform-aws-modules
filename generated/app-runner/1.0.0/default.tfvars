@@ -1,71 +1,71 @@
+access_iam_role_description = null
+
+access_iam_role_name = null
+
 access_iam_role_path = null
 
-instance_iam_role_policies = {}
-
-enable_www_subdomain = null
-
-vpc_connector_name = ""
-
-encryption_configuration = {}
-
-instance_configuration = {}
-
-source_configuration = {}
-
-vpc_connector_security_groups = []
-
-enable_observability_configuration = true
-
-tags = {}
-
-create_service = true
-
-create_access_iam_role = false
-
-service_name = ""
+access_iam_role_permissions_boundary = null
 
 access_iam_role_policies = {}
 
-create = true
-
-instance_iam_role_name = null
-
-instance_iam_role_description = null
-
-observability_configuration = {}
-
 access_iam_role_use_name_prefix = true
-
-private_ecr_arn = null
-
-create_custom_domain_association = false
 
 auto_scaling_configuration_arn = null
 
-health_check_configuration = {}
-
-network_configuration = {}
-
-access_iam_role_description = null
-
-vpc_connector_subnets = []
+auto_scaling_configurations = {}
 
 connections = {}
 
-instance_iam_role_use_name_prefix = true
+create = true
 
-auto_scaling_configurations = {}
+create_access_iam_role = false
+
+create_custom_domain_association = false
+
+create_instance_iam_role = true
+
+create_service = true
+
+create_vpc_connector = false
+
+domain_name = ""
+
+enable_observability_configuration = true
+
+enable_www_subdomain = null
+
+encryption_configuration = {}
+
+health_check_configuration = {}
+
+instance_configuration = {}
+
+instance_iam_role_description = null
+
+instance_iam_role_name = null
 
 instance_iam_role_path = null
 
 instance_iam_role_permissions_boundary = null
 
-domain_name = ""
+instance_iam_role_policies = {}
 
-create_vpc_connector = false
+instance_iam_role_use_name_prefix = true
 
-access_iam_role_name = null
+network_configuration = {}
 
-access_iam_role_permissions_boundary = null
+observability_configuration = {}
 
-create_instance_iam_role = true
+private_ecr_arn = null
+
+service_name = ""
+
+source_configuration = {}
+
+tags = {}
+
+vpc_connector_name = ""
+
+vpc_connector_security_groups = []
+
+vpc_connector_subnets = []

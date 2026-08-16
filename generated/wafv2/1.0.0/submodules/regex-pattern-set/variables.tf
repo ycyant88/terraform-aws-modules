@@ -4,16 +4,10 @@ variable "create" {
   default     = true
 }
 
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "description" {
+  description = "A friendly description of the regex pattern set"
+  type        = string
+  default     = null
 }
 
 variable "name" {
@@ -22,10 +16,16 @@ variable "name" {
   default     = ""
 }
 
-variable "description" {
-  description = "A friendly description of the regex pattern set"
-  type        = string
-  default     = null
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
+  type        = bool
+  default     = true
+}
+
+variable "regular_expressions" {
+  description = "Set of regex pattern strings"
+  type        = set(string)
+  default     = []
 }
 
 variable "scope" {
@@ -34,8 +34,8 @@ variable "scope" {
   default     = "REGIONAL"
 }
 
-variable "regular_expressions" {
-  description = "Set of regex pattern strings"
-  type        = set(string)
-  default     = []
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

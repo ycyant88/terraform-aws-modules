@@ -1,7 +1,31 @@
+variable "ca_certificates_bundle_s3_bucket" {
+  description = "S3 bucket name holding the client certificate CA bundle."
+  type        = string
+  default     = null
+}
+
+variable "ca_certificates_bundle_s3_key" {
+  description = "S3 object key holding the client certificate CA bundle."
+  type        = string
+  default     = null
+}
+
 variable "ca_certificates_bundle_s3_object_version" {
   description = "Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted."
   type        = string
   default     = null
+}
+
+variable "create" {
+  description = "Controls if resources should be created."
+  type        = bool
+  default     = true
+}
+
+variable "create_trust_store_revocation" {
+  description = "Whether to create a trust store revocation for use with an application load balancer."
+  type        = bool
+  default     = false
 }
 
 variable "name" {
@@ -16,22 +40,10 @@ variable "name_prefix" {
   default     = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created."
-  type        = bool
-  default     = true
-}
-
-variable "ca_certificates_bundle_s3_bucket" {
-  description = "S3 bucket name holding the client certificate CA bundle."
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
   type        = string
   default     = null
-}
-
-variable "create_trust_store_revocation" {
-  description = "Whether to create a trust store revocation for use with an application load balancer."
-  type        = bool
-  default     = false
 }
 
 variable "revocation_lists" {
@@ -44,20 +56,8 @@ variable "revocation_lists" {
   default = null
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
 variable "tags" {
   description = "Map of tags to assign to the resource."
   type        = map(string)
   default     = {}
-}
-
-variable "ca_certificates_bundle_s3_key" {
-  description = "S3 object key holding the client certificate CA bundle."
-  type        = string
-  default     = null
 }

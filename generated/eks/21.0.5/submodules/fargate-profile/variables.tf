@@ -1,57 +1,3 @@
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-  default     = ""
-}
-
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the Fargate Profile"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "partition" {
-  description = "The AWS partition - pass through value to reduce number of GET requests from data sources"
-  type        = string
-  default     = ""
-}
-
-variable "create_iam_role" {
-  description = "Determines whether an IAM role is created or to use an existing IAM role"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = ""
-}
-
-variable "name" {
-  description = "Name of the EKS Fargate Profile"
-  type        = string
-  default     = ""
-}
-
-variable "selectors" {
-  description = "Configuration block(s) for selecting Kubernetes Pods to execute with this Fargate Profile"
-  type = list(object({
-    labels    = optional(map(string))
-    namespace = string
-  }))
-  default = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
 variable "account_id" {
   description = "The AWS account ID - pass through value to reduce number of GET requests from data sources"
   type        = string
@@ -64,8 +10,38 @@ variable "cluster_ip_family" {
   default     = "ipv4"
 }
 
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+  default     = ""
+}
+
+variable "create" {
+  description = "Determines whether to create Fargate profile or not"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role" {
+  description = "Determines whether an IAM role is created or to use an existing IAM role"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role_policy" {
+  description = "Determines whether an IAM role policy is created or not"
+  type        = bool
+  default     = true
+}
+
+variable "iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_role_arn" {
+  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
   type        = string
   default     = null
 }
@@ -76,10 +52,28 @@ variable "iam_role_attach_cni_policy" {
   default     = true
 }
 
-variable "create_iam_role_policy" {
-  description = "Determines whether an IAM role policy is created or not"
-  type        = bool
-  default     = true
+variable "iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = "Fargate profile IAM role"
+}
+
+variable "iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = ""
+}
+
+variable "iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
 }
 
 variable "iam_role_policy_statements" {
@@ -108,16 +102,10 @@ variable "iam_role_policy_statements" {
   default = null
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_arn" {
-  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
-  type        = string
-  default     = null
+variable "iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
 }
 
 variable "iam_role_use_name_prefix" {
@@ -126,10 +114,31 @@ variable "iam_role_use_name_prefix" {
   default     = true
 }
 
-variable "iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
+variable "name" {
+  description = "Name of the EKS Fargate Profile"
+  type        = string
+  default     = ""
+}
+
+variable "partition" {
+  description = "The AWS partition - pass through value to reduce number of GET requests from data sources"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "selectors" {
+  description = "Configuration block(s) for selecting Kubernetes Pods to execute with this Fargate Profile"
+  type = list(object({
+    labels    = optional(map(string))
+    namespace = string
+  }))
+  default = null
 }
 
 variable "subnet_ids" {
@@ -138,26 +147,17 @@ variable "subnet_ids" {
   default     = []
 }
 
-variable "create" {
-  description = "Determines whether to create Fargate profile or not"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = "Fargate profile IAM role"
-}
-
-variable "iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
+variable "tags" {
+  description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
+}
+
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the Fargate Profile"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
 }

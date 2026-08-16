@@ -1,171 +1,171 @@
-subnets = []
-
-create_random_password = true
-
-copy_tags_to_snapshot = ""
-
-instances_use_identifier_prefix = false
-
-instance_class = ""
-
-create_monitoring_role = true
-
-source_region = ""
-
-engine_version = ""
-
-s3_import = ""
-
-performance_insights_kms_key_id = ""
-
-monitoring_role_arn = ""
-
-iam_role_force_detach_policies = ""
-
-create_security_group = true
-
-global_cluster_identifier = ""
-
-serverlessv2_scaling_configuration = {}
-
-cluster_tags = {}
-
-autoscaling_target_connections = 700
-
-backup_retention_period = 7
-
-autoscaling_scale_out_cooldown = 300
-
-tags = {}
-
-is_primary_cluster = true
-
-kms_key_id = ""
-
-final_snapshot_identifier_prefix = "final"
-
-vpc_security_group_ids = []
-
-iam_role_permissions_boundary = ""
+allow_major_version_upgrade = false
 
 allowed_cidr_blocks = []
 
-monitoring_interval = 0
+allowed_security_groups = []
 
-ca_cert_identifier = ""
+apply_immediately = ""
 
-iam_role_path = ""
+auto_minor_version_upgrade = ""
+
+autoscaling_enabled = false
 
 autoscaling_max_capacity = 2
 
+autoscaling_min_capacity = 0
+
+autoscaling_scale_in_cooldown = 300
+
+autoscaling_scale_out_cooldown = 300
+
+autoscaling_target_connections = 700
+
 autoscaling_target_cpu = 70
 
+backtrack_window = ""
+
+backup_retention_period = 7
+
+ca_cert_identifier = ""
+
+cluster_tags = {}
+
+cluster_timeouts = {}
+
+copy_tags_to_snapshot = ""
+
+create_cluster = true
+
 create_db_subnet_group = true
+
+create_monitoring_role = true
+
+create_random_password = true
+
+create_security_group = true
+
+database_name = ""
+
+db_cluster_db_instance_parameter_group_name = ""
+
+db_cluster_parameter_group_name = ""
+
+db_parameter_group_name = ""
+
+db_subnet_group_name = ""
+
+deletion_protection = ""
+
+enable_global_write_forwarding = ""
+
+enable_http_endpoint = ""
+
+enabled_cloudwatch_logs_exports = []
+
+endpoints = {}
 
 engine = ""
 
 engine_mode = ""
 
-preferred_backup_window = "02:00-03:00"
+engine_version = ""
 
-autoscaling_min_capacity = 0
+final_snapshot_identifier_prefix = "final"
 
-skip_final_snapshot = ""
-
-db_cluster_parameter_group_name = ""
-
-iam_role_managed_policy_arns = ""
-
-autoscaling_scale_in_cooldown = 300
-
-vpc_id = ""
-
-enable_global_write_forwarding = ""
-
-database_name = ""
-
-cluster_timeouts = {}
-
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
-
-instance_timeouts = {}
-
-endpoints = {}
-
-iam_roles = {}
-
-iam_role_name = ""
-
-autoscaling_enabled = false
-
-security_group_tags = {}
-
-db_parameter_group_name = ""
-
-name = ""
-
-replication_source_identifier = ""
-
-enable_http_endpoint = ""
-
-port = ""
-
-apply_immediately = ""
-
-enabled_cloudwatch_logs_exports = []
-
-restore_to_point_in_time = {}
-
-allow_major_version_upgrade = false
-
-random_password_length = 10
-
-backtrack_window = ""
-
-scaling_configuration = {}
-
-iam_role_use_name_prefix = false
-
-iam_role_max_session_duration = ""
-
-allowed_security_groups = []
-
-create_cluster = true
-
-publicly_accessible = ""
-
-security_group_use_name_prefix = true
-
-security_group_description = ""
-
-db_subnet_group_name = ""
-
-master_username = "root"
-
-master_password = ""
-
-snapshot_identifier = ""
-
-storage_encrypted = true
+global_cluster_identifier = ""
 
 iam_database_authentication_enabled = ""
 
-performance_insights_retention_period = ""
+iam_role_description = ""
 
-security_group_egress_rules = {}
+iam_role_force_detach_policies = ""
 
-putin_khuylo = true
+iam_role_managed_policy_arns = ""
 
-deletion_protection = ""
+iam_role_max_session_duration = ""
 
-preferred_maintenance_window = "sun:05:00-sun:06:00"
+iam_role_name = ""
 
-db_cluster_db_instance_parameter_group_name = ""
+iam_role_path = ""
+
+iam_role_permissions_boundary = ""
+
+iam_role_use_name_prefix = false
+
+iam_roles = {}
+
+instance_class = ""
+
+instance_timeouts = {}
 
 instances = {}
 
-auto_minor_version_upgrade = ""
+instances_use_identifier_prefix = false
+
+is_primary_cluster = true
+
+kms_key_id = ""
+
+master_password = ""
+
+master_username = "root"
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+name = ""
 
 performance_insights_enabled = ""
 
-iam_role_description = ""
+performance_insights_kms_key_id = ""
+
+performance_insights_retention_period = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = ""
+
+putin_khuylo = true
+
+random_password_length = 10
+
+replication_source_identifier = ""
+
+restore_to_point_in_time = {}
+
+s3_import = ""
+
+scaling_configuration = {}
+
+security_group_description = ""
+
+security_group_egress_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+serverlessv2_scaling_configuration = {}
+
+skip_final_snapshot = ""
+
+snapshot_identifier = ""
+
+source_region = ""
+
+storage_encrypted = true
+
+subnets = []
+
+tags = {}
+
+vpc_id = ""
+
+vpc_security_group_ids = []

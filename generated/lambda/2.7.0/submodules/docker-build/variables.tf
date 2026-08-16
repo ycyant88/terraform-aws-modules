@@ -4,6 +4,12 @@ variable "create_ecr_repo" {
   default     = false
 }
 
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
+  type        = string
+  default     = "Dockerfile"
+}
+
 variable "ecr_repo" {
   description = "Name of ECR repository to use or to create"
   type        = string
@@ -20,10 +26,4 @@ variable "source_path" {
   description = "Path to folder containing application code"
   type        = string
   default     = null
-}
-
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
 }

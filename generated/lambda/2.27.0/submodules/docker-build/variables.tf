@@ -1,19 +1,19 @@
+variable "build_args" {
+  description = "A map of Docker build arguments."
+  type        = map(string)
+  default     = {}
+}
+
 variable "create_ecr_repo" {
   description = "Controls whether ECR repository for Lambda image should be created"
   type        = bool
   default     = false
 }
 
-variable "image_tag_mutability" {
-  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
+variable "docker_file_path" {
+  description = "Path to Dockerfile in source package"
   type        = string
-  default     = "MUTABLE"
-}
-
-variable "ecr_repo_tags" {
-  description = "A map of tags to assign to ECR repository"
-  type        = map(string)
-  default     = {}
+  default     = "Dockerfile"
 }
 
 variable "ecr_address" {
@@ -28,22 +28,22 @@ variable "ecr_repo" {
   default     = null
 }
 
+variable "ecr_repo_tags" {
+  description = "A map of tags to assign to ECR repository"
+  type        = map(string)
+  default     = {}
+}
+
 variable "image_tag" {
   description = "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds."
   type        = string
   default     = null
 }
 
-variable "source_path" {
-  description = "Path to folder containing application code"
+variable "image_tag_mutability" {
+  description = "The tag mutability setting for the repository. Must be one of: MUTABLE or IMMUTABLE"
   type        = string
-  default     = null
-}
-
-variable "docker_file_path" {
-  description = "Path to Dockerfile in source package"
-  type        = string
-  default     = "Dockerfile"
+  default     = "MUTABLE"
 }
 
 variable "scan_on_push" {
@@ -52,8 +52,8 @@ variable "scan_on_push" {
   default     = false
 }
 
-variable "build_args" {
-  description = "A map of Docker build arguments."
-  type        = map(string)
-  default     = {}
+variable "source_path" {
+  description = "Path to folder containing application code"
+  type        = string
+  default     = null
 }

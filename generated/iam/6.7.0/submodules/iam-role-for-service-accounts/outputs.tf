@@ -1,6 +1,6 @@
-output "iam_policy_arn" {
-  value       = module.iam_iam-role-for-service-accounts.iam_policy_arn
-  description = "The ARN assigned by AWS to this policy"
+output "arn" {
+  value       = module.iam_iam-role-for-service-accounts.arn
+  description = "ARN of IAM role"
 }
 
 output "iam_policy" {
@@ -8,9 +8,9 @@ output "iam_policy" {
   description = "The policy document"
 }
 
-output "arn" {
-  value       = module.iam_iam-role-for-service-accounts.arn
-  description = "ARN of IAM role"
+output "iam_policy_arn" {
+  value       = module.iam_iam-role-for-service-accounts.iam_policy_arn
+  description = "The ARN assigned by AWS to this policy"
 }
 
 output "name" {

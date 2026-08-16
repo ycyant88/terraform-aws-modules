@@ -1,68 +1,44 @@
+aliases = []
+
+aliases_use_name_prefix = false
+
+bypass_policy_lockout_safety_check = null
+
+computed_aliases = {}
+
+create = true
+
 create_external = false
-
-deletion_window_in_days = null
-
-policy = null
-
-key_hmac_users = []
-
-key_asymmetric_sign_verify_users = []
-
-key_spec = null
 
 create_replica = false
 
 create_replica_external = false
 
-valid_to = null
-
-key_users = []
-
-source_policy_documents = []
-
-override_policy_documents = []
-
-key_statements = null
-
-region = null
-
-tags = {}
-
 custom_key_store_id = null
-
-key_usage = null
-
-key_symmetric_encryption_users = []
-
-create = true
 
 customer_master_key_spec = null
 
-multi_region = false
-
-key_asymmetric_public_encryption_users = []
+deletion_window_in_days = null
 
 description = null
 
-key_administrators = []
-
-key_service_users = []
-
-rotation_period_in_days = null
-
-aliases = []
-
-grants = null
-
-enable_route53_dnssec = false
-
-primary_key_arn = null
-
-aliases_use_name_prefix = false
+enable_default_policy = true
 
 enable_key_rotation = true
 
+enable_route53_dnssec = false
+
+grants = null
+
 is_enabled = null
+
+key_administrators = []
+
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
+key_hmac_users = []
 
 key_material_base64 = null
 
@@ -70,12 +46,36 @@ key_owners = []
 
 key_service_roles_for_autoscaling = []
 
-route53_dnssec_sources = null
+key_service_users = []
 
-bypass_policy_lockout_safety_check = null
+key_spec = null
 
-enable_default_policy = true
+key_statements = null
+
+key_symmetric_encryption_users = []
+
+key_usage = null
+
+key_users = []
+
+multi_region = false
+
+override_policy_documents = []
+
+policy = null
 
 primary_external_key_arn = null
 
-computed_aliases = {}
+primary_key_arn = null
+
+region = null
+
+rotation_period_in_days = null
+
+route53_dnssec_sources = null
+
+source_policy_documents = []
+
+tags = {}
+
+valid_to = null

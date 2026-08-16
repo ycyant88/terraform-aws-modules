@@ -4,23 +4,50 @@ variable "create" {
   default     = true
 }
 
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
-  type        = bool
-  default     = false
+variable "description" {
+  description = "Description of security group"
+  type        = string
+  default     = "Security Group managed by Terraform"
 }
 
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the security group"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
+variable "egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(number)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(number)
+  }))
+  default = {}
+}
+
+variable "enable_exclusive_rules" {
+  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
+  type        = bool
+  default     = true
 }
 
 variable "ingress_cidr_ipv4" {
   description = "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_cidr_ipv6" {
+  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
+  type        = map(string)
+  default     = {}
+}
+
+variable "ingress_prefix_list_id" {
+  description = "Map of prefix list IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the prefix list IDs. Each entry produces one ingress rule per preset rule"
   type        = map(string)
   default     = {}
 }
@@ -49,16 +76,10 @@ variable "ingress_rules" {
   default = {}
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+variable "name" {
+  description = "Name of security group"
   type        = string
-  default     = null
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the security group is created"
-  type        = string
-  default     = null
+  default     = ""
 }
 
 variable "preset_ingress_rules" {
@@ -72,28 +93,16 @@ variable "preset_ingress_rules" {
   default = { "minio" : { "description" : "MinIO", "from_port" : 9000, "ip_protocol" : "tcp", "to_port" : 9000 } }
 }
 
-variable "ingress_prefix_list_id" {
-  description = "Map of prefix list IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the prefix list IDs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
 }
 
-variable "egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(number)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(number)
-  }))
-  default = {}
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
 }
 
 variable "tags" {
@@ -102,22 +111,19 @@ variable "tags" {
   default     = {}
 }
 
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the security group"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
 variable "use_name_prefix" {
   description = "Whether to use the name (name) as a prefix, appending a random suffix"
   type        = bool
   default     = true
-}
-
-variable "description" {
-  description = "Description of security group"
-  type        = string
-  default     = "Security Group managed by Terraform"
-}
-
-variable "ingress_cidr_ipv6" {
-  description = "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule"
-  type        = map(string)
-  default     = {}
 }
 
 variable "vpc_associations" {
@@ -128,14 +134,8 @@ variable "vpc_associations" {
   default = {}
 }
 
-variable "enable_exclusive_rules" {
-  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Name of security group"
+variable "vpc_id" {
+  description = "ID of the VPC where the security group is created"
   type        = string
-  default     = ""
+  default     = null
 }

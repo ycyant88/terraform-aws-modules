@@ -1,7 +1,7 @@
-variable "name" {
-  description = "A name for the log stream"
-  type        = string
-  default     = null
+variable "create" {
+  description = "Whether to create the Cloudwatch log stream"
+  type        = bool
+  default     = true
 }
 
 variable "log_group_name" {
@@ -10,8 +10,8 @@ variable "log_group_name" {
   default     = null
 }
 
-variable "create" {
-  description = "Whether to create the Cloudwatch log stream"
-  type        = bool
-  default     = true
+variable "name" {
+  description = "A name for the log stream"
+  type        = string
+  default     = null
 }

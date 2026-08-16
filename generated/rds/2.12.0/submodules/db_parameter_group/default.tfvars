@@ -1,17 +1,17 @@
 create = true
 
-tags = {}
-
-name_prefix = ""
-
-identifier = ""
+description = ""
 
 family = ""
 
-parameters = []
-
-use_name_prefix = true
-
-description = ""
+identifier = ""
 
 name = ""
+
+name_prefix = ""
+
+parameters = []
+
+tags = {}
+
+use_name_prefix = true

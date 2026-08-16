@@ -1,95 +1,95 @@
-links = []
+cloudwatch_log_group_kms_key_id = null
 
-privileged = false
+cloudwatch_log_group_retention_in_days = 30
 
-service = ""
+cloudwatch_log_group_use_name_prefix = false
 
-enable_cloudwatch_logging = true
-
-tags = {}
-
-dependencies = []
-
-pseudo_terminal = false
-
-system_controls = []
-
-memory = null
-
-extra_hosts = []
-
-hostname = null
-
-docker_labels = {}
-
-entrypoint = []
-
-name = null
-
-readonly_root_filesystem = true
-
-repository_credentials = {}
-
-operating_system_family = "LINUX"
-
-volumes_from = []
-
-dns_servers = []
-
-health_check = {}
-
-log_configuration = {}
-
-port_mappings = []
-
-start_timeout = 30
-
-user = null
-
-working_directory = null
-
-dns_search_domains = []
-
-essential = null
-
-linux_parameters = {}
+command = []
 
 cpu = null
 
+create_cloudwatch_log_group = true
+
+dependencies = []
+
+disable_networking = null
+
+dns_search_domains = []
+
+dns_servers = []
+
+docker_labels = {}
+
+docker_security_options = []
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
 environment = []
+
+environment_files = []
+
+essential = null
+
+extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
 
 image = null
 
 interactive = false
 
-ulimits = []
+links = []
 
-cloudwatch_log_group_use_name_prefix = false
+linux_parameters = {}
 
-disable_networking = null
+log_configuration = {}
 
-enable_execute_command = false
-
-firelens_configuration = {}
+memory = null
 
 memory_reservation = null
 
-secrets = []
+mount_points = []
 
-stop_timeout = 120
+name = null
 
-create_cloudwatch_log_group = true
+operating_system_family = "LINUX"
 
-command = []
+port_mappings = []
+
+privileged = false
+
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
 
 resource_requirements = []
 
-cloudwatch_log_group_retention_in_days = 30
+secrets = []
 
-cloudwatch_log_group_kms_key_id = null
+service = ""
 
-mount_points = []
+start_timeout = 30
 
-docker_security_options = []
+stop_timeout = 120
 
-environment_files = []
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
+working_directory = null

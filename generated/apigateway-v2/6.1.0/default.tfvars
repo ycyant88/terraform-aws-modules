@@ -1,85 +1,85 @@
-subdomains = []
+api_key_selection_expression = null
 
-create = true
+api_mapping_key = null
 
-region = null
+api_version = null
 
 authorizers = {}
 
-create_domain_records = true
-
-domain_name_certificate_arn = null
-
-api_key_selection_expression = null
-
-ip_address_type = null
-
-hosted_zone_name = null
-
-private_zone = false
-
-stage_tags = {}
-
-route_key = null
-
-create_domain_name = true
-
-create_certificate = true
-
-tags = {}
-
-disable_execute_api_endpoint = null
-
-target = null
-
-subdomain_record_types = ["A", "AAAA"]
-
-stage_name = "$default"
-
-deploy_stage = true
-
-vpc_link_tags = {}
-
-name = ""
-
-route_selection_expression = null
-
-domain_name = ""
-
-mutual_tls_authentication = {}
-
-routes = {}
-
-vpc_links = {}
-
-protocol_type = "HTTP"
+body = null
 
 cors_configuration = null
 
-description = null
+create = true
 
-fail_on_warnings = null
+create_certificate = true
 
-stage_client_certificate_id = null
+create_domain_name = true
 
-credentials_arn = null
-
-api_mapping_key = null
+create_domain_records = true
 
 create_routes_and_integrations = true
 
 create_stage = true
 
-stage_default_route_settings = {}
+credentials_arn = null
 
-stage_variables = {}
+deploy_stage = true
 
-body = null
+description = null
 
-api_version = null
+disable_execute_api_endpoint = null
+
+domain_name = ""
+
+domain_name_certificate_arn = null
 
 domain_name_ownership_verification_certificate_arn = null
 
+fail_on_warnings = null
+
+hosted_zone_name = null
+
+ip_address_type = null
+
+mutual_tls_authentication = {}
+
+name = ""
+
+private_zone = false
+
+protocol_type = "HTTP"
+
+region = null
+
+route_key = null
+
+route_selection_expression = null
+
+routes = {}
+
 stage_access_log_settings = {}
 
+stage_client_certificate_id = null
+
+stage_default_route_settings = {}
+
 stage_description = null
+
+stage_name = "$default"
+
+stage_tags = {}
+
+stage_variables = {}
+
+subdomain_record_types = ["A", "AAAA"]
+
+subdomains = []
+
+tags = {}
+
+target = null
+
+vpc_link_tags = {}
+
+vpc_links = {}

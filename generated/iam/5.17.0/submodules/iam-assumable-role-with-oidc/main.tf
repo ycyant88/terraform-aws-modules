@@ -1,22 +1,22 @@
 module "iam_iam-assumable-role-with-oidc" {
   source                         = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version                        = "5.17.0"
+  allow_self_assume_role         = var.allow_self_assume_role
+  aws_account_id                 = var.aws_account_id
   create_role                    = var.create_role
-  tags                           = var.tags
+  force_detach_policies          = var.force_detach_policies
+  max_session_duration           = var.max_session_duration
   number_of_role_policy_arns     = var.number_of_role_policy_arns
   oidc_fully_qualified_audiences = var.oidc_fully_qualified_audiences
-  role_description               = var.role_description
-  role_permissions_boundary_arn  = var.role_permissions_boundary_arn
-  role_policy_arns               = var.role_policy_arns
+  oidc_fully_qualified_subjects  = var.oidc_fully_qualified_subjects
   oidc_subjects_with_wildcards   = var.oidc_subjects_with_wildcards
   provider_url                   = var.provider_url
   provider_urls                  = var.provider_urls
-  aws_account_id                 = var.aws_account_id
+  role_description               = var.role_description
   role_name                      = var.role_name
   role_name_prefix               = var.role_name_prefix
-  allow_self_assume_role         = var.allow_self_assume_role
   role_path                      = var.role_path
-  max_session_duration           = var.max_session_duration
-  oidc_fully_qualified_subjects  = var.oidc_fully_qualified_subjects
-  force_detach_policies          = var.force_detach_policies
+  role_permissions_boundary_arn  = var.role_permissions_boundary_arn
+  role_policy_arns               = var.role_policy_arns
+  tags                           = var.tags
 }

@@ -1,93 +1,93 @@
-role_name = ""
+architectures = ["x86_64"]
 
-role_tags = {}
+bucket_attach_deny_insecure_transport_policy = false
 
-name = "datadog-log-forwarder"
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+
+bucket_name = ""
+
+bucket_prefix = ""
+
+bucket_tags = {}
 
 create = true
+
+create_bucket = true
+
+create_role = true
+
+create_role_policy = true
+
+dd_api_key = ""
 
 dd_api_key_secret_arn = ""
 
 dd_site = "datadoghq.com"
 
-s3_zip_tags = {}
-
-create_role_policy = true
-
-policy_path = null
-
 environment_variables = {}
 
-tags = {}
+forwarder_version = "3.130.0"
 
-s3_zip_storage_class = null
-
-s3_zip_server_side_encryption = null
-
-publish = false
-
-reserved_concurrent_executions = 100
+kms_key_arn = null
 
 lambda_tags = {}
 
-use_role_name_prefix = false
+layers = []
 
-timeout = 120
+log_kms_key_id = null
 
 log_retention_days = 7
 
-create_bucket = true
+memory_size = 1024
 
-s3_zip_kms_key_id = null
-
-s3_zip_metadata = {}
-
-role_path = null
-
-role_permissions_boundary = null
+name = "datadog-log-forwarder"
 
 policy_arn = null
 
 policy_name = ""
 
-forwarder_version = "3.130.0"
+policy_path = null
 
-role_max_session_duration = null
+publish = false
 
-s3_log_bucket_arns = []
-
-runtime = "python3.11"
-
-memory_size = 1024
-
-dd_api_key = ""
-
-bucket_name = ""
-
-bucket_attach_deny_insecure_transport_policy = false
-
-bucket_prefix = ""
-
-s3_zip_tags_only = false
+reserved_concurrent_executions = 100
 
 role_arn = null
 
-layers = []
+role_max_session_duration = null
 
-architectures = ["x86_64"]
+role_name = ""
 
-bucket_tags = {}
+role_path = null
 
-create_role = true
+role_permissions_boundary = null
 
-use_policy_name_prefix = false
+role_tags = {}
 
-kms_key_arn = null
+runtime = "python3.11"
 
-subnet_ids = null
+s3_log_bucket_arns = []
+
+s3_zip_kms_key_id = null
+
+s3_zip_metadata = {}
+
+s3_zip_server_side_encryption = null
+
+s3_zip_storage_class = null
+
+s3_zip_tags = {}
+
+s3_zip_tags_only = false
 
 security_group_ids = null
 
-log_kms_key_id = null
+subnet_ids = null
 
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+tags = {}
+
+timeout = 120
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

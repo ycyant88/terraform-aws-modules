@@ -1,105 +1,105 @@
-region = null
-
-operating_system_family = "LINUX"
-
-environmentFiles = []
-
-name = null
-
-startTimeout = 30
-
-service = null
-
-cloudwatch_log_group_name = null
-
-dnsSearchDomains = null
-
-entrypoint = []
-
-repositoryCredentials = null
-
-volumesFrom = []
-
-extraHosts = null
-
-stopTimeout = 120
-
-create_cloudwatch_log_group = true
-
 cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-tags = {}
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = 14
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = null
 
 cpu = null
 
+create_cloudwatch_log_group = true
+
 dependsOn = null
 
-healthCheck = null
+disableNetworking = null
 
-linuxParameters = { "initProcessEnabled" : false }
+dnsSearchDomains = null
 
-secrets = null
-
-versionConsistency = "disabled"
-
-enable_cloudwatch_logging = true
-
-memory = null
-
-mountPoints = []
+dnsServers = null
 
 dockerLabels = null
 
 dockerSecurityOptions = null
 
-firelensConfiguration = null
-
-interactive = false
-
-systemControls = []
+enable_cloudwatch_logging = true
 
 enable_execute_command = false
 
+entrypoint = []
+
+environment = []
+
+environmentFiles = []
+
 essential = null
+
+extraHosts = null
+
+firelensConfiguration = null
+
+healthCheck = null
+
+hostname = null
+
+image = null
+
+interactive = false
 
 links = null
 
+linuxParameters = { "initProcessEnabled" : false }
+
+logConfiguration = {}
+
+memory = null
+
 memoryReservation = null
 
+mountPoints = []
+
+name = null
+
+operating_system_family = "LINUX"
+
 portMappings = null
-
-readonlyRootFilesystem = true
-
-restartPolicy = { "enabled" : true }
-
-cloudwatch_log_group_retention_in_days = 14
-
-command = null
-
-hostname = null
 
 privileged = false
 
 pseudoTerminal = false
 
+readonlyRootFilesystem = true
+
+region = null
+
+repositoryCredentials = null
+
 resourceRequirements = null
 
-cloudwatch_log_group_use_name_prefix = false
+restartPolicy = { "enabled" : true }
 
-logConfiguration = {}
+secrets = null
 
-disableNetworking = null
+service = null
 
-dnsServers = null
+startTimeout = 30
 
-environment = []
+stopTimeout = 120
 
-image = null
+systemControls = []
+
+tags = {}
 
 ulimits = null
 
 user = null
+
+versionConsistency = "disabled"
+
+volumesFrom = []
 
 workingDirectory = null

@@ -1,77 +1,5 @@
-variable "min_size" {
-  description = "The minimum size of the auto scale group"
-  type        = string
-  default     = ""
-}
-
-variable "load_balancers" {
-  description = "A list of elastic load balancer names to add to the autoscaling group names"
-  type        = list(any)
-  default     = []
-}
-
-variable "metrics_granularity" {
-  description = "The granularity to associate with the metrics to collect. The only valid value is 1Minute"
-  type        = string
-  default     = "1Minute"
-}
-
-variable "initial_lifecycle_hook_lifecycle_transition" {
-  description = "The instance state to which you want to attach the initial lifecycle hook"
-  type        = string
-  default     = ""
-}
-
-variable "recreate_asg_when_lc_changes" {
-  description = "Whether to recreate an autoscaling group when launch configuration changes"
-  type        = bool
-  default     = false
-}
-
-variable "name" {
-  description = "Creates a unique name beginning with the specified prefix"
-  type        = string
-  default     = ""
-}
-
-variable "desired_capacity" {
-  description = "The number of Amazon EC2 instances that should be running in the group"
-  type        = string
-  default     = ""
-}
-
-variable "default_cooldown" {
-  description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start"
-  type        = number
-  default     = 300
-}
-
-variable "target_group_arns" {
-  description = "A list of aws_alb_target_group ARNs, for use with Application Load Balancing"
-  type        = list(any)
-  default     = []
-}
-
-variable "tags" {
-  description = "A list of tag blocks. Each element should have keys named key, value, and propagate_at_launch."
-  type        = list(any)
-  default     = []
-}
-
-variable "create_lc" {
-  description = "Whether to create launch configuration"
-  type        = bool
-  default     = true
-}
-
-variable "iam_instance_profile" {
-  description = "The IAM instance profile to associate with launched instances"
-  type        = string
-  default     = ""
-}
-
-variable "key_name" {
-  description = "The key name that should be used for the instance"
+variable "asg_name" {
+  description = "Creates a unique name for autoscaling group beginning with the specified prefix"
   type        = string
   default     = ""
 }
@@ -82,94 +10,10 @@ variable "associate_public_ip_address" {
   default     = false
 }
 
-variable "vpc_zone_identifier" {
-  description = "A list of subnet IDs to launch resources in"
-  type        = list(any)
-  default     = ""
-}
-
-variable "placement_group" {
-  description = "The name of the placement group into which you'll launch your instances, if any"
-  type        = string
-  default     = ""
-}
-
-variable "initial_lifecycle_hook_default_result" {
-  description = "Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON"
-  type        = string
-  default     = "ABANDON"
-}
-
-variable "initial_lifecycle_hook_notification_metadata" {
-  description = "Contains additional information that you want to include any time Auto Scaling sends a message to the notification target"
-  type        = string
-  default     = ""
-}
-
-variable "initial_lifecycle_hook_heartbeat_timeout" {
-  description = "Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter"
-  type        = string
-  default     = "60"
-}
-
-variable "enable_monitoring" {
-  description = "Enables/disables detailed monitoring. This is enabled by default."
+variable "create_asg" {
+  description = "Whether to create autoscaling group"
   type        = bool
   default     = true
-}
-
-variable "ephemeral_block_device" {
-  description = "Customize Ephemeral (also known as 'Instance Store') volumes on the instance"
-  type        = list(any)
-  default     = []
-}
-
-variable "placement_tenancy" {
-  description = "The tenancy of the instance. Valid values are 'default' or 'dedicated'"
-  type        = string
-  default     = "default"
-}
-
-variable "health_check_grace_period" {
-  description = "Time (in seconds) after instance comes into service before checking health"
-  type        = number
-  default     = 300
-}
-
-variable "enabled_metrics" {
-  description = "A list of metrics to collect. The allowed values are GroupMinSize, GroupMaxSize, GroupDesiredCapacity, GroupInServiceInstances, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances"
-  type        = list(any)
-  default     = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-}
-
-variable "launch_configuration" {
-  description = "The name of the launch configuration to use (if it is created outside of this module)"
-  type        = string
-  default     = ""
-}
-
-variable "instance_type" {
-  description = "The size of instance to launch"
-  type        = string
-  default     = ""
-}
-
-variable "root_block_device" {
-  description = "Customize details about the root block device of the instance"
-  type        = list(any)
-  default     = []
-}
-
-variable "suspended_processes" {
-  description = "A list of processes to suspend for the AutoScaling Group. The allowed values are Launch, Terminate, HealthCheck, ReplaceUnhealthy, AZRebalance, AlarmNotification, ScheduledActions, AddToLoadBalancer. Note that if you suspend either the Launch or Terminate process types, it can prevent your autoscaling group from functioning properly."
-  type        = list(any)
-  default     = []
-}
-
-variable "protect_from_scale_in" {
-  description = "Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events."
-  type        = bool
-  default     = false
 }
 
 variable "create_asg_with_initial_lifecycle_hook" {
@@ -178,8 +22,74 @@ variable "create_asg_with_initial_lifecycle_hook" {
   default     = false
 }
 
-variable "lc_name" {
-  description = "Creates a unique name for launch configuration beginning with the specified prefix"
+variable "create_lc" {
+  description = "Whether to create launch configuration"
+  type        = bool
+  default     = true
+}
+
+variable "default_cooldown" {
+  description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start"
+  type        = number
+  default     = 300
+}
+
+variable "desired_capacity" {
+  description = "The number of Amazon EC2 instances that should be running in the group"
+  type        = string
+  default     = ""
+}
+
+variable "ebs_block_device" {
+  description = "Additional EBS block devices to attach to the instance"
+  type        = list(any)
+  default     = []
+}
+
+variable "ebs_optimized" {
+  description = "If true, the launched EC2 instance will be EBS-optimized"
+  type        = bool
+  default     = false
+}
+
+variable "enable_monitoring" {
+  description = "Enables/disables detailed monitoring. This is enabled by default."
+  type        = bool
+  default     = true
+}
+
+variable "enabled_metrics" {
+  description = "A list of metrics to collect. The allowed values are GroupMinSize, GroupMaxSize, GroupDesiredCapacity, GroupInServiceInstances, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances"
+  type        = list(any)
+  default     = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+}
+
+variable "ephemeral_block_device" {
+  description = "Customize Ephemeral (also known as 'Instance Store') volumes on the instance"
+  type        = list(any)
+  default     = []
+}
+
+variable "force_delete" {
+  description = "Allows deleting the autoscaling group without waiting for all instances in the pool to terminate. You can force an autoscaling group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling"
+  type        = bool
+  default     = false
+}
+
+variable "health_check_grace_period" {
+  description = "Time (in seconds) after instance comes into service before checking health"
+  type        = number
+  default     = 300
+}
+
+variable "health_check_type" {
+  description = "Controls how health checking is done. Values are - EC2 and ELB"
+  type        = string
+  default     = ""
+}
+
+variable "iam_instance_profile" {
+  description = "The IAM instance profile to associate with launched instances"
   type        = string
   default     = ""
 }
@@ -190,34 +100,34 @@ variable "image_id" {
   default     = ""
 }
 
-variable "security_groups" {
-  description = "A list of security group IDs to assign to the launch configuration"
-  type        = list(any)
-  default     = []
-}
-
-variable "user_data" {
-  description = "The user data to provide when launching the instance"
+variable "initial_lifecycle_hook_default_result" {
+  description = "Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON"
   type        = string
-  default     = " "
+  default     = "ABANDON"
 }
 
-variable "health_check_type" {
-  description = "Controls how health checking is done. Values are - EC2 and ELB"
+variable "initial_lifecycle_hook_heartbeat_timeout" {
+  description = "Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter"
+  type        = string
+  default     = "60"
+}
+
+variable "initial_lifecycle_hook_lifecycle_transition" {
+  description = "The instance state to which you want to attach the initial lifecycle hook"
   type        = string
   default     = ""
 }
 
-variable "tags_as_map" {
-  description = "A map of tags and values in the same format as other resources accept. This will be converted into the non-standard format that the aws_autoscaling_group requires."
-  type        = map(any)
-  default     = {}
+variable "initial_lifecycle_hook_name" {
+  description = "The name of initial lifecycle hook"
+  type        = string
+  default     = ""
 }
 
-variable "create_asg" {
-  description = "Whether to create autoscaling group"
-  type        = bool
-  default     = true
+variable "initial_lifecycle_hook_notification_metadata" {
+  description = "Contains additional information that you want to include any time Auto Scaling sends a message to the notification target"
+  type        = string
+  default     = ""
 }
 
 variable "initial_lifecycle_hook_notification_target_arn" {
@@ -226,16 +136,52 @@ variable "initial_lifecycle_hook_notification_target_arn" {
   default     = ""
 }
 
-variable "spot_price" {
-  description = "The price to use for reserving spot instances"
+variable "initial_lifecycle_hook_role_arn" {
+  description = "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target"
   type        = string
   default     = ""
 }
 
-variable "force_delete" {
-  description = "Allows deleting the autoscaling group without waiting for all instances in the pool to terminate. You can force an autoscaling group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling"
-  type        = bool
-  default     = false
+variable "instance_type" {
+  description = "The size of instance to launch"
+  type        = string
+  default     = ""
+}
+
+variable "key_name" {
+  description = "The key name that should be used for the instance"
+  type        = string
+  default     = ""
+}
+
+variable "launch_configuration" {
+  description = "The name of the launch configuration to use (if it is created outside of this module)"
+  type        = string
+  default     = ""
+}
+
+variable "lc_name" {
+  description = "Creates a unique name for launch configuration beginning with the specified prefix"
+  type        = string
+  default     = ""
+}
+
+variable "load_balancers" {
+  description = "A list of elastic load balancer names to add to the autoscaling group names"
+  type        = list(any)
+  default     = []
+}
+
+variable "max_size" {
+  description = "The maximum size of the auto scale group"
+  type        = string
+  default     = ""
+}
+
+variable "metrics_granularity" {
+  description = "The granularity to associate with the metrics to collect. The only valid value is 1Minute"
+  type        = string
+  default     = "1Minute"
 }
 
 variable "min_elb_capacity" {
@@ -244,8 +190,80 @@ variable "min_elb_capacity" {
   default     = 0
 }
 
-variable "ebs_block_device" {
-  description = "Additional EBS block devices to attach to the instance"
+variable "min_size" {
+  description = "The minimum size of the auto scale group"
+  type        = string
+  default     = ""
+}
+
+variable "name" {
+  description = "Creates a unique name beginning with the specified prefix"
+  type        = string
+  default     = ""
+}
+
+variable "placement_group" {
+  description = "The name of the placement group into which you'll launch your instances, if any"
+  type        = string
+  default     = ""
+}
+
+variable "placement_tenancy" {
+  description = "The tenancy of the instance. Valid values are 'default' or 'dedicated'"
+  type        = string
+  default     = "default"
+}
+
+variable "protect_from_scale_in" {
+  description = "Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events."
+  type        = bool
+  default     = false
+}
+
+variable "recreate_asg_when_lc_changes" {
+  description = "Whether to recreate an autoscaling group when launch configuration changes"
+  type        = bool
+  default     = false
+}
+
+variable "root_block_device" {
+  description = "Customize details about the root block device of the instance"
+  type        = list(any)
+  default     = []
+}
+
+variable "security_groups" {
+  description = "A list of security group IDs to assign to the launch configuration"
+  type        = list(any)
+  default     = []
+}
+
+variable "spot_price" {
+  description = "The price to use for reserving spot instances"
+  type        = string
+  default     = ""
+}
+
+variable "suspended_processes" {
+  description = "A list of processes to suspend for the AutoScaling Group. The allowed values are Launch, Terminate, HealthCheck, ReplaceUnhealthy, AZRebalance, AlarmNotification, ScheduledActions, AddToLoadBalancer. Note that if you suspend either the Launch or Terminate process types, it can prevent your autoscaling group from functioning properly."
+  type        = list(any)
+  default     = []
+}
+
+variable "tags" {
+  description = "A list of tag blocks. Each element should have keys named key, value, and propagate_at_launch."
+  type        = list(any)
+  default     = []
+}
+
+variable "tags_as_map" {
+  description = "A map of tags and values in the same format as other resources accept. This will be converted into the non-standard format that the aws_autoscaling_group requires."
+  type        = map(any)
+  default     = {}
+}
+
+variable "target_group_arns" {
+  description = "A list of aws_alb_target_group ARNs, for use with Application Load Balancing"
   type        = list(any)
   default     = []
 }
@@ -254,6 +272,18 @@ variable "termination_policies" {
   description = "A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are OldestInstance, NewestInstance, OldestLaunchConfiguration, ClosestToNextInstanceHour, Default"
   type        = list(any)
   default     = ["Default"]
+}
+
+variable "user_data" {
+  description = "The user data to provide when launching the instance"
+  type        = string
+  default     = " "
+}
+
+variable "vpc_zone_identifier" {
+  description = "A list of subnet IDs to launch resources in"
+  type        = list(any)
+  default     = ""
 }
 
 variable "wait_for_capacity_timeout" {
@@ -266,34 +296,4 @@ variable "wait_for_elb_capacity" {
   description = "Setting this will cause Terraform to wait for exactly this number of healthy instances in all attached load balancers on both create and update operations. Takes precedence over min_elb_capacity behavior."
   type        = bool
   default     = false
-}
-
-variable "initial_lifecycle_hook_name" {
-  description = "The name of initial lifecycle hook"
-  type        = string
-  default     = ""
-}
-
-variable "initial_lifecycle_hook_role_arn" {
-  description = "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target"
-  type        = string
-  default     = ""
-}
-
-variable "asg_name" {
-  description = "Creates a unique name for autoscaling group beginning with the specified prefix"
-  type        = string
-  default     = ""
-}
-
-variable "ebs_optimized" {
-  description = "If true, the launched EC2 instance will be EBS-optimized"
-  type        = bool
-  default     = false
-}
-
-variable "max_size" {
-  description = "The maximum size of the auto scale group"
-  type        = string
-  default     = ""
 }

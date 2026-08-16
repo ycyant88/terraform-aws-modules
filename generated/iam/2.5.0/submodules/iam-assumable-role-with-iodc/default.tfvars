@@ -1,14 +1,6 @@
-role_permissions_boundary_arn = ""
+aws_account_id = ""
 
-role_policy_arns = []
-
-provider_url = ""
-
-tags = {}
-
-role_name = ""
-
-role_path = "/"
+create_role = false
 
 max_session_duration = 3600
 
@@ -16,6 +8,14 @@ oidc_fully_qualified_subjects = []
 
 oidc_subjects_with_wildcards = []
 
-create_role = false
+provider_url = ""
 
-aws_account_id = ""
+role_name = ""
+
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_policy_arns = []
+
+tags = {}

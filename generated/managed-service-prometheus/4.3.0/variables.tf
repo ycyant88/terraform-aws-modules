@@ -1,3 +1,95 @@
+variable "alert_manager_definition" {
+  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
+  type        = string
+  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
+}
+
+variable "cloudwatch_log_group_class" {
+  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_kms_key_id" {
+  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_name" {
+  description = "Custom name of CloudWatch log group for a service associated with the container definition"
+  type        = string
+  default     = null
+}
+
+variable "cloudwatch_log_group_retention_in_days" {
+  description = "Number of days to retain log events. Set to 0 to keep logs indefinitely"
+  type        = number
+  default     = 30
+}
+
+variable "cloudwatch_log_group_use_name_prefix" {
+  description = "Determines whether the log group name should be used as a prefix"
+  type        = bool
+  default     = false
+}
+
+variable "create" {
+  description = "Determines whether a resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_alert_manager" {
+  description = "Controls whether an Alert Manager definition is created along with the AMP workspace"
+  type        = bool
+  default     = true
+}
+
+variable "create_resource_policy" {
+  description = "Controls whether a resource policy is created along with the AMP workspace"
+  type        = bool
+  default     = true
+}
+
+variable "create_workspace" {
+  description = "Determines whether a workspace will be created or to use an existing workspace"
+  type        = bool
+  default     = true
+}
+
+variable "kms_key_arn" {
+  description = "The ARN of the KMS Key to for encryption at rest"
+  type        = string
+  default     = null
+}
+
+variable "limits_per_label_set" {
+  description = "Configuration block for setting limits on metrics with specific label sets"
+  type = list(object({
+    label_set = map(string)
+    limits = object({
+      max_series = number
+    })
+  }))
+  default = null
+}
+
+variable "logging_configuration" {
+  description = "The logging configuration of the prometheus workspace."
+  type = object({
+    create_log_group = optional(bool, true)
+    log_group_arn    = optional(string)
+  })
+  default = null
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
 variable "resource_policy_statements" {
   description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage"
   type = map(object({
@@ -24,45 +116,9 @@ variable "resource_policy_statements" {
   default = null
 }
 
-variable "create_alert_manager" {
-  description = "Controls whether an Alert Manager definition is created along with the AMP workspace"
-  type        = bool
-  default     = true
-}
-
-variable "alert_manager_definition" {
-  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
-  type        = string
-  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
-}
-
-variable "create" {
-  description = "Determines whether a resources will be created"
-  type        = bool
-  default     = true
-}
-
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
-}
-
-variable "create_resource_policy" {
-  description = "Controls whether a resource policy is created along with the AMP workspace"
-  type        = bool
-  default     = true
-}
-
-variable "cloudwatch_log_group_class" {
-  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_kms_key_id" {
-  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
-  type        = string
+variable "retention_period_in_days" {
+  description = "Number of days to retain metric data in the workspace"
+  type        = number
   default     = null
 }
 
@@ -75,52 +131,10 @@ variable "rule_group_namespaces" {
   default = null
 }
 
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "retention_period_in_days" {
-  description = "Number of days to retain metric data in the workspace"
-  type        = number
-  default     = null
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events. Set to 0 to keep logs indefinitely"
-  type        = number
-  default     = 30
-}
-
-variable "kms_key_arn" {
-  description = "The ARN of the KMS Key to for encryption at rest"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_name" {
-  description = "Custom name of CloudWatch log group for a service associated with the container definition"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_use_name_prefix" {
-  description = "Determines whether the log group name should be used as a prefix"
-  type        = bool
-  default     = false
-}
-
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "create_workspace" {
-  description = "Determines whether a workspace will be created or to use an existing workspace"
-  type        = bool
-  default     = true
 }
 
 variable "workspace_alias" {
@@ -129,22 +143,8 @@ variable "workspace_alias" {
   default     = null
 }
 
-variable "logging_configuration" {
-  description = "The logging configuration of the prometheus workspace."
-  type = object({
-    create_log_group = optional(bool, true)
-    log_group_arn    = optional(string)
-  })
-  default = null
-}
-
-variable "limits_per_label_set" {
-  description = "Configuration block for setting limits on metrics with specific label sets"
-  type = list(object({
-    label_set = map(string)
-    limits = object({
-      max_series = number
-    })
-  }))
-  default = null
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
+  type        = string
+  default     = ""
 }

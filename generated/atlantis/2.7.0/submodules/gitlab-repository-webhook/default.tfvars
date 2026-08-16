@@ -1,13 +1,13 @@
-gitlab_base_url = ""
+atlantis_allowed_repo_names = ""
 
-gitlab_token = ""
+create_gitlab_repository_webhook = true
+
+gitlab_base_url = ""
 
 gitlab_organization = ""
 
-atlantis_allowed_repo_names = ""
-
-webhook_url = ""
+gitlab_token = ""
 
 webhook_secret = ""
 
-create_gitlab_repository_webhook = true
+webhook_url = ""

@@ -1,81 +1,81 @@
-redrive_policy = {}
+content_based_deduplication = null
 
-override_queue_policy_documents = []
+create = true
 
-kms_master_key_id = null
+create_dlq = false
+
+create_dlq_queue_policy = false
+
+create_dlq_redrive_allow_policy = true
+
+create_queue_policy = false
+
+deduplication_scope = null
+
+delay_seconds = null
+
+dlq_content_based_deduplication = null
+
+dlq_deduplication_scope = null
+
+dlq_delay_seconds = null
+
+dlq_fifo_throughput_limit = null
+
+dlq_kms_data_key_reuse_period_seconds = null
+
+dlq_kms_master_key_id = null
+
+dlq_message_retention_seconds = null
 
 dlq_name = null
 
+dlq_queue_policy_statements = {}
+
 dlq_receive_wait_time_seconds = null
 
-delay_seconds = null
+dlq_redrive_allow_policy = {}
+
+dlq_sqs_managed_sse_enabled = true
+
+dlq_tags = {}
+
+dlq_visibility_timeout_seconds = null
 
 fifo_queue = false
 
 fifo_throughput_limit = null
 
-redrive_allow_policy = {}
+kms_data_key_reuse_period_seconds = null
 
-create_queue_policy = false
-
-dlq_deduplication_scope = null
-
-create_dlq_redrive_allow_policy = true
-
-dlq_fifo_throughput_limit = null
-
-deduplication_scope = null
+kms_master_key_id = null
 
 max_message_size = null
 
 message_retention_seconds = null
 
-receive_wait_time_seconds = null
-
-tags = {}
-
-dlq_sqs_managed_sse_enabled = true
-
-content_based_deduplication = null
-
-sqs_managed_sse_enabled = true
-
-source_queue_policy_documents = []
-
-dlq_content_based_deduplication = null
-
-dlq_kms_data_key_reuse_period_seconds = null
-
-dlq_message_retention_seconds = null
-
-dlq_redrive_allow_policy = {}
-
-source_dlq_queue_policy_documents = []
-
-create = true
-
-visibility_timeout_seconds = null
-
-queue_policy_statements = {}
-
-create_dlq = false
-
-dlq_kms_master_key_id = null
+name = null
 
 override_dlq_queue_policy_documents = []
 
-name = null
+override_queue_policy_documents = []
 
-dlq_delay_seconds = null
+queue_policy_statements = {}
 
-dlq_visibility_timeout_seconds = null
+receive_wait_time_seconds = null
 
-dlq_tags = {}
+redrive_allow_policy = {}
 
-create_dlq_queue_policy = false
+redrive_policy = {}
 
-dlq_queue_policy_statements = {}
+source_dlq_queue_policy_documents = []
+
+source_queue_policy_documents = []
+
+sqs_managed_sse_enabled = true
+
+tags = {}
 
 use_name_prefix = false
 
-kms_data_key_reuse_period_seconds = null
+visibility_timeout_seconds = null

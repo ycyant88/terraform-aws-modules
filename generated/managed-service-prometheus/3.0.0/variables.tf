@@ -1,7 +1,13 @@
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "alert_manager_definition" {
+  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
+  type        = string
+  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
+}
+
+variable "create" {
+  description = "Determines whether a resources will be created"
+  type        = bool
+  default     = true
 }
 
 variable "create_workspace" {
@@ -10,8 +16,8 @@ variable "create_workspace" {
   default     = true
 }
 
-variable "workspace_alias" {
-  description = "The alias of the prometheus workspace. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html)"
+variable "kms_key_arn" {
+  description = "The ARN of the KMS Key to for encryption at rest"
   type        = string
   default     = null
 }
@@ -22,32 +28,26 @@ variable "logging_configuration" {
   default     = {}
 }
 
-variable "alert_manager_definition" {
-  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
-  type        = string
-  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
-}
-
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
-}
-
-variable "kms_key_arn" {
-  description = "The ARN of the KMS Key to for encryption at rest"
-  type        = string
-  default     = null
-}
-
 variable "rule_group_namespaces" {
   description = "A map of one or more rule group namespace definitions"
   type        = map(any)
   default     = {}
 }
 
-variable "create" {
-  description = "Determines whether a resources will be created"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "workspace_alias" {
+  description = "The alias of the prometheus workspace. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html)"
+  type        = string
+  default     = null
+}
+
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
+  type        = string
+  default     = ""
 }

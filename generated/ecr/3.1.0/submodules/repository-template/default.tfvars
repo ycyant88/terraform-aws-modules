@@ -1,57 +1,57 @@
-resource_tags = {}
-
-iam_role_tags = {}
-
-region = null
-
-encryption_type = "AES256"
-
-lifecycle_policy = null
-
 applied_for = ["PULL_THROUGH_CACHE"]
-
-prefix = ""
-
-create_repository_policy = true
-
-repository_lambda_read_access_arns = []
-
-iam_role_path = null
-
-credential_arn = null
-
-repository_policy_statements = null
-
-iam_role_name = null
-
-iam_role_use_name_prefix = true
 
 create = true
 
-tags = {}
-
-kms_key_arn = null
+create_iam_role = true
 
 create_pull_through_cache_rule = false
 
-upstream_registry_url = null
+create_repository_policy = true
+
+credential_arn = null
 
 custom_role_arn = null
 
 description = null
 
-repository_policy = null
-
-repository_read_access_arns = []
+encryption_type = "AES256"
 
 iam_role_description = null
 
-image_tag_mutability_exclusion_filter = null
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
 
 image_tag_mutability = "IMMUTABLE"
 
+image_tag_mutability_exclusion_filter = null
+
+kms_key_arn = null
+
+lifecycle_policy = null
+
+prefix = ""
+
+region = null
+
+repository_lambda_read_access_arns = []
+
+repository_policy = null
+
+repository_policy_statements = null
+
+repository_read_access_arns = []
+
 repository_read_write_access_arns = []
 
-create_iam_role = true
+resource_tags = {}
 
-iam_role_permissions_boundary = null
+tags = {}
+
+upstream_registry_url = null

@@ -1,13 +1,43 @@
+variable "access_key_status" {
+  description = "Access key status to apply"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
 variable "create_access_key" {
   description = "Whether to create IAM access key"
   type        = bool
   default     = true
 }
 
-variable "access_key_status" {
-  description = "Access key status to apply"
-  type        = string
-  default     = null
+variable "create_inline_policy" {
+  description = "Determines whether to create an inline policy"
+  type        = bool
+  default     = false
+}
+
+variable "create_login_profile" {
+  description = "Whether to create IAM user login profile"
+  type        = bool
+  default     = true
+}
+
+variable "create_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
+  type        = bool
+  default     = false
+}
+
+variable "force_destroy" {
+  description = "When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed"
+  type        = bool
+  default     = false
 }
 
 variable "inline_policy_permissions" {
@@ -36,16 +66,16 @@ variable "inline_policy_permissions" {
   default = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
 variable "name" {
   description = "Desired name for the IAM user"
   type        = string
   default     = ""
+}
+
+variable "override_inline_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
 }
 
 variable "password_length" {
@@ -54,44 +84,8 @@ variable "password_length" {
   default     = null
 }
 
-variable "ssh_public_key" {
-  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
-  type        = string
-  default     = ""
-}
-
-variable "create_inline_policy" {
-  description = "Determines whether to create an inline policy"
-  type        = bool
-  default     = false
-}
-
-variable "source_inline_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "force_destroy" {
-  description = "When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed"
-  type        = bool
-  default     = false
-}
-
-variable "policies" {
-  description = "Policies to attach to the IAM user in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_login_profile" {
-  description = "Whether to create IAM user login profile"
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login"
   type        = bool
   default     = true
 }
@@ -114,10 +108,16 @@ variable "pgp_key" {
   default     = null
 }
 
-variable "create_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
-  type        = bool
-  default     = false
+variable "policies" {
+  description = "Policies to attach to the IAM user in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
+}
+
+variable "source_inline_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. Statements must have unique sids"
+  type        = list(string)
+  default     = []
 }
 
 variable "ssh_key_encoding" {
@@ -126,14 +126,14 @@ variable "ssh_key_encoding" {
   default     = "SSH"
 }
 
-variable "override_inline_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
+variable "ssh_public_key" {
+  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
+  type        = string
+  default     = ""
 }
 
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

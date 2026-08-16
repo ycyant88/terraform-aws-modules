@@ -1,73 +1,73 @@
-lc_name = ""
+asg_name = ""
 
-image_id = ""
+associate_public_ip_address = false
 
-iam_instance_profile = ""
+default_cooldown = 300
 
-placement_group = ""
+desired_capacity = ""
 
-metrics_granularity = "1Minute"
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
 
 enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
-wait_for_capacity_timeout = "10m"
+ephemeral_block_device = []
+
+existing_launch_configuration = ""
+
+force_delete = false
+
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
+image_id = ""
 
 instance_type = ""
 
 key_name = ""
 
-security_groups = ""
+lc_name = ""
 
-associate_public_ip_address = false
+load_balancers = []
 
-placement_tenancy = "default"
+max_size = ""
 
-min_size = ""
-
-vpc_zone_identifier = ""
-
-termination_policies = ["Default"]
-
-ebs_optimized = false
-
-ephemeral_block_device = []
-
-target_group_arns = []
+metrics_granularity = "1Minute"
 
 min_elb_capacity = 0
 
-existing_launch_configuration = ""
+min_size = ""
 
-ebs_block_device = []
+placement_group = ""
 
-health_check_grace_period = 300
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
 
 suspended_processes = []
 
 tags = []
 
-protect_from_scale_in = false
+target_group_arns = []
+
+termination_policies = ["Default"]
 
 user_data = ""
 
-enable_monitoring = true
+vpc_zone_identifier = ""
 
-root_block_device = []
-
-asg_name = ""
-
-force_delete = false
-
-spot_price = 0
-
-default_cooldown = 300
+wait_for_capacity_timeout = "10m"
 
 wait_for_elb_capacity = false
-
-max_size = ""
-
-desired_capacity = ""
-
-health_check_type = ""
-
-load_balancers = []

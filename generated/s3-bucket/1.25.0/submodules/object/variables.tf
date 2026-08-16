@@ -1,5 +1,17 @@
-variable "file_source" {
-  description = "The path to a file that will be read and uploaded as raw bytes for the object content."
+variable "acl" {
+  description = "The canned ACL to apply. Valid values are private, public-read, public-read-write, aws-exec-read, authenticated-read, bucket-owner-read, and bucket-owner-full-control. Defaults to private."
+  type        = string
+  default     = ""
+}
+
+variable "bucket" {
+  description = "The name of the bucket to put the file in. Alternatively, an S3 access point ARN can be specified."
+  type        = string
+  default     = ""
+}
+
+variable "cache_control" {
+  description = "Specifies caching behavior along the request/reply chain."
   type        = string
   default     = ""
 }
@@ -10,46 +22,16 @@ variable "content" {
   default     = ""
 }
 
-variable "website_redirect" {
-  description = "Specifies a target URL for website redirect."
+variable "content_base64" {
+  description = "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the gzipbase64 function with small text strings. For larger objects, use source to stream the content from a disk file."
   type        = string
   default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to assign to the object."
-  type        = map(string)
-  default     = {}
-}
-
-variable "object_lock_legal_hold_status" {
-  description = "The legal hold status that you want to apply to the specified object. Valid values are ON and OFF."
+variable "content_disposition" {
+  description = "Specifies presentational information for the object."
   type        = string
   default     = ""
-}
-
-variable "metadata" {
-  description = "A map of keys/values to provision metadata (will be automatically prefixed by x-amz-meta-, note that only lowercase label are currently supported by the AWS Go API)."
-  type        = map(string)
-  default     = {}
-}
-
-variable "object_lock_mode" {
-  description = "The object lock retention mode that you want to apply to this object. Valid values are GOVERNANCE and COMPLIANCE."
-  type        = string
-  default     = ""
-}
-
-variable "object_lock_retain_until_date" {
-  description = "The date and time, in RFC3339 format, when this object's object lock will expire."
-  type        = string
-  default     = ""
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
 }
 
 variable "content_encoding" {
@@ -64,14 +46,26 @@ variable "content_language" {
   default     = ""
 }
 
-variable "storage_class" {
-  description = "Specifies the desired Storage Class for the object. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, DEEP_ARCHIVE, or STANDARD_IA. Defaults to STANDARD."
+variable "content_type" {
+  description = "A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input."
   type        = string
   default     = ""
 }
 
-variable "kms_key_id" {
-  description = "Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the aws_kms_key resource, use the arn attribute. If referencing the aws_kms_alias data source or resource, use the target_key_arn attribute. Terraform will only perform drift detection if a configuration value is provided."
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
+variable "etag" {
+  description = "Used to trigger updates. This attribute is not compatible with KMS encryption, kms_key_id or server_side_encryption = \"aws:kms\"."
+  type        = string
+  default     = ""
+}
+
+variable "file_source" {
+  description = "The path to a file that will be read and uploaded as raw bytes for the object content."
   type        = string
   default     = ""
 }
@@ -88,20 +82,32 @@ variable "key" {
   default     = ""
 }
 
-variable "acl" {
-  description = "The canned ACL to apply. Valid values are private, public-read, public-read-write, aws-exec-read, authenticated-read, bucket-owner-read, and bucket-owner-full-control. Defaults to private."
+variable "kms_key_id" {
+  description = "Amazon Resource Name (ARN) of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the aws_kms_key resource, use the arn attribute. If referencing the aws_kms_alias data source or resource, use the target_key_arn attribute. Terraform will only perform drift detection if a configuration value is provided."
   type        = string
   default     = ""
 }
 
-variable "content_disposition" {
-  description = "Specifies presentational information for the object."
+variable "metadata" {
+  description = "A map of keys/values to provision metadata (will be automatically prefixed by x-amz-meta-, note that only lowercase label are currently supported by the AWS Go API)."
+  type        = map(string)
+  default     = {}
+}
+
+variable "object_lock_legal_hold_status" {
+  description = "The legal hold status that you want to apply to the specified object. Valid values are ON and OFF."
   type        = string
   default     = ""
 }
 
-variable "etag" {
-  description = "Used to trigger updates. This attribute is not compatible with KMS encryption, kms_key_id or server_side_encryption = \"aws:kms\"."
+variable "object_lock_mode" {
+  description = "The object lock retention mode that you want to apply to this object. Valid values are GOVERNANCE and COMPLIANCE."
+  type        = string
+  default     = ""
+}
+
+variable "object_lock_retain_until_date" {
+  description = "The date and time, in RFC3339 format, when this object's object lock will expire."
   type        = string
   default     = ""
 }
@@ -112,26 +118,20 @@ variable "server_side_encryption" {
   default     = ""
 }
 
-variable "bucket" {
-  description = "The name of the bucket to put the file in. Alternatively, an S3 access point ARN can be specified."
+variable "storage_class" {
+  description = "Specifies the desired Storage Class for the object. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, DEEP_ARCHIVE, or STANDARD_IA. Defaults to STANDARD."
   type        = string
   default     = ""
 }
 
-variable "content_base64" {
-  description = "Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the gzipbase64 function with small text strings. For larger objects, use source to stream the content from a disk file."
-  type        = string
-  default     = ""
+variable "tags" {
+  description = "A map of tags to assign to the object."
+  type        = map(string)
+  default     = {}
 }
 
-variable "cache_control" {
-  description = "Specifies caching behavior along the request/reply chain."
-  type        = string
-  default     = ""
-}
-
-variable "content_type" {
-  description = "A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input."
+variable "website_redirect" {
+  description = "Specifies a target URL for website redirect."
   type        = string
   default     = ""
 }

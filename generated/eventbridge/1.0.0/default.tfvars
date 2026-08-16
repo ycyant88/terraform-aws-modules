@@ -1,93 +1,93 @@
-attach_kinesis_firehose_policy = false
-
-attach_policy_jsons = false
-
-number_of_policy_jsons = 0
-
-policy_statements = {}
-
-role_tags = {}
-
-attach_ecs_policy = false
-
-attach_lambda_policy = false
+archives = {}
 
 attach_cloudwatch_policy = false
 
-lambda_target_arns = []
+attach_ecs_policy = false
+
+attach_kinesis_firehose_policy = false
+
+attach_kinesis_policy = false
+
+attach_lambda_policy = false
+
+attach_policies = false
+
+attach_policy = false
+
+attach_policy_json = false
+
+attach_policy_jsons = false
 
 attach_policy_statements = false
 
-create = true
-
-create_targets = true
-
-permissions = {}
+attach_sfn_policy = false
 
 attach_sqs_policy = false
 
-ecs_target_arns = []
-
-policy = ""
-
-policy_jsons = []
-
-policies = []
-
-archives = {}
-
-role_name = ""
-
-attach_sfn_policy = false
-
 attach_tracing_policy = false
-
-trusted_entities = []
-
-policy_json = ""
-
-create_role = true
 
 bus_name = "default"
 
-sqs_target_arns = []
+cloudwatch_target_arns = []
 
-number_of_policies = 0
+create = true
 
-attach_policy = false
+create_archives = false
 
 create_bus = true
 
 create_permissions = true
 
-targets = {}
-
-tags = {}
-
-role_description = ""
-
-attach_kinesis_policy = false
-
-cloudwatch_target_arns = []
-
-attach_policies = false
+create_role = true
 
 create_rules = true
 
-create_archives = false
+create_targets = true
 
-role_path = ""
-
-role_force_detach_policies = true
-
-role_permissions_boundary = ""
+ecs_target_arns = []
 
 kinesis_firehose_target_arns = []
 
-rules = {}
-
 kinesis_target_arns = []
+
+lambda_target_arns = []
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+permissions = {}
+
+policies = []
+
+policy = ""
+
+policy_json = ""
+
+policy_jsons = []
+
+policy_statements = {}
+
+role_description = ""
+
+role_force_detach_policies = true
+
+role_name = ""
+
+role_path = ""
+
+role_permissions_boundary = ""
+
+role_tags = {}
+
+rules = {}
 
 sfn_target_arns = []
 
-attach_policy_json = false
+sqs_target_arns = []
+
+tags = {}
+
+targets = {}
+
+trusted_entities = []

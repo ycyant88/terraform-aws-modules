@@ -1,55 +1,55 @@
-wlm_json_configuration = "[{\"query_concurrency\": 5}]"
+allow_version_upgrade = true
+
+automated_snapshot_retention_period = 0
+
+cluster_database_name = ""
 
 cluster_iam_roles = []
 
-logging_bucket_name = false
-
-cluster_number_of_nodes = 3
-
-parameter_group_name = ""
-
-vpc_security_group_ids = []
-
-cluster_port = 5439
-
-redshift_subnet_group_name = ""
-
-preferred_maintenance_window = "sat:10:00-sat:10:30"
-
-tags = {}
-
 cluster_identifier = ""
 
-cluster_parameter_group = "redshift-1.0"
-
-subnets = []
-
-logging_s3_key_prefix = false
+cluster_master_password = ""
 
 cluster_master_username = ""
 
-cluster_master_password = ""
+cluster_node_type = ""
+
+cluster_number_of_nodes = 3
+
+cluster_parameter_group = "redshift-1.0"
+
+cluster_port = 5439
+
+cluster_version = "1.0"
+
+enable_logging = false
 
 encrypted = false
 
 enhanced_vpc_routing = false
 
-publicly_accessible = false
-
-skip_final_snapshot = true
-
-allow_version_upgrade = true
-
-cluster_version = "1.0"
-
-cluster_node_type = ""
-
-automated_snapshot_retention_period = 0
+final_snapshot_identifier = false
 
 kms_key_id = ""
 
-cluster_database_name = ""
+logging_bucket_name = false
 
-final_snapshot_identifier = false
+logging_s3_key_prefix = false
 
-enable_logging = false
+parameter_group_name = ""
+
+preferred_maintenance_window = "sat:10:00-sat:10:30"
+
+publicly_accessible = false
+
+redshift_subnet_group_name = ""
+
+skip_final_snapshot = true
+
+subnets = []
+
+tags = {}
+
+vpc_security_group_ids = []
+
+wlm_json_configuration = "[{\"query_concurrency\": 5}]"

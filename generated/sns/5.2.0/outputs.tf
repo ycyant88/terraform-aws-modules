@@ -1,8 +1,3 @@
-output "topic_owner" {
-  value       = module.sns.topic_owner
-  description = "The AWS Account ID of the SNS topic owner"
-}
-
 output "subscriptions" {
   value       = module.sns.subscriptions
   description = "Map of subscriptions created and their attributes"
@@ -21,4 +16,9 @@ output "topic_id" {
 output "topic_name" {
   value       = module.sns.topic_name
   description = "The name of the topic"
+}
+
+output "topic_owner" {
+  value       = module.sns.topic_owner
+  description = "The AWS Account ID of the SNS topic owner"
 }

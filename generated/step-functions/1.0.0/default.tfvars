@@ -1,57 +1,57 @@
-service_integrations = {}
+attach_policies = false
 
-number_of_policy_jsons = 0
+attach_policies_for_integrations = true
 
-policy_json = null
+attach_policy = false
+
+attach_policy_json = false
+
+attach_policy_jsons = false
+
+attach_policy_statements = false
 
 aws_region_assume_role = ""
-
-role_description = null
-
-number_of_policies = 0
-
-policies = []
 
 create = true
 
 create_role = true
 
-role_name = null
-
-role_force_detach_policies = true
-
-attach_policies_for_integrations = true
-
-role_path = null
-
-trusted_entities = []
+definition = ""
 
 name = ""
 
-tags = {}
+number_of_policies = 0
 
-attach_policy_json = false
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
 
 policy_jsons = []
 
-definition = ""
+policy_statements = {}
 
 role_arn = ""
 
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
 role_permissions_boundary = null
-
-attach_policy = false
-
-policy_statements = {}
-
-attach_policy_statements = false
-
-use_existing_role = false
 
 role_tags = {}
 
-attach_policy_jsons = false
+service_integrations = {}
 
-attach_policies = false
+tags = {}
 
-policy = null
+trusted_entities = []
+
+use_existing_role = false

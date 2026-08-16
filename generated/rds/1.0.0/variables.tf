@@ -1,19 +1,7 @@
-variable "name" {
-  description = "The DB name to create. If omitted, no database is created initially"
+variable "allocated_storage" {
+  description = "The allocated storage in gigabytes"
   type        = string
   default     = ""
-}
-
-variable "port" {
-  description = "The port on which the DB accepts connections"
-  type        = string
-  default     = ""
-}
-
-variable "multi_az" {
-  description = "Specifies if the RDS instance is multi-AZ"
-  type        = bool
-  default     = false
 }
 
 variable "allow_major_version_upgrade" {
@@ -22,46 +10,16 @@ variable "allow_major_version_upgrade" {
   default     = false
 }
 
-variable "family" {
-  description = "The family of the DB parameter group"
-  type        = string
-  default     = ""
-}
-
-variable "engine" {
-  description = "The database engine to use"
-  type        = string
-  default     = ""
-}
-
-variable "instance_class" {
-  description = "The instance type of the RDS instance"
-  type        = string
-  default     = ""
-}
-
-variable "password" {
-  description = "Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file"
-  type        = string
-  default     = ""
-}
-
-variable "maintenance_window" {
-  description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
-  type        = string
-  default     = ""
-}
-
-variable "storage_type" {
-  description = "One of 'standard' (magnetic), 'gp2' (general purpose SSD), or 'io1' (provisioned IOPS SSD). The default is 'io1' if iops is specified, 'standard' if not. Note that this behaviour is different from the AWS web console, where the default is 'gp2'."
-  type        = string
-  default     = "gp2"
-}
-
 variable "apply_immediately" {
   description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window"
   type        = bool
   default     = false
+}
+
+variable "auto_minor_version_upgrade" {
+  description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
+  type        = bool
+  default     = true
 }
 
 variable "backup_retention_period" {
@@ -76,20 +34,38 @@ variable "backup_window" {
   default     = ""
 }
 
-variable "vpc_security_group_ids" {
-  description = "List of VPC security groups to associate"
-  type        = list(any)
-  default     = []
-}
-
 variable "copy_tags_to_snapshot" {
   description = "On delete, copy all Instance tags to the final snapshot (if final_snapshot_identifier is specified)"
   type        = bool
   default     = false
 }
 
+variable "engine" {
+  description = "The database engine to use"
+  type        = string
+  default     = ""
+}
+
+variable "engine_version" {
+  description = "The engine version to use"
+  type        = string
+  default     = ""
+}
+
+variable "family" {
+  description = "The family of the DB parameter group"
+  type        = string
+  default     = ""
+}
+
 variable "identifier" {
   description = "The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier"
+  type        = string
+  default     = ""
+}
+
+variable "instance_class" {
+  description = "The instance type of the RDS instance"
   type        = string
   default     = ""
 }
@@ -100,16 +76,22 @@ variable "iops" {
   default     = 0
 }
 
-variable "publicly_accessible" {
-  description = "Bool to control if instance is publicly accessible"
+variable "maintenance_window" {
+  description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
+  type        = string
+  default     = ""
+}
+
+variable "multi_az" {
+  description = "Specifies if the RDS instance is multi-AZ"
   type        = bool
   default     = false
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to all resources"
-  type        = map(any)
-  default     = {}
+variable "name" {
+  description = "The DB name to create. If omitted, no database is created initially"
+  type        = string
+  default     = ""
 }
 
 variable "parameters" {
@@ -118,10 +100,22 @@ variable "parameters" {
   default     = {}
 }
 
-variable "allocated_storage" {
-  description = "The allocated storage in gigabytes"
+variable "password" {
+  description = "Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file"
   type        = string
   default     = ""
+}
+
+variable "port" {
+  description = "The port on which the DB accepts connections"
+  type        = string
+  default     = ""
+}
+
+variable "publicly_accessible" {
+  description = "Bool to control if instance is publicly accessible"
+  type        = bool
+  default     = false
 }
 
 variable "skip_final_snapshot" {
@@ -130,16 +124,22 @@ variable "skip_final_snapshot" {
   default     = true
 }
 
+variable "storage_type" {
+  description = "One of 'standard' (magnetic), 'gp2' (general purpose SSD), or 'io1' (provisioned IOPS SSD). The default is 'io1' if iops is specified, 'standard' if not. Note that this behaviour is different from the AWS web console, where the default is 'gp2'."
+  type        = string
+  default     = "gp2"
+}
+
 variable "subnet_ids" {
   description = "A list of VPC subnet IDs"
   type        = list(any)
   default     = []
 }
 
-variable "engine_version" {
-  description = "The engine version to use"
-  type        = string
-  default     = ""
+variable "tags" {
+  description = "A mapping of tags to assign to all resources"
+  type        = map(any)
+  default     = {}
 }
 
 variable "username" {
@@ -148,8 +148,8 @@ variable "username" {
   default     = ""
 }
 
-variable "auto_minor_version_upgrade" {
-  description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
-  type        = bool
-  default     = true
+variable "vpc_security_group_ids" {
+  description = "List of VPC security groups to associate"
+  type        = list(any)
+  default     = []
 }

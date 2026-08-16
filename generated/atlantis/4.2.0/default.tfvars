@@ -1,53 +1,53 @@
-atlantis_gid = 1000
+alb = {}
+
+alb_https_default_action = { "forward" : { "target_group_key" : "atlantis" } }
+
+alb_security_group_id = ""
 
 alb_subnets = []
 
-efs = {}
-
 alb_target_group_arn = ""
-
-create_certificate = true
-
-certificate_arn = ""
-
-validate_certificate = true
-
-atlantis_uid = 100
-
-service_subnets = []
-
-tags = {}
 
 atlantis = {}
 
-vpc_id = ""
+atlantis_gid = 1000
+
+atlantis_uid = 100
+
+certificate_arn = ""
+
+certificate_domain_name = ""
 
 cluster = {}
 
+cluster_arn = ""
+
 create = true
+
+create_alb = true
+
+create_certificate = true
+
+create_cluster = true
+
+create_route53_records = true
+
+efs = {}
 
 enable_efs = false
 
 name = "atlantis"
 
-create_cluster = true
+route53_record_name = null
+
+route53_zone_id = ""
 
 service = {}
 
-create_alb = true
+service_subnets = []
 
-alb_security_group_id = ""
+tags = {}
 
-alb = {}
+validate_certificate = true
 
-create_route53_records = true
-
-cluster_arn = ""
-
-route53_record_name = null
-
-alb_https_default_action = { "forward" : { "target_group_key" : "atlantis" } }
-
-certificate_domain_name = ""
-
-route53_zone_id = ""
+vpc_id = ""

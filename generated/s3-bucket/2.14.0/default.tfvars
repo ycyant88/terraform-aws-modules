@@ -1,59 +1,59 @@
-website = {}
+acceleration_status = ""
 
-versioning = {}
+acl = "private"
 
-lifecycle_rule = []
-
-restrict_public_buckets = false
+attach_deny_insecure_transport_policy = false
 
 attach_elb_log_delivery_policy = false
 
-attach_require_latest_tls_policy = false
-
-bucket = ""
-
-grant = []
-
-object_lock_configuration = {}
+attach_lb_log_delivery_policy = false
 
 attach_policy = false
 
 attach_public_policy = true
 
-tags = {}
-
-replication_configuration = {}
-
-block_public_policy = false
-
-attach_deny_insecure_transport_policy = false
-
-acl = "private"
-
-cors_rule = []
-
-logging = {}
-
-control_object_ownership = false
-
-attach_lb_log_delivery_policy = false
-
-bucket_prefix = ""
+attach_require_latest_tls_policy = false
 
 block_public_acls = false
 
-force_destroy = false
+block_public_policy = false
 
-server_side_encryption_configuration = {}
+bucket = ""
+
+bucket_prefix = ""
+
+control_object_ownership = false
+
+cors_rule = []
 
 create_bucket = true
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
 
 object_ownership = "ObjectWriter"
 
 policy = ""
 
-acceleration_status = ""
+replication_configuration = {}
 
 request_payer = ""
 
-ignore_public_acls = false
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

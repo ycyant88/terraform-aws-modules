@@ -1,171 +1,171 @@
-wait_for_elb_capacity = null
-
-health_check_grace_period = null
-
-enable_monitoring = null
-
-placement_tenancy = null
-
-ephemeral_block_device = []
-
-license_specifications = null
-
-user_data = null
-
-instance_name = ""
-
-key_name = null
-
-security_groups = null
-
-create_lc = false
-
-lc_name = ""
-
-lt_name = ""
-
-instance_initiated_shutdown_behavior = null
-
-min_size = null
-
-default_cooldown = null
-
-mixed_instances_policy = null
-
-spot_price = null
-
-kernel_id = null
-
-ram_disk_id = null
-
-credit_specification = null
-
-create_asg = true
+associate_public_ip_address = null
 
 availability_zone = null
 
-max_instance_lifetime = null
-
-iam_instance_profile_name = null
-
-create_schedule = true
-
-lt_version = null
+block_device_mappings = []
 
 capacity_rebalance = null
 
-force_delete = null
+capacity_reservation_specification = null
 
-termination_policies = null
+cpu_options = null
 
-tags = []
+create_asg = true
 
-name = ""
+create_lc = false
 
-propagate_name = true
+create_lt = false
 
-associate_public_ip_address = null
+create_schedule = true
 
-protect_from_scale_in = false
+credit_specification = null
 
-service_linked_role_arn = null
+default_cooldown = null
+
+default_version = null
 
 delete_timeout = null
 
-capacity_reservation_specification = null
-
-tag_specifications = []
-
-max_size = null
-
-instance_refresh = null
-
-root_block_device = []
-
-lt_use_name_prefix = true
-
-instance_market_options = null
-
-metrics_granularity = null
-
-ebs_optimized = null
-
 description = null
-
-update_default_version = null
-
-hibernation_options = null
 
 desired_capacity = null
 
+disable_api_termination = null
+
+ebs_block_device = []
+
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_monitoring = null
+
+enabled_metrics = null
+
+enclave_options = null
+
+ephemeral_block_device = []
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = null
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+image_id = ""
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = null
+
+instance_name = ""
+
+instance_refresh = null
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
 launch_configuration = null
+
+launch_template = null
+
+lc_name = ""
+
+lc_use_name_prefix = true
+
+license_specifications = null
 
 load_balancers = []
 
-elastic_gpu_specifications = null
+lt_name = ""
+
+lt_use_name_prefix = true
+
+lt_version = null
+
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = null
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
 
 network_interfaces = []
 
 placement = null
 
+placement_group = null
+
+placement_tenancy = null
+
+propagate_name = true
+
+protect_from_scale_in = false
+
+ram_disk_id = null
+
+root_block_device = []
+
 schedules = {}
 
-health_check_type = null
+security_groups = null
 
-warm_pool = null
+service_linked_role_arn = null
 
-use_lc = false
-
-disable_api_termination = null
-
-enclave_options = null
-
-vpc_zone_identifier = null
-
-enabled_metrics = null
-
-default_version = null
-
-launch_template = null
-
-image_id = ""
-
-metadata_options = null
-
-min_elb_capacity = null
-
-wait_for_capacity_timeout = null
-
-target_group_arns = []
-
-lc_use_name_prefix = true
-
-create_lt = false
-
-use_lt = false
+spot_price = null
 
 suspended_processes = null
 
-initial_lifecycle_hooks = []
+tag_specifications = []
 
-instance_type = ""
-
-block_device_mappings = []
-
-elastic_inference_accelerator = null
-
-iam_instance_profile_arn = null
-
-use_name_prefix = true
-
-placement_group = null
-
-use_mixed_instances_policy = false
+tags = []
 
 tags_as_map = {}
 
+target_group_arns = []
+
+termination_policies = null
+
+update_default_version = null
+
+use_lc = false
+
+use_lt = false
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data = null
+
 user_data_base64 = null
 
-ebs_block_device = []
+vpc_zone_identifier = null
 
-cpu_options = null
+wait_for_capacity_timeout = null
+
+wait_for_elb_capacity = null
+
+warm_pool = null

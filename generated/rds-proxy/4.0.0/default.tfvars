@@ -1,81 +1,81 @@
-vpc_security_group_ids = []
-
-max_connections_percent = 90
-
-db_instance_identifier = ""
-
-iam_role_description = ""
-
-iam_role_tags = {}
-
-create_iam_policy = true
-
-use_policy_name_prefix = false
-
-debug_logging = false
-
-vpc_subnet_ids = []
-
-max_idle_connections_percent = 50
-
-log_group_class = null
-
-create_iam_role = true
-
-kms_key_arns = []
-
-proxy_tags = {}
+auth = { "default" : { "auth_scheme" : "SECRETS" } }
 
 connection_borrow_timeout = null
 
-init_query = ""
+create = true
+
+create_iam_policy = true
+
+create_iam_role = true
 
 db_cluster_identifier = ""
 
+db_instance_identifier = ""
+
+debug_logging = false
+
 endpoints = {}
 
-iam_role_force_detach_policies = true
-
-require_tls = true
+engine_family = ""
 
 iam_policy_name = ""
 
-auth = { "default" : { "auth_scheme" : "SECRETS" } }
+iam_role_description = ""
 
-session_pinning_filters = []
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = 43200
+
+iam_role_name = ""
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+idle_client_timeout = 1800
+
+init_query = ""
+
+kms_key_arns = []
+
+log_group_class = null
+
+log_group_kms_key_id = null
+
+log_group_retention_in_days = 30
+
+log_group_tags = {}
 
 manage_log_group = true
 
-log_group_tags = {}
+max_connections_percent = 90
+
+max_idle_connections_percent = 50
+
+name = ""
+
+proxy_tags = {}
+
+region = null
+
+require_tls = true
+
+role_arn = ""
+
+session_pinning_filters = []
 
 tags = {}
 
 target_db_cluster = false
 
-iam_role_name = ""
+target_db_instance = false
 
-engine_family = ""
-
-idle_client_timeout = 1800
-
-log_group_retention_in_days = 30
-
-log_group_kms_key_id = null
+use_policy_name_prefix = false
 
 use_role_name_prefix = false
 
-iam_role_path = null
+vpc_security_group_ids = []
 
-iam_role_max_session_duration = 43200
-
-iam_role_permissions_boundary = null
-
-create = true
-
-name = ""
-
-role_arn = ""
-
-target_db_instance = false
-
-region = null
+vpc_subnet_ids = []

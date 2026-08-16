@@ -1,21 +1,16 @@
-output "iam_role_unique_id" {
-  value       = module.eks-pod-identity.iam_role_unique_id
-  description = "Unique ID of IAM role"
-}
-
 output "iam_policy_arn" {
   value       = module.eks-pod-identity.iam_policy_arn
   description = "The ARN assigned by AWS to this policy"
 }
 
-output "iam_policy_name" {
-  value       = module.eks-pod-identity.iam_policy_name
-  description = "Name of IAM policy"
-}
-
 output "iam_policy_id" {
   value       = module.eks-pod-identity.iam_policy_id
   description = " The policy's ID"
+}
+
+output "iam_policy_name" {
+  value       = module.eks-pod-identity.iam_policy_name
+  description = "Name of IAM policy"
 }
 
 output "iam_role_arn" {
@@ -31,4 +26,9 @@ output "iam_role_name" {
 output "iam_role_path" {
   value       = module.eks-pod-identity.iam_role_path
   description = "Path of IAM role"
+}
+
+output "iam_role_unique_id" {
+  value       = module.eks-pod-identity.iam_role_unique_id
+  description = "Unique ID of IAM role"
 }

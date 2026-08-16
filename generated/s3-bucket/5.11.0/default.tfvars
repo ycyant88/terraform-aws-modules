@@ -1,143 +1,143 @@
-analytics_configuration = {}
+acceleration_status = null
 
-attach_cloudtrail_log_delivery_policy = false
+access_log_delivery_policy_source_accounts = []
 
-attach_deny_insecure_transport_policy = false
+access_log_delivery_policy_source_buckets = []
+
+access_log_delivery_policy_source_organizations = []
 
 acl = null
 
-logging = {}
+allowed_kms_key_arn = null
 
-expected_bucket_owner = null
+analytics_configuration = {}
 
-restrict_public_buckets = true
-
-is_directory_bucket = false
-
-grant = []
-
-server_side_encryption_configuration = {}
+analytics_self_source_destination = false
 
 analytics_source_account_id = null
 
-force_destroy = false
+analytics_source_bucket_arn = null
 
-lifecycle_rule = []
+attach_access_log_delivery_policy = false
 
-inventory_self_source_destination = false
+attach_analytics_destination_policy = false
+
+attach_cloudtrail_log_delivery_policy = false
+
+attach_deny_incorrect_encryption_headers = false
+
+attach_deny_incorrect_kms_key_sse = false
+
+attach_deny_insecure_transport_policy = false
+
+attach_deny_ssec_encrypted_object_uploads = false
+
+attach_deny_unencrypted_object_uploads = false
+
+attach_elb_log_delivery_policy = false
+
+attach_inventory_destination_policy = false
+
+attach_lb_log_delivery_policy = false
+
+attach_policy = false
 
 attach_public_policy = true
+
+attach_require_latest_tls_policy = false
+
+attach_waf_log_delivery_policy = false
+
+availability_zone_id = null
 
 block_public_acls = true
 
 block_public_policy = true
 
-type = "Directory"
-
-website = {}
-
-create_metadata_configuration = false
-
-attach_access_log_delivery_policy = false
-
-attach_deny_incorrect_kms_key_sse = false
-
-allowed_kms_key_arn = null
-
-tags = {}
-
-acceleration_status = null
-
-access_log_delivery_policy_source_accounts = []
-
-control_object_ownership = false
-
-location_type = null
-
-attach_elb_log_delivery_policy = false
-
-attach_policy = false
-
-replication_configuration = {}
-
-intelligent_tiering = {}
-
-metric_configuration = []
-
-data_redundancy = null
-
-attach_deny_ssec_encrypted_object_uploads = false
-
-cors_rule = []
-
-access_log_delivery_policy_source_buckets = []
-
-ignore_public_acls = true
-
-putin_khuylo = true
-
-object_lock_configuration = {}
-
-inventory_source_account_id = null
-
-object_lock_enabled = false
-
-attach_deny_incorrect_encryption_headers = false
-
-region = null
-
-policy = null
-
-metadata_journal_table_record_expiration_days = null
-
-attach_lb_log_delivery_policy = false
-
-inventory_configuration = {}
-
-object_ownership = "BucketOwnerEnforced"
-
-attach_waf_log_delivery_policy = false
-
 bucket = null
-
-availability_zone_id = null
-
-metadata_inventory_table_configuration_state = null
-
-metadata_encryption_configuration = null
-
-attach_analytics_destination_policy = false
-
-attach_deny_unencrypted_object_uploads = false
-
-owner = {}
-
-analytics_source_bucket_arn = null
-
-analytics_self_source_destination = false
-
-lb_log_delivery_policy_source_organizations = []
-
-versioning = {}
-
-transition_default_minimum_object_size = null
-
-metadata_journal_table_record_expiration = null
-
-create_bucket = true
-
-attach_inventory_destination_policy = false
 
 bucket_namespace = null
 
+bucket_prefix = null
+
+control_object_ownership = false
+
+cors_rule = []
+
+create_bucket = true
+
+create_metadata_configuration = false
+
+data_redundancy = null
+
+expected_bucket_owner = null
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = true
+
+intelligent_tiering = {}
+
+inventory_configuration = {}
+
+inventory_self_source_destination = false
+
+inventory_source_account_id = null
+
 inventory_source_bucket_arn = null
 
-skip_destroy_public_access_block = true
+is_directory_bucket = false
 
-attach_require_latest_tls_policy = false
+lb_log_delivery_policy_source_organizations = []
 
-bucket_prefix = null
+lifecycle_rule = []
+
+location_type = null
+
+logging = {}
+
+metadata_encryption_configuration = null
+
+metadata_inventory_table_configuration_state = null
+
+metadata_journal_table_record_expiration = null
+
+metadata_journal_table_record_expiration_days = null
+
+metric_configuration = []
+
+object_lock_configuration = {}
+
+object_lock_enabled = false
+
+object_ownership = "BucketOwnerEnforced"
+
+owner = {}
+
+policy = null
+
+putin_khuylo = true
+
+region = null
+
+replication_configuration = {}
 
 request_payer = null
 
-access_log_delivery_policy_source_organizations = []
+restrict_public_buckets = true
+
+server_side_encryption_configuration = {}
+
+skip_destroy_public_access_block = true
+
+tags = {}
+
+transition_default_minimum_object_size = null
+
+type = "Directory"
+
+versioning = {}
+
+website = {}

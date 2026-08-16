@@ -1,13 +1,13 @@
+autoscaling_capacity_providers = {}
+
 cluster_configuration = {}
+
+cluster_name = ""
 
 cluster_settings = { "name" : "containerInsights", "value" : "enabled" }
 
-fargate_capacity_providers = {}
-
-autoscaling_capacity_providers = {}
-
 create = true
 
-tags = {}
+fargate_capacity_providers = {}
 
-cluster_name = ""
+tags = {}

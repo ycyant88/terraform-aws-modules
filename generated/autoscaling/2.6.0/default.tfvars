@@ -1,81 +1,81 @@
-security_groups = ""
+asg_name = ""
 
-ebs_optimized = false
-
-load_balancers = []
+associate_public_ip_address = false
 
 create_asg = true
 
-launch_configuration = ""
+create_lc = true
 
-spot_price = ""
+default_cooldown = 300
 
-min_size = ""
+desired_capacity = ""
 
-vpc_zone_identifier = ""
+ebs_block_device = []
 
-termination_policies = ["Default"]
-
-tags_as_map = {}
-
-min_elb_capacity = 0
-
-force_delete = false
+ebs_optimized = false
 
 enable_monitoring = true
 
-asg_name = ""
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 
-image_id = ""
+ephemeral_block_device = []
 
-root_block_device = []
+force_delete = false
 
 health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
+image_id = ""
 
 instance_type = ""
 
 key_name = ""
 
-default_cooldown = 300
+launch_configuration = ""
 
-ephemeral_block_device = []
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
 
 placement_tenancy = "default"
 
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+protect_from_scale_in = false
 
-associate_public_ip_address = false
+root_block_device = []
 
-ebs_block_device = []
+security_groups = ""
 
-wait_for_capacity_timeout = "10m"
-
-health_check_type = ""
-
-create_lc = true
-
-iam_instance_profile = ""
-
-user_data = " "
+spot_price = ""
 
 suspended_processes = []
 
 tags = []
 
-wait_for_elb_capacity = false
-
-protect_from_scale_in = false
-
-max_size = ""
-
-desired_capacity = ""
+tags_as_map = {}
 
 target_group_arns = []
 
-placement_group = ""
+termination_policies = ["Default"]
 
-metrics_granularity = "1Minute"
+user_data = " "
 
-name = ""
+vpc_zone_identifier = ""
 
-lc_name = ""
+wait_for_capacity_timeout = "10m"
+
+wait_for_elb_capacity = false

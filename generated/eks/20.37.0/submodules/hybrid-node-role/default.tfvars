@@ -1,71 +1,71 @@
-ira_trust_anchor_name = null
-
-ira_trust_anchor_source_type = null
-
-intermediate_role_path = "/"
-
-intermediate_policy_use_name_prefix = true
-
-enable_pod_identity = true
-
-ira_profile_managed_policy_arns = []
-
-ira_profile_require_instance_properties = null
-
-max_session_duration = null
-
 cluster_arns = ["*"]
-
-ira_profile_session_policy = null
-
-enable_ira = false
-
-intermediate_role_name = null
-
-intermediate_policy_name = null
 
 create = true
 
-trust_anchor_arns = []
+description = "EKS Hybrid Node IAM role"
 
-policy_use_name_prefix = true
+enable_ira = false
 
-policy_description = "EKS Hybrid Node IAM role policy"
+enable_pod_identity = true
 
-policy_statements = []
-
-ira_profile_name = null
+intermediate_policy_name = null
 
 intermediate_policy_statements = []
 
+intermediate_policy_use_name_prefix = true
+
+intermediate_role_description = "EKS Hybrid Node IAM Roles Anywhere intermediate IAM role"
+
+intermediate_role_name = null
+
+intermediate_role_path = "/"
+
 intermediate_role_policies = {}
 
-use_name_prefix = true
+intermediate_role_use_name_prefix = true
 
 ira_profile_duration_seconds = null
 
-description = "EKS Hybrid Node IAM role"
+ira_profile_managed_policy_arns = []
 
-permissions_boundary_arn = null
+ira_profile_name = null
 
-policy_path = "/"
+ira_profile_require_instance_properties = null
 
-policies = {}
+ira_profile_session_policy = null
 
 ira_trust_anchor_acm_pca_arn = null
+
+ira_trust_anchor_name = null
+
+ira_trust_anchor_notification_settings = []
+
+ira_trust_anchor_source_type = null
+
+ira_trust_anchor_x509_certificate_data = null
+
+max_session_duration = null
 
 name = "EKSHybridNode"
 
 path = "/"
 
-tags = {}
+permissions_boundary_arn = null
 
-ira_trust_anchor_notification_settings = []
+policies = {}
 
-ira_trust_anchor_x509_certificate_data = null
-
-intermediate_role_use_name_prefix = true
-
-intermediate_role_description = "EKS Hybrid Node IAM Roles Anywhere intermediate IAM role"
+policy_description = "EKS Hybrid Node IAM role policy"
 
 policy_name = "EKSHybridNode"
+
+policy_path = "/"
+
+policy_statements = []
+
+policy_use_name_prefix = true
+
+tags = {}
+
+trust_anchor_arns = []
+
+use_name_prefix = true

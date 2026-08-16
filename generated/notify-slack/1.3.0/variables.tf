@@ -1,7 +1,7 @@
-variable "slack_username" {
-  description = "The username that will appear on Slack on messages"
+variable "create_sns_topic" {
+  description = "Whether to create new SNS topic"
   type        = string
-  default     = ""
+  default     = true
 }
 
 variable "kms_key_arn" {
@@ -10,20 +10,20 @@ variable "kms_key_arn" {
   default     = ""
 }
 
-variable "create_sns_topic" {
-  description = "Whether to create new SNS topic"
-  type        = string
-  default     = true
-}
-
 variable "lambda_function_name" {
   description = "The name of the Lambda function to create"
   type        = string
   default     = "notify_slack"
 }
 
-variable "sns_topic_name" {
-  description = "The name of the SNS topic to create"
+variable "slack_channel" {
+  description = "The name of the channel in Slack for notifications"
+  type        = string
+  default     = ""
+}
+
+variable "slack_username" {
+  description = "The username that will appear on Slack on messages"
   type        = string
   default     = ""
 }
@@ -34,8 +34,8 @@ variable "slack_webhook_url" {
   default     = ""
 }
 
-variable "slack_channel" {
-  description = "The name of the channel in Slack for notifications"
+variable "sns_topic_name" {
+  description = "The name of the SNS topic to create"
   type        = string
   default     = ""
 }

@@ -1,161 +1,161 @@
-lt_version = null
-
-spot_price = null
-
-service_linked_role_arn = null
-
-ebs_block_device = []
-
-description = null
-
-kernel_id = null
-
-tag_specifications = []
-
-min_elb_capacity = null
-
-delete_timeout = null
-
-iam_instance_profile_name = null
-
-default_version = null
-
-max_instance_lifetime = null
-
-tags_as_map = {}
-
-launch_template = null
-
-health_check_grace_period = null
-
-metrics_granularity = null
-
-key_name = null
-
-metadata_options = null
-
-lc_use_name_prefix = true
+associate_public_ip_address = null
 
 availability_zone = null
 
-target_group_arns = []
-
-ebs_optimized = null
-
-image_id = ""
-
-use_lt = false
-
-update_default_version = null
-
 block_device_mappings = []
+
+capacity_rebalance = null
+
+capacity_reservation_specification = null
+
+cpu_options = null
 
 create_asg = true
 
-health_check_type = null
+create_lc = false
 
-force_delete = null
+create_lt = false
 
-security_groups = null
+credit_specification = null
+
+default_cooldown = null
+
+default_version = null
+
+delete_timeout = null
+
+description = null
+
+desired_capacity = null
 
 disable_api_termination = null
 
+ebs_block_device = []
+
+ebs_optimized = null
+
 elastic_gpu_specifications = null
 
-license_specifications = null
-
-max_size = null
-
-mixed_instances_policy = null
+elastic_inference_accelerator = null
 
 enable_monitoring = null
 
-placement_tenancy = null
+enabled_metrics = null
+
+enclave_options = null
+
+ephemeral_block_device = []
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = null
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+image_id = ""
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = null
+
+instance_refresh = null
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
+launch_configuration = null
+
+launch_template = null
+
+lc_name = ""
+
+lc_use_name_prefix = true
+
+license_specifications = null
+
+load_balancers = []
+
+lt_name = ""
 
 lt_use_name_prefix = true
+
+lt_version = null
+
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = null
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
 
 network_interfaces = []
 
 placement = null
 
-desired_capacity = null
-
-user_data = null
-
-name = ""
-
-capacity_rebalance = null
-
-wait_for_elb_capacity = null
-
-lt_name = ""
-
-instance_initiated_shutdown_behavior = null
-
-wait_for_capacity_timeout = null
-
-use_mixed_instances_policy = false
-
-tags = []
-
-vpc_zone_identifier = null
-
 placement_group = null
 
-termination_policies = null
-
-initial_lifecycle_hooks = []
-
-create_lc = false
-
-associate_public_ip_address = null
-
-cpu_options = null
-
-credit_specification = null
-
-root_block_device = []
-
-use_name_prefix = true
-
-default_cooldown = null
-
-load_balancers = []
-
-instance_refresh = null
-
-create_lt = false
-
-elastic_inference_accelerator = null
-
-enclave_options = null
-
-suspended_processes = null
-
-user_data_base64 = null
-
-capacity_reservation_specification = null
-
-hibernation_options = null
-
-instance_market_options = null
-
-launch_configuration = null
-
-min_size = null
-
-instance_type = ""
-
-use_lc = false
-
-ram_disk_id = null
-
-iam_instance_profile_arn = null
+placement_tenancy = null
 
 protect_from_scale_in = false
 
-enabled_metrics = null
+ram_disk_id = null
 
-lc_name = ""
+root_block_device = []
 
-ephemeral_block_device = []
+security_groups = null
+
+service_linked_role_arn = null
+
+spot_price = null
+
+suspended_processes = null
+
+tag_specifications = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = null
+
+update_default_version = null
+
+use_lc = false
+
+use_lt = false
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data = null
+
+user_data_base64 = null
+
+vpc_zone_identifier = null
+
+wait_for_capacity_timeout = null
+
+wait_for_elb_capacity = null

@@ -3,14 +3,14 @@ output "arn" {
   description = "ARN of the cluster"
 }
 
-output "identifier" {
-  value       = module.rds-aurora_dsql.identifier
-  description = "Cluster identifier"
-}
-
 output "encryption_details" {
   value       = module.rds-aurora_dsql.encryption_details
   description = "Encryption configuration details for the DSQL cluster"
+}
+
+output "identifier" {
+  value       = module.rds-aurora_dsql.identifier
+  description = "Cluster identifier"
 }
 
 output "multi_region_properties" {

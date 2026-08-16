@@ -1,19 +1,7 @@
-variable "egress_rules" {
-  description = "List of egress rules to create by name"
+variable "auto_egress_rules" {
+  description = "List of egress rules to add automatically"
   type        = list(any)
-  default     = []
-}
-
-variable "egress_with_self" {
-  description = "List of egress rules to create where 'self' is defined"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_cidr_blocks" {
-  description = "List of IPv4 CIDR ranges to use on all egress rules"
-  type        = list(any)
-  default     = ["0.0.0.0/0"]
+  default     = ["all-all"]
 }
 
 variable "auto_egress_with_self" {
@@ -22,20 +10,56 @@ variable "auto_egress_with_self" {
   default     = []
 }
 
+variable "auto_ingress_rules" {
+  description = "List of ingress rules to add automatically"
+  type        = list(any)
+  default     = ["https-443-tcp"]
+}
+
+variable "auto_ingress_with_self" {
+  description = "List of maps defining ingress rules with self to add automatically"
+  type        = list(any)
+  default     = [{ "rule" : "all-all" }]
+}
+
 variable "create" {
   description = "Whether to create security group and all rules"
   type        = bool
   default     = true
 }
 
-variable "ingress_rules" {
-  description = "List of ingress rules to create by name"
+variable "description" {
+  description = "Description of security group"
+  type        = string
+  default     = "Security Group managed by Terraform"
+}
+
+variable "egress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all egress rules"
+  type        = list(any)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "egress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all egress rules"
+  type        = list(any)
+  default     = ["::/0"]
+}
+
+variable "egress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
   type        = list(any)
   default     = []
 }
 
-variable "ingress_with_self" {
-  description = "List of ingress rules to create where 'self' is defined"
+variable "egress_rules" {
+  description = "List of egress rules to create by name"
+  type        = list(any)
+  default     = []
+}
+
+variable "egress_with_cidr_blocks" {
+  description = "List of egress rules to create where 'cidr_blocks' is used"
   type        = list(any)
   default     = []
 }
@@ -46,44 +70,14 @@ variable "egress_with_ipv6_cidr_blocks" {
   default     = []
 }
 
+variable "egress_with_self" {
+  description = "List of egress rules to create where 'self' is defined"
+  type        = list(any)
+  default     = []
+}
+
 variable "egress_with_source_security_group_id" {
   description = "List of egress rules to create where 'source_security_group_id' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "egress_prefix_list_ids" {
-  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
-  type        = list(any)
-  default     = []
-}
-
-variable "auto_ingress_with_self" {
-  description = "List of maps defining ingress rules with self to add automatically"
-  type        = list(any)
-  default     = [{ "rule" : "all-all" }]
-}
-
-variable "auto_egress_rules" {
-  description = "List of egress rules to add automatically"
-  type        = list(any)
-  default     = ["all-all"]
-}
-
-variable "ingress_with_cidr_blocks" {
-  description = "List of ingress rules to create where 'cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_with_ipv6_cidr_blocks" {
-  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
-  type        = list(any)
-  default     = []
-}
-
-variable "ingress_with_source_security_group_id" {
-  description = "List of ingress rules to create where 'source_security_group_id' is used"
   type        = list(any)
   default     = []
 }
@@ -92,24 +86,6 @@ variable "ingress_cidr_blocks" {
   description = "List of IPv4 CIDR ranges to use on all ingress rules"
   type        = list(any)
   default     = []
-}
-
-variable "egress_ipv6_cidr_blocks" {
-  description = "List of IPv6 CIDR ranges to use on all egress rules"
-  type        = list(any)
-  default     = ["::/0"]
-}
-
-variable "auto_ingress_rules" {
-  description = "List of ingress rules to add automatically"
-  type        = list(any)
-  default     = ["https-443-tcp"]
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where to create security group"
-  type        = string
-  default     = ""
 }
 
 variable "ingress_ipv6_cidr_blocks" {
@@ -124,8 +100,32 @@ variable "ingress_prefix_list_ids" {
   default     = []
 }
 
-variable "egress_with_cidr_blocks" {
-  description = "List of egress rules to create where 'cidr_blocks' is used"
+variable "ingress_rules" {
+  description = "List of ingress rules to create by name"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_cidr_blocks" {
+  description = "List of ingress rules to create where 'cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_ipv6_cidr_blocks" {
+  description = "List of ingress rules to create where 'ipv6_cidr_blocks' is used"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_self" {
+  description = "List of ingress rules to create where 'self' is defined"
+  type        = list(any)
+  default     = []
+}
+
+variable "ingress_with_source_security_group_id" {
+  description = "List of ingress rules to create where 'source_security_group_id' is used"
   type        = list(any)
   default     = []
 }
@@ -136,14 +136,14 @@ variable "name" {
   default     = ""
 }
 
-variable "description" {
-  description = "Description of security group"
-  type        = string
-  default     = "Security Group managed by Terraform"
-}
-
 variable "tags" {
   description = "A mapping of tags to assign to security group"
   type        = map(any)
   default     = {}
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where to create security group"
+  type        = string
+  default     = ""
 }

@@ -1,39 +1,39 @@
-iam_role_use_name_prefix = true
+cluster_ip_family = "ipv4"
 
-iam_role_tags = {}
+cluster_name = null
 
-create_iam_role_policy = true
+create = true
 
 create_iam_role = true
 
-iam_role_name = ""
+create_iam_role_policy = true
 
-iam_role_description = null
-
-iam_role_attach_cni_policy = true
-
-name = ""
-
-subnet_ids = []
-
-timeouts = {}
-
-tags = {}
+iam_role_additional_policies = {}
 
 iam_role_arn = null
 
-iam_role_policy_statements = []
+iam_role_attach_cni_policy = true
 
-selectors = []
+iam_role_description = null
 
-create = true
+iam_role_name = ""
 
 iam_role_path = null
 
 iam_role_permissions_boundary = null
 
-iam_role_additional_policies = {}
+iam_role_policy_statements = []
 
-cluster_name = null
+iam_role_tags = {}
 
-cluster_ip_family = "ipv4"
+iam_role_use_name_prefix = true
+
+name = ""
+
+selectors = []
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = {}

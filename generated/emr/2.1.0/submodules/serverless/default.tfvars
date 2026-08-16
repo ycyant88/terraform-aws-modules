@@ -1,37 +1,37 @@
-initial_capacity = {}
-
-maximum_capacity = {}
-
-release_label = null
-
-create_security_group = true
-
-security_group_use_name_prefix = true
-
-security_group_description = null
-
-auto_stop_configuration = {}
-
-image_configuration = {}
-
-name = ""
-
-release_label_prefix = "emr-6"
-
 architecture = null
 
 auto_start_configuration = {}
 
-security_group_tags = {}
+auto_stop_configuration = {}
 
 create = true
 
-tags = {}
+create_security_group = true
+
+image_configuration = {}
+
+initial_capacity = {}
+
+maximum_capacity = {}
+
+name = ""
 
 network_configuration = {}
 
-type = "spark"
+release_label = null
+
+release_label_prefix = "emr-6"
+
+security_group_description = null
 
 security_group_name = null
 
 security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+tags = {}
+
+type = "spark"

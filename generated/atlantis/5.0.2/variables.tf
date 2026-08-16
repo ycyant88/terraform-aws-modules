@@ -1,9 +1,3 @@
-variable "alb_security_group_id" {
-  description = "ID of an existing security group that will be used by ALB. Required if create_alb is false"
-  type        = string
-  default     = ""
-}
-
 variable "alb" {
   description = "Map of values passed to ALB module definition. See the [ALB module](https://github.com/terraform-aws-modules/terraform-aws-alb) for full list of arguments supported"
   type = object({
@@ -116,183 +110,16 @@ variable "alb" {
   default = {}
 }
 
-variable "create_certificate" {
-  description = "Determines whether to create an ACM certificate or not. If false, certificate_arn must be provided"
-  type        = bool
-  default     = true
-}
-
-variable "certificate_domain_name" {
-  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
+variable "alb_security_group_id" {
+  description = "ID of an existing security group that will be used by ALB. Required if create_alb is false"
   type        = string
   default     = ""
 }
 
-variable "route53_zone_id" {
-  description = "Route53 zone ID to use for ACM certificate and Route53 records"
+variable "alb_target_group_arn" {
+  description = "ARN of an existing ALB target group that will be used to route traffic to the Atlantis service. Required if create_alb is false"
   type        = string
   default     = ""
-}
-
-variable "route53_record_name" {
-  description = "Name of Route53 record to create ACM certificate in and main A-record. If null is specified, var.name is used instead. Provide empty string to point root domain name to ALB."
-  type        = string
-  default     = null
-}
-
-variable "cluster" {
-  description = "Map of values passed to ECS cluster module definition. See the [ECS cluster module](https://github.com/terraform-aws-modules/terraform-aws-ecs/tree/master/modules/cluster) for full list of arguments supported"
-  type = object({
-    # Cluster
-    name = optional(string)
-    configuration = optional(object({
-      execute_command_configuration = optional(object({
-        kms_key_id = optional(string)
-        log_configuration = optional(object({
-          cloud_watch_encryption_enabled = optional(bool)
-          cloud_watch_log_group_name     = optional(string)
-          s3_bucket_encryption_enabled   = optional(bool)
-          s3_bucket_name                 = optional(string)
-          s3_kms_key_id                  = optional(string)
-          s3_key_prefix                  = optional(string)
-        }))
-        logging = optional(string, "OVERRIDE")
-      }))
-      managed_storage_configuration = optional(object({
-        fargate_ephemeral_storage_kms_key_id = optional(string)
-        kms_key_id                           = optional(string)
-      }))
-      }),
-      # Default
-      {
-        execute_command_configuration = {
-          log_configuration = {
-            cloud_watch_log_group_name = "placeholder" # will use CloudWatch log group created by module
-          }
-        }
-      }
-    )
-    setting = optional(list(object({
-      name  = string
-      value = string
-      })),
-      # Default
-      [{
-        name  = "containerInsights"
-        value = "enabled"
-      }]
-    )
-
-    # Cloudwatch log group
-    create_cloudwatch_log_group            = optional(bool, true)
-    cloudwatch_log_group_retention_in_days = optional(number, 90)
-    cloudwatch_log_group_kms_key_id        = optional(string)
-    cloudwatch_log_group_class             = optional(string)
-    cloudwatch_log_group_tags              = optional(map(string), {})
-
-    # Capacity providers
-    default_capacity_provider_strategy = optional(
-      map(object({
-        base   = optional(number)
-        name   = optional(string) # Will fall back to use map key if not set
-        weight = optional(number)
-      })),
-      # Default
-      {
-        FARGATE = {
-          weight = 100
-        }
-      }
-    )
-  })
-  default = {}
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the resources will be provisioned"
-  type        = string
-  default     = ""
-}
-
-variable "enable_efs" {
-  description = "Determines whether to create and utilize an EFS filesystem"
-  type        = bool
-  default     = false
-}
-
-variable "efs" {
-  description = "Map of values passed to EFS module definition. See the [EFS module](https://github.com/terraform-aws-modules/terraform-aws-efs) for full list of arguments supported"
-  type = object({
-    name = optional(string)
-
-    # File System
-    availability_zone_name          = optional(string)
-    creation_token                  = optional(string)
-    performance_mode                = optional(string)
-    encrypted                       = optional(bool, true)
-    kms_key_arn                     = optional(string)
-    provisioned_throughput_in_mibps = optional(number)
-    throughput_mode                 = optional(string)
-    lifecycle_policy = optional(object({
-      transition_to_ia                    = optional(string)
-      transition_to_archive               = optional(string)
-      transition_to_primary_storage_class = optional(string)
-    }))
-    protection = optional(object({
-      replication_overwrite = optional(string)
-    }))
-
-    # File System Policy
-    attach_policy                             = optional(bool, true)
-    bypass_policy_lockout_safety_check        = optional(bool)
-    source_policy_documents                   = optional(list(string), [])
-    override_policy_documents                 = optional(list(string), [])
-    policy_statements                         = optional(any, {})
-    deny_nonsecure_transport                  = optional(bool, true)
-    deny_nonsecure_transport_via_mount_target = optional(bool, true)
-
-    # Mount targets
-    mount_targets = optional(map(object({
-      ip_address      = optional(string)
-      ip_address_type = optional(string)
-      ipv6_address    = optional(string)
-      region          = optional(string)
-      security_groups = optional(list(string), [])
-      subnet_id       = string
-      })),
-      # Default
-      {}
-    )
-
-    # Security Group
-    create_security_group          = optional(bool, true)
-    security_group_name            = optional(string)
-    security_group_use_name_prefix = optional(bool, true)
-    security_group_description     = optional(string)
-    security_group_ingress_rules   = optional(any, {})
-
-    # Access Point(s)
-    access_points = optional(any, {})
-  })
-  default = {}
-}
-
-variable "name" {
-  description = "Common name to use on all resources created unless a more specific name is provided"
-  type        = string
-  default     = "atlantis"
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "atlantis" {
@@ -422,14 +249,106 @@ variable "atlantis" {
   default = {}
 }
 
-variable "create_route53_records" {
-  description = "Determines whether to create Route53 A and AAAA records for the loadbalancer"
+variable "certificate_arn" {
+  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
+  type        = string
+  default     = ""
+}
+
+variable "certificate_domain_name" {
+  description = "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in route53_zone_name"
+  type        = string
+  default     = ""
+}
+
+variable "cluster" {
+  description = "Map of values passed to ECS cluster module definition. See the [ECS cluster module](https://github.com/terraform-aws-modules/terraform-aws-ecs/tree/master/modules/cluster) for full list of arguments supported"
+  type = object({
+    # Cluster
+    name = optional(string)
+    configuration = optional(object({
+      execute_command_configuration = optional(object({
+        kms_key_id = optional(string)
+        log_configuration = optional(object({
+          cloud_watch_encryption_enabled = optional(bool)
+          cloud_watch_log_group_name     = optional(string)
+          s3_bucket_encryption_enabled   = optional(bool)
+          s3_bucket_name                 = optional(string)
+          s3_kms_key_id                  = optional(string)
+          s3_key_prefix                  = optional(string)
+        }))
+        logging = optional(string, "OVERRIDE")
+      }))
+      managed_storage_configuration = optional(object({
+        fargate_ephemeral_storage_kms_key_id = optional(string)
+        kms_key_id                           = optional(string)
+      }))
+      }),
+      # Default
+      {
+        execute_command_configuration = {
+          log_configuration = {
+            cloud_watch_log_group_name = "placeholder" # will use CloudWatch log group created by module
+          }
+        }
+      }
+    )
+    setting = optional(list(object({
+      name  = string
+      value = string
+      })),
+      # Default
+      [{
+        name  = "containerInsights"
+        value = "enabled"
+      }]
+    )
+
+    # Cloudwatch log group
+    create_cloudwatch_log_group            = optional(bool, true)
+    cloudwatch_log_group_retention_in_days = optional(number, 90)
+    cloudwatch_log_group_kms_key_id        = optional(string)
+    cloudwatch_log_group_class             = optional(string)
+    cloudwatch_log_group_tags              = optional(map(string), {})
+
+    # Capacity providers
+    default_capacity_provider_strategy = optional(
+      map(object({
+        base   = optional(number)
+        name   = optional(string) # Will fall back to use map key if not set
+        weight = optional(number)
+      })),
+      # Default
+      {
+        FARGATE = {
+          weight = 100
+        }
+      }
+    )
+  })
+  default = {}
+}
+
+variable "cluster_arn" {
+  description = "ARN of an existing ECS cluster where resources will be created. Required when create_cluster is false"
+  type        = string
+  default     = ""
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
   default     = true
 }
 
-variable "validate_certificate" {
-  description = "Determines whether to validate ACM certificate using Route53 DNS. If false, certificate will be created but not validated"
+variable "create_alb" {
+  description = "Determines whether to create an ALB or not"
+  type        = bool
+  default     = true
+}
+
+variable "create_certificate" {
+  description = "Determines whether to create an ACM certificate or not. If false, certificate_arn must be provided"
   type        = bool
   default     = true
 }
@@ -440,8 +359,95 @@ variable "create_cluster" {
   default     = true
 }
 
-variable "cluster_arn" {
-  description = "ARN of an existing ECS cluster where resources will be created. Required when create_cluster is false"
+variable "create_route53_records" {
+  description = "Determines whether to create Route53 A and AAAA records for the loadbalancer"
+  type        = bool
+  default     = true
+}
+
+variable "efs" {
+  description = "Map of values passed to EFS module definition. See the [EFS module](https://github.com/terraform-aws-modules/terraform-aws-efs) for full list of arguments supported"
+  type = object({
+    name = optional(string)
+
+    # File System
+    availability_zone_name          = optional(string)
+    creation_token                  = optional(string)
+    performance_mode                = optional(string)
+    encrypted                       = optional(bool, true)
+    kms_key_arn                     = optional(string)
+    provisioned_throughput_in_mibps = optional(number)
+    throughput_mode                 = optional(string)
+    lifecycle_policy = optional(object({
+      transition_to_ia                    = optional(string)
+      transition_to_archive               = optional(string)
+      transition_to_primary_storage_class = optional(string)
+    }))
+    protection = optional(object({
+      replication_overwrite = optional(string)
+    }))
+
+    # File System Policy
+    attach_policy                             = optional(bool, true)
+    bypass_policy_lockout_safety_check        = optional(bool)
+    source_policy_documents                   = optional(list(string), [])
+    override_policy_documents                 = optional(list(string), [])
+    policy_statements                         = optional(any, {})
+    deny_nonsecure_transport                  = optional(bool, true)
+    deny_nonsecure_transport_via_mount_target = optional(bool, true)
+
+    # Mount targets
+    mount_targets = optional(map(object({
+      ip_address      = optional(string)
+      ip_address_type = optional(string)
+      ipv6_address    = optional(string)
+      region          = optional(string)
+      security_groups = optional(list(string), [])
+      subnet_id       = string
+      })),
+      # Default
+      {}
+    )
+
+    # Security Group
+    create_security_group          = optional(bool, true)
+    security_group_name            = optional(string)
+    security_group_use_name_prefix = optional(bool, true)
+    security_group_description     = optional(string)
+    security_group_ingress_rules   = optional(any, {})
+
+    # Access Point(s)
+    access_points = optional(any, {})
+  })
+  default = {}
+}
+
+variable "enable_efs" {
+  description = "Determines whether to create and utilize an EFS filesystem"
+  type        = bool
+  default     = false
+}
+
+variable "name" {
+  description = "Common name to use on all resources created unless a more specific name is provided"
+  type        = string
+  default     = "atlantis"
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "route53_record_name" {
+  description = "Name of Route53 record to create ACM certificate in and main A-record. If null is specified, var.name is used instead. Provide empty string to point root domain name to ALB."
+  type        = string
+  default     = null
+}
+
+variable "route53_zone_id" {
+  description = "Route53 zone ID to use for ACM certificate and Route53 records"
   type        = string
   default     = ""
 }
@@ -622,26 +628,20 @@ variable "service" {
   default = {}
 }
 
-variable "create_alb" {
-  description = "Determines whether to create an ALB or not"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "validate_certificate" {
+  description = "Determines whether to validate ACM certificate using Route53 DNS. If false, certificate will be created but not validated"
   type        = bool
   default     = true
 }
 
-variable "alb_target_group_arn" {
-  description = "ARN of an existing ALB target group that will be used to route traffic to the Atlantis service. Required if create_alb is false"
+variable "vpc_id" {
+  description = "ID of the VPC where the resources will be provisioned"
   type        = string
   default     = ""
-}
-
-variable "certificate_arn" {
-  description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"
-  type        = string
-  default     = ""
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
 }

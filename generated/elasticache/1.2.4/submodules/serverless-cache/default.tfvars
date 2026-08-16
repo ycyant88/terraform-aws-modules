@@ -1,29 +1,29 @@
-kms_key_id = null
-
-snapshot_arns_to_restore = null
-
-create = true
-
-description = null
-
-snapshot_retention_limit = null
-
-tags = {}
+cache_name = null
 
 cache_usage_limits = {}
 
+create = true
+
 daily_snapshot_time = null
 
-security_group_ids = []
-
-subnet_ids = []
-
-cache_name = null
+description = null
 
 engine = "redis"
 
-timeouts = {}
+kms_key_id = null
 
 major_engine_version = null
+
+security_group_ids = []
+
+snapshot_arns_to_restore = null
+
+snapshot_retention_limit = null
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = {}
 
 user_group_id = null

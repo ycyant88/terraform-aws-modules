@@ -1,133 +1,133 @@
-domain_iam_role_name = null
+allocated_storage = null
 
 allow_major_version_upgrade = false
 
-cloudwatch_log_group_kms_key_id = null
+apply_immediately = false
 
-max_allocated_storage = 0
+auto_minor_version_upgrade = true
+
+availability_zone = null
+
+backup_retention_period = null
+
+backup_window = null
+
+blue_green_update = {}
+
+ca_cert_identifier = null
+
+character_set_name = null
+
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_retention_in_days = 7
 
+copy_tags_to_snapshot = false
+
+create = true
+
+create_cloudwatch_log_group = false
+
+create_monitoring_role = false
+
+custom_iam_instance_profile = null
+
+db_name = null
+
+db_subnet_group_name = null
+
+delete_automated_backups = true
+
+deletion_protection = false
+
+domain = null
+
+domain_iam_role_name = null
+
+enabled_cloudwatch_logs_exports = []
+
+engine = null
+
+engine_version = null
+
+final_snapshot_identifier_prefix = "final"
+
+iam_database_authentication_enabled = false
+
 identifier = ""
 
-storage_throughput = null
+instance_class = null
+
+iops = null
+
+kms_key_id = null
+
+license_model = null
+
+maintenance_window = null
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = null
+
+monitoring_role_description = null
 
 monitoring_role_name = "rds-monitoring-role"
 
 monitoring_role_permissions_boundary = null
 
-apply_immediately = false
-
-tags = {}
-
-kms_key_id = null
-
-publicly_accessible = false
-
-monitoring_interval = 0
-
-maintenance_window = null
-
-delete_automated_backups = true
-
-s3_import = null
-
-use_identifier_prefix = false
-
-ca_cert_identifier = null
-
-iam_database_authentication_enabled = false
-
-db_name = null
-
-create_monitoring_role = false
-
-performance_insights_kms_key_id = null
-
-deletion_protection = false
-
-performance_insights_retention_period = 7
-
-domain = null
-
-port = null
+monitoring_role_use_name_prefix = false
 
 multi_az = false
 
-iops = null
-
-timezone = null
-
-character_set_name = null
-
-custom_iam_instance_profile = null
-
-final_snapshot_identifier_prefix = "final"
-
-parameter_group_name = null
-
-blue_green_update = {}
-
-create = true
-
-vpc_security_group_ids = []
-
-enabled_cloudwatch_logs_exports = []
-
-timeouts = {}
-
-username = null
-
-license_model = null
-
-monitoring_role_arn = null
-
-option_group_name = null
-
-storage_encrypted = true
-
-copy_tags_to_snapshot = false
-
-engine = null
-
-password = null
-
 nchar_character_set_name = null
-
-performance_insights_enabled = false
 
 network_type = null
 
+option_group_name = null
+
+parameter_group_name = null
+
+password = null
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = null
+
+performance_insights_retention_period = 7
+
+port = null
+
+publicly_accessible = false
+
 replica_mode = null
-
-engine_version = null
-
-snapshot_identifier = null
-
-db_subnet_group_name = null
-
-availability_zone = null
-
-monitoring_role_description = null
-
-monitoring_role_use_name_prefix = false
-
-auto_minor_version_upgrade = true
-
-backup_retention_period = null
-
-restore_to_point_in_time = null
-
-create_cloudwatch_log_group = false
-
-allocated_storage = null
-
-storage_type = null
 
 replicate_source_db = null
 
-instance_class = null
+restore_to_point_in_time = null
+
+s3_import = null
 
 skip_final_snapshot = false
 
-backup_window = null
+snapshot_identifier = null
+
+storage_encrypted = true
+
+storage_throughput = null
+
+storage_type = null
+
+tags = {}
+
+timeouts = {}
+
+timezone = null
+
+use_identifier_prefix = false
+
+username = null
+
+vpc_security_group_ids = []

@@ -1,7 +1,7 @@
-group_users = []
+assumable_roles = []
 
-tags = {}
+group_users = []
 
 name = ""
 
-assumable_roles = []
+tags = {}

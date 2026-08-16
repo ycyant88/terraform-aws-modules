@@ -1,41 +1,41 @@
-tags = {}
-
-create_zone = true
-
-ignore_vpc = false
-
-timeouts = null
-
-vpc_association_authorizations = null
-
-dnssec_kms_key_arn = null
+comment = null
 
 create = true
 
-private_zone = false
-
-comment = null
-
-force_destroy = null
-
-enable_dnssec = false
-
-dnssec_kms_key_aliases = []
-
-dnssec_kms_key_tags = {}
-
-vpc_id = null
-
-vpc = null
-
 create_dnssec_kms_key = true
+
+create_zone = true
 
 delegation_set_id = null
 
-enable_accelerated_recovery = null
+dnssec_kms_key_aliases = []
 
-name = ""
+dnssec_kms_key_arn = null
 
 dnssec_kms_key_description = "Route53 DNSSEC KMS Key"
 
+dnssec_kms_key_tags = {}
+
+enable_accelerated_recovery = null
+
+enable_dnssec = false
+
+force_destroy = null
+
+ignore_vpc = false
+
+name = ""
+
+private_zone = false
+
 records = {}
+
+tags = {}
+
+timeouts = null
+
+vpc = null
+
+vpc_association_authorizations = null
+
+vpc_id = null

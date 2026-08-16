@@ -1,19 +1,19 @@
 module "eks" {
   source                       = "terraform-aws-modules/eks/aws"
   version                      = "0.2.0"
-  workers_instance_type        = var.workers_instance_type
+  additional_userdata          = var.additional_userdata
+  cluster_ingress_cidrs        = var.cluster_ingress_cidrs
+  cluster_name                 = var.cluster_name
+  cluster_version              = var.cluster_version
   config_output_path           = var.config_output_path
   configure_kubectl_session    = var.configure_kubectl_session
-  vpc_id                       = var.vpc_id
-  workers_asg_min_size         = var.workers_asg_min_size
-  cluster_ingress_cidrs        = var.cluster_ingress_cidrs
   ebs_optimized_workers        = var.ebs_optimized_workers
-  tags                         = var.tags
-  workers_ami_id               = var.workers_ami_id
-  workers_asg_max_size         = var.workers_asg_max_size
-  additional_userdata          = var.additional_userdata
-  cluster_name                 = var.cluster_name
-  workers_asg_desired_capacity = var.workers_asg_desired_capacity
-  cluster_version              = var.cluster_version
   subnets                      = var.subnets
+  tags                         = var.tags
+  vpc_id                       = var.vpc_id
+  workers_ami_id               = var.workers_ami_id
+  workers_asg_desired_capacity = var.workers_asg_desired_capacity
+  workers_asg_max_size         = var.workers_asg_max_size
+  workers_asg_min_size         = var.workers_asg_min_size
+  workers_instance_type        = var.workers_instance_type
 }

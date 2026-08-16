@@ -1,7 +1,25 @@
-variable "role_description" {
-  description = "Description of IAM role to use for Lambda Function"
+variable "alias_description" {
+  description = "Description of the alias."
   type        = string
-  default     = null
+  default     = ""
+}
+
+variable "alias_function_name" {
+  description = "The function ARN of the Lambda function for which you want to create an alias."
+  type        = string
+  default     = ""
+}
+
+variable "alias_function_version" {
+  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
+  type        = string
+  default     = ""
+}
+
+variable "alias_name" {
+  description = "Name for the alias you are creating."
+  type        = string
+  default     = ""
 }
 
 variable "alias_routing_additional_version_weights" {
@@ -10,32 +28,26 @@ variable "alias_routing_additional_version_weights" {
   default     = {}
 }
 
-variable "maximum_retry_attempts" {
-  description = "Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2."
-  type        = number
-  default     = null
-}
-
-variable "function_name" {
-  description = "A unique name for your Lambda Function"
+variable "artifacts_dir" {
+  description = "Directory name where artifacts should be stored"
   type        = string
-  default     = ""
+  default     = "builds"
 }
 
-variable "role_name" {
-  description = "Name of IAM role to use for Lambda Function"
-  type        = string
-  default     = null
+variable "attach_async_event_policy" {
+  description = "Controls whether async event policy should be added to IAM role for Lambda Function"
+  type        = bool
+  default     = false
 }
 
-variable "source_path" {
-  description = "The absolute path to a local file or directory containing your Lambda source code"
-  type        = any
-  default     = null
+variable "attach_cloudwatch_logs_policy" {
+  description = "Controls whether CloudWatch Logs policy should be added to IAM role for Lambda Function"
+  type        = bool
+  default     = true
 }
 
-variable "lambda_at_edge" {
-  description = "Set this to true if using Lambda@Edge, to enable publishing, limit the timeout, and allow edgelambda.amazonaws.com to invoke the function"
+variable "attach_dead_letter_policy" {
+  description = "Controls whether SNS/SQS dead letter notification policy should be added to IAM role for Lambda Function"
   type        = bool
   default     = false
 }
@@ -46,46 +58,16 @@ variable "attach_network_policy" {
   default     = false
 }
 
-variable "s3_object_tags" {
-  description = "A map of tags to assign to S3 bucket object."
-  type        = map(string)
-  default     = {}
-}
-
 variable "attach_tracing_policy" {
   description = "Controls whether X-Ray tracing policy should be added to IAM role for Lambda Function"
   type        = bool
   default     = false
 }
 
-variable "policy" {
-  description = "An additional policy document ARN to attach to the Lambda Function role"
-  type        = string
-  default     = null
-}
-
-variable "policy_statements" {
-  description = "Map of dynamic policy statements to attach to Lambda Function role"
-  type        = any
-  default     = {}
-}
-
-variable "local_existing_package" {
-  description = "The absolute path to an existing zip-file to use"
-  type        = string
-  default     = null
-}
-
-variable "create_async_event_config" {
-  description = "Controls whether async event configuration for Lambda Function/Alias should be created"
+variable "build_in_docker" {
+  description = "Whether to build dependencies in Docker"
   type        = bool
   default     = false
-}
-
-variable "reserved_concurrent_executions" {
-  description = "The amount of reserved concurrent executions for this Lambda Function. A value of 0 disables Lambda Function from being triggered and -1 removes any concurrency limitations. Defaults to Unreserved Concurrency Limits -1."
-  type        = number
-  default     = -1
 }
 
 variable "compatible_runtimes" {
@@ -94,70 +76,22 @@ variable "compatible_runtimes" {
   default     = []
 }
 
-variable "alias_name" {
-  description = "Name for the alias you are creating."
-  type        = string
-  default     = ""
-}
-
-variable "alias_description" {
-  description = "Description of the alias."
-  type        = string
-  default     = ""
-}
-
-variable "maximum_event_age_in_seconds" {
-  description = "Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600."
-  type        = number
-  default     = null
-}
-
-variable "docker_image" {
-  description = "Docker image to use for the build"
-  type        = string
-  default     = ""
-}
-
 variable "create" {
   description = "Controls whether resources should be created"
   type        = bool
   default     = true
 }
 
-variable "publish" {
-  description = "Whether to publish creation/change as new Lambda Function Version."
+variable "create_alias" {
+  description = "Controls whether Lambda Alias resource should be created"
   type        = bool
   default     = false
 }
 
-variable "description" {
-  description = "Description of your Lambda Function (or Layer)"
-  type        = string
-  default     = ""
-}
-
-variable "provisioned_concurrent_executions" {
-  description = "Amount of capacity to allocate. Must be greater than or equal to 1."
-  type        = number
-  default     = -1
-}
-
-variable "alias_function_name" {
-  description = "The function ARN of the Lambda function for which you want to create an alias."
-  type        = string
-  default     = ""
-}
-
-variable "trusted_entities" {
-  description = "Lambda Function additional trusted entities for assuming roles (trust relationship)"
-  type        = list(string)
-  default     = []
-}
-
-variable "docker_build_root" {
-  description = "Root dir where to build in Docker"
-  type        = string
-  default     = ""
+variable "create_async_event_config" {
+  description = "Controls whether async event configuration for Lambda Function/Alias should be created"
+  type        = bool
+  default     = false
 }
 
 variable "create_function" {
@@ -166,50 +100,50 @@ variable "create_function" {
   default     = true
 }
 
-variable "license_info" {
-  description = "License info for your Lambda Layer. Eg, MIT or full url of a license."
-  type        = string
-  default     = ""
-}
-
-variable "vpc_subnet_ids" {
-  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
-  type        = list(string)
-  default     = null
-}
-
-variable "role_path" {
-  description = "Path of IAM role to use for Lambda Function"
-  type        = string
-  default     = null
-}
-
-variable "store_on_s3" {
-  description = "Whether to store produced artifacts on S3 or locally."
+variable "create_layer" {
+  description = "Controls whether Lambda Layer resource should be created"
   type        = bool
   default     = false
 }
 
-variable "handler" {
-  description = "Lambda Function entrypoint in your code"
+variable "create_package" {
+  description = "Controls whether Lambda package should be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_role" {
+  description = "Controls whether IAM role for Lambda Function should be created"
+  type        = bool
+  default     = true
+}
+
+variable "dead_letter_target_arn" {
+  description = "The ARN of an SNS topic or SQS queue to notify when an invocation fails."
+  type        = string
+  default     = null
+}
+
+variable "description" {
+  description = "Description of your Lambda Function (or Layer)"
   type        = string
   default     = ""
 }
 
-variable "timeout" {
-  description = "The amount of time your Lambda Function has to run in seconds."
-  type        = number
-  default     = 3
+variable "destination_on_failure" {
+  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
+  type        = string
+  default     = null
 }
 
-variable "role_tags" {
-  description = "A map of tags to assign to IAM role"
-  type        = map(string)
-  default     = {}
+variable "destination_on_success" {
+  description = "Amazon Resource Name (ARN) of the destination resource for successful asynchronous invocations"
+  type        = string
+  default     = null
 }
 
-variable "hash_extra" {
-  description = "The string to add into hashing function. Useful when building same source path for different functions."
+variable "docker_build_root" {
+  description = "Root dir where to build in Docker"
   type        = string
   default     = ""
 }
@@ -220,33 +154,93 @@ variable "docker_file" {
   default     = ""
 }
 
-variable "dead_letter_target_arn" {
-  description = "The ARN of an SNS topic or SQS queue to notify when an invocation fails."
+variable "docker_image" {
+  description = "Docker image to use for the build"
   type        = string
-  default     = null
+  default     = ""
 }
 
-variable "tags" {
-  description = "A map of tags to assign to resources."
+variable "docker_with_ssh_agent" {
+  description = "Whether to pass SSH_AUTH_SOCK into docker environment or not"
+  type        = bool
+  default     = false
+}
+
+variable "environment_variables" {
+  description = "A map that defines environment variables for the Lambda Function."
   type        = map(string)
   default     = {}
 }
 
-variable "destination_on_success" {
-  description = "Amazon Resource Name (ARN) of the destination resource for successful asynchronous invocations"
+variable "function_name" {
+  description = "A unique name for your Lambda Function"
   type        = string
-  default     = null
+  default     = ""
 }
 
-variable "s3_object_storage_class" {
-  description = "Specifies the desired Storage Class for the artifact uploaded to S3. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, or STANDARD_IA."
+variable "handler" {
+  description = "Lambda Function entrypoint in your code"
   type        = string
-  default     = "ONEZONE_IA"
+  default     = ""
+}
+
+variable "hash_extra" {
+  description = "The string to add into hashing function. Useful when building same source path for different functions."
+  type        = string
+  default     = ""
 }
 
 variable "kms_key_arn" {
   description = ""
   type        = string
+  default     = null
+}
+
+variable "lambda_at_edge" {
+  description = "Set this to true if using Lambda@Edge, to enable publishing, limit the timeout, and allow edgelambda.amazonaws.com to invoke the function"
+  type        = bool
+  default     = false
+}
+
+variable "lambda_role" {
+  description = " IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See Lambda Permission Model for more details."
+  type        = string
+  default     = ""
+}
+
+variable "layer_name" {
+  description = "Name of Lambda Layer to create"
+  type        = string
+  default     = ""
+}
+
+variable "layers" {
+  description = "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function."
+  type        = list(string)
+  default     = null
+}
+
+variable "license_info" {
+  description = "License info for your Lambda Layer. Eg, MIT or full url of a license."
+  type        = string
+  default     = ""
+}
+
+variable "local_existing_package" {
+  description = "The absolute path to an existing zip-file to use"
+  type        = string
+  default     = null
+}
+
+variable "maximum_event_age_in_seconds" {
+  description = "Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600."
+  type        = number
+  default     = null
+}
+
+variable "maximum_retry_attempts" {
+  description = "Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2."
+  type        = number
   default     = null
 }
 
@@ -262,122 +256,8 @@ variable "policies" {
   default     = []
 }
 
-variable "artifacts_dir" {
-  description = "Directory name where artifacts should be stored"
-  type        = string
-  default     = "builds"
-}
-
-variable "s3_bucket" {
-  description = "S3 bucket to store artifacts"
-  type        = string
-  default     = null
-}
-
-variable "build_in_docker" {
-  description = "Whether to build dependencies in Docker"
-  type        = bool
-  default     = false
-}
-
-variable "docker_with_ssh_agent" {
-  description = "Whether to pass SSH_AUTH_SOCK into docker environment or not"
-  type        = bool
-  default     = false
-}
-
-variable "create_package" {
-  description = "Controls whether Lambda package should be created"
-  type        = bool
-  default     = true
-}
-
-variable "create_alias" {
-  description = "Controls whether Lambda Alias resource should be created"
-  type        = bool
-  default     = false
-}
-
-variable "vpc_security_group_ids" {
-  description = "List of security group ids when Lambda Function should run in the VPC."
-  type        = list(string)
-  default     = null
-}
-
-variable "alias_function_version" {
-  description = "Lambda function version for which you are creating the alias. Pattern: ($LATEST|[0-9]+)."
-  type        = string
-  default     = ""
-}
-
-variable "attach_cloudwatch_logs_policy" {
-  description = "Controls whether CloudWatch Logs policy should be added to IAM role for Lambda Function"
-  type        = bool
-  default     = true
-}
-
-variable "attach_dead_letter_policy" {
-  description = "Controls whether SNS/SQS dead letter notification policy should be added to IAM role for Lambda Function"
-  type        = bool
-  default     = false
-}
-
-variable "attach_async_event_policy" {
-  description = "Controls whether async event policy should be added to IAM role for Lambda Function"
-  type        = bool
-  default     = false
-}
-
-variable "create_role" {
-  description = "Controls whether IAM role for Lambda Function should be created"
-  type        = bool
-  default     = true
-}
-
-variable "environment_variables" {
-  description = "A map that defines environment variables for the Lambda Function."
-  type        = map(string)
-  default     = {}
-}
-
-variable "destination_on_failure" {
-  description = "Amazon Resource Name (ARN) of the destination resource for failed asynchronous invocations"
-  type        = string
-  default     = null
-}
-
-variable "layers" {
-  description = "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function."
-  type        = list(string)
-  default     = null
-}
-
-variable "tracing_mode" {
-  description = "Tracing mode of the Lambda Function. Valid value can be either PassThrough or Active."
-  type        = string
-  default     = null
-}
-
-variable "layer_name" {
-  description = "Name of Lambda Layer to create"
-  type        = string
-  default     = ""
-}
-
-variable "role_force_detach_policies" {
-  description = "Specifies to force detaching any policies the IAM role has before destroying it."
-  type        = bool
-  default     = true
-}
-
-variable "create_layer" {
-  description = "Controls whether Lambda Layer resource should be created"
-  type        = bool
-  default     = false
-}
-
-variable "role_permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the IAM role used by Lambda Function"
+variable "policy" {
+  description = "An additional policy document ARN to attach to the Lambda Function role"
   type        = string
   default     = null
 }
@@ -388,10 +268,64 @@ variable "policy_json" {
   default     = null
 }
 
-variable "s3_existing_package" {
-  description = "The S3 bucket object with keys bucket, key, version pointing to an existing zip-file to use"
-  type        = map(string)
+variable "policy_statements" {
+  description = "Map of dynamic policy statements to attach to Lambda Function role"
+  type        = any
+  default     = {}
+}
+
+variable "provisioned_concurrent_executions" {
+  description = "Amount of capacity to allocate. Must be greater than or equal to 1."
+  type        = number
+  default     = -1
+}
+
+variable "publish" {
+  description = "Whether to publish creation/change as new Lambda Function Version."
+  type        = bool
+  default     = false
+}
+
+variable "reserved_concurrent_executions" {
+  description = "The amount of reserved concurrent executions for this Lambda Function. A value of 0 disables Lambda Function from being triggered and -1 removes any concurrency limitations. Defaults to Unreserved Concurrency Limits -1."
+  type        = number
+  default     = -1
+}
+
+variable "role_description" {
+  description = "Description of IAM role to use for Lambda Function"
+  type        = string
   default     = null
+}
+
+variable "role_force_detach_policies" {
+  description = "Specifies to force detaching any policies the IAM role has before destroying it."
+  type        = bool
+  default     = true
+}
+
+variable "role_name" {
+  description = "Name of IAM role to use for Lambda Function"
+  type        = string
+  default     = null
+}
+
+variable "role_path" {
+  description = "Path of IAM role to use for Lambda Function"
+  type        = string
+  default     = null
+}
+
+variable "role_permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the IAM role used by Lambda Function"
+  type        = string
+  default     = null
+}
+
+variable "role_tags" {
+  description = "A map of tags to assign to IAM role"
+  type        = map(string)
+  default     = {}
 }
 
 variable "runtime" {
@@ -400,8 +334,74 @@ variable "runtime" {
   default     = ""
 }
 
-variable "lambda_role" {
-  description = " IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See Lambda Permission Model for more details."
+variable "s3_bucket" {
+  description = "S3 bucket to store artifacts"
   type        = string
-  default     = ""
+  default     = null
+}
+
+variable "s3_existing_package" {
+  description = "The S3 bucket object with keys bucket, key, version pointing to an existing zip-file to use"
+  type        = map(string)
+  default     = null
+}
+
+variable "s3_object_storage_class" {
+  description = "Specifies the desired Storage Class for the artifact uploaded to S3. Can be either STANDARD, REDUCED_REDUNDANCY, ONEZONE_IA, INTELLIGENT_TIERING, or STANDARD_IA."
+  type        = string
+  default     = "ONEZONE_IA"
+}
+
+variable "s3_object_tags" {
+  description = "A map of tags to assign to S3 bucket object."
+  type        = map(string)
+  default     = {}
+}
+
+variable "source_path" {
+  description = "The absolute path to a local file or directory containing your Lambda source code"
+  type        = any
+  default     = null
+}
+
+variable "store_on_s3" {
+  description = "Whether to store produced artifacts on S3 or locally."
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to assign to resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeout" {
+  description = "The amount of time your Lambda Function has to run in seconds."
+  type        = number
+  default     = 3
+}
+
+variable "tracing_mode" {
+  description = "Tracing mode of the Lambda Function. Valid value can be either PassThrough or Active."
+  type        = string
+  default     = null
+}
+
+variable "trusted_entities" {
+  description = "Lambda Function additional trusted entities for assuming roles (trust relationship)"
+  type        = list(string)
+  default     = []
+}
+
+variable "vpc_security_group_ids" {
+  description = "List of security group ids when Lambda Function should run in the VPC."
+  type        = list(string)
+  default     = null
+}
+
+variable "vpc_subnet_ids" {
+  description = "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets."
+  type        = list(string)
+  default     = null
 }

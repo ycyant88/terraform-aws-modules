@@ -1,97 +1,97 @@
-resource_requirements = []
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = 30
+
+cloudwatch_log_group_use_name_prefix = false
+
+command = []
+
+cpu = null
+
+create_cloudwatch_log_group = true
+
+dependencies = []
+
+disable_networking = null
 
 dns_search_domains = []
+
+dns_servers = []
+
+docker_labels = {}
+
+docker_security_options = []
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
+environment_files = []
+
+essential = null
+
+extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
+
+image = null
 
 interactive = false
 
 links = []
 
-memory_reservation = null
-
-user = null
-
-create_cloudwatch_log_group = true
-
-disable_networking = null
-
-extra_hosts = []
-
-privileged = false
-
-cloudwatch_log_group_name = null
-
-command = []
-
-repository_credentials = {}
-
-stop_timeout = 120
-
-service = ""
-
-hostname = null
-
-docker_labels = {}
-
 linux_parameters = {}
-
-mount_points = []
-
-volumes_from = []
 
 log_configuration = {}
 
-secrets = []
+memory = null
 
-ulimits = []
+memory_reservation = null
 
-cloudwatch_log_group_retention_in_days = 30
+mount_points = []
 
-health_check = {}
-
-working_directory = null
-
-cloudwatch_log_group_kms_key_id = null
+name = null
 
 operating_system_family = "LINUX"
 
-enable_execute_command = false
-
-environment_files = []
-
-firelens_configuration = {}
-
-start_timeout = 30
-
-system_controls = []
-
-cpu = null
-
-essential = null
-
-readonly_root_filesystem = true
-
-enable_cloudwatch_logging = true
-
-environment = []
-
-tags = {}
-
 port_mappings = []
+
+privileged = false
 
 pseudo_terminal = false
 
-image = null
+readonly_root_filesystem = true
 
-memory = null
+repository_credentials = {}
 
-cloudwatch_log_group_use_name_prefix = false
+resource_requirements = []
 
-dependencies = []
+secrets = []
 
-entrypoint = []
+service = ""
 
-dns_servers = []
+start_timeout = 30
 
-docker_security_options = []
+stop_timeout = 120
 
-name = null
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
+working_directory = null

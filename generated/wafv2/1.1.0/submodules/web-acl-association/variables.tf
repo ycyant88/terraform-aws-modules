@@ -10,14 +10,14 @@ variable "putin_khuylo" {
   default     = true
 }
 
-variable "web_acl_arn" {
-  description = "The ARN of the Web ACL to associate with the resource"
+variable "resource_arn" {
+  description = "The ARN of the resource to associate with the Web ACL (ALB, API Gateway, Cognito User Pool, AppSync, Verified Access)"
   type        = string
   default     = ""
 }
 
-variable "resource_arn" {
-  description = "The ARN of the resource to associate with the Web ACL (ALB, API Gateway, Cognito User Pool, AppSync, Verified Access)"
+variable "web_acl_arn" {
+  description = "The ARN of the Web ACL to associate with the resource"
   type        = string
   default     = ""
 }

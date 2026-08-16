@@ -1,19 +1,19 @@
+actions_enabled = true
+
+actions_suppressor = {}
+
 alarm_actions = null
 
-insufficient_data_actions = null
+alarm_description = null
+
+alarm_name = null
 
 alarm_rule = null
 
 create = true
 
-alarm_name = null
-
-actions_suppressor = {}
+insufficient_data_actions = null
 
 ok_actions = null
 
 tags = {}
-
-alarm_description = null
-
-actions_enabled = true

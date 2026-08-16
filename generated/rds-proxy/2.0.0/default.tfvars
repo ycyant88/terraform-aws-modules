@@ -1,68 +1,68 @@
-db_name = ""
-
-iam_role_path = null
-
-iam_role_max_session_duration = 43200
-
-debug_logging = false
-
-connection_borrow_timeout = null
-
-target_db_instance = false
-
-create_iam_role = true
-
-create_iam_policy = true
-
 auth = {}
-
-max_idle_connections_percent = 50
-
-db_cluster_identifier = ""
-
-iam_role_name = ""
-
-use_role_name_prefix = false
-
-iam_role_permissions_boundary = null
-
-iam_policy_name = ""
-
-proxy_tags = {}
-
-db_host = ""
-
-tags = {}
-
-vpc_subnet_ids = []
-
-iam_role_force_detach_policies = true
-
-create_proxy = true
 
 auth_scheme = "SECRETS"
 
-log_group_kms_key_id = null
+connection_borrow_timeout = null
 
-log_group_tags = {}
+create_iam_policy = true
 
-iam_role_tags = {}
+create_iam_role = true
 
-init_query = ""
+create_proxy = true
 
-target_db_cluster = false
+db_cluster_identifier = ""
 
-log_group_retention_in_days = 30
+db_host = ""
 
-iam_role_description = ""
+db_instance_identifier = ""
 
-use_policy_name_prefix = false
+db_name = ""
+
+db_proxy_endpoints = {}
+
+debug_logging = false
+
+engine_family = ""
+
+iam_auth = "REQUIRED"
 
 iam_creation_wait_duration = "30s"
 
+iam_policy_name = ""
+
+iam_role_description = ""
+
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = 43200
+
+iam_role_name = ""
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+idle_client_timeout = 1800
+
+init_query = ""
+
+log_group_kms_key_id = null
+
+log_group_retention_in_days = 30
+
+log_group_tags = {}
+
 manage_log_group = true
 
-engine_family = ""
+max_connections_percent = 90
+
+max_idle_connections_percent = 50
+
+name = ""
+
+proxy_tags = {}
 
 require_tls = true
 
@@ -70,18 +70,18 @@ role_arn = ""
 
 secrets = {}
 
-max_connections_percent = 90
-
 session_pinning_filters = []
 
-db_instance_identifier = ""
+tags = {}
 
-db_proxy_endpoints = {}
+target_db_cluster = false
 
-name = ""
+target_db_instance = false
 
-idle_client_timeout = 1800
+use_policy_name_prefix = false
+
+use_role_name_prefix = false
 
 vpc_security_group_ids = []
 
-iam_auth = "REQUIRED"
+vpc_subnet_ids = []

@@ -1,83 +1,83 @@
-password = ""
-
-backup_retention_period = "7"
-
-vpc_id = ""
-
-enabled_cloudwatch_logs_exports = []
-
-subnets = ""
-
-monitoring_interval = 0
-
-replica_scale_out_cooldown = "300"
-
-performance_insights_enabled = false
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-identifier_prefix = ""
-
 allowed_security_groups = []
-
-publicly_accessible = "false"
-
-database_name = ""
-
-skip_final_snapshot = "false"
-
-auto_minor_version_upgrade = "true"
-
-engine_version = "5.6.10a"
-
-name = ""
-
-tags = {}
-
-performance_insights_kms_key_id = ""
-
-replica_scale_min = "2"
-
-username = "root"
-
-deletion_protection = "false"
-
-engine = "aurora"
-
-instance_type = ""
-
-port = ""
-
-apply_immediately = "false"
-
-db_parameter_group_name = "default.aurora5.6"
-
-storage_encrypted = "true"
-
-replica_scale_cpu = "70"
-
-preferred_backup_window = "02:00-03:00"
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-kms_key_id = ""
-
-replica_scale_enabled = false
-
-global_cluster_identifier = ""
 
 allowed_security_groups_count = 0
 
-final_snapshot_identifier_prefix = "final"
+apply_immediately = "false"
 
-snapshot_identifier = ""
+auto_minor_version_upgrade = "true"
 
-replica_scale_max = "0"
+backup_retention_period = "7"
 
-replica_scale_in_cooldown = "300"
+database_name = ""
 
-iam_database_authentication_enabled = false
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+deletion_protection = "false"
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
 
 engine_mode = "provisioned"
 
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
+identifier_prefix = ""
+
+instance_type = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+port = ""
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = "false"
+
 replica_count = 1
+
+replica_scale_cpu = "70"
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = "300"
+
+replica_scale_max = "0"
+
+replica_scale_min = "2"
+
+replica_scale_out_cooldown = "300"
+
+skip_final_snapshot = "false"
+
+snapshot_identifier = ""
+
+storage_encrypted = "true"
+
+subnets = ""
+
+tags = {}
+
+username = "root"
+
+vpc_id = ""

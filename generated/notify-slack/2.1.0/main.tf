@@ -3,15 +3,15 @@ module "notify-slack" {
   version              = "2.1.0"
   create               = var.create
   create_sns_topic     = var.create_sns_topic
-  slack_username       = var.slack_username
-  slack_emoji          = var.slack_emoji
-  kms_key_arn          = var.kms_key_arn
-  tags                 = var.tags
-  lambda_function_name = var.lambda_function_name
-  sns_topic_name       = var.sns_topic_name
-  slack_webhook_url    = var.slack_webhook_url
-  slack_channel        = var.slack_channel
   iam_role_tags        = var.iam_role_tags
+  kms_key_arn          = var.kms_key_arn
+  lambda_function_name = var.lambda_function_name
   lambda_function_tags = var.lambda_function_tags
+  slack_channel        = var.slack_channel
+  slack_emoji          = var.slack_emoji
+  slack_username       = var.slack_username
+  slack_webhook_url    = var.slack_webhook_url
+  sns_topic_name       = var.sns_topic_name
   sns_topic_tags       = var.sns_topic_tags
+  tags                 = var.tags
 }

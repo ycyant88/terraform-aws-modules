@@ -1,93 +1,93 @@
+architectures = ["arm64"]
+
+bucket_attach_deny_insecure_transport_policy = false
+
 bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+
+bucket_name = ""
+
+bucket_prefix = ""
 
 bucket_tags = {}
 
-memory_size = 1024
+create = true
 
-security_group_ids = null
+create_bucket = true
+
+create_role = true
+
+create_role_policy = true
 
 dd_api_key = ""
 
+dd_api_key_secret_arn = ""
+
+dd_site = "datadoghq.com"
+
+environment_variables = {}
+
+forwarder_version = "4.12.0"
+
+kms_key_arn = null
+
+lambda_tags = {}
+
+layers = []
+
+log_kms_key_id = null
+
+log_retention_days = 7
+
+memory_size = 1024
+
+name = "datadog-log-forwarder"
+
 policy_arn = null
 
-use_policy_name_prefix = false
+policy_name = ""
+
+policy_path = null
+
+publish = false
 
 reserved_concurrent_executions = 100
 
-kms_key_arn = null
+role_arn = null
+
+role_max_session_duration = null
+
+role_name = ""
+
+role_path = null
 
 role_permissions_boundary = null
 
 role_tags = {}
 
-s3_zip_server_side_encryption = null
-
-s3_zip_kms_key_id = null
-
-dd_site = "datadoghq.com"
-
-s3_zip_tags_only = false
-
-role_arn = null
-
-name = "datadog-log-forwarder"
-
-bucket_prefix = ""
-
-s3_zip_metadata = {}
-
-create_role = true
-
 runtime = "python3.12"
-
-subnet_ids = null
-
-environment_variables = {}
-
-log_kms_key_id = null
-
-role_path = null
-
-role_max_session_duration = null
-
-timeout = 120
-
-create = true
-
-s3_zip_tags = {}
-
-role_name = ""
-
-create_role_policy = true
-
-policy_name = ""
 
 s3_log_bucket_arns = []
 
-layers = []
+s3_zip_kms_key_id = null
 
-log_retention_days = 7
+s3_zip_metadata = {}
 
-use_role_name_prefix = false
-
-tags = {}
-
-create_bucket = true
+s3_zip_server_side_encryption = null
 
 s3_zip_storage_class = null
 
-forwarder_version = "4.12.0"
+s3_zip_tags = {}
 
-publish = false
+s3_zip_tags_only = false
 
-lambda_tags = {}
+security_group_ids = null
 
-dd_api_key_secret_arn = ""
+subnet_ids = null
 
-policy_path = null
+tags = {}
 
-architectures = ["arm64"]
+timeout = 120
 
-bucket_name = ""
+use_policy_name_prefix = false
 
-bucket_attach_deny_insecure_transport_policy = false
+use_role_name_prefix = false

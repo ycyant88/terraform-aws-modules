@@ -1,6 +1,6 @@
-output "key_policy" {
-  value       = module.kms.key_policy
-  description = "The IAM resource policy set on the key"
+output "aliases" {
+  value       = module.kms.aliases
+  description = "A map of aliases created and their attributes"
 }
 
 output "external_key_expiration_model" {
@@ -33,12 +33,12 @@ output "key_id" {
   description = "The globally unique identifier for the key"
 }
 
+output "key_policy" {
+  value       = module.kms.key_policy
+  description = "The IAM resource policy set on the key"
+}
+
 output "key_region" {
   value       = module.kms.key_region
   description = "The region for the key"
-}
-
-output "aliases" {
-  value       = module.kms.aliases
-  description = "A map of aliases created and their attributes"
 }

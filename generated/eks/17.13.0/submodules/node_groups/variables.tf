@@ -1,7 +1,7 @@
-variable "ebs_optimized_not_supported" {
-  description = "List of instance types that do not support EBS optimization"
-  type        = list(string)
-  default     = []
+variable "cluster_name" {
+  description = "Name of parent cluster"
+  type        = string
+  default     = ""
 }
 
 variable "create_eks" {
@@ -16,22 +16,10 @@ variable "default_iam_role_arn" {
   default     = ""
 }
 
-variable "workers_group_defaults" {
-  description = "Workers group defaults from parent"
-  type        = any
-  default     = ""
-}
-
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
-  type        = string
-  default     = ""
-}
-
-variable "node_groups_defaults" {
-  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
-  type        = any
-  default     = ""
+variable "ebs_optimized_not_supported" {
+  description = "List of instance types that do not support EBS optimization"
+  type        = list(string)
+  default     = []
 }
 
 variable "ng_depends_on" {
@@ -40,16 +28,16 @@ variable "ng_depends_on" {
   default     = null
 }
 
-variable "cluster_name" {
-  description = "Name of parent cluster"
-  type        = string
-  default     = ""
+variable "node_groups" {
+  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+  type        = any
+  default     = {}
 }
 
-variable "worker_additional_security_group_ids" {
-  description = "A list of additional security group ids to attach to worker instances"
-  type        = list(string)
-  default     = []
+variable "node_groups_defaults" {
+  description = "map of maps of node groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+  type        = any
+  default     = ""
 }
 
 variable "tags" {
@@ -64,8 +52,20 @@ variable "timeouts" {
   default     = ""
 }
 
-variable "node_groups" {
-  description = "Map of maps of eks_node_groups to create. See \"node_groups and node_groups_defaults keys\" section in README.md for more details"
+variable "worker_additional_security_group_ids" {
+  description = "A list of additional security group ids to attach to worker instances"
+  type        = list(string)
+  default     = []
+}
+
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
+  type        = string
+  default     = ""
+}
+
+variable "workers_group_defaults" {
+  description = "Workers group defaults from parent"
   type        = any
-  default     = {}
+  default     = ""
 }

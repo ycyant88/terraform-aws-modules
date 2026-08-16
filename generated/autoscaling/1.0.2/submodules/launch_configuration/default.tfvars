@@ -1,31 +1,31 @@
-enable_monitoring = true
-
-ebs_optimized = false
-
-key_name = ""
-
 associate_public_ip_address = false
-
-placement_tenancy = "default"
 
 count = ""
 
-security_groups = ""
-
 ebs_block_device = []
 
-name = ""
+ebs_optimized = false
 
-instance_type = ""
-
-iam_instance_profile = ""
-
-user_data = ""
-
-root_block_device = []
+enable_monitoring = true
 
 ephemeral_block_device = []
 
-spot_price = 0
+iam_instance_profile = ""
 
 image_id = ""
+
+instance_type = ""
+
+key_name = ""
+
+name = ""
+
+placement_tenancy = "default"
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
+
+user_data = ""

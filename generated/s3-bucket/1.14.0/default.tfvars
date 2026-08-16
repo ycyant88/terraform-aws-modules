@@ -1,10 +1,6 @@
-grant = []
+acceleration_status = ""
 
-tags = {}
-
-logging = {}
-
-create_bucket = true
+acl = "private"
 
 attach_elb_log_delivery_policy = false
 
@@ -12,38 +8,42 @@ attach_policy = false
 
 attach_public_policy = true
 
+block_public_acls = false
+
+block_public_policy = false
+
 bucket = ""
 
-acl = "private"
-
-restrict_public_buckets = false
-
-request_payer = ""
+bucket_prefix = ""
 
 cors_rule = []
+
+create_bucket = true
+
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
 
 policy = ""
 
 replication_configuration = {}
 
+request_payer = ""
+
+restrict_public_buckets = false
+
 server_side_encryption_configuration = {}
 
-object_lock_configuration = {}
-
-block_public_acls = false
-
-block_public_policy = false
-
-ignore_public_acls = false
-
-bucket_prefix = ""
-
-force_destroy = false
-
-acceleration_status = ""
-
-website = {}
+tags = {}
 
 versioning = {}
 
-lifecycle_rule = []
+website = {}

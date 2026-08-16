@@ -1,3 +1,45 @@
+variable "actions_enabled" {
+  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
+  type        = bool
+  default     = true
+}
+
+variable "alarm_actions" {
+  description = "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)"
+  type        = list(string)
+  default     = []
+}
+
+variable "control_overrides" {
+  description = "A map of overrides to apply to each control"
+  type        = any
+  default     = {}
+}
+
+variable "create" {
+  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
+  type        = bool
+  default     = true
+}
+
+variable "disabled_controls" {
+  description = "List of IDs of disabled CIS controls"
+  type        = list(string)
+  default     = []
+}
+
+variable "insufficient_data_actions" {
+  description = "List of ARNs to put as Cloudwatch insuficient data actions (eg, ARN of SNS topic)"
+  type        = list(string)
+  default     = []
+}
+
+variable "log_group_name" {
+  description = "The name of the log group to associate the metric filter with"
+  type        = string
+  default     = ""
+}
+
 variable "name_prefix" {
   description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
   type        = string
@@ -10,50 +52,8 @@ variable "namespace" {
   default     = "CISBenchmark"
 }
 
-variable "log_group_name" {
-  description = "The name of the log group to associate the metric filter with"
-  type        = string
-  default     = ""
-}
-
-variable "alarm_actions" {
-  description = "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
-}
-
-variable "actions_enabled" {
-  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
-  type        = bool
-  default     = true
-}
-
 variable "ok_actions" {
   description = "List of ARNs to put as Cloudwatch OK actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
-}
-
-variable "insufficient_data_actions" {
-  description = "List of ARNs to put as Cloudwatch insuficient data actions (eg, ARN of SNS topic)"
-  type        = list(string)
-  default     = []
-}
-
-variable "create" {
-  description = "Whether to create the Cloudwatch log metric filter and metric alarms"
-  type        = bool
-  default     = true
-}
-
-variable "control_overrides" {
-  description = "A map of overrides to apply to each control"
-  type        = any
-  default     = {}
-}
-
-variable "disabled_controls" {
-  description = "List of IDs of disabled CIS controls"
   type        = list(string)
   default     = []
 }

@@ -1,51 +1,51 @@
-request_payer = ""
-
-website = {}
-
-versioning = {}
-
-replication_configuration = {}
-
-attach_policy = false
-
-tags = {}
-
-policy = ""
-
-cors_rule = []
-
-object_lock_configuration = {}
-
-block_public_acls = false
-
-restrict_public_buckets = false
-
-attach_deny_insecure_transport_policy = false
+acceleration_status = ""
 
 acl = "private"
 
-bucket_prefix = ""
-
-force_destroy = false
-
-acceleration_status = ""
-
-grant = []
-
-server_side_encryption_configuration = {}
-
-block_public_policy = false
+attach_deny_insecure_transport_policy = false
 
 attach_elb_log_delivery_policy = false
 
+attach_policy = false
+
 attach_public_policy = true
 
-ignore_public_acls = false
+block_public_acls = false
 
-logging = {}
+block_public_policy = false
 
-lifecycle_rule = []
+bucket = ""
+
+bucket_prefix = ""
+
+cors_rule = []
 
 create_bucket = true
 
-bucket = ""
+force_destroy = false
+
+grant = []
+
+ignore_public_acls = false
+
+lifecycle_rule = []
+
+logging = {}
+
+object_lock_configuration = {}
+
+policy = ""
+
+replication_configuration = {}
+
+request_payer = ""
+
+restrict_public_buckets = false
+
+server_side_encryption_configuration = {}
+
+tags = {}
+
+versioning = {}
+
+website = {}

@@ -1,3 +1,9 @@
+variable "container_insights" {
+  description = "Controls if ECS Cluster has container insights enabled"
+  type        = bool
+  default     = false
+}
+
 variable "create_ecs" {
   description = "Controls if ECS should be created"
   type        = bool
@@ -14,10 +20,4 @@ variable "tags" {
   description = "A map of tags to add to ECS Cluster"
   type        = map(string)
   default     = {}
-}
-
-variable "container_insights" {
-  description = "Controls if ECS Cluster has container insights enabled"
-  type        = bool
-  default     = false
 }

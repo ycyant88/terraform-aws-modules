@@ -1,125 +1,125 @@
-tags = {}
-
-replica_scale_min = 2
-
-instance_type_replica = ""
-
-create_monitoring_role = true
-
-db_parameter_group_name = ""
-
-auto_minor_version_upgrade = true
-
-db_cluster_parameter_group_name = ""
-
-replica_scale_in_cooldown = 300
-
-iam_database_authentication_enabled = false
-
 allowed_cidr_blocks = []
 
-database_name = ""
-
-username = "root"
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-enabled_cloudwatch_logs_exports = []
-
-replication_source_identifier = ""
-
-iam_roles = []
-
-vpc_id = ""
-
-is_primary_cluster = true
-
-backup_retention_period = 7
-
-enable_http_endpoint = false
-
-instances_parameters = []
-
-subnets = []
-
-engine_version = "5.6.10a"
-
-replica_scale_out_cooldown = 300
-
-global_cluster_identifier = ""
-
-replica_scale_max = 0
-
-create_security_group = true
-
-instance_type = ""
-
-performance_insights_enabled = false
-
-copy_tags_to_snapshot = false
-
-final_snapshot_identifier_prefix = "final"
-
-deletion_protection = false
-
-scaling_configuration = {}
-
-create_cluster = true
-
-replica_scale_cpu = 70
-
-replica_scale_connections = 700
-
-engine_mode = "provisioned"
-
-name = ""
-
-publicly_accessible = false
-
-password = ""
+allowed_security_groups = []
 
 apply_immediately = false
 
-preferred_backup_window = "02:00-03:00"
-
-kms_key_id = ""
+auto_minor_version_upgrade = true
 
 backtrack_window = 0
 
-permissions_boundary = ""
+backup_retention_period = 7
 
-replica_scale_enabled = false
+ca_cert_identifier = "rds-ca-2019"
 
-vpc_security_group_ids = []
+copy_tags_to_snapshot = false
 
-replica_count = 1
+create_cluster = true
 
-engine = "aurora"
+create_monitoring_role = true
+
+create_security_group = true
+
+database_name = ""
+
+db_cluster_parameter_group_name = ""
+
+db_parameter_group_name = ""
 
 db_subnet_group_name = ""
 
+deletion_protection = false
+
+enable_http_endpoint = false
+
+enabled_cloudwatch_logs_exports = []
+
+engine = "aurora"
+
+engine_mode = "provisioned"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+global_cluster_identifier = ""
+
+iam_database_authentication_enabled = false
+
+iam_partition = "aws"
+
+iam_roles = []
+
+instance_type = ""
+
+instance_type_replica = ""
+
+instances_parameters = []
+
+is_primary_cluster = true
+
+kms_key_id = ""
+
+monitoring_interval = 0
+
 monitoring_role_arn = ""
+
+name = ""
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = ""
+
+permissions_boundary = ""
+
+port = ""
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = false
+
+replica_count = 1
+
+replica_scale_connections = 700
+
+replica_scale_cpu = 70
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = 300
+
+replica_scale_max = 0
+
+replica_scale_min = 2
+
+replica_scale_out_cooldown = 300
+
+replication_source_identifier = ""
+
+scaling_configuration = {}
+
+security_group_description = "Managed by Terraform"
+
+skip_final_snapshot = false
 
 snapshot_identifier = ""
 
 source_region = ""
 
-monitoring_interval = 0
-
-ca_cert_identifier = "rds-ca-2019"
-
-allowed_security_groups = []
-
-skip_final_snapshot = false
-
-port = ""
-
-performance_insights_kms_key_id = ""
-
-iam_partition = "aws"
-
 storage_encrypted = true
 
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
+subnets = []
 
-security_group_description = "Managed by Terraform"
+tags = {}
+
+username = "root"
+
+vpc_id = ""
+
+vpc_security_group_ids = []

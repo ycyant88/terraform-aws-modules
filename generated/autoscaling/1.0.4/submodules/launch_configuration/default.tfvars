@@ -1,31 +1,31 @@
-count = ""
-
-root_block_device = []
-
-ephemeral_block_device = []
-
-name = ""
-
-key_name = ""
-
-security_groups = ""
-
-user_data = ""
-
-enable_monitoring = true
-
-image_id = ""
-
-iam_instance_profile = ""
-
 associate_public_ip_address = false
 
-spot_price = 0
-
-instance_type = ""
-
-ebs_optimized = false
+count = ""
 
 ebs_block_device = []
 
+ebs_optimized = false
+
+enable_monitoring = true
+
+ephemeral_block_device = []
+
+iam_instance_profile = ""
+
+image_id = ""
+
+instance_type = ""
+
+key_name = ""
+
+name = ""
+
 placement_tenancy = "default"
+
+root_block_device = []
+
+security_groups = ""
+
+spot_price = 0
+
+user_data = ""

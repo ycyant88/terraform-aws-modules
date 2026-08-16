@@ -1,35 +1,35 @@
-tags = {}
+create = true
 
-revoke_rules_on_delete = false
-
-timeouts = null
+description = "Security Group managed by Terraform"
 
 egress_rules = {}
 
-vpc_associations = {}
-
-create = true
-
-name = ""
+enable_exclusive_rules = true
 
 ingress_cidr_ipv4 = {}
 
 ingress_cidr_ipv6 = {}
 
+ingress_prefix_list_id = {}
+
 ingress_referenced_security_group_id = {}
-
-region = null
-
-description = "Security Group managed by Terraform"
-
-preset_ingress_rules = { "ssh" : { "description" : "SSH", "from_port" : 22, "ip_protocol" : "tcp", "to_port" : 22 } }
 
 ingress_rules = {}
 
-enable_exclusive_rules = true
+name = ""
+
+preset_ingress_rules = { "ssh" : { "description" : "SSH", "from_port" : 22, "ip_protocol" : "tcp", "to_port" : 22 } }
+
+region = null
+
+revoke_rules_on_delete = false
+
+tags = {}
+
+timeouts = null
 
 use_name_prefix = true
 
-vpc_id = null
+vpc_associations = {}
 
-ingress_prefix_list_id = {}
+vpc_id = null

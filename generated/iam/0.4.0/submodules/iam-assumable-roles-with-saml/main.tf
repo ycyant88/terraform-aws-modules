@@ -1,23 +1,23 @@
 module "iam_iam-assumable-roles-with-saml" {
   source                                  = "terraform-aws-modules/iam/aws//modules/iam-assumable-roles-with-saml"
   version                                 = "0.4.0"
-  provider_id                             = var.provider_id
-  max_session_duration                    = var.max_session_duration
-  provider_name                           = var.provider_name
-  create_readonly_role                    = var.create_readonly_role
-  readonly_role_path                      = var.readonly_role_path
+  admin_role_name                         = var.admin_role_name
+  admin_role_path                         = var.admin_role_path
+  admin_role_permissions_boundary_arn     = var.admin_role_permissions_boundary_arn
+  admin_role_policy_arn                   = var.admin_role_policy_arn
+  aws_saml_endpoint                       = var.aws_saml_endpoint
+  create_admin_role                       = var.create_admin_role
   create_poweruser_role                   = var.create_poweruser_role
+  create_readonly_role                    = var.create_readonly_role
+  max_session_duration                    = var.max_session_duration
+  poweruser_role_name                     = var.poweruser_role_name
   poweruser_role_path                     = var.poweruser_role_path
   poweruser_role_permissions_boundary_arn = var.poweruser_role_permissions_boundary_arn
-  readonly_role_name                      = var.readonly_role_name
-  aws_saml_endpoint                       = var.aws_saml_endpoint
-  admin_role_name                         = var.admin_role_name
-  admin_role_permissions_boundary_arn     = var.admin_role_permissions_boundary_arn
-  poweruser_role_name                     = var.poweruser_role_name
   poweruser_role_policy_arn               = var.poweruser_role_policy_arn
-  readonly_role_policy_arn                = var.readonly_role_policy_arn
+  provider_id                             = var.provider_id
+  provider_name                           = var.provider_name
+  readonly_role_name                      = var.readonly_role_name
+  readonly_role_path                      = var.readonly_role_path
   readonly_role_permissions_boundary_arn  = var.readonly_role_permissions_boundary_arn
-  create_admin_role                       = var.create_admin_role
-  admin_role_path                         = var.admin_role_path
-  admin_role_policy_arn                   = var.admin_role_policy_arn
+  readonly_role_policy_arn                = var.readonly_role_policy_arn
 }

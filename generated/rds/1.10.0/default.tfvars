@@ -1,79 +1,79 @@
-storage_type = "gp2"
+allocated_storage = ""
 
-snapshot_identifier = ""
-
-iam_database_authentication_enabled = false
-
-name = ""
-
-maintenance_window = ""
-
-storage_encrypted = false
-
-monitoring_role_name = "rds-monitoring-role"
-
-subnet_ids = []
-
-create_db_instance = true
-
-instance_class = ""
-
-monitoring_role_arn = ""
-
-engine_version = ""
-
-skip_final_snapshot = true
-
-copy_tags_to_snapshot = false
-
-tags = {}
-
-identifier = ""
-
-port = ""
+allow_major_version_upgrade = false
 
 apply_immediately = false
 
-parameters = []
+auto_minor_version_upgrade = true
 
-multi_az = false
+backup_retention_period = 1
+
+backup_window = ""
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
+
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
 
 iops = 0
-
-publicly_accessible = false
 
 kms_key_id = ""
 
 license_model = ""
 
-engine = ""
-
-final_snapshot_identifier = false
-
-password = ""
+maintenance_window = ""
 
 monitoring_interval = 0
 
-auto_minor_version_upgrade = true
+monitoring_role_arn = ""
 
-allocated_storage = ""
+monitoring_role_name = "rds-monitoring-role"
 
-vpc_security_group_ids = []
+multi_az = false
 
-family = ""
+name = ""
 
-create_db_subnet_group = true
+parameters = []
 
-create_db_parameter_group = true
+password = ""
 
-backup_window = ""
+port = ""
+
+publicly_accessible = false
 
 replicate_source_db = ""
 
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
 username = ""
 
-create_monitoring_role = false
-
-allow_major_version_upgrade = false
-
-backup_retention_period = 1
+vpc_security_group_ids = []

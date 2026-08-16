@@ -1,23 +1,55 @@
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
-variable "max_session_duration" {
-  description = "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours"
-  type        = number
+variable "create_inline_policy" {
+  description = "Determines whether to create an inline policy"
+  type        = bool
+  default     = false
+}
+
+variable "create_instance_profile" {
+  description = "Determines whether to create an instance profile"
+  type        = bool
+  default     = false
+}
+
+variable "description" {
+  description = "Description of the role"
+  type        = string
   default     = null
 }
 
-variable "trust_policy_conditions" {
-  description = "[Condition constraints](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#condition) applied to the trust policy(s) enabled"
-  type = list(object({
-    test     = string
-    variable = string
-    values   = list(string)
-  }))
-  default = []
+variable "enable_bitbucket_oidc" {
+  description = "Enable Bitbucket OIDC provider trust for the role"
+  type        = bool
+  default     = false
+}
+
+variable "enable_github_oidc" {
+  description = "Enable GitHub OIDC provider trust for the role"
+  type        = bool
+  default     = false
+}
+
+variable "enable_oidc" {
+  description = "Enable OIDC provider trust for the role"
+  type        = bool
+  default     = false
+}
+
+variable "enable_saml" {
+  description = "Enable SAML provider trust for the role"
+  type        = bool
+  default     = false
+}
+
+variable "github_provider" {
+  description = "The GitHub OIDC provider URL *without the https:// prefix"
+  type        = string
+  default     = "token.actions.githubusercontent.com"
 }
 
 variable "inline_policy_permissions" {
@@ -46,64 +78,10 @@ variable "inline_policy_permissions" {
   default = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "description" {
-  description = "Description of the role"
-  type        = string
+variable "max_session_duration" {
+  description = "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours"
+  type        = number
   default     = null
-}
-
-variable "github_provider" {
-  description = "The GitHub OIDC provider URL *without the https:// prefix"
-  type        = string
-  default     = "token.actions.githubusercontent.com"
-}
-
-variable "enable_saml" {
-  description = "Enable SAML provider trust for the role"
-  type        = bool
-  default     = false
-}
-
-variable "saml_endpoints" {
-  description = "List of AWS SAML endpoints"
-  type        = list(string)
-  default     = ["https://signin.aws.amazon.com/saml"]
-}
-
-variable "create_instance_profile" {
-  description = "Determines whether to create an instance profile"
-  type        = bool
-  default     = false
-}
-
-variable "oidc_audiences" {
-  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
-  type        = list(string)
-  default     = []
-}
-
-variable "create_inline_policy" {
-  description = "Determines whether to create an inline policy"
-  type        = bool
-  default     = false
-}
-
-variable "permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
-  type        = string
-  default     = null
-}
-
-variable "oidc_wildcard_subjects" {
-  description = "The OIDC subject using wildcards to be added to the role policy"
-  type        = list(string)
-  default     = []
 }
 
 variable "name" {
@@ -112,16 +90,16 @@ variable "name" {
   default     = null
 }
 
-variable "use_name_prefix" {
-  description = "Determines whether the IAM role name (name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
 variable "oidc_account_id" {
   description = "An overriding AWS account ID where the OIDC provider lives; leave empty to use the current account ID for the AWS provider"
   type        = string
   default     = null
+}
+
+variable "oidc_audiences" {
+  description = "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise."
+  type        = list(string)
+  default     = []
 }
 
 variable "oidc_provider_urls" {
@@ -130,14 +108,62 @@ variable "oidc_provider_urls" {
   default     = []
 }
 
-variable "enable_github_oidc" {
-  description = "Enable GitHub OIDC provider trust for the role"
-  type        = bool
-  default     = false
+variable "oidc_subjects" {
+  description = "The fully qualified OIDC subjects to be added to the role policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "oidc_wildcard_subjects" {
+  description = "The OIDC subject using wildcards to be added to the role policy"
+  type        = list(string)
+  default     = []
+}
+
+variable "override_inline_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "override_trust_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the trust policy. In merging, statements with non-blank sids will override statements with the same sid"
+  type        = list(string)
+  default     = []
+}
+
+variable "path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = null
+}
+
+variable "permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "policies" {
+  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
+}
+
+variable "saml_endpoints" {
+  description = "List of AWS SAML endpoints"
+  type        = list(string)
+  default     = ["https://signin.aws.amazon.com/saml"]
 }
 
 variable "saml_provider_ids" {
   description = "List of SAML provider IDs"
+  type        = list(string)
+  default     = []
+}
+
+variable "saml_trust_actions" {
+  description = "Additional assume role trust actions for the SAML federated statement"
   type        = list(string)
   default     = []
 }
@@ -148,10 +174,26 @@ variable "source_inline_policy_documents" {
   default     = []
 }
 
-variable "enable_bitbucket_oidc" {
-  description = "Enable Bitbucket OIDC provider trust for the role"
-  type        = bool
-  default     = false
+variable "source_trust_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the trust policy. Statements must have unique sids"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "trust_policy_conditions" {
+  description = "[Condition constraints](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#condition) applied to the trust policy(s) enabled"
+  type = list(object({
+    test     = string
+    variable = string
+    values   = list(string)
+  }))
+  default = []
 }
 
 variable "trust_policy_permissions" {
@@ -180,50 +222,8 @@ variable "trust_policy_permissions" {
   default = null
 }
 
-variable "override_trust_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the trust policy. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "policies" {
-  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
-}
-
-variable "enable_oidc" {
-  description = "Enable OIDC provider trust for the role"
+variable "use_name_prefix" {
+  description = "Determines whether the IAM role name (name) is used as a prefix"
   type        = bool
-  default     = false
-}
-
-variable "override_inline_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank sids will override statements with the same sid"
-  type        = list(string)
-  default     = []
-}
-
-variable "path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = null
-}
-
-variable "source_trust_policy_documents" {
-  description = "List of IAM policy documents that are merged together into the trust policy. Statements must have unique sids"
-  type        = list(string)
-  default     = []
-}
-
-variable "oidc_subjects" {
-  description = "The fully qualified OIDC subjects to be added to the role policy"
-  type        = list(string)
-  default     = []
-}
-
-variable "saml_trust_actions" {
-  description = "Additional assume role trust actions for the SAML federated statement"
-  type        = list(string)
-  default     = []
+  default     = true
 }

@@ -1,21 +1,21 @@
-tags = {}
-
-role_permissions_boundary_arn = ""
-
-max_session_duration = 3600
-
-oidc_subjects_with_wildcards = []
+aws_account_id = ""
 
 create_role = false
 
-provider_url = ""
+max_session_duration = 3600
 
-aws_account_id = ""
+oidc_fully_qualified_subjects = []
+
+oidc_subjects_with_wildcards = []
+
+provider_url = ""
 
 role_name = ""
 
 role_path = "/"
 
+role_permissions_boundary_arn = ""
+
 role_policy_arns = []
 
-oidc_fully_qualified_subjects = []
+tags = {}

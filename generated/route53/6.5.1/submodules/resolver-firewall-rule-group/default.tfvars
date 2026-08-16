@@ -1,11 +1,11 @@
-region = null
-
-tags = {}
+create = true
 
 name = ""
 
 ram_resource_associations = {}
 
+region = null
+
 rules = {}
 
-create = true
+tags = {}

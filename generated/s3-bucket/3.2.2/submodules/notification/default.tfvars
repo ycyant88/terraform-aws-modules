@@ -1,6 +1,6 @@
-bucket_arn = ""
+bucket = ""
 
-eventbridge = ""
+bucket_arn = ""
 
 create = true
 
@@ -8,10 +8,10 @@ create_sns_policy = true
 
 create_sqs_policy = true
 
-bucket = ""
+eventbridge = ""
 
 lambda_notifications = {}
 
-sqs_notifications = {}
-
 sns_notifications = {}
+
+sqs_notifications = {}

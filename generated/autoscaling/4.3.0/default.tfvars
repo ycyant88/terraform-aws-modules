@@ -1,165 +1,165 @@
 associate_public_ip_address = null
 
-target_group_arns = []
-
-user_data_base64 = null
-
-enable_monitoring = null
-
-lc_use_name_prefix = true
-
-create_lt = false
-
-use_lt = false
+availability_zone = null
 
 block_device_mappings = []
 
-max_size = null
-
-desired_capacity = null
-
-protect_from_scale_in = false
-
-suspended_processes = null
-
-iam_instance_profile_name = null
-
-lt_use_name_prefix = true
-
-ram_disk_id = null
-
-elastic_inference_accelerator = null
-
-lt_version = null
-
-default_cooldown = null
-
-metadata_options = null
-
-create_lc = false
-
-iam_instance_profile_arn = null
-
-ephemeral_block_device = []
-
-elastic_gpu_specifications = null
-
-hibernation_options = null
-
-tag_specifications = []
-
-termination_policies = null
-
-credit_specification = null
-
-name = ""
-
-wait_for_capacity_timeout = null
-
-tags_as_map = {}
-
-default_version = null
+capacity_rebalance = null
 
 capacity_reservation_specification = null
 
 cpu_options = null
 
-health_check_grace_period = null
+create_asg = true
 
-mixed_instances_policy = null
+create_lc = false
+
+create_lt = false
+
+create_schedule = true
+
+credit_specification = null
+
+default_cooldown = null
+
+default_version = null
 
 delete_timeout = null
 
-image_id = ""
-
 description = null
 
-min_elb_capacity = null
-
-launch_template = null
-
-availability_zone = null
-
-min_size = null
-
-load_balancers = []
-
-force_delete = null
-
-key_name = null
-
-lc_name = ""
-
-tags = []
-
-use_lc = false
-
-lt_name = ""
-
-enclave_options = null
-
-metrics_granularity = null
-
-launch_configuration = null
+desired_capacity = null
 
 disable_api_termination = null
 
-kernel_id = null
-
-capacity_rebalance = null
-
-wait_for_elb_capacity = null
-
-max_instance_lifetime = null
-
-service_linked_role_arn = null
-
-instance_refresh = null
-
 ebs_block_device = []
+
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_monitoring = null
+
+enabled_metrics = null
+
+enclave_options = null
+
+ephemeral_block_device = []
+
+force_delete = null
+
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = null
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+image_id = ""
+
+initial_lifecycle_hooks = []
 
 instance_initiated_shutdown_behavior = null
 
+instance_market_options = null
+
+instance_refresh = null
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
+launch_configuration = null
+
+launch_template = null
+
+lc_name = ""
+
+lc_use_name_prefix = true
+
+license_specifications = null
+
+load_balancers = []
+
+lt_name = ""
+
+lt_use_name_prefix = true
+
+lt_version = null
+
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = null
+
+metrics_granularity = null
+
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
+
 network_interfaces = []
+
+placement = null
+
+placement_group = null
+
+placement_tenancy = null
+
+protect_from_scale_in = false
+
+ram_disk_id = null
+
+root_block_device = []
+
+schedules = {}
+
+security_groups = null
+
+service_linked_role_arn = null
+
+spot_price = null
+
+suspended_processes = null
+
+tag_specifications = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = null
+
+update_default_version = null
+
+use_lc = false
+
+use_lt = false
+
+use_mixed_instances_policy = false
 
 use_name_prefix = true
 
 user_data = null
 
-placement = null
-
-ebs_optimized = null
-
-update_default_version = null
-
-instance_market_options = null
-
-instance_type = ""
-
-security_groups = null
-
-spot_price = null
-
-schedules = {}
-
-placement_tenancy = null
-
-root_block_device = []
-
-create_asg = true
+user_data_base64 = null
 
 vpc_zone_identifier = null
 
-placement_group = null
+wait_for_capacity_timeout = null
 
-health_check_type = null
-
-enabled_metrics = null
-
-license_specifications = null
-
-initial_lifecycle_hooks = []
-
-use_mixed_instances_policy = false
-
-create_schedule = true
+wait_for_elb_capacity = null

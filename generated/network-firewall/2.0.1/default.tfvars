@@ -1,73 +1,73 @@
-subnet_mapping = null
+availability_zone_change_protection = null
 
-policy_description = null
+availability_zone_mapping = null
 
 create = true
 
-firewall_policy_arn = ""
-
-policy_stateful_default_actions = null
-
-policy_tags = {}
-
-tags = {}
-
-encryption_configuration = null
-
 create_logging_configuration = null
 
-policy_variables = null
+create_policy = true
 
-policy_resource_policy = ""
+create_policy_resource_policy = null
 
 delete_protection = true
-
-transit_gateway_id = null
-
-logging_configuration_destination_config = null
-
-policy_encryption_configuration = null
-
-policy_stateless_rule_group_reference = null
-
-policy_ram_resource_associations = null
-
-firewall_policy_change_protection = null
-
-subnet_change_protection = true
-
-policy_stateful_engine_options = null
-
-policy_stateful_rule_group_reference = null
-
-policy_stateless_fragment_default_actions = null
-
-region = null
-
-availability_zone_mapping = null
 
 description = ""
 
 enabled_analysis_types = null
 
-policy_name = ""
+encryption_configuration = null
 
-create_policy_resource_policy = null
+firewall_policy_arn = ""
 
-availability_zone_change_protection = null
+firewall_policy_change_protection = null
 
-policy_stateless_custom_action = null
+logging_configuration_destination_config = null
 
-policy_stateless_default_actions = null
+name = ""
 
 policy_attach_resource_policy = null
 
-vpc_id = null
+policy_description = null
 
-create_policy = true
+policy_encryption_configuration = null
+
+policy_name = ""
+
+policy_ram_resource_associations = null
+
+policy_resource_policy = ""
 
 policy_resource_policy_actions = null
 
 policy_resource_policy_principals = null
 
-name = ""
+policy_stateful_default_actions = null
+
+policy_stateful_engine_options = null
+
+policy_stateful_rule_group_reference = null
+
+policy_stateless_custom_action = null
+
+policy_stateless_default_actions = null
+
+policy_stateless_fragment_default_actions = null
+
+policy_stateless_rule_group_reference = null
+
+policy_tags = {}
+
+policy_variables = null
+
+region = null
+
+subnet_change_protection = true
+
+subnet_mapping = null
+
+tags = {}
+
+transit_gateway_id = null
+
+vpc_id = null

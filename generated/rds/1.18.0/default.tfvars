@@ -1,99 +1,99 @@
-option_group_description = ""
-
-kms_key_id = ""
-
-option_group_name = ""
-
-iops = 0
-
-monitoring_interval = 0
-
-skip_final_snapshot = true
-
-maintenance_window = ""
-
-copy_tags_to_snapshot = false
-
-license_model = ""
-
-multi_az = false
-
-auto_minor_version_upgrade = true
-
-parameter_group_name = ""
-
-identifier = ""
-
-engine_version = ""
-
-publicly_accessible = false
-
-create_db_subnet_group = true
-
-storage_encrypted = false
-
-replicate_source_db = ""
-
-iam_database_authentication_enabled = false
-
-engine = ""
-
-username = ""
-
-final_snapshot_identifier = false
-
-create_db_option_group = true
-
 allocated_storage = ""
-
-db_subnet_group_name = ""
 
 allow_major_version_upgrade = false
 
 apply_immediately = false
 
-parameters = []
-
-timezone = ""
-
-instance_class = ""
-
-major_engine_version = ""
-
-create_db_parameter_group = true
-
-backup_window = ""
-
-name = ""
-
-vpc_security_group_ids = []
+auto_minor_version_upgrade = true
 
 availability_zone = ""
 
-subnet_ids = []
-
 backup_retention_period = 1
 
-family = ""
+backup_window = ""
 
 character_set_name = ""
 
-monitoring_role_arn = ""
-
-create_monitoring_role = false
-
-monitoring_role_name = "rds-monitoring-role"
-
-options = []
+copy_tags_to_snapshot = false
 
 create_db_instance = true
 
-snapshot_identifier = ""
+create_db_option_group = true
+
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
+
+db_subnet_group_name = ""
+
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
+
+kms_key_id = ""
+
+license_model = ""
+
+maintenance_window = ""
+
+major_engine_version = ""
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = ""
+
+option_group_description = ""
+
+option_group_name = ""
+
+options = []
+
+parameter_group_name = ""
+
+parameters = []
 
 password = ""
 
 port = ""
 
-tags = {}
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
 
 storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+timezone = ""
+
+username = ""
+
+vpc_security_group_ids = []

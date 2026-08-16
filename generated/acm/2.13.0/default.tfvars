@@ -1,21 +1,21 @@
-validation_method = "DNS"
+certificate_transparency_logging_preference = true
 
-tags = {}
+create_certificate = true
 
 dns_ttl = 60
-
-validation_allow_overwrite_records = true
-
-wait_for_validation = true
-
-certificate_transparency_logging_preference = true
 
 domain_name = ""
 
 subject_alternative_names = []
 
-zone_id = ""
-
-create_certificate = true
+tags = {}
 
 validate_certificate = true
+
+validation_allow_overwrite_records = true
+
+validation_method = "DNS"
+
+wait_for_validation = true
+
+zone_id = ""

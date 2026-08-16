@@ -1,13 +1,25 @@
-variable "users" {
-  description = "A map of users to create"
-  type        = any
-  default     = {}
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "create_default_user" {
   description = "Determines whether a default user will be created"
   type        = bool
   default     = true
+}
+
+variable "create_group" {
+  description = "Determines whether a user group will be created"
+  type        = bool
+  default     = true
+}
+
+variable "default_user" {
+  description = "A map of default user attributes"
+  type        = any
+  default     = {}
 }
 
 variable "default_user_id" {
@@ -28,26 +40,14 @@ variable "tags" {
   default     = {}
 }
 
-variable "create_group" {
-  description = "Determines whether a user group will be created"
-  type        = bool
-  default     = true
-}
-
 variable "user_group_id" {
   description = "The ID of the user group"
   type        = string
   default     = ""
 }
 
-variable "default_user" {
-  description = "A map of default user attributes"
+variable "users" {
+  description = "A map of users to create"
   type        = any
   default     = {}
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
 }

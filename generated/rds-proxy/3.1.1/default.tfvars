@@ -1,77 +1,77 @@
-require_tls = true
+auth = {}
 
-max_connections_percent = 90
+connection_borrow_timeout = null
 
-db_instance_identifier = ""
+create = true
 
-db_cluster_identifier = ""
-
-log_group_tags = {}
-
-use_policy_name_prefix = false
-
-init_query = ""
-
-vpc_security_group_ids = []
+create_iam_policy = true
 
 create_iam_role = true
 
-tags = {}
+db_cluster_identifier = ""
 
-role_arn = ""
+db_instance_identifier = ""
 
-max_idle_connections_percent = 50
+debug_logging = false
 
 endpoints = {}
 
-log_group_kms_key_id = null
+engine_family = ""
+
+iam_policy_name = ""
 
 iam_role_description = ""
 
+iam_role_force_detach_policies = true
+
+iam_role_max_session_duration = 43200
+
+iam_role_name = ""
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_tags = {}
+
+idle_client_timeout = 1800
+
+init_query = ""
+
 kms_key_arns = []
 
-auth = {}
+log_group_kms_key_id = null
 
-engine_family = ""
+log_group_retention_in_days = 30
+
+log_group_tags = {}
+
+manage_log_group = true
+
+max_connections_percent = 90
+
+max_idle_connections_percent = 50
+
+name = ""
+
+proxy_tags = {}
+
+require_tls = true
+
+role_arn = ""
+
+session_pinning_filters = []
+
+tags = {}
 
 target_db_cluster = false
 
 target_db_instance = false
 
-manage_log_group = true
-
-iam_role_path = null
-
-iam_role_force_detach_policies = true
-
-name = ""
-
-idle_client_timeout = 1800
-
-proxy_tags = {}
-
-connection_borrow_timeout = null
-
-create_iam_policy = true
-
-create = true
-
-iam_role_name = ""
-
-iam_role_max_session_duration = 43200
-
-iam_role_permissions_boundary = null
-
-iam_policy_name = ""
-
-vpc_subnet_ids = []
-
-session_pinning_filters = []
-
-log_group_retention_in_days = 30
+use_policy_name_prefix = false
 
 use_role_name_prefix = false
 
-iam_role_tags = {}
+vpc_security_group_ids = []
 
-debug_logging = false
+vpc_subnet_ids = []

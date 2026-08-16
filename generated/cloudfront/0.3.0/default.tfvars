@@ -1,41 +1,41 @@
-price_class = null
-
-tags = null
-
-origin = null
-
-geo_restriction = {}
-
-logging_config = {}
+aliases = null
 
 cache_behavior = null
 
-create_distribution = true
-
 comment = null
 
-viewer_certificate = null
+create_distribution = true
+
+create_origin_access_identity = false
+
+custom_error_response = {}
 
 default_root_object = null
 
 enabled = true
 
+geo_restriction = {}
+
+http_version = "http2"
+
 is_ipv6_enabled = null
+
+logging_config = {}
+
+origin = null
+
+origin_access_identities = {}
+
+origin_group = {}
+
+price_class = null
+
+retain_on_delete = false
+
+tags = null
+
+viewer_certificate = null
 
 wait_for_deployment = true
 
 web_acl_id = null
-
-custom_error_response = {}
-
-create_origin_access_identity = false
-
-origin_access_identities = {}
-
-aliases = null
-
-http_version = "http2"
-
-retain_on_delete = false
-
-origin_group = {}

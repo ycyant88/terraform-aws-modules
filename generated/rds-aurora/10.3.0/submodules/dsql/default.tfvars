@@ -1,21 +1,21 @@
-region = null
-
-name = ""
-
-tags = {}
-
-deletion_protection_enabled = null
-
-kms_encryption_key = null
-
-witness_region = null
+clusters = null
 
 create = true
 
-force_destroy = null
-
 create_cluster_peering = false
 
-clusters = null
+deletion_protection_enabled = null
+
+force_destroy = null
+
+kms_encryption_key = null
+
+name = ""
+
+region = null
+
+tags = {}
 
 timeouts = null
+
+witness_region = null

@@ -1,37 +1,37 @@
-variable "name_prefix" {
-  description = "The prefix name of the ELB"
-  type        = string
-  default     = ""
-}
-
-variable "listener" {
-  description = "A list of listener blocks"
-  type        = list(map(string))
-  default     = ""
-}
-
-variable "health_check" {
-  description = "A health check block"
+variable "access_logs" {
+  description = "An access logs block"
   type        = map(string)
-  default     = ""
+  default     = {}
 }
 
-variable "name" {
-  description = "The name of the ELB"
-  type        = string
-  default     = ""
+variable "connection_draining" {
+  description = "Boolean to enable connection draining"
+  type        = bool
+  default     = false
 }
 
-variable "subnets" {
-  description = "A list of subnet IDs to attach to the ELB"
-  type        = list(string)
-  default     = ""
+variable "connection_draining_timeout" {
+  description = "The time in seconds to allow for connections to drain"
+  type        = number
+  default     = 300
+}
+
+variable "create_elb" {
+  description = "Create the elb or not"
+  type        = bool
+  default     = true
 }
 
 variable "cross_zone_load_balancing" {
   description = "Enable cross-zone load balancing"
   type        = bool
   default     = true
+}
+
+variable "health_check" {
+  description = "A health check block"
+  type        = map(string)
+  default     = ""
 }
 
 variable "idle_timeout" {
@@ -46,22 +46,22 @@ variable "internal" {
   default     = ""
 }
 
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
+variable "listener" {
+  description = "A list of listener blocks"
+  type        = list(map(string))
+  default     = ""
 }
 
-variable "access_logs" {
-  description = "An access logs block"
-  type        = map(string)
-  default     = {}
+variable "name" {
+  description = "The name of the ELB"
+  type        = string
+  default     = ""
 }
 
-variable "create_elb" {
-  description = "Create the elb or not"
-  type        = bool
-  default     = true
+variable "name_prefix" {
+  description = "The prefix name of the ELB"
+  type        = string
+  default     = ""
 }
 
 variable "security_groups" {
@@ -70,14 +70,14 @@ variable "security_groups" {
   default     = ""
 }
 
-variable "connection_draining" {
-  description = "Boolean to enable connection draining"
-  type        = bool
-  default     = false
+variable "subnets" {
+  description = "A list of subnet IDs to attach to the ELB"
+  type        = list(string)
+  default     = ""
 }
 
-variable "connection_draining_timeout" {
-  description = "The time in seconds to allow for connections to drain"
-  type        = number
-  default     = 300
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }

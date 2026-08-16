@@ -1,11 +1,11 @@
-output "rule_name" {
-  value       = module.wafv2_web-acl-rule-group-association.rule_name
-  description = "Name of the rule created in the Web ACL"
-}
-
 output "priority" {
   value       = module.wafv2_web-acl-rule-group-association.priority
   description = "Priority of the rule"
+}
+
+output "rule_name" {
+  value       = module.wafv2_web-acl-rule-group-association.rule_name
+  description = "Name of the rule created in the Web ACL"
 }
 
 output "web_acl_arn" {

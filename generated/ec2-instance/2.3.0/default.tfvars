@@ -1,59 +1,59 @@
-instance_type = ""
+ami = ""
 
-key_name = ""
+associate_public_ip_address = false
 
-name = ""
+cpu_credits = "standard"
 
-source_dest_check = true
+disable_api_termination = false
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+ephemeral_block_device = []
 
 iam_instance_profile = ""
 
+instance_count = 1
+
+instance_initiated_shutdown_behavior = ""
+
+instance_type = ""
+
+ipv6_address_count = 0
+
+ipv6_addresses = []
+
+key_name = ""
+
 monitoring = false
+
+name = ""
+
+network_interface = []
+
+placement_group = ""
+
+private_ip = ""
+
+private_ips = []
+
+root_block_device = []
+
+source_dest_check = true
+
+subnet_id = ""
+
+subnet_ids = []
+
+tags = {}
+
+tenancy = "default"
+
+use_num_suffix = false
 
 user_data = ""
 
 volume_tags = {}
-
-ebs_optimized = false
-
-use_num_suffix = false
-
-ebs_block_device = []
-
-instance_count = 1
-
-subnet_id = ""
-
-ipv6_address_count = 0
-
-ami = ""
-
-private_ip = ""
-
-ephemeral_block_device = []
-
-tags = {}
-
-root_block_device = []
-
-network_interface = []
-
-cpu_credits = "standard"
-
-tenancy = "default"
-
-disable_api_termination = false
-
-associate_public_ip_address = false
-
-subnet_ids = []
-
-private_ips = []
-
-ipv6_addresses = []
-
-placement_group = ""
-
-instance_initiated_shutdown_behavior = ""
 
 vpc_security_group_ids = ""

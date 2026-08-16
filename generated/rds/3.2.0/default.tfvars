@@ -1,151 +1,151 @@
-monitoring_interval = 0
-
-db_subnet_group_name = null
-
-enabled_cloudwatch_logs_exports = []
-
-storage_type = null
-
-vpc_security_group_ids = []
-
-monitoring_role_name = "rds-monitoring-role"
-
-create_db_subnet_group = true
-
-option_group_timeouts = { "delete" : "15m" }
-
-license_model = null
-
-domain = null
-
-instance_class = null
-
-create_monitoring_role = false
-
-db_subnet_group_tags = {}
-
-parameter_group_name = null
-
-snapshot_identifier = null
-
-availability_zone = null
+allocated_storage = null
 
 allow_major_version_upgrade = false
 
 apply_immediately = false
 
-option_group_name = null
+auto_minor_version_upgrade = true
 
-performance_insights_kms_key_id = null
+availability_zone = null
+
+backup_retention_period = null
+
+backup_window = null
+
+ca_cert_identifier = null
+
+character_set_name = null
+
+copy_tags_to_snapshot = false
+
+create_db_instance = true
+
+create_db_option_group = true
+
+create_db_parameter_group = true
+
+create_db_subnet_group = true
+
+create_monitoring_role = false
 
 create_random_password = false
-
-allocated_storage = null
-
-family = ""
-
-performance_insights_enabled = false
-
-iam_database_authentication_enabled = false
-
-publicly_accessible = false
 
 db_instance_tags = {}
 
 db_option_group_tags = {}
 
-character_set_name = null
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-domain_iam_role_name = null
-
-final_snapshot_identifier_prefix = "final"
-
-monitoring_role_arn = null
+db_parameter_group_tags = {}
 
 db_subnet_group_description = ""
 
+db_subnet_group_name = null
+
+db_subnet_group_tags = {}
+
+db_subnet_group_use_name_prefix = true
+
+delete_automated_backups = true
+
+deletion_protection = false
+
+domain = null
+
+domain_iam_role_name = null
+
+enabled_cloudwatch_logs_exports = []
+
+engine = ""
+
+engine_version = null
+
+family = ""
+
+final_snapshot_identifier = null
+
+final_snapshot_identifier_prefix = "final"
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = null
+
+iops = 0
+
+kms_key_id = null
+
+license_model = null
+
+maintenance_window = null
+
 major_engine_version = ""
 
-timezone = null
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = null
+
+monitoring_role_name = "rds-monitoring-role"
+
+multi_az = false
+
+name = null
+
+option_group_description = ""
+
+option_group_name = null
+
+option_group_timeouts = { "delete" : "15m" }
+
+option_group_use_name_prefix = true
+
+options = []
+
+parameter_group_description = ""
+
+parameter_group_name = null
+
+parameter_group_use_name_prefix = true
+
+parameters = []
+
+password = ""
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = null
+
+performance_insights_retention_period = 7
+
+port = null
+
+publicly_accessible = false
 
 random_password_length = 10
 
 replicate_source_db = null
 
-name = null
-
-auto_minor_version_upgrade = true
-
-options = []
-
-max_allocated_storage = 0
-
-delete_automated_backups = true
-
-password = ""
-
-parameter_group_use_name_prefix = true
-
-ca_cert_identifier = null
-
-option_group_description = ""
-
-skip_final_snapshot = false
-
-final_snapshot_identifier = null
-
-iops = 0
-
-backup_window = null
-
-tags = {}
-
-subnet_ids = []
-
-option_group_use_name_prefix = true
-
-username = null
-
-parameter_group_description = ""
-
-identifier = ""
-
-storage_encrypted = false
+restore_to_point_in_time = null
 
 s3_import = null
 
-parameters = []
+skip_final_snapshot = false
 
-multi_az = false
+snapshot_identifier = null
 
-maintenance_window = null
+storage_encrypted = false
 
-restore_to_point_in_time = null
+storage_type = null
 
-db_parameter_group_tags = {}
+subnet_ids = []
 
-kms_key_id = null
+tags = {}
 
-engine_version = null
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
 
-copy_tags_to_snapshot = false
+timezone = null
 
-backup_retention_period = null
+username = null
 
-db_subnet_group_use_name_prefix = true
-
-create_db_parameter_group = true
-
-performance_insights_retention_period = 7
-
-engine = ""
-
-create_db_instance = true
-
-port = null
-
-create_db_option_group = true
-
-deletion_protection = false
+vpc_security_group_ids = []

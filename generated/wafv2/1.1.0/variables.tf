@@ -6,22 +6,63 @@ variable "association_config" {
   default = {}
 }
 
+variable "association_resource_arns" {
+  description = "Map of resource ARNs to associate with the Web ACL. Key is a friendly name, value is the resource ARN"
+  type        = map(string)
+  default     = {}
+}
+
+variable "captcha_config" {
+  description = "CAPTCHA configuration for the Web ACL. Specifies how long a CAPTCHA timestamp is considered valid"
+  type = object({
+    immunity_time_property = object({
+      immunity_time = number
+    })
+  })
+  default = null
+}
+
+variable "challenge_config" {
+  description = "Challenge configuration for the Web ACL. Specifies how long a challenge timestamp is considered valid"
+  type = object({
+    immunity_time_property = object({
+      immunity_time = number
+    })
+  })
+  default = null
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
 variable "create_logging_configuration" {
   description = "Controls if a logging configuration should be created for the Web ACL"
   type        = bool
   default     = false
 }
 
-variable "scope" {
-  description = "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL"
-  type        = string
-  default     = "REGIONAL"
+variable "custom_response_bodies" {
+  description = "Map of custom response body configurations. Key is the reference key, used in custom responses"
+  type = map(object({
+    content      = string
+    content_type = string
+  }))
+  default = {}
 }
 
-variable "logging_log_destination_configs" {
-  description = "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket ARNs for the logging destination"
-  type        = list(string)
-  default     = []
+variable "default_action" {
+  description = "Action to perform if none of the rules contained in the Web ACL match. Use allow or block for simple actions, or provide an object for custom request handling/response. See examples for object structure"
+  type        = any
+  default     = "allow"
+}
+
+variable "description" {
+  description = "A friendly description of the Web ACL"
+  type        = string
+  default     = null
 }
 
 variable "logging_filter" {
@@ -44,35 +85,10 @@ variable "logging_filter" {
   default = null
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "rules" {
-  description = "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- priority          - (Required) Rule priority (lower = evaluated first)\n- action            - Action for standalone rules. Use string (allow, block, count, captcha, challenge) or object for custom response\n- override_action   - Override action for managed/rule group rules. Use string (none, count) or object\n- statement         - (Required) Rule statement configuration. See AWS provider docs for statement structure\n- visibility_config - CloudWatch metrics config. Auto-generated from rule key if omitted\n- captcha_config    - Optional CAPTCHA configuration\n- challenge_config  - Optional challenge configuration\n- rule_labels       - Optional list of labels to add to matching requests\n\nSee examples/complete for usage patterns.\n"
-  type        = any
-  default     = {}
-}
-
-variable "custom_response_bodies" {
-  description = "Map of custom response body configurations. Key is the reference key, used in custom responses"
-  type = map(object({
-    content      = string
-    content_type = string
-  }))
-  default = {}
-}
-
-variable "captcha_config" {
-  description = "CAPTCHA configuration for the Web ACL. Specifies how long a CAPTCHA timestamp is considered valid"
-  type = object({
-    immunity_time_property = object({
-      immunity_time = number
-    })
-  })
-  default = null
+variable "logging_log_destination_configs" {
+  description = "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket ARNs for the logging destination"
+  type        = list(string)
+  default     = []
 }
 
 variable "logging_redacted_fields" {
@@ -87,50 +103,40 @@ variable "name" {
   default     = ""
 }
 
-variable "token_domains" {
-  description = "Specifies the domains that AWS WAF should accept in a web request token. Enables token use across multiple protected resources"
-  type        = list(string)
-  default     = []
-}
-
-variable "challenge_config" {
-  description = "Challenge configuration for the Web ACL. Specifies how long a challenge timestamp is considered valid"
-  type = object({
-    immunity_time_property = object({
-      immunity_time = number
-    })
-  })
-  default = null
-}
-
-variable "association_resource_arns" {
-  description = "Map of resource ARNs to associate with the Web ACL. Key is a friendly name, value is the resource ARN"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
 variable "putin_khuylo" {
   description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
   type        = bool
   default     = true
 }
 
-variable "description" {
-  description = "A friendly description of the Web ACL"
+variable "rule_json" {
+  description = "Escape hatch: JSON string of WAF rules for cases where dynamic blocks cannot represent all provider features. Mutually exclusive with rules"
   type        = string
   default     = null
 }
 
-variable "default_action" {
-  description = "Action to perform if none of the rules contained in the Web ACL match. Use allow or block for simple actions, or provide an object for custom request handling/response. See examples for object structure"
+variable "rules" {
+  description = "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- priority          - (Required) Rule priority (lower = evaluated first)\n- action            - Action for standalone rules. Use string (allow, block, count, captcha, challenge) or object for custom response\n- override_action   - Override action for managed/rule group rules. Use string (none, count) or object\n- statement         - (Required) Rule statement configuration. See AWS provider docs for statement structure\n- visibility_config - CloudWatch metrics config. Auto-generated from rule key if omitted\n- captcha_config    - Optional CAPTCHA configuration\n- challenge_config  - Optional challenge configuration\n- rule_labels       - Optional list of labels to add to matching requests\n\nSee examples/complete for usage patterns.\n"
   type        = any
-  default     = "allow"
+  default     = {}
+}
+
+variable "scope" {
+  description = "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL"
+  type        = string
+  default     = "REGIONAL"
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "token_domains" {
+  description = "Specifies the domains that AWS WAF should accept in a web request token. Enables token use across multiple protected resources"
+  type        = list(string)
+  default     = []
 }
 
 variable "visibility_config" {
@@ -141,10 +147,4 @@ variable "visibility_config" {
     sampled_requests_enabled   = optional(bool, true)
   })
   default = {}
-}
-
-variable "rule_json" {
-  description = "Escape hatch: JSON string of WAF rules for cases where dynamic blocks cannot represent all provider features. Mutually exclusive with rules"
-  type        = string
-  default     = null
 }

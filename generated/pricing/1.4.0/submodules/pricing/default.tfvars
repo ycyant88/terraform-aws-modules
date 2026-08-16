@@ -1,17 +1,17 @@
-call_aws_pricing_api = true
+aws_default_ebs_volume_size = 100
 
-hourly_price_precision = 10
-
-monthly_price_precision = 2
+aws_default_ebs_volume_type = "gp2"
 
 aws_default_region = "us-east-1"
 
-aws_default_ebs_volume_size = 100
-
-resources = {}
+call_aws_pricing_api = true
 
 content = {}
 
 debug_output = false
 
-aws_default_ebs_volume_type = "gp2"
+hourly_price_precision = 10
+
+monthly_price_precision = 2
+
+resources = {}

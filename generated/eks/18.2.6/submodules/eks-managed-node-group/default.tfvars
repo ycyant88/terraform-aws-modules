@@ -1,151 +1,151 @@
-platform = "linux"
-
-vpc_security_group_ids = []
-
-license_specifications = null
-
-cluster_name = null
-
-vpc_id = null
-
-create_iam_role = true
-
-iam_role_additional_policies = []
-
-launch_template_description = null
-
-ebs_optimized = null
-
-instance_types = null
-
-launch_template_version = null
-
-iam_role_description = null
-
-user_data_template_path = ""
-
-subnet_ids = null
-
-min_size = 0
-
-update_config = {}
-
-timeouts = {}
-
-security_group_rules = {}
-
-update_launch_template_default_version = true
-
-block_device_mappings = {}
-
-cpu_options = null
-
-network_interfaces = []
-
-taints = {}
-
-capacity_type = "ON_DEMAND"
-
-labels = null
-
-cluster_endpoint = ""
-
-launch_template_default_version = null
-
-disable_api_termination = null
-
-elastic_inference_accelerator = null
-
-enable_monitoring = true
+ami_id = ""
 
 ami_release_version = null
 
-iam_role_permissions_boundary = null
+ami_type = null
 
-tags = {}
+block_device_mappings = {}
 
-cluster_version = null
+bootstrap_extra_args = ""
 
-iam_role_arn = null
+capacity_reservation_specification = null
 
-cluster_service_ipv4_cidr = null
-
-placement = null
-
-disk_size = null
-
-cluster_security_group_id = null
-
-create = true
+capacity_type = "ON_DEMAND"
 
 cluster_auth_base64 = ""
 
+cluster_endpoint = ""
+
+cluster_ip_family = null
+
+cluster_name = null
+
+cluster_security_group_id = null
+
+cluster_service_ipv4_cidr = null
+
+cluster_version = null
+
+cpu_options = null
+
+create = true
+
+create_iam_role = true
+
 create_launch_template = true
 
-ami_id = ""
-
-use_name_prefix = true
-
-ami_type = null
-
-key_name = null
-
-kernel_id = null
-
-metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
-
-force_update_version = null
-
-security_group_use_name_prefix = true
-
-security_group_description = "EKS managed node group security group"
-
-security_group_tags = {}
-
-pre_bootstrap_user_data = ""
-
-post_bootstrap_user_data = ""
-
-launch_template_name = ""
+create_security_group = true
 
 credit_specification = null
 
-max_size = 3
+desired_size = 1
 
-remote_access = {}
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
+
+elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = null
+
+force_update_version = null
+
+iam_role_additional_policies = []
+
+iam_role_arn = null
+
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
 
 iam_role_name = null
 
 iam_role_path = null
 
-capacity_reservation_specification = null
-
-name = ""
-
-create_security_group = true
-
-cluster_ip_family = null
+iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-launch_template_use_name_prefix = true
+iam_role_use_name_prefix = true
 
 instance_market_options = null
 
-desired_size = 1
+instance_types = null
 
-security_group_name = null
+kernel_id = null
 
-enable_bootstrap_user_data = false
+key_name = null
 
-elastic_gpu_specifications = null
+labels = null
 
-iam_role_use_name_prefix = true
+launch_template_default_version = null
 
-iam_role_attach_cni_policy = true
+launch_template_description = null
 
-bootstrap_extra_args = ""
+launch_template_name = ""
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
+
+license_specifications = null
+
+max_size = 3
+
+metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = null
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
 
 ram_disk_id = null
 
-enclave_options = null
+remote_access = {}
+
+security_group_description = "EKS managed node group security group"
+
+security_group_name = null
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+subnet_ids = null
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = {}
+
+update_launch_template_default_version = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_id = null
+
+vpc_security_group_ids = []

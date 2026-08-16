@@ -1,27 +1,27 @@
-use_name_prefix = true
-
-vpc_id = null
-
-timeouts = null
-
-vpc_associations = {}
+create = true
 
 description = null
-
-revoke_rules_on_delete = false
-
-ingress_rules = {}
 
 egress_rules = {}
 
 enable_exclusive_rules = true
 
-putin_khuylo = true
+ingress_rules = {}
 
-create = true
+name = ""
+
+putin_khuylo = true
 
 region = null
 
+revoke_rules_on_delete = false
+
 tags = {}
 
-name = ""
+timeouts = null
+
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

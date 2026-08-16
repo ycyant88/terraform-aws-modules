@@ -1,47 +1,47 @@
-create_route53_records_only = false
-
-validation_allow_overwrite_records = true
+acm_certificate_domain_validation_options = {}
 
 certificate_transparency_logging_preference = true
 
-domain_name = ""
-
-dns_ttl = 60
-
-acm_certificate_domain_validation_options = {}
-
-distinct_domain_names = []
-
-export = null
-
 create_certificate = true
-
-validation_timeout = null
-
-validation_method = null
 
 create_route53_records = true
 
-validation_record_fqdns = []
+create_route53_records_only = false
+
+distinct_domain_names = []
+
+dns_ttl = 60
+
+domain_name = ""
+
+export = null
+
+key_algorithm = null
 
 private_authority_arn = null
 
-wait_for_validation = true
+putin_khuylo = true
 
 region = null
+
+subject_alternative_names = []
+
+tags = {}
+
+validate_certificate = true
+
+validation_allow_overwrite_records = true
+
+validation_method = null
+
+validation_option = {}
+
+validation_record_fqdns = []
+
+validation_timeout = null
+
+wait_for_validation = true
 
 zone_id = ""
 
 zones = {}
-
-key_algorithm = null
-
-putin_khuylo = true
-
-validate_certificate = true
-
-subject_alternative_names = []
-
-validation_option = {}
-
-tags = {}

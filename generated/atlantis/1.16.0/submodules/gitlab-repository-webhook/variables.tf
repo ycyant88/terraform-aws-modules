@@ -1,11 +1,17 @@
-variable "gitlab_base_url" {
-  description = "Gitlab base_url use"
-  type        = string
+variable "atlantis_allowed_repo_names" {
+  description = "List of names of repositories which belong to the organization specified in gitlab_organization"
+  type        = list(any)
   default     = ""
 }
 
-variable "gitlab_token" {
-  description = "Gitlab token to use when creating webhook"
+variable "create_gitlab_repository_webhook" {
+  description = "Whether to create Gitlab repository webhook for Atlantis"
+  type        = bool
+  default     = true
+}
+
+variable "gitlab_base_url" {
+  description = "Gitlab base_url use"
   type        = string
   default     = ""
 }
@@ -16,14 +22,8 @@ variable "gitlab_organization" {
   default     = ""
 }
 
-variable "atlantis_allowed_repo_names" {
-  description = "List of names of repositories which belong to the organization specified in gitlab_organization"
-  type        = list(any)
-  default     = ""
-}
-
-variable "webhook_url" {
-  description = "Webhook URL"
+variable "gitlab_token" {
+  description = "Gitlab token to use when creating webhook"
   type        = string
   default     = ""
 }
@@ -34,8 +34,8 @@ variable "webhook_secret" {
   default     = ""
 }
 
-variable "create_gitlab_repository_webhook" {
-  description = "Whether to create Gitlab repository webhook for Atlantis"
-  type        = bool
-  default     = true
+variable "webhook_url" {
+  description = "Webhook URL"
+  type        = string
+  default     = ""
 }

@@ -1,19 +1,13 @@
-variable "create_route53_records_only" {
-  description = "Whether to create only Route53 records (e.g. using separate AWS provider)"
-  type        = bool
-  default     = false
-}
-
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
+variable "acm_certificate_domain_validation_options" {
+  description = "A list of domain_validation_options created by the ACM certificate to create required Route53 records from it (used when create_route53_records_only is set to true)"
+  type        = any
   default     = {}
+}
+
+variable "certificate_transparency_logging_preference" {
+  description = "Specifies whether certificate details should be added to a certificate transparency log"
+  type        = bool
+  default     = true
 }
 
 variable "create_certificate" {
@@ -28,10 +22,10 @@ variable "create_route53_records" {
   default     = true
 }
 
-variable "validation_record_fqdns" {
-  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
-  type        = list(string)
-  default     = []
+variable "create_route53_records_only" {
+  description = "Whether to create only Route53 records (e.g. using separate AWS provider)"
+  type        = bool
+  default     = false
 }
 
 variable "distinct_domain_names" {
@@ -40,22 +34,52 @@ variable "distinct_domain_names" {
   default     = []
 }
 
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
+}
+
+variable "domain_name" {
+  description = "A domain name for which the certificate should be issued"
+  type        = string
+  default     = ""
+}
+
+variable "key_algorithm" {
+  description = "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data"
+  type        = string
+  default     = null
+}
+
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
+}
+
+variable "subject_alternative_names" {
+  description = "A list of domains that should be SANs in the issued certificate"
+  type        = list(string)
+  default     = []
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
+}
+
 variable "validate_certificate" {
   description = "Whether to validate certificate by creating Route53 record"
   type        = bool
   default     = true
 }
 
-variable "wait_for_validation" {
-  description = "Whether to wait for the validation to complete"
+variable "validation_allow_overwrite_records" {
+  description = "Whether to allow overwrite of Route53 records"
   type        = bool
   default     = true
-}
-
-variable "validation_timeout" {
-  description = "Define maximum timeout to wait for the validation to complete"
-  type        = string
-  default     = null
 }
 
 variable "validation_method" {
@@ -70,50 +94,26 @@ variable "validation_option" {
   default     = {}
 }
 
-variable "acm_certificate_domain_validation_options" {
-  description = "A list of domain_validation_options created by the ACM certificate to create required Route53 records from it (used when create_route53_records_only is set to true)"
-  type        = any
-  default     = {}
-}
-
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
-}
-
-variable "validation_allow_overwrite_records" {
-  description = "Whether to allow overwrite of Route53 records"
-  type        = bool
-  default     = true
-}
-
-variable "certificate_transparency_logging_preference" {
-  description = "Specifies whether certificate details should be added to a certificate transparency log"
-  type        = bool
-  default     = true
-}
-
-variable "domain_name" {
-  description = "A domain name for which the certificate should be issued"
-  type        = string
-  default     = ""
-}
-
-variable "subject_alternative_names" {
-  description = "A list of domains that should be SANs in the issued certificate"
+variable "validation_record_fqdns" {
+  description = "When validation is set to DNS and the DNS validation records are set externally, provide the fqdns for the validation"
   type        = list(string)
   default     = []
 }
 
-variable "dns_ttl" {
-  description = "The TTL of DNS recursive resolvers to cache information about this record."
-  type        = number
-  default     = 60
-}
-
-variable "key_algorithm" {
-  description = "Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data"
+variable "validation_timeout" {
+  description = "Define maximum timeout to wait for the validation to complete"
   type        = string
   default     = null
+}
+
+variable "wait_for_validation" {
+  description = "Whether to wait for the validation to complete"
+  type        = bool
+  default     = true
+}
+
+variable "zone_id" {
+  description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
+  type        = string
+  default     = ""
 }

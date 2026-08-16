@@ -1,91 +1,91 @@
+architectures = ["x86_64"]
+
+bucket_attach_deny_insecure_transport_policy = false
+
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+
+bucket_name = ""
+
+bucket_prefix = ""
+
+create = true
+
+create_bucket = true
+
+create_role = true
+
+create_role_policy = true
+
 dd_api_key = ""
 
 dd_api_key_secret_arn = ""
 
-bucket_attach_deny_insecure_transport_policy = false
+dd_site = "datadoghq.com"
 
-s3_zip_tags_only = false
+environment_variables = {}
 
-use_role_name_prefix = false
-
-role_max_session_duration = null
-
-runtime = "python3.8"
-
-architectures = ["x86_64"]
-
-use_policy_name_prefix = false
-
-s3_zip_tags = {}
+forwarder_version = "3.103.0"
 
 kms_key_arn = null
 
-s3_zip_server_side_encryption = null
+lambda_tags = {}
 
-create = true
+layers = []
 
-bucket_prefix = ""
+log_kms_key_id = null
 
-create_role = true
+log_retention_days = 7
+
+memory_size = 1024
+
+name = "datadog-log-forwarder"
+
+policy_arn = null
+
+policy_name = ""
+
+policy_path = null
 
 publish = false
 
 reserved_concurrent_executions = 100
 
-log_kms_key_id = null
-
-bucket_name = ""
-
-forwarder_version = "3.103.0"
-
-subnet_ids = null
-
-s3_zip_storage_class = null
-
-s3_zip_kms_key_id = null
-
-tags = {}
-
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
-
 role_arn = null
 
+role_max_session_duration = null
+
 role_name = ""
-
-s3_log_bucket_arns = []
-
-name = "datadog-log-forwarder"
-
-policy_name = ""
-
-role_tags = {}
-
-create_role_policy = true
-
-policy_arn = null
-
-memory_size = 1024
-
-environment_variables = {}
-
-lambda_tags = {}
-
-log_retention_days = 7
-
-s3_zip_metadata = {}
-
-dd_site = "datadoghq.com"
 
 role_path = null
 
 role_permissions_boundary = null
 
-timeout = 120
+role_tags = {}
+
+runtime = "python3.8"
+
+s3_log_bucket_arns = []
+
+s3_zip_kms_key_id = null
+
+s3_zip_metadata = {}
+
+s3_zip_server_side_encryption = null
+
+s3_zip_storage_class = null
+
+s3_zip_tags = {}
+
+s3_zip_tags_only = false
 
 security_group_ids = null
 
-create_bucket = true
+subnet_ids = null
 
-policy_path = null
+tags = {}
 
-layers = []
+timeout = 120
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

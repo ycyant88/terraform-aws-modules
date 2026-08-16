@@ -1,43 +1,43 @@
-origin_group = {}
+aliases = null
 
-geo_restriction = {}
+comment = null
+
+create_distribution = true
+
+create_origin_access_identity = false
 
 custom_error_response = {}
 
 default_cache_behavior = null
 
-origin_access_identities = {}
+default_root_object = null
 
 enabled = true
 
-http_version = "http2"
+geo_restriction = {}
 
-retain_on_delete = false
+http_version = "http2"
 
 is_ipv6_enabled = null
 
-tags = null
-
-origin = null
-
-viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
-
 logging_config = {}
-
-create_distribution = true
-
-aliases = null
-
-comment = null
-
-web_acl_id = null
 
 ordered_cache_behavior = []
 
-create_origin_access_identity = false
+origin = null
 
-default_root_object = null
+origin_access_identities = {}
+
+origin_group = {}
 
 price_class = null
 
+retain_on_delete = false
+
+tags = null
+
+viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+
 wait_for_deployment = true
+
+web_acl_id = null

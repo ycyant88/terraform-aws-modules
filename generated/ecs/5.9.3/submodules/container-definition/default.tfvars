@@ -1,97 +1,97 @@
-port_mappings = []
-
-essential = null
-
-memory_reservation = null
-
-secrets = []
-
-volumes_from = []
-
-repository_credentials = {}
-
-working_directory = null
-
-dns_search_domains = []
-
-linux_parameters = {}
-
-cpu = null
-
-environment = []
-
-dependencies = []
-
-dns_servers = []
-
-log_configuration = {}
-
-interactive = false
-
-privileged = false
-
-create_cloudwatch_log_group = true
-
-command = []
-
-docker_labels = {}
-
-enable_execute_command = false
-
-links = []
-
-mount_points = []
-
-pseudo_terminal = false
-
-ulimits = []
-
-docker_security_options = []
-
-environment_files = []
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-cloudwatch_log_group_use_name_prefix = false
-
-cloudwatch_log_group_kms_key_id = null
-
-memory = null
-
-user = null
-
-enable_cloudwatch_logging = true
-
-service = ""
-
 cloudwatch_log_group_retention_in_days = 30
 
-name = null
+cloudwatch_log_group_use_name_prefix = false
 
-hostname = null
+command = []
 
-readonly_root_filesystem = true
+cpu = null
 
-resource_requirements = []
+create_cloudwatch_log_group = true
 
-operating_system_family = "LINUX"
+dependencies = []
 
 disable_networking = null
 
+dns_search_domains = []
+
+dns_servers = []
+
+docker_labels = {}
+
+docker_security_options = []
+
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
+environment_files = []
+
+essential = null
+
 extra_hosts = []
+
+firelens_configuration = {}
+
+health_check = {}
+
+hostname = null
 
 image = null
 
-tags = {}
+interactive = false
+
+links = []
+
+linux_parameters = {}
+
+log_configuration = {}
+
+memory = null
+
+memory_reservation = null
+
+mount_points = []
+
+name = null
+
+operating_system_family = "LINUX"
+
+port_mappings = []
+
+privileged = false
+
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
 
 stop_timeout = 120
 
 system_controls = []
 
-health_check = {}
+tags = {}
 
-entrypoint = []
+ulimits = []
 
-start_timeout = 30
+user = null
 
-firelens_configuration = {}
+volumes_from = []
+
+working_directory = null

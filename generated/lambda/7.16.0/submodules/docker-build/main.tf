@@ -1,23 +1,23 @@
 module "lambda_docker-build" {
   source                    = "terraform-aws-modules/lambda/aws//modules/docker-build"
   version                   = "7.16.0"
-  ecr_address               = var.ecr_address
-  image_tag                 = var.image_tag
-  scan_on_push              = var.scan_on_push
-  ecr_force_delete          = var.ecr_force_delete
-  ecr_repo_tags             = var.ecr_repo_tags
-  keep_remotely             = var.keep_remotely
-  create_sam_metadata       = var.create_sam_metadata
-  use_image_tag             = var.use_image_tag
   build_args                = var.build_args
-  platform                  = var.platform
-  triggers                  = var.triggers
   create_ecr_repo           = var.create_ecr_repo
+  create_sam_metadata       = var.create_sam_metadata
   docker_file_path          = var.docker_file_path
-  force_remove              = var.force_remove
+  ecr_address               = var.ecr_address
+  ecr_force_delete          = var.ecr_force_delete
   ecr_repo                  = var.ecr_repo
-  source_path               = var.source_path
-  keep_locally              = var.keep_locally
-  image_tag_mutability      = var.image_tag_mutability
   ecr_repo_lifecycle_policy = var.ecr_repo_lifecycle_policy
+  ecr_repo_tags             = var.ecr_repo_tags
+  force_remove              = var.force_remove
+  image_tag                 = var.image_tag
+  image_tag_mutability      = var.image_tag_mutability
+  keep_locally              = var.keep_locally
+  keep_remotely             = var.keep_remotely
+  platform                  = var.platform
+  scan_on_push              = var.scan_on_push
+  source_path               = var.source_path
+  triggers                  = var.triggers
+  use_image_tag             = var.use_image_tag
 }

@@ -1,275 +1,275 @@
-instance_timeouts = {}
-
-cloudwatch_log_group_class = null
+allocated_storage = null
 
 allow_major_version_upgrade = false
 
-cluster_performance_insights_enabled = null
+apply_immediately = null
 
-engine_version = null
+auto_minor_version_upgrade = null
 
-vpc_id = ""
+autoscaling_enabled = false
 
-create_db_cluster_parameter_group = false
+autoscaling_max_capacity = 2
 
-cloudwatch_log_group_tags = {}
+autoscaling_min_capacity = 0
 
-iam_role_path = null
+autoscaling_policy_name = "target-metric"
+
+autoscaling_scale_in_cooldown = 300
+
+autoscaling_scale_out_cooldown = 300
 
 autoscaling_target_connections = 700
 
-database_insights_mode = null
-
-database_name = null
-
-db_parameter_group_family = ""
-
-cluster_performance_insights_kms_key_id = null
-
-db_cluster_instance_class = null
-
-deletion_protection = null
-
-iam_database_authentication_enabled = null
-
-port = null
-
 autoscaling_target_cpu = 70
+
+availability_zones = null
+
+backtrack_window = null
+
+backup_retention_period = null
+
+ca_cert_identifier = null
+
+cloudwatch_log_group_class = null
+
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_retention_in_days = 7
 
 cloudwatch_log_group_skip_destroy = null
 
-allocated_storage = null
-
-master_username = null
-
-domain = null
-
-publicly_accessible = null
-
-autoscaling_enabled = false
-
-autoscaling_policy_name = "target-metric"
-
-create_db_parameter_group = false
-
-serverlessv2_scaling_configuration = {}
-
-engine = null
-
-final_snapshot_identifier = null
-
-kms_key_id = null
-
-master_password = null
-
-endpoints = {}
-
-cluster_use_name_prefix = false
-
-iops = null
-
-master_user_secret_kms_key_id = null
-
-db_parameter_group_description = null
-
-manage_master_user_password_rotation = false
-
-min_acu = null
-
-enabled_cloudwatch_logs_exports = []
-
-security_group_name = ""
-
-create_shard_group = false
-
-manage_master_user_password = true
-
-db_parameter_group_name = null
-
-performance_insights_enabled = null
-
-iam_role_name = null
-
-db_cluster_parameter_group_use_name_prefix = true
-
-shard_group_timeouts = {}
-
-apply_immediately = null
-
-enable_global_write_forwarding = null
-
-instance_class = ""
-
-iam_role_permissions_boundary = null
-
-iam_role_force_detach_policies = null
-
-create = true
-
-name = ""
-
-subnets = []
-
-backup_retention_period = null
-
-cluster_scalability_type = null
-
-cluster_monitoring_interval = 0
-
-domain_iam_role_name = null
-
-master_user_password_rotate_immediately = null
-
-network_type = null
-
-storage_encrypted = true
-
-create_cloudwatch_log_group = false
-
-backtrack_window = null
-
-source_region = null
-
-cluster_tags = {}
-
-security_group_tags = {}
-
-db_cluster_activity_stream_kms_key_id = null
-
-ca_cert_identifier = null
-
-putin_khuylo = true
-
-s3_import = {}
-
-performance_insights_retention_period = null
-
-iam_roles = {}
-
-iam_role_description = null
-
-autoscaling_max_capacity = 2
-
-autoscaling_scale_out_cooldown = 300
-
-db_cluster_parameter_group_description = null
-
-cloudwatch_log_group_kms_key_id = null
-
-db_cluster_activity_stream_mode = null
-
-db_shard_group_identifier = null
-
-shard_group_tags = {}
-
-db_cluster_db_instance_parameter_group_name = null
-
-preferred_backup_window = "02:00-03:00"
-
-cluster_timeouts = {}
-
-create_security_group = true
-
-db_parameter_group_parameters = []
-
-create_db_subnet_group = false
-
-global_cluster_identifier = null
-
-enable_local_write_forwarding = null
-
-engine_lifecycle_support = null
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
-
-restore_to_point_in_time = {}
-
-scaling_configuration = {}
-
-security_group_rules = {}
-
-db_cluster_parameter_group_name = null
-
-db_subnet_group_name = ""
+cloudwatch_log_group_tags = {}
 
 cluster_ca_cert_identifier = null
 
-enable_http_endpoint = null
-
-db_cluster_parameter_group_family = ""
-
-max_acu = null
-
-tags = {}
-
 cluster_members = null
 
-instances_use_identifier_prefix = false
+cluster_monitoring_interval = 0
 
-create_monitoring_role = true
+cluster_performance_insights_enabled = null
 
-autoscaling_min_capacity = 0
-
-autoscaling_scale_in_cooldown = 300
-
-db_cluster_parameter_group_parameters = []
-
-snapshot_identifier = null
-
-vpc_security_group_ids = []
-
-monitoring_role_arn = ""
-
-master_user_password_rotation_automatically_after_days = null
-
-availability_zones = null
-
-storage_type = null
-
-auto_minor_version_upgrade = null
-
-performance_insights_kms_key_id = null
-
-engine_mode = "provisioned"
-
-iam_role_managed_policy_arns = null
-
-iam_role_use_name_prefix = false
-
-predefined_metric_type = "RDSReaderAverageCPUUtilization"
-
-compute_redundancy = null
-
-skip_final_snapshot = false
-
-iam_role_max_session_duration = null
-
-security_group_use_name_prefix = true
-
-db_parameter_group_use_name_prefix = true
-
-engine_native_audit_fields_included = false
-
-master_user_password_rotation_duration = null
-
-is_primary_cluster = true
-
-copy_tags_to_snapshot = null
-
-instances = {}
-
-security_group_description = null
-
-create_db_cluster_activity_stream = false
+cluster_performance_insights_kms_key_id = null
 
 cluster_performance_insights_retention_period = null
 
-replication_source_identifier = null
+cluster_scalability_type = null
 
-monitoring_interval = 0
+cluster_tags = {}
+
+cluster_timeouts = {}
+
+cluster_use_name_prefix = false
+
+compute_redundancy = null
+
+copy_tags_to_snapshot = null
+
+create = true
+
+create_cloudwatch_log_group = false
+
+create_db_cluster_activity_stream = false
+
+create_db_cluster_parameter_group = false
+
+create_db_parameter_group = false
+
+create_db_subnet_group = false
+
+create_monitoring_role = true
+
+create_security_group = true
+
+create_shard_group = false
+
+database_insights_mode = null
+
+database_name = null
+
+db_cluster_activity_stream_kms_key_id = null
+
+db_cluster_activity_stream_mode = null
+
+db_cluster_db_instance_parameter_group_name = null
+
+db_cluster_instance_class = null
+
+db_cluster_parameter_group_description = null
+
+db_cluster_parameter_group_family = ""
+
+db_cluster_parameter_group_name = null
+
+db_cluster_parameter_group_parameters = []
+
+db_cluster_parameter_group_use_name_prefix = true
+
+db_parameter_group_description = null
+
+db_parameter_group_family = ""
+
+db_parameter_group_name = null
+
+db_parameter_group_parameters = []
+
+db_parameter_group_use_name_prefix = true
+
+db_shard_group_identifier = null
+
+db_subnet_group_name = ""
+
+delete_automated_backups = null
+
+deletion_protection = null
+
+domain = null
+
+domain_iam_role_name = null
+
+enable_global_write_forwarding = null
+
+enable_http_endpoint = null
+
+enable_local_write_forwarding = null
+
+enabled_cloudwatch_logs_exports = []
+
+endpoints = {}
+
+engine = null
+
+engine_lifecycle_support = null
+
+engine_mode = "provisioned"
+
+engine_native_audit_fields_included = false
+
+engine_version = null
+
+final_snapshot_identifier = null
+
+global_cluster_identifier = null
+
+iam_database_authentication_enabled = null
+
+iam_role_description = null
+
+iam_role_force_detach_policies = null
+
+iam_role_managed_policy_arns = null
+
+iam_role_max_session_duration = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_use_name_prefix = false
+
+iam_roles = {}
+
+instance_class = ""
+
+instance_timeouts = {}
+
+instances = {}
+
+instances_use_identifier_prefix = false
+
+iops = null
+
+is_primary_cluster = true
+
+kms_key_id = null
+
+manage_master_user_password = true
+
+manage_master_user_password_rotation = false
+
+master_password = null
+
+master_user_password_rotate_immediately = null
+
+master_user_password_rotation_automatically_after_days = null
+
+master_user_password_rotation_duration = null
 
 master_user_password_rotation_schedule_expression = null
 
-delete_automated_backups = null
+master_user_secret_kms_key_id = null
+
+master_username = null
+
+max_acu = null
+
+min_acu = null
+
+monitoring_interval = 0
+
+monitoring_role_arn = ""
+
+name = ""
+
+network_type = null
+
+performance_insights_enabled = null
+
+performance_insights_kms_key_id = null
+
+performance_insights_retention_period = null
+
+port = null
+
+predefined_metric_type = "RDSReaderAverageCPUUtilization"
+
+preferred_backup_window = "02:00-03:00"
+
+preferred_maintenance_window = "sun:05:00-sun:06:00"
+
+publicly_accessible = null
+
+putin_khuylo = true
+
+replication_source_identifier = null
+
+restore_to_point_in_time = {}
+
+s3_import = {}
+
+scaling_configuration = {}
+
+security_group_description = null
+
+security_group_name = ""
+
+security_group_rules = {}
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+serverlessv2_scaling_configuration = {}
+
+shard_group_tags = {}
+
+shard_group_timeouts = {}
+
+skip_final_snapshot = false
+
+snapshot_identifier = null
+
+source_region = null
+
+storage_encrypted = true
+
+storage_type = null
+
+subnets = []
+
+tags = {}
+
+vpc_id = ""
+
+vpc_security_group_ids = []

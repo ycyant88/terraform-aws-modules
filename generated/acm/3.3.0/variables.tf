@@ -1,7 +1,25 @@
-variable "wait_for_validation" {
-  description = "Whether to wait for the validation to complete"
+variable "certificate_transparency_logging_preference" {
+  description = "Specifies whether certificate details should be added to a certificate transparency log"
   type        = bool
   default     = true
+}
+
+variable "create_certificate" {
+  description = "Whether to create ACM certificate"
+  type        = bool
+  default     = true
+}
+
+variable "create_route53_records" {
+  description = "When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider"
+  type        = bool
+  default     = true
+}
+
+variable "dns_ttl" {
+  description = "The TTL of DNS recursive resolvers to cache information about this record."
+  type        = number
+  default     = 60
 }
 
 variable "domain_name" {
@@ -14,18 +32,6 @@ variable "subject_alternative_names" {
   description = "A list of domains that should be SANs in the issued certificate"
   type        = list(string)
   default     = []
-}
-
-variable "validation_method" {
-  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
-  type        = string
-  default     = "DNS"
-}
-
-variable "create_route53_records" {
-  description = "When validation is set to DNS, define whether to create the DNS records internally via Route53 or externally using any DNS provider"
-  type        = bool
-  default     = true
 }
 
 variable "tags" {
@@ -46,10 +52,10 @@ variable "validation_allow_overwrite_records" {
   default     = true
 }
 
-variable "dns_ttl" {
-  description = "The TTL of DNS recursive resolvers to cache information about this record."
-  type        = number
-  default     = 60
+variable "validation_method" {
+  description = "Which method to use for validation. DNS or EMAIL are valid, NONE can be used for certificates that were imported into ACM and then into Terraform."
+  type        = string
+  default     = "DNS"
 }
 
 variable "validation_record_fqdns" {
@@ -58,20 +64,14 @@ variable "validation_record_fqdns" {
   default     = []
 }
 
+variable "wait_for_validation" {
+  description = "Whether to wait for the validation to complete"
+  type        = bool
+  default     = true
+}
+
 variable "zone_id" {
   description = "The ID of the hosted zone to contain this record. Required when validating via Route53"
   type        = string
   default     = ""
-}
-
-variable "create_certificate" {
-  description = "Whether to create ACM certificate"
-  type        = bool
-  default     = true
-}
-
-variable "certificate_transparency_logging_preference" {
-  description = "Specifies whether certificate details should be added to a certificate transparency log"
-  type        = bool
-  default     = true
 }

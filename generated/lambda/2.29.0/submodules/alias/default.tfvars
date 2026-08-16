@@ -1,35 +1,35 @@
-maximum_event_age_in_seconds = null
-
-destination_on_success = null
-
-refresh_alias = true
-
-function_name = ""
-
-maximum_retry_attempts = null
-
-create_qualified_alias_allowed_triggers = true
-
-function_version = ""
-
-routing_additional_version_weights = {}
+allowed_triggers = {}
 
 create = true
 
-use_existing_alias = false
-
 create_async_event_config = false
 
-name = ""
+create_qualified_alias_allowed_triggers = true
+
+create_qualified_alias_async_event_config = true
+
+create_version_allowed_triggers = true
+
+create_version_async_event_config = true
 
 description = ""
 
 destination_on_failure = null
 
-allowed_triggers = {}
+destination_on_success = null
 
-create_version_async_event_config = true
+function_name = ""
 
-create_qualified_alias_async_event_config = true
+function_version = ""
 
-create_version_allowed_triggers = true
+maximum_event_age_in_seconds = null
+
+maximum_retry_attempts = null
+
+name = ""
+
+refresh_alias = true
+
+routing_additional_version_weights = {}
+
+use_existing_alias = false

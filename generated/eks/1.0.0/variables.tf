@@ -1,15 +1,3 @@
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(any)
-  default     = {}
-}
-
-variable "workers_group_defaults" {
-  description = "Default values for target groups as defined by the list of maps."
-  type        = map(any)
-  default     = { "additional_userdata" : "", "ami_id" : "", "asg_desired_capacity" : "1", "asg_max_size" : "3", "asg_min_size" : "1", "ebs_optimized" : true, "instance_type" : "m4.large", "name" : "count.index" }
-}
-
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
   type        = string
@@ -46,6 +34,12 @@ variable "subnets" {
   default     = ""
 }
 
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(any)
+  default     = {}
+}
+
 variable "vpc_id" {
   description = "VPC where the cluster and workers will be deployed."
   type        = string
@@ -62,4 +56,10 @@ variable "worker_security_group_id" {
   description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster."
   type        = string
   default     = ""
+}
+
+variable "workers_group_defaults" {
+  description = "Default values for target groups as defined by the list of maps."
+  type        = map(any)
+  default     = { "additional_userdata" : "", "ami_id" : "", "asg_desired_capacity" : "1", "asg_max_size" : "3", "asg_min_size" : "1", "ebs_optimized" : true, "instance_type" : "m4.large", "name" : "count.index" }
 }

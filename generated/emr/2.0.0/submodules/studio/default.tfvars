@@ -1,91 +1,91 @@
-user_role_permissions_boundary = null
+auth_mode = "IAM"
 
-service_role_permissions_boundary = null
+create = true
 
-service_role_statements = {}
+create_security_groups = true
 
-user_role_description = null
+create_service_role = true
 
-idp_relay_state_parameter_name = null
+create_service_role_policy = true
 
-name = ""
+create_user_role = true
 
-vpc_id = ""
-
-service_role_description = null
-
-user_role_tags = {}
+create_user_role_policy = true
 
 default_s3_location = ""
 
 description = null
 
-idp_auth_url = null
-
-user_role_s3_bucket_arns = []
-
 engine_security_group_description = "EMR Studio engine security group"
 
-user_role_path = null
+engine_security_group_id = null
 
-user_role_policies = {}
+engine_security_group_rules = {}
 
-workspace_security_group_id = null
+idp_auth_url = null
 
-service_role_name = null
+idp_relay_state_parameter_name = null
 
-service_role_path = null
-
-user_role_use_name_prefix = true
-
-subnet_ids = []
-
-service_role_policies = {}
-
-create_security_groups = true
-
-service_role_tags = {}
-
-service_role_s3_bucket_arns = []
-
-create_user_role = true
-
-user_role_arn = null
-
-user_role_name = null
-
-create = true
-
-create_service_role = true
-
-service_role_arn = null
-
-workspace_security_group_rules = {}
+name = ""
 
 security_group_name = null
 
 security_group_tags = {}
 
-workspace_security_group_description = "EMR Studio workspace security group"
+security_group_use_name_prefix = true
 
-user_role_statements = {}
+service_role_arn = null
 
-engine_security_group_rules = {}
+service_role_description = null
 
-create_service_role_policy = true
+service_role_name = null
+
+service_role_path = null
+
+service_role_permissions_boundary = null
+
+service_role_policies = {}
+
+service_role_s3_bucket_arns = []
 
 service_role_secrets_manager_arns = []
 
-create_user_role_policy = true
+service_role_statements = {}
 
-security_group_use_name_prefix = true
+service_role_tags = {}
 
 service_role_use_name_prefix = true
 
-engine_security_group_id = null
+session_mappings = {}
+
+subnet_ids = []
 
 tags = {}
 
-auth_mode = "IAM"
+user_role_arn = null
 
-session_mappings = {}
+user_role_description = null
+
+user_role_name = null
+
+user_role_path = null
+
+user_role_permissions_boundary = null
+
+user_role_policies = {}
+
+user_role_s3_bucket_arns = []
+
+user_role_statements = {}
+
+user_role_tags = {}
+
+user_role_use_name_prefix = true
+
+vpc_id = ""
+
+workspace_security_group_description = "EMR Studio workspace security group"
+
+workspace_security_group_id = null
+
+workspace_security_group_rules = {}

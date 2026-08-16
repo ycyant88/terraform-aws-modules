@@ -3,6 +3,6 @@ module "atlantis_gitlab-repository-webhook" {
   version        = "5.0.1"
   create         = var.create
   repositories   = var.repositories
-  webhook_url    = var.webhook_url
   webhook_secret = var.webhook_secret
+  webhook_url    = var.webhook_url
 }

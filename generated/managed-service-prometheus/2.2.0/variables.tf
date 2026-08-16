@@ -1,13 +1,13 @@
+variable "alert_manager_definition" {
+  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
+  type        = string
+  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
+}
+
 variable "create" {
   description = "Determines whether a resources will be created"
   type        = bool
   default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
 }
 
 variable "create_workspace" {
@@ -16,10 +16,16 @@ variable "create_workspace" {
   default     = true
 }
 
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
+variable "rule_group_namespaces" {
+  description = "A map of one or more rule group namespace definitions"
+  type        = map(any)
+  default     = {}
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "workspace_alias" {
@@ -28,14 +34,8 @@ variable "workspace_alias" {
   default     = null
 }
 
-variable "alert_manager_definition" {
-  description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
   type        = string
-  default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
-}
-
-variable "rule_group_namespaces" {
-  description = "A map of one or more rule group namespace definitions"
-  type        = map(any)
-  default     = {}
+  default     = ""
 }

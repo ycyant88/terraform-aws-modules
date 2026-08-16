@@ -1,51 +1,51 @@
-server_side_encryption = null
-
-metadata = {}
-
-content_base64 = null
-
-content_language = null
-
-etag = null
-
-kms_key_id = null
-
-tags = {}
-
-force_destroy = false
-
-object_lock_mode = null
-
-create = true
-
-key = ""
-
-content_type = null
-
-storage_class = null
-
-bucket_key_enabled = null
-
-object_lock_legal_hold_status = null
-
-source_hash = null
-
-override_default_tags = false
-
-cache_control = null
-
-website_redirect = null
-
-object_lock_retain_until_date = null
+acl = null
 
 bucket = ""
 
-file_source = null
+bucket_key_enabled = null
+
+cache_control = null
 
 content = null
 
-acl = null
+content_base64 = null
 
 content_disposition = null
 
 content_encoding = null
+
+content_language = null
+
+content_type = null
+
+create = true
+
+etag = null
+
+file_source = null
+
+force_destroy = false
+
+key = ""
+
+kms_key_id = null
+
+metadata = {}
+
+object_lock_legal_hold_status = null
+
+object_lock_mode = null
+
+object_lock_retain_until_date = null
+
+override_default_tags = false
+
+server_side_encryption = null
+
+source_hash = null
+
+storage_class = null
+
+tags = {}
+
+website_redirect = null

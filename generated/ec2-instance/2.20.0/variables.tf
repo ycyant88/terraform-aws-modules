@@ -1,43 +1,13 @@
-variable "subnet_id" {
-  description = "The VPC Subnet ID to launch in"
+variable "ami" {
+  description = "ID of AMI to use for the instance"
   type        = string
   default     = ""
 }
 
-variable "user_data_base64" {
-  description = "Can be used instead of user_data to pass base64-encoded binary data directly. Use this instead of user_data whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption."
-  type        = string
+variable "associate_public_ip_address" {
+  description = "If true, the EC2 instance will have associated public IP address"
+  type        = bool
   default     = ""
-}
-
-variable "root_block_device" {
-  description = "Customize details about the root block device of the instance. See Block Devices below for details"
-  type        = list(any)
-  default     = []
-}
-
-variable "network_interface" {
-  description = "Customize network interfaces to be attached at instance boot time"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "use_num_suffix" {
-  description = "Always append numerical suffix to instance name, even if instance_count is 1"
-  type        = bool
-  default     = false
-}
-
-variable "source_dest_check" {
-  description = "Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs."
-  type        = bool
-  default     = true
-}
-
-variable "volume_tags" {
-  description = "A mapping of tags to assign to the devices created by the instance at launch time"
-  type        = map(string)
-  default     = {}
 }
 
 variable "cpu_core_count" {
@@ -46,8 +16,56 @@ variable "cpu_core_count" {
   default     = ""
 }
 
-variable "name" {
-  description = "Name to be used on all resources as prefix"
+variable "cpu_credits" {
+  description = "The credit option for CPU usage (unlimited or standard)"
+  type        = string
+  default     = "standard"
+}
+
+variable "cpu_threads_per_core" {
+  description = "Sets the number of CPU threads per core for an instance (has no effect unless cpu_core_count is also set)."
+  type        = number
+  default     = ""
+}
+
+variable "disable_api_termination" {
+  description = "If true, enables EC2 Instance Termination Protection"
+  type        = bool
+  default     = false
+}
+
+variable "ebs_block_device" {
+  description = "Additional EBS block devices to attach to the instance"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "ebs_optimized" {
+  description = "If true, the launched EC2 instance will be EBS-optimized"
+  type        = bool
+  default     = false
+}
+
+variable "enable_volume_tags" {
+  description = "Whether to enable volume tags (if enabled it conflicts with root_block_device tags)"
+  type        = bool
+  default     = true
+}
+
+variable "ephemeral_block_device" {
+  description = "Customize Ephemeral (also known as Instance Store) volumes on the instance"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "get_password_data" {
+  description = "If true, wait for password data to become available and retrieve it."
+  type        = bool
+  default     = false
+}
+
+variable "iam_instance_profile" {
+  description = "The IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile."
   type        = string
   default     = ""
 }
@@ -58,14 +76,68 @@ variable "instance_count" {
   default     = 1
 }
 
-variable "disable_api_termination" {
-  description = "If true, enables EC2 Instance Termination Protection"
-  type        = bool
-  default     = false
+variable "instance_initiated_shutdown_behavior" {
+  description = "Shutdown behavior for the instance"
+  type        = string
+  default     = ""
+}
+
+variable "instance_type" {
+  description = "The type of instance to start"
+  type        = string
+  default     = ""
+}
+
+variable "ipv6_address_count" {
+  description = "A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet."
+  type        = number
+  default     = ""
+}
+
+variable "ipv6_addresses" {
+  description = "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface"
+  type        = list(string)
+  default     = ""
 }
 
 variable "key_name" {
   description = "The key name to use for the instance"
+  type        = string
+  default     = ""
+}
+
+variable "metadata_options" {
+  description = "Customize the metadata options of the instance"
+  type        = map(string)
+  default     = {}
+}
+
+variable "monitoring" {
+  description = "If true, the launched EC2 instance will have detailed monitoring enabled"
+  type        = bool
+  default     = false
+}
+
+variable "name" {
+  description = "Name to be used on all resources as prefix"
+  type        = string
+  default     = ""
+}
+
+variable "network_interface" {
+  description = "Customize network interfaces to be attached at instance boot time"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "num_suffix_format" {
+  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
+  type        = string
+  default     = "-%d"
+}
+
+variable "placement_group" {
+  description = "The Placement Group to start the instance in"
   type        = string
   default     = ""
 }
@@ -76,46 +148,28 @@ variable "private_ip" {
   default     = ""
 }
 
-variable "ephemeral_block_device" {
-  description = "Customize Ephemeral (also known as Instance Store) volumes on the instance"
-  type        = list(map(string))
-  default     = []
-}
-
-variable "cpu_credits" {
-  description = "The credit option for CPU usage (unlimited or standard)"
-  type        = string
-  default     = "standard"
-}
-
-variable "monitoring" {
-  description = "If true, the launched EC2 instance will have detailed monitoring enabled"
-  type        = bool
-  default     = false
-}
-
-variable "ipv6_addresses" {
-  description = "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface"
+variable "private_ips" {
+  description = "A list of private IP address to associate with the instance in a VPC. Should match the number of instances."
   type        = list(string)
-  default     = ""
-}
-
-variable "ebs_block_device" {
-  description = "Additional EBS block devices to attach to the instance"
-  type        = list(map(string))
   default     = []
 }
 
-variable "metadata_options" {
-  description = "Customize the metadata options of the instance"
-  type        = map(string)
-  default     = {}
+variable "root_block_device" {
+  description = "Customize details about the root block device of the instance. See Block Devices below for details"
+  type        = list(any)
+  default     = []
 }
 
-variable "get_password_data" {
-  description = "If true, wait for password data to become available and retrieve it."
+variable "source_dest_check" {
+  description = "Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs."
   type        = bool
-  default     = false
+  default     = true
+}
+
+variable "subnet_id" {
+  description = "The VPC Subnet ID to launch in"
+  type        = string
+  default     = ""
 }
 
 variable "subnet_ids" {
@@ -124,58 +178,10 @@ variable "subnet_ids" {
   default     = []
 }
 
-variable "associate_public_ip_address" {
-  description = "If true, the EC2 instance will have associated public IP address"
-  type        = bool
-  default     = ""
-}
-
-variable "private_ips" {
-  description = "A list of private IP address to associate with the instance in a VPC. Should match the number of instances."
-  type        = list(string)
-  default     = []
-}
-
-variable "cpu_threads_per_core" {
-  description = "Sets the number of CPU threads per core for an instance (has no effect unless cpu_core_count is also set)."
-  type        = number
-  default     = ""
-}
-
-variable "ami" {
-  description = "ID of AMI to use for the instance"
-  type        = string
-  default     = ""
-}
-
-variable "placement_group" {
-  description = "The Placement Group to start the instance in"
-  type        = string
-  default     = ""
-}
-
-variable "user_data" {
-  description = "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see user_data_base64 instead."
-  type        = string
-  default     = ""
-}
-
-variable "iam_instance_profile" {
-  description = "The IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile."
-  type        = string
-  default     = ""
-}
-
-variable "instance_initiated_shutdown_behavior" {
-  description = "Shutdown behavior for the instance"
-  type        = string
-  default     = ""
-}
-
-variable "num_suffix_format" {
-  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
-  type        = string
-  default     = "-%d"
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }
 
 variable "tenancy" {
@@ -184,38 +190,32 @@ variable "tenancy" {
   default     = "default"
 }
 
-variable "ebs_optimized" {
-  description = "If true, the launched EC2 instance will be EBS-optimized"
+variable "use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1"
   type        = bool
   default     = false
 }
 
-variable "instance_type" {
-  description = "The type of instance to start"
+variable "user_data" {
+  description = "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see user_data_base64 instead."
   type        = string
   default     = ""
+}
+
+variable "user_data_base64" {
+  description = "Can be used instead of user_data to pass base64-encoded binary data directly. Use this instead of user_data whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption."
+  type        = string
+  default     = ""
+}
+
+variable "volume_tags" {
+  description = "A mapping of tags to assign to the devices created by the instance at launch time"
+  type        = map(string)
+  default     = {}
 }
 
 variable "vpc_security_group_ids" {
   description = "A list of security group IDs to associate with"
   type        = list(string)
   default     = ""
-}
-
-variable "ipv6_address_count" {
-  description = "A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet."
-  type        = number
-  default     = ""
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
-
-variable "enable_volume_tags" {
-  description = "Whether to enable volume tags (if enabled it conflicts with root_block_device tags)"
-  type        = bool
-  default     = true
 }

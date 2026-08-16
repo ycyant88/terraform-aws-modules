@@ -1,23 +1,23 @@
-name = ""
-
-security_groups = ""
+access_logs = []
 
 connection_draining = false
 
 connection_draining_timeout = 300
 
-tags = {}
+cross_zone_load_balancing = true
 
 health_check = ""
 
-subnets = ""
+idle_timeout = 60
 
 internal = ""
 
-cross_zone_load_balancing = true
-
-idle_timeout = 60
-
 listener = ""
 
-access_logs = []
+name = ""
+
+security_groups = ""
+
+subnets = ""
+
+tags = {}

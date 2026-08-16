@@ -1,81 +1,81 @@
-type = "STANDARD"
+attach_cloudwatch_logs_policy = true
 
-logging_configuration = {}
+attach_policies = false
 
-aws_region_assume_role = ""
+attach_policies_for_integrations = true
 
-role_permissions_boundary = null
-
-number_of_policies = 0
-
-attach_policy_statements = false
-
-policy = null
-
-policies = []
-
-use_existing_cloudwatch_log_group = false
-
-definition = ""
-
-tags = {}
-
-cloudwatch_log_group_name = null
+attach_policy = false
 
 attach_policy_json = false
 
-trusted_entities = []
+attach_policy_jsons = false
 
-policy_statements = {}
+attach_policy_statements = false
+
+aws_region_assume_role = ""
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = null
+
+cloudwatch_log_group_tags = {}
 
 create = true
 
 create_role = true
 
-policy_json = null
-
-policy_path = null
-
-use_existing_role = false
-
-cloudwatch_log_group_retention_in_days = null
-
-attach_cloudwatch_logs_policy = true
-
-role_name = null
-
-role_force_detach_policies = true
-
-attach_policy = false
-
-name = ""
-
-publish = false
-
-role_description = null
-
-attach_policies_for_integrations = true
-
-attach_policies = false
-
-role_arn = ""
-
-sfn_state_machine_timeouts = {}
+definition = ""
 
 encryption_configuration = {}
 
-cloudwatch_log_group_kms_key_id = null
+logging_configuration = {}
 
-cloudwatch_log_group_tags = {}
+name = ""
+
+number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_path = null
+
+policy_statements = {}
+
+publish = false
+
+role_arn = ""
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
 
 role_path = null
+
+role_permissions_boundary = null
 
 role_tags = {}
 
 service_integrations = {}
 
-attach_policy_jsons = false
+sfn_state_machine_timeouts = {}
 
-number_of_policy_jsons = 0
+tags = {}
 
-policy_jsons = []
+trusted_entities = []
+
+type = "STANDARD"
+
+use_existing_cloudwatch_log_group = false
+
+use_existing_role = false

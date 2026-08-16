@@ -1,45 +1,45 @@
-create_iam_role_policy = true
+account_id = ""
 
-iam_role_policy_statements = null
+cluster_ip_family = "ipv4"
 
-tags = {}
+cluster_name = ""
+
+create = true
 
 create_iam_role = true
+
+create_iam_role_policy = true
+
+iam_role_additional_policies = {}
 
 iam_role_arn = null
 
 iam_role_attach_cni_policy = true
 
-iam_role_additional_policies = {}
-
-cluster_name = ""
-
-name = ""
-
-subnet_ids = []
-
-cluster_ip_family = "ipv4"
+iam_role_description = "Fargate profile IAM role"
 
 iam_role_name = ""
 
-selectors = null
-
-iam_role_use_name_prefix = true
-
-iam_role_description = "Fargate profile IAM role"
+iam_role_path = null
 
 iam_role_permissions_boundary = null
 
+iam_role_policy_statements = null
+
 iam_role_tags = {}
 
-timeouts = null
+iam_role_use_name_prefix = true
 
-create = true
-
-region = null
+name = ""
 
 partition = ""
 
-account_id = ""
+region = null
 
-iam_role_path = null
+selectors = null
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = null

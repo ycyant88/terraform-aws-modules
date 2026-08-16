@@ -1,13 +1,15 @@
-variable "rule_json" {
-  description = "Escape hatch: JSON string of WAF rules for cases where dynamic blocks cannot represent all provider features. Mutually exclusive with rules"
-  type        = string
-  default     = null
+variable "association_config" {
+  description = "Configuration for body inspection size limits per resource type. Keys are resource types (e.g., CLOUDFRONT, API_GATEWAY, COGNITO_USER_POOL, APP_RUNNER_SERVICE, VERIFIED_ACCESS_INSTANCE)"
+  type = map(object({
+    default_size_inspection_limit = string
+  }))
+  default = {}
 }
 
-variable "token_domains" {
-  description = "Specifies the domains that AWS WAF should accept in a web request token. Enables token use across multiple protected resources"
-  type        = list(string)
-  default     = []
+variable "association_resource_arns" {
+  description = "Map of resource ARNs to associate with the Web ACL. Key is a friendly name, value is the resource ARN"
+  type        = map(string)
+  default     = {}
 }
 
 variable "captcha_config" {
@@ -30,30 +32,16 @@ variable "challenge_config" {
   default = null
 }
 
-variable "association_config" {
-  description = "Configuration for body inspection size limits per resource type. Keys are resource types (e.g., CLOUDFRONT, API_GATEWAY, COGNITO_USER_POOL, APP_RUNNER_SERVICE, VERIFIED_ACCESS_INSTANCE)"
-  type = map(object({
-    default_size_inspection_limit = string
-  }))
-  default = {}
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "create_logging_configuration" {
   description = "Controls if a logging configuration should be created for the Web ACL"
   type        = bool
   default     = false
-}
-
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
-  type        = bool
-  default     = true
-}
-
-variable "default_action" {
-  description = "Action to perform if none of the rules contained in the Web ACL match. Use allow or block for simple actions, or provide an object for custom request handling/response. See examples for object structure"
-  type        = any
-  default     = "allow"
 }
 
 variable "custom_response_bodies" {
@@ -65,10 +53,22 @@ variable "custom_response_bodies" {
   default = {}
 }
 
-variable "logging_log_destination_configs" {
-  description = "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket ARNs for the logging destination. Names must be prefixed with aws-waf-logs-"
-  type        = list(string)
-  default     = []
+variable "data_protection_config" {
+  description = "Data protection configuration. data_protections is a list of objects with field (object with field_keys list and field_type one of SINGLE_HEADER/SINGLE_COOKIE/SINGLE_QUERY_ARGUMENT/QUERY_STRING/BODY), action (HASH or SUBSTITUTION), exclude_rate_based_details (bool, optional), and exclude_rule_match_details (bool, optional)"
+  type        = any
+  default     = null
+}
+
+variable "default_action" {
+  description = "Action to perform if none of the rules contained in the Web ACL match. Use allow or block for simple actions, or provide an object for custom request handling/response. See examples for object structure"
+  type        = any
+  default     = "allow"
+}
+
+variable "description" {
+  description = "A friendly description of the Web ACL"
+  type        = string
+  default     = null
 }
 
 variable "logging_filter" {
@@ -91,10 +91,27 @@ variable "logging_filter" {
   default = null
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "logging_log_destination_configs" {
+  description = "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket ARNs for the logging destination. Names must be prefixed with aws-waf-logs-"
+  type        = list(string)
+  default     = []
+}
+
+variable "logging_redacted_fields" {
+  description = "The parts of the request that you want to keep out of the logs. Each entry must specify exactly one of method, query_string, uri_path, or single_header"
+  type = list(object({
+    method        = optional(object({}))
+    query_string  = optional(object({}))
+    uri_path      = optional(object({}))
+    single_header = optional(object({ name = string }))
+  }))
+  default = []
+}
+
+variable "logging_region" {
+  description = "Region where the WAF logging configuration will be managed. Defaults to the provider region"
+  type        = string
+  default     = null
 }
 
 variable "name" {
@@ -109,10 +126,22 @@ variable "name_prefix" {
   default     = null
 }
 
-variable "data_protection_config" {
-  description = "Data protection configuration. data_protections is a list of objects with field (object with field_keys list and field_type one of SINGLE_HEADER/SINGLE_COOKIE/SINGLE_QUERY_ARGUMENT/QUERY_STRING/BODY), action (HASH or SUBSTITUTION), exclude_rate_based_details (bool, optional), and exclude_rule_match_details (bool, optional)"
-  type        = any
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine"
+  type        = bool
+  default     = true
+}
+
+variable "rule_json" {
+  description = "Escape hatch: JSON string of WAF rules for cases where dynamic blocks cannot represent all provider features. Mutually exclusive with rules"
+  type        = string
   default     = null
+}
+
+variable "rules" {
+  description = "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- priority          - (Required) Rule priority (lower = evaluated first)\n- action            - Action for standalone rules. Use string (allow, block, count, captcha, challenge) or object for custom response\n- override_action   - Override action for managed/rule group rules. Use string (none, count) or object\n- statement         - (Required) Rule statement configuration. See AWS provider docs for statement structure\n- visibility_config - CloudWatch metrics config. Auto-generated from rule key if omitted\n- captcha_config    - Optional CAPTCHA configuration\n- challenge_config  - Optional challenge configuration\n- rule_labels       - Optional list of labels to add to matching requests\n\nSee examples/complete for usage patterns.\n"
+  type        = any
+  default     = {}
 }
 
 variable "scope" {
@@ -127,39 +156,10 @@ variable "tags" {
   default     = {}
 }
 
-variable "logging_region" {
-  description = "Region where the WAF logging configuration will be managed. Defaults to the provider region"
-  type        = string
-  default     = null
-}
-
-variable "association_resource_arns" {
-  description = "Map of resource ARNs to associate with the Web ACL. Key is a friendly name, value is the resource ARN"
-  type        = map(string)
-  default     = {}
-}
-
-variable "description" {
-  description = "A friendly description of the Web ACL"
-  type        = string
-  default     = null
-}
-
-variable "rules" {
-  description = "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- priority          - (Required) Rule priority (lower = evaluated first)\n- action            - Action for standalone rules. Use string (allow, block, count, captcha, challenge) or object for custom response\n- override_action   - Override action for managed/rule group rules. Use string (none, count) or object\n- statement         - (Required) Rule statement configuration. See AWS provider docs for statement structure\n- visibility_config - CloudWatch metrics config. Auto-generated from rule key if omitted\n- captcha_config    - Optional CAPTCHA configuration\n- challenge_config  - Optional challenge configuration\n- rule_labels       - Optional list of labels to add to matching requests\n\nSee examples/complete for usage patterns.\n"
-  type        = any
-  default     = {}
-}
-
-variable "logging_redacted_fields" {
-  description = "The parts of the request that you want to keep out of the logs. Each entry must specify exactly one of method, query_string, uri_path, or single_header"
-  type = list(object({
-    method        = optional(object({}))
-    query_string  = optional(object({}))
-    uri_path      = optional(object({}))
-    single_header = optional(object({ name = string }))
-  }))
-  default = []
+variable "token_domains" {
+  description = "Specifies the domains that AWS WAF should accept in a web request token. Enables token use across multiple protected resources"
+  type        = list(string)
+  default     = []
 }
 
 variable "visibility_config" {

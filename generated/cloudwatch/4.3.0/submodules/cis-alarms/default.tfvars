@@ -1,23 +1,23 @@
-create = true
-
-use_random_name_prefix = false
-
-control_overrides = {}
-
-namespace = "CISBenchmark"
-
-log_group_name = ""
-
-tags = {}
-
-name_prefix = ""
-
-disabled_controls = []
+actions_enabled = true
 
 alarm_actions = []
 
-actions_enabled = true
+control_overrides = {}
+
+create = true
+
+disabled_controls = []
+
+insufficient_data_actions = []
+
+log_group_name = ""
+
+name_prefix = ""
+
+namespace = "CISBenchmark"
 
 ok_actions = []
 
-insufficient_data_actions = []
+tags = {}
+
+use_random_name_prefix = false

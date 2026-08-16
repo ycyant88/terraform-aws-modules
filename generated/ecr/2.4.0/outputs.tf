@@ -1,11 +1,11 @@
-output "repository_name" {
-  value       = module.ecr.repository_name
-  description = "Name of the repository"
-}
-
 output "repository_arn" {
   value       = module.ecr.repository_arn
   description = "Full ARN of the repository"
+}
+
+output "repository_name" {
+  value       = module.ecr.repository_name
+  description = "Name of the repository"
 }
 
 output "repository_registry_id" {

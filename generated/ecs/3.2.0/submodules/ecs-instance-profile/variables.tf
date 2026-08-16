@@ -4,14 +4,14 @@ variable "include_ssm" {
   default     = false
 }
 
-variable "tags" {
-  description = "A map of tags to add to instance profile role"
-  type        = map(string)
-  default     = {}
-}
-
 variable "name" {
   description = "Name to be used on all the resources as identifier"
   type        = string
   default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to instance profile role"
+  type        = map(string)
+  default     = {}
 }

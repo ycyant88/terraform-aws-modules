@@ -1,41 +1,5 @@
-variable "iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "transit_gateway_id" {
-  description = "Transit Gateway ID to attach to"
-  type        = string
-  default     = null
-}
-
-variable "flow_log_tags" {
-  description = "Map of additional tags to add to the flow log "
-  type        = map(string)
-  default     = {}
-}
-
-variable "cloudwatch_log_group_name" {
-  description = "Name of the created CloudWatch log group"
+variable "cloudwatch_log_group_class" {
+  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
   type        = string
   default     = null
 }
@@ -46,20 +10,8 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "deliver_cross_account_role" {
-  description = "ARN of the IAM role in the destination account used for cross-account delivery of flow logs"
-  type        = string
-  default     = null
-}
-
-variable "log_destination" {
-  description = "ARN of the logging destination"
-  type        = string
-  default     = null
-}
-
-variable "vpc_id" {
-  description = "VPC ID to attach to"
+variable "cloudwatch_log_group_name" {
+  description = "Name of the created CloudWatch log group"
   type        = string
   default     = null
 }
@@ -74,6 +26,108 @@ variable "cloudwatch_log_group_tags" {
   description = "Map of additional tags to add to the CloudWatch log group"
   type        = map(string)
   default     = {}
+}
+
+variable "cloudwatch_log_group_use_name_prefix" {
+  description = "Determines whether the log group name should be used as a prefix"
+  type        = bool
+  default     = true
+}
+
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether to create a CloudWatch log group for the Flow Logs"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_role" {
+  description = "Determines whether the ECS service IAM role should be created"
+  type        = bool
+  default     = true
+}
+
+variable "deliver_cross_account_role" {
+  description = "ARN of the IAM role in the destination account used for cross-account delivery of flow logs"
+  type        = string
+  default     = null
+}
+
+variable "destination_options" {
+  description = "Describes the destination options for a flow log"
+  type = object({
+    file_format                = optional(string)
+    hive_compatible_partitions = optional(bool)
+    per_hour_partition         = optional(bool)
+  })
+  default = null
+}
+
+variable "eni_id" {
+  description = "Elastic Network Interface ID to attach to"
+  type        = string
+  default     = null
+}
+
+variable "flow_log_tags" {
+  description = "Map of additional tags to add to the flow log "
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_role_arn" {
+  description = "Existing IAM role ARN"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_description" {
+  description = "Description of the role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_permissions" {
+  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for inline policy permissions"
+  type = map(object({
+    sid           = optional(string)
+    actions       = optional(list(string))
+    not_actions   = optional(list(string))
+    effect        = optional(string, "Allow")
+    resources     = optional(list(string))
+    not_resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    not_principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })))
+    condition = optional(list(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    })))
+  }))
+  default = null
 }
 
 variable "iam_role_permissions_boundary" {
@@ -114,60 +168,8 @@ variable "iam_role_trust_policy_permissions" {
   default = null
 }
 
-variable "name" {
-  description = "Name to use across resources created"
-  type        = string
-  default     = ""
-}
-
-variable "max_aggregation_interval" {
-  description = "The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: 60 seconds (1 minute) or 600 seconds (10 minutes). Default: 600. When transit_gateway_id or transit_gateway_attachment_id is specified, max_aggregation_interval must be 60 seconds (1 minute)"
-  type        = number
-  default     = null
-}
-
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether to create a CloudWatch log group for the Flow Logs"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_path" {
-  description = "IAM role path"
-  type        = string
-  default     = null
-}
-
-variable "destination_options" {
-  description = "Describes the destination options for a flow log"
-  type = object({
-    file_format                = optional(string)
-    hive_compatible_partitions = optional(bool)
-    per_hour_partition         = optional(bool)
-  })
-  default = null
-}
-
-variable "log_format" {
-  description = "The fields to include in the flow log record"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_log_group_class" {
-  description = "Specified the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
-  type        = string
-  default     = null
-}
-
-variable "create_iam_role" {
-  description = "Determines whether the ECS service IAM role should be created"
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
   type        = bool
   default     = true
 }
@@ -178,52 +180,8 @@ variable "kinesis_data_firehose_arn" {
   default     = null
 }
 
-variable "traffic_type" {
-  description = "The type of traffic to capture. Valid values: ACCEPT, REJECT, ALL"
-  type        = string
-  default     = "ALL"
-}
-
-variable "iam_role_arn" {
-  description = "Existing IAM role ARN"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_permissions" {
-  description = "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for inline policy permissions"
-  type = map(object({
-    sid           = optional(string)
-    actions       = optional(list(string))
-    not_actions   = optional(list(string))
-    effect        = optional(string, "Allow")
-    resources     = optional(list(string))
-    not_resources = optional(list(string))
-    principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    not_principals = optional(list(object({
-      type        = string
-      identifiers = list(string)
-    })))
-    condition = optional(list(object({
-      test     = string
-      variable = string
-      values   = list(string)
-    })))
-  }))
-  default = null
-}
-
-variable "eni_id" {
-  description = "Elastic Network Interface ID to attach to"
+variable "log_destination" {
+  description = "ARN of the logging destination"
   type        = string
   default     = null
 }
@@ -234,10 +192,46 @@ variable "log_destination_type" {
   default     = "cloud-watch-logs"
 }
 
+variable "log_format" {
+  description = "The fields to include in the flow log record"
+  type        = string
+  default     = null
+}
+
+variable "max_aggregation_interval" {
+  description = "The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: 60 seconds (1 minute) or 600 seconds (10 minutes). Default: 600. When transit_gateway_id or transit_gateway_attachment_id is specified, max_aggregation_interval must be 60 seconds (1 minute)"
+  type        = number
+  default     = null
+}
+
+variable "name" {
+  description = "Name to use across resources created"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
 variable "subnet_id" {
   description = "Subnet ID to attach to"
   type        = string
   default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "traffic_type" {
+  description = "The type of traffic to capture. Valid values: ACCEPT, REJECT, ALL"
+  type        = string
+  default     = "ALL"
 }
 
 variable "transit_gateway_attachment_id" {
@@ -246,8 +240,14 @@ variable "transit_gateway_attachment_id" {
   default     = null
 }
 
-variable "cloudwatch_log_group_use_name_prefix" {
-  description = "Determines whether the log group name should be used as a prefix"
-  type        = bool
-  default     = true
+variable "transit_gateway_id" {
+  description = "Transit Gateway ID to attach to"
+  type        = string
+  default     = null
+}
+
+variable "vpc_id" {
+  description = "VPC ID to attach to"
+  type        = string
+  default     = null
 }

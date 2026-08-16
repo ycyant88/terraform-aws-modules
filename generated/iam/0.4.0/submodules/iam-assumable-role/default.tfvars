@@ -1,29 +1,29 @@
-max_session_duration = 3600
+admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 
-role_permissions_boundary_arn = ""
-
-custom_role_policy_arns = []
-
-trusted_role_arns = []
-
-mfa_age = 86400
-
-create_role = false
-
-poweruser_role_policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
+attach_admin_policy = false
 
 attach_poweruser_policy = false
 
-role_path = "/"
-
-role_requires_mfa = true
-
 attach_readonly_policy = false
 
-role_name = ""
+create_role = false
 
-admin_role_policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+custom_role_policy_arns = []
+
+max_session_duration = 3600
+
+mfa_age = 86400
+
+poweruser_role_policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
 
 readonly_role_policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 
-attach_admin_policy = false
+role_name = ""
+
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_requires_mfa = true
+
+trusted_role_arns = []

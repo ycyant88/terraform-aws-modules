@@ -1,19 +1,19 @@
+variable "create_iam_access_key" {
+  description = "Whether to create IAM access key"
+  type        = bool
+  default     = true
+}
+
 variable "create_iam_user_login_profile" {
   description = "Whether to create IAM user login profile"
   type        = bool
   default     = true
 }
 
-variable "name" {
-  description = "Desired name for the IAM user"
-  type        = string
-  default     = ""
-}
-
-variable "path" {
-  description = "Desired path for the IAM user"
-  type        = string
-  default     = "/"
+variable "create_user" {
+  description = "Whether to create the IAM user"
+  type        = bool
+  default     = true
 }
 
 variable "force_destroy" {
@@ -22,10 +22,10 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login."
-  type        = bool
-  default     = true
+variable "name" {
+  description = "Desired name for the IAM user"
+  type        = string
+  default     = ""
 }
 
 variable "password_length" {
@@ -34,16 +34,22 @@ variable "password_length" {
   default     = 20
 }
 
-variable "upload_iam_user_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
-  type        = bool
-  default     = false
-}
-
-variable "create_iam_access_key" {
-  description = "Whether to create IAM access key"
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login."
   type        = bool
   default     = true
+}
+
+variable "path" {
+  description = "Desired path for the IAM user"
+  type        = string
+  default     = "/"
+}
+
+variable "permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the user."
+  type        = string
+  default     = ""
 }
 
 variable "pgp_key" {
@@ -64,20 +70,14 @@ variable "ssh_public_key" {
   default     = ""
 }
 
-variable "permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the user."
-  type        = string
-  default     = ""
-}
-
 variable "tags" {
   description = "A map of tags to add to all resources."
   type        = map(string)
   default     = {}
 }
 
-variable "create_user" {
-  description = "Whether to create the IAM user"
+variable "upload_iam_user_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
   type        = bool
-  default     = true
+  default     = false
 }

@@ -1,61 +1,61 @@
-enabled = true
-
-realtime_metrics_subscription_status = "Enabled"
-
-create = true
-
 aliases = null
 
-http_version = "http2"
+anycast_ip_list_id = null
 
-ordered_cache_behavior = []
-
-tags = {}
+cloudfront_functions = null
 
 comment = null
 
 continuous_deployment_policy_id = null
 
-logging_config = null
-
-restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
-
-vpc_origin = null
-
-default_root_object = null
-
-origin = {}
-
-wait_for_deployment = null
-
-cloudfront_functions = null
+create = true
 
 create_monitoring_subscription = false
 
-enable_v2_logging = false
-
-price_class = null
-
-staging = null
-
-response_headers_policies = null
-
-anycast_ip_list_id = null
-
-origin_group = null
-
-origin_access_control = { "s3" : { "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
-
 custom_error_response = null
-
-is_ipv6_enabled = true
-
-retain_on_delete = null
-
-viewer_certificate = {}
 
 default_cache_behavior = ""
 
-web_acl_id = null
+default_root_object = null
+
+enable_v2_logging = false
+
+enabled = true
+
+http_version = "http2"
+
+is_ipv6_enabled = true
+
+logging_config = null
+
+ordered_cache_behavior = []
+
+origin = {}
+
+origin_access_control = { "s3" : { "origin_type" : "s3", "signing_behavior" : "always", "signing_protocol" : "sigv4" } }
+
+origin_group = null
+
+price_class = null
+
+realtime_metrics_subscription_status = "Enabled"
+
+response_headers_policies = null
+
+restrictions = { "geo_restriction" : { "restriction_type" : "none" } }
+
+retain_on_delete = null
+
+staging = null
+
+tags = {}
 
 v2_logging = null
+
+viewer_certificate = {}
+
+vpc_origin = null
+
+wait_for_deployment = null
+
+web_acl_id = null

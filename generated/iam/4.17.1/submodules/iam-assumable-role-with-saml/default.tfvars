@@ -1,27 +1,27 @@
-role_policy_arns = []
+aws_saml_endpoint = "https://signin.aws.amazon.com/saml"
 
 create_role = false
 
-role_description = ""
-
-role_path = "/"
+force_detach_policies = false
 
 max_session_duration = 3600
 
 number_of_role_policy_arns = null
 
-force_detach_policies = false
-
 provider_id = ""
 
 provider_ids = []
 
-aws_saml_endpoint = "https://signin.aws.amazon.com/saml"
-
-tags = {}
+role_description = ""
 
 role_name = null
 
 role_name_prefix = null
 
+role_path = "/"
+
 role_permissions_boundary_arn = ""
+
+role_policy_arns = []
+
+tags = {}

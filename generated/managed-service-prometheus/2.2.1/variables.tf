@@ -1,31 +1,7 @@
-variable "workspace_id" {
-  description = "The ID of an existing workspace to use when create_workspace is false"
-  type        = string
-  default     = ""
-}
-
-variable "workspace_alias" {
-  description = "The alias of the prometheus workspace. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html)"
-  type        = string
-  default     = null
-}
-
-variable "logging_configuration" {
-  description = "The logging configuration of the prometheus workspace."
-  type        = map(string)
-  default     = {}
-}
-
 variable "alert_manager_definition" {
   description = "The alert manager definition that you want to be applied. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html)"
   type        = string
   default     = "alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"
-}
-
-variable "rule_group_namespaces" {
-  description = "A map of one or more rule group namespace definitions"
-  type        = map(any)
-  default     = {}
 }
 
 variable "create" {
@@ -34,14 +10,38 @@ variable "create" {
   default     = true
 }
 
+variable "create_workspace" {
+  description = "Determines whether a workspace will be created or to use an existing workspace"
+  type        = bool
+  default     = true
+}
+
+variable "logging_configuration" {
+  description = "The logging configuration of the prometheus workspace."
+  type        = map(string)
+  default     = {}
+}
+
+variable "rule_group_namespaces" {
+  description = "A map of one or more rule group namespace definitions"
+  type        = map(any)
+  default     = {}
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "create_workspace" {
-  description = "Determines whether a workspace will be created or to use an existing workspace"
-  type        = bool
-  default     = true
+variable "workspace_alias" {
+  description = "The alias of the prometheus workspace. See more in the [AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html)"
+  type        = string
+  default     = null
+}
+
+variable "workspace_id" {
+  description = "The ID of an existing workspace to use when create_workspace is false"
+  type        = string
+  default     = ""
 }

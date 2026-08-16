@@ -1,13 +1,19 @@
-variable "name_prefix" {
-  description = "IAM role name prefix"
+variable "audience" {
+  description = "Audience to use for OIDC role. Defaults to sts.amazonaws.com for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)"
   type        = string
-  default     = null
+  default     = "sts.amazonaws.com"
 }
 
-variable "policies" {
-  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "IAM Role description"
+  type        = string
+  default     = null
 }
 
 variable "force_detach_policies" {
@@ -22,26 +28,14 @@ variable "max_session_duration" {
   default     = null
 }
 
-variable "provider_url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
-  type        = string
-  default     = "token.actions.githubusercontent.com"
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to the resources created"
-  type        = map(any)
-  default     = {}
-}
-
 variable "name" {
   description = "Name of IAM role"
+  type        = string
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "IAM role name prefix"
   type        = string
   default     = null
 }
@@ -58,10 +52,16 @@ variable "permissions_boundary_arn" {
   default     = null
 }
 
-variable "audience" {
-  description = "Audience to use for OIDC role. Defaults to sts.amazonaws.com for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)"
+variable "policies" {
+  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
+}
+
+variable "provider_url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
   type        = string
-  default     = "sts.amazonaws.com"
+  default     = "token.actions.githubusercontent.com"
 }
 
 variable "subjects" {
@@ -70,8 +70,8 @@ variable "subjects" {
   default     = []
 }
 
-variable "description" {
-  description = "IAM Role description"
-  type        = string
-  default     = null
+variable "tags" {
+  description = "A map of tags to add to the resources created"
+  type        = map(any)
+  default     = {}
 }

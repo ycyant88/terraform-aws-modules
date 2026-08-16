@@ -1,3 +1,9 @@
+variable "account_id" {
+  description = "AWS account ID"
+  type        = string
+  default     = null
+}
+
 variable "block_public_acls" {
   description = "Whether Amazon S3 should block public ACLs for buckets in this account."
   type        = bool
@@ -10,6 +16,12 @@ variable "block_public_policy" {
   default     = false
 }
 
+variable "create" {
+  description = "Whether to create this resource or not?"
+  type        = bool
+  default     = true
+}
+
 variable "ignore_public_acls" {
   description = "Whether Amazon S3 should ignore public ACLs for buckets in this account."
   type        = bool
@@ -20,16 +32,4 @@ variable "restrict_public_buckets" {
   description = "Whether Amazon S3 should restrict public bucket policies for buckets in this account."
   type        = bool
   default     = false
-}
-
-variable "create" {
-  description = "Whether to create this resource or not?"
-  type        = bool
-  default     = true
-}
-
-variable "account_id" {
-  description = "AWS account ID"
-  type        = string
-  default     = null
 }

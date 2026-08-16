@@ -1,79 +1,79 @@
 attach_cloudwatch_logs_policy = true
 
-role_force_detach_policies = true
-
-number_of_policies = 0
-
-role_description = null
-
-role_permissions_boundary = null
-
-number_of_policy_jsons = 0
-
-cloudwatch_log_group_kms_key_id = null
+attach_policies = false
 
 attach_policies_for_integrations = true
 
-attach_policy_jsons = false
-
 attach_policy = false
 
-policy_path = null
+attach_policy_json = false
 
-policies = []
-
-publish = false
-
-role_name = null
-
-policy_json = null
-
-policy_jsons = []
-
-tags = {}
-
-cloudwatch_log_group_name = null
-
-role_tags = {}
+attach_policy_jsons = false
 
 attach_policy_statements = false
 
-use_existing_role = false
+aws_region_assume_role = ""
 
-use_existing_cloudwatch_log_group = false
+cloudwatch_log_group_kms_key_id = null
 
-name = ""
-
-definition = ""
-
-type = "STANDARD"
+cloudwatch_log_group_name = null
 
 cloudwatch_log_group_retention_in_days = null
 
-policy = null
+cloudwatch_log_group_tags = {}
 
 create = true
 
 create_role = true
 
-sfn_state_machine_timeouts = {}
+definition = ""
 
 logging_configuration = {}
 
-aws_region_assume_role = ""
+name = ""
 
-role_path = null
+number_of_policies = 0
 
-service_integrations = {}
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_path = null
+
+policy_statements = {}
+
+publish = false
 
 role_arn = ""
 
-cloudwatch_log_group_tags = {}
+role_description = null
 
-attach_policy_json = false
+role_force_detach_policies = true
 
-attach_policies = false
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+service_integrations = {}
+
+sfn_state_machine_timeouts = {}
+
+tags = {}
 
 trusted_entities = []
 
-policy_statements = {}
+type = "STANDARD"
+
+use_existing_cloudwatch_log_group = false
+
+use_existing_role = false

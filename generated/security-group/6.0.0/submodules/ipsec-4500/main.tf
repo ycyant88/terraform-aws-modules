@@ -1,22 +1,22 @@
 module "security-group_ipsec-4500" {
   source                               = "terraform-aws-modules/security-group/aws//modules/ipsec-4500"
   version                              = "6.0.0"
-  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
-  revoke_rules_on_delete               = var.revoke_rules_on_delete
-  vpc_id                               = var.vpc_id
-  timeouts                             = var.timeouts
-  ingress_rules                        = var.ingress_rules
-  egress_rules                         = var.egress_rules
-  vpc_associations                     = var.vpc_associations
   create                               = var.create
-  tags                                 = var.tags
-  use_name_prefix                      = var.use_name_prefix
   description                          = var.description
-  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  egress_rules                         = var.egress_rules
   enable_exclusive_rules               = var.enable_exclusive_rules
-  preset_ingress_rules                 = var.preset_ingress_rules
   ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
   ingress_prefix_list_id               = var.ingress_prefix_list_id
-  region                               = var.region
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  ingress_rules                        = var.ingress_rules
   name                                 = var.name
+  preset_ingress_rules                 = var.preset_ingress_rules
+  region                               = var.region
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  tags                                 = var.tags
+  timeouts                             = var.timeouts
+  use_name_prefix                      = var.use_name_prefix
+  vpc_associations                     = var.vpc_associations
+  vpc_id                               = var.vpc_id
 }

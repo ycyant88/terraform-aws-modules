@@ -1,159 +1,159 @@
-cpu_options = null
-
-key_name = null
-
-iam_role_permissions_boundary = null
-
-security_group_description = null
-
-cpu_credits = null
-
-ephemeral_block_device = null
-
-spot_instance_interruption_behavior = null
-
-iam_role_path = null
-
-eip_tags = {}
-
-ignore_ami_changes = false
-
-disable_api_termination = null
-
-placement_group = null
-
-maintenance_options = null
-
-spot_type = null
-
-iam_role_description = null
-
-enclave_options_enabled = null
-
-user_data_replace_on_change = null
-
-timeouts = {}
-
-ebs_optimized = null
-
-hibernation = null
-
-instance_initiated_shutdown_behavior = null
-
-enable_volume_tags = true
-
-security_group_vpc_id = null
-
-security_group_ingress_rules = null
-
-create = true
+ami = null
 
 ami_ssm_parameter = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 
+associate_public_ip_address = null
+
+availability_zone = null
+
 capacity_reservation_specification = null
+
+cpu_credits = null
+
+cpu_options = null
+
+create = true
+
+create_eip = false
+
+create_iam_instance_profile = false
+
+create_security_group = true
+
+create_spot_instance = false
+
+disable_api_stop = null
+
+disable_api_termination = null
+
+ebs_optimized = null
+
+ebs_volumes = null
+
+eip_domain = "vpc"
+
+eip_tags = {}
+
+enable_primary_ipv6 = null
+
+enable_volume_tags = true
+
+enclave_options_enabled = null
+
+ephemeral_block_device = null
+
+get_password_data = null
+
+hibernation = null
+
+host_id = null
+
+host_resource_group_arn = null
 
 iam_instance_profile = null
 
-spot_wait_for_fulfillment = null
+iam_role_description = null
 
-spot_valid_from = null
+iam_role_name = null
 
-enable_primary_ipv6 = null
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
+iam_role_policies = {}
+
+iam_role_tags = {}
+
+iam_role_use_name_prefix = true
+
+ignore_ami_changes = false
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = null
+
+instance_tags = {}
+
+instance_type = "t3.micro"
 
 ipv6_address_count = null
 
 ipv6_addresses = null
 
-monitoring = null
-
-source_dest_check = null
-
-iam_role_tags = {}
-
-security_group_name = null
-
-security_group_use_name_prefix = true
-
-region = null
+key_name = null
 
 launch_template = null
 
-root_block_device = null
-
-tenancy = null
-
-ebs_volumes = null
-
-create_eip = false
-
-ami = null
+maintenance_options = null
 
 metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 1, "http_tokens" : "required" }
 
-secondary_private_ips = null
-
-user_data_base64 = null
-
-spot_price = null
-
-iam_role_name = null
-
-iam_role_use_name_prefix = true
-
-iam_role_policies = {}
-
-instance_market_options = null
-
-network_interface = null
-
-private_ip = null
-
-vpc_security_group_ids = []
-
-create_spot_instance = false
-
-create_iam_instance_profile = false
-
-putin_khuylo = true
-
-instance_type = "t3.micro"
-
-placement_partition_number = null
-
-instance_tags = {}
-
-user_data = null
-
-create_security_group = true
-
-security_group_tags = {}
-
-host_id = null
-
-tags = {}
-
-security_group_egress_rules = { "ipv4_default" : { "cidr_ipv4" : "0.0.0.0/0", "description" : "Allow all IPv4 traffic", "ip_protocol" : "-1" }, "ipv6_default" : { "cidr_ipv6" : "::/0", "description" : "Allow all IPv6 traffic", "ip_protocol" : "-1" } }
-
-eip_domain = "vpc"
-
-associate_public_ip_address = null
-
-disable_api_stop = null
-
-host_resource_group_arn = null
-
-private_dns_name_options = null
-
-subnet_id = null
-
-volume_tags = {}
-
-spot_valid_until = null
+monitoring = null
 
 name = ""
 
-availability_zone = null
+network_interface = null
 
-get_password_data = null
+placement_group = null
+
+placement_partition_number = null
+
+private_dns_name_options = null
+
+private_ip = null
+
+putin_khuylo = true
+
+region = null
+
+root_block_device = null
+
+secondary_private_ips = null
+
+security_group_description = null
+
+security_group_egress_rules = { "ipv4_default" : { "cidr_ipv4" : "0.0.0.0/0", "description" : "Allow all IPv4 traffic", "ip_protocol" : "-1" }, "ipv6_default" : { "cidr_ipv6" : "::/0", "description" : "Allow all IPv6 traffic", "ip_protocol" : "-1" } }
+
+security_group_ingress_rules = null
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+security_group_vpc_id = null
+
+source_dest_check = null
+
+spot_instance_interruption_behavior = null
 
 spot_launch_group = null
+
+spot_price = null
+
+spot_type = null
+
+spot_valid_from = null
+
+spot_valid_until = null
+
+spot_wait_for_fulfillment = null
+
+subnet_id = null
+
+tags = {}
+
+tenancy = null
+
+timeouts = {}
+
+user_data = null
+
+user_data_base64 = null
+
+user_data_replace_on_change = null
+
+volume_tags = {}
+
+vpc_security_group_ids = []

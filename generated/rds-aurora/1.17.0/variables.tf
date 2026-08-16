@@ -4,40 +4,10 @@ variable "allowed_cidr_blocks" {
   default     = []
 }
 
-variable "publicly_accessible" {
-  description = "Whether the DB should have a public IP address"
+variable "allowed_cidr_blocks_count" {
+  description = "The number of CIDR blocks being added, terraform doesn't let us use length() in a count field"
   type        = string
-  default     = "false"
-}
-
-variable "deletion_protection" {
-  description = "If the DB instance should have deletion protection enabled"
-  type        = string
-  default     = "false"
-}
-
-variable "preferred_backup_window" {
-  description = "When to perform DB backups"
-  type        = string
-  default     = "02:00-03:00"
-}
-
-variable "db_parameter_group_name" {
-  description = "The name of a DB parameter group to use"
-  type        = string
-  default     = "default.aurora5.6"
-}
-
-variable "global_cluster_identifier" {
-  description = "The global cluster identifier specified on aws_rds_global_cluster"
-  type        = string
-  default     = ""
-}
-
-variable "vpc_security_group_ids" {
-  description = "List of VPC security groups to associate to the cluster in addition to the SG we create in this module"
-  type        = list(any)
-  default     = []
+  default     = 0
 }
 
 variable "allowed_security_groups" {
@@ -46,10 +16,10 @@ variable "allowed_security_groups" {
   default     = []
 }
 
-variable "vpc_id" {
-  description = "VPC ID"
+variable "allowed_security_groups_count" {
+  description = "The number of Security Groups being added, terraform doesn't let us use length() in a count field"
   type        = string
-  default     = ""
+  default     = 0
 }
 
 variable "apply_immediately" {
@@ -58,34 +28,22 @@ variable "apply_immediately" {
   default     = "false"
 }
 
-variable "monitoring_interval" {
-  description = "The interval (seconds) between points when Enhanced Monitoring metrics are collected"
+variable "auto_minor_version_upgrade" {
+  description = "Determines whether minor engine upgrades will be performed automatically in the maintenance window"
   type        = string
-  default     = 0
+  default     = "true"
 }
 
-variable "replica_scale_cpu" {
-  description = "CPU usage to trigger autoscaling at"
-  type        = string
-  default     = "70"
-}
-
-variable "engine_mode" {
-  description = "The database engine mode. Valid values: global, parallelquery, provisioned, serverless."
-  type        = string
-  default     = "provisioned"
-}
-
-variable "database_name" {
-  description = "Name for an automatically created database on cluster creation"
+variable "backtrack_window" {
+  description = "The target backtrack window, in seconds. Only available for aurora engine currently. To disable backtracking, set this value to 0. Defaults to 0. Must be between 0 and 259200 (72 hours)"
   type        = string
   default     = ""
 }
 
-variable "snapshot_identifier" {
-  description = "DB snapshot to create this database from"
+variable "backup_retention_period" {
+  description = "How long to keep backups for (in days)"
   type        = string
-  default     = ""
+  default     = "7"
 }
 
 variable "copy_tags_to_snapshot" {
@@ -94,28 +52,10 @@ variable "copy_tags_to_snapshot" {
   default     = false
 }
 
-variable "username" {
-  description = "Master DB username"
-  type        = string
-  default     = "root"
-}
-
-variable "password" {
-  description = "Master DB password"
+variable "database_name" {
+  description = "Name for an automatically created database on cluster creation"
   type        = string
   default     = ""
-}
-
-variable "skip_final_snapshot" {
-  description = "Should a final snapshot be created on cluster destroy"
-  type        = string
-  default     = "false"
-}
-
-variable "preferred_maintenance_window" {
-  description = "When to perform DB maintenance"
-  type        = string
-  default     = "sun:05:00-sun:06:00"
 }
 
 variable "db_cluster_parameter_group_name" {
@@ -124,10 +64,88 @@ variable "db_cluster_parameter_group_name" {
   default     = "default.aurora5.6"
 }
 
-variable "replica_scale_enabled" {
-  description = "Whether to enable autoscaling for RDS Aurora (MySQL) read replicas"
+variable "db_parameter_group_name" {
+  description = "The name of a DB parameter group to use"
+  type        = string
+  default     = "default.aurora5.6"
+}
+
+variable "deletion_protection" {
+  description = "If the DB instance should have deletion protection enabled"
+  type        = string
+  default     = "false"
+}
+
+variable "enabled_cloudwatch_logs_exports" {
+  description = "List of log types to export to cloudwatch"
+  type        = list(any)
+  default     = []
+}
+
+variable "engine" {
+  description = "Aurora database engine type, currently aurora, aurora-mysql or aurora-postgresql"
+  type        = string
+  default     = "aurora"
+}
+
+variable "engine_mode" {
+  description = "The database engine mode. Valid values: global, parallelquery, provisioned, serverless."
+  type        = string
+  default     = "provisioned"
+}
+
+variable "engine_version" {
+  description = "Aurora database engine version."
+  type        = string
+  default     = "5.6.10a"
+}
+
+variable "final_snapshot_identifier_prefix" {
+  description = "The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too."
+  type        = string
+  default     = "final"
+}
+
+variable "global_cluster_identifier" {
+  description = "The global cluster identifier specified on aws_rds_global_cluster"
+  type        = string
+  default     = ""
+}
+
+variable "iam_database_authentication_enabled" {
+  description = "Specifies whether IAM Database authentication should be enabled or not. Not all versions and instances are supported. Refer to the AWS documentation to see which versions are supported."
   type        = string
   default     = false
+}
+
+variable "instance_type" {
+  description = "Instance type to use"
+  type        = string
+  default     = ""
+}
+
+variable "kms_key_id" {
+  description = "The ARN for the KMS encryption key if one is set to the cluster."
+  type        = string
+  default     = ""
+}
+
+variable "monitoring_interval" {
+  description = "The interval (seconds) between points when Enhanced Monitoring metrics are collected"
+  type        = string
+  default     = 0
+}
+
+variable "name" {
+  description = "Name given resources"
+  type        = string
+  default     = ""
+}
+
+variable "password" {
+  description = "Master DB password"
+  type        = string
+  default     = ""
 }
 
 variable "performance_insights_enabled" {
@@ -142,10 +160,28 @@ variable "performance_insights_kms_key_id" {
   default     = ""
 }
 
-variable "backtrack_window" {
-  description = "The target backtrack window, in seconds. Only available for aurora engine currently. To disable backtracking, set this value to 0. Defaults to 0. Must be between 0 and 259200 (72 hours)"
+variable "port" {
+  description = "The port on which to accept connections"
   type        = string
   default     = ""
+}
+
+variable "preferred_backup_window" {
+  description = "When to perform DB backups"
+  type        = string
+  default     = "02:00-03:00"
+}
+
+variable "preferred_maintenance_window" {
+  description = "When to perform DB maintenance"
+  type        = string
+  default     = "sun:05:00-sun:06:00"
+}
+
+variable "publicly_accessible" {
+  description = "Whether the DB should have a public IP address"
+  type        = string
+  default     = "false"
 }
 
 variable "replica_count" {
@@ -154,46 +190,16 @@ variable "replica_count" {
   default     = 1
 }
 
-variable "port" {
-  description = "The port on which to accept connections"
+variable "replica_scale_cpu" {
+  description = "CPU usage to trigger autoscaling at"
   type        = string
-  default     = ""
+  default     = "70"
 }
 
-variable "auto_minor_version_upgrade" {
-  description = "Determines whether minor engine upgrades will be performed automatically in the maintenance window"
+variable "replica_scale_enabled" {
+  description = "Whether to enable autoscaling for RDS Aurora (MySQL) read replicas"
   type        = string
-  default     = "true"
-}
-
-variable "replica_scale_min" {
-  description = "Minimum number of replicas to allow scaling for"
-  type        = string
-  default     = "2"
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(any)
-  default     = {}
-}
-
-variable "name" {
-  description = "Name given resources"
-  type        = string
-  default     = ""
-}
-
-variable "allowed_cidr_blocks_count" {
-  description = "The number of CIDR blocks being added, terraform doesn't let us use length() in a count field"
-  type        = string
-  default     = 0
-}
-
-variable "kms_key_id" {
-  description = "The ARN for the KMS encryption key if one is set to the cluster."
-  type        = string
-  default     = ""
+  default     = false
 }
 
 variable "replica_scale_in_cooldown" {
@@ -202,46 +208,16 @@ variable "replica_scale_in_cooldown" {
   default     = "300"
 }
 
-variable "iam_database_authentication_enabled" {
-  description = "Specifies whether IAM Database authentication should be enabled or not. Not all versions and instances are supported. Refer to the AWS documentation to see which versions are supported."
-  type        = string
-  default     = false
-}
-
-variable "enabled_cloudwatch_logs_exports" {
-  description = "List of log types to export to cloudwatch"
-  type        = list(any)
-  default     = []
-}
-
-variable "subnets" {
-  description = "List of subnet IDs to use"
-  type        = list(any)
-  default     = ""
-}
-
-variable "allowed_security_groups_count" {
-  description = "The number of Security Groups being added, terraform doesn't let us use length() in a count field"
-  type        = string
-  default     = 0
-}
-
-variable "storage_encrypted" {
-  description = "Specifies whether the underlying storage layer should be encrypted"
-  type        = string
-  default     = "true"
-}
-
-variable "engine" {
-  description = "Aurora database engine type, currently aurora, aurora-mysql or aurora-postgresql"
-  type        = string
-  default     = "aurora"
-}
-
 variable "replica_scale_max" {
   description = "Maximum number of replicas to allow scaling for"
   type        = string
   default     = "0"
+}
+
+variable "replica_scale_min" {
+  description = "Minimum number of replicas to allow scaling for"
+  type        = string
+  default     = "2"
 }
 
 variable "replica_scale_out_cooldown" {
@@ -250,26 +226,50 @@ variable "replica_scale_out_cooldown" {
   default     = "300"
 }
 
-variable "instance_type" {
-  description = "Instance type to use"
+variable "skip_final_snapshot" {
+  description = "Should a final snapshot be created on cluster destroy"
+  type        = string
+  default     = "false"
+}
+
+variable "snapshot_identifier" {
+  description = "DB snapshot to create this database from"
   type        = string
   default     = ""
 }
 
-variable "final_snapshot_identifier_prefix" {
-  description = "The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too."
+variable "storage_encrypted" {
+  description = "Specifies whether the underlying storage layer should be encrypted"
   type        = string
-  default     = "final"
+  default     = "true"
 }
 
-variable "backup_retention_period" {
-  description = "How long to keep backups for (in days)"
-  type        = string
-  default     = "7"
+variable "subnets" {
+  description = "List of subnet IDs to use"
+  type        = list(any)
+  default     = ""
 }
 
-variable "engine_version" {
-  description = "Aurora database engine version."
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(any)
+  default     = {}
+}
+
+variable "username" {
+  description = "Master DB username"
   type        = string
-  default     = "5.6.10a"
+  default     = "root"
+}
+
+variable "vpc_id" {
+  description = "VPC ID"
+  type        = string
+  default     = ""
+}
+
+variable "vpc_security_group_ids" {
+  description = "List of VPC security groups to associate to the cluster in addition to the SG we create in this module"
+  type        = list(any)
+  default     = []
 }

@@ -1,3 +1,33 @@
+variable "account_alias" {
+  description = "AWS IAM account alias for this account"
+  type        = string
+  default     = ""
+}
+
+variable "allow_users_to_change_password" {
+  description = "Whether to allow users to change their own password"
+  type        = bool
+  default     = true
+}
+
+variable "create_account_password_policy" {
+  description = "Whether to create AWS IAM account password policy"
+  type        = bool
+  default     = true
+}
+
+variable "get_caller_identity" {
+  description = "Whether to get AWS account ID, User ID, and ARN in which Terraform is authorized"
+  type        = bool
+  default     = true
+}
+
+variable "hard_expiry" {
+  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
+  type        = bool
+  default     = false
+}
+
 variable "max_password_age" {
   description = "The number of days that an user password is valid."
   type        = number
@@ -8,18 +38,6 @@ variable "minimum_password_length" {
   description = "Minimum length to require for user passwords"
   type        = number
   default     = 8
-}
-
-variable "allow_users_to_change_password" {
-  description = "Whether to allow users to change their own password"
-  type        = bool
-  default     = true
-}
-
-variable "hard_expiry" {
-  description = "Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)"
-  type        = bool
-  default     = false
 }
 
 variable "password_reuse_prevention" {
@@ -42,24 +60,6 @@ variable "require_numbers" {
 
 variable "require_symbols" {
   description = "Whether to require symbols for user passwords"
-  type        = bool
-  default     = true
-}
-
-variable "get_caller_identity" {
-  description = "Whether to get AWS account ID, User ID, and ARN in which Terraform is authorized"
-  type        = bool
-  default     = true
-}
-
-variable "account_alias" {
-  description = "AWS IAM account alias for this account"
-  type        = string
-  default     = ""
-}
-
-variable "create_account_password_policy" {
-  description = "Whether to create AWS IAM account password policy"
   type        = bool
   default     = true
 }

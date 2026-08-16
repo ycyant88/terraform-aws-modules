@@ -1,169 +1,169 @@
-storage_encrypted = true
+allocated_storage = null
 
-license_model = null
-
-domain = null
-
-backup_window = null
-
-option_group_name = null
-
-create_cloudwatch_log_group = false
-
-identifier = ""
-
-create_db_subnet_group = false
-
-family = null
-
-option_group_use_name_prefix = true
-
-timezone = null
-
-timeouts = {}
-
-instance_use_identifier_prefix = false
-
-db_name = null
-
-username = null
-
-monitoring_role_arn = null
+allow_major_version_upgrade = false
 
 apply_immediately = false
 
-db_subnet_group_description = null
+auto_minor_version_upgrade = true
 
-iam_database_authentication_enabled = false
-
-monitoring_role_description = null
-
-tags = {}
-
-db_subnet_group_tags = {}
-
-cloudwatch_log_group_kms_key_id = null
-
-kms_key_id = null
-
-port = null
-
-vpc_security_group_ids = []
-
-db_subnet_group_name = null
-
-create_db_parameter_group = true
-
-parameter_group_use_name_prefix = true
-
-parameter_group_description = null
-
-option_group_description = null
-
-replicate_source_db = null
-
-engine = null
-
-multi_az = false
-
-s3_import = null
-
-db_parameter_group_tags = {}
-
-snapshot_identifier = null
-
-iops = null
-
-publicly_accessible = false
-
-restore_to_point_in_time = null
-
-db_instance_tags = {}
-
-parameters = []
-
-option_group_timeouts = {}
-
-putin_khuylo = true
-
-copy_tags_to_snapshot = false
-
-password = null
+availability_zone = null
 
 backup_retention_period = null
 
-db_subnet_group_use_name_prefix = true
+backup_window = null
+
+ca_cert_identifier = null
 
 character_set_name = null
 
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_retention_in_days = 7
+
+copy_tags_to_snapshot = false
+
+create_cloudwatch_log_group = false
+
+create_db_instance = true
+
+create_db_option_group = true
+
+create_db_parameter_group = true
+
+create_db_subnet_group = false
+
+create_monitoring_role = false
+
+create_random_password = true
+
+db_instance_tags = {}
+
+db_name = null
+
+db_option_group_tags = {}
+
+db_parameter_group_tags = {}
+
+db_subnet_group_description = null
+
+db_subnet_group_name = null
+
+db_subnet_group_tags = {}
+
+db_subnet_group_use_name_prefix = true
+
 delete_automated_backups = true
+
+deletion_protection = false
+
+domain = null
+
+domain_iam_role_name = null
+
+enabled_cloudwatch_logs_exports = []
+
+engine = null
+
+engine_version = null
+
+family = null
 
 final_snapshot_identifier_prefix = "final"
 
-auto_minor_version_upgrade = true
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = null
+
+instance_use_identifier_prefix = false
+
+iops = null
+
+kms_key_id = null
+
+license_model = null
+
+maintenance_window = null
 
 major_engine_version = null
+
+max_allocated_storage = 0
+
+monitoring_interval = 0
+
+monitoring_role_arn = null
+
+monitoring_role_description = null
+
+monitoring_role_name = "rds-monitoring-role"
+
+monitoring_role_use_name_prefix = false
+
+multi_az = false
+
+network_type = null
+
+option_group_description = null
+
+option_group_name = null
+
+option_group_timeouts = {}
+
+option_group_use_name_prefix = true
+
+options = []
+
+parameter_group_description = null
+
+parameter_group_name = null
+
+parameter_group_use_name_prefix = true
+
+parameters = []
+
+password = null
 
 performance_insights_enabled = false
 
 performance_insights_kms_key_id = null
 
-ca_cert_identifier = null
-
-create_random_password = true
-
-storage_throughput = null
-
-monitoring_interval = 0
-
-monitoring_role_name = "rds-monitoring-role"
-
-parameter_group_name = null
-
-deletion_protection = false
-
-max_allocated_storage = 0
-
-skip_final_snapshot = false
-
-allow_major_version_upgrade = false
-
-db_option_group_tags = {}
-
-options = []
-
-allocated_storage = null
-
-engine_version = null
-
-enabled_cloudwatch_logs_exports = []
-
-cloudwatch_log_group_retention_in_days = 7
-
-availability_zone = null
-
-monitoring_role_use_name_prefix = false
-
-create_monitoring_role = false
-
-create_db_instance = true
-
 performance_insights_retention_period = 7
+
+port = null
+
+publicly_accessible = false
+
+putin_khuylo = true
 
 random_password_length = 16
 
 replica_mode = null
 
-instance_class = null
+replicate_source_db = null
 
-subnet_ids = []
+restore_to_point_in_time = null
 
-create_db_option_group = true
+s3_import = null
 
-network_type = null
+skip_final_snapshot = false
+
+snapshot_identifier = null
+
+storage_encrypted = true
+
+storage_throughput = null
 
 storage_type = null
 
-domain_iam_role_name = null
+subnet_ids = []
 
-maintenance_window = null
+tags = {}
+
+timeouts = {}
+
+timezone = null
+
+username = null
+
+vpc_security_group_ids = []

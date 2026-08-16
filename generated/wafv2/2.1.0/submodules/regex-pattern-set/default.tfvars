@@ -1,13 +1,13 @@
-regular_expressions = []
-
 create = true
-
-putin_khuylo = true
-
-tags = {}
-
-name = ""
 
 description = null
 
+name = ""
+
+putin_khuylo = true
+
+regular_expressions = []
+
 scope = "REGIONAL"
+
+tags = {}

@@ -1,23 +1,23 @@
-oidc_fully_qualified_subjects = []
+aws_account_id = ""
+
+create_role = false
 
 force_detach_policies = false
 
-aws_account_id = ""
-
-tags = {}
-
-role_permissions_boundary_arn = ""
-
 max_session_duration = 3600
 
-role_policy_arns = []
+oidc_fully_qualified_subjects = []
 
 oidc_subjects_with_wildcards = []
-
-create_role = false
 
 provider_url = ""
 
 role_name = ""
 
 role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_policy_arns = []
+
+tags = {}

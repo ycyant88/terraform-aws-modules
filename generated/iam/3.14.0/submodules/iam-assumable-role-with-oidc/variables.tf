@@ -1,13 +1,19 @@
-variable "provider_urls" {
-  description = "List of URLs of the OIDC Providers"
-  type        = list(string)
-  default     = []
-}
-
-variable "role_description" {
-  description = "IAM Role description"
+variable "aws_account_id" {
+  description = "The AWS account ID where the OIDC provider lives, leave empty to use the account for the AWS provider"
   type        = string
   default     = ""
+}
+
+variable "create_role" {
+  description = "Whether to create a role"
+  type        = bool
+  default     = false
+}
+
+variable "force_detach_policies" {
+  description = "Whether policies should be detached from this role when destroying"
+  type        = bool
+  default     = false
 }
 
 variable "max_session_duration" {
@@ -16,20 +22,20 @@ variable "max_session_duration" {
   default     = 3600
 }
 
-variable "role_policy_arns" {
-  description = "List of ARNs of IAM policies to attach to IAM role"
-  type        = list(string)
-  default     = []
-}
-
-variable "tags" {
-  description = "A map of tags to add to IAM role resources"
-  type        = map(string)
-  default     = {}
+variable "number_of_role_policy_arns" {
+  description = "Number of IAM policies to attach to IAM role"
+  type        = number
+  default     = null
 }
 
 variable "oidc_fully_qualified_subjects" {
   description = "The fully qualified OIDC subjects to be added to the role policy"
+  type        = set(string)
+  default     = []
+}
+
+variable "oidc_subjects_with_wildcards" {
+  description = "The OIDC subject using wildcards to be added to the role policy"
   type        = set(string)
   default     = []
 }
@@ -40,20 +46,14 @@ variable "provider_url" {
   default     = ""
 }
 
-variable "number_of_role_policy_arns" {
-  description = "Number of IAM policies to attach to IAM role"
-  type        = number
-  default     = null
+variable "provider_urls" {
+  description = "List of URLs of the OIDC Providers"
+  type        = list(string)
+  default     = []
 }
 
-variable "force_detach_policies" {
-  description = "Whether policies should be detached from this role when destroying"
-  type        = bool
-  default     = false
-}
-
-variable "aws_account_id" {
-  description = "The AWS account ID where the OIDC provider lives, leave empty to use the account for the AWS provider"
+variable "role_description" {
+  description = "IAM Role description"
   type        = string
   default     = ""
 }
@@ -82,14 +82,14 @@ variable "role_permissions_boundary_arn" {
   default     = ""
 }
 
-variable "oidc_subjects_with_wildcards" {
-  description = "The OIDC subject using wildcards to be added to the role policy"
-  type        = set(string)
+variable "role_policy_arns" {
+  description = "List of ARNs of IAM policies to attach to IAM role"
+  type        = list(string)
   default     = []
 }
 
-variable "create_role" {
-  description = "Whether to create a role"
-  type        = bool
-  default     = false
+variable "tags" {
+  description = "A map of tags to add to IAM role resources"
+  type        = map(string)
+  default     = {}
 }

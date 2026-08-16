@@ -1,7 +1,19 @@
-variable "create" {
-  description = "Determines whether to create user-data or not"
-  type        = bool
-  default     = true
+variable "additional_cluster_dns_ips" {
+  description = "Additional DNS IP addresses to use for the cluster. Only used when ami_type = BOTTLEROCKET_*"
+  type        = list(string)
+  default     = []
+}
+
+variable "ami_type" {
+  description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values"
+  type        = string
+  default     = "AL2023_x86_64_STANDARD"
+}
+
+variable "bootstrap_extra_args" {
+  description = "Additional arguments passed to the bootstrap script. When ami_type = BOTTLEROCKET_*; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
+  type        = string
+  default     = ""
 }
 
 variable "cloudinit_post_nodeadm" {
@@ -15,20 +27,37 @@ variable "cloudinit_post_nodeadm" {
   default = []
 }
 
-variable "ami_type" {
-  description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values"
-  type        = string
-  default     = "AL2023_x86_64_STANDARD"
-}
-
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
-  type        = string
-  default     = ""
+variable "cloudinit_pre_nodeadm" {
+  description = "Array of cloud-init document parts that are created before the nodeadm document part"
+  type = list(object({
+    content      = string
+    content_type = optional(string)
+    filename     = optional(string)
+    merge_type   = optional(string)
+  }))
+  default = []
 }
 
 variable "cluster_auth_base64" {
   description = "Base64 encoded CA of associated EKS cluster"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_endpoint" {
+  description = "Endpoint of associated EKS cluster"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_ip_family" {
+  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
+  type        = string
+  default     = "ipv4"
+}
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
   type        = string
   default     = ""
 }
@@ -39,45 +68,10 @@ variable "cluster_service_cidr" {
   default     = ""
 }
 
-variable "additional_cluster_dns_ips" {
-  description = "Additional DNS IP addresses to use for the cluster. Only used when ami_type = BOTTLEROCKET_*"
-  type        = list(string)
-  default     = []
-}
-
-variable "pre_bootstrap_user_data" {
-  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when ami_type = BOTTLEROCKET_*"
-  type        = string
-  default     = ""
-}
-
-variable "post_bootstrap_user_data" {
-  description = "User data that is appended to the user data script after of the EKS bootstrap script. Not used when ami_type = BOTTLEROCKET_*"
-  type        = string
-  default     = ""
-}
-
-variable "bootstrap_extra_args" {
-  description = "Additional arguments passed to the bootstrap script. When ami_type = BOTTLEROCKET_*; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data"
-  type        = string
-  default     = ""
-}
-
-variable "user_data_template_path" {
-  description = "Path to a local, custom user data template file to use when rendering user data"
-  type        = string
-  default     = ""
-}
-
-variable "cloudinit_pre_nodeadm" {
-  description = "Array of cloud-init document parts that are created before the nodeadm document part"
-  type = list(object({
-    content      = string
-    content_type = optional(string)
-    filename     = optional(string)
-    merge_type   = optional(string)
-  }))
-  default = []
+variable "create" {
+  description = "Determines whether to create user-data or not"
+  type        = bool
+  default     = true
 }
 
 variable "enable_bootstrap_user_data" {
@@ -92,14 +86,20 @@ variable "is_eks_managed_node_group" {
   default     = true
 }
 
-variable "cluster_endpoint" {
-  description = "Endpoint of associated EKS cluster"
+variable "post_bootstrap_user_data" {
+  description = "User data that is appended to the user data script after of the EKS bootstrap script. Not used when ami_type = BOTTLEROCKET_*"
   type        = string
   default     = ""
 }
 
-variable "cluster_ip_family" {
-  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
+variable "pre_bootstrap_user_data" {
+  description = "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when ami_type = BOTTLEROCKET_*"
   type        = string
-  default     = "ipv4"
+  default     = ""
+}
+
+variable "user_data_template_path" {
+  description = "Path to a local, custom user data template file to use when rendering user data"
+  type        = string
+  default     = ""
 }

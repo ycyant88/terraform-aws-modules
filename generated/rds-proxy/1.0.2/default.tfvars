@@ -1,85 +1,85 @@
-session_pinning_filters = []
+auth = {}
 
-use_role_name_prefix = false
-
-iam_role_force_detach_policies = true
-
-engine_family = ""
-
-vpc_subnet_ids = []
+auth_scheme = "SECRETS"
 
 connection_borrow_timeout = null
 
-target_db_cluster = false
+create_iam_policy = true
 
-manage_log_group = true
+create_iam_role = true
+
+create_proxy = true
+
+db_cluster_identifier = ""
+
+db_host = ""
+
+db_instance_identifier = ""
+
+db_name = ""
+
+debug_logging = false
+
+engine_family = ""
+
+iam_auth = "REQUIRED"
+
+iam_creation_wait_duration = "30s"
+
+iam_policy_name = ""
+
+iam_role_description = ""
+
+iam_role_force_detach_policies = true
 
 iam_role_max_session_duration = 43200
-
-require_tls = true
-
-max_connections_percent = 90
 
 iam_role_name = ""
 
 iam_role_path = null
 
-use_policy_name_prefix = false
-
-iam_creation_wait_duration = "30s"
-
-create_proxy = true
-
-db_host = ""
-
-db_name = ""
-
-target_db_instance = false
-
-iam_role_description = ""
-
-auth_scheme = "SECRETS"
-
-proxy_tags = {}
-
-init_query = ""
-
-db_instance_identifier = ""
-
-name = ""
-
-debug_logging = false
-
-log_group_tags = {}
+iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-iam_policy_name = ""
+idle_client_timeout = 1800
 
-tags = {}
-
-auth = {}
-
-db_cluster_identifier = ""
-
-log_group_retention_in_days = 30
+init_query = ""
 
 log_group_kms_key_id = null
 
-create_iam_role = true
+log_group_retention_in_days = 30
 
-iam_role_permissions_boundary = null
+log_group_tags = {}
 
-idle_client_timeout = 1800
+manage_log_group = true
 
-role_arn = ""
-
-vpc_security_group_ids = []
-
-iam_auth = "REQUIRED"
-
-secrets = {}
+max_connections_percent = 90
 
 max_idle_connections_percent = 50
 
-create_iam_policy = true
+name = ""
+
+proxy_tags = {}
+
+require_tls = true
+
+role_arn = ""
+
+secrets = {}
+
+session_pinning_filters = []
+
+tags = {}
+
+target_db_cluster = false
+
+target_db_instance = false
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false
+
+vpc_security_group_ids = []
+
+vpc_subnet_ids = []

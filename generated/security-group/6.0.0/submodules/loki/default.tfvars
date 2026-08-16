@@ -1,35 +1,35 @@
 create = true
 
-tags = {}
-
-revoke_rules_on_delete = false
-
-vpc_id = null
-
-ingress_cidr_ipv6 = {}
-
-ingress_cidr_ipv4 = {}
-
-ingress_referenced_security_group_id = {}
-
-use_name_prefix = true
-
-preset_ingress_rules = { "loki" : { "description" : "Grafana Loki endpoint", "from_port" : 3100, "ip_protocol" : "tcp", "to_port" : 3100 }, "loki-grpc" : { "description" : "Grafana Loki gRPC", "from_port" : 9095, "ip_protocol" : "tcp", "to_port" : 9095 } }
-
-ingress_prefix_list_id = {}
-
-ingress_rules = {}
+description = "Security Group managed by Terraform"
 
 egress_rules = {}
 
-vpc_associations = {}
+enable_exclusive_rules = true
 
-region = null
+ingress_cidr_ipv4 = {}
+
+ingress_cidr_ipv6 = {}
+
+ingress_prefix_list_id = {}
+
+ingress_referenced_security_group_id = {}
+
+ingress_rules = {}
 
 name = ""
 
-description = "Security Group managed by Terraform"
+preset_ingress_rules = { "loki" : { "description" : "Grafana Loki endpoint", "from_port" : 3100, "ip_protocol" : "tcp", "to_port" : 3100 }, "loki-grpc" : { "description" : "Grafana Loki gRPC", "from_port" : 9095, "ip_protocol" : "tcp", "to_port" : 9095 } }
+
+region = null
+
+revoke_rules_on_delete = false
+
+tags = {}
 
 timeouts = null
 
-enable_exclusive_rules = true
+use_name_prefix = true
+
+vpc_associations = {}
+
+vpc_id = null

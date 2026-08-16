@@ -1,25 +1,61 @@
-variable "vpc_zone_identifier" {
-  description = "A list of subnet IDs to launch resources in"
-  type        = list(any)
+variable "asg_name" {
+  description = "Creates a unique name for autoscaling group beginning with the specified prefix"
+  type        = string
   default     = ""
 }
 
-variable "wait_for_elb_capacity" {
-  description = "Setting this will cause Terraform to wait for exactly this number of healthy instances in all attached load balancers on both create and update operations. Takes precedence over min_elb_capacity behavior."
+variable "associate_public_ip_address" {
+  description = "Associate a public ip address with an instance in a VPC"
   type        = bool
   default     = false
 }
 
-variable "force_delete" {
-  description = "Allows deleting the autoscaling group without waiting for all instances in the pool to terminate. You can force an autoscaling group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling"
+variable "create_asg" {
+  description = "Whether to create autoscaling group"
+  type        = bool
+  default     = true
+}
+
+variable "create_lc" {
+  description = "Whether to create launch configuration"
+  type        = bool
+  default     = true
+}
+
+variable "default_cooldown" {
+  description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start"
+  type        = number
+  default     = 300
+}
+
+variable "desired_capacity" {
+  description = "The number of Amazon EC2 instances that should be running in the group"
+  type        = string
+  default     = ""
+}
+
+variable "ebs_block_device" {
+  description = "Additional EBS block devices to attach to the instance"
+  type        = list(any)
+  default     = []
+}
+
+variable "ebs_optimized" {
+  description = "If true, the launched EC2 instance will be EBS-optimized"
   type        = bool
   default     = false
 }
 
-variable "security_groups" {
-  description = "A list of security group IDs to assign to the launch configuration"
+variable "enable_monitoring" {
+  description = "Enables/disables detailed monitoring. This is enabled by default."
+  type        = bool
+  default     = true
+}
+
+variable "enabled_metrics" {
+  description = "A list of metrics to collect. The allowed values are GroupMinSize, GroupMaxSize, GroupDesiredCapacity, GroupInServiceInstances, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances"
   type        = list(any)
-  default     = ""
+  default     = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
 }
 
 variable "ephemeral_block_device" {
@@ -28,44 +64,8 @@ variable "ephemeral_block_device" {
   default     = []
 }
 
-variable "min_elb_capacity" {
-  description = "Setting this causes Terraform to wait for this number of instances to show up healthy in the ELB only on creation. Updates will not wait on ELB instance number changes"
-  type        = number
-  default     = 0
-}
-
-variable "protect_from_scale_in" {
-  description = "Allows setting instance protection. The autoscaling group will not select instances with this setting for terminination during scale in events."
-  type        = bool
-  default     = false
-}
-
-variable "metrics_granularity" {
-  description = "The granularity to associate with the metrics to collect. The only valid value is 1Minute"
-  type        = string
-  default     = "1Minute"
-}
-
-variable "lc_name" {
-  description = "Creates a unique name for launch configuration beginning with the specified prefix"
-  type        = string
-  default     = ""
-}
-
-variable "image_id" {
-  description = "The EC2 image ID to launch"
-  type        = string
-  default     = ""
-}
-
-variable "user_data" {
-  description = "The user data to provide when launching the instance"
-  type        = string
-  default     = ""
-}
-
-variable "ebs_optimized" {
-  description = "If true, the launched EC2 instance will be EBS-optimized"
+variable "force_delete" {
+  description = "Allows deleting the autoscaling group without waiting for all instances in the pool to terminate. You can force an autoscaling group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling"
   type        = bool
   default     = false
 }
@@ -82,62 +82,14 @@ variable "health_check_type" {
   default     = ""
 }
 
-variable "enable_monitoring" {
-  description = "Enables/disables detailed monitoring. This is enabled by default."
-  type        = bool
-  default     = true
-}
-
-variable "create_lc" {
-  description = "Whether to create launch configuration"
-  type        = bool
-  default     = true
-}
-
-variable "associate_public_ip_address" {
-  description = "Associate a public ip address with an instance in a VPC"
-  type        = bool
-  default     = false
-}
-
-variable "max_size" {
-  description = "The maximum size of the auto scale group"
-  type        = string
-  default     = ""
-}
-
-variable "min_size" {
-  description = "The minimum size of the auto scale group"
-  type        = string
-  default     = ""
-}
-
-variable "desired_capacity" {
-  description = "The number of Amazon EC2 instances that should be running in the group"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  description = "A list of tag blocks. Each element should have keys named key, value, and propagate_at_launch."
-  type        = list(any)
-  default     = []
-}
-
-variable "create_asg" {
-  description = "Whether to create autoscaling group"
-  type        = bool
-  default     = true
-}
-
-variable "launch_configuration" {
-  description = "The name of the launch configuration to use (if it is created outside of this module)"
-  type        = string
-  default     = ""
-}
-
 variable "iam_instance_profile" {
   description = "The IAM instance profile to associate with launched instances"
+  type        = string
+  default     = ""
+}
+
+variable "image_id" {
+  description = "The EC2 image ID to launch"
   type        = string
   default     = ""
 }
@@ -154,16 +106,16 @@ variable "key_name" {
   default     = ""
 }
 
-variable "ebs_block_device" {
-  description = "Additional EBS block devices to attach to the instance"
-  type        = list(any)
-  default     = []
+variable "launch_configuration" {
+  description = "The name of the launch configuration to use (if it is created outside of this module)"
+  type        = string
+  default     = ""
 }
 
-variable "placement_tenancy" {
-  description = "The tenancy of the instance. Valid values are 'default' or 'dedicated'"
+variable "lc_name" {
+  description = "Creates a unique name for launch configuration beginning with the specified prefix"
   type        = string
-  default     = "default"
+  default     = ""
 }
 
 variable "load_balancers" {
@@ -172,14 +124,26 @@ variable "load_balancers" {
   default     = []
 }
 
-variable "suspended_processes" {
-  description = "A list of processes to suspend for the AutoScaling Group. The allowed values are Launch, Terminate, HealthCheck, ReplaceUnhealthy, AZRebalance, AlarmNotification, ScheduledActions, AddToLoadBalancer. Note that if you suspend either the Launch or Terminate process types, it can prevent your autoscaling group from functioning properly."
-  type        = list(any)
-  default     = []
+variable "max_size" {
+  description = "The maximum size of the auto scale group"
+  type        = string
+  default     = ""
 }
 
-variable "placement_group" {
-  description = "The name of the placement group into which you'll launch your instances, if any"
+variable "metrics_granularity" {
+  description = "The granularity to associate with the metrics to collect. The only valid value is 1Minute"
+  type        = string
+  default     = "1Minute"
+}
+
+variable "min_elb_capacity" {
+  description = "Setting this causes Terraform to wait for this number of instances to show up healthy in the ELB only on creation. Updates will not wait on ELB instance number changes"
+  type        = number
+  default     = 0
+}
+
+variable "min_size" {
+  description = "The minimum size of the auto scale group"
   type        = string
   default     = ""
 }
@@ -190,10 +154,34 @@ variable "name" {
   default     = ""
 }
 
+variable "placement_group" {
+  description = "The name of the placement group into which you'll launch your instances, if any"
+  type        = string
+  default     = ""
+}
+
+variable "placement_tenancy" {
+  description = "The tenancy of the instance. Valid values are 'default' or 'dedicated'"
+  type        = string
+  default     = "default"
+}
+
+variable "protect_from_scale_in" {
+  description = "Allows setting instance protection. The autoscaling group will not select instances with this setting for terminination during scale in events."
+  type        = bool
+  default     = false
+}
+
 variable "root_block_device" {
   description = "Customize details about the root block device of the instance"
   type        = list(any)
   default     = []
+}
+
+variable "security_groups" {
+  description = "A list of security group IDs to assign to the launch configuration"
+  type        = list(any)
+  default     = ""
 }
 
 variable "spot_price" {
@@ -202,28 +190,16 @@ variable "spot_price" {
   default     = 0
 }
 
-variable "enabled_metrics" {
-  description = "A list of metrics to collect. The allowed values are GroupMinSize, GroupMaxSize, GroupDesiredCapacity, GroupInServiceInstances, GroupPendingInstances, GroupStandbyInstances, GroupTerminatingInstances, GroupTotalInstances"
+variable "suspended_processes" {
+  description = "A list of processes to suspend for the AutoScaling Group. The allowed values are Launch, Terminate, HealthCheck, ReplaceUnhealthy, AZRebalance, AlarmNotification, ScheduledActions, AddToLoadBalancer. Note that if you suspend either the Launch or Terminate process types, it can prevent your autoscaling group from functioning properly."
   type        = list(any)
-  default     = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+  default     = []
 }
 
-variable "wait_for_capacity_timeout" {
-  description = "A maximum duration that Terraform should wait for ASG instances to be healthy before timing out. (See also Waiting for Capacity below.) Setting this to '0' causes Terraform to skip all Capacity Waiting behavior."
-  type        = string
-  default     = "10m"
-}
-
-variable "asg_name" {
-  description = "Creates a unique name for autoscaling group beginning with the specified prefix"
-  type        = string
-  default     = ""
-}
-
-variable "default_cooldown" {
-  description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start"
-  type        = number
-  default     = 300
+variable "tags" {
+  description = "A list of tag blocks. Each element should have keys named key, value, and propagate_at_launch."
+  type        = list(any)
+  default     = []
 }
 
 variable "target_group_arns" {
@@ -236,4 +212,28 @@ variable "termination_policies" {
   description = "A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are OldestInstance, NewestInstance, OldestLaunchConfiguration, ClosestToNextInstanceHour, Default"
   type        = list(any)
   default     = ["Default"]
+}
+
+variable "user_data" {
+  description = "The user data to provide when launching the instance"
+  type        = string
+  default     = ""
+}
+
+variable "vpc_zone_identifier" {
+  description = "A list of subnet IDs to launch resources in"
+  type        = list(any)
+  default     = ""
+}
+
+variable "wait_for_capacity_timeout" {
+  description = "A maximum duration that Terraform should wait for ASG instances to be healthy before timing out. (See also Waiting for Capacity below.) Setting this to '0' causes Terraform to skip all Capacity Waiting behavior."
+  type        = string
+  default     = "10m"
+}
+
+variable "wait_for_elb_capacity" {
+  description = "Setting this will cause Terraform to wait for exactly this number of healthy instances in all attached load balancers on both create and update operations. Takes precedence over min_elb_capacity behavior."
+  type        = bool
+  default     = false
 }

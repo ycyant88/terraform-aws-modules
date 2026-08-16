@@ -1,31 +1,31 @@
-create_iam_user_login_profile = true
-
 create_iam_access_key = true
 
-pgp_key = ""
-
-iam_access_key_status = null
-
-upload_iam_user_ssh_key = false
-
-password_length = 20
-
-permissions_boundary = ""
+create_iam_user_login_profile = true
 
 create_user = true
 
+force_destroy = false
+
+iam_access_key_status = null
+
 name = ""
 
-ssh_key_encoding = "SSH"
+password_length = 20
 
-policy_arns = []
+password_reset_required = true
 
 path = "/"
 
-force_destroy = false
+permissions_boundary = ""
 
-password_reset_required = true
+pgp_key = ""
+
+policy_arns = []
+
+ssh_key_encoding = "SSH"
 
 ssh_public_key = ""
 
 tags = {}
+
+upload_iam_user_ssh_key = false

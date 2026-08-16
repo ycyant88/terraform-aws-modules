@@ -1,185 +1,185 @@
-permissions_boundary = null
+acm_certificate_domain_name = ""
 
-working_directory = null
+alb_authenticate_cognito = {}
 
-public_subnet_ids = []
+alb_authenticate_oidc = {}
 
-trusted_entities = []
+alb_http_security_group_tags = {}
 
-docker_labels = null
-
-internal = false
-
-allow_github_webhooks = false
-
-create_route53_record = true
-
-ecs_service_platform_version = "LATEST"
-
-extra_container_definitions = []
-
-atlantis_hide_prev_plan_comments = "false"
-
-policies_arn = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
-
-entrypoint = null
-
-container_depends_on = null
-
-mount_points = []
-
-atlantis_repo_whitelist = ""
-
-allow_repo_config = "false"
-
-atlantis_bitbucket_base_url = ""
-
-atlantis_security_group_tags = {}
-
-public_subnets = []
+alb_https_security_group_tags = {}
 
 alb_ingress_cidr_blocks = ["0.0.0.0/0"]
 
-github_webhooks_cidr_blocks = ["140.82.112.0/20", "185.199.108.0/22", "192.30.252.0/22"]
+alb_listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
 
-webhook_ssm_parameter_name = "/atlantis/webhook/secret"
+alb_log_bucket_name = ""
 
-ecs_container_insights = false
+alb_log_location_prefix = ""
 
-ecs_service_deployment_maximum_percent = 200
+alb_logging_enabled = false
+
+allow_github_webhooks = false
+
+allow_repo_config = "false"
+
+allow_unauthenticated_access = false
+
+allow_unauthenticated_access_priority = 10
+
+atlantis_allowed_repo_names = []
+
+atlantis_bitbucket_base_url = ""
+
+atlantis_bitbucket_user = ""
+
+atlantis_bitbucket_user_token = ""
+
+atlantis_bitbucket_user_token_ssm_parameter_name = "/atlantis/bitbucket/user/token"
+
+atlantis_fqdn = null
+
+atlantis_github_user = ""
+
+atlantis_github_user_token = ""
+
+atlantis_github_user_token_ssm_parameter_name = "/atlantis/github/user/token"
+
+atlantis_github_webhook_secret = ""
+
+atlantis_gitlab_hostname = "gitlab.com"
+
+atlantis_gitlab_user = ""
+
+atlantis_gitlab_user_token = ""
+
+atlantis_gitlab_user_token_ssm_parameter_name = "/atlantis/gitlab/user/token"
+
+atlantis_hide_prev_plan_comments = "false"
+
+atlantis_image = ""
+
+atlantis_log_level = "debug"
+
+atlantis_port = 4141
+
+atlantis_repo_whitelist = ""
+
+atlantis_security_group_tags = {}
+
+atlantis_version = "latest"
+
+azs = []
+
+certificate_arn = ""
+
+cidr = ""
+
+cloudwatch_log_retention_in_days = 7
+
+command = null
+
+container_cpu = null
+
+container_depends_on = null
 
 container_memory = null
 
 container_memory_reservation = 128
 
-command = null
+create_route53_record = true
 
-atlantis_image = ""
-
-atlantis_gitlab_user = ""
-
-custom_environment_variables = []
-
-alb_logging_enabled = false
-
-atlantis_port = 4141
-
-azs = []
-
-alb_authenticate_cognito = {}
-
-route53_record_name = null
-
-atlantis_bitbucket_user_token_ssm_parameter_name = "/atlantis/bitbucket/user/token"
-
-ssm_kms_key_arn = ""
-
-atlantis_log_level = "debug"
+custom_container_definitions = ""
 
 custom_environment_secrets = []
 
-cidr = ""
+custom_environment_variables = []
 
-alb_authenticate_oidc = {}
+docker_labels = null
 
-allow_unauthenticated_access = false
+ecs_container_insights = false
 
-certificate_arn = ""
-
-atlantis_gitlab_user_token_ssm_parameter_name = "/atlantis/gitlab/user/token"
+ecs_fargate_spot = false
 
 ecs_service_assign_public_ip = false
 
+ecs_service_deployment_maximum_percent = 200
+
+ecs_service_deployment_minimum_healthy_percent = 50
+
 ecs_service_desired_count = 1
 
-readonly_root_filesystem = false
-
-external_task_definition_updates = false
-
-atlantis_gitlab_hostname = "gitlab.com"
-
-enable_ecs_managed_tags = false
-
-name = "atlantis"
-
-alb_https_security_group_tags = {}
-
-atlantis_fqdn = null
-
-vpc_id = ""
+ecs_service_platform_version = "LATEST"
 
 ecs_task_cpu = 256
 
 ecs_task_memory = 512
 
-custom_container_definitions = ""
+enable_ecs_managed_tags = false
+
+entrypoint = null
+
+essential = true
+
+external_task_definition_updates = false
+
+extra_container_definitions = []
+
+firelens_configuration = null
+
+github_webhooks_cidr_blocks = ["140.82.112.0/20", "185.199.108.0/22", "192.30.252.0/22"]
+
+internal = false
+
+mount_points = []
+
+name = "atlantis"
+
+permissions_boundary = null
+
+policies_arn = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
+
+private_subnet_ids = []
+
+private_subnets = []
+
+propagate_tags = null
+
+public_subnet_ids = []
+
+public_subnets = []
+
+readonly_root_filesystem = false
+
+repository_credentials = null
+
+route53_record_name = null
+
+route53_zone_name = ""
+
+security_group_ids = []
+
+ssm_kms_key_arn = ""
+
+start_timeout = 30
 
 stop_timeout = 30
 
-atlantis_github_webhook_secret = ""
+tags = {}
 
-alb_log_bucket_name = ""
-
-cloudwatch_log_retention_in_days = 7
-
-atlantis_github_user = ""
-
-private_subnet_ids = []
+trusted_entities = []
 
 trusted_principals = []
 
 ulimits = null
 
-atlantis_gitlab_user_token = ""
-
-route53_zone_name = ""
-
-ecs_service_deployment_minimum_healthy_percent = 50
+user = null
 
 volumes_from = []
 
-alb_http_security_group_tags = {}
+vpc_id = ""
+
+webhook_ssm_parameter_name = "/atlantis/webhook/secret"
 
 whitelist_unauthenticated_cidr_blocks = []
 
-allow_unauthenticated_access_priority = 10
-
-acm_certificate_domain_name = ""
-
-essential = true
-
-propagate_tags = null
-
-alb_listener_ssl_policy_default = "ELBSecurityPolicy-2016-08"
-
-atlantis_github_user_token_ssm_parameter_name = "/atlantis/github/user/token"
-
-ecs_fargate_spot = false
-
-start_timeout = 30
-
-atlantis_bitbucket_user = ""
-
-tags = {}
-
-private_subnets = []
-
-alb_log_location_prefix = ""
-
-container_cpu = null
-
-repository_credentials = null
-
-user = null
-
-firelens_configuration = null
-
-atlantis_version = "latest"
-
-atlantis_allowed_repo_names = []
-
-atlantis_github_user_token = ""
-
-atlantis_bitbucket_user_token = ""
-
-security_group_ids = []
+working_directory = null

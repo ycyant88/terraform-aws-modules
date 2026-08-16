@@ -1,6 +1,6 @@
-security_group_tags = {}
+create = true
 
-rules = {}
+create_security_group = true
 
 direction = "INBOUND"
 
@@ -10,26 +10,26 @@ name = null
 
 protocols = []
 
-tags = {}
+region = null
 
-security_group_name = null
-
-security_group_ingress_rules = {}
-
-security_group_egress_rules = {}
-
-create = true
-
-type = null
-
-security_group_ids = []
-
-security_group_use_name_prefix = true
+rules = {}
 
 security_group_description = null
 
+security_group_egress_rules = {}
+
+security_group_ids = []
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+tags = {}
+
+type = null
+
 vpc_id = null
-
-region = null
-
-create_security_group = true

@@ -1,10 +1,16 @@
-key = ""
+acl = ""
+
+bucket = ""
+
+bucket_key_enabled = ""
+
+cache_control = ""
 
 content = ""
 
-storage_class = ""
+content_base64 = ""
 
-etag = ""
+content_disposition = ""
 
 content_encoding = ""
 
@@ -12,36 +18,30 @@ content_language = ""
 
 content_type = ""
 
-tags = {}
+create = true
 
-force_destroy = false
+etag = ""
 
 file_source = ""
 
-acl = ""
+force_destroy = false
 
-cache_control = ""
+key = ""
 
-object_lock_legal_hold_status = ""
+kms_key_id = ""
 
 metadata = {}
 
-content_base64 = ""
-
-server_side_encryption = ""
-
-kms_key_id = ""
+object_lock_legal_hold_status = ""
 
 object_lock_mode = ""
 
 object_lock_retain_until_date = ""
 
-create = true
+server_side_encryption = ""
 
-bucket = ""
+storage_class = ""
 
-content_disposition = ""
+tags = {}
 
 website_redirect = ""
-
-bucket_key_enabled = ""

@@ -1,117 +1,117 @@
+allocated_storage = null
+
+allow_major_version_upgrade = false
+
+apply_immediately = false
+
+auto_minor_version_upgrade = true
+
+availability_zone = null
+
+backup_retention_period = null
+
+backup_window = null
+
+ca_cert_identifier = null
+
+character_set_name = null
+
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_retention_in_days = 7
+
+copy_tags_to_snapshot = false
+
+create = true
+
+create_cloudwatch_log_group = false
+
+create_monitoring_role = false
+
+db_name = null
+
+db_subnet_group_name = null
+
+delete_automated_backups = true
+
+deletion_protection = false
+
+domain = null
+
+domain_iam_role_name = null
+
+enabled_cloudwatch_logs_exports = []
+
+engine = null
+
+engine_version = null
+
+final_snapshot_identifier_prefix = "final"
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = null
+
+iops = 0
+
 kms_key_id = null
 
 license_model = null
 
-delete_automated_backups = true
-
 maintenance_window = null
-
-replica_mode = null
-
-domain = null
-
-engine = null
-
-skip_final_snapshot = false
-
-final_snapshot_identifier_prefix = "final"
-
-create_monitoring_role = false
-
-storage_type = null
-
-enabled_cloudwatch_logs_exports = []
-
-s3_import = null
-
-cloudwatch_log_group_retention_in_days = 7
-
-replicate_source_db = null
-
-iops = 0
-
-apply_immediately = false
 
 max_allocated_storage = 0
 
 monitoring_interval = 0
 
-performance_insights_enabled = false
+monitoring_role_arn = null
 
 monitoring_role_description = null
 
-option_group_name = null
-
-password = null
-
-publicly_accessible = false
-
-timezone = null
-
-port = null
-
-cloudwatch_log_group_kms_key_id = null
-
-domain_iam_role_name = null
-
-engine_version = null
-
-vpc_security_group_ids = []
-
-backup_retention_period = null
-
-character_set_name = null
-
-performance_insights_kms_key_id = null
-
-storage_encrypted = true
-
-snapshot_identifier = null
-
-copy_tags_to_snapshot = false
+monitoring_role_name = "rds-monitoring-role"
 
 multi_az = false
 
-create_cloudwatch_log_group = false
-
-create = true
-
-availability_zone = null
-
-performance_insights_retention_period = 7
-
-db_subnet_group_name = null
+option_group_name = null
 
 parameter_group_name = null
 
-tags = {}
+password = null
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = null
+
+performance_insights_retention_period = 7
+
+port = null
+
+publicly_accessible = false
+
+replica_mode = null
+
+replicate_source_db = null
 
 restore_to_point_in_time = null
 
-username = null
+s3_import = null
 
-monitoring_role_arn = null
+skip_final_snapshot = false
 
-backup_window = null
+snapshot_identifier = null
 
-auto_minor_version_upgrade = true
+storage_encrypted = true
 
-identifier = ""
+storage_type = null
 
-allocated_storage = null
-
-iam_database_authentication_enabled = false
-
-instance_class = null
-
-db_name = null
-
-monitoring_role_name = "rds-monitoring-role"
-
-allow_major_version_upgrade = false
+tags = {}
 
 timeouts = {}
 
-deletion_protection = false
+timezone = null
 
-ca_cert_identifier = null
+username = null
+
+vpc_security_group_ids = []

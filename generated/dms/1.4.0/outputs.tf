@@ -1,6 +1,21 @@
+output "certificates" {
+  value       = module.dms.certificates
+  description = "A map of maps containing the certificates created and their full output of attributes and values"
+}
+
 output "dms_access_for_endpoint_iam_role_arn" {
   value       = module.dms.dms_access_for_endpoint_iam_role_arn
   description = "Amazon Resource Name (ARN) specifying the role"
+}
+
+output "dms_access_for_endpoint_iam_role_id" {
+  value       = module.dms.dms_access_for_endpoint_iam_role_id
+  description = "Name of the IAM role"
+}
+
+output "dms_access_for_endpoint_iam_role_unique_id" {
+  value       = module.dms.dms_access_for_endpoint_iam_role_unique_id
+  description = "Stable and unique string identifying the role"
 }
 
 output "dms_cloudwatch_logs_iam_role_arn" {
@@ -8,14 +23,9 @@ output "dms_cloudwatch_logs_iam_role_arn" {
   description = "Amazon Resource Name (ARN) specifying the role"
 }
 
-output "dms_vpc_iam_role_id" {
-  value       = module.dms.dms_vpc_iam_role_id
+output "dms_cloudwatch_logs_iam_role_id" {
+  value       = module.dms.dms_cloudwatch_logs_iam_role_id
   description = "Name of the IAM role"
-}
-
-output "dms_access_for_endpoint_iam_role_unique_id" {
-  value       = module.dms.dms_access_for_endpoint_iam_role_unique_id
-  description = "Stable and unique string identifying the role"
 }
 
 output "dms_cloudwatch_logs_iam_role_unique_id" {
@@ -28,9 +38,14 @@ output "dms_vpc_iam_role_arn" {
   description = "Amazon Resource Name (ARN) specifying the role"
 }
 
-output "replication_instance_private_ips" {
-  value       = module.dms.replication_instance_private_ips
-  description = "A list of the private IP addresses of the replication instance"
+output "dms_vpc_iam_role_id" {
+  value       = module.dms.dms_vpc_iam_role_id
+  description = "Name of the IAM role"
+}
+
+output "dms_vpc_iam_role_unique_id" {
+  value       = module.dms.dms_vpc_iam_role_unique_id
+  description = "Stable and unique string identifying the role"
 }
 
 output "endpoints" {
@@ -43,14 +58,14 @@ output "event_subscriptions" {
   description = "A map of maps containing the event subscriptions created and their full output of attributes and values"
 }
 
-output "dms_cloudwatch_logs_iam_role_id" {
-  value       = module.dms.dms_cloudwatch_logs_iam_role_id
-  description = "Name of the IAM role"
-}
-
 output "replication_instance_arn" {
   value       = module.dms.replication_instance_arn
   description = "The Amazon Resource Name (ARN) of the replication instance"
+}
+
+output "replication_instance_private_ips" {
+  value       = module.dms.replication_instance_private_ips
+  description = "A list of the private IP addresses of the replication instance"
 }
 
 output "replication_instance_public_ips" {
@@ -63,27 +78,12 @@ output "replication_instance_tags_all" {
   description = "A map of tags assigned to the resource, including those inherited from the provider default_tags configuration block"
 }
 
-output "replication_tasks" {
-  value       = module.dms.replication_tasks
-  description = "A map of maps containing the replication tasks created and their full output of attributes and values"
-}
-
-output "certificates" {
-  value       = module.dms.certificates
-  description = "A map of maps containing the certificates created and their full output of attributes and values"
-}
-
-output "dms_access_for_endpoint_iam_role_id" {
-  value       = module.dms.dms_access_for_endpoint_iam_role_id
-  description = "Name of the IAM role"
-}
-
-output "dms_vpc_iam_role_unique_id" {
-  value       = module.dms.dms_vpc_iam_role_unique_id
-  description = "Stable and unique string identifying the role"
-}
-
 output "replication_subnet_group_id" {
   value       = module.dms.replication_subnet_group_id
   description = "The ID of the subnet group"
+}
+
+output "replication_tasks" {
+  value       = module.dms.replication_tasks
+  description = "A map of maps containing the replication tasks created and their full output of attributes and values"
 }

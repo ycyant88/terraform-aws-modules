@@ -1,13 +1,19 @@
-variable "flow_logs_enabled" {
-  description = "Indicates whether flow logs are enabled. Defaults to false"
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "listeners" {
-  description = "A map of listener defintions to create"
-  type        = any
-  default     = {}
+variable "create_listeners" {
+  description = "Controls if listeners should be created (affects only listeners)"
+  type        = bool
+  default     = true
+}
+
+variable "enabled" {
+  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
+  type        = bool
+  default     = true
 }
 
 variable "endpoint_groups_timeouts" {
@@ -16,28 +22,10 @@ variable "endpoint_groups_timeouts" {
   default     = {}
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
+variable "flow_logs_enabled" {
+  description = "Indicates whether flow logs are enabled. Defaults to false"
   type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "ip_addresses" {
-  description = "The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses"
-  type        = list(string)
-  default     = []
-}
-
-variable "enabled" {
-  description = "Indicates whether the accelerator is enabled. Defaults to true. Valid values: true, false"
-  type        = bool
-  default     = true
+  default     = false
 }
 
 variable "flow_logs_s3_bucket" {
@@ -52,10 +40,22 @@ variable "flow_logs_s3_prefix" {
   default     = null
 }
 
-variable "create_listeners" {
-  description = "Controls if listeners should be created (affects only listeners)"
-  type        = bool
-  default     = true
+variable "ip_address_type" {
+  description = "The value for the address type. Defaults to IPV4. Valid values: IPV4, DUAL_STACK"
+  type        = string
+  default     = "IPV4"
+}
+
+variable "ip_addresses" {
+  description = "The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses"
+  type        = list(string)
+  default     = []
+}
+
+variable "listeners" {
+  description = "A map of listener defintions to create"
+  type        = any
+  default     = {}
 }
 
 variable "listeners_timeouts" {
@@ -70,8 +70,8 @@ variable "name" {
   default     = ""
 }
 
-variable "ip_address_type" {
-  description = "The value for the address type. Defaults to IPV4. Valid values: IPV4, DUAL_STACK"
-  type        = string
-  default     = "IPV4"
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

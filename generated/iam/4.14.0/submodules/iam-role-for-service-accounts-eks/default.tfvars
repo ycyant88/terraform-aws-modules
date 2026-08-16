@@ -1,55 +1,55 @@
-node_termination_handler_sqs_queue_arns = ["*"]
+assume_role_condition_test = "StringEquals"
+
+attach_cluster_autoscaler_policy = false
+
+attach_ebs_csi_policy = false
+
+attach_external_dns_policy = false
 
 attach_karpenter_controller_policy = false
 
-role_name = null
+attach_load_balancer_controller_policy = false
 
-force_detach_policies = true
+attach_node_termination_handler_policy = false
+
+attach_vpc_cni_policy = false
+
+cluster_autoscaler_cluster_ids = []
+
+create_role = true
+
+ebs_csi_kms_cmk_ids = []
 
 external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/*"]
 
-vpc_cni_enable_ipv6 = false
+force_detach_policies = true
 
 karpenter_controller_cluster_ids = []
 
-karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
-
 karpenter_controller_node_iam_role_arns = ["*"]
 
-attach_load_balancer_controller_policy = false
+karpenter_controller_ssm_parameter_arns = ["arn:aws:ssm:*:*:parameter/aws/service/*"]
 
-create_role = true
+max_session_duration = null
+
+node_termination_handler_sqs_queue_arns = ["*"]
+
+oidc_providers = {}
+
+role_description = null
+
+role_name = null
+
+role_name_prefix = null
 
 role_path = null
 
 role_permissions_boundary_arn = null
 
-role_description = null
-
 role_policy_arns = []
-
-assume_role_condition_test = "StringEquals"
-
-attach_external_dns_policy = false
-
-attach_vpc_cni_policy = false
-
-role_name_prefix = null
-
-max_session_duration = null
-
-attach_ebs_csi_policy = false
-
-ebs_csi_kms_cmk_ids = []
-
-attach_cluster_autoscaler_policy = false
-
-cluster_autoscaler_cluster_ids = []
-
-oidc_providers = {}
 
 tags = {}
 
 vpc_cni_enable_ipv4 = false
 
-attach_node_termination_handler_policy = false
+vpc_cni_enable_ipv6 = false

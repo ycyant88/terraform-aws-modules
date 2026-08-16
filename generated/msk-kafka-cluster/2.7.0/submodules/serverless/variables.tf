@@ -1,7 +1,31 @@
-variable "subnet_ids" {
-  description = "A list of subnets in at least two different Availability Zones that host your client applications"
+variable "cluster_override_policy_documents" {
+  description = "Override policy documents for cluster policy"
   type        = list(string)
   default     = null
+}
+
+variable "cluster_policy_statements" {
+  description = "Map of policy statements for cluster policy"
+  type        = any
+  default     = null
+}
+
+variable "cluster_source_policy_documents" {
+  description = "Source policy documents for cluster policy"
+  type        = list(string)
+  default     = null
+}
+
+variable "create" {
+  description = "Determines whether cluster resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_cluster_policy" {
+  description = "Determines whether to create an MSK cluster policy"
+  type        = bool
+  default     = false
 }
 
 variable "name" {
@@ -16,38 +40,14 @@ variable "security_group_ids" {
   default     = null
 }
 
+variable "subnet_ids" {
+  description = "A list of subnets in at least two different Availability Zones that host your client applications"
+  type        = list(string)
+  default     = null
+}
+
 variable "tags" {
   description = "A map of tags to assign to the resources created"
   type        = map(string)
   default     = {}
-}
-
-variable "create_cluster_policy" {
-  description = "Determines whether to create an MSK cluster policy"
-  type        = bool
-  default     = false
-}
-
-variable "cluster_source_policy_documents" {
-  description = "Source policy documents for cluster policy"
-  type        = list(string)
-  default     = null
-}
-
-variable "cluster_override_policy_documents" {
-  description = "Override policy documents for cluster policy"
-  type        = list(string)
-  default     = null
-}
-
-variable "cluster_policy_statements" {
-  description = "Map of policy statements for cluster policy"
-  type        = any
-  default     = null
-}
-
-variable "create" {
-  description = "Determines whether cluster resources will be created"
-  type        = bool
-  default     = true
 }

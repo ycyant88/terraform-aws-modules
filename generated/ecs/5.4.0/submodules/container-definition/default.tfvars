@@ -1,95 +1,95 @@
-secrets = []
+cloudwatch_log_group_kms_key_id = null
 
-service = ""
-
-tags = {}
-
-command = []
-
-dependencies = []
-
-links = []
-
-mount_points = []
+cloudwatch_log_group_retention_in_days = 30
 
 cloudwatch_log_group_use_name_prefix = false
 
-docker_labels = {}
-
-interactive = false
-
-memory_reservation = null
-
-start_timeout = 30
-
-readonly_root_filesystem = true
-
-resource_requirements = []
-
-repository_credentials = {}
-
-user = null
-
-create_cloudwatch_log_group = true
+command = []
 
 cpu = null
 
-essential = null
+create_cloudwatch_log_group = true
 
-memory = null
-
-privileged = false
-
-name = null
-
-enable_cloudwatch_logging = true
-
-dns_servers = []
-
-docker_security_options = []
-
-enable_execute_command = false
-
-log_configuration = {}
-
-linux_parameters = {}
-
-port_mappings = []
-
-volumes_from = []
-
-cloudwatch_log_group_retention_in_days = 30
+dependencies = []
 
 disable_networking = null
 
 dns_search_domains = []
 
-firelens_configuration = {}
+dns_servers = []
 
-image = null
+docker_labels = {}
 
-hostname = null
+docker_security_options = []
 
-stop_timeout = 120
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
 
 environment = []
 
 environment_files = []
 
+essential = null
+
 extra_hosts = []
+
+firelens_configuration = {}
 
 health_check = {}
 
-ulimits = []
+hostname = null
 
-working_directory = null
+image = null
 
-cloudwatch_log_group_kms_key_id = null
+interactive = false
+
+links = []
+
+linux_parameters = {}
+
+log_configuration = {}
+
+memory = null
+
+memory_reservation = null
+
+mount_points = []
+
+name = null
 
 operating_system_family = "LINUX"
 
-entrypoint = []
+port_mappings = []
+
+privileged = false
 
 pseudo_terminal = false
 
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
+service = ""
+
+start_timeout = 30
+
+stop_timeout = 120
+
 system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
+working_directory = null

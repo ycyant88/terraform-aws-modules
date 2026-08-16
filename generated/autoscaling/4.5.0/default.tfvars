@@ -1,167 +1,167 @@
-propagate_name = true
-
-image_id = ""
-
-schedules = {}
-
-capacity_rebalance = null
-
-wait_for_elb_capacity = null
-
-use_lc = false
-
-root_block_device = []
-
-ram_disk_id = null
-
-license_specifications = null
-
-network_interfaces = []
-
 associate_public_ip_address = null
-
-description = null
-
-disable_api_termination = null
-
-hibernation_options = null
 
 availability_zone = null
 
-health_check_grace_period = null
-
-mixed_instances_policy = null
-
-iam_instance_profile_name = null
-
-key_name = null
-
-user_data_base64 = null
-
-update_default_version = null
-
-instance_initiated_shutdown_behavior = null
-
-ephemeral_block_device = []
-
-launch_configuration = null
-
-termination_policies = null
-
-use_mixed_instances_policy = false
-
 block_device_mappings = []
 
-elastic_inference_accelerator = null
-
-instance_market_options = null
-
-use_name_prefix = true
-
-min_elb_capacity = null
-
-suspended_processes = null
-
-tags_as_map = {}
-
-use_lt = false
-
-lt_name = ""
-
-enclave_options = null
-
-tag_specifications = []
-
-enabled_metrics = null
-
-launch_template = null
-
-target_group_arns = []
-
-name = ""
-
-max_size = null
-
-wait_for_capacity_timeout = null
-
-initial_lifecycle_hooks = []
-
-enable_monitoring = null
-
-ebs_block_device = []
-
-placement = null
-
-vpc_zone_identifier = null
-
-tags = []
-
-create_lc = false
-
-kernel_id = null
-
-credit_specification = null
-
-load_balancers = []
-
-metadata_options = null
-
-user_data = null
-
-create_lt = false
-
-placement_group = null
-
-instance_type = ""
-
-security_groups = null
-
-lt_version = null
-
-min_size = null
-
-default_cooldown = null
-
-spot_price = null
-
-placement_tenancy = null
+capacity_rebalance = null
 
 capacity_reservation_specification = null
 
-desired_capacity = null
-
-max_instance_lifetime = null
-
-lc_use_name_prefix = true
-
-default_version = null
-
 cpu_options = null
-
-lt_use_name_prefix = true
-
-iam_instance_profile_arn = null
-
-create_schedule = true
 
 create_asg = true
 
-protect_from_scale_in = false
+create_lc = false
 
-health_check_type = null
+create_lt = false
 
-service_linked_role_arn = null
+create_schedule = true
 
-instance_refresh = null
+credit_specification = null
+
+default_cooldown = null
+
+default_version = null
+
+delete_timeout = null
+
+description = null
+
+desired_capacity = null
+
+disable_api_termination = null
+
+ebs_block_device = []
 
 ebs_optimized = null
 
-lc_name = ""
-
 elastic_gpu_specifications = null
+
+elastic_inference_accelerator = null
+
+enable_monitoring = null
+
+enabled_metrics = null
+
+enclave_options = null
+
+ephemeral_block_device = []
 
 force_delete = null
 
+health_check_grace_period = null
+
+health_check_type = null
+
+hibernation_options = null
+
+iam_instance_profile_arn = null
+
+iam_instance_profile_name = null
+
+image_id = ""
+
+initial_lifecycle_hooks = []
+
+instance_initiated_shutdown_behavior = null
+
+instance_market_options = null
+
+instance_refresh = null
+
+instance_type = ""
+
+kernel_id = null
+
+key_name = null
+
+launch_configuration = null
+
+launch_template = null
+
+lc_name = ""
+
+lc_use_name_prefix = true
+
+license_specifications = null
+
+load_balancers = []
+
+lt_name = ""
+
+lt_use_name_prefix = true
+
+lt_version = null
+
+max_instance_lifetime = null
+
+max_size = null
+
+metadata_options = null
+
 metrics_granularity = null
 
-delete_timeout = null
+min_elb_capacity = null
+
+min_size = null
+
+mixed_instances_policy = null
+
+name = ""
+
+network_interfaces = []
+
+placement = null
+
+placement_group = null
+
+placement_tenancy = null
+
+propagate_name = true
+
+protect_from_scale_in = false
+
+ram_disk_id = null
+
+root_block_device = []
+
+schedules = {}
+
+security_groups = null
+
+service_linked_role_arn = null
+
+spot_price = null
+
+suspended_processes = null
+
+tag_specifications = []
+
+tags = []
+
+tags_as_map = {}
+
+target_group_arns = []
+
+termination_policies = null
+
+update_default_version = null
+
+use_lc = false
+
+use_lt = false
+
+use_mixed_instances_policy = false
+
+use_name_prefix = true
+
+user_data = null
+
+user_data_base64 = null
+
+vpc_zone_identifier = null
+
+wait_for_capacity_timeout = null
+
+wait_for_elb_capacity = null

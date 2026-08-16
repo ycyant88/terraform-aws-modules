@@ -1,31 +1,31 @@
-region = null
+allowed_pattern = null
+
+create = true
 
 data_type = null
 
 description = null
 
-key_id = null
-
-type = null
-
-value_wo_version = null
-
-allowed_pattern = null
-
-overwrite = false
-
-tier = null
-
 ignore_value_changes = false
 
-secure_type = false
-
-values = []
+key_id = null
 
 name = null
 
-value = null
+overwrite = false
+
+region = null
+
+secure_type = false
 
 tags = {}
 
-create = true
+tier = null
+
+type = null
+
+value = null
+
+value_wo_version = null
+
+values = []

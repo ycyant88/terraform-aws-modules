@@ -3,6 +3,11 @@ output "secret_arn" {
   description = "The ARN of the secret"
 }
 
+output "secret_binary" {
+  value       = module.secrets-manager.secret_binary
+  description = "The secret binary"
+}
+
 output "secret_id" {
   value       = module.secrets-manager.secret_id
   description = "The ID of the secret"
@@ -16,11 +21,6 @@ output "secret_replica" {
 output "secret_string" {
   value       = module.secrets-manager.secret_string
   description = "The secret string"
-}
-
-output "secret_binary" {
-  value       = module.secrets-manager.secret_binary
-  description = "The secret binary"
 }
 
 output "secret_version_id" {

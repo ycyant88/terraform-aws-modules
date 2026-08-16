@@ -1,3 +1,9 @@
+variable "create" {
+  description = "Determines whether resources will be created"
+  type        = bool
+  default     = true
+}
+
 variable "endpoints" {
   description = "A map of interface and/or gateway endpoints containing their properties and configurations"
   type        = any
@@ -26,12 +32,6 @@ variable "timeouts" {
   description = "Define maximum timeout for creating, updating, and deleting VPC endpoint resources"
   type        = map(string)
   default     = {}
-}
-
-variable "create" {
-  description = "Determines whether resources will be created"
-  type        = bool
-  default     = true
 }
 
 variable "vpc_id" {

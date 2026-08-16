@@ -1,43 +1,19 @@
-variable "description" {
-  description = "IAM Role description"
-  type        = string
-  default     = null
-}
-
 variable "audience" {
   description = "Audience to use for OIDC role. Defaults to sts.amazonaws.com for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)"
   type        = string
   default     = "sts.amazonaws.com"
 }
 
-variable "subjects" {
-  description = "List of GitHub OIDC subjects that are permitted by the trust policy. You do not need to prefix with repo: as this is provided. Example: ['my-org/my-repo:*', 'octo-org/octo-repo:ref:refs/heads/octo-branch']"
-  type        = list(string)
-  default     = []
+variable "create" {
+  description = "Controls if resources should be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
-variable "name" {
-  description = "Name of IAM role"
+variable "description" {
+  description = "IAM Role description"
   type        = string
   default     = null
-}
-
-variable "path" {
-  description = "Path of IAM role"
-  type        = string
-  default     = "/"
-}
-
-variable "name_prefix" {
-  description = "IAM role name prefix"
-  type        = string
-  default     = null
-}
-
-variable "policies" {
-  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
-  type        = map(string)
-  default     = {}
 }
 
 variable "force_detach_policies" {
@@ -52,10 +28,34 @@ variable "max_session_duration" {
   default     = null
 }
 
-variable "subject_condition" {
-  description = "Condition to use for the GitHub OIDC role. Defaults to StringLike"
+variable "name" {
+  description = "Name of IAM role"
   type        = string
-  default     = "StringLike"
+  default     = null
+}
+
+variable "name_prefix" {
+  description = "IAM role name prefix"
+  type        = string
+  default     = null
+}
+
+variable "path" {
+  description = "Path of IAM role"
+  type        = string
+  default     = "/"
+}
+
+variable "permissions_boundary_arn" {
+  description = "Permissions boundary ARN to use for IAM role"
+  type        = string
+  default     = null
+}
+
+variable "policies" {
+  description = "Policies to attach to the IAM role in {'static_name' = 'policy_arn'} format"
+  type        = map(string)
+  default     = {}
 }
 
 variable "provider_url" {
@@ -64,20 +64,20 @@ variable "provider_url" {
   default     = "token.actions.githubusercontent.com"
 }
 
-variable "create" {
-  description = "Controls if resources should be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "subject_condition" {
+  description = "Condition to use for the GitHub OIDC role. Defaults to StringLike"
+  type        = string
+  default     = "StringLike"
+}
+
+variable "subjects" {
+  description = "List of GitHub OIDC subjects that are permitted by the trust policy. You do not need to prefix with repo: as this is provided. Example: ['my-org/my-repo:*', 'octo-org/octo-repo:ref:refs/heads/octo-branch']"
+  type        = list(string)
+  default     = []
 }
 
 variable "tags" {
   description = "A map of tags to add to the resources created"
   type        = map(any)
   default     = {}
-}
-
-variable "permissions_boundary_arn" {
-  description = "Permissions boundary ARN to use for IAM role"
-  type        = string
-  default     = null
 }

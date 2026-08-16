@@ -1,39 +1,39 @@
-ssh_public_key = ""
-
-path = null
-
-force_destroy = false
-
 access_key_status = null
-
-create_ssh_key = false
-
-source_inline_policy_documents = []
-
-override_inline_policy_documents = []
 
 create = true
 
-pgp_key = null
+create_access_key = true
+
+create_inline_policy = false
+
+create_login_profile = true
+
+create_ssh_key = false
+
+force_destroy = false
+
+inline_policy_permissions = null
+
+name = ""
+
+override_inline_policy_documents = []
 
 password_length = null
 
 password_reset_required = true
 
-create_inline_policy = false
-
-tags = {}
-
-name = ""
+path = null
 
 permissions_boundary = null
 
+pgp_key = null
+
 policies = {}
 
-create_login_profile = true
-
-create_access_key = true
-
-inline_policy_permissions = null
+source_inline_policy_documents = []
 
 ssh_key_encoding = "SSH"
+
+ssh_public_key = ""
+
+tags = {}

@@ -1,41 +1,41 @@
-create = true
-
-create_api_gateway = true
-
-route_selection_expression = "$request.method $request.path"
-
-cors_configuration = {}
-
-target = ""
-
-tags = {}
-
-domain_name = ""
-
 api_key_selection_expression = "$request.header.x-api-key"
-
-route_key = ""
-
-credentials_arn = ""
 
 api_version = ""
 
-integrations = {}
+cors_configuration = {}
 
-create_default_stage = true
-
-create_routes_and_integrations = true
-
-name = ""
-
-description = ""
-
-protocol_type = "HTTP"
-
-domain_name_tags = {}
-
-create_default_stage_api_mapping = true
+create = true
 
 create_api_domain_name = true
 
+create_api_gateway = true
+
+create_default_stage = true
+
+create_default_stage_api_mapping = true
+
+create_routes_and_integrations = true
+
+credentials_arn = ""
+
+description = ""
+
+domain_name = ""
+
 domain_name_certificate_arn = ""
+
+domain_name_tags = {}
+
+integrations = {}
+
+name = ""
+
+protocol_type = "HTTP"
+
+route_key = ""
+
+route_selection_expression = "$request.method $request.path"
+
+tags = {}
+
+target = ""

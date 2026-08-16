@@ -1,95 +1,95 @@
-cloudwatch_log_group_retention_in_days = 90
+automatic_backup_retention_days = null
+
+backup_id = null
+
+backup_tags = {}
+
+backup_timeouts = {}
+
+cloudwatch_log_group_class = null
 
 cloudwatch_log_group_kms_key_id = null
 
-file_cache_storage_capacity = null
+cloudwatch_log_group_name = null
 
-security_group_description = null
+cloudwatch_log_group_retention_in_days = 90
+
+cloudwatch_log_group_tags = {}
+
+cloudwatch_log_group_use_name_prefix = true
 
 copy_tags_to_backups = false
 
-kms_key_id = null
+create = true
 
-metadata_configuration = {}
+create_backup = false
 
 create_cloudwatch_log_group = true
 
-security_group_tags = {}
+create_file_cache = false
 
-drive_cache_type = null
-
-storage_type = null
-
-timeouts = {}
-
-automatic_backup_retention_days = null
+create_security_group = true
 
 daily_automatic_backup_start_time = null
 
 data_compression_type = null
 
-create = true
-
-cloudwatch_log_group_use_name_prefix = true
-
 data_repository_associations = {}
-
-file_cache_copy_tags_to_data_repository_associations = null
-
-cloudwatch_log_group_tags = {}
-
-create_backup = false
-
-file_cache_type_version = "2.12"
-
-security_group_egress_rules = {}
-
-tags = {}
-
-file_system_type_version = null
-
-per_unit_storage_throughput = null
-
-cloudwatch_log_group_name = null
-
-backup_timeouts = {}
 
 data_repository_associations_timeouts = {}
 
-file_cache_kms_key_id = null
-
-security_group_ingress_rules = {}
-
 deployment_type = null
 
-name = ""
-
-security_group_ids = []
-
-backup_tags = {}
-
-cloudwatch_log_group_class = null
-
-create_file_cache = false
-
-file_cache_lustre_configuration = {}
-
-security_group_name = null
+drive_cache_type = null
 
 efa_enabled = null
 
+file_cache_copy_tags_to_data_repository_associations = null
+
+file_cache_kms_key_id = null
+
+file_cache_lustre_configuration = {}
+
+file_cache_storage_capacity = null
+
+file_cache_type_version = "2.12"
+
+file_system_type_version = null
+
+kms_key_id = null
+
 log_configuration = { "level" : "WARN_ERROR" }
 
-storage_capacity = null
+metadata_configuration = {}
 
-subnet_ids = []
+name = ""
 
-security_group_use_name_prefix = true
-
-backup_id = null
+per_unit_storage_throughput = null
 
 root_squash_configuration = {}
 
-weekly_maintenance_start_time = null
+security_group_description = null
 
-create_security_group = true
+security_group_egress_rules = {}
+
+security_group_ids = []
+
+security_group_ingress_rules = {}
+
+security_group_name = null
+
+security_group_tags = {}
+
+security_group_use_name_prefix = true
+
+storage_capacity = null
+
+storage_type = null
+
+subnet_ids = []
+
+tags = {}
+
+timeouts = {}
+
+weekly_maintenance_start_time = null

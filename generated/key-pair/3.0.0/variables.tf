@@ -1,25 +1,7 @@
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "key_name" {
-  description = "The name for the key pair. Conflicts with key_name_prefix"
-  type        = string
-  default     = null
-}
-
-variable "public_key" {
-  description = "The public key material"
-  type        = string
-  default     = ""
+variable "create" {
+  description = "Determines whether resources will be created (affects all resources)"
+  type        = bool
+  default     = true
 }
 
 variable "create_private_key" {
@@ -28,16 +10,10 @@ variable "create_private_key" {
   default     = false
 }
 
-variable "private_key_ecdsa_curve" {
-  description = "When algorithm is ECDSA, the name of the elliptic curve to use. Currently-supported values are: P224, P256, P384, P521. (default: P224)"
+variable "key_name" {
+  description = "The name for the key pair. Conflicts with key_name_prefix"
   type        = string
   default     = null
-}
-
-variable "private_key_rsa_bits" {
-  description = "When algorithm is RSA, the size of the generated RSA key, in bits (default: 4096)"
-  type        = number
-  default     = 4096
 }
 
 variable "key_name_prefix" {
@@ -52,8 +28,32 @@ variable "private_key_algorithm" {
   default     = "RSA"
 }
 
-variable "create" {
-  description = "Determines whether resources will be created (affects all resources)"
-  type        = bool
-  default     = true
+variable "private_key_ecdsa_curve" {
+  description = "When algorithm is ECDSA, the name of the elliptic curve to use. Currently-supported values are: P224, P256, P384, P521. (default: P224)"
+  type        = string
+  default     = null
+}
+
+variable "private_key_rsa_bits" {
+  description = "When algorithm is RSA, the size of the generated RSA key, in bits (default: 4096)"
+  type        = number
+  default     = 4096
+}
+
+variable "public_key" {
+  description = "The public key material"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }

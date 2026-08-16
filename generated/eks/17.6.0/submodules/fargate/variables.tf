@@ -1,15 +1,3 @@
-variable "fargate_profiles" {
-  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
-  type        = any
-  default     = {}
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "cluster_name" {
   description = "Name of the EKS cluster."
   type        = string
@@ -20,12 +8,6 @@ variable "create_eks" {
   description = "Controls if EKS resources should be created (it affects almost all resources)"
   type        = bool
   default     = true
-}
-
-variable "iam_policy_arn_prefix" {
-  description = "IAM policy prefix with the correct AWS partition."
-  type        = string
-  default     = ""
 }
 
 variable "create_fargate_pod_execution_role" {
@@ -40,16 +22,28 @@ variable "eks_depends_on" {
   default     = null
 }
 
+variable "fargate_pod_execution_role_name" {
+  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
+  type        = string
+  default     = null
+}
+
+variable "fargate_profiles" {
+  description = "Fargate profiles to create. See fargate_profile keys section in README.md for more details"
+  type        = any
+  default     = {}
+}
+
 variable "iam_path" {
   description = "IAM roles will be created on this path."
   type        = string
   default     = "/"
 }
 
-variable "fargate_pod_execution_role_name" {
-  description = "The IAM Role that provides permissions for the EKS Fargate Profile."
+variable "iam_policy_arn_prefix" {
+  description = "IAM policy prefix with the correct AWS partition."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "permissions_boundary" {
@@ -62,4 +56,10 @@ variable "subnets" {
   description = "A list of subnets for the EKS Fargate profiles."
   type        = list(string)
   default     = []
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
 }

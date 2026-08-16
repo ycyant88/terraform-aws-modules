@@ -1,51 +1,51 @@
-certificate_arn = ""
-
-route53_zone_name = ""
-
-cloudwatch_log_retention_in_days = 7
-
-ecs_service_assign_public_ip = false
-
-atlantis_repo_whitelist = ""
-
-create_github_repository_webhook = true
+acm_certificate_domain_name = ""
 
 alb_ingress_cidr_blocks = ["0.0.0.0/0"]
 
-cidr = ""
-
-azs = []
-
-public_subnets = []
-
-atlantis_github_user_token = ""
-
-github_token = ""
-
-policies_arn = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
-
-vpc_id = ""
-
-private_subnets = []
-
-acm_certificate_domain_name = ""
-
-atlantis_version = "latest"
-
-private_subnet_ids = []
-
-github_repo_names = []
-
 allow_repo_config = "false"
-
-name = "atlantis"
-
-atlantis_image = ""
 
 atlantis_github_user = ""
 
+atlantis_github_user_token = ""
+
+atlantis_image = ""
+
+atlantis_repo_whitelist = ""
+
+atlantis_version = "latest"
+
+azs = []
+
+certificate_arn = ""
+
+cidr = ""
+
+cloudwatch_log_retention_in_days = 7
+
+create_github_repository_webhook = true
+
+create_route53_record = true
+
+ecs_service_assign_public_ip = false
+
 github_organization = ""
+
+github_repo_names = []
+
+github_token = ""
+
+name = "atlantis"
+
+policies_arn = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"]
+
+private_subnet_ids = []
+
+private_subnets = []
 
 public_subnet_ids = []
 
-create_route53_record = true
+public_subnets = []
+
+route53_zone_name = ""
+
+vpc_id = ""

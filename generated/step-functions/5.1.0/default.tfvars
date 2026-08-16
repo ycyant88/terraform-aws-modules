@@ -1,83 +1,83 @@
 attach_cloudwatch_logs_policy = true
 
-role_permissions_boundary = null
-
-attach_policy_jsons = false
-
-attach_policy = false
-
-definition = ""
-
-role_arn = ""
-
 attach_policies = false
-
-role_tags = {}
-
-number_of_policy_jsons = 0
-
-trusted_entities = []
-
-policy_json = null
-
-policy_path = null
-
-sfn_state_machine_timeouts = {}
-
-cloudwatch_log_group_retention_in_days = null
-
-role_force_detach_policies = true
-
-policy_jsons = []
-
-use_existing_role = false
-
-cloudwatch_log_group_name = null
-
-role_name = null
-
-create = true
-
-use_existing_cloudwatch_log_group = false
-
-role_description = null
-
-role_path = null
 
 attach_policies_for_integrations = true
 
-attach_policy_statements = false
-
-policy = null
-
-policies = []
-
-create_role = true
-
-region = null
-
-name = ""
-
-encryption_configuration = {}
-
-service_integrations = {}
+attach_policy = false
 
 attach_policy_json = false
 
-type = "STANDARD"
+attach_policy_jsons = false
 
-logging_configuration = {}
-
-cloudwatch_log_group_kms_key_id = null
+attach_policy_statements = false
 
 aws_region_assume_role = ""
 
+cloudwatch_log_group_kms_key_id = null
+
+cloudwatch_log_group_name = null
+
+cloudwatch_log_group_retention_in_days = null
+
+cloudwatch_log_group_tags = {}
+
+create = true
+
+create_role = true
+
+definition = ""
+
+encryption_configuration = {}
+
+logging_configuration = {}
+
+name = ""
+
 number_of_policies = 0
+
+number_of_policy_jsons = 0
+
+policies = []
+
+policy = null
+
+policy_json = null
+
+policy_jsons = []
+
+policy_path = null
 
 policy_statements = {}
 
-tags = {}
-
 publish = false
 
-cloudwatch_log_group_tags = {}
+region = null
+
+role_arn = ""
+
+role_description = null
+
+role_force_detach_policies = true
+
+role_name = null
+
+role_path = null
+
+role_permissions_boundary = null
+
+role_tags = {}
+
+service_integrations = {}
+
+sfn_state_machine_timeouts = {}
+
+tags = {}
+
+trusted_entities = []
+
+type = "STANDARD"
+
+use_existing_cloudwatch_log_group = false
+
+use_existing_role = false

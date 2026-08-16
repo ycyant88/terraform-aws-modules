@@ -1,69 +1,69 @@
-publicly_accessible = false
+allocated_storage = ""
+
+allow_major_version_upgrade = false
+
+apply_immediately = false
 
 auto_minor_version_upgrade = true
 
 backup_retention_period = 1
 
-identifier = ""
-
-iam_database_authentication_enabled = false
-
-password = ""
-
-monitoring_interval = 0
-
 backup_window = ""
-
-tags = {}
-
-parameters = []
-
-allocated_storage = ""
-
-storage_encrypted = false
-
-engine = ""
-
-family = ""
-
-apply_immediately = false
-
-subnet_ids = []
-
-final_snapshot_identifier = false
-
-vpc_security_group_ids = []
-
-allow_major_version_upgrade = false
-
-instance_class = ""
-
-port = ""
-
-monitoring_role_arn = ""
-
-maintenance_window = ""
 
 copy_tags_to_snapshot = false
 
-storage_type = "gp2"
+engine = ""
+
+engine_version = ""
+
+family = ""
+
+final_snapshot_identifier = false
+
+iam_database_authentication_enabled = false
+
+identifier = ""
+
+instance_class = ""
+
+iops = 0
 
 kms_key_id = ""
 
 license_model = ""
 
-snapshot_identifier = ""
+maintenance_window = ""
 
-name = ""
+monitoring_interval = 0
 
-iops = 0
-
-skip_final_snapshot = true
-
-replicate_source_db = ""
-
-username = ""
+monitoring_role_arn = ""
 
 multi_az = false
 
-engine_version = ""
+name = ""
+
+parameters = []
+
+password = ""
+
+port = ""
+
+publicly_accessible = false
+
+replicate_source_db = ""
+
+skip_final_snapshot = true
+
+snapshot_identifier = ""
+
+storage_encrypted = false
+
+storage_type = "gp2"
+
+subnet_ids = []
+
+tags = {}
+
+username = ""
+
+vpc_security_group_ids = []

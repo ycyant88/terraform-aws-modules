@@ -1,109 +1,109 @@
-domain_iam_role_name = null
-
-performance_insights_kms_key_id = null
-
-maintenance_window = null
-
-s3_import = null
-
-publicly_accessible = false
-
-storage_type = null
-
-password = null
-
-final_snapshot_identifier = null
-
-engine = ""
-
-availability_zone = null
-
-storage_encrypted = false
-
-option_group_name = ""
-
-deletion_protection = false
-
-name = null
-
-iops = 0
-
-create_monitoring_role = false
-
-vpc_security_group_ids = []
-
-timezone = null
-
-timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
-
-engine_version = null
-
-snapshot_identifier = null
-
-auto_minor_version_upgrade = true
-
-backup_retention_period = null
-
-replicate_source_db = null
-
-monitoring_role_name = "rds-monitoring-role"
+allocated_storage = null
 
 allow_major_version_upgrade = false
 
-monitoring_role_arn = null
+apply_immediately = false
 
-enabled_cloudwatch_logs_exports = []
+auto_minor_version_upgrade = true
+
+availability_zone = null
+
+backup_retention_period = null
+
+backup_window = null
+
+ca_cert_identifier = null
+
+character_set_name = null
+
+copy_tags_to_snapshot = false
 
 create = true
 
-allocated_storage = null
+create_monitoring_role = false
 
 db_subnet_group_name = ""
 
-max_allocated_storage = 0
+delete_automated_backups = true
 
-kms_key_id = null
+deletion_protection = false
 
-username = null
+domain = null
 
-apply_immediately = false
+domain_iam_role_name = null
 
-tags = {}
+enabled_cloudwatch_logs_exports = []
 
-performance_insights_enabled = false
+engine = ""
+
+engine_version = null
+
+final_snapshot_identifier = null
+
+final_snapshot_identifier_prefix = "final"
+
+iam_database_authentication_enabled = false
 
 identifier = ""
 
 instance_class = null
 
-parameter_group_name = ""
+iops = 0
+
+kms_key_id = null
 
 license_model = null
 
+maintenance_window = null
+
+max_allocated_storage = 0
+
 monitoring_interval = 0
 
-delete_automated_backups = true
+monitoring_role_arn = null
 
-domain = null
+monitoring_role_name = "rds-monitoring-role"
 
-copy_tags_to_snapshot = false
+multi_az = false
 
-character_set_name = null
+name = null
+
+option_group_name = ""
+
+parameter_group_name = ""
+
+password = null
+
+performance_insights_enabled = false
+
+performance_insights_kms_key_id = null
 
 performance_insights_retention_period = 7
 
-ca_cert_identifier = null
+port = null
+
+publicly_accessible = false
+
+replicate_source_db = null
 
 restore_to_point_in_time = null
 
-port = null
-
-final_snapshot_identifier_prefix = "final"
-
-backup_window = null
-
-iam_database_authentication_enabled = false
+s3_import = null
 
 skip_final_snapshot = false
 
-multi_az = false
+snapshot_identifier = null
+
+storage_encrypted = false
+
+storage_type = null
+
+tags = {}
+
+timeouts = { "create" : "40m", "delete" : "40m", "update" : "80m" }
+
+timezone = null
+
+username = null
+
+vpc_security_group_ids = []

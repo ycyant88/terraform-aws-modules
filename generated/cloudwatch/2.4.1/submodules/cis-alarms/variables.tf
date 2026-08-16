@@ -1,25 +1,13 @@
-variable "use_random_name_prefix" {
-  description = "Whether to prefix resource names with random prefix"
+variable "actions_enabled" {
+  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
   type        = bool
-  default     = false
-}
-
-variable "namespace" {
-  description = "The namespace where metric filter and metric alarm should be cleated"
-  type        = string
-  default     = "CISBenchmark"
+  default     = true
 }
 
 variable "alarm_actions" {
   description = "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)"
   type        = list(string)
   default     = []
-}
-
-variable "actions_enabled" {
-  description = "Indicates whether or not actions should be executed during any changes to the alarm's state."
-  type        = bool
-  default     = true
 }
 
 variable "create" {
@@ -40,14 +28,26 @@ variable "log_group_name" {
   default     = ""
 }
 
+variable "name_prefix" {
+  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
+  type        = string
+  default     = ""
+}
+
+variable "namespace" {
+  description = "The namespace where metric filter and metric alarm should be cleated"
+  type        = string
+  default     = "CISBenchmark"
+}
+
 variable "tags" {
   description = "A mapping of tags to assign to all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "name_prefix" {
-  description = "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)"
-  type        = string
-  default     = ""
+variable "use_random_name_prefix" {
+  description = "Whether to prefix resource names with random prefix"
+  type        = bool
+  default     = false
 }

@@ -1,54 +1,18 @@
-entrypoint = []
-
-hostname = null
-
-name = null
-
-ulimits = []
-
-volumes_from = []
-
-cloudwatch_log_group_retention_in_days = 30
+cloudwatch_log_group_kms_key_id = null
 
 cloudwatch_log_group_name = null
 
-environment_files = []
+cloudwatch_log_group_retention_in_days = 30
 
-image = null
-
-readonly_root_filesystem = true
-
-repository_credentials = {}
-
-stop_timeout = 120
-
-system_controls = []
-
-enable_cloudwatch_logging = true
-
-docker_security_options = []
-
-environment = []
-
-links = []
-
-resource_requirements = []
-
-user = null
-
-cloudwatch_log_group_kms_key_id = null
+cloudwatch_log_group_use_name_prefix = false
 
 command = []
 
-dependencies = []
-
-docker_labels = {}
-
-start_timeout = 30
+cpu = null
 
 create_cloudwatch_log_group = true
 
-cpu = null
+dependencies = []
 
 disable_networking = null
 
@@ -56,11 +20,19 @@ dns_search_domains = []
 
 dns_servers = []
 
-interactive = false
+docker_labels = {}
 
-secrets = []
+docker_security_options = []
 
-working_directory = null
+enable_cloudwatch_logging = true
+
+enable_execute_command = false
+
+entrypoint = []
+
+environment = []
+
+environment_files = []
 
 essential = null
 
@@ -68,30 +40,58 @@ extra_hosts = []
 
 firelens_configuration = {}
 
-memory = null
+health_check = {}
 
-port_mappings = []
+hostname = null
 
-pseudo_terminal = false
+image = null
 
-tags = {}
+interactive = false
 
-enable_execute_command = false
+links = []
 
 linux_parameters = {}
 
 log_configuration = {}
 
+memory = null
+
 memory_reservation = null
 
 mount_points = []
 
-cloudwatch_log_group_use_name_prefix = false
+name = null
 
 operating_system_family = "LINUX"
 
-health_check = {}
+port_mappings = []
 
 privileged = false
 
+pseudo_terminal = false
+
+readonly_root_filesystem = true
+
+repository_credentials = {}
+
+resource_requirements = []
+
+secrets = []
+
 service = ""
+
+start_timeout = 30
+
+stop_timeout = 120
+
+system_controls = []
+
+tags = {}
+
+ulimits = []
+
+user = null
+
+volumes_from = []
+
+working_directory = null

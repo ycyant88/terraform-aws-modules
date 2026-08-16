@@ -1,85 +1,13 @@
-variable "backup_retention_period" {
-  description = "How long to keep backups for (in days)"
-  type        = string
-  default     = "7"
-}
-
-variable "engine" {
-  description = "Aurora database engine type, currently aurora, aurora-mysql or aurora-postgresql"
-  type        = string
-  default     = "aurora"
-}
-
-variable "replica_scale_cpu" {
-  description = "CPU usage to trigger autoscaling at"
-  type        = string
-  default     = "70"
-}
-
-variable "subnets" {
-  description = "List of subnet IDs to use"
-  type        = list(any)
-  default     = ""
-}
-
 variable "allowed_security_groups" {
   description = "A list of Security Group ID's to allow access to."
   type        = list(any)
   default     = []
 }
 
-variable "final_snapshot_identifier_prefix" {
-  description = "The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too."
-  type        = string
-  default     = "final"
-}
-
-variable "replica_scale_enabled" {
-  description = "Whether to enable autoscaling for RDS Aurora (MySQL) read replicas"
-  type        = string
-  default     = false
-}
-
-variable "replica_scale_out_cooldown" {
-  description = "Cooldown in seconds before allowing further scaling operations after a scale out"
-  type        = string
-  default     = "300"
-}
-
-variable "instance_type" {
-  description = "Instance type to use"
-  type        = string
-  default     = ""
-}
-
-variable "publicly_accessible" {
-  description = "Whether the DB should have a public IP address"
+variable "apply_immediately" {
+  description = "Determines whether or not any DB modifications are applied immediately, or during the maintenance window"
   type        = string
   default     = "false"
-}
-
-variable "storage_encrypted" {
-  description = "Specifies whether the underlying storage layer should be encrypted"
-  type        = string
-  default     = "true"
-}
-
-variable "replica_scale_in_cooldown" {
-  description = "Cooldown in seconds before allowing further scaling operations after a scale in"
-  type        = string
-  default     = "300"
-}
-
-variable "vpc_id" {
-  description = "VPC ID"
-  type        = string
-  default     = ""
-}
-
-variable "username" {
-  description = "Master DB username"
-  type        = string
-  default     = "root"
 }
 
 variable "auto_minor_version_upgrade" {
@@ -88,28 +16,16 @@ variable "auto_minor_version_upgrade" {
   default     = "true"
 }
 
-variable "performance_insights_enabled" {
-  description = "Specifies whether Performance Insights is enabled or not."
+variable "backup_retention_period" {
+  description = "How long to keep backups for (in days)"
   type        = string
-  default     = "false"
+  default     = "7"
 }
 
-variable "identifier_prefix" {
-  description = "Prefix for cluster and instance identifier"
+variable "db_cluster_parameter_group_name" {
+  description = "The name of a DB Cluster parameter group to use"
   type        = string
-  default     = ""
-}
-
-variable "password" {
-  description = "Master DB password"
-  type        = string
-  default     = ""
-}
-
-variable "preferred_maintenance_window" {
-  description = "When to perform DB maintenance"
-  type        = string
-  default     = "sun:05:00-sun:06:00"
+  default     = "default.aurora5.6"
 }
 
 variable "db_parameter_group_name" {
@@ -118,26 +34,38 @@ variable "db_parameter_group_name" {
   default     = "default.aurora5.6"
 }
 
-variable "replica_count" {
-  description = "Number of reader nodes to create.  If replica_scale_enable is true, the value of replica_scale_min is used instead."
-  type        = string
-  default     = 1
-}
-
 variable "deletion_protection" {
   description = "If the DB instance should have deletion protection enabled"
   type        = string
   default     = "false"
 }
 
-variable "monitoring_interval" {
-  description = "The interval (seconds) between points when Enhanced Monitoring metrics are collected"
+variable "engine" {
+  description = "Aurora database engine type, currently aurora, aurora-mysql or aurora-postgresql"
   type        = string
-  default     = 0
+  default     = "aurora"
 }
 
-variable "snapshot_identifier" {
-  description = "DB snapshot to create this database from"
+variable "engine_version" {
+  description = "Aurora database engine version."
+  type        = string
+  default     = "5.6.10a"
+}
+
+variable "final_snapshot_identifier_prefix" {
+  description = "The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too."
+  type        = string
+  default     = "final"
+}
+
+variable "identifier_prefix" {
+  description = "Prefix for cluster and instance identifier"
+  type        = string
+  default     = ""
+}
+
+variable "instance_type" {
+  description = "Instance type to use"
   type        = string
   default     = ""
 }
@@ -148,20 +76,38 @@ variable "kms_key_id" {
   default     = ""
 }
 
-variable "replica_scale_max" {
-  description = "Maximum number of replicas to allow scaling for"
+variable "monitoring_interval" {
+  description = "The interval (seconds) between points when Enhanced Monitoring metrics are collected"
   type        = string
-  default     = "0"
+  default     = 0
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(any)
-  default     = {}
+variable "name" {
+  description = "Name given resources"
+  type        = string
+  default     = ""
+}
+
+variable "password" {
+  description = "Master DB password"
+  type        = string
+  default     = ""
+}
+
+variable "performance_insights_enabled" {
+  description = "Specifies whether Performance Insights is enabled or not."
+  type        = string
+  default     = "false"
 }
 
 variable "performance_insights_kms_key_id" {
   description = "The ARN for the KMS key to encrypt Performance Insights data."
+  type        = string
+  default     = ""
+}
+
+variable "port" {
+  description = "The port on which to accept connections"
   type        = string
   default     = ""
 }
@@ -172,22 +118,46 @@ variable "preferred_backup_window" {
   default     = "02:00-03:00"
 }
 
-variable "port" {
-  description = "The port on which to accept connections"
+variable "preferred_maintenance_window" {
+  description = "When to perform DB maintenance"
   type        = string
-  default     = ""
+  default     = "sun:05:00-sun:06:00"
 }
 
-variable "db_cluster_parameter_group_name" {
-  description = "The name of a DB Cluster parameter group to use"
+variable "publicly_accessible" {
+  description = "Whether the DB should have a public IP address"
   type        = string
-  default     = "default.aurora5.6"
+  default     = "false"
 }
 
-variable "engine_version" {
-  description = "Aurora database engine version."
+variable "replica_count" {
+  description = "Number of reader nodes to create.  If replica_scale_enable is true, the value of replica_scale_min is used instead."
   type        = string
-  default     = "5.6.10a"
+  default     = 1
+}
+
+variable "replica_scale_cpu" {
+  description = "CPU usage to trigger autoscaling at"
+  type        = string
+  default     = "70"
+}
+
+variable "replica_scale_enabled" {
+  description = "Whether to enable autoscaling for RDS Aurora (MySQL) read replicas"
+  type        = string
+  default     = false
+}
+
+variable "replica_scale_in_cooldown" {
+  description = "Cooldown in seconds before allowing further scaling operations after a scale in"
+  type        = string
+  default     = "300"
+}
+
+variable "replica_scale_max" {
+  description = "Maximum number of replicas to allow scaling for"
+  type        = string
+  default     = "0"
 }
 
 variable "replica_scale_min" {
@@ -196,10 +166,10 @@ variable "replica_scale_min" {
   default     = "2"
 }
 
-variable "name" {
-  description = "Name given resources"
+variable "replica_scale_out_cooldown" {
+  description = "Cooldown in seconds before allowing further scaling operations after a scale out"
   type        = string
-  default     = ""
+  default     = "300"
 }
 
 variable "skip_final_snapshot" {
@@ -208,8 +178,38 @@ variable "skip_final_snapshot" {
   default     = "false"
 }
 
-variable "apply_immediately" {
-  description = "Determines whether or not any DB modifications are applied immediately, or during the maintenance window"
+variable "snapshot_identifier" {
+  description = "DB snapshot to create this database from"
   type        = string
-  default     = "false"
+  default     = ""
+}
+
+variable "storage_encrypted" {
+  description = "Specifies whether the underlying storage layer should be encrypted"
+  type        = string
+  default     = "true"
+}
+
+variable "subnets" {
+  description = "List of subnet IDs to use"
+  type        = list(any)
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(any)
+  default     = {}
+}
+
+variable "username" {
+  description = "Master DB username"
+  type        = string
+  default     = "root"
+}
+
+variable "vpc_id" {
+  description = "VPC ID"
+  type        = string
+  default     = ""
 }

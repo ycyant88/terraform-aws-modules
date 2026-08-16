@@ -1,23 +1,23 @@
+cluster_service_accounts = {}
+
 create_role = true
-
-role_name = null
-
-role_permissions_boundary_arn = ""
-
-role_name_prefix = null
-
-provider_url_sa_pairs = {}
 
 force_detach_policies = false
 
 max_session_duration = 43200
 
-role_path = "/"
+provider_url_sa_pairs = {}
 
 role_description = ""
 
-role_policy_arns = []
+role_name = null
 
-cluster_service_accounts = {}
+role_name_prefix = null
+
+role_path = "/"
+
+role_permissions_boundary_arn = ""
+
+role_policy_arns = []
 
 tags = {}

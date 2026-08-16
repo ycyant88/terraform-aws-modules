@@ -1,7 +1,25 @@
-variable "protocol_type" {
-  description = "The API protocol. Valid values: HTTP, WEBSOCKET"
+variable "api_key_selection_expression" {
+  description = "An API key selection expression. Valid values: $context.authorizer.usageIdentifierKey, $request.header.x-api-key."
   type        = string
-  default     = "HTTP"
+  default     = "$request.header.x-api-key"
+}
+
+variable "api_version" {
+  description = "A version identifier for the API"
+  type        = string
+  default     = ""
+}
+
+variable "cors_configuration" {
+  description = "The cross-origin resource sharing (CORS) configuration. Applicable for HTTP APIs."
+  type        = any
+  default     = {}
+}
+
+variable "create" {
+  description = "Controls if API Gateway resources should be created"
+  type        = bool
+  default     = true
 }
 
 variable "create_api_domain_name" {
@@ -10,32 +28,14 @@ variable "create_api_domain_name" {
   default     = true
 }
 
-variable "api_key_selection_expression" {
-  description = "An API key selection expression. Valid values: $context.authorizer.usageIdentifierKey, $request.header.x-api-key."
-  type        = string
-  default     = "$request.header.x-api-key"
-}
-
-variable "credentials_arn" {
-  description = "Part of quick create. Specifies any credentials required for the integration. Applicable for HTTP APIs."
-  type        = string
-  default     = ""
-}
-
-variable "target" {
-  description = "Part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Applicable for HTTP APIs."
-  type        = string
-  default     = ""
-}
-
-variable "domain_name_tags" {
-  description = "A mapping of tags to assign to API domain name resource."
-  type        = map(string)
-  default     = {}
-}
-
 variable "create_api_gateway" {
   description = "Whether to create API Gateway"
+  type        = bool
+  default     = true
+}
+
+variable "create_default_stage" {
+  description = "Whether to create default stage"
   type        = bool
   default     = true
 }
@@ -52,46 +52,16 @@ variable "create_routes_and_integrations" {
   default     = true
 }
 
-variable "default_stage_tags" {
-  description = "A mapping of tags to assign to the default stage resource."
-  type        = map(string)
-  default     = {}
+variable "create_vpc_link" {
+  description = "Whether to create VPC links"
+  type        = bool
+  default     = true
 }
 
-variable "vpc_links" {
-  description = "Map of VPC Links details to create"
-  type        = map(any)
-  default     = {}
-}
-
-variable "tags" {
-  description = "A mapping of tags to assign to API gateway resources."
-  type        = map(string)
-  default     = {}
-}
-
-variable "vpc_link_tags" {
-  description = "A map of tags to add to the VPC Link"
-  type        = map(string)
-  default     = {}
-}
-
-variable "name" {
-  description = "The name of the API"
+variable "credentials_arn" {
+  description = "Part of quick create. Specifies any credentials required for the integration. Applicable for HTTP APIs."
   type        = string
   default     = ""
-}
-
-variable "route_key" {
-  description = "Part of quick create. Specifies any route key. Applicable for HTTP APIs."
-  type        = string
-  default     = ""
-}
-
-variable "cors_configuration" {
-  description = "The cross-origin resource sharing (CORS) configuration. Applicable for HTTP APIs."
-  type        = any
-  default     = {}
 }
 
 variable "default_stage_access_log_destination_arn" {
@@ -100,50 +70,20 @@ variable "default_stage_access_log_destination_arn" {
   default     = ""
 }
 
-variable "domain_name_certificate_arn" {
-  description = "The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name"
+variable "default_stage_access_log_format" {
+  description = "Default stage's single line format of the access logs of data, as specified by selected $context variables."
   type        = string
   default     = ""
+}
+
+variable "default_stage_tags" {
+  description = "A mapping of tags to assign to the default stage resource."
+  type        = map(string)
+  default     = {}
 }
 
 variable "description" {
   description = "The description of the API."
-  type        = string
-  default     = ""
-}
-
-variable "create" {
-  description = "Controls if API Gateway resources should be created"
-  type        = bool
-  default     = true
-}
-
-variable "integrations" {
-  description = "Map of API gateway routes with integrations"
-  type        = map(any)
-  default     = {}
-}
-
-variable "api_version" {
-  description = "A version identifier for the API"
-  type        = string
-  default     = ""
-}
-
-variable "create_vpc_link" {
-  description = "Whether to create VPC links"
-  type        = bool
-  default     = true
-}
-
-variable "route_selection_expression" {
-  description = "The route selection expression for the API."
-  type        = string
-  default     = "$request.method $request.path"
-}
-
-variable "default_stage_access_log_format" {
-  description = "Default stage's single line format of the access logs of data, as specified by selected $context variables."
   type        = string
   default     = ""
 }
@@ -154,8 +94,68 @@ variable "domain_name" {
   default     = ""
 }
 
-variable "create_default_stage" {
-  description = "Whether to create default stage"
-  type        = bool
-  default     = true
+variable "domain_name_certificate_arn" {
+  description = "The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name"
+  type        = string
+  default     = ""
+}
+
+variable "domain_name_tags" {
+  description = "A mapping of tags to assign to API domain name resource."
+  type        = map(string)
+  default     = {}
+}
+
+variable "integrations" {
+  description = "Map of API gateway routes with integrations"
+  type        = map(any)
+  default     = {}
+}
+
+variable "name" {
+  description = "The name of the API"
+  type        = string
+  default     = ""
+}
+
+variable "protocol_type" {
+  description = "The API protocol. Valid values: HTTP, WEBSOCKET"
+  type        = string
+  default     = "HTTP"
+}
+
+variable "route_key" {
+  description = "Part of quick create. Specifies any route key. Applicable for HTTP APIs."
+  type        = string
+  default     = ""
+}
+
+variable "route_selection_expression" {
+  description = "The route selection expression for the API."
+  type        = string
+  default     = "$request.method $request.path"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to API gateway resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "target" {
+  description = "Part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Applicable for HTTP APIs."
+  type        = string
+  default     = ""
+}
+
+variable "vpc_link_tags" {
+  description = "A map of tags to add to the VPC Link"
+  type        = map(string)
+  default     = {}
+}
+
+variable "vpc_links" {
+  description = "Map of VPC Links details to create"
+  type        = map(any)
+  default     = {}
 }

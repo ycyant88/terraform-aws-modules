@@ -1,13 +1,13 @@
-variable "iam_role_permissions_boundary" {
-  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+variable "cluster_ip_family" {
+  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
   type        = string
   default     = null
 }
 
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the Fargate Profile"
-  type        = map(string)
-  default     = {}
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+  default     = null
 }
 
 variable "create" {
@@ -16,38 +16,20 @@ variable "create" {
   default     = true
 }
 
-variable "iam_role_name" {
-  description = "Name to use on IAM role created"
-  type        = string
-  default     = ""
-}
-
-variable "iam_role_description" {
-  description = "Description of the role"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_tags" {
-  description = "A map of additional tags to add to the IAM role created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "subnet_ids" {
-  description = "A list of subnet IDs for the EKS Fargate Profile"
-  type        = list(string)
-  default     = []
-}
-
 variable "create_iam_role" {
   description = "Determines whether an IAM role is created or to use an existing IAM role"
   type        = bool
   default     = true
 }
 
-variable "iam_role_path" {
-  description = "IAM role path"
+variable "iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_role_arn" {
+  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
   type        = string
   default     = null
 }
@@ -58,10 +40,40 @@ variable "iam_role_attach_cni_policy" {
   default     = true
 }
 
-variable "cluster_name" {
-  description = "Name of the EKS cluster"
+variable "iam_role_description" {
+  description = "Description of the role"
   type        = string
   default     = null
+}
+
+variable "iam_role_name" {
+  description = "Name to use on IAM role created"
+  type        = string
+  default     = ""
+}
+
+variable "iam_role_path" {
+  description = "IAM role path"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_permissions_boundary" {
+  description = "ARN of the policy that is used to set the permissions boundary for the IAM role"
+  type        = string
+  default     = null
+}
+
+variable "iam_role_tags" {
+  description = "A map of additional tags to add to the IAM role created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "iam_role_use_name_prefix" {
+  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
+  type        = bool
+  default     = true
 }
 
 variable "name" {
@@ -76,32 +88,20 @@ variable "selectors" {
   default     = []
 }
 
+variable "subnet_ids" {
+  description = "A list of subnet IDs for the EKS Fargate Profile"
+  type        = list(string)
+  default     = []
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
 }
 
-variable "cluster_ip_family" {
-  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are ipv4 (default) and ipv6"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_arn" {
-  description = "Existing IAM role ARN for the Fargate profile. Required if create_iam_role is set to false"
-  type        = string
-  default     = null
-}
-
-variable "iam_role_use_name_prefix" {
-  description = "Determines whether the IAM role name (iam_role_name) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role"
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the Fargate Profile"
   type        = map(string)
   default     = {}
 }

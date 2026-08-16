@@ -4,12 +4,6 @@ variable "client_id_list" {
   default     = []
 }
 
-variable "url" {
-  description = "The URL of the identity provider. Corresponds to the iss claim"
-  type        = string
-  default     = "https://token.actions.githubusercontent.com"
-}
-
 variable "create" {
   description = "Controls if resources should be created (affects all resources)"
   type        = bool
@@ -20,4 +14,10 @@ variable "tags" {
   description = "A map of tags to add to the resources created"
   type        = map(any)
   default     = {}
+}
+
+variable "url" {
+  description = "The URL of the identity provider. Corresponds to the iss claim"
+  type        = string
+  default     = "https://token.actions.githubusercontent.com"
 }

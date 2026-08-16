@@ -1,71 +1,71 @@
-engine_version = "5.6.10a"
+allowed_security_groups = []
 
-tags = {}
-
-replica_count = 1
-
-password = ""
-
-backup_retention_period = "7"
-
-preferred_maintenance_window = "sun:05:00-sun:06:00"
+apply_immediately = "false"
 
 auto_minor_version_upgrade = "true"
 
-replica_scale_out_cooldown = "300"
+availability_zones = []
+
+backup_retention_period = "7"
+
+db_cluster_parameter_group_name = "default.aurora5.6"
+
+db_parameter_group_name = "default.aurora5.6"
+
+engine = "aurora"
+
+engine_version = "5.6.10a"
+
+final_snapshot_identifier_prefix = "final"
+
+identifier_prefix = ""
+
+instance_type = ""
+
+kms_key_id = ""
+
+monitoring_interval = 0
 
 name = ""
 
-allowed_security_groups = []
-
-skip_final_snapshot = "false"
-
-replica_scale_enabled = false
-
-replica_scale_cpu = "70"
-
-preferred_backup_window = "02:00-03:00"
-
-monitoring_interval = 0
+password = ""
 
 performance_insights_enabled = "false"
 
 performance_insights_kms_key_id = ""
 
-engine = "aurora"
+port = ""
 
-availability_zones = []
+preferred_backup_window = "02:00-03:00"
 
-instance_type = ""
-
-apply_immediately = "false"
-
-db_cluster_parameter_group_name = "default.aurora5.6"
-
-replica_scale_in_cooldown = "300"
+preferred_maintenance_window = "sun:05:00-sun:06:00"
 
 publicly_accessible = "false"
 
-db_parameter_group_name = "default.aurora5.6"
+replica_count = 1
 
-kms_key_id = ""
+replica_scale_cpu = "70"
+
+replica_scale_enabled = false
+
+replica_scale_in_cooldown = "300"
+
+replica_scale_max = "0"
 
 replica_scale_min = "2"
 
-port = ""
+replica_scale_out_cooldown = "300"
+
+skip_final_snapshot = "false"
 
 snapshot_identifier = ""
 
 storage_encrypted = "true"
 
-replica_scale_max = "0"
-
 subnets = ""
 
-identifier_prefix = ""
-
-vpc_id = ""
+tags = {}
 
 username = "root"
 
-final_snapshot_identifier_prefix = "final"
+vpc_id = ""

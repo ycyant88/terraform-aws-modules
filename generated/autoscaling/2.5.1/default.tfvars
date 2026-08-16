@@ -1,81 +1,81 @@
-user_data = " "
-
-placement_tenancy = "default"
-
-load_balancers = []
-
-termination_policies = ["Default"]
-
-placement_group = ""
-
-force_delete = false
-
-enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
-
-min_elb_capacity = 0
+asg_name = ""
 
 associate_public_ip_address = false
 
-target_group_arns = []
+create_asg = true
 
-wait_for_capacity_timeout = "10m"
-
-health_check_type = ""
-
-name = ""
-
-launch_configuration = ""
-
-instance_type = ""
-
-root_block_device = []
-
-max_size = ""
-
-vpc_zone_identifier = ""
+create_lc = true
 
 default_cooldown = 300
 
+desired_capacity = ""
+
+ebs_block_device = []
+
+ebs_optimized = false
+
+enable_monitoring = true
+
+enabled_metrics = ["GroupMinSize", "GroupMaxSize", "GroupDesiredCapacity", "GroupInServiceInstances", "GroupPendingInstances", "GroupStandbyInstances", "GroupTerminatingInstances", "GroupTotalInstances"]
+
+ephemeral_block_device = []
+
+force_delete = false
+
+health_check_grace_period = 300
+
+health_check_type = ""
+
+iam_instance_profile = ""
+
 image_id = ""
+
+instance_type = ""
 
 key_name = ""
 
+launch_configuration = ""
+
+lc_name = ""
+
+load_balancers = []
+
+max_size = ""
+
+metrics_granularity = "1Minute"
+
+min_elb_capacity = 0
+
+min_size = ""
+
+name = ""
+
+placement_group = ""
+
+placement_tenancy = "default"
+
+protect_from_scale_in = false
+
+root_block_device = []
+
 security_groups = ""
 
-ebs_block_device = []
+spot_price = ""
+
+suspended_processes = []
 
 tags = []
 
 tags_as_map = {}
 
-metrics_granularity = "1Minute"
+target_group_arns = []
 
-protect_from_scale_in = false
+termination_policies = ["Default"]
 
-create_asg = true
+user_data = " "
 
-lc_name = ""
+vpc_zone_identifier = ""
 
-spot_price = ""
-
-desired_capacity = ""
-
-suspended_processes = []
-
-create_lc = true
-
-ebs_optimized = false
-
-ephemeral_block_device = []
+wait_for_capacity_timeout = "10m"
 
 wait_for_elb_capacity = false
-
-health_check_grace_period = 300
-
-enable_monitoring = true
-
-min_size = ""
-
-asg_name = ""
-
-iam_instance_profile = ""

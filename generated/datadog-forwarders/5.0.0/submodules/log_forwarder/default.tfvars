@@ -1,87 +1,87 @@
-policy_arn = null
-
-policy_path = null
-
-create_bucket = true
-
-bucket_name = ""
-
-s3_zip_storage_class = null
-
-s3_zip_kms_key_id = null
-
-role_name = ""
-
-tags = {}
+architectures = ["x86_64"]
 
 bucket_attach_deny_insecure_transport_policy = false
 
+bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+
+bucket_name = ""
+
+bucket_prefix = ""
+
+create = true
+
+create_bucket = true
+
+create_role = true
+
 create_role_policy = true
-
-name = "datadog-log-forwarder"
-
-architectures = ["x86_64"]
-
-lambda_tags = {}
-
-s3_zip_server_side_encryption = null
-
-role_arn = null
-
-policy_name = ""
-
-runtime = "python3.7"
 
 dd_api_key = ""
 
 dd_api_key_secret_arn = ""
 
-s3_zip_tags = {}
-
-role_max_session_duration = null
-
-layers = []
-
-memory_size = 1024
-
 dd_site = "datadoghq.com"
-
-bucket_prefix = ""
-
-use_role_name_prefix = false
-
-reserved_concurrent_executions = 100
-
-security_group_ids = null
 
 environment_variables = {}
 
-bucket_encryption_settings = { "sse_algorithm" : "AES256" }
+forwarder_version = "3.44.0"
 
-create_role = true
+kms_key_arn = null
 
-s3_log_bucket_arns = []
+lambda_tags = {}
 
-timeout = 120
+layers = []
 
-s3_zip_metadata = {}
+log_retention_days = 7
 
-create = true
+memory_size = 1024
+
+name = "datadog-log-forwarder"
+
+policy_arn = null
+
+policy_name = ""
+
+policy_path = null
+
+publish = false
+
+reserved_concurrent_executions = 100
+
+role_arn = null
+
+role_max_session_duration = null
+
+role_name = ""
+
+role_path = null
 
 role_permissions_boundary = null
 
 role_tags = {}
 
-forwarder_version = "3.44.0"
+runtime = "python3.7"
 
-publish = false
+s3_log_bucket_arns = []
 
-use_policy_name_prefix = false
+s3_zip_kms_key_id = null
 
-kms_key_arn = null
+s3_zip_metadata = {}
+
+s3_zip_server_side_encryption = null
+
+s3_zip_storage_class = null
+
+s3_zip_tags = {}
+
+security_group_ids = null
 
 subnet_ids = null
 
-log_retention_days = 7
+tags = {}
 
-role_path = null
+timeout = 120
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false

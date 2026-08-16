@@ -1,25 +1,13 @@
-variable "configuration_description" {
-  description = "Description of the configuration"
+variable "broker_node_az_distribution" {
+  description = "The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is DEFAULT"
   type        = string
   default     = null
 }
 
-variable "create_schema_registry" {
-  description = "Determines whether to create a Glue schema registry for managing Avro schemas for the cluster"
-  type        = bool
-  default     = true
-}
-
-variable "create_connect_worker_configuration" {
-  description = "Determines whether to create connect worker configuration"
-  type        = bool
-  default     = false
-}
-
-variable "tags" {
-  description = "A map of tags to assign to the resources created"
-  type        = map(string)
-  default     = {}
+variable "broker_node_client_subnets" {
+  description = "A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets))"
+  type        = list(string)
+  default     = []
 }
 
 variable "broker_node_connectivity_info" {
@@ -34,22 +22,22 @@ variable "broker_node_instance_type" {
   default     = null
 }
 
-variable "client_authentication" {
-  description = "Configuration block for specifying a client authentication"
+variable "broker_node_security_groups" {
+  description = "A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster"
+  type        = list(string)
+  default     = []
+}
+
+variable "broker_node_storage_info" {
+  description = "A block that contains information about storage volumes attached to MSK broker nodes"
   type        = any
   default     = {}
 }
 
-variable "timeouts" {
-  description = "Create, update, and delete timeout configurations for the cluster"
-  type        = map(string)
+variable "client_authentication" {
+  description = "Configuration block for specifying a client authentication"
+  type        = any
   default     = {}
-}
-
-variable "scram_secret_association_secret_arn_list" {
-  description = "List of AWS Secrets Manager secret ARNs to associate with SCRAM"
-  type        = list(string)
-  default     = []
 }
 
 variable "cloudwatch_log_group_kms_key_id" {
@@ -58,26 +46,8 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "connect_worker_config_description" {
-  description = "A summary description of the worker configuration"
-  type        = string
-  default     = null
-}
-
-variable "kafka_version" {
-  description = "Specify the desired Kafka software version"
-  type        = string
-  default     = null
-}
-
-variable "firehose_delivery_stream" {
-  description = "Name of the Kinesis Data Firehose delivery stream to deliver logs to"
-  type        = string
-  default     = null
-}
-
-variable "configuration_name" {
-  description = "Name of the configuration"
+variable "cloudwatch_log_group_name" {
+  description = "Name of the Cloudwatch Log Group to deliver logs to"
   type        = string
   default     = null
 }
@@ -88,27 +58,33 @@ variable "cloudwatch_log_group_retention_in_days" {
   default     = 0
 }
 
-variable "connect_worker_config_properties_file_content" {
-  description = "Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format"
-  type        = string
-  default     = null
-}
-
-variable "jmx_exporter_enabled" {
-  description = "Indicates whether you want to enable or disable the JMX Exporter"
+variable "cloudwatch_logs_enabled" {
+  description = "Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs"
   type        = bool
   default     = false
-}
-
-variable "storage_mode" {
-  description = "Controls storage mode for supported storage tiers. Valid values are: LOCAL or TIERED"
-  type        = string
-  default     = null
 }
 
 variable "configuration_arn" {
   description = "ARN of an externally created configuration to use"
   type        = string
+  default     = null
+}
+
+variable "configuration_description" {
+  description = "Description of the configuration"
+  type        = string
+  default     = null
+}
+
+variable "configuration_name" {
+  description = "Name of the configuration"
+  type        = string
+  default     = null
+}
+
+variable "configuration_revision" {
+  description = "Revision of the externally created configuration to use"
+  type        = number
   default     = null
 }
 
@@ -118,16 +94,70 @@ variable "configuration_server_properties" {
   default     = {}
 }
 
-variable "create_scram_secret_association" {
-  description = "Determines whether to create SASL/SCRAM secret association"
+variable "connect_custom_plugin_timeouts" {
+  description = "Timeout configurations for the connect custom plugins"
+  type        = map(string)
+  default     = { "create" : null }
+}
+
+variable "connect_custom_plugins" {
+  description = "Map of custom plugin configuration details (map of maps)"
+  type        = any
+  default     = {}
+}
+
+variable "connect_worker_config_description" {
+  description = "A summary description of the worker configuration"
+  type        = string
+  default     = null
+}
+
+variable "connect_worker_config_name" {
+  description = "The name of the worker configuration"
+  type        = string
+  default     = null
+}
+
+variable "connect_worker_config_properties_file_content" {
+  description = "Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format"
+  type        = string
+  default     = null
+}
+
+variable "create" {
+  description = "Determines whether cluster resources will be created"
+  type        = bool
+  default     = true
+}
+
+variable "create_cloudwatch_log_group" {
+  description = "Determines whether to create a CloudWatch log group"
+  type        = bool
+  default     = true
+}
+
+variable "create_configuration" {
+  description = "Determines whether to create a configuration"
+  type        = bool
+  default     = true
+}
+
+variable "create_connect_worker_configuration" {
+  description = "Determines whether to create connect worker configuration"
   type        = bool
   default     = false
 }
 
-variable "schema_registries" {
-  description = "A map of schema registries to be created"
-  type        = map(any)
-  default     = {}
+variable "create_schema_registry" {
+  description = "Determines whether to create a Glue schema registry for managing Avro schemas for the cluster"
+  type        = bool
+  default     = true
+}
+
+variable "create_scram_secret_association" {
+  description = "Determines whether to create SASL/SCRAM secret association"
+  type        = bool
+  default     = false
 }
 
 variable "encryption_at_rest_kms_key_arn" {
@@ -136,10 +166,70 @@ variable "encryption_at_rest_kms_key_arn" {
   default     = null
 }
 
+variable "encryption_in_transit_client_broker" {
+  description = "Encryption setting for data in transit between clients and brokers. Valid values: TLS, TLS_PLAINTEXT, and PLAINTEXT. Default value is TLS"
+  type        = string
+  default     = null
+}
+
+variable "encryption_in_transit_in_cluster" {
+  description = "Whether data communication among broker nodes is encrypted. Default value: true"
+  type        = bool
+  default     = null
+}
+
+variable "enhanced_monitoring" {
+  description = "Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)"
+  type        = string
+  default     = null
+}
+
+variable "firehose_delivery_stream" {
+  description = "Name of the Kinesis Data Firehose delivery stream to deliver logs to"
+  type        = string
+  default     = null
+}
+
 variable "firehose_logs_enabled" {
   description = "Indicates whether you want to enable or disable streaming broker logs to Kinesis Data Firehose"
   type        = bool
   default     = false
+}
+
+variable "jmx_exporter_enabled" {
+  description = "Indicates whether you want to enable or disable the JMX Exporter"
+  type        = bool
+  default     = false
+}
+
+variable "kafka_version" {
+  description = "Specify the desired Kafka software version"
+  type        = string
+  default     = null
+}
+
+variable "name" {
+  description = "Name of the MSK cluster"
+  type        = string
+  default     = "msk"
+}
+
+variable "node_exporter_enabled" {
+  description = "Indicates whether you want to enable or disable the Node Exporter"
+  type        = bool
+  default     = false
+}
+
+variable "number_of_broker_nodes" {
+  description = "The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets"
+  type        = number
+  default     = null
+}
+
+variable "s3_logs_bucket" {
+  description = "Name of the S3 bucket to deliver logs to"
+  type        = string
+  default     = null
 }
 
 variable "s3_logs_enabled" {
@@ -154,132 +244,6 @@ variable "s3_logs_prefix" {
   default     = null
 }
 
-variable "create_configuration" {
-  description = "Determines whether to create a configuration"
-  type        = bool
-  default     = true
-}
-
-variable "connect_custom_plugin_timeouts" {
-  description = "Timeout configurations for the connect custom plugins"
-  type        = map(string)
-  default     = { "create" : null }
-}
-
-variable "create" {
-  description = "Determines whether cluster resources will be created"
-  type        = bool
-  default     = true
-}
-
-variable "broker_node_client_subnets" {
-  description = "A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets))"
-  type        = list(string)
-  default     = []
-}
-
-variable "broker_node_storage_info" {
-  description = "A block that contains information about storage volumes attached to MSK broker nodes"
-  type        = any
-  default     = {}
-}
-
-variable "encryption_in_transit_in_cluster" {
-  description = "Whether data communication among broker nodes is encrypted. Default value: true"
-  type        = bool
-  default     = null
-}
-
-variable "number_of_broker_nodes" {
-  description = "The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets"
-  type        = number
-  default     = null
-}
-
-variable "node_exporter_enabled" {
-  description = "Indicates whether you want to enable or disable the Node Exporter"
-  type        = bool
-  default     = false
-}
-
-variable "configuration_revision" {
-  description = "Revision of the externally created configuration to use"
-  type        = number
-  default     = null
-}
-
-variable "cloudwatch_log_group_name" {
-  description = "Name of the Cloudwatch Log Group to deliver logs to"
-  type        = string
-  default     = null
-}
-
-variable "broker_node_security_groups" {
-  description = "A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster"
-  type        = list(string)
-  default     = []
-}
-
-variable "encryption_in_transit_client_broker" {
-  description = "Encryption setting for data in transit between clients and brokers. Valid values: TLS, TLS_PLAINTEXT, and PLAINTEXT. Default value is TLS"
-  type        = string
-  default     = null
-}
-
-variable "s3_logs_bucket" {
-  description = "Name of the S3 bucket to deliver logs to"
-  type        = string
-  default     = null
-}
-
-variable "scaling_target_value" {
-  description = "The Kafka broker storage utilization at which scaling is initiated"
-  type        = number
-  default     = 70
-}
-
-variable "schemas" {
-  description = "A map schemas to be created within the schema registry"
-  type        = map(any)
-  default     = {}
-}
-
-variable "connect_custom_plugins" {
-  description = "Map of custom plugin configuration details (map of maps)"
-  type        = any
-  default     = {}
-}
-
-variable "connect_worker_config_name" {
-  description = "The name of the worker configuration"
-  type        = string
-  default     = null
-}
-
-variable "broker_node_az_distribution" {
-  description = "The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is DEFAULT"
-  type        = string
-  default     = null
-}
-
-variable "cloudwatch_logs_enabled" {
-  description = "Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs"
-  type        = bool
-  default     = false
-}
-
-variable "vpc_connections" {
-  description = "Map of VPC Connections to create"
-  type        = any
-  default     = {}
-}
-
-variable "create_cloudwatch_log_group" {
-  description = "Determines whether to create a CloudWatch log group"
-  type        = bool
-  default     = true
-}
-
 variable "scaling_max_capacity" {
   description = "Max storage capacity for Kafka broker autoscaling"
   type        = number
@@ -292,14 +256,50 @@ variable "scaling_role_arn" {
   default     = null
 }
 
-variable "name" {
-  description = "Name of the MSK cluster"
-  type        = string
-  default     = "msk"
+variable "scaling_target_value" {
+  description = "The Kafka broker storage utilization at which scaling is initiated"
+  type        = number
+  default     = 70
 }
 
-variable "enhanced_monitoring" {
-  description = "Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)"
+variable "schema_registries" {
+  description = "A map of schema registries to be created"
+  type        = map(any)
+  default     = {}
+}
+
+variable "schemas" {
+  description = "A map schemas to be created within the schema registry"
+  type        = map(any)
+  default     = {}
+}
+
+variable "scram_secret_association_secret_arn_list" {
+  description = "List of AWS Secrets Manager secret ARNs to associate with SCRAM"
+  type        = list(string)
+  default     = []
+}
+
+variable "storage_mode" {
+  description = "Controls storage mode for supported storage tiers. Valid values are: LOCAL or TIERED"
   type        = string
   default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to assign to the resources created"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create, update, and delete timeout configurations for the cluster"
+  type        = map(string)
+  default     = {}
+}
+
+variable "vpc_connections" {
+  description = "Map of VPC Connections to create"
+  type        = any
+  default     = {}
 }

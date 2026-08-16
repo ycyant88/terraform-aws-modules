@@ -1,79 +1,79 @@
-iam_permissions_boundary = null
-
-direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
-
-functions = {}
-
-authentication_type = "API_KEY"
-
-log_exclude_verbose_content = false
+additional_authentication_provider = {}
 
 api_keys = {}
 
-elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
-
-caching_behavior = "FULL_REQUEST_CACHING"
-
-cache_ttl = 1
-
-dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
-
-direct_lambda_response_template = "$util.toJson($ctx.result)\n"
-
-logging_enabled = false
-
-create_logs_role = true
-
-log_field_log_level = null
-
-lambda_authorizer_config = {}
-
-resolver_caching_ttl = 60
-
-create_graphql_api = true
-
-domain_name_description = null
-
-cache_type = "SMALL"
-
-resolvers = {}
-
-xray_enabled = false
-
-certificate_arn = ""
+authentication_type = "API_KEY"
 
 cache_at_rest_encryption_enabled = false
 
-openid_connect_config = {}
-
-user_pool_config = {}
-
-tags = {}
-
 cache_transit_encryption_enabled = false
 
-schema = ""
+cache_ttl = 1
 
-visibility = null
+cache_type = "SMALL"
 
-logs_role_name = null
+caching_behavior = "FULL_REQUEST_CACHING"
 
-log_cloudwatch_logs_role_arn = null
+caching_enabled = false
 
-lambda_allowed_actions = ["lambda:invokeFunction"]
+certificate_arn = ""
+
+create_graphql_api = true
+
+create_logs_role = true
+
+datasources = {}
+
+direct_lambda_request_template = "{\n  \"version\" : \"2017-02-28\",\n  \"operation\": \"Invoke\",\n  \"payload\": {\n    \"arguments\": $util.toJson($ctx.arguments),\n    \"identity\": $util.toJson($ctx.identity),\n    \"source\": $util.toJson($ctx.source),\n    \"request\": $util.toJson($ctx.request),\n    \"prev\": $util.toJson($ctx.prev),\n    \"info\": {\n        \"selectionSetList\": $util.toJson($ctx.info.selectionSetList),\n        \"selectionSetGraphQL\": $util.toJson($ctx.info.selectionSetGraphQL),\n        \"parentTypeName\": $util.toJson($ctx.info.parentTypeName),\n        \"fieldName\": $util.toJson($ctx.info.fieldName),\n        \"variables\": $util.toJson($ctx.info.variables)\n    },\n    \"stash\": $util.toJson($ctx.stash)\n  }\n}\n"
+
+direct_lambda_response_template = "$util.toJson($ctx.result)\n"
 
 domain_name = ""
 
 domain_name_association_enabled = false
 
-name = ""
+domain_name_description = null
 
-additional_authentication_provider = {}
+dynamodb_allowed_actions = ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem", "dynamodb:UpdateItem", "dynamodb:Query", "dynamodb:Scan", "dynamodb:BatchGetItem", "dynamodb:BatchWriteItem"]
+
+elasticsearch_allowed_actions = ["es:ESHttpDelete", "es:ESHttpHead", "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut"]
+
+functions = {}
+
+graphql_api_tags = {}
+
+iam_permissions_boundary = null
+
+lambda_allowed_actions = ["lambda:invokeFunction"]
+
+lambda_authorizer_config = {}
+
+log_cloudwatch_logs_role_arn = null
+
+log_exclude_verbose_content = false
+
+log_field_log_level = null
+
+logging_enabled = false
+
+logs_role_name = null
 
 logs_role_tags = {}
 
-datasources = {}
+name = ""
 
-caching_enabled = false
+openid_connect_config = {}
 
-graphql_api_tags = {}
+resolver_caching_ttl = 60
+
+resolvers = {}
+
+schema = ""
+
+tags = {}
+
+user_pool_config = {}
+
+visibility = null
+
+xray_enabled = false

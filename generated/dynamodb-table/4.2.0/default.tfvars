@@ -1,67 +1,67 @@
+attributes = []
+
+autoscaling_defaults = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
+
 autoscaling_enabled = false
+
+autoscaling_indexes = {}
 
 autoscaling_read = {}
 
-table_class = null
+autoscaling_write = {}
 
-write_capacity = null
+billing_mode = "PAY_PER_REQUEST"
 
-server_side_encryption_enabled = false
+create_table = true
 
 deletion_protection_enabled = null
 
+global_secondary_indexes = []
+
+hash_key = null
+
+ignore_changes_global_secondary_index = false
+
 import_table = {}
+
+local_secondary_indexes = []
+
+name = null
 
 on_demand_throughput = {}
 
-ttl_attribute_name = ""
+point_in_time_recovery_enabled = false
 
-stream_view_type = null
+range_key = null
 
-timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
+read_capacity = null
+
+replica_regions = []
+
+restore_date_time = null
+
+restore_source_name = null
 
 restore_source_table_arn = null
 
 restore_to_latest_time = null
 
-global_secondary_indexes = []
-
-read_capacity = null
-
-autoscaling_defaults = { "scale_in_cooldown" : 0, "scale_out_cooldown" : 0, "target_value" : 70 }
-
-restore_source_name = null
-
-range_key = null
-
-hash_key = null
-
-point_in_time_recovery_enabled = false
-
-replica_regions = []
-
-tags = {}
-
-create_table = true
-
-local_secondary_indexes = []
-
-autoscaling_indexes = {}
-
-ttl_enabled = false
-
-billing_mode = "PAY_PER_REQUEST"
-
-restore_date_time = null
-
-attributes = []
-
-stream_enabled = false
+server_side_encryption_enabled = false
 
 server_side_encryption_kms_key_arn = null
 
-autoscaling_write = {}
+stream_enabled = false
 
-ignore_changes_global_secondary_index = false
+stream_view_type = null
 
-name = null
+table_class = null
+
+tags = {}
+
+timeouts = { "create" : "10m", "delete" : "10m", "update" : "60m" }
+
+ttl_attribute_name = ""
+
+ttl_enabled = false
+
+write_capacity = null

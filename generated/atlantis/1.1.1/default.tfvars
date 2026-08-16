@@ -1,45 +1,45 @@
-public_subnet_ids = []
-
-private_subnets = []
-
-atlantis_repo_whitelist = ""
-
-github_token = ""
-
-atlantis_image = ""
+acm_certificate_domain_name = ""
 
 atlantis_github_user = ""
 
-create_github_repository_webhook = true
+atlantis_github_user_token = ""
 
-github_repo_names = []
+atlantis_image = ""
 
-name = "atlantis"
-
-public_subnets = []
-
-certificate_arn = ""
-
-cloudwatch_log_retention_in_days = 7
-
-ecs_service_assign_public_ip = false
+atlantis_repo_whitelist = ""
 
 atlantis_version = "latest"
 
-atlantis_github_user_token = ""
+azs = []
 
-github_organization = ""
-
-vpc_id = ""
-
-acm_certificate_domain_name = ""
-
-route53_zone_name = ""
-
-create_route53_record = true
-
-private_subnet_ids = []
+certificate_arn = ""
 
 cidr = ""
 
-azs = []
+cloudwatch_log_retention_in_days = 7
+
+create_github_repository_webhook = true
+
+create_route53_record = true
+
+ecs_service_assign_public_ip = false
+
+github_organization = ""
+
+github_repo_names = []
+
+github_token = ""
+
+name = "atlantis"
+
+private_subnet_ids = []
+
+private_subnets = []
+
+public_subnet_ids = []
+
+public_subnets = []
+
+route53_zone_name = ""
+
+vpc_id = ""

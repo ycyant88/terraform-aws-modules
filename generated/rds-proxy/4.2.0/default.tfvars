@@ -1,83 +1,83 @@
-region = null
-
-name = ""
-
-engine_family = ""
-
-idle_client_timeout = 1800
-
-iam_role_path = null
-
-default_auth_scheme = null
-
-max_connections_percent = 90
-
-iam_policy_name = ""
-
-kms_key_arns = []
-
-proxy_tags = {}
-
-target_db_cluster = false
-
-manage_log_group = true
-
-use_policy_name_prefix = false
-
-debug_logging = false
-
-require_tls = true
-
-max_idle_connections_percent = 50
-
-db_cluster_identifier = ""
-
-endpoints = {}
-
-log_group_class = null
-
-tags = {}
-
 auth = { "default" : { "auth_scheme" : "SECRETS" } }
-
-db_instance_identifier = ""
-
-log_group_retention_in_days = 30
-
-use_role_name_prefix = false
-
-iam_role_permissions_boundary = null
-
-vpc_subnet_ids = []
 
 connection_borrow_timeout = null
 
-target_db_instance = false
+create = true
 
-log_group_kms_key_id = null
-
-log_group_tags = {}
+create_iam_policy = true
 
 create_iam_role = true
 
-iam_role_name = ""
+db_cluster_identifier = ""
 
-iam_role_max_session_duration = 43200
+db_instance_identifier = ""
 
-create = true
+debug_logging = false
 
-role_arn = ""
+default_auth_scheme = null
 
-session_pinning_filters = []
+endpoints = {}
+
+engine_family = ""
+
+iam_policy_name = ""
 
 iam_role_description = ""
 
 iam_role_force_detach_policies = true
 
-vpc_security_group_ids = []
+iam_role_max_session_duration = 43200
 
-init_query = ""
+iam_role_name = ""
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
 
 iam_role_tags = {}
 
-create_iam_policy = true
+idle_client_timeout = 1800
+
+init_query = ""
+
+kms_key_arns = []
+
+log_group_class = null
+
+log_group_kms_key_id = null
+
+log_group_retention_in_days = 30
+
+log_group_tags = {}
+
+manage_log_group = true
+
+max_connections_percent = 90
+
+max_idle_connections_percent = 50
+
+name = ""
+
+proxy_tags = {}
+
+region = null
+
+require_tls = true
+
+role_arn = ""
+
+session_pinning_filters = []
+
+tags = {}
+
+target_db_cluster = false
+
+target_db_instance = false
+
+use_policy_name_prefix = false
+
+use_role_name_prefix = false
+
+vpc_security_group_ids = []
+
+vpc_subnet_ids = []

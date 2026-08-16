@@ -4,8 +4,8 @@ variable "create" {
   default     = true
 }
 
-variable "name_prefix" {
-  description = "Creates a unique name beginning with the specified prefix"
+variable "family" {
+  description = "The family of the DB parameter group"
   type        = string
   default     = ""
 }
@@ -16,8 +16,8 @@ variable "identifier" {
   default     = ""
 }
 
-variable "family" {
-  description = "The family of the DB parameter group"
+variable "name_prefix" {
+  description = "Creates a unique name beginning with the specified prefix"
   type        = string
   default     = ""
 }

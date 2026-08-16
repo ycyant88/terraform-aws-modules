@@ -1,19 +1,15 @@
-variable "create_security_group" {
-  description = "Determines whether the security group is created"
-  type        = bool
-  default     = true
-}
-
-variable "security_group_tags" {
-  description = "A map of additional tags to add to the security group created"
-  type        = map(string)
-  default     = {}
-}
-
 variable "architecture" {
   description = "The CPU architecture of an application. Valid values are ARM64 or X86_64. Default value is X86_64"
   type        = string
   default     = null
+}
+
+variable "auto_start_configuration" {
+  description = "The configuration for an application to automatically start on job submission"
+  type = object({
+    enabled = optional(bool)
+  })
+  default = null
 }
 
 variable "auto_stop_configuration" {
@@ -21,6 +17,26 @@ variable "auto_stop_configuration" {
   type = object({
     enabled              = optional(bool)
     idle_timeout_minutes = optional(number)
+  })
+  default = null
+}
+
+variable "create" {
+  description = "Controls if resources should be created (affects nearly all resources)"
+  type        = bool
+  default     = true
+}
+
+variable "create_security_group" {
+  description = "Determines whether the security group is created"
+  type        = bool
+  default     = true
+}
+
+variable "image_configuration" {
+  description = "The image configuration applied to all worker types"
+  type = object({
+    image_uri = string
   })
   default = null
 }
@@ -50,63 +66,6 @@ variable "interactive_configuration" {
   default = null
 }
 
-variable "release_label_filters" {
-  description = "Map of release label filters use to lookup a release label"
-  type = map(object({
-    application = optional(string)
-    prefix      = optional(string)
-  }))
-  default = { "default" : { "prefix" : "emr-7" } }
-}
-
-variable "security_group_ingress_rules" {
-  description = "Security group ingress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(string)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(string)
-  }))
-  default = null
-}
-
-variable "security_group_egress_rules" {
-  description = "Security group egress rules to add to the security group created"
-  type = map(object({
-    name = optional(string)
-
-    cidr_ipv4                    = optional(string)
-    cidr_ipv6                    = optional(string)
-    description                  = optional(string)
-    from_port                    = optional(string)
-    ip_protocol                  = optional(string, "tcp")
-    prefix_list_id               = optional(string)
-    referenced_security_group_id = optional(string)
-    tags                         = optional(map(string), {})
-    to_port                      = optional(string)
-  }))
-  default = { "all-traffic" : { "cidr_ipv4" : "0.0.0.0/0", "description" : "Allow all egress traffic", "ip_protocol" : "-1" } }
-}
-
-variable "create" {
-  description = "Controls if resources should be created (affects nearly all resources)"
-  type        = bool
-  default     = true
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
 variable "maximum_capacity" {
   description = "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit"
   type = object({
@@ -115,42 +74,6 @@ variable "maximum_capacity" {
     memory = string
   })
   default = null
-}
-
-variable "network_configuration" {
-  description = "The network configuration for customer VPC connectivity"
-  type = object({
-    security_group_ids = optional(list(string), [])
-    subnet_ids         = optional(list(string))
-  })
-  default = null
-}
-
-variable "runtime_configuration" {
-  description = "The runtime configuration for the application"
-  type = list(object({
-    classification = string
-    properties     = optional(map(string))
-  }))
-  default = null
-}
-
-variable "security_group_description" {
-  description = "Description of the security group created"
-  type        = string
-  default     = null
-}
-
-variable "name" {
-  description = "The name of the application"
-  type        = string
-  default     = ""
-}
-
-variable "release_label" {
-  description = "Release label for the Amazon EMR release"
-  type        = string
-  default     = null
 }
 
 variable "monitoring_configuration" {
@@ -181,6 +104,51 @@ variable "monitoring_configuration" {
   default = null
 }
 
+variable "name" {
+  description = "The name of the application"
+  type        = string
+  default     = ""
+}
+
+variable "network_configuration" {
+  description = "The network configuration for customer VPC connectivity"
+  type = object({
+    security_group_ids = optional(list(string), [])
+    subnet_ids         = optional(list(string))
+  })
+  default = null
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "release_label" {
+  description = "Release label for the Amazon EMR release"
+  type        = string
+  default     = null
+}
+
+variable "release_label_filters" {
+  description = "Map of release label filters use to lookup a release label"
+  type = map(object({
+    application = optional(string)
+    prefix      = optional(string)
+  }))
+  default = { "default" : { "prefix" : "emr-7" } }
+}
+
+variable "runtime_configuration" {
+  description = "The runtime configuration for the application"
+  type = list(object({
+    classification = string
+    properties     = optional(map(string))
+  }))
+  default = null
+}
+
 variable "scheduler_configuration" {
   description = "The scheduler configuration for the application"
   type = object({
@@ -190,10 +158,58 @@ variable "scheduler_configuration" {
   default = null
 }
 
+variable "security_group_description" {
+  description = "Description of the security group created"
+  type        = string
+  default     = null
+}
+
+variable "security_group_egress_rules" {
+  description = "Security group egress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(string)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(string)
+  }))
+  default = { "all-traffic" : { "cidr_ipv4" : "0.0.0.0/0", "description" : "Allow all egress traffic", "ip_protocol" : "-1" } }
+}
+
+variable "security_group_ingress_rules" {
+  description = "Security group ingress rules to add to the security group created"
+  type = map(object({
+    name = optional(string)
+
+    cidr_ipv4                    = optional(string)
+    cidr_ipv6                    = optional(string)
+    description                  = optional(string)
+    from_port                    = optional(string)
+    ip_protocol                  = optional(string, "tcp")
+    prefix_list_id               = optional(string)
+    referenced_security_group_id = optional(string)
+    tags                         = optional(map(string), {})
+    to_port                      = optional(string)
+  }))
+  default = null
+}
+
 variable "security_group_name" {
   description = "Name to use on security group created"
   type        = string
   default     = null
+}
+
+variable "security_group_tags" {
+  description = "A map of additional tags to add to the security group created"
+  type        = map(string)
+  default     = {}
 }
 
 variable "security_group_use_name_prefix" {
@@ -206,22 +222,6 @@ variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
-}
-
-variable "auto_start_configuration" {
-  description = "The configuration for an application to automatically start on job submission"
-  type = object({
-    enabled = optional(bool)
-  })
-  default = null
-}
-
-variable "image_configuration" {
-  description = "The image configuration applied to all worker types"
-  type = object({
-    image_uri = string
-  })
-  default = null
 }
 
 variable "type" {

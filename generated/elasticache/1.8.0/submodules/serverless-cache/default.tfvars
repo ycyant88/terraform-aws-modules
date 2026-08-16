@@ -1,10 +1,12 @@
-daily_snapshot_time = null
-
-subnet_ids = []
-
 cache_name = null
 
 cache_usage_limits = {}
+
+create = true
+
+daily_snapshot_time = null
+
+description = null
 
 engine = "redis"
 
@@ -16,14 +18,12 @@ security_group_ids = []
 
 snapshot_arns_to_restore = null
 
-create = true
-
 snapshot_retention_limit = null
 
-user_group_id = null
+subnet_ids = []
+
+tags = {}
 
 timeouts = {}
 
-description = null
-
-tags = {}
+user_group_id = null

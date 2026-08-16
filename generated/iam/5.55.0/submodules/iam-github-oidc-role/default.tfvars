@@ -1,29 +1,29 @@
+additional_trust_policy_conditions = []
+
+audience = "sts.amazonaws.com"
+
 create = true
-
-name = null
-
-permissions_boundary_arn = null
 
 description = null
 
 force_detach_policies = true
 
-audience = "sts.amazonaws.com"
+max_session_duration = null
 
-tags = {}
+name = null
+
+name_prefix = null
 
 path = "/"
 
+permissions_boundary_arn = null
+
 policies = {}
 
-max_session_duration = null
-
-additional_trust_policy_conditions = []
-
-name_prefix = null
+provider_url = "token.actions.githubusercontent.com"
 
 subject_condition = "StringLike"
 
 subjects = []
 
-provider_url = "token.actions.githubusercontent.com"
+tags = {}

@@ -1,7 +1,61 @@
+variable "create_iam_access_key" {
+  description = "Whether to create IAM access key"
+  type        = bool
+  default     = true
+}
+
+variable "create_iam_user_login_profile" {
+  description = "Whether to create IAM user login profile"
+  type        = bool
+  default     = true
+}
+
 variable "create_user" {
   description = "Whether to create the IAM user"
   type        = bool
   default     = true
+}
+
+variable "force_destroy" {
+  description = "When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed."
+  type        = bool
+  default     = false
+}
+
+variable "iam_access_key_status" {
+  description = "Access key status to apply."
+  type        = string
+  default     = null
+}
+
+variable "name" {
+  description = "Desired name for the IAM user"
+  type        = string
+  default     = ""
+}
+
+variable "password_length" {
+  description = "The length of the generated password"
+  type        = number
+  default     = 20
+}
+
+variable "password_reset_required" {
+  description = "Whether the user should be forced to reset the generated password on first login."
+  type        = bool
+  default     = true
+}
+
+variable "path" {
+  description = "Desired path for the IAM user"
+  type        = string
+  default     = "/"
+}
+
+variable "permissions_boundary" {
+  description = "The ARN of the policy that is used to set the permissions boundary for the user."
+  type        = string
+  default     = ""
 }
 
 variable "pgp_key" {
@@ -16,50 +70,8 @@ variable "ssh_key_encoding" {
   default     = "SSH"
 }
 
-variable "force_destroy" {
-  description = "When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed."
-  type        = bool
-  default     = false
-}
-
-variable "password_length" {
-  description = "The length of the generated password"
-  type        = number
-  default     = 20
-}
-
-variable "create_iam_user_login_profile" {
-  description = "Whether to create IAM user login profile"
-  type        = bool
-  default     = true
-}
-
-variable "name" {
-  description = "Desired name for the IAM user"
-  type        = string
-  default     = ""
-}
-
-variable "path" {
-  description = "Desired path for the IAM user"
-  type        = string
-  default     = "/"
-}
-
-variable "password_reset_required" {
-  description = "Whether the user should be forced to reset the generated password on first login."
-  type        = bool
-  default     = true
-}
-
-variable "upload_iam_user_ssh_key" {
-  description = "Whether to upload a public ssh key to the IAM user"
-  type        = bool
-  default     = false
-}
-
-variable "permissions_boundary" {
-  description = "The ARN of the policy that is used to set the permissions boundary for the user."
+variable "ssh_public_key" {
+  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
   type        = string
   default     = ""
 }
@@ -70,20 +82,8 @@ variable "tags" {
   default     = {}
 }
 
-variable "create_iam_access_key" {
-  description = "Whether to create IAM access key"
+variable "upload_iam_user_ssh_key" {
+  description = "Whether to upload a public ssh key to the IAM user"
   type        = bool
-  default     = true
-}
-
-variable "iam_access_key_status" {
-  description = "Access key status to apply."
-  type        = string
-  default     = null
-}
-
-variable "ssh_public_key" {
-  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format"
-  type        = string
-  default     = ""
+  default     = false
 }

@@ -1,13 +1,31 @@
-variable "policy_document" {
-  description = "Specifies the data protection policy in JSON."
-  type        = string
-  default     = null
-}
-
 variable "audit_statement_sid" {
   description = "Name of the audit statement."
   type        = string
   default     = "audit-policy"
+}
+
+variable "create" {
+  description = "Whether to create the cloudwatch log data protection policy."
+  type        = bool
+  default     = true
+}
+
+variable "create_log_data_protection_policy" {
+  description = "Whether to create the cloudwatch log data protection policy."
+  type        = bool
+  default     = false
+}
+
+variable "data_identifiers" {
+  description = "Set of at least 1 sensitive data identifiers that you want to mask."
+  type        = list(string)
+  default     = null
+}
+
+variable "deidentify_statement_sid" {
+  description = "Name of the deidentify statement."
+  type        = string
+  default     = "redact-policy"
 }
 
 variable "findings_destination_cloudwatch_log_group" {
@@ -34,14 +52,14 @@ variable "log_account_policy_name" {
   default     = null
 }
 
-variable "log_account_policy_selection_criteria" {
-  description = "Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is LogGroupName NOT IN []."
+variable "log_account_policy_scope" {
+  description = "Currently defaults to and only accepts the value: ALL."
   type        = string
   default     = null
 }
 
-variable "log_account_policy_scope" {
-  description = "Currently defaults to and only accepts the value: ALL."
+variable "log_account_policy_selection_criteria" {
+  description = "Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is LogGroupName NOT IN []."
   type        = string
   default     = null
 }
@@ -52,38 +70,20 @@ variable "log_account_policy_type" {
   default     = "audit-policy"
 }
 
-variable "log_data_protection_policy_name" {
-  description = "The name of the data protection policy document."
-  type        = string
-  default     = null
-}
-
 variable "log_data_protection_description" {
   description = "The description of the data protection policy document."
   type        = string
   default     = null
 }
 
-variable "deidentify_statement_sid" {
-  description = "Name of the deidentify statement."
+variable "log_data_protection_policy_name" {
+  description = "The name of the data protection policy document."
   type        = string
-  default     = "redact-policy"
+  default     = null
 }
 
-variable "create" {
-  description = "Whether to create the cloudwatch log data protection policy."
-  type        = bool
-  default     = true
-}
-
-variable "create_log_data_protection_policy" {
-  description = "Whether to create the cloudwatch log data protection policy."
-  type        = bool
-  default     = false
-}
-
-variable "data_identifiers" {
-  description = "Set of at least 1 sensitive data identifiers that you want to mask."
-  type        = list(string)
+variable "policy_document" {
+  description = "Specifies the data protection policy in JSON."
+  type        = string
   default     = null
 }

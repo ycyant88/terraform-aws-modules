@@ -1,19 +1,7 @@
-variable "map_accounts" {
-  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
-  type        = list(string)
-  default     = []
-}
-
-variable "worker_sg_ingress_from_port" {
-  description = "Minimum port number from which pods will accept communication. Must be changed to a lower value if some pods in your cluster will expose a port lower than 1025 (e.g. 22, 80, or 443)."
-  type        = number
-  default     = 1025
-}
-
-variable "cluster_endpoint_private_access" {
-  description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
+variable "attach_worker_autoscaling_policy" {
+  description = "Whether to attach the module managed cluster autoscaling iam policy to the default worker IAM role. This requires manage_worker_autoscaling_policy = true"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "attach_worker_cni_policy" {
@@ -22,34 +10,70 @@ variable "attach_worker_cni_policy" {
   default     = true
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources."
-  type        = map(string)
-  default     = {}
-}
-
-variable "node_groups" {
-  description = "Map of map of node groups to create. See node_groups module's documentation for more details"
-  type        = any
-  default     = {}
-}
-
-variable "worker_groups_launch_template" {
-  description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
-  type        = any
-  default     = []
-}
-
 variable "cluster_create_timeout" {
   description = "Timeout value when creating the EKS cluster."
   type        = string
   default     = "15m"
 }
 
-variable "local_exec_interpreter" {
-  description = "Command to run for local-exec resources. Must be a shell-style interpreter. If you are on Windows Git Bash is a good choice."
+variable "cluster_delete_timeout" {
+  description = "Timeout value when deleting the EKS cluster."
+  type        = string
+  default     = "15m"
+}
+
+variable "cluster_enabled_log_types" {
+  description = "A list of the desired control plane logging to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
   type        = list(string)
-  default     = ["/bin/sh", "-c"]
+  default     = []
+}
+
+variable "cluster_endpoint_private_access" {
+  description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
+  type        = bool
+  default     = false
+}
+
+variable "cluster_endpoint_public_access" {
+  description = "Indicates whether or not the Amazon EKS public API server endpoint is enabled."
+  type        = bool
+  default     = true
+}
+
+variable "cluster_iam_role_name" {
+  description = "IAM role name for the cluster. Only applicable if manage_cluster_iam_resources is set to false."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_log_kms_key_id" {
+  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_log_retention_in_days" {
+  description = "Number of days to retain log events. Default retention - 90 days."
+  type        = number
+  default     = 90
+}
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_security_group_id" {
+  description = "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the workers"
+  type        = string
+  default     = ""
+}
+
+variable "cluster_version" {
+  description = "Kubernetes version to use for the EKS cluster."
+  type        = string
+  default     = "1.14"
 }
 
 variable "config_output_path" {
@@ -70,98 +94,22 @@ variable "eks_oidc_root_ca_thumbprint" {
   default     = "9e99a48a9960b14926bb7f3b02e22da2b0ab7280"
 }
 
-variable "cluster_log_kms_key_id" {
-  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
-  type        = string
-  default     = ""
-}
-
-variable "attach_worker_autoscaling_policy" {
-  description = "Whether to attach the module managed cluster autoscaling iam policy to the default worker IAM role. This requires manage_worker_autoscaling_policy = true"
-  type        = bool
-  default     = true
-}
-
 variable "enable_irsa" {
   description = "Whether to create OpenID Connect Provider for EKS to enable IRSA"
   type        = bool
   default     = false
 }
 
-variable "manage_aws_auth" {
-  description = "Whether to apply the aws-auth configmap file."
-  type        = bool
-  default     = true
-}
-
-variable "vpc_id" {
-  description = "VPC where the cluster and workers will be deployed."
+variable "iam_path" {
+  description = "If provided, all IAM roles will be created on this path."
   type        = string
-  default     = ""
-}
-
-variable "worker_groups" {
-  description = "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys."
-  type        = any
-  default     = []
-}
-
-variable "worker_ami_name_filter" {
-  description = "Name filter for AWS EKS worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used."
-  type        = string
-  default     = ""
-}
-
-variable "permissions_boundary" {
-  description = "If provided, all IAM roles will be created with this permissions boundary attached."
-  type        = string
-  default     = null
-}
-
-variable "manage_cluster_iam_resources" {
-  description = "Whether to let the module manage cluster IAM resources. If set to false, cluster_iam_role_name must be specified."
-  type        = bool
-  default     = true
-}
-
-variable "manage_worker_iam_resources" {
-  description = "Whether to let the module manage worker IAM resources. If set to false, iam_instance_profile_name must be specified for workers."
-  type        = bool
-  default     = true
-}
-
-variable "cluster_name" {
-  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
-  type        = string
-  default     = ""
-}
-
-variable "cluster_version" {
-  description = "Kubernetes version to use for the EKS cluster."
-  type        = string
-  default     = "1.14"
+  default     = "/"
 }
 
 variable "kubeconfig_aws_authenticator_additional_args" {
   description = "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"]."
   type        = list(string)
   default     = []
-}
-
-variable "map_roles" {
-  description = "Additional IAM roles to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
-  type = list(object({
-    rolearn  = string
-    username = string
-    groups   = list(string)
-  }))
-  default = []
-}
-
-variable "subnets" {
-  description = "A list of subnets to place the EKS cluster and workers within."
-  type        = list(string)
-  default     = ""
 }
 
 variable "kubeconfig_aws_authenticator_command" {
@@ -176,10 +124,62 @@ variable "kubeconfig_aws_authenticator_command_args" {
   default     = []
 }
 
-variable "cluster_endpoint_public_access" {
-  description = "Indicates whether or not the Amazon EKS public API server endpoint is enabled."
+variable "kubeconfig_aws_authenticator_env_variables" {
+  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
+  type        = map(string)
+  default     = {}
+}
+
+variable "kubeconfig_name" {
+  description = "Override the default name used for items kubeconfig."
+  type        = string
+  default     = ""
+}
+
+variable "local_exec_interpreter" {
+  description = "Command to run for local-exec resources. Must be a shell-style interpreter. If you are on Windows Git Bash is a good choice."
+  type        = list(string)
+  default     = ["/bin/sh", "-c"]
+}
+
+variable "manage_aws_auth" {
+  description = "Whether to apply the aws-auth configmap file."
   type        = bool
   default     = true
+}
+
+variable "manage_cluster_iam_resources" {
+  description = "Whether to let the module manage cluster IAM resources. If set to false, cluster_iam_role_name must be specified."
+  type        = bool
+  default     = true
+}
+
+variable "manage_worker_autoscaling_policy" {
+  description = "Whether to let the module manage the cluster autoscaling iam policy."
+  type        = bool
+  default     = true
+}
+
+variable "manage_worker_iam_resources" {
+  description = "Whether to let the module manage worker IAM resources. If set to false, iam_instance_profile_name must be specified for workers."
+  type        = bool
+  default     = true
+}
+
+variable "map_accounts" {
+  description = "Additional AWS account numbers to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
+  type        = list(string)
+  default     = []
+}
+
+variable "map_roles" {
+  description = "Additional IAM roles to add to the aws-auth configmap. See examples/basic/variables.tf for example format."
+  type = list(object({
+    rolearn  = string
+    username = string
+    groups   = list(string)
+  }))
+  default = []
 }
 
 variable "map_users" {
@@ -192,68 +192,56 @@ variable "map_users" {
   default = []
 }
 
+variable "node_groups" {
+  description = "Map of map of node groups to create. See node_groups module's documentation for more details"
+  type        = any
+  default     = {}
+}
+
+variable "node_groups_defaults" {
+  description = "Map of values to be applied to all node groups. See node_groups module's documentaton for more details"
+  type        = any
+  default     = {}
+}
+
+variable "permissions_boundary" {
+  description = "If provided, all IAM roles will be created with this permissions boundary attached."
+  type        = string
+  default     = null
+}
+
+variable "subnets" {
+  description = "A list of subnets to place the EKS cluster and workers within."
+  type        = list(string)
+  default     = ""
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}
+
+variable "vpc_id" {
+  description = "VPC where the cluster and workers will be deployed."
+  type        = string
+  default     = ""
+}
+
 variable "worker_additional_security_group_ids" {
   description = "A list of additional security group ids to attach to worker instances"
   type        = list(string)
   default     = []
 }
 
-variable "iam_path" {
-  description = "If provided, all IAM roles will be created on this path."
-  type        = string
-  default     = "/"
-}
-
-variable "manage_worker_autoscaling_policy" {
-  description = "Whether to let the module manage the cluster autoscaling iam policy."
-  type        = bool
-  default     = true
-}
-
-variable "worker_security_group_id" {
-  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
+variable "worker_ami_name_filter" {
+  description = "Name filter for AWS EKS worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used."
   type        = string
   default     = ""
 }
 
-variable "workers_role_name" {
-  description = "User defined workers role name."
-  type        = string
-  default     = ""
-}
-
-variable "cluster_enabled_log_types" {
-  description = "A list of the desired control plane logging to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
-  type        = list(string)
-  default     = []
-}
-
-variable "cluster_log_retention_in_days" {
-  description = "Number of days to retain log events. Default retention - 90 days."
-  type        = number
-  default     = 90
-}
-
-variable "cluster_security_group_id" {
-  description = "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the workers"
-  type        = string
-  default     = ""
-}
-
-variable "worker_ami_owner_id_windows" {
-  description = "The ID of the owner for the AMI to use for the AWS EKS Windows workers. Valid values are an AWS account ID, 'self' (the current account), or an AWS owner alias (e.g. 'amazon', 'aws-marketplace', 'microsoft')."
-  type        = string
-  default     = "801119661308"
-}
-
-variable "kubeconfig_aws_authenticator_env_variables" {
-  description = "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}."
-  type        = map(string)
-  default     = {}
-}
-
-variable "cluster_iam_role_name" {
-  description = "IAM role name for the cluster. Only applicable if manage_cluster_iam_resources is set to false."
+variable "worker_ami_name_filter_windows" {
+  description = "Name filter for AWS EKS Windows worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used."
   type        = string
   default     = ""
 }
@@ -264,16 +252,10 @@ variable "worker_ami_owner_id" {
   default     = "602401143452"
 }
 
-variable "kubeconfig_name" {
-  description = "Override the default name used for items kubeconfig."
+variable "worker_ami_owner_id_windows" {
+  description = "The ID of the owner for the AMI to use for the AWS EKS Windows workers. Valid values are an AWS account ID, 'self' (the current account), or an AWS owner alias (e.g. 'amazon', 'aws-marketplace', 'microsoft')."
   type        = string
-  default     = ""
-}
-
-variable "cluster_delete_timeout" {
-  description = "Timeout value when deleting the EKS cluster."
-  type        = string
-  default     = "15m"
+  default     = "801119661308"
 }
 
 variable "worker_create_initial_lifecycle_hooks" {
@@ -282,10 +264,34 @@ variable "worker_create_initial_lifecycle_hooks" {
   default     = false
 }
 
-variable "node_groups_defaults" {
-  description = "Map of values to be applied to all node groups. See node_groups module's documentaton for more details"
+variable "worker_groups" {
+  description = "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys."
   type        = any
-  default     = {}
+  default     = []
+}
+
+variable "worker_groups_launch_template" {
+  description = "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys."
+  type        = any
+  default     = []
+}
+
+variable "worker_security_group_id" {
+  description = "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster."
+  type        = string
+  default     = ""
+}
+
+variable "worker_sg_ingress_from_port" {
+  description = "Minimum port number from which pods will accept communication. Must be changed to a lower value if some pods in your cluster will expose a port lower than 1025 (e.g. 22, 80, or 443)."
+  type        = number
+  default     = 1025
+}
+
+variable "workers_additional_policies" {
+  description = "Additional policies to be added to workers"
+  type        = list(string)
+  default     = []
 }
 
 variable "workers_group_defaults" {
@@ -294,8 +300,8 @@ variable "workers_group_defaults" {
   default     = {}
 }
 
-variable "worker_ami_name_filter_windows" {
-  description = "Name filter for AWS EKS Windows worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used."
+variable "workers_role_name" {
+  description = "User defined workers role name."
   type        = string
   default     = ""
 }
@@ -304,10 +310,4 @@ variable "write_kubeconfig" {
   description = "Whether to write a Kubectl config file containing the cluster configuration. Saved to config_output_path."
   type        = bool
   default     = true
-}
-
-variable "workers_additional_policies" {
-  description = "Additional policies to be added to workers"
-  type        = list(string)
-  default     = []
 }

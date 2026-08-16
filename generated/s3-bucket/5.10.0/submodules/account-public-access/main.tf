@@ -4,7 +4,7 @@ module "s3-bucket_account-public-access" {
   account_id              = var.account_id
   block_public_acls       = var.block_public_acls
   block_public_policy     = var.block_public_policy
+  create                  = var.create
   ignore_public_acls      = var.ignore_public_acls
   restrict_public_buckets = var.restrict_public_buckets
-  create                  = var.create
 }

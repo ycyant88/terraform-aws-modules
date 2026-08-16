@@ -1,16 +1,6 @@
-output "queue_arn" {
-  value       = module.eks_karpenter.queue_arn
-  description = "The ARN of the SQS queue"
-}
-
-output "node_iam_role_unique_id" {
-  value       = module.eks_karpenter.node_iam_role_unique_id
-  description = "Stable and unique string identifying the node IAM role"
-}
-
-output "node_access_entry_arn" {
-  value       = module.eks_karpenter.node_access_entry_arn
-  description = "Amazon Resource Name (ARN) of the node Access Entry"
+output "event_rules" {
+  value       = module.eks_karpenter.event_rules
+  description = "Map of the event rules created and their attributes"
 }
 
 output "iam_role_arn" {
@@ -18,24 +8,19 @@ output "iam_role_arn" {
   description = "The Amazon Resource Name (ARN) specifying the controller IAM role"
 }
 
-output "node_iam_role_name" {
-  value       = module.eks_karpenter.node_iam_role_name
-  description = "The name of the node IAM role"
+output "iam_role_name" {
+  value       = module.eks_karpenter.iam_role_name
+  description = "The name of the controller IAM role"
 }
 
-output "node_iam_role_arn" {
-  value       = module.eks_karpenter.node_iam_role_arn
-  description = "The Amazon Resource Name (ARN) specifying the node IAM role"
+output "iam_role_unique_id" {
+  value       = module.eks_karpenter.iam_role_unique_id
+  description = "Stable and unique string identifying the controller IAM role"
 }
 
 output "instance_profile_arn" {
   value       = module.eks_karpenter.instance_profile_arn
   description = "ARN assigned by AWS to the instance profile"
-}
-
-output "queue_url" {
-  value       = module.eks_karpenter.queue_url
-  description = "The URL for the created Amazon SQS queue"
 }
 
 output "instance_profile_id" {
@@ -53,14 +38,29 @@ output "instance_profile_unique" {
   description = "Stable and unique string identifying the IAM instance profile"
 }
 
-output "iam_role_name" {
-  value       = module.eks_karpenter.iam_role_name
-  description = "The name of the controller IAM role"
+output "node_access_entry_arn" {
+  value       = module.eks_karpenter.node_access_entry_arn
+  description = "Amazon Resource Name (ARN) of the node Access Entry"
 }
 
-output "iam_role_unique_id" {
-  value       = module.eks_karpenter.iam_role_unique_id
-  description = "Stable and unique string identifying the controller IAM role"
+output "node_iam_role_arn" {
+  value       = module.eks_karpenter.node_iam_role_arn
+  description = "The Amazon Resource Name (ARN) specifying the node IAM role"
+}
+
+output "node_iam_role_name" {
+  value       = module.eks_karpenter.node_iam_role_name
+  description = "The name of the node IAM role"
+}
+
+output "node_iam_role_unique_id" {
+  value       = module.eks_karpenter.node_iam_role_unique_id
+  description = "Stable and unique string identifying the node IAM role"
+}
+
+output "queue_arn" {
+  value       = module.eks_karpenter.queue_arn
+  description = "The ARN of the SQS queue"
 }
 
 output "queue_name" {
@@ -68,7 +68,7 @@ output "queue_name" {
   description = "The name of the created Amazon SQS queue"
 }
 
-output "event_rules" {
-  value       = module.eks_karpenter.event_rules
-  description = "Map of the event rules created and their attributes"
+output "queue_url" {
+  value       = module.eks_karpenter.queue_url
+  description = "The URL for the created Amazon SQS queue"
 }

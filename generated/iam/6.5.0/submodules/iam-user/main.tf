@@ -1,24 +1,24 @@
 module "iam_iam-user" {
   source                           = "terraform-aws-modules/iam/aws//modules/iam-user"
   version                          = "6.5.0"
-  create_access_key                = var.create_access_key
   access_key_status                = var.access_key_status
-  inline_policy_permissions        = var.inline_policy_permissions
   create                           = var.create
-  name                             = var.name
-  password_length                  = var.password_length
-  ssh_public_key                   = var.ssh_public_key
+  create_access_key                = var.create_access_key
   create_inline_policy             = var.create_inline_policy
-  source_inline_policy_documents   = var.source_inline_policy_documents
-  tags                             = var.tags
-  force_destroy                    = var.force_destroy
-  policies                         = var.policies
   create_login_profile             = var.create_login_profile
+  create_ssh_key                   = var.create_ssh_key
+  force_destroy                    = var.force_destroy
+  inline_policy_permissions        = var.inline_policy_permissions
+  name                             = var.name
+  override_inline_policy_documents = var.override_inline_policy_documents
+  password_length                  = var.password_length
+  password_reset_required          = var.password_reset_required
   path                             = var.path
   permissions_boundary             = var.permissions_boundary
   pgp_key                          = var.pgp_key
-  create_ssh_key                   = var.create_ssh_key
+  policies                         = var.policies
+  source_inline_policy_documents   = var.source_inline_policy_documents
   ssh_key_encoding                 = var.ssh_key_encoding
-  override_inline_policy_documents = var.override_inline_policy_documents
-  password_reset_required          = var.password_reset_required
+  ssh_public_key                   = var.ssh_public_key
+  tags                             = var.tags
 }

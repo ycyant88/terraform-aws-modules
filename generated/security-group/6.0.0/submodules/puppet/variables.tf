@@ -10,17 +10,6 @@ variable "description" {
   default     = "Security Group managed by Terraform"
 }
 
-variable "preset_ingress_rules" {
-  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
-  type = map(object({
-    from_port   = number
-    to_port     = number
-    ip_protocol = string
-    description = optional(string)
-  }))
-  default = { "puppet" : { "description" : "Puppet", "from_port" : 8140, "ip_protocol" : "tcp", "to_port" : 8140 }, "puppetdb" : { "description" : "PuppetDB", "from_port" : 8081, "ip_protocol" : "tcp", "to_port" : 8081 } }
-}
-
 variable "egress_rules" {
   description = "Security group egress rules to add to the security group created"
   type = map(object({
@@ -39,16 +28,10 @@ variable "egress_rules" {
   default = {}
 }
 
-variable "use_name_prefix" {
-  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+variable "enable_exclusive_rules" {
+  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
   type        = bool
   default     = true
-}
-
-variable "revoke_rules_on_delete" {
-  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
-  type        = bool
-  default     = false
 }
 
 variable "ingress_cidr_ipv4" {
@@ -75,53 +58,6 @@ variable "ingress_referenced_security_group_id" {
   default     = {}
 }
 
-variable "vpc_associations" {
-  description = "Map of VPC IDs to associate the security group to"
-  type = map(object({
-    vpc_id = string
-  }))
-  default = {}
-}
-
-variable "name" {
-  description = "Name of security group"
-  type        = string
-  default     = ""
-}
-
-variable "timeouts" {
-  description = "Create and delete timeout configurations for the security group"
-  type = object({
-    create = optional(string)
-    delete = optional(string)
-  })
-  default = null
-}
-
-variable "enable_exclusive_rules" {
-  description = "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply"
-  type        = bool
-  default     = true
-}
-
-variable "region" {
-  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
-  type        = string
-  default     = null
-}
-
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
-
-variable "vpc_id" {
-  description = "ID of the VPC where the security group is created"
-  type        = string
-  default     = null
-}
-
 variable "ingress_rules" {
   description = "Additional security group ingress rules to merge with the preset rules"
   type = map(object({
@@ -138,4 +74,68 @@ variable "ingress_rules" {
     to_port                      = optional(number)
   }))
   default = {}
+}
+
+variable "name" {
+  description = "Name of security group"
+  type        = string
+  default     = ""
+}
+
+variable "preset_ingress_rules" {
+  description = "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass {} to disable, or override individual entries"
+  type = map(object({
+    from_port   = number
+    to_port     = number
+    ip_protocol = string
+    description = optional(string)
+  }))
+  default = { "puppet" : { "description" : "Puppet", "from_port" : 8140, "ip_protocol" : "tcp", "to_port" : 8140 }, "puppetdb" : { "description" : "PuppetDB", "from_port" : 8081, "ip_protocol" : "tcp", "to_port" : 8081 } }
+}
+
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
+variable "revoke_rules_on_delete" {
+  description = "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself"
+  type        = bool
+  default     = false
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "timeouts" {
+  description = "Create and delete timeout configurations for the security group"
+  type = object({
+    create = optional(string)
+    delete = optional(string)
+  })
+  default = null
+}
+
+variable "use_name_prefix" {
+  description = "Whether to use the name (name) as a prefix, appending a random suffix"
+  type        = bool
+  default     = true
+}
+
+variable "vpc_associations" {
+  description = "Map of VPC IDs to associate the security group to"
+  type = map(object({
+    vpc_id = string
+  }))
+  default = {}
+}
+
+variable "vpc_id" {
+  description = "ID of the VPC where the security group is created"
+  type        = string
+  default     = null
 }

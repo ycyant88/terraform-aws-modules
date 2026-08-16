@@ -1,59 +1,59 @@
-key_asymmetric_public_encryption_users = []
+aliases = []
 
-key_statements = {}
+aliases_use_name_prefix = false
+
+bypass_policy_lockout_safety_check = null
+
+computed_aliases = {}
+
+create = true
 
 create_external = false
-
-enable_key_rotation = true
-
-key_administrators = []
-
-key_symmetric_encryption_users = []
-
-grants = {}
-
-description = null
-
-valid_to = null
-
-policy = null
-
-key_asymmetric_sign_verify_users = []
 
 customer_master_key_spec = null
 
 deletion_window_in_days = null
 
-key_usage = null
+description = null
 
 enable_default_policy = true
 
+enable_key_rotation = true
+
+grants = {}
+
+is_enabled = null
+
+key_administrators = []
+
+key_asymmetric_public_encryption_users = []
+
+key_asymmetric_sign_verify_users = []
+
 key_hmac_users = []
 
-computed_aliases = {}
-
-aliases = []
-
-aliases_use_name_prefix = false
-
-multi_region = false
+key_material_base64 = null
 
 key_owners = []
 
 key_service_users = []
 
-bypass_policy_lockout_safety_check = null
+key_statements = {}
 
-is_enabled = null
+key_symmetric_encryption_users = []
+
+key_usage = null
 
 key_users = []
 
-source_policy_documents = []
+multi_region = false
 
 override_policy_documents = []
 
-create = true
+policy = null
+
+source_policy_documents = []
 
 tags = {}
 
-key_material_base64 = null
+valid_to = null

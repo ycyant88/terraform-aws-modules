@@ -1,9 +1,9 @@
-name_prefix = ""
+create = true
 
 identifier = ""
+
+name_prefix = ""
 
 subnet_ids = []
 
 tags = {}
-
-create = true

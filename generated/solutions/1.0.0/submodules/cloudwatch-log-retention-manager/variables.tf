@@ -4,40 +4,10 @@ variable "cloudwatch_logs_retention_in_days" {
   default     = 90
 }
 
-variable "lambda_tags" {
-  description = "A map of tags to assign to all resources created by Lambda module"
-  type        = map(string)
-  default     = {}
-}
-
-variable "description" {
-  description = "Description of Lambda function"
-  type        = string
-  default     = "CloudWatch Log Retention Manager"
-}
-
-variable "source_path" {
-  description = "Source path object with instructions on how to build Lambda function package"
-  type        = any
-  default     = null
-}
-
-variable "environment_variables" {
-  description = "A map that defines environment variables for the Lambda Function."
-  type        = map(string)
-  default     = {}
-}
-
-variable "name" {
-  description = "Lambda function name"
-  type        = string
-  default     = "cloudwatch-log-retention-manager"
-}
-
-variable "memory_size" {
-  description = "Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 64 MB increments."
-  type        = number
-  default     = 256
+variable "create" {
+  description = "Controls whether to create resources"
+  type        = bool
+  default     = true
 }
 
 variable "create_package" {
@@ -46,34 +16,22 @@ variable "create_package" {
   default     = false
 }
 
-variable "tags" {
-  description = "A map of tags to assign to all resources"
+variable "description" {
+  description = "Description of Lambda function"
+  type        = string
+  default     = "CloudWatch Log Retention Manager"
+}
+
+variable "environment_variables" {
+  description = "A map that defines environment variables for the Lambda Function."
   type        = map(string)
   default     = {}
 }
 
-variable "schedule_expression" {
-  description = "Schedule expression for EventBridge to trigger Lambda function. Can be cron() or rate()."
-  type        = string
-  default     = "rate(12 hours)"
-}
-
-variable "role_arn" {
-  description = "ARN of IAM Role used by EventBridge to invoke Lambda Function"
+variable "eventbridge_role_name" {
+  description = "Name of EventBridge IAM role to create"
   type        = string
   default     = null
-}
-
-variable "putin_khuylo" {
-  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
-  type        = bool
-  default     = true
-}
-
-variable "create" {
-  description = "Controls whether to create resources"
-  type        = bool
-  default     = true
 }
 
 variable "eventbridge_tags" {
@@ -82,14 +40,56 @@ variable "eventbridge_tags" {
   default     = {}
 }
 
+variable "lambda_tags" {
+  description = "A map of tags to assign to all resources created by Lambda module"
+  type        = map(string)
+  default     = {}
+}
+
+variable "memory_size" {
+  description = "Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 64 MB increments."
+  type        = number
+  default     = 256
+}
+
+variable "name" {
+  description = "Lambda function name"
+  type        = string
+  default     = "cloudwatch-log-retention-manager"
+}
+
+variable "putin_khuylo" {
+  description = "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!"
+  type        = bool
+  default     = true
+}
+
+variable "role_arn" {
+  description = "ARN of IAM Role used by EventBridge to invoke Lambda Function"
+  type        = string
+  default     = null
+}
+
+variable "schedule_expression" {
+  description = "Schedule expression for EventBridge to trigger Lambda function. Can be cron() or rate()."
+  type        = string
+  default     = "rate(12 hours)"
+}
+
+variable "source_path" {
+  description = "Source path object with instructions on how to build Lambda function package"
+  type        = any
+  default     = null
+}
+
+variable "tags" {
+  description = "A map of tags to assign to all resources"
+  type        = map(string)
+  default     = {}
+}
+
 variable "timeout" {
   description = "The amount of time your Lambda Function has to run in seconds."
   type        = number
   default     = 30
-}
-
-variable "eventbridge_role_name" {
-  description = "Name of EventBridge IAM role to create"
-  type        = string
-  default     = null
 }

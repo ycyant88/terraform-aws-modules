@@ -1,42 +1,20 @@
 application_feedback = {}
 
-kms_master_key_id = null
+content_based_deduplication = false
 
-lambda_feedback = {}
-
-sqs_feedback = {}
-
-override_topic_policy_documents = []
-
-topic_policy_statements = {}
+create = true
 
 create_subscription = true
 
 create_topic_policy = true
 
-enable_default_topic_policy = true
+data_protection_policy = null
 
-subscriptions = {}
-
-tags = {}
+delivery_policy = null
 
 display_name = null
 
-topic_policy = null
-
-tracing_config = null
-
-source_topic_policy_documents = []
-
-data_protection_policy = null
-
-name = null
-
-use_name_prefix = false
-
-content_based_deduplication = false
-
-delivery_policy = null
+enable_default_topic_policy = true
 
 fifo_topic = false
 
@@ -44,6 +22,28 @@ firehose_feedback = {}
 
 http_feedback = {}
 
+kms_master_key_id = null
+
+lambda_feedback = {}
+
+name = null
+
+override_topic_policy_documents = []
+
 signature_version = null
 
-create = true
+source_topic_policy_documents = []
+
+sqs_feedback = {}
+
+subscriptions = {}
+
+tags = {}
+
+topic_policy = null
+
+topic_policy_statements = {}
+
+tracing_config = null
+
+use_name_prefix = false

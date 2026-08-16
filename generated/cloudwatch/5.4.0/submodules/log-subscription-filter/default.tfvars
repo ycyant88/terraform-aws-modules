@@ -1,13 +1,13 @@
 create = true
 
-name = null
-
 destination_arn = null
+
+distribution = null
 
 filter_pattern = ""
 
 log_group_name = null
 
-role_arn = null
+name = null
 
-distribution = null
+role_arn = null

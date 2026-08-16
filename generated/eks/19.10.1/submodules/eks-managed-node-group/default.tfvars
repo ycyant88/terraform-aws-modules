@@ -1,149 +1,149 @@
-cluster_version = null
-
-remote_access = {}
-
-iam_role_path = null
-
-iam_role_description = null
-
-cluster_service_ipv4_cidr = null
-
-bootstrap_extra_args = ""
-
-create_launch_template = true
-
-instance_market_options = {}
-
-max_size = 3
-
-iam_role_attach_cni_policy = true
-
-pre_bootstrap_user_data = ""
-
-update_launch_template_default_version = true
-
-kernel_id = null
-
-cluster_ip_family = null
-
-launch_template_use_name_prefix = true
-
-key_name = null
-
-update_config = { "max_unavailable_percentage" : 33 }
-
-post_bootstrap_user_data = ""
-
-enclave_options = {}
-
-network_interfaces = []
-
-platform = "linux"
-
-ram_disk_id = null
-
-capacity_type = "ON_DEMAND"
-
-timeouts = {}
-
-create_iam_role = true
-
-iam_role_additional_policies = {}
-
-enable_bootstrap_user_data = false
-
-use_custom_launch_template = true
-
-name = ""
-
-force_update_version = null
-
-labels = null
-
-launch_template_name = null
-
-ebs_optimized = null
-
-launch_template_default_version = null
-
-block_device_mappings = {}
-
-instance_types = null
-
-launch_template_id = ""
-
-launch_template_description = null
-
-capacity_reservation_specification = {}
-
-enable_monitoring = true
-
-tag_specifications = ["instance", "volume", "network-interface"]
-
-cluster_endpoint = ""
-
-cpu_options = {}
-
-ami_type = null
+ami_id = ""
 
 ami_release_version = null
 
-user_data_template_path = ""
+ami_type = null
 
-vpc_security_group_ids = []
+block_device_mappings = {}
 
-iam_role_permissions_boundary = null
+bootstrap_extra_args = ""
 
-private_dns_name_options = {}
+capacity_reservation_specification = {}
 
-launch_template_tags = {}
-
-min_size = 0
-
-launch_template_version = null
-
-iam_role_use_name_prefix = true
-
-iam_role_name = null
-
-create = true
-
-disable_api_termination = null
-
-desired_size = 1
-
-use_name_prefix = true
-
-disk_size = null
-
-cluster_name = null
-
-credit_specification = {}
-
-placement = {}
-
-subnet_ids = null
-
-taints = {}
+capacity_type = "ON_DEMAND"
 
 cluster_auth_base64 = ""
 
+cluster_endpoint = ""
+
+cluster_ip_family = null
+
+cluster_name = null
+
 cluster_primary_security_group_id = null
+
+cluster_service_ipv4_cidr = null
+
+cluster_version = null
+
+cpu_options = {}
+
+create = true
+
+create_iam_role = true
+
+create_launch_template = true
+
+credit_specification = {}
+
+desired_size = 1
+
+disable_api_termination = null
+
+disk_size = null
+
+ebs_optimized = null
 
 elastic_gpu_specifications = {}
 
 elastic_inference_accelerator = {}
 
-maintenance_options = {}
+enable_bootstrap_user_data = false
+
+enable_monitoring = true
+
+enclave_options = {}
+
+force_update_version = null
+
+iam_role_additional_policies = {}
 
 iam_role_arn = null
 
+iam_role_attach_cni_policy = true
+
+iam_role_description = null
+
+iam_role_name = null
+
+iam_role_path = null
+
+iam_role_permissions_boundary = null
+
 iam_role_tags = {}
 
-tags = {}
+iam_role_use_name_prefix = true
 
-ami_id = ""
+instance_market_options = {}
+
+instance_types = null
+
+kernel_id = null
+
+key_name = null
+
+labels = null
+
+launch_template_default_version = null
+
+launch_template_description = null
+
+launch_template_id = ""
+
+launch_template_name = null
+
+launch_template_tags = {}
+
+launch_template_use_name_prefix = true
+
+launch_template_version = null
 
 license_specifications = {}
 
+maintenance_options = {}
+
+max_size = 3
+
 metadata_options = { "http_endpoint" : "enabled", "http_put_response_hop_limit" : 2, "http_tokens" : "required" }
+
+min_size = 0
+
+name = ""
+
+network_interfaces = []
+
+placement = {}
+
+platform = "linux"
+
+post_bootstrap_user_data = ""
+
+pre_bootstrap_user_data = ""
+
+private_dns_name_options = {}
+
+ram_disk_id = null
+
+remote_access = {}
+
+subnet_ids = null
+
+tag_specifications = ["instance", "volume", "network-interface"]
+
+tags = {}
+
+taints = {}
+
+timeouts = {}
+
+update_config = { "max_unavailable_percentage" : 33 }
+
+update_launch_template_default_version = true
+
+use_custom_launch_template = true
+
+use_name_prefix = true
+
+user_data_template_path = ""
+
+vpc_security_group_ids = []
