@@ -1,0 +1,6 @@
+[
+  {
+    "name": "s3_bucket_notification_id",
+    "description": "ID of S3 bucket"
+  }
+]

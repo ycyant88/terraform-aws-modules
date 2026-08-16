@@ -1,0 +1,65 @@
+[
+  {
+    "name": "engine",
+    "type": "string",
+    "description": "The current supported value is `REDIS`",
+    "default": "\"redis\"",
+    "required": false
+  },
+  {
+    "name": "users",
+    "type": "any",
+    "description": "A map of users to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_default_user",
+    "type": "bool",
+    "description": "Determines whether a default user will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "default_user",
+    "type": "any",
+    "description": "A map of default user attributes",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_group",
+    "type": "bool",
+    "description": "Determines whether a user group will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "user_group_id",
+    "type": "string",
+    "description": "The ID of the user group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "default_user_id",
+    "type": "string",
+    "description": "The ID of the default user",
+    "default": "\"default\"",
+    "required": false
+  }
+]

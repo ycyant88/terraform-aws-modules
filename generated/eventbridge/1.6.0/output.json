@@ -1,0 +1,34 @@
+[
+  {
+    "name": "eventbridge_bus_arn",
+    "description": "The EventBridge Bus Arn"
+  },
+  {
+    "name": "eventbridge_archive_arns",
+    "description": "The EventBridge Archive Arns created"
+  },
+  {
+    "name": "eventbridge_permission_ids",
+    "description": "The EventBridge Permission Arns created"
+  },
+  {
+    "name": "eventbridge_rule_ids",
+    "description": "The EventBridge Rule IDs created"
+  },
+  {
+    "name": "eventbridge_rule_arns",
+    "description": "The EventBridge Rule ARNs created"
+  },
+  {
+    "name": "eventbridge_role_arn",
+    "description": "The ARN of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_role_name",
+    "description": "The name of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_bus_name",
+    "description": "The EventBridge Bus Name"
+  }
+]

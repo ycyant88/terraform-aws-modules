@@ -1,0 +1,22 @@
+module "security-group_https-443" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/https-443"
+  version                              = "6.0.0"
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  ingress_rules                        = var.ingress_rules
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  create                               = var.create
+  tags                                 = var.tags
+  use_name_prefix                      = var.use_name_prefix
+  egress_rules                         = var.egress_rules
+  region                               = var.region
+  preset_ingress_rules                 = var.preset_ingress_rules
+  name                                 = var.name
+  description                          = var.description
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  timeouts                             = var.timeouts
+  vpc_associations                     = var.vpc_associations
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+}

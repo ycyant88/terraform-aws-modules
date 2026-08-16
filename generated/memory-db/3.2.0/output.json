@@ -1,0 +1,62 @@
+[
+  {
+    "name": "cluster_id",
+    "description": "Cluster name"
+  },
+  {
+    "name": "cluster_endpoint_port",
+    "description": "Port number that the cluster configuration endpoint is listening on"
+  },
+  {
+    "name": "cluster_shards",
+    "description": "Set of shards in this cluster"
+  },
+  {
+    "name": "users",
+    "description": "Map of attributes for the users created"
+  },
+  {
+    "name": "acl_id",
+    "description": "Name of the ACL"
+  },
+  {
+    "name": "acl_minimum_engine_version",
+    "description": "The minimum engine version supported by the ACL"
+  },
+  {
+    "name": "parameter_group_arn",
+    "description": "The ARN of the parameter group"
+  },
+  {
+    "name": "subnet_group_arn",
+    "description": "ARN of the subnet group"
+  },
+  {
+    "name": "cluster_endpoint_address",
+    "description": "DNS hostname of the cluster configuration endpoint"
+  },
+  {
+    "name": "acl_arn",
+    "description": "The ARN of the ACL"
+  },
+  {
+    "name": "cluster_arn",
+    "description": "The ARN of the cluster"
+  },
+  {
+    "name": "cluster_engine_patch_version",
+    "description": "Patch version number of the Redis engine used by the cluster"
+  },
+  {
+    "name": "parameter_group_id",
+    "description": "Name of the parameter group"
+  },
+  {
+    "name": "subnet_group_id",
+    "description": "Name of the subnet group"
+  },
+  {
+    "name": "subnet_group_vpc_id",
+    "description": "The VPC in which the subnet group exists"
+  }
+]

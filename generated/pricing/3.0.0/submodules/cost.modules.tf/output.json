@@ -1,0 +1,14 @@
+[
+  {
+    "name": "monthly",
+    "description": "Monthly costs"
+  },
+  {
+    "name": "costs",
+    "description": "Total costs"
+  },
+  {
+    "name": "hourly",
+    "description": "Hourly costs"
+  }
+]

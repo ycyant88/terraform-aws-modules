@@ -1,0 +1,27 @@
+module "eks" {
+  source                                       = "terraform-aws-modules/eks/aws"
+  version                                      = "1.6.0"
+  worker_groups                                = var.worker_groups
+  kubeconfig_aws_authenticator_command         = var.kubeconfig_aws_authenticator_command
+  cluster_security_group_id                    = var.cluster_security_group_id
+  map_roles                                    = var.map_roles
+  map_users                                    = var.map_users
+  tags                                         = var.tags
+  worker_security_group_id                     = var.worker_security_group_id
+  kubeconfig_aws_authenticator_env_variables   = var.kubeconfig_aws_authenticator_env_variables
+  cluster_name                                 = var.cluster_name
+  cluster_version                              = var.cluster_version
+  create_elb_service_linked_role               = var.create_elb_service_linked_role
+  worker_group_count                           = var.worker_group_count
+  kubeconfig_name                              = var.kubeconfig_name
+  manage_aws_auth                              = var.manage_aws_auth
+  map_accounts                                 = var.map_accounts
+  vpc_id                                       = var.vpc_id
+  kubeconfig_aws_authenticator_additional_args = var.kubeconfig_aws_authenticator_additional_args
+  worker_additional_security_group_ids         = var.worker_additional_security_group_ids
+  worker_sg_ingress_from_port                  = var.worker_sg_ingress_from_port
+  config_output_path                           = var.config_output_path
+  write_kubeconfig                             = var.write_kubeconfig
+  subnets                                      = var.subnets
+  workers_group_defaults                       = var.workers_group_defaults
+}

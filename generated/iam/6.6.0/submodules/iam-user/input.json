@@ -1,0 +1,142 @@
+[
+  {
+    "name": "policies",
+    "type": "map(string)",
+    "description": "Policies to attach to the IAM user in `{'static_name' = 'policy_arn'}` format",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "pgp_key",
+    "type": "string",
+    "description": "Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Used to encrypt password and access key",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_access_key",
+    "type": "bool",
+    "description": "Whether to create IAM access key",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "source_inline_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "override_inline_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "access_key_status",
+    "type": "string",
+    "description": "Access key status to apply",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssh_public_key",
+    "type": "string",
+    "description": "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_inline_policy",
+    "type": "bool",
+    "description": "Determines whether to create an inline policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Desired path for the IAM user",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "password_length",
+    "type": "number",
+    "description": "The length of the generated password",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssh_key_encoding",
+    "type": "string",
+    "description": "Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use SSH. To retrieve the public key in PEM format, use PEM",
+    "default": "\"SSH\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Desired name for the IAM user",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_login_profile",
+    "type": "bool",
+    "description": "Whether to create IAM user login profile",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "password_reset_required",
+    "type": "bool",
+    "description": "Whether the user should be forced to reset the generated password on first login",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_ssh_key",
+    "type": "bool",
+    "description": "Whether to upload a public ssh key to the IAM user",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "inline_policy_permissions",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for inline policy permissions",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "permissions_boundary",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the user",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without force_destroy a user with non-Terraform-managed access keys and login profile will fail to be destroyed",
+    "default": "false",
+    "required": false
+  }
+]

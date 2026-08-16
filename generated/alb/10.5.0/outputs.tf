@@ -1,0 +1,54 @@
+output "security_group_arn" {
+  value       = module.alb.security_group_arn
+  description = "Amazon Resource Name (ARN) of the security group"
+}
+
+output "security_group_id" {
+  value       = module.alb.security_group_id
+  description = "ID of the security group"
+}
+
+output "dns_name" {
+  value       = module.alb.dns_name
+  description = "The DNS name of the load balancer"
+}
+
+output "target_groups" {
+  value       = module.alb.target_groups
+  description = "Map of target groups created and their attributes"
+}
+
+output "route53_records" {
+  value       = module.alb.route53_records
+  description = "The Route53 records created and attached to the load balancer"
+}
+
+output "id" {
+  value       = module.alb.id
+  description = "The ID and ARN of the load balancer we created"
+}
+
+output "arn" {
+  value       = module.alb.arn
+  description = "The ID and ARN of the load balancer we created"
+}
+
+output "arn_suffix" {
+  value       = module.alb.arn_suffix
+  description = "ARN suffix of our load balancer - can be used with CloudWatch"
+}
+
+output "zone_id" {
+  value       = module.alb.zone_id
+  description = "The zone_id of the load balancer to assist with creating DNS records"
+}
+
+output "listeners" {
+  value       = module.alb.listeners
+  description = "Map of listeners created and their attributes"
+}
+
+output "listener_rules" {
+  value       = module.alb.listener_rules
+  description = "Map of listeners rules created and their attributes"
+}

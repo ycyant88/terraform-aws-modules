@@ -1,0 +1,20 @@
+module "eks__user_data" {
+  source                     = "terraform-aws-modules/eks/aws//modules/_user_data"
+  version                    = "21.8.0"
+  create                     = var.create
+  cluster_name               = var.cluster_name
+  pre_bootstrap_user_data    = var.pre_bootstrap_user_data
+  is_eks_managed_node_group  = var.is_eks_managed_node_group
+  cluster_auth_base64        = var.cluster_auth_base64
+  cluster_ip_family          = var.cluster_ip_family
+  cloudinit_post_nodeadm     = var.cloudinit_post_nodeadm
+  ami_type                   = var.ami_type
+  enable_bootstrap_user_data = var.enable_bootstrap_user_data
+  user_data_template_path    = var.user_data_template_path
+  cloudinit_pre_nodeadm      = var.cloudinit_pre_nodeadm
+  cluster_endpoint           = var.cluster_endpoint
+  cluster_service_cidr       = var.cluster_service_cidr
+  additional_cluster_dns_ips = var.additional_cluster_dns_ips
+  post_bootstrap_user_data   = var.post_bootstrap_user_data
+  bootstrap_extra_args       = var.bootstrap_extra_args
+}

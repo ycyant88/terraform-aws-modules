@@ -1,0 +1,26 @@
+module "cloudfront" {
+  source                        = "terraform-aws-modules/cloudfront/aws"
+  version                       = "2.5.0"
+  comment                       = var.comment
+  geo_restriction               = var.geo_restriction
+  create_distribution           = var.create_distribution
+  ordered_cache_behavior        = var.ordered_cache_behavior
+  wait_for_deployment           = var.wait_for_deployment
+  default_cache_behavior        = var.default_cache_behavior
+  aliases                       = var.aliases
+  price_class                   = var.price_class
+  retain_on_delete              = var.retain_on_delete
+  enabled                       = var.enabled
+  http_version                  = var.http_version
+  is_ipv6_enabled               = var.is_ipv6_enabled
+  web_acl_id                    = var.web_acl_id
+  tags                          = var.tags
+  create_origin_access_identity = var.create_origin_access_identity
+  origin_access_identities      = var.origin_access_identities
+  default_root_object           = var.default_root_object
+  logging_config                = var.logging_config
+  custom_error_response         = var.custom_error_response
+  origin                        = var.origin
+  origin_group                  = var.origin_group
+  viewer_certificate            = var.viewer_certificate
+}

@@ -1,0 +1,6 @@
+[
+  {
+    "name": "sns_topic_arn",
+    "description": "ARN of SNS topic"
+  }
+]

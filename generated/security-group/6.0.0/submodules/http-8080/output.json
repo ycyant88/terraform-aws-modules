@@ -1,0 +1,22 @@
+[
+  {
+    "name": "vpc_id",
+    "description": "The VPC ID"
+  },
+  {
+    "name": "owner_id",
+    "description": "The owner ID"
+  },
+  {
+    "name": "name",
+    "description": "The name of the security group"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN of the security group"
+  },
+  {
+    "name": "id",
+    "description": "The ID of the security group"
+  }
+]

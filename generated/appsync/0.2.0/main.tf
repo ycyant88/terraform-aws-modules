@@ -1,0 +1,27 @@
+module "appsync" {
+  source                          = "terraform-aws-modules/appsync/aws"
+  version                         = "0.2.0"
+  schema                          = var.schema
+  authentication_type             = var.authentication_type
+  logs_role_tags                  = var.logs_role_tags
+  tags                            = var.tags
+  api_keys                        = var.api_keys
+  dynamodb_allowed_actions        = var.dynamodb_allowed_actions
+  direct_lambda_response_template = var.direct_lambda_response_template
+  xray_enabled                    = var.xray_enabled
+  datasources                     = var.datasources
+  name                            = var.name
+  log_cloudwatch_logs_role_arn    = var.log_cloudwatch_logs_role_arn
+  resolvers                       = var.resolvers
+  create_graphql_api              = var.create_graphql_api
+  log_field_log_level             = var.log_field_log_level
+  graphql_api_tags                = var.graphql_api_tags
+  resolver_caching_ttl            = var.resolver_caching_ttl
+  logs_role_name                  = var.logs_role_name
+  create_logs_role                = var.create_logs_role
+  log_exclude_verbose_content     = var.log_exclude_verbose_content
+  lambda_allowed_actions          = var.lambda_allowed_actions
+  elasticsearch_allowed_actions   = var.elasticsearch_allowed_actions
+  direct_lambda_request_template  = var.direct_lambda_request_template
+  logging_enabled                 = var.logging_enabled
+}

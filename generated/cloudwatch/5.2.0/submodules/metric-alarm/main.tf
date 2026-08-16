@@ -1,0 +1,27 @@
+module "cloudwatch_metric-alarm" {
+  source                                = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
+  version                               = "5.2.0"
+  datapoints_to_alarm                   = var.datapoints_to_alarm
+  alarm_actions                         = var.alarm_actions
+  evaluate_low_sample_count_percentiles = var.evaluate_low_sample_count_percentiles
+  metric_query                          = var.metric_query
+  alarm_name                            = var.alarm_name
+  unit                                  = var.unit
+  period                                = var.period
+  ok_actions                            = var.ok_actions
+  tags                                  = var.tags
+  alarm_description                     = var.alarm_description
+  comparison_operator                   = var.comparison_operator
+  threshold                             = var.threshold
+  dimensions                            = var.dimensions
+  insufficient_data_actions             = var.insufficient_data_actions
+  extended_statistic                    = var.extended_statistic
+  treat_missing_data                    = var.treat_missing_data
+  create_metric_alarm                   = var.create_metric_alarm
+  evaluation_periods                    = var.evaluation_periods
+  actions_enabled                       = var.actions_enabled
+  statistic                             = var.statistic
+  threshold_metric_id                   = var.threshold_metric_id
+  metric_name                           = var.metric_name
+  namespace                             = var.namespace
+}

@@ -1,0 +1,27 @@
+module "sns" {
+  source                          = "terraform-aws-modules/sns/aws"
+  version                         = "5.1.0"
+  signature_version               = var.signature_version
+  enable_default_topic_policy     = var.enable_default_topic_policy
+  create_subscription             = var.create_subscription
+  subscriptions                   = var.subscriptions
+  create_topic_policy             = var.create_topic_policy
+  source_topic_policy_documents   = var.source_topic_policy_documents
+  tags                            = var.tags
+  name                            = var.name
+  use_name_prefix                 = var.use_name_prefix
+  application_feedback            = var.application_feedback
+  delivery_policy                 = var.delivery_policy
+  override_topic_policy_documents = var.override_topic_policy_documents
+  create                          = var.create
+  content_based_deduplication     = var.content_based_deduplication
+  fifo_topic                      = var.fifo_topic
+  firehose_feedback               = var.firehose_feedback
+  http_feedback                   = var.http_feedback
+  lambda_feedback                 = var.lambda_feedback
+  topic_policy                    = var.topic_policy
+  topic_policy_statements         = var.topic_policy_statements
+  display_name                    = var.display_name
+  kms_master_key_id               = var.kms_master_key_id
+  sqs_feedback                    = var.sqs_feedback
+}

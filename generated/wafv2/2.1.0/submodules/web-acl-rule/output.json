@@ -1,0 +1,14 @@
+[
+  {
+    "name": "name",
+    "description": "Name of the rule"
+  },
+  {
+    "name": "priority",
+    "description": "Priority of the rule"
+  },
+  {
+    "name": "web_acl_arn",
+    "description": "ARN of the Web ACL the rule is attached to"
+  }
+]

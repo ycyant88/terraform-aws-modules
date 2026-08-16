@@ -1,0 +1,22 @@
+module "security-group_winrm" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/winrm"
+  version                              = "6.0.0"
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  create                               = var.create
+  use_name_prefix                      = var.use_name_prefix
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  timeouts                             = var.timeouts
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  egress_rules                         = var.egress_rules
+  tags                                 = var.tags
+  preset_ingress_rules                 = var.preset_ingress_rules
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  ingress_rules                        = var.ingress_rules
+  vpc_associations                     = var.vpc_associations
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  region                               = var.region
+  name                                 = var.name
+  description                          = var.description
+}

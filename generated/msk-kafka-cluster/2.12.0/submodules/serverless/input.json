@@ -1,0 +1,65 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether cluster resources will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the MSK serverless cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cluster_policy",
+    "type": "bool",
+    "description": "Determines whether to create an MSK cluster policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_override_policy_documents",
+    "type": "list(string)",
+    "description": "Override policy documents for cluster policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of subnets in at least two different Availability Zones that host your client applications",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to the resources created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_source_policy_documents",
+    "type": "list(string)",
+    "description": "Source policy documents for cluster policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_statements",
+    "type": "any",
+    "description": "Map of policy statements for cluster policy",
+    "default": "null",
+    "required": false
+  }
+]

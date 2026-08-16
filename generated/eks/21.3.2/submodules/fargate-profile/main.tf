@@ -1,0 +1,27 @@
+module "eks_fargate-profile" {
+  source                        = "terraform-aws-modules/eks/aws//modules/fargate-profile"
+  version                       = "21.3.2"
+  create                        = var.create
+  partition                     = var.partition
+  create_iam_role               = var.create_iam_role
+  iam_role_arn                  = var.iam_role_arn
+  iam_role_use_name_prefix      = var.iam_role_use_name_prefix
+  name                          = var.name
+  timeouts                      = var.timeouts
+  account_id                    = var.account_id
+  iam_role_name                 = var.iam_role_name
+  iam_role_attach_cni_policy    = var.iam_role_attach_cni_policy
+  iam_role_additional_policies  = var.iam_role_additional_policies
+  create_iam_role_policy        = var.create_iam_role_policy
+  subnet_ids                    = var.subnet_ids
+  iam_role_permissions_boundary = var.iam_role_permissions_boundary
+  region                        = var.region
+  cluster_ip_family             = var.cluster_ip_family
+  iam_role_description          = var.iam_role_description
+  iam_role_tags                 = var.iam_role_tags
+  iam_role_policy_statements    = var.iam_role_policy_statements
+  cluster_name                  = var.cluster_name
+  tags                          = var.tags
+  iam_role_path                 = var.iam_role_path
+  selectors                     = var.selectors
+}

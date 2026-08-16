@@ -1,0 +1,20 @@
+module "autoscaling_launch_configuration" {
+  source                      = "terraform-aws-modules/autoscaling/aws//modules/launch_configuration"
+  version                     = "1.0.1"
+  root_block_device           = var.root_block_device
+  count                       = var.count
+  instance_type               = var.instance_type
+  user_data                   = var.user_data
+  spot_price                  = var.spot_price
+  placement_tenancy           = var.placement_tenancy
+  name                        = var.name
+  image_id                    = var.image_id
+  ebs_optimized               = var.ebs_optimized
+  ephemeral_block_device      = var.ephemeral_block_device
+  ebs_block_device            = var.ebs_block_device
+  iam_instance_profile        = var.iam_instance_profile
+  key_name                    = var.key_name
+  security_groups             = var.security_groups
+  associate_public_ip_address = var.associate_public_ip_address
+  enable_monitoring           = var.enable_monitoring
+}

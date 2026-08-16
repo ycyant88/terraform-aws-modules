@@ -1,0 +1,30 @@
+[
+  {
+    "name": "instances",
+    "type": "list(string)",
+    "description": "List of instances ID to place in the ELB pool",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_attachment",
+    "type": "bool",
+    "description": "Create the elb attachment or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "number_of_instances",
+    "type": "number",
+    "description": "Number of instances ID to place in the ELB pool",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "elb",
+    "type": "string",
+    "description": "The name of the ELB",
+    "default": "",
+    "required": true
+  }
+]

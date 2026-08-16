@@ -1,0 +1,26 @@
+module "security-group_http-80" {
+  source                                = "terraform-aws-modules/security-group/aws//modules/http-80"
+  version                               = "1.1.0"
+  auto_egress_rules                     = var.auto_egress_rules
+  auto_egress_with_self                 = var.auto_egress_with_self
+  vpc_id                                = var.vpc_id
+  name                                  = var.name
+  ingress_rules                         = var.ingress_rules
+  description                           = var.description
+  ingress_cidr_blocks                   = var.ingress_cidr_blocks
+  ingress_prefix_list_ids               = var.ingress_prefix_list_ids
+  egress_with_cidr_blocks               = var.egress_with_cidr_blocks
+  egress_with_source_security_group_id  = var.egress_with_source_security_group_id
+  ingress_with_cidr_blocks              = var.ingress_with_cidr_blocks
+  ingress_ipv6_cidr_blocks              = var.ingress_ipv6_cidr_blocks
+  ingress_with_self                     = var.ingress_with_self
+  egress_cidr_blocks                    = var.egress_cidr_blocks
+  egress_prefix_list_ids                = var.egress_prefix_list_ids
+  tags                                  = var.tags
+  ingress_with_source_security_group_id = var.ingress_with_source_security_group_id
+  egress_rules                          = var.egress_rules
+  egress_with_self                      = var.egress_with_self
+  egress_ipv6_cidr_blocks               = var.egress_ipv6_cidr_blocks
+  auto_ingress_rules                    = var.auto_ingress_rules
+  auto_ingress_with_self                = var.auto_ingress_with_self
+}

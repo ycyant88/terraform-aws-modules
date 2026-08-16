@@ -1,0 +1,184 @@
+[
+  {
+    "name": "auto_stop_configuration",
+    "type": "object({\n    enabled              = optional(bool)\n    idle_timeout_minutes = optional(number)\n  })",
+    "description": "The configuration for an application to automatically stop after a certain amount of time being idle",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "runtime_configuration",
+    "type": "list(object({\n    classification = string\n    properties     = optional(map(string))\n  }))",
+    "description": "The runtime configuration for the application",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "The type of application you want to start, such as `spark` or `hive`. Defaults to `spark`",
+    "default": "\"spark\"",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(string)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(string)\n  }))",
+    "description": "Security group ingress rules to add to the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "maximum_capacity",
+    "type": "object({\n    cpu    = string\n    disk   = optional(string)\n    memory = string\n  })",
+    "description": "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the application",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "network_configuration",
+    "type": "object({\n    security_group_ids = optional(list(string), [])\n    subnet_ids         = optional(list(string))\n  })",
+    "description": "The network configuration for customer VPC connectivity",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines whether the security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(string)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(string)\n  }))",
+    "description": "Security group egress rules to add to the security group created",
+    "default": "{\n  \"all-traffic\": {\n    \"cidr_ipv4\": \"0.0.0.0/0\",\n    \"description\": \"Allow all egress traffic\",\n    \"ip_protocol\": \"-1\"\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "initial_capacity",
+    "type": "map(object({\n    initial_capacity_config = optional(object({\n      worker_configuration = optional(object({\n        cpu    = string\n        disk   = optional(string)\n        memory = string\n      }))\n      worker_count = optional(number, 1)\n    }))\n    initial_capacity_type = string\n  }))",
+    "description": "The capacity to initialize when the application is created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "interactive_configuration",
+    "type": "object({\n    livy_endpoint_enabled = optional(bool)\n    studio_enabled        = optional(bool)\n  })",
+    "description": "Enables the interactive use cases to use when running an application",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "job_level_cost_allocation_configuration",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "Configuration block for job-level cost allocation",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "release_label",
+    "type": "string",
+    "description": "Release label for the Amazon EMR release",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "monitoring_configuration",
+    "type": "object({\n    cloudwatch_logging_configuration = optional(object({\n      enabled                = optional(bool)\n      log_group_name         = optional(string)\n      log_stream_name_prefix = optional(string)\n      encryption_key_arn     = optional(string)\n      log_types = optional(list(object({\n        name   = string\n        values = list(string)\n      })))\n    }))\n    managed_persistence_monitoring_configuration = optional(object({\n      enabled            = optional(bool)\n      encryption_key_arn = optional(string)\n    }))\n    prometheus_monitoring_configuration = optional(object({\n      remote_write_url = optional(string)\n    }))\n    s3_monitoring_configuration = optional(object({\n      log_uri            = optional(string)\n      encryption_key_arn = optional(string)\n    }))\n  })",
+    "description": "The monitoring configuration for the application",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "scheduler_configuration",
+    "type": "object({\n    max_concurrent_runs   = optional(number)\n    queue_timeout_minutes = optional(number)\n  })",
+    "description": "The scheduler configuration for the application",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "image_configuration",
+    "type": "object({\n    image_uri = string\n  })",
+    "description": "The image configuration applied to all worker types",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "release_label_filters",
+    "type": "map(object({\n    application = optional(string)\n    prefix      = optional(string)\n  }))",
+    "description": "Map of release label filters use to lookup a release label",
+    "default": "{\n  \"default\": {\n    \"prefix\": \"emr-7\"\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "architecture",
+    "type": "string",
+    "description": "The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auto_start_configuration",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "The configuration for an application to automatically start on job submission",
+    "default": "null",
+    "required": false
+  }
+]

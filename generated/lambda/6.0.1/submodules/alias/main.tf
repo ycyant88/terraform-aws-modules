@@ -1,0 +1,23 @@
+module "lambda_alias" {
+  source                                    = "terraform-aws-modules/lambda/aws//modules/alias"
+  version                                   = "6.0.1"
+  name                                      = var.name
+  function_name                             = var.function_name
+  destination_on_failure                    = var.destination_on_failure
+  create                                    = var.create
+  create_qualified_alias_async_event_config = var.create_qualified_alias_async_event_config
+  create_version_allowed_triggers           = var.create_version_allowed_triggers
+  routing_additional_version_weights        = var.routing_additional_version_weights
+  maximum_retry_attempts                    = var.maximum_retry_attempts
+  allowed_triggers                          = var.allowed_triggers
+  event_source_mapping                      = var.event_source_mapping
+  refresh_alias                             = var.refresh_alias
+  description                               = var.description
+  maximum_event_age_in_seconds              = var.maximum_event_age_in_seconds
+  create_qualified_alias_allowed_triggers   = var.create_qualified_alias_allowed_triggers
+  function_version                          = var.function_version
+  destination_on_success                    = var.destination_on_success
+  use_existing_alias                        = var.use_existing_alias
+  create_async_event_config                 = var.create_async_event_config
+  create_version_async_event_config         = var.create_version_async_event_config
+}

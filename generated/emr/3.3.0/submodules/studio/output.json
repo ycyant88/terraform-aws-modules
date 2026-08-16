@@ -1,0 +1,74 @@
+[
+  {
+    "name": "user_iam_role_policy_name",
+    "description": "The name of the user role policy"
+  },
+  {
+    "name": "engine_security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the engine security group"
+  },
+  {
+    "name": "service_iam_role_policy_arn",
+    "description": "Service IAM role policy ARN"
+  },
+  {
+    "name": "user_iam_role_name",
+    "description": "User IAM role name"
+  },
+  {
+    "name": "workspace_security_group_id",
+    "description": "ID of the workspace security group"
+  },
+  {
+    "name": "url",
+    "description": "The unique access URL of the Amazon EMR Studio"
+  },
+  {
+    "name": "service_iam_role_policy_name",
+    "description": "The name of the service role policy"
+  },
+  {
+    "name": "user_iam_role_unique_id",
+    "description": "Stable and unique string identifying the user IAM role"
+  },
+  {
+    "name": "user_iam_role_policy_arn",
+    "description": "User IAM role policy ARN"
+  },
+  {
+    "name": "user_iam_role_policy_id",
+    "description": "User IAM role policy ID"
+  },
+  {
+    "name": "engine_security_group_id",
+    "description": "ID of the engine security group"
+  },
+  {
+    "name": "arn",
+    "description": "ARN of the studio"
+  },
+  {
+    "name": "service_iam_role_name",
+    "description": "Service IAM role name"
+  },
+  {
+    "name": "service_iam_role_unique_id",
+    "description": "Stable and unique string identifying the service IAM role"
+  },
+  {
+    "name": "service_iam_role_policy_id",
+    "description": "Service IAM role policy ID"
+  },
+  {
+    "name": "workspace_security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the workspace security group"
+  },
+  {
+    "name": "service_iam_role_arn",
+    "description": "Service IAM role ARN"
+  },
+  {
+    "name": "user_iam_role_arn",
+    "description": "User IAM role ARN"
+  }
+]

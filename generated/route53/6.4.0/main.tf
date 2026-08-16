@@ -1,0 +1,25 @@
+module "route53" {
+  source                         = "terraform-aws-modules/route53/aws"
+  version                        = "6.4.0"
+  tags                           = var.tags
+  create_zone                    = var.create_zone
+  ignore_vpc                     = var.ignore_vpc
+  timeouts                       = var.timeouts
+  vpc_association_authorizations = var.vpc_association_authorizations
+  dnssec_kms_key_arn             = var.dnssec_kms_key_arn
+  create                         = var.create
+  private_zone                   = var.private_zone
+  comment                        = var.comment
+  force_destroy                  = var.force_destroy
+  enable_dnssec                  = var.enable_dnssec
+  dnssec_kms_key_aliases         = var.dnssec_kms_key_aliases
+  dnssec_kms_key_tags            = var.dnssec_kms_key_tags
+  vpc_id                         = var.vpc_id
+  vpc                            = var.vpc
+  create_dnssec_kms_key          = var.create_dnssec_kms_key
+  delegation_set_id              = var.delegation_set_id
+  enable_accelerated_recovery    = var.enable_accelerated_recovery
+  name                           = var.name
+  dnssec_kms_key_description     = var.dnssec_kms_key_description
+  records                        = var.records
+}

@@ -1,0 +1,43 @@
+default_root_object = null
+
+is_ipv6_enabled = null
+
+default_cache_behavior = null
+
+aliases = null
+
+price_class = null
+
+wait_for_deployment = true
+
+origin = null
+
+origin_group = {}
+
+create_distribution = true
+
+origin_access_identities = {}
+
+web_acl_id = null
+
+geo_restriction = {}
+
+ordered_cache_behavior = []
+
+tags = null
+
+viewer_certificate = { "cloudfront_default_certificate" : true, "minimum_protocol_version" : "TLSv1" }
+
+logging_config = {}
+
+create_origin_access_identity = false
+
+comment = null
+
+enabled = true
+
+http_version = "http2"
+
+retain_on_delete = false
+
+custom_error_response = {}

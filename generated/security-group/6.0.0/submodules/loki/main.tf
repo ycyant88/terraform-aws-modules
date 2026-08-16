@@ -1,0 +1,22 @@
+module "security-group_loki" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/loki"
+  version                              = "6.0.0"
+  create                               = var.create
+  tags                                 = var.tags
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  use_name_prefix                      = var.use_name_prefix
+  preset_ingress_rules                 = var.preset_ingress_rules
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  region                               = var.region
+  name                                 = var.name
+  description                          = var.description
+  timeouts                             = var.timeouts
+  enable_exclusive_rules               = var.enable_exclusive_rules
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "cloudinit_pre_nodeadm",
+    "type": "list(object({\n    content      = string\n    content_type = optional(string)\n    filename     = optional(string)\n    merge_type   = optional(string)\n  }))",
+    "description": "Array of cloud-init document parts that are created before the nodeadm document part",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudinit_post_nodeadm",
+    "type": "list(object({\n    content      = string\n    content_type = optional(string)\n    filename     = optional(string)\n    merge_type   = optional(string)\n  }))",
+    "description": "Array of cloud-init document parts that are created after the nodeadm document part",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_auth_base64",
+    "type": "string",
+    "description": "Base64 encoded CA of associated EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "post_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is appended to the user data script after of the EKS bootstrap script. Not used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bootstrap_extra_args",
+    "type": "string",
+    "description": "Additional arguments passed to the bootstrap script. When `ami_type` = `BOTTLEROCKET_*`; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ami_type",
+    "type": "string",
+    "description": "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values",
+    "default": "\"AL2023_x86_64_STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_service_cidr",
+    "type": "string",
+    "description": "The CIDR block (IPv4 or IPv6) used by the cluster to assign Kubernetes service IP addresses. This is derived from the cluster itself",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_ip_family",
+    "type": "string",
+    "description": "The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`",
+    "default": "\"ipv4\"",
+    "required": false
+  },
+  {
+    "name": "pre_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "is_eks_managed_node_group",
+    "type": "bool",
+    "description": "Determines whether the user data is used on nodes in an EKS managed node group. Used to determine if user data will be appended or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "additional_cluster_dns_ips",
+    "type": "list(string)",
+    "description": "Additional DNS IP addresses to use for the cluster. Only used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "user_data_template_path",
+    "type": "string",
+    "description": "Path to a local, custom user data template file to use when rendering user data",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether to create user-data or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_bootstrap_user_data",
+    "type": "bool",
+    "description": "Determines whether the bootstrap configurations are populated within the user data template",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Endpoint of associated EKS cluster",
+    "default": "\"\"",
+    "required": false
+  }
+]

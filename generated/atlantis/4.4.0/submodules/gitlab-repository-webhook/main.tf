@@ -1,0 +1,8 @@
+module "atlantis_gitlab-repository-webhook" {
+  source         = "terraform-aws-modules/atlantis/aws//modules/gitlab-repository-webhook"
+  version        = "4.4.0"
+  webhook_secret = var.webhook_secret
+  create         = var.create
+  repositories   = var.repositories
+  webhook_url    = var.webhook_url
+}

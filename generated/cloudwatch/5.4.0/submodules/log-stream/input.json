@@ -1,0 +1,23 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the Cloudwatch log stream",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A name for the log stream",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_group_name",
+    "type": "string",
+    "description": "A name of the log group",
+    "default": "null",
+    "required": false
+  }
+]

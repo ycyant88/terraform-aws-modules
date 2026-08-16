@@ -1,0 +1,100 @@
+[
+  {
+    "name": "ecr_repo_tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to ECR repository",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "build_args",
+    "type": "map(string)",
+    "description": "A map of Docker build arguments.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ecr_address",
+    "type": "string",
+    "description": "Address of ECR repository for cross-account container image pulling (optional). Option `create_ecr_repo` must be `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "image_tag",
+    "type": "string",
+    "description": "Image tag to use. If not specified current timestamp in format 'YYYYMMDDhhmmss' will be used. This can lead to unnecessary rebuilds.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "image_tag_mutability",
+    "type": "string",
+    "description": "The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`",
+    "default": "\"MUTABLE\"",
+    "required": false
+  },
+  {
+    "name": "ecr_force_delete",
+    "type": "bool",
+    "description": "If true, will delete the repository even if it contains images.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "source_path",
+    "type": "string",
+    "description": "Path to folder containing application code",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_ecr_repo",
+    "type": "bool",
+    "description": "Controls whether ECR repository for Lambda image should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "docker_file_path",
+    "type": "string",
+    "description": "Path to Dockerfile in source package",
+    "default": "\"Dockerfile\"",
+    "required": false
+  },
+  {
+    "name": "ecr_repo_lifecycle_policy",
+    "type": "string",
+    "description": "A JSON formatted ECR lifecycle policy to automate the cleaning up of unused images.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ecr_repo",
+    "type": "string",
+    "description": "Name of ECR repository to use or to create",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "scan_on_push",
+    "type": "bool",
+    "description": "Indicates whether images are scanned after being pushed to the repository",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "keep_remotely",
+    "type": "bool",
+    "description": "Whether to keep Docker image in the remote registry on destroy operation.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "platform",
+    "type": "string",
+    "description": "The target architecture platform to build the image for.",
+    "default": "null",
+    "required": false
+  }
+]

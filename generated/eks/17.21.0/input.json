@@ -1,0 +1,492 @@
+[
+  {
+    "name": "kubeconfig_aws_authenticator_additional_args",
+    "type": "list(string)",
+    "description": "Any additional arguments to pass to the authenticator such as the role to assume. e.g. [\"-r\", \"MyEksRole\"].",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "manage_worker_iam_resources",
+    "type": "bool",
+    "description": "Whether to let the module manage worker IAM resources. If set to false, iam_instance_profile_name must be specified for workers.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "fargate_pod_execution_role_name",
+    "type": "string",
+    "description": "The IAM Role that provides permissions for the EKS Fargate Profile.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "worker_ami_name_filter",
+    "type": "string",
+    "description": "Name filter for AWS EKS worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "Kubernetes version to use for the EKS cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_output_path",
+    "type": "string",
+    "description": "Where to save the Kubectl config file (if `write_kubeconfig = true`). Assumed to be a directory if the value ends with a forward slash `/`.",
+    "default": "\"./\"",
+    "required": false
+  },
+  {
+    "name": "map_users",
+    "type": "list(object({\n    userarn  = string\n    username = string\n    groups   = list(string)\n  }))",
+    "description": "Additional IAM users to add to the aws-auth configmap.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "worker_additional_security_group_ids",
+    "type": "list(string)",
+    "description": "A list of additional security group ids to attach to worker instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_aws_authenticator_env_variables",
+    "type": "map(string)",
+    "description": "Environment variables that should be used when executing the authenticator. e.g. { AWS_PROFILE = \"eks\"}.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_fargate_pod_execution_role",
+    "type": "bool",
+    "description": "Controls if the EKS Fargate pod execution IAM role should be created.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_log_kms_key_id",
+    "type": "string",
+    "description": "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "map_accounts",
+    "type": "list(string)",
+    "description": "Additional AWS account numbers to add to the aws-auth configmap.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "worker_ami_owner_id",
+    "type": "string",
+    "description": "The ID of the owner for the AMI to use for the AWS EKS workers. Valid values are an AWS account ID, 'self' (the current account), or an AWS owner alias (e.g. 'amazon', 'aws-marketplace', 'microsoft').",
+    "default": "\"amazon\"",
+    "required": false
+  },
+  {
+    "name": "permissions_boundary",
+    "type": "string",
+    "description": "If provided, all IAM roles will be created with this permissions boundary attached.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_create_endpoint_private_access_sg_rule",
+    "type": "bool",
+    "description": "Whether to create security group rules for the access to the Amazon EKS private API server endpoint. When is `true`, `cluster_endpoint_private_access_cidrs` must be setted.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_public_access",
+    "type": "bool",
+    "description": "Indicates whether or not the Amazon EKS public API server endpoint is enabled. When it's set to `false` ensure to have a proper private access with `cluster_endpoint_private_access = true`.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_egress_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks that are permitted for cluster egress traffic.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_file_permission",
+    "type": "string",
+    "description": "File permission of the Kubectl config file containing cluster configuration saved to `kubeconfig_output_path.`",
+    "default": "\"0600\"",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_aws_authenticator_command_args",
+    "type": "list(string)",
+    "description": "Default arguments passed to the authenticator command. Defaults to [token -i $cluster_name].",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_public_access_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks which can access the Amazon EKS public API server endpoint.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_config",
+    "type": "list(object({\n    provider_key_arn = string\n    resources        = list(string)\n  }))",
+    "description": "Configuration block with encryption configuration for the cluster. See examples/secrets_encryption/main.tf for example format",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "openid_connect_audiences",
+    "type": "list(string)",
+    "description": "List of OpenID Connect audience client IDs to add to the IRSA provider.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "aws_auth_additional_labels",
+    "type": "map(string)",
+    "description": "Additional kubernetes labels applied on aws-auth ConfigMap",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "worker_sg_ingress_from_port",
+    "type": "number",
+    "description": "Minimum port number from which pods will accept communication. Must be changed to a lower value if some pods in your cluster will expose a port lower than 1025 (e.g. 22, 80, or 443).",
+    "default": "1025",
+    "required": false
+  },
+  {
+    "name": "workers_additional_policies",
+    "type": "list(string)",
+    "description": "Additional policies to be added to workers",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "worker_create_security_group",
+    "type": "bool",
+    "description": "Whether to create a security group for the workers or attach the workers to `worker_security_group_id`.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "attach_worker_cni_policy",
+    "type": "bool",
+    "description": "Whether to attach the Amazon managed `AmazonEKS_CNI_Policy` IAM policy to the default worker IAM role. WARNING: If set `false` the permissions must be assigned to the `aws-node` DaemonSet pods via another method or nodes will not be able to join the cluster.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "worker_groups",
+    "type": "any",
+    "description": "A list of maps defining worker group configurations to be defined using AWS Launch Configurations. See workers_group_defaults for valid keys.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_create_security_group",
+    "type": "bool",
+    "description": "Whether to create a security group for the cluster or attach the cluster to `cluster_security_group_id`.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_path",
+    "type": "string",
+    "description": "If provided, all IAM roles will be created on this path.",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "create_eks",
+    "type": "bool",
+    "description": "Controls if EKS resources should be created (it affects almost all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_irsa",
+    "type": "bool",
+    "description": "Whether to create OpenID Connect Provider for EKS to enable IRSA",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_log_retention_in_days",
+    "type": "number",
+    "description": "Number of days to retain log events. Default retention - 90 days.",
+    "default": "90",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_aws_authenticator_command",
+    "type": "string",
+    "description": "Command to use to fetch AWS EKS credentials.",
+    "default": "\"aws-iam-authenticator\"",
+    "required": false
+  },
+  {
+    "name": "cluster_update_timeout",
+    "type": "string",
+    "description": "Timeout value when updating the EKS cluster.",
+    "default": "\"60m\"",
+    "required": false
+  },
+  {
+    "name": "eks_oidc_root_ca_thumbprint",
+    "type": "string",
+    "description": "Thumbprint of Root CA for EKS OIDC, Valid until 2037",
+    "default": "\"9e99a48a9960b14926bb7f3b02e22da2b0ab7280\"",
+    "required": false
+  },
+  {
+    "name": "default_platform",
+    "type": "string",
+    "description": "Default platform name. Valid options are `linux` and `windows`.",
+    "default": "\"linux\"",
+    "required": false
+  },
+  {
+    "name": "worker_create_cluster_primary_security_group_rules",
+    "type": "bool",
+    "description": "Whether to create security group rules to allow communication between pods on workers and pods using the primary cluster security group.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_service_ipv4_cidr",
+    "type": "string",
+    "description": "service ipv4 cidr for the kubernetes cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "worker_groups_launch_template",
+    "type": "any",
+    "description": "A list of maps defining worker group configurations to be defined using AWS Launch Templates. See workers_group_defaults for valid keys.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_create_timeout",
+    "type": "string",
+    "description": "Timeout value when creating the EKS cluster.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "manage_cluster_iam_resources",
+    "type": "bool",
+    "description": "Whether to let the module manage cluster IAM resources. If set to false, cluster_iam_role_name must be specified.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "manage_aws_auth",
+    "type": "bool",
+    "description": "Whether to apply the aws-auth configmap file.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "worker_ami_owner_id_windows",
+    "type": "string",
+    "description": "The ID of the owner for the AMI to use for the AWS EKS Windows workers. Valid values are an AWS account ID, 'self' (the current account), or an AWS owner alias (e.g. 'amazon', 'aws-marketplace', 'microsoft').",
+    "default": "\"amazon\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_private_access_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks which can access the Amazon EKS private API server endpoint. To use this `cluster_endpoint_private_access` and `cluster_create_endpoint_private_access_sg_rule` must be set to `true`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list(string)",
+    "description": "A list of subnets to place the EKS cluster and workers within.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_iam_role_name",
+    "type": "string",
+    "description": "IAM role name for the cluster. If manage_cluster_iam_resources is set to false, set this to reuse an existing IAM role. If manage_cluster_iam_resources is set to true, set this to force the created role name.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "node_groups_defaults",
+    "type": "any",
+    "description": "Map of values to be applied to all node groups. See `node_groups` module's documentation for more details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "fargate_profiles",
+    "type": "any",
+    "description": "Fargate profiles to create. See `fargate_profile` keys section in fargate submodule's README.md for more details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "write_kubeconfig",
+    "type": "bool",
+    "description": "Whether to write a Kubectl config file containing the cluster configuration. Saved to `kubeconfig_output_path`.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "map_roles",
+    "type": "list(object({\n    rolearn  = string\n    username = string\n    groups   = list(string)\n  }))",
+    "description": "Additional IAM roles to add to the aws-auth configmap.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "worker_ami_name_filter_windows",
+    "type": "string",
+    "description": "Name filter for AWS EKS Windows worker AMI. If not provided, the latest official AMI for the specified 'cluster_version' is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_enabled_log_types",
+    "type": "list(string)",
+    "description": "A list of the desired control plane logging to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_delete_timeout",
+    "type": "string",
+    "description": "Timeout value when deleting the EKS cluster.",
+    "default": "\"15m\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources. Tags added to launch configuration or templates override these values for ASG Tags only.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "fargate_subnets",
+    "type": "list(string)",
+    "description": "A list of subnets to place fargate workers within (if different from subnets).",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "workers_group_defaults",
+    "type": "any",
+    "description": "Override default values for target groups. See workers_group_defaults_defaults in local.tf for valid keys.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "worker_security_group_id",
+    "type": "string",
+    "description": "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the EKS cluster.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_private_access_sg",
+    "type": "list(string)",
+    "description": "List of security group IDs which can access the Amazon EKS private API server endpoint. To use this `cluster_endpoint_private_access` and `cluster_create_endpoint_private_access_sg_rule` must be set to `true`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_groups",
+    "type": "any",
+    "description": "Map of map of node groups to create. See `node_groups` module's documentation for more details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "workers_egress_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks that are permitted for workers egress traffic.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_id",
+    "type": "string",
+    "description": "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the workers",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to just the eks resource.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "workers_role_name",
+    "type": "string",
+    "description": "User defined workers role name.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster. Also used as a prefix in names of related resources.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kubeconfig_name",
+    "type": "string",
+    "description": "Override the default name used for items kubeconfig.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "worker_create_initial_lifecycle_hooks",
+    "type": "bool",
+    "description": "Whether to create initial lifecycle hooks provided in worker groups.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_private_access",
+    "type": "bool",
+    "description": "Indicates whether or not the Amazon EKS private API server endpoint is enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "wait_for_cluster_timeout",
+    "type": "number",
+    "description": "A timeout (in seconds) to wait for cluster to be available.",
+    "default": "300",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC where the cluster and workers will be deployed.",
+    "default": "null",
+    "required": false
+  }
+]

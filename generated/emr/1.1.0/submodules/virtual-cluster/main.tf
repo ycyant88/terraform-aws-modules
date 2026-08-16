@@ -1,0 +1,26 @@
+module "emr_virtual-cluster" {
+  source                                 = "terraform-aws-modules/emr/aws//modules/virtual-cluster"
+  version                                = "1.1.0"
+  create_cloudwatch_log_group            = var.create_cloudwatch_log_group
+  tags                                   = var.tags
+  eks_cluster_id                         = var.eks_cluster_id
+  role_name                              = var.role_name
+  iam_role_description                   = var.iam_role_description
+  oidc_provider_arn                      = var.oidc_provider_arn
+  s3_bucket_arns                         = var.s3_bucket_arns
+  iam_role_use_name_prefix               = var.iam_role_use_name_prefix
+  cloudwatch_log_group_arn               = var.cloudwatch_log_group_arn
+  labels                                 = var.labels
+  create_namespace                       = var.create_namespace
+  namespace                              = var.namespace
+  create_kubernetes_role                 = var.create_kubernetes_role
+  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
+  annotations                            = var.annotations
+  name                                   = var.name
+  iam_role_permissions_boundary          = var.iam_role_permissions_boundary
+  cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
+  create                                 = var.create
+  create_iam_role                        = var.create_iam_role
+  iam_role_path                          = var.iam_role_path
+  iam_role_additional_policies           = var.iam_role_additional_policies
+}

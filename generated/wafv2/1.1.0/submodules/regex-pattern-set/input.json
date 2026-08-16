@@ -1,0 +1,51 @@
+[
+  {
+    "name": "scope",
+    "type": "string",
+    "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`",
+    "default": "\"REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "regular_expressions",
+    "type": "set(string)",
+    "description": "Set of regex pattern strings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the regex pattern set",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the regex pattern set",
+    "default": "null",
+    "required": false
+  }
+]

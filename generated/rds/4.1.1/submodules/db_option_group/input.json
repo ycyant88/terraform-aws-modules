@@ -1,0 +1,65 @@
+[
+  {
+    "name": "major_engine_version",
+    "type": "string",
+    "description": "Specifies the major version of the engine that this option group should be associated with",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Define maximum timeout for deletion of `aws_db_option_group` resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether to use `name` as is or create a unique name beginning with `name` as the specified prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "engine_name",
+    "type": "string",
+    "description": "Specifies the name of the engine that this option group should be associated with",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "options",
+    "type": "any",
+    "description": "A list of Options to apply",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the option group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "option_group_description",
+    "type": "string",
+    "description": "The description of the option group",
+    "default": "null",
+    "required": false
+  }
+]

@@ -1,0 +1,23 @@
+role_permissions_boundary_arn = ""
+
+cluster_service_accounts = {}
+
+tags = {}
+
+force_detach_policies = false
+
+role_name = null
+
+role_path = "/"
+
+role_description = ""
+
+role_name_prefix = null
+
+role_policy_arns = {}
+
+max_session_duration = 43200
+
+allow_self_assume_role = false
+
+create_role = true

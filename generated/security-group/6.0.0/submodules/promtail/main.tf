@@ -1,0 +1,22 @@
+module "security-group_promtail" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/promtail"
+  version                              = "6.0.0"
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  region                               = var.region
+  timeouts                             = var.timeouts
+  create                               = var.create
+  tags                                 = var.tags
+  name                                 = var.name
+  preset_ingress_rules                 = var.preset_ingress_rules
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  use_name_prefix                      = var.use_name_prefix
+  description                          = var.description
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  ingress_rules                        = var.ingress_rules
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "cloudfront_distribution_last_modified_time",
+    "description": "The date and time the distribution was last modified."
+  },
+  {
+    "name": "cloudfront_distribution_etag",
+    "description": "The current version of the distribution's information."
+  },
+  {
+    "name": "connection_function_arn",
+    "description": "ARN of the connection function"
+  },
+  {
+    "name": "cloudfront_vpc_origins",
+    "description": "The IDS of the VPC origin created"
+  },
+  {
+    "name": "connection_function_etag",
+    "description": "ETag of the connection function"
+  },
+  {
+    "name": "connection_function_live_stage_etag",
+    "description": "ETag of the function's LIVE stage. Will be empty if the function has not been published"
+  },
+  {
+    "name": "cloudfront_distribution_hosted_zone_id",
+    "description": "The CloudFront Route 53 zone ID that can be used to route an Alias Resource Record Set to."
+  },
+  {
+    "name": "cloudfront_distribution_status",
+    "description": "The current status of the distribution. Deployed if the distribution's information is fully propagated throughout the Amazon CloudFront system."
+  },
+  {
+    "name": "cloudfront_distribution_domain_name",
+    "description": "The domain name corresponding to the distribution."
+  },
+  {
+    "name": "cloudfront_distribution_in_progress_validation_batches",
+    "description": "The number of invalidation batches currently in progress."
+  },
+  {
+    "name": "cloudfront_distribution_id",
+    "description": "The identifier for the distribution."
+  },
+  {
+    "name": "cloudfront_origin_access_controls",
+    "description": "The origin access controls created"
+  },
+  {
+    "name": "cloudfront_functions",
+    "description": "The CloudFront Functions created"
+  },
+  {
+    "name": "cloudfront_monitoring_subscription_id",
+    "description": " The ID of the CloudFront monitoring subscription, which corresponds to the `distribution_id`."
+  },
+  {
+    "name": "connection_function_id",
+    "description": "ID of the connection function"
+  },
+  {
+    "name": "connection_function_status",
+    "description": "Status of the connection function"
+  },
+  {
+    "name": "cloudfront_response_headers_policies",
+    "description": "The response headers policies created"
+  },
+  {
+    "name": "cloudfront_distribution_arn",
+    "description": "The ARN (Amazon Resource Name) for the distribution."
+  },
+  {
+    "name": "cloudfront_distribution_caller_reference",
+    "description": "Internal value used by CloudFront to allow future updates to the distribution configuration."
+  },
+  {
+    "name": "cloudfront_distribution_trusted_signers",
+    "description": "List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs"
+  }
+]

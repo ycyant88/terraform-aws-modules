@@ -1,0 +1,19 @@
+module "elasticache_serverless-cache" {
+  source                   = "terraform-aws-modules/elasticache/aws//modules/serverless-cache"
+  version                  = "1.2.4"
+  kms_key_id               = var.kms_key_id
+  snapshot_arns_to_restore = var.snapshot_arns_to_restore
+  create                   = var.create
+  description              = var.description
+  snapshot_retention_limit = var.snapshot_retention_limit
+  tags                     = var.tags
+  cache_usage_limits       = var.cache_usage_limits
+  daily_snapshot_time      = var.daily_snapshot_time
+  security_group_ids       = var.security_group_ids
+  subnet_ids               = var.subnet_ids
+  cache_name               = var.cache_name
+  engine                   = var.engine
+  timeouts                 = var.timeouts
+  major_engine_version     = var.major_engine_version
+  user_group_id            = var.user_group_id
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "name": "association_config",
+    "type": "map(object({\n    default_size_inspection_limit = string\n  }))",
+    "description": "Configuration for body inspection size limits per resource type. Keys are resource types (e.g., `CLOUDFRONT`, `API_GATEWAY`, `COGNITO_USER_POOL`, `APP_RUNNER_SERVICE`, `VERIFIED_ACCESS_INSTANCE`)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_logging_configuration",
+    "type": "bool",
+    "description": "Controls if a logging configuration should be created for the Web ACL",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "scope",
+    "type": "string",
+    "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`",
+    "default": "\"REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "logging_log_destination_configs",
+    "type": "list(string)",
+    "description": "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket ARNs for the logging destination",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "logging_filter",
+    "type": "object({\n    default_behavior = string\n    filters = list(object({\n      behavior    = string\n      requirement = string\n      conditions = list(object({\n        action_condition = optional(object({\n          action = string\n        }))\n        label_name_condition = optional(object({\n          label_name = string\n        }))\n      }))\n    }))\n  })",
+    "description": "A configuration block that specifies which web requests are kept in the logs and which are dropped",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "any",
+    "description": "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- `priority`          - (Required) Rule priority (lower = evaluated first)\n- `action`            - Action for standalone rules. Use string (`allow`, `block`, `count`, `captcha`, `challenge`) or object for custom response\n- `override_action`   - Override action for managed/rule group rules. Use string (`none`, `count`) or object\n- `statement`         - (Required) Rule statement configuration. See AWS provider docs for statement structure\n- `visibility_config` - CloudWatch metrics config. Auto-generated from rule key if omitted\n- `captcha_config`    - Optional CAPTCHA configuration\n- `challenge_config`  - Optional challenge configuration\n- `rule_labels`       - Optional list of labels to add to matching requests\n\nSee examples/complete for usage patterns.\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "custom_response_bodies",
+    "type": "map(object({\n    content      = string\n    content_type = string\n  }))",
+    "description": "Map of custom response body configurations. Key is the reference key, used in custom responses",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "captcha_config",
+    "type": "object({\n    immunity_time_property = object({\n      immunity_time = number\n    })\n  })",
+    "description": "CAPTCHA configuration for the Web ACL. Specifies how long a CAPTCHA timestamp is considered valid",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "logging_redacted_fields",
+    "type": "any",
+    "description": "The parts of the request that you want to keep out of the logs",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the Web ACL",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "token_domains",
+    "type": "list(string)",
+    "description": "Specifies the domains that AWS WAF should accept in a web request token. Enables token use across multiple protected resources",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "challenge_config",
+    "type": "object({\n    immunity_time_property = object({\n      immunity_time = number\n    })\n  })",
+    "description": "Challenge configuration for the Web ACL. Specifies how long a challenge timestamp is considered valid",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "association_resource_arns",
+    "type": "map(string)",
+    "description": "Map of resource ARNs to associate with the Web ACL. Key is a friendly name, value is the resource ARN",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the Web ACL",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "default_action",
+    "type": "any",
+    "description": "Action to perform if none of the rules contained in the Web ACL match. Use `allow` or `block` for simple actions, or provide an object for custom request handling/response. See examples for object structure",
+    "default": "\"allow\"",
+    "required": false
+  },
+  {
+    "name": "visibility_config",
+    "type": "object({\n    cloudwatch_metrics_enabled = optional(bool, true)\n    metric_name                = optional(string)\n    sampled_requests_enabled   = optional(bool, true)\n  })",
+    "description": "Visibility configuration for the Web ACL. Defines CloudWatch metrics configuration",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rule_json",
+    "type": "string",
+    "description": "Escape hatch: JSON string of WAF rules for cases where dynamic blocks cannot represent all provider features. Mutually exclusive with `rules`",
+    "default": "null",
+    "required": false
+  }
+]

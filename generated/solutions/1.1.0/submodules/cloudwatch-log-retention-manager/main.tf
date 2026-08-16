@@ -1,0 +1,20 @@
+module "solutions_cloudwatch-log-retention-manager" {
+  source                            = "terraform-aws-modules/solutions/aws//modules/cloudwatch-log-retention-manager"
+  version                           = "1.1.0"
+  source_path                       = var.source_path
+  create                            = var.create
+  create_package                    = var.create_package
+  description                       = var.description
+  cloudwatch_logs_retention_in_days = var.cloudwatch_logs_retention_in_days
+  schedule_expression               = var.schedule_expression
+  eventbridge_tags                  = var.eventbridge_tags
+  name                              = var.name
+  memory_size                       = var.memory_size
+  tags                              = var.tags
+  lambda_tags                       = var.lambda_tags
+  environment_variables             = var.environment_variables
+  putin_khuylo                      = var.putin_khuylo
+  timeout                           = var.timeout
+  eventbridge_role_name             = var.eventbridge_role_name
+  role_arn                          = var.role_arn
+}

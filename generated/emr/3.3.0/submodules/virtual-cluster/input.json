@@ -1,0 +1,191 @@
+[
+  {
+    "name": "cloudwatch_log_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the log group name (`cloudwatch_log_group_name`) is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "annotations",
+    "type": "map(string)",
+    "description": "A map of annotations to add to all Kubernetes resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_namespace",
+    "type": "bool",
+    "description": "Determines whether a Kubernetes namespace is created for EMR on EKS",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "Job execution IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_additional_policies",
+    "type": "map(string)",
+    "description": "Additional policies to be added to the job execution IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_kubernetes_role",
+    "type": "bool",
+    "description": "Determines whether a Kubernetes role is created for EMR on EKS",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "s3_bucket_arns",
+    "type": "list(string)",
+    "description": "S3 bucket ARNs for EMR on EKS job execution role to list, get objects, and put objects",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the job execution role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_skip_destroy",
+    "type": "bool",
+    "description": "Set to 'true' if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the Terraform state",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A map of labels to add to all Kubernetes resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Determines whether an IAM role is created for EMR on EKS job execution role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_name",
+    "type": "string",
+    "description": "Name to use on IAM role created for EMR on EKS job execution role as well as Kubernetes RBAC role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM job execution role name (`role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the job execution IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_arn",
+    "type": "string",
+    "description": "ARN of the log group to use for the cluster logs",
+    "default": "\"arn:aws:logs:*:*:*\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the EMR on EKS virtual cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "eks_cluster_name",
+    "type": "string",
+    "description": "EKS cluster name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "Kubernetes namespace for EMR on EKS",
+    "default": "\"emr-containers\"",
+    "required": false
+  },
+  {
+    "name": "eks_oidc_provider_arn",
+    "type": "string",
+    "description": "OIDC provider ARN for the EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Number of days to retain log events. Default retention - 7 days",
+    "default": "7",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_class",
+    "type": "string",
+    "description": "Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "type": "string",
+    "description": "The name of the log group. If a name is not provided, the default name format used is: `/emr-on-eks-logs/emr-workload/<NAMESPACE>`",
+    "default": "null",
+    "required": false
+  }
+]

@@ -1,0 +1,22 @@
+module "security-group_storm" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/storm"
+  version                              = "6.0.0"
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  create                               = var.create
+  region                               = var.region
+  tags                                 = var.tags
+  use_name_prefix                      = var.use_name_prefix
+  vpc_id                               = var.vpc_id
+  timeouts                             = var.timeouts
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  name                                 = var.name
+  description                          = var.description
+  preset_ingress_rules                 = var.preset_ingress_rules
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+}

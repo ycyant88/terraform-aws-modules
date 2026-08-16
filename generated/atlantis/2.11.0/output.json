@@ -1,0 +1,34 @@
+[
+  {
+    "name": "atlantis_url",
+    "description": "URL of Atlantis"
+  },
+  {
+    "name": "atlantis_url_events",
+    "description": "Webhook events URL of Atlantis"
+  },
+  {
+    "name": "atlantis_allowed_repo_names",
+    "description": "Git repositories where webhook should be created"
+  },
+  {
+    "name": "task_role_arn",
+    "description": "The Atlantis ECS task role arn"
+  },
+  {
+    "name": "vpc_id",
+    "description": "ID of the VPC that was created or passed in"
+  },
+  {
+    "name": "webhook_secret",
+    "description": "Webhook secret"
+  },
+  {
+    "name": "alb_dns_name",
+    "description": "Dns name of alb"
+  },
+  {
+    "name": "ecs_task_definition",
+    "description": "Task definition for ECS service (used for external triggers)"
+  }
+]

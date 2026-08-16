@@ -1,0 +1,128 @@
+[
+  {
+    "name": "ingress_cidr_ipv4",
+    "type": "map(string)",
+    "description": "Map of IPv4 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use the name (`name`) as a prefix, appending a random suffix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of security group",
+    "default": "\"Security Group managed by Terraform\"",
+    "required": false
+  },
+  {
+    "name": "revoke_rules_on_delete",
+    "type": "bool",
+    "description": "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "preset_ingress_rules",
+    "type": "map(object({\n    from_port   = number\n    to_port     = number\n    ip_protocol = string\n    description = optional(string)\n  }))",
+    "description": "Preset ingress rule definitions for this service. Defaults to the curated catalog set; pass `{}` to disable, or override individual entries",
+    "default": "{\n  \"consul-dns-tcp\": {\n    \"description\": \"Consul DNS\",\n    \"from_port\": 8600,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8600\n  },\n  \"consul-dns-udp\": {\n    \"description\": \"Consul DNS\",\n    \"from_port\": 8600,\n    \"ip_protocol\": \"udp\",\n    \"to_port\": 8600\n  },\n  \"consul-grpc\": {\n    \"description\": \"Consul gRPC\",\n    \"from_port\": 8502,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8502\n  },\n  \"consul-grpc-tls\": {\n    \"description\": \"Consul gRPC TLS\",\n    \"from_port\": 8503,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8503\n  },\n  \"consul-serf-lan-tcp\": {\n    \"description\": \"Serf LAN\",\n    \"from_port\": 8301,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8301\n  },\n  \"consul-serf-lan-udp\": {\n    \"description\": \"Serf LAN\",\n    \"from_port\": 8301,\n    \"ip_protocol\": \"udp\",\n    \"to_port\": 8301\n  },\n  \"consul-serf-wan-tcp\": {\n    \"description\": \"Serf WAN\",\n    \"from_port\": 8302,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8302\n  },\n  \"consul-serf-wan-udp\": {\n    \"description\": \"Serf WAN\",\n    \"from_port\": 8302,\n    \"ip_protocol\": \"udp\",\n    \"to_port\": 8302\n  },\n  \"consul-server\": {\n    \"description\": \"Consul server\",\n    \"from_port\": 8300,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8300\n  },\n  \"consul-webui-http\": {\n    \"description\": \"Consul web UI HTTP\",\n    \"from_port\": 8500,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8500\n  },\n  \"consul-webui-https\": {\n    \"description\": \"Consul web UI HTTPS\",\n    \"from_port\": 8501,\n    \"ip_protocol\": \"tcp\",\n    \"to_port\": 8501\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of security group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ingress_referenced_security_group_id",
+    "type": "map(string)",
+    "description": "Map of source security group IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the security group IDs. Use `self` as a value to reference the security group created by this module. Each entry produces one ingress rule per preset rule",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_exclusive_rules",
+    "type": "bool",
+    "description": "Whether to enforce that only the rules declared by this module exist on the security group. When true, out-of-band rules added via the AWS console or other Terraform configurations will be reverted on next apply",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ingress_cidr_ipv6",
+    "type": "map(string)",
+    "description": "Map of IPv6 CIDRs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the CIDRs. Each entry produces one ingress rule per preset rule",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of the VPC where the security group is created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(number)\n  }))",
+    "description": "Additional security group ingress rules to merge with the preset rules",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create and delete timeout configurations for the security group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ingress_prefix_list_id",
+    "type": "map(string)",
+    "description": "Map of prefix list IDs to apply across the preset ingress rules. Map keys are user-supplied identifiers; values are the prefix list IDs. Each entry produces one ingress rule per preset rule",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(number)\n  }))",
+    "description": "Security group egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_associations",
+    "type": "map(object({\n    vpc_id = string\n  }))",
+    "description": "Map of VPC IDs to associate the security group to",
+    "default": "{}",
+    "required": false
+  }
+]

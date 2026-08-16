@@ -1,0 +1,134 @@
+[
+  {
+    "name": "appautoscaling_policy_arn",
+    "description": "The ARN assigned by AWS to the scaling policy"
+  },
+  {
+    "name": "bootstrap_brokers_public",
+    "description": "Comma separated list of one or more hostname:port pairs of Kafka brokers suitable to bootstrap connectivity to the Kafka cluster"
+  },
+  {
+    "name": "bootstrap_brokers_vpc_connectivity",
+    "description": "Comma separated list of one or more hostname:port pairs of Kafka brokers suitable to bootstrap connectivity to the Kafka cluster"
+  },
+  {
+    "name": "cluster_name",
+    "description": "Name of the MSK cluster"
+  },
+  {
+    "name": "zookeeper_connect_string_tls",
+    "description": "A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically"
+  },
+  {
+    "name": "bootstrap_brokers_public_sasl_iam",
+    "description": "One or more DNS names (or IP addresses) and SASL IAM port pairs"
+  },
+  {
+    "name": "vpc_connections",
+    "description": "A map of output attributes for the VPC connections created"
+  },
+  {
+    "name": "appautoscaling_policy_name",
+    "description": "The scaling policy's name"
+  },
+  {
+    "name": "topics",
+    "description": "A map of output attributes for the MSK topics created"
+  },
+  {
+    "name": "connect_custom_plugins",
+    "description": "A map of output attributes for the connect custom plugins created"
+  },
+  {
+    "name": "appautoscaling_policy_policy_type",
+    "description": "The scaling policy's type"
+  },
+  {
+    "name": "bootstrap_brokers_public_sasl_scram",
+    "description": "One or more DNS names (or IP addresses) and SASL SCRAM port pairs"
+  },
+  {
+    "name": "configuration_arn",
+    "description": "Amazon Resource Name (ARN) of the configuration"
+  },
+  {
+    "name": "scram_secret_association_id",
+    "description": "Amazon Resource Name (ARN) of the MSK cluster"
+  },
+  {
+    "name": "log_group_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the log group"
+  },
+  {
+    "name": "zookeeper_connect_string",
+    "description": "A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically"
+  },
+  {
+    "name": "connect_worker_configuration_latest_revision",
+    "description": "An ID of the latest successfully created revision of the worker configuration"
+  },
+  {
+    "name": "bootstrap_brokers_vpc_connectivity_sasl_iam",
+    "description": "One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity"
+  },
+  {
+    "name": "bootstrap_brokers_vpc_connectivity_sasl_scram",
+    "description": "One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity"
+  },
+  {
+    "name": "bootstrap_brokers_sasl_iam",
+    "description": "One or more DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if `encryption_in_transit_client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication_sasl_iam` is set to `true`"
+  },
+  {
+    "name": "bootstrap_brokers_public_tls",
+    "description": "One or more DNS names (or IP addresses) and TLS port pairs"
+  },
+  {
+    "name": "configuration_latest_revision",
+    "description": "Latest revision of the configuration"
+  },
+  {
+    "name": "schema_registries",
+    "description": "A map of output attributes for the schema registries created"
+  },
+  {
+    "name": "bootstrap_brokers_sasl_scram",
+    "description": "One or more DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if `encryption_in_transit_client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication_sasl_scram` is set to `true`"
+  },
+  {
+    "name": "bootstrap_brokers_tls",
+    "description": "One or more DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if `encryption_in_transit_client_broker` is set to `TLS_PLAINTEXT` or `TLS`"
+  },
+  {
+    "name": "bootstrap_brokers_vpc_connectivity_tls",
+    "description": "One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity"
+  },
+  {
+    "name": "cluster_uuid",
+    "description": "UUID of the MSK cluster, for use in IAM policies"
+  },
+  {
+    "name": "current_version",
+    "description": "Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`"
+  },
+  {
+    "name": "connect_worker_configuration_arn",
+    "description": "The Amazon Resource Name (ARN) of the worker configuration"
+  },
+  {
+    "name": "arn",
+    "description": "Amazon Resource Name (ARN) of the MSK cluster"
+  },
+  {
+    "name": "bootstrap_brokers",
+    "description": "Comma separated list of one or more hostname:port pairs of Kafka brokers suitable to bootstrap connectivity to the Kafka cluster"
+  },
+  {
+    "name": "bootstrap_brokers_plaintext",
+    "description": "Comma separated list of one or more hostname:port pairs of Kafka brokers suitable to bootstrap connectivity to the Kafka cluster. Contains a value if `encryption_in_transit_client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`"
+  },
+  {
+    "name": "schemas",
+    "description": "A map of output attributes for the schemas created"
+  }
+]

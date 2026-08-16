@@ -1,0 +1,25 @@
+module "security-group__templates" {
+  source                                = "terraform-aws-modules/security-group/aws//modules/_templates"
+  version                               = "1.21.0"
+  egress_cidr_blocks                    = var.egress_cidr_blocks
+  egress_ipv6_cidr_blocks               = var.egress_ipv6_cidr_blocks
+  egress_prefix_list_ids                = var.egress_prefix_list_ids
+  create                                = var.create
+  ingress_with_ipv6_cidr_blocks         = var.ingress_with_ipv6_cidr_blocks
+  ingress_cidr_blocks                   = var.ingress_cidr_blocks
+  tags                                  = var.tags
+  egress_with_cidr_blocks               = var.egress_with_cidr_blocks
+  egress_with_source_security_group_id  = var.egress_with_source_security_group_id
+  name                                  = var.name
+  ingress_rules                         = var.ingress_rules
+  ingress_with_self                     = var.ingress_with_self
+  ingress_ipv6_cidr_blocks              = var.ingress_ipv6_cidr_blocks
+  ingress_prefix_list_ids               = var.ingress_prefix_list_ids
+  egress_rules                          = var.egress_rules
+  egress_with_self                      = var.egress_with_self
+  egress_with_ipv6_cidr_blocks          = var.egress_with_ipv6_cidr_blocks
+  vpc_id                                = var.vpc_id
+  description                           = var.description
+  ingress_with_cidr_blocks              = var.ingress_with_cidr_blocks
+  ingress_with_source_security_group_id = var.ingress_with_source_security_group_id
+}

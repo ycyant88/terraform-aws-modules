@@ -1,0 +1,22 @@
+module "security-group_oracle" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/oracle"
+  version                              = "6.0.0"
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  region                               = var.region
+  description                          = var.description
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  ingress_rules                        = var.ingress_rules
+  create                               = var.create
+  tags                                 = var.tags
+  preset_ingress_rules                 = var.preset_ingress_rules
+  use_name_prefix                      = var.use_name_prefix
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  name                                 = var.name
+  timeouts                             = var.timeouts
+}

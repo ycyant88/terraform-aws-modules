@@ -1,0 +1,24 @@
+module "sns" {
+  source                                   = "terraform-aws-modules/sns/aws"
+  version                                  = "3.0.0"
+  http_success_feedback_role_arn           = var.http_success_feedback_role_arn
+  tags                                     = var.tags
+  lambda_success_feedback_sample_rate      = var.lambda_success_feedback_sample_rate
+  lambda_failure_feedback_role_arn         = var.lambda_failure_feedback_role_arn
+  sqs_success_feedback_sample_rate         = var.sqs_success_feedback_sample_rate
+  kms_master_key_id                        = var.kms_master_key_id
+  create_sns_topic                         = var.create_sns_topic
+  name_prefix                              = var.name_prefix
+  delivery_policy                          = var.delivery_policy
+  application_failure_feedback_role_arn    = var.application_failure_feedback_role_arn
+  name                                     = var.name
+  display_name                             = var.display_name
+  http_failure_feedback_role_arn           = var.http_failure_feedback_role_arn
+  lambda_success_feedback_role_arn         = var.lambda_success_feedback_role_arn
+  sqs_success_feedback_role_arn            = var.sqs_success_feedback_role_arn
+  sqs_failure_feedback_role_arn            = var.sqs_failure_feedback_role_arn
+  http_success_feedback_sample_rate        = var.http_success_feedback_sample_rate
+  policy                                   = var.policy
+  application_success_feedback_role_arn    = var.application_success_feedback_role_arn
+  application_success_feedback_sample_rate = var.application_success_feedback_sample_rate
+}

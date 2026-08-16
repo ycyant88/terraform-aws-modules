@@ -1,0 +1,22 @@
+module "security-group_kafka" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/kafka"
+  version                              = "6.0.0"
+  vpc_associations                     = var.vpc_associations
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  tags                                 = var.tags
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  use_name_prefix                      = var.use_name_prefix
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  region                               = var.region
+  name                                 = var.name
+  description                          = var.description
+  preset_ingress_rules                 = var.preset_ingress_rules
+  create                               = var.create
+  timeouts                             = var.timeouts
+}

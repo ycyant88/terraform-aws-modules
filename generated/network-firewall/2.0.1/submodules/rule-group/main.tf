@@ -1,0 +1,20 @@
+module "network-firewall_rule-group" {
+  source                     = "terraform-aws-modules/network-firewall/aws//modules/rule-group"
+  version                    = "2.0.1"
+  type                       = var.type
+  resource_policy_principals = var.resource_policy_principals
+  create                     = var.create
+  attach_resource_policy     = var.attach_resource_policy
+  ram_resource_associations  = var.ram_resource_associations
+  region                     = var.region
+  rules                      = var.rules
+  resource_policy_actions    = var.resource_policy_actions
+  resource_policy            = var.resource_policy
+  tags                       = var.tags
+  capacity                   = var.capacity
+  description                = var.description
+  create_resource_policy     = var.create_resource_policy
+  encryption_configuration   = var.encryption_configuration
+  name                       = var.name
+  rule_group                 = var.rule_group
+}

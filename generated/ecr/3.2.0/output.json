@@ -1,0 +1,18 @@
+[
+  {
+    "name": "repository_registry_id",
+    "description": "The registry ID where the repository was created"
+  },
+  {
+    "name": "repository_url",
+    "description": "The URL of the repository"
+  },
+  {
+    "name": "repository_name",
+    "description": "Name of the repository"
+  },
+  {
+    "name": "repository_arn",
+    "description": "Full ARN of the repository"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "redshift_cluster_id",
+    "description": ""
+  },
+  {
+    "name": "redshift_cluster_address",
+    "description": ""
+  },
+  {
+    "name": "redshift_cluster_endpoint",
+    "description": ""
+  },
+  {
+    "name": "subnet_group_id",
+    "description": ""
+  },
+  {
+    "name": "security_group_id",
+    "description": ""
+  }
+]

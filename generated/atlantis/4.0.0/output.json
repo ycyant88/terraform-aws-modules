@@ -1,0 +1,22 @@
+[
+  {
+    "name": "url",
+    "description": "URL of Atlantis"
+  },
+  {
+    "name": "alb",
+    "description": "ALB created and all of its associated outputs"
+  },
+  {
+    "name": "cluster",
+    "description": "ECS cluster created and all of its associated outputs"
+  },
+  {
+    "name": "service",
+    "description": "ECS service created and all of its associated outputs"
+  },
+  {
+    "name": "efs",
+    "description": "EFS created and all of its associated outputs"
+  }
+]

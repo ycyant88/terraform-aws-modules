@@ -1,0 +1,51 @@
+[
+  {
+    "name": "create_eks",
+    "type": "bool",
+    "description": "Controls if EKS resources should be created (it affects almost all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of parent cluster",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "default_iam_role_arn",
+    "type": "string",
+    "description": "ARN of the default IAM worker role to use if one is not specified in `var.node_groups` or `var.node_groups_defaults`",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "workers_group_defaults",
+    "type": "any",
+    "description": "Workers group defaults from parent",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "node_groups_defaults",
+    "type": "any",
+    "description": "map of maps of node groups to create. See \"`node_groups` and `node_groups_defaults` keys\" section in README.md for more details",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "node_groups",
+    "type": "any",
+    "description": "Map of maps of `eks_node_groups` to create. See \"`node_groups` and `node_groups_defaults` keys\" section in README.md for more details",
+    "default": "{}",
+    "required": false
+  }
+]

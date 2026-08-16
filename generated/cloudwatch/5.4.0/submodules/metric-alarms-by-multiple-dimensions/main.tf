@@ -1,0 +1,27 @@
+module "cloudwatch_metric-alarms-by-multiple-dimensions" {
+  source                                = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarms-by-multiple-dimensions"
+  version                               = "5.4.0"
+  evaluate_low_sample_count_percentiles = var.evaluate_low_sample_count_percentiles
+  metric_query                          = var.metric_query
+  alarm_name                            = var.alarm_name
+  alarm_name_delimiter                  = var.alarm_name_delimiter
+  metric_name                           = var.metric_name
+  period                                = var.period
+  statistic                             = var.statistic
+  alarm_actions                         = var.alarm_actions
+  alarm_description                     = var.alarm_description
+  evaluation_periods                    = var.evaluation_periods
+  threshold                             = var.threshold
+  tags                                  = var.tags
+  insufficient_data_actions             = var.insufficient_data_actions
+  ok_actions                            = var.ok_actions
+  create_metric_alarm                   = var.create_metric_alarm
+  unit                                  = var.unit
+  namespace                             = var.namespace
+  actions_enabled                       = var.actions_enabled
+  datapoints_to_alarm                   = var.datapoints_to_alarm
+  dimensions                            = var.dimensions
+  extended_statistic                    = var.extended_statistic
+  comparison_operator                   = var.comparison_operator
+  treat_missing_data                    = var.treat_missing_data
+}

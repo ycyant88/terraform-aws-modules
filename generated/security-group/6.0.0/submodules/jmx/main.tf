@@ -1,0 +1,22 @@
+module "security-group_jmx" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/jmx"
+  version                              = "6.0.0"
+  use_name_prefix                      = var.use_name_prefix
+  description                          = var.description
+  vpc_id                               = var.vpc_id
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  vpc_associations                     = var.vpc_associations
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  ingress_rules                        = var.ingress_rules
+  tags                                 = var.tags
+  name                                 = var.name
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  timeouts                             = var.timeouts
+  preset_ingress_rules                 = var.preset_ingress_rules
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  egress_rules                         = var.egress_rules
+  create                               = var.create
+  region                               = var.region
+}

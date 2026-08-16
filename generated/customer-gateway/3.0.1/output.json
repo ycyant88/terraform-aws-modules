@@ -1,0 +1,10 @@
+[
+  {
+    "name": "ids",
+    "description": "List of IDs of Customer Gateway"
+  },
+  {
+    "name": "customer_gateway",
+    "description": "Map of Customer Gateway attributes"
+  }
+]

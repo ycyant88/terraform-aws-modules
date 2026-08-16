@@ -1,0 +1,24 @@
+module "emr_serverless" {
+  source                         = "terraform-aws-modules/emr/aws//modules/serverless"
+  version                        = "2.4.1"
+  security_group_rules           = var.security_group_rules
+  tags                           = var.tags
+  auto_start_configuration       = var.auto_start_configuration
+  release_label                  = var.release_label
+  release_label_prefix           = var.release_label_prefix
+  architecture                   = var.architecture
+  auto_stop_configuration        = var.auto_stop_configuration
+  image_configuration            = var.image_configuration
+  initial_capacity               = var.initial_capacity
+  name                           = var.name
+  type                           = var.type
+  create_security_group          = var.create_security_group
+  security_group_use_name_prefix = var.security_group_use_name_prefix
+  interactive_configuration      = var.interactive_configuration
+  maximum_capacity               = var.maximum_capacity
+  security_group_name            = var.security_group_name
+  security_group_tags            = var.security_group_tags
+  create                         = var.create
+  network_configuration          = var.network_configuration
+  security_group_description     = var.security_group_description
+}

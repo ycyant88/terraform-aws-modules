@@ -1,0 +1,66 @@
+[
+  {
+    "name": "spot_fleet_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "instance_iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "instance_iam_instance_profile_arn",
+    "description": "ARN assigned by AWS to the instance profile"
+  },
+  {
+    "name": "spot_fleet_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "job_queues",
+    "description": "Map of job queues created and their associated attributes"
+  },
+  {
+    "name": "compute_environments",
+    "description": "Map of compute environments created and their associated attributes"
+  },
+  {
+    "name": "instance_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "service_iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "service_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "service_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "spot_fleet_iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "scheduling_policies",
+    "description": "Map of scheduling policies created and their associated attributes"
+  },
+  {
+    "name": "instance_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "instance_iam_instance_profile_id",
+    "description": "Instance profile's ID"
+  },
+  {
+    "name": "instance_iam_instance_profile_unique",
+    "description": "Stable and unique string identifying the IAM instance profile"
+  },
+  {
+    "name": "job_definitions",
+    "description": "Map of job defintions created and their associated attributes"
+  }
+]

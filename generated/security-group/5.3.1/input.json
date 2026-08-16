@@ -1,0 +1,394 @@
+[
+  {
+    "name": "auto_groups",
+    "type": "map(map(list(string)))",
+    "description": "Map of groups of security group rules to use to generate modules (see update_groups.sh)",
+    "default": "{\n  \"activemq\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"activemq-5671-tcp\",\n      \"activemq-8883-tcp\",\n      \"activemq-61614-tcp\",\n      \"activemq-61617-tcp\",\n      \"activemq-61619-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"alertmanager\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"alertmanager-9093-tcp\",\n      \"alertmanager-9094-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"carbon-relay-ng\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"carbon-line-in-tcp\",\n      \"carbon-line-in-udp\",\n      \"carbon-pickle-tcp\",\n      \"carbon-pickle-udp\",\n      \"carbon-gui-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"cassandra\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"cassandra-clients-tcp\",\n      \"cassandra-thrift-clients-tcp\",\n      \"cassandra-jmx-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"consul\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"consul-tcp\",\n      \"consul-grpc-tcp\",\n      \"consul-grpc-tcp-tls\",\n      \"consul-webui-http-tcp\",\n      \"consul-webui-https-tcp\",\n      \"consul-dns-tcp\",\n      \"consul-dns-udp\",\n      \"consul-serf-lan-tcp\",\n      \"consul-serf-lan-udp\",\n      \"consul-serf-wan-tcp\",\n      \"consul-serf-wan-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"dax-cluster\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"dax-cluster-unencrypted-tcp\",\n      \"dax-cluster-encrypted-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"docker-swarm\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"docker-swarm-mngmt-tcp\",\n      \"docker-swarm-node-tcp\",\n      \"docker-swarm-node-udp\",\n      \"docker-swarm-overlay-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"elasticsearch\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"elasticsearch-rest-tcp\",\n      \"elasticsearch-java-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"etcd\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"etcd-client-tcp\",\n      \"etcd-peer-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"grafana\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"grafana-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"graphite-statsd\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"graphite-webui\",\n      \"graphite-2003-tcp\",\n      \"graphite-2004-tcp\",\n      \"graphite-2023-tcp\",\n      \"graphite-2024-tcp\",\n      \"graphite-8080-tcp\",\n      \"graphite-8125-tcp\",\n      \"graphite-8125-udp\",\n      \"graphite-8126-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"http-80\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"http-80-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"http-8080\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"http-8080-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"https-443\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"https-443-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"https-8443\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"https-8443-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ipsec-4500\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ipsec-4500-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ipsec-500\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ipsec-500-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"kafka\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"kafka-broker-tcp\",\n      \"kafka-broker-tls-tcp\",\n      \"kafka-broker-tls-public-tcp\",\n      \"kafka-broker-sasl-scram-tcp\",\n      \"kafka-broker-sasl-scram-tcp\",\n      \"kafka-broker-sasl-iam-tcp\",\n      \"kafka-broker-sasl-iam-public-tcp\",\n      \"kafka-jmx-exporter-tcp\",\n      \"kafka-node-exporter-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"kibana\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"kibana-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"kubernetes-api\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"kubernetes-api-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ldap\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ldap-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ldaps\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ldaps-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"logstash\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"logstash-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"loki\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"loki-grafana\",\n      \"loki-grafana-grpc\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"memcached\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"memcached-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"minio\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"minio-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"mongodb\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"mongodb-27017-tcp\",\n      \"mongodb-27018-tcp\",\n      \"mongodb-27019-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"mssql\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"mssql-tcp\",\n      \"mssql-udp\",\n      \"mssql-analytics-tcp\",\n      \"mssql-broker-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"mysql\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"mysql-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"nfs\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"nfs-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"nomad\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"nomad-http-tcp\",\n      \"nomad-rpc-tcp\",\n      \"nomad-serf-tcp\",\n      \"nomad-serf-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ntp\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ntp-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"openvpn\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"openvpn-udp\",\n      \"openvpn-tcp\",\n      \"openvpn-https-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"oracle-db\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"oracle-db-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"postgresql\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"postgresql-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"prometheus\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"prometheus-http-tcp\",\n      \"prometheus-pushgateway-http-tcp\",\n      \"prometheus-node-exporter-http-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"promtail\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"promtail-http\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"puppet\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"puppet-tcp\",\n      \"puppetdb-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"rabbitmq\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"rabbitmq-4369-tcp\",\n      \"rabbitmq-5671-tcp\",\n      \"rabbitmq-5672-tcp\",\n      \"rabbitmq-15672-tcp\",\n      \"rabbitmq-25672-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"rdp\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"rdp-tcp\",\n      \"rdp-udp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"redis\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"redis-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"redshift\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"redshift-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"smtp\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"smtp-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"smtp-submission\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"smtp-submission-587-tcp\",\n      \"smtp-submission-2587-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"smtps\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"smtps-465-tcp\",\n      \"smtps-2465-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"solr\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"solr-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"splunk\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"splunk-indexer-tcp\",\n      \"splunk-web-tcp\",\n      \"splunk-splunkd-tcp\",\n      \"splunk-hec-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"squid\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"squid-proxy-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"ssh\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"ssh-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"storm\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"storm-nimbus-tcp\",\n      \"storm-ui-tcp\",\n      \"storm-supervisor-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"vault\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"vault-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"wazuh\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"wazuh-server-agent-connection-tcp\",\n      \"wazuh-server-agent-connection-udp\",\n      \"wazuh-server-agent-enrollment\",\n      \"wazuh-server-agent-cluster-daemon\",\n      \"wazuh-server-syslog-collector-tcp\",\n      \"wazuh-server-syslog-collector-udp\",\n      \"wazuh-server-restful-api\",\n      \"wazuh-indexer-restful-api\",\n      \"wazuh-dashboard\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"web\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"http-80-tcp\",\n      \"http-8080-tcp\",\n      \"https-443-tcp\",\n      \"web-jmx-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"winrm\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"winrm-http-tcp\",\n      \"winrm-https-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"zabbix\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"zabbix-server\",\n      \"zabbix-proxy\",\n      \"zabbix-agent\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"zipkin\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"zipkin-admin-tcp\",\n      \"zipkin-admin-query-tcp\",\n      \"zipkin-admin-web-tcp\",\n      \"zipkin-query-tcp\",\n      \"zipkin-web-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  },\n  \"zookeeper\": {\n    \"egress_rules\": [\n      \"all-all\"\n    ],\n    \"ingress_rules\": [\n      \"zookeeper-2181-tcp\",\n      \"zookeeper-2182-tls-tcp\",\n      \"zookeeper-2888-tcp\",\n      \"zookeeper-3888-tcp\",\n      \"zookeeper-jmx-tcp\"\n    ],\n    \"ingress_with_self\": [\n      \"all-all\"\n    ]\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "create_sg",
+    "type": "bool",
+    "description": "Whether to create security group",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use name_prefix or fixed name. Should be true to able to update security group name after initial creation",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "delete_timeout",
+    "type": "string",
+    "description": "Time to wait for a security group to be deleted",
+    "default": "\"15m\"",
+    "required": false
+  },
+  {
+    "name": "ingress_rules",
+    "type": "list(string)",
+    "description": "List of ingress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create security group and all rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_id",
+    "type": "string",
+    "description": "ID of existing security group whose rules we will manage",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ingress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "map(list(any))",
+    "description": "Map of known security group rules (define as 'name' = ['from port', 'to port', 'protocol', 'description'])",
+    "default": "{\n  \"_\": [\n    \"\",\n    \"\",\n    \"\"\n  ],\n  \"activemq-5671-tcp\": [\n    5671,\n    5671,\n    \"tcp\",\n    \"ActiveMQ AMQP\"\n  ],\n  \"activemq-61614-tcp\": [\n    61614,\n    61614,\n    \"tcp\",\n    \"ActiveMQ STOMP\"\n  ],\n  \"activemq-61617-tcp\": [\n    61617,\n    61617,\n    \"tcp\",\n    \"ActiveMQ OpenWire\"\n  ],\n  \"activemq-61619-tcp\": [\n    61619,\n    61619,\n    \"tcp\",\n    \"ActiveMQ WebSocket\"\n  ],\n  \"activemq-8883-tcp\": [\n    8883,\n    8883,\n    \"tcp\",\n    \"ActiveMQ MQTT\"\n  ],\n  \"alertmanager-9093-tcp\": [\n    9093,\n    9093,\n    \"tcp\",\n    \"Alert Manager\"\n  ],\n  \"alertmanager-9094-tcp\": [\n    9094,\n    9094,\n    \"tcp\",\n    \"Alert Manager Cluster\"\n  ],\n  \"all-all\": [\n    -1,\n    -1,\n    \"-1\",\n    \"All protocols\"\n  ],\n  \"all-icmp\": [\n    -1,\n    -1,\n    \"icmp\",\n    \"All IPV4 ICMP\"\n  ],\n  \"all-ipv6-icmp\": [\n    -1,\n    -1,\n    58,\n    \"All IPV6 ICMP\"\n  ],\n  \"all-tcp\": [\n    0,\n    65535,\n    \"tcp\",\n    \"All TCP ports\"\n  ],\n  \"all-udp\": [\n    0,\n    65535,\n    \"udp\",\n    \"All UDP ports\"\n  ],\n  \"carbon-admin-tcp\": [\n    2004,\n    2004,\n    \"tcp\",\n    \"Carbon admin\"\n  ],\n  \"carbon-gui-udp\": [\n    8081,\n    8081,\n    \"tcp\",\n    \"Carbon GUI\"\n  ],\n  \"carbon-line-in-tcp\": [\n    2003,\n    2003,\n    \"tcp\",\n    \"Carbon line-in\"\n  ],\n  \"carbon-line-in-udp\": [\n    2003,\n    2003,\n    \"udp\",\n    \"Carbon line-in\"\n  ],\n  \"carbon-pickle-tcp\": [\n    2013,\n    2013,\n    \"tcp\",\n    \"Carbon pickle\"\n  ],\n  \"carbon-pickle-udp\": [\n    2013,\n    2013,\n    \"udp\",\n    \"Carbon pickle\"\n  ],\n  \"cassandra-clients-tcp\": [\n    9042,\n    9042,\n    \"tcp\",\n    \"Cassandra clients\"\n  ],\n  \"cassandra-jmx-tcp\": [\n    7199,\n    7199,\n    \"tcp\",\n    \"JMX\"\n  ],\n  \"cassandra-thrift-clients-tcp\": [\n    9160,\n    9160,\n    \"tcp\",\n    \"Cassandra Thrift clients\"\n  ],\n  \"consul-dns-tcp\": [\n    8600,\n    8600,\n    \"tcp\",\n    \"Consul DNS\"\n  ],\n  \"consul-dns-udp\": [\n    8600,\n    8600,\n    \"udp\",\n    \"Consul DNS\"\n  ],\n  \"consul-grpc-tcp\": [\n    8502,\n    8502,\n    \"tcp\",\n    \"Consul gRPC\"\n  ],\n  \"consul-grpc-tcp-tls\": [\n    8503,\n    8503,\n    \"tcp\",\n    \"Consul gRPC TLS\"\n  ],\n  \"consul-serf-lan-tcp\": [\n    8301,\n    8301,\n    \"tcp\",\n    \"Serf LAN\"\n  ],\n  \"consul-serf-lan-udp\": [\n    8301,\n    8301,\n    \"udp\",\n    \"Serf LAN\"\n  ],\n  \"consul-serf-wan-tcp\": [\n    8302,\n    8302,\n    \"tcp\",\n    \"Serf WAN\"\n  ],\n  \"consul-serf-wan-udp\": [\n    8302,\n    8302,\n    \"udp\",\n    \"Serf WAN\"\n  ],\n  \"consul-tcp\": [\n    8300,\n    8300,\n    \"tcp\",\n    \"Consul server\"\n  ],\n  \"consul-webui-http-tcp\": [\n    8500,\n    8500,\n    \"tcp\",\n    \"Consul web UI HTTP\"\n  ],\n  \"consul-webui-https-tcp\": [\n    8501,\n    8501,\n    \"tcp\",\n    \"Consul web UI HTTPS\"\n  ],\n  \"dax-cluster-encrypted-tcp\": [\n    9111,\n    9111,\n    \"tcp\",\n    \"DAX Cluster encrypted\"\n  ],\n  \"dax-cluster-unencrypted-tcp\": [\n    8111,\n    8111,\n    \"tcp\",\n    \"DAX Cluster unencrypted\"\n  ],\n  \"dns-tcp\": [\n    53,\n    53,\n    \"tcp\",\n    \"DNS\"\n  ],\n  \"dns-udp\": [\n    53,\n    53,\n    \"udp\",\n    \"DNS\"\n  ],\n  \"docker-swarm-mngmt-tcp\": [\n    2377,\n    2377,\n    \"tcp\",\n    \"Docker Swarm cluster management\"\n  ],\n  \"docker-swarm-node-tcp\": [\n    7946,\n    7946,\n    \"tcp\",\n    \"Docker Swarm node\"\n  ],\n  \"docker-swarm-node-udp\": [\n    7946,\n    7946,\n    \"udp\",\n    \"Docker Swarm node\"\n  ],\n  \"docker-swarm-overlay-udp\": [\n    4789,\n    4789,\n    \"udp\",\n    \"Docker Swarm Overlay Network Traffic\"\n  ],\n  \"elasticsearch-java-tcp\": [\n    9300,\n    9300,\n    \"tcp\",\n    \"Elasticsearch Java interface\"\n  ],\n  \"elasticsearch-rest-tcp\": [\n    9200,\n    9200,\n    \"tcp\",\n    \"Elasticsearch REST interface\"\n  ],\n  \"etcd-client-tcp\": [\n    2379,\n    2379,\n    \"tcp\",\n    \"Etcd Client\"\n  ],\n  \"etcd-peer-tcp\": [\n    2380,\n    2380,\n    \"tcp\",\n    \"Etcd Peer\"\n  ],\n  \"grafana-tcp\": [\n    3000,\n    3000,\n    \"tcp\",\n    \"Grafana Dashboard\"\n  ],\n  \"graphite-2003-tcp\": [\n    2003,\n    2003,\n    \"tcp\",\n    \"Carbon receiver plain text\"\n  ],\n  \"graphite-2004-tcp\": [\n    2004,\n    2004,\n    \"tcp\",\n    \"Carbon receiver pickle\"\n  ],\n  \"graphite-2023-tcp\": [\n    2023,\n    2023,\n    \"tcp\",\n    \"Carbon aggregator plaintext\"\n  ],\n  \"graphite-2024-tcp\": [\n    2024,\n    2024,\n    \"tcp\",\n    \"Carbon aggregator pickle\"\n  ],\n  \"graphite-8080-tcp\": [\n    8080,\n    8080,\n    \"tcp\",\n    \"Graphite gunicorn port\"\n  ],\n  \"graphite-8125-tcp\": [\n    8125,\n    8125,\n    \"tcp\",\n    \"Statsd TCP\"\n  ],\n  \"graphite-8125-udp\": [\n    8125,\n    8125,\n    \"udp\",\n    \"Statsd UDP default\"\n  ],\n  \"graphite-8126-tcp\": [\n    8126,\n    8126,\n    \"tcp\",\n    \"Statsd admin\"\n  ],\n  \"graphite-webui\": [\n    80,\n    80,\n    \"tcp\",\n    \"Graphite admin interface\"\n  ],\n  \"http-80-tcp\": [\n    80,\n    80,\n    \"tcp\",\n    \"HTTP\"\n  ],\n  \"http-8080-tcp\": [\n    8080,\n    8080,\n    \"tcp\",\n    \"HTTP\"\n  ],\n  \"https-443-tcp\": [\n    443,\n    443,\n    \"tcp\",\n    \"HTTPS\"\n  ],\n  \"https-8443-tcp\": [\n    8443,\n    8443,\n    \"tcp\",\n    \"HTTPS\"\n  ],\n  \"ipsec-4500-udp\": [\n    4500,\n    4500,\n    \"udp\",\n    \"IPSEC NAT-T\"\n  ],\n  \"ipsec-500-udp\": [\n    500,\n    500,\n    \"udp\",\n    \"IPSEC ISAKMP\"\n  ],\n  \"kafka-broker-sasl-iam-public-tcp\": [\n    9198,\n    9198,\n    \"tcp\",\n    \"Kafka SASL/IAM Public access control enabled (MSK specific)\"\n  ],\n  \"kafka-broker-sasl-iam-tcp\": [\n    9098,\n    9098,\n    \"tcp\",\n    \"Kafka SASL/IAM access control enabled (MSK specific)\"\n  ],\n  \"kafka-broker-sasl-scram-public-tcp\": [\n    9196,\n    9196,\n    \"tcp\",\n    \"Kafka SASL/SCRAM Public enabled broker (MSK specific)\"\n  ],\n  \"kafka-broker-sasl-scram-tcp\": [\n    9096,\n    9096,\n    \"tcp\",\n    \"Kafka SASL/SCRAM enabled broker (MSK specific)\"\n  ],\n  \"kafka-broker-tcp\": [\n    9092,\n    9092,\n    \"tcp\",\n    \"Kafka PLAINTEXT enable broker 0.8.2+\"\n  ],\n  \"kafka-broker-tls-public-tcp\": [\n    9194,\n    9194,\n    \"tcp\",\n    \"Kafka TLS Public enabled broker 0.8.2+ (MSK specific)\"\n  ],\n  \"kafka-broker-tls-tcp\": [\n    9094,\n    9094,\n    \"tcp\",\n    \"Kafka TLS enabled broker 0.8.2+\"\n  ],\n  \"kafka-jmx-exporter-tcp\": [\n    11001,\n    11001,\n    \"tcp\",\n    \"Kafka JMX Exporter\"\n  ],\n  \"kafka-node-exporter-tcp\": [\n    11002,\n    11002,\n    \"tcp\",\n    \"Kafka Node Exporter\"\n  ],\n  \"kibana-tcp\": [\n    5601,\n    5601,\n    \"tcp\",\n    \"Kibana Web Interface\"\n  ],\n  \"kubernetes-api-tcp\": [\n    6443,\n    6443,\n    \"tcp\",\n    \"Kubernetes API Server\"\n  ],\n  \"ldap-tcp\": [\n    389,\n    389,\n    \"tcp\",\n    \"LDAP\"\n  ],\n  \"ldaps-tcp\": [\n    636,\n    636,\n    \"tcp\",\n    \"LDAPS\"\n  ],\n  \"logstash-tcp\": [\n    5044,\n    5044,\n    \"tcp\",\n    \"Logstash\"\n  ],\n  \"loki-grafana\": [\n    3100,\n    3100,\n    \"tcp\",\n    \"Grafana Loki endpoint\"\n  ],\n  \"loki-grafana-grpc\": [\n    9095,\n    9095,\n    \"tcp\",\n    \"Grafana Loki GRPC\"\n  ],\n  \"memcached-tcp\": [\n    11211,\n    11211,\n    \"tcp\",\n    \"Memcached\"\n  ],\n  \"minio-tcp\": [\n    9000,\n    9000,\n    \"tcp\",\n    \"MinIO\"\n  ],\n  \"mongodb-27017-tcp\": [\n    27017,\n    27017,\n    \"tcp\",\n    \"MongoDB\"\n  ],\n  \"mongodb-27018-tcp\": [\n    27018,\n    27018,\n    \"tcp\",\n    \"MongoDB shard\"\n  ],\n  \"mongodb-27019-tcp\": [\n    27019,\n    27019,\n    \"tcp\",\n    \"MongoDB config server\"\n  ],\n  \"mssql-analytics-tcp\": [\n    2383,\n    2383,\n    \"tcp\",\n    \"MSSQL Analytics\"\n  ],\n  \"mssql-broker-tcp\": [\n    4022,\n    4022,\n    \"tcp\",\n    \"MSSQL Broker\"\n  ],\n  \"mssql-tcp\": [\n    1433,\n    1433,\n    \"tcp\",\n    \"MSSQL Server\"\n  ],\n  \"mssql-udp\": [\n    1434,\n    1434,\n    \"udp\",\n    \"MSSQL Browser\"\n  ],\n  \"mysql-tcp\": [\n    3306,\n    3306,\n    \"tcp\",\n    \"MySQL/Aurora\"\n  ],\n  \"nfs-tcp\": [\n    2049,\n    2049,\n    \"tcp\",\n    \"NFS/EFS\"\n  ],\n  \"nomad-http-tcp\": [\n    4646,\n    4646,\n    \"tcp\",\n    \"Nomad HTTP\"\n  ],\n  \"nomad-rpc-tcp\": [\n    4647,\n    4647,\n    \"tcp\",\n    \"Nomad RPC\"\n  ],\n  \"nomad-serf-tcp\": [\n    4648,\n    4648,\n    \"tcp\",\n    \"Serf\"\n  ],\n  \"nomad-serf-udp\": [\n    4648,\n    4648,\n    \"udp\",\n    \"Serf\"\n  ],\n  \"ntp-udp\": [\n    123,\n    123,\n    \"udp\",\n    \"NTP\"\n  ],\n  \"octopus-tentacle-tcp\": [\n    10933,\n    10933,\n    \"tcp\",\n    \"Octopus Tentacle\"\n  ],\n  \"openvpn-https-tcp\": [\n    443,\n    443,\n    \"tcp\",\n    \"OpenVPN\"\n  ],\n  \"openvpn-tcp\": [\n    943,\n    943,\n    \"tcp\",\n    \"OpenVPN\"\n  ],\n  \"openvpn-udp\": [\n    1194,\n    1194,\n    \"udp\",\n    \"OpenVPN\"\n  ],\n  \"oracle-db-tcp\": [\n    1521,\n    1521,\n    \"tcp\",\n    \"Oracle\"\n  ],\n  \"postgresql-tcp\": [\n    5432,\n    5432,\n    \"tcp\",\n    \"PostgreSQL\"\n  ],\n  \"prometheus-http-tcp\": [\n    9090,\n    9090,\n    \"tcp\",\n    \"Prometheus\"\n  ],\n  \"prometheus-node-exporter-http-tcp\": [\n    9100,\n    9100,\n    \"tcp\",\n    \"Prometheus Node Exporter\"\n  ],\n  \"prometheus-pushgateway-http-tcp\": [\n    9091,\n    9091,\n    \"tcp\",\n    \"Prometheus Pushgateway\"\n  ],\n  \"promtail-http\": [\n    9080,\n    9080,\n    \"tcp\",\n    \"Promtail endpoint\"\n  ],\n  \"puppet-tcp\": [\n    8140,\n    8140,\n    \"tcp\",\n    \"Puppet\"\n  ],\n  \"puppetdb-tcp\": [\n    8081,\n    8081,\n    \"tcp\",\n    \"PuppetDB\"\n  ],\n  \"rabbitmq-15672-tcp\": [\n    15672,\n    15672,\n    \"tcp\",\n    \"RabbitMQ\"\n  ],\n  \"rabbitmq-25672-tcp\": [\n    25672,\n    25672,\n    \"tcp\",\n    \"RabbitMQ\"\n  ],\n  \"rabbitmq-4369-tcp\": [\n    4369,\n    4369,\n    \"tcp\",\n    \"RabbitMQ epmd\"\n  ],\n  \"rabbitmq-5671-tcp\": [\n    5671,\n    5671,\n    \"tcp\",\n    \"RabbitMQ\"\n  ],\n  \"rabbitmq-5672-tcp\": [\n    5672,\n    5672,\n    \"tcp\",\n    \"RabbitMQ\"\n  ],\n  \"rdp-tcp\": [\n    3389,\n    3389,\n    \"tcp\",\n    \"Remote Desktop\"\n  ],\n  \"rdp-udp\": [\n    3389,\n    3389,\n    \"udp\",\n    \"Remote Desktop\"\n  ],\n  \"redis-tcp\": [\n    6379,\n    6379,\n    \"tcp\",\n    \"Redis\"\n  ],\n  \"redshift-tcp\": [\n    5439,\n    5439,\n    \"tcp\",\n    \"Redshift\"\n  ],\n  \"saltstack-tcp\": [\n    4505,\n    4506,\n    \"tcp\",\n    \"SaltStack\"\n  ],\n  \"smtp-submission-2587-tcp\": [\n    2587,\n    2587,\n    \"tcp\",\n    \"SMTP Submission\"\n  ],\n  \"smtp-submission-587-tcp\": [\n    587,\n    587,\n    \"tcp\",\n    \"SMTP Submission\"\n  ],\n  \"smtp-tcp\": [\n    25,\n    25,\n    \"tcp\",\n    \"SMTP\"\n  ],\n  \"smtps-2456-tcp\": [\n    2465,\n    2465,\n    \"tcp\",\n    \"SMTPS\"\n  ],\n  \"smtps-465-tcp\": [\n    465,\n    465,\n    \"tcp\",\n    \"SMTPS\"\n  ],\n  \"solr-tcp\": [\n    8983,\n    8987,\n    \"tcp\",\n    \"Solr\"\n  ],\n  \"splunk-hec-tcp\": [\n    8088,\n    8088,\n    \"tcp\",\n    \"Splunk HEC\"\n  ],\n  \"splunk-indexer-tcp\": [\n    9997,\n    9997,\n    \"tcp\",\n    \"Splunk indexer\"\n  ],\n  \"splunk-splunkd-tcp\": [\n    8089,\n    8089,\n    \"tcp\",\n    \"Splunkd\"\n  ],\n  \"splunk-web-tcp\": [\n    8000,\n    8000,\n    \"tcp\",\n    \"Splunk Web\"\n  ],\n  \"squid-proxy-tcp\": [\n    3128,\n    3128,\n    \"tcp\",\n    \"Squid default proxy\"\n  ],\n  \"ssh-tcp\": [\n    22,\n    22,\n    \"tcp\",\n    \"SSH\"\n  ],\n  \"storm-nimbus-tcp\": [\n    6627,\n    6627,\n    \"tcp\",\n    \"Nimbus\"\n  ],\n  \"storm-supervisor-tcp\": [\n    6700,\n    6703,\n    \"tcp\",\n    \"Supervisor\"\n  ],\n  \"storm-ui-tcp\": [\n    8080,\n    8080,\n    \"tcp\",\n    \"Storm UI\"\n  ],\n  \"vault-tcp\": [\n    8200,\n    8200,\n    \"tcp\",\n    \"Vault\"\n  ],\n  \"wazuh-dashboard\": [\n    443,\n    443,\n    \"tcp\",\n    \"Wazuh web user interface\"\n  ],\n  \"wazuh-indexer-restful-api\": [\n    9200,\n    9200,\n    \"tcp\",\n    \"Wazuh indexer RESTful API\"\n  ],\n  \"wazuh-server-agent-cluster-daemon\": [\n    1516,\n    1516,\n    \"tcp\",\n    \"Wazuh cluster daemon\"\n  ],\n  \"wazuh-server-agent-connection-tcp\": [\n    1514,\n    1514,\n    \"tcp\",\n    \"Agent connection service(TCP)\"\n  ],\n  \"wazuh-server-agent-connection-udp\": [\n    1514,\n    1514,\n    \"udp\",\n    \"Agent connection service(UDP)\"\n  ],\n  \"wazuh-server-agent-enrollment\": [\n    1515,\n    1515,\n    \"tcp\",\n    \"Agent enrollment service\"\n  ],\n  \"wazuh-server-restful-api\": [\n    55000,\n    55000,\n    \"tcp\",\n    \"Wazuh server RESTful API\"\n  ],\n  \"wazuh-server-syslog-collector-tcp\": [\n    514,\n    514,\n    \"tcp\",\n    \"Wazuh Syslog collector(TCP)\"\n  ],\n  \"wazuh-server-syslog-collector-udp\": [\n    514,\n    514,\n    \"udp\",\n    \"Wazuh Syslog collector(UDP)\"\n  ],\n  \"web-jmx-tcp\": [\n    1099,\n    1099,\n    \"tcp\",\n    \"JMX\"\n  ],\n  \"winrm-http-tcp\": [\n    5985,\n    5985,\n    \"tcp\",\n    \"WinRM HTTP\"\n  ],\n  \"winrm-https-tcp\": [\n    5986,\n    5986,\n    \"tcp\",\n    \"WinRM HTTPS\"\n  ],\n  \"zabbix-agent\": [\n    10050,\n    10050,\n    \"tcp\",\n    \"Zabbix Agent\"\n  ],\n  \"zabbix-proxy\": [\n    10051,\n    10051,\n    \"tcp\",\n    \"Zabbix Proxy\"\n  ],\n  \"zabbix-server\": [\n    10051,\n    10051,\n    \"tcp\",\n    \"Zabbix Server\"\n  ],\n  \"zipkin-admin-query-tcp\": [\n    9901,\n    9901,\n    \"tcp\",\n    \"Zipkin Admin port query\"\n  ],\n  \"zipkin-admin-tcp\": [\n    9990,\n    9990,\n    \"tcp\",\n    \"Zipkin Admin port collector\"\n  ],\n  \"zipkin-admin-web-tcp\": [\n    9991,\n    9991,\n    \"tcp\",\n    \"Zipkin Admin port web\"\n  ],\n  \"zipkin-query-tcp\": [\n    9411,\n    9411,\n    \"tcp\",\n    \"Zipkin query port\"\n  ],\n  \"zipkin-web-tcp\": [\n    8080,\n    8080,\n    \"tcp\",\n    \"Zipkin web port\"\n  ],\n  \"zookeeper-2181-tcp\": [\n    2181,\n    2181,\n    \"tcp\",\n    \"Zookeeper\"\n  ],\n  \"zookeeper-2182-tls-tcp\": [\n    2182,\n    2182,\n    \"tcp\",\n    \"Zookeeper TLS (MSK specific)\"\n  ],\n  \"zookeeper-2888-tcp\": [\n    2888,\n    2888,\n    \"tcp\",\n    \"Zookeeper\"\n  ],\n  \"zookeeper-3888-tcp\": [\n    3888,\n    3888,\n    \"tcp\",\n    \"Zookeeper\"\n  ],\n  \"zookeeper-jmx-tcp\": [\n    7199,\n    7199,\n    \"tcp\",\n    \"JMX\"\n  ]\n}",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_rules",
+    "type": "list(string)",
+    "description": "List of egress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_timeout",
+    "type": "string",
+    "description": "Time to wait for a security group to be created",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_source_security_group_id",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'source_security_group_id' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_prefix_list_ids",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'prefix_list_ids' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'prefix_list_ids' is used only",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_rules",
+    "type": "number",
+    "description": "Number of computed egress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of the VPC where to create security group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of security group - not required if create_sg is false",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "revoke_rules_on_delete",
+    "type": "bool",
+    "description": "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. Enable for EMR.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_self",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_rules",
+    "type": "list(string)",
+    "description": "List of computed egress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'prefix_list_ids' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of security group",
+    "default": "\"Security Group managed by Terraform\"",
+    "required": false
+  },
+  {
+    "name": "egress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all egress rules",
+    "default": "[\n  \"::/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'prefix_list_ids' is used only",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_self",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "ingress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_rules",
+    "type": "number",
+    "description": "Number of computed ingress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all egress rules",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_source_security_group_id",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'source_security_group_id' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_rules",
+    "type": "list(string)",
+    "description": "List of computed ingress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_prefix_list_ids",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'prefix_list_ids' is used only",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ingress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'prefix_list_ids' is used only",
+    "default": "[]",
+    "required": false
+  }
+]

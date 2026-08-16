@@ -1,0 +1,34 @@
+output "arn" {
+  value       = module.iam_iam-read-only-policy.arn
+  description = "The ARN assigned by AWS to this policy"
+}
+
+output "description" {
+  value       = module.iam_iam-read-only-policy.description
+  description = "The description of the policy"
+}
+
+output "name" {
+  value       = module.iam_iam-read-only-policy.name
+  description = "The name of the policy"
+}
+
+output "path" {
+  value       = module.iam_iam-read-only-policy.path
+  description = "The path of the policy in IAM"
+}
+
+output "policy" {
+  value       = module.iam_iam-read-only-policy.policy
+  description = "The policy document"
+}
+
+output "policy_json" {
+  value       = module.iam_iam-read-only-policy.policy_json
+  description = "Policy document as json. Useful if you need document but do not want to create IAM policy itself. For example for SSO Permission Set inline policies"
+}
+
+output "id" {
+  value       = module.iam_iam-read-only-policy.id
+  description = "The policy's ID"
+}

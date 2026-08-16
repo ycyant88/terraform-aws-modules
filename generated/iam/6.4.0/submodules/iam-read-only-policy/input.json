@@ -1,0 +1,100 @@
+[
+  {
+    "name": "allowed_services",
+    "type": "list(string)",
+    "description": "List of services to allow Get/List/Describe/View options. Service name should be the same as corresponding service IAM prefix. See what it is for each service here https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "allow_cloudwatch_logs_query",
+    "type": "bool",
+    "description": "Allows StartQuery/StopQuery/FilterLogEvents CloudWatch actions",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "allow_predefined_sts_actions",
+    "type": "bool",
+    "description": "Allows GetCallerIdentity/GetSessionToken/GetAccessKeyInfo sts actions",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "allow_web_console_services",
+    "type": "bool",
+    "description": "Allows List/Get/Describe/View actions for services used when browsing AWS console (e.g. resource-groups, tag, health services)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "web_console_services",
+    "type": "list(string)",
+    "description": "List of web console services to allow",
+    "default": "[\n  \"resource-groups\",\n  \"tag\",\n  \"health\",\n  \"ce\"\n]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_policy",
+    "type": "bool",
+    "description": "Controls if IAM policy should be created. Set to `false` to generate the policy JSON without creating the policy itself",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to use on IAM policy created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM policy name (`name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Path of IAM policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "source_inline_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "override_inline_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  }
+]

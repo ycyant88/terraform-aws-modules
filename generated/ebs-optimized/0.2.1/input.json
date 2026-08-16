@@ -1,0 +1,9 @@
+[
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "Instance type to evaluate if EBS optimized is an option",
+    "default": "",
+    "required": true
+  }
+]

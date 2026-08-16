@@ -1,0 +1,19 @@
+module "elb" {
+  source                      = "terraform-aws-modules/elb/aws"
+  version                     = "2.0.0"
+  connection_draining         = var.connection_draining
+  name                        = var.name
+  internal                    = var.internal
+  health_check                = var.health_check
+  instances                   = var.instances
+  connection_draining_timeout = var.connection_draining_timeout
+  tags                        = var.tags
+  listener                    = var.listener
+  name_prefix                 = var.name_prefix
+  cross_zone_load_balancing   = var.cross_zone_load_balancing
+  idle_timeout                = var.idle_timeout
+  access_logs                 = var.access_logs
+  number_of_instances         = var.number_of_instances
+  security_groups             = var.security_groups
+  subnets                     = var.subnets
+}

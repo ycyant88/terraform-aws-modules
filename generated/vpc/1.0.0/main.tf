@@ -1,0 +1,27 @@
+module "vpc" {
+  source                       = "terraform-aws-modules/vpc/aws"
+  version                      = "1.0.0"
+  public_subnet_tags           = var.public_subnet_tags
+  elasticache_subnet_tags      = var.elasticache_subnet_tags
+  public_subnets               = var.public_subnets
+  enable_dynamodb_endpoint     = var.enable_dynamodb_endpoint
+  enable_s3_endpoint           = var.enable_s3_endpoint
+  database_subnet_tags         = var.database_subnet_tags
+  name                         = var.name
+  create_database_subnet_group = var.create_database_subnet_group
+  enable_dns_hostnames         = var.enable_dns_hostnames
+  enable_nat_gateway           = var.enable_nat_gateway
+  map_public_ip_on_launch      = var.map_public_ip_on_launch
+  private_propagating_vgws     = var.private_propagating_vgws
+  public_propagating_vgws      = var.public_propagating_vgws
+  tags                         = var.tags
+  instance_tenancy             = var.instance_tenancy
+  database_subnets             = var.database_subnets
+  enable_dns_support           = var.enable_dns_support
+  private_subnet_tags          = var.private_subnet_tags
+  cidr                         = var.cidr
+  private_subnets              = var.private_subnets
+  elasticache_subnets          = var.elasticache_subnets
+  azs                          = var.azs
+  single_nat_gateway           = var.single_nat_gateway
+}

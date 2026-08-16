@@ -1,0 +1,394 @@
+[
+  {
+    "name": "permission_type",
+    "type": "string",
+    "description": "The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created",
+    "default": "\"SERVICE_MANAGED\"",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name to use on workspace IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "Workspace IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "authentication_providers",
+    "type": "list(string)",
+    "description": "The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both",
+    "default": "[\n  \"AWS_SSO\"\n]",
+    "required": false
+  },
+  {
+    "name": "iam_role_arn",
+    "type": "string",
+    "description": "Existing IAM role ARN for the workspace. Required if `create_iam_role` is set to `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_max_session_duration",
+    "type": "number",
+    "description": "Maximum session duration (in seconds) that you want to set for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_alerts",
+    "type": "bool",
+    "description": "Determines whether IAM permissions for alerting are enabled for the workspace IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "workspace_service_accounts",
+    "type": "any",
+    "description": "Map of workspace service account definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_saml_configuration",
+    "type": "bool",
+    "description": "Determines whether the SAML configuration will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "saml_admin_role_values",
+    "type": "list(string)",
+    "description": "SAML authentication admin role values",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "saml_editor_role_values",
+    "type": "list(string)",
+    "description": "SAML authentication editor role values",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "saml_groups_assertion",
+    "type": "string",
+    "description": "SAML authentication groups assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "saml_idp_metadata_url",
+    "type": "string",
+    "description": "SAML authentication IDP Metadata URL. Note that either `saml_idp_metadata_url` or `saml_idp_metadata_xml`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "saml_role_assertion",
+    "type": "string",
+    "description": "SAML authentication role assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "associate_license",
+    "type": "bool",
+    "description": "Determines whether a license will be associated with the workspace",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "grafana_token",
+    "type": "string",
+    "description": "A token from Grafana Labs that ties your AWS account with a Grafana Labs account",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "use_iam_role_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM role name (`wokspace_iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "saml_login_assertion",
+    "type": "string",
+    "description": "SAML authentication email assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "saml_login_validity_duration",
+    "type": "number",
+    "description": "SAML authentication login validity duration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "account_access_type",
+    "type": "string",
+    "description": "The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`",
+    "default": "\"CURRENT_ACCOUNT\"",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "The description of the workspace IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_force_detach_policies",
+    "type": "bool",
+    "description": "Determines whether the workspace IAM role policies will be forced to detach",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "workspace_api_keys",
+    "type": "any",
+    "description": "Map of workspace API key definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "saml_email_assertion",
+    "type": "string",
+    "description": "SAML authentication email assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_rules",
+    "type": "any",
+    "description": "Security group rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The workspace description",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "saml_allowed_organizations",
+    "type": "list(string)",
+    "description": "SAML authentication allowed organizations",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "saml_idp_metadata_xml",
+    "type": "string",
+    "description": "SAML authentication IDP Metadata XML. Note that either `saml_idp_metadata_url` or `saml_idp_metadata_xml`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether a resources will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "data_sources",
+    "type": "list(string)",
+    "description": "The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "grafana_version",
+    "type": "string",
+    "description": "Specifies the version of Grafana to support in the new workspace. If not specified, the default version for the `aws_grafana_workspace` resource will be used. See `aws_grafana_workspace` documentation for available options.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_access_control",
+    "type": "any",
+    "description": "Configuration for network access to your workspace",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "organizational_units",
+    "type": "list(string)",
+    "description": "The Amazon Organizations organizational units that the workspace is authorized to use data sources from",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "stack_set_name",
+    "type": "string",
+    "description": "The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Determines whether a an IAM role is created or to use an existing IAM role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "saml_name_assertion",
+    "type": "string",
+    "description": "SAML authentication name assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "workspace_id",
+    "type": "string",
+    "description": "The ID of an existing workspace to use when `create_workspace` is `false`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "organization_role_name",
+    "type": "string",
+    "description": "The role name that the workspace uses to access resources through Amazon Organizations",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_configuration",
+    "type": "any",
+    "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "workspace_service_account_tokens",
+    "type": "any",
+    "description": "Map of workspace service account tokens to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "saml_org_assertion",
+    "type": "string",
+    "description": "SAML authentication org assertion",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "license_type",
+    "type": "string",
+    "description": "The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`",
+    "default": "\"ENTERPRISE\"",
+    "required": false
+  },
+  {
+    "name": "role_associations",
+    "type": "any",
+    "description": "Map of maps to assocaite user/group IDs to a role. Map key can be used as the `role`",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_policy_arns",
+    "type": "list(string)",
+    "description": "List of ARNs of IAM policies to attach to the workspace IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_workspace",
+    "type": "bool",
+    "description": "Determines whether a workspace will be created or to use an existing workspace",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "configuration",
+    "type": "string",
+    "description": "The configuration string for the workspace",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The Grafana workspace name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "notification_destinations",
+    "type": "list(string)",
+    "description": "The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`",
+    "default": "[]",
+    "required": false
+  }
+]

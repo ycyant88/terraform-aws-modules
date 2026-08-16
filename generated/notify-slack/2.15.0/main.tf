@@ -1,0 +1,27 @@
+module "notify-slack" {
+  source                                 = "terraform-aws-modules/notify-slack/aws"
+  version                                = "2.15.0"
+  lambda_function_name                   = var.lambda_function_name
+  sns_topic_name                         = var.sns_topic_name
+  slack_webhook_url                      = var.slack_webhook_url
+  log_events                             = var.log_events
+  iam_role_tags                          = var.iam_role_tags
+  lambda_function_tags                   = var.lambda_function_tags
+  cloudwatch_log_group_tags              = var.cloudwatch_log_group_tags
+  subsription_filter_policy              = var.subsription_filter_policy
+  create_sns_topic                       = var.create_sns_topic
+  lambda_description                     = var.lambda_description
+  slack_channel                          = var.slack_channel
+  reserved_concurrent_executions         = var.reserved_concurrent_executions
+  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
+  tags                                   = var.tags
+  sns_topic_tags                         = var.sns_topic_tags
+  create                                 = var.create
+  slack_username                         = var.slack_username
+  cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
+  slack_emoji                            = var.slack_emoji
+  kms_key_arn                            = var.kms_key_arn
+  iam_role_boundary_policy_arn           = var.iam_role_boundary_policy_arn
+  iam_role_name_prefix                   = var.iam_role_name_prefix
+  iam_role_policy_name_prefix            = var.iam_role_policy_name_prefix
+}

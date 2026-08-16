@@ -1,0 +1,247 @@
+[
+  {
+    "name": "before_allow_traffic_hook_arn",
+    "type": "string",
+    "description": "ARN of Lambda function to execute before allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "app_name",
+    "type": "string",
+    "description": "Name of AWS CodeDeploy application",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "auto_rollback_enabled",
+    "type": "bool",
+    "description": "Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "alarm_ignore_poll_alarm_failure",
+    "type": "bool",
+    "description": "Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "codedeploy_role_name",
+    "type": "string",
+    "description": "IAM role name to create or use by CodeDeploy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls whether resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "function_name",
+    "type": "string",
+    "description": "The name of the Lambda function to deploy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "force_deploy",
+    "type": "bool",
+    "description": "Force deployment every time (even when nothing changes)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "target_version",
+    "type": "string",
+    "description": "Target version of Lambda function version to deploy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "interpreter",
+    "type": "list(string)",
+    "description": "List of interpreter arguments used to execute deploy script, first arg is path",
+    "default": "[\n  \"/bin/bash\",\n  \"-c\"\n]",
+    "required": false
+  },
+  {
+    "name": "create_deployment_group",
+    "type": "bool",
+    "description": "Whether to create new AWS CodeDeploy Deployment Group",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "alarm_enabled",
+    "type": "bool",
+    "description": "Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "after_allow_traffic_hook_arn",
+    "type": "string",
+    "description": "ARN of Lambda function to execute after allow traffic during deployment. This function should be named CodeDeployHook_, to match the managed AWSCodeDeployForLambda policy, unless you're using a custom role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "deployment_group_name",
+    "type": "string",
+    "description": "Name of deployment group to use",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "triggers",
+    "type": "map(any)",
+    "description": "Map of triggers which will be notified when event happens. Valid options for event types are DeploymentStart, DeploymentSuccess, DeploymentFailure, DeploymentStop, DeploymentRollback, DeploymentReady (Applies only to replacement instances in a blue/green deployment), InstanceStart, InstanceSuccess, InstanceFailure, InstanceReady. Note that not all are applicable for Lambda deployments.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_hooks_policy",
+    "type": "bool",
+    "description": "Whether to attach Invoke policy to CodeDeploy role when before allow traffic or after allow traffic hooks are defined.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "get_deployment_sleep_timer",
+    "type": "number",
+    "description": "Adds additional sleep time to get-deployment command to avoid the service throttling",
+    "default": "5",
+    "required": false
+  },
+  {
+    "name": "current_version",
+    "type": "string",
+    "description": "Current version of Lambda function version to deploy (can't be $LATEST)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_existing_app",
+    "type": "bool",
+    "description": "Whether to use existing AWS CodeDeploy app",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "save_deploy_script",
+    "type": "bool",
+    "description": "Save deploy script locally",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "wait_deployment_completion",
+    "type": "bool",
+    "description": "Wait until deployment completes. It can take a lot of time and your terraform process may lock execution for long time.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description to use for the deployment",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "alarms",
+    "type": "list(string)",
+    "description": "A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_deployment",
+    "type": "bool",
+    "description": "Create the AWS resources and script for CodeDeploy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_codedeploy_role",
+    "type": "bool",
+    "description": "Whether to create new AWS CodeDeploy IAM role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "alias_name",
+    "type": "string",
+    "description": "Name for the alias",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_existing_deployment_group",
+    "type": "bool",
+    "description": "Whether to use existing AWS CodeDeploy Deployment Group",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "deployment_config_name",
+    "type": "string",
+    "description": "Name of deployment config to use",
+    "default": "\"CodeDeployDefault.LambdaAllAtOnce\"",
+    "required": false
+  },
+  {
+    "name": "aws_cli_command",
+    "type": "string",
+    "description": "Command to run as AWS CLI. May include extra arguments like region and profile.",
+    "default": "\"aws\"",
+    "required": false
+  },
+  {
+    "name": "run_deployment",
+    "type": "bool",
+    "description": "Run AWS CLI command to start the deployment",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "codedeploy_principals",
+    "type": "list(string)",
+    "description": "List of CodeDeploy service principals to allow. The list can include global or regional endpoints.",
+    "default": "[\n  \"codedeploy.amazonaws.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "create_app",
+    "type": "bool",
+    "description": "Whether to create new AWS CodeDeploy app",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "auto_rollback_events",
+    "type": "list(string)",
+    "description": "List of event types that trigger a rollback. Supported types are DEPLOYMENT_FAILURE and DEPLOYMENT_STOP_ON_ALARM.",
+    "default": "[\n  \"DEPLOYMENT_STOP_ON_ALARM\"\n]",
+    "required": false
+  },
+  {
+    "name": "attach_triggers_policy",
+    "type": "bool",
+    "description": "Whether to attach SNS policy to CodeDeploy role when triggers are defined",
+    "default": "false",
+    "required": false
+  }
+]

@@ -1,0 +1,27 @@
+module "dynamodb-table" {
+  source                             = "terraform-aws-modules/dynamodb-table/aws"
+  version                            = "0.7.0"
+  autoscaling_write                  = var.autoscaling_write
+  range_key                          = var.range_key
+  read_capacity                      = var.read_capacity
+  ttl_enabled                        = var.ttl_enabled
+  global_secondary_indexes           = var.global_secondary_indexes
+  server_side_encryption_enabled     = var.server_side_encryption_enabled
+  autoscaling_defaults               = var.autoscaling_defaults
+  create_table                       = var.create_table
+  billing_mode                       = var.billing_mode
+  point_in_time_recovery_enabled     = var.point_in_time_recovery_enabled
+  local_secondary_indexes            = var.local_secondary_indexes
+  stream_enabled                     = var.stream_enabled
+  server_side_encryption_kms_key_arn = var.server_side_encryption_kms_key_arn
+  autoscaling_read                   = var.autoscaling_read
+  autoscaling_indexes                = var.autoscaling_indexes
+  name                               = var.name
+  attributes                         = var.attributes
+  hash_key                           = var.hash_key
+  tags                               = var.tags
+  timeouts                           = var.timeouts
+  write_capacity                     = var.write_capacity
+  ttl_attribute_name                 = var.ttl_attribute_name
+  stream_view_type                   = var.stream_view_type
+}

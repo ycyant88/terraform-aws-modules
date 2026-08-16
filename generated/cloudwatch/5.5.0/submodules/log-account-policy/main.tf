@@ -1,0 +1,19 @@
+module "cloudwatch_log-account-policy" {
+  source                                        = "terraform-aws-modules/cloudwatch/aws//modules/log-account-policy"
+  version                                       = "5.5.0"
+  log_account_policy_scope                      = var.log_account_policy_scope
+  log_account_policy_type                       = var.log_account_policy_type
+  log_data_protection_description               = var.log_data_protection_description
+  log_account_policy_selection_criteria         = var.log_account_policy_selection_criteria
+  data_identifiers                              = var.data_identifiers
+  findings_destination_firehose_delivery_stream = var.findings_destination_firehose_delivery_stream
+  findings_destination_s3_bucket                = var.findings_destination_s3_bucket
+  create_log_data_protection_policy             = var.create_log_data_protection_policy
+  log_data_protection_policy_name               = var.log_data_protection_policy_name
+  audit_statement_sid                           = var.audit_statement_sid
+  findings_destination_cloudwatch_log_group     = var.findings_destination_cloudwatch_log_group
+  create                                        = var.create
+  log_account_policy_name                       = var.log_account_policy_name
+  policy_document                               = var.policy_document
+  deidentify_statement_sid                      = var.deidentify_statement_sid
+}

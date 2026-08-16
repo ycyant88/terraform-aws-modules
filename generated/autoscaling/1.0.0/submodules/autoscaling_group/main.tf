@@ -1,0 +1,26 @@
+module "autoscaling_autoscaling_group" {
+  source                    = "terraform-aws-modules/autoscaling/aws//modules/autoscaling_group"
+  version                   = "1.0.0"
+  metrics_granularity       = var.metrics_granularity
+  max_size                  = var.max_size
+  min_size                  = var.min_size
+  desired_capacity          = var.desired_capacity
+  default_cooldown          = var.default_cooldown
+  health_check_grace_period = var.health_check_grace_period
+  load_balancers            = var.load_balancers
+  tags                      = var.tags
+  enabled_metrics           = var.enabled_metrics
+  health_check_type         = var.health_check_type
+  suspended_processes       = var.suspended_processes
+  wait_for_capacity_timeout = var.wait_for_capacity_timeout
+  min_elb_capacity          = var.min_elb_capacity
+  wait_for_elb_capacity     = var.wait_for_elb_capacity
+  protect_from_scale_in     = var.protect_from_scale_in
+  name                      = var.name
+  vpc_zone_identifier       = var.vpc_zone_identifier
+  force_delete              = var.force_delete
+  termination_policies      = var.termination_policies
+  placement_group           = var.placement_group
+  launch_configuration      = var.launch_configuration
+  target_group_arns         = var.target_group_arns
+}

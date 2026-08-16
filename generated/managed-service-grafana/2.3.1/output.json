@@ -1,0 +1,74 @@
+[
+  {
+    "name": "workspace_iam_role_name",
+    "description": "IAM role name of the Grafana workspace"
+  },
+  {
+    "name": "saml_configuration_status",
+    "description": "Status of the SAML configuration"
+  },
+  {
+    "name": "license_free_trial_expiration",
+    "description": "If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "workspace_arn",
+    "description": "The Amazon Resource Name (ARN) of the Grafana workspace"
+  },
+  {
+    "name": "workspace_id",
+    "description": "The ID of the Grafana workspace"
+  },
+  {
+    "name": "workspace_grafana_version",
+    "description": "The version of Grafana running on the workspace"
+  },
+  {
+    "name": "workspace_service_account_tokens",
+    "description": "The workspace service account tokens created including their attributes"
+  },
+  {
+    "name": "workspace_iam_role_arn",
+    "description": "IAM role ARN of the Grafana workspace"
+  },
+  {
+    "name": "workspace_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "workspace_iam_role_policy_name",
+    "description": "IAM Policy name of the Grafana workspace IAM role"
+  },
+  {
+    "name": "license_expiration",
+    "description": "If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license"
+  },
+  {
+    "name": "workspace_api_keys",
+    "description": "The workspace API keys created including their attributes"
+  },
+  {
+    "name": "workspace_iam_role_policy_id",
+    "description": "Stable and unique string identifying the IAM Policy"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "workspace_iam_role_policy_arn",
+    "description": "IAM Policy ARN of the Grafana workspace IAM role"
+  },
+  {
+    "name": "workspace_endpoint",
+    "description": "The endpoint of the Grafana workspace"
+  },
+  {
+    "name": "workspace_service_accounts",
+    "description": "The workspace service accounts created including their attributes"
+  }
+]

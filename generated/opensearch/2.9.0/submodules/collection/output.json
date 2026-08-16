@@ -1,0 +1,66 @@
+[
+  {
+    "name": "collection_group_arn",
+    "description": "Amazon Resource Name (ARN) of the collection group"
+  },
+  {
+    "name": "collection_group_id",
+    "description": "Unique identifier for the collection group"
+  },
+  {
+    "name": "endpoint",
+    "description": "Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection"
+  },
+  {
+    "name": "kms_key_arn",
+    "description": "The ARN of the Amazon Web Services KMS key used to encrypt the collection"
+  },
+  {
+    "name": "encryption_policy",
+    "description": "The JSON policy document of the encryption policy"
+  },
+  {
+    "name": "access_policy",
+    "description": "The JSON policy document of the access policy"
+  },
+  {
+    "name": "lifecycle_policy",
+    "description": "The JSON policy document of the lifecycle policy"
+  },
+  {
+    "name": "arn",
+    "description": "Amazon Resource Name (ARN) of the collection"
+  },
+  {
+    "name": "name",
+    "description": "Name of the collection"
+  },
+  {
+    "name": "network_policy_version",
+    "description": "The version of the network policy"
+  },
+  {
+    "name": "network_policy",
+    "description": "The JSON policy document of the network policy"
+  },
+  {
+    "name": "dashboard_endpoint",
+    "description": "Collection-specific endpoint used to access OpenSearch Dashboards"
+  },
+  {
+    "name": "encryption_policy_version",
+    "description": "The version of the encryption policy"
+  },
+  {
+    "name": "lifecycle_policy_version",
+    "description": "The version of the lifecycle policy"
+  },
+  {
+    "name": "id",
+    "description": "Unique identifier for the collection"
+  },
+  {
+    "name": "access_policy_version",
+    "description": "The version of the access policy"
+  }
+]

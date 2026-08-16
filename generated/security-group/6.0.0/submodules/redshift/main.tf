@@ -1,0 +1,22 @@
+module "security-group_redshift" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/redshift"
+  version                              = "6.0.0"
+  region                               = var.region
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  preset_ingress_rules                 = var.preset_ingress_rules
+  create                               = var.create
+  tags                                 = var.tags
+  name                                 = var.name
+  description                          = var.description
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  vpc_id                               = var.vpc_id
+  timeouts                             = var.timeouts
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  use_name_prefix                      = var.use_name_prefix
+}

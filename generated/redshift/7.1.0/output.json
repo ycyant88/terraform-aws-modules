@@ -1,0 +1,154 @@
+[
+  {
+    "name": "subnet_group_arn",
+    "description": "Amazon Resource Name (ARN) of the Redshift subnet group created"
+  },
+  {
+    "name": "cluster_parameter_group_name",
+    "description": "The name of the parameter group to be associated with this cluster"
+  },
+  {
+    "name": "cluster_id",
+    "description": "The Redshift cluster ID"
+  },
+  {
+    "name": "scheduled_actions",
+    "description": "A map of maps containing scheduled action details"
+  },
+  {
+    "name": "authentication_profiles",
+    "description": "Map of authentication profiles created and their associated attributes"
+  },
+  {
+    "name": "cluster_secretsmanager_secret_rotation_enabled",
+    "description": "Specifies whether automatic rotation is enabled for the secret"
+  },
+  {
+    "name": "cluster_vpc_security_group_ids",
+    "description": "The VPC security group ids associated with the cluster"
+  },
+  {
+    "name": "cluster_revision_number",
+    "description": "The specific revision number of the database in the cluster"
+  },
+  {
+    "name": "usage_limits",
+    "description": "Map of usage limits created and their associated attributes"
+  },
+  {
+    "name": "cluster_availability_zone",
+    "description": "The availability zone of the Cluster"
+  },
+  {
+    "name": "cluster_automated_snapshot_retention_period",
+    "description": "The backup retention period"
+  },
+  {
+    "name": "cluster_hostname",
+    "description": "The hostname of the Redshift cluster"
+  },
+  {
+    "name": "cluster_port",
+    "description": "The port the cluster responds on"
+  },
+  {
+    "name": "scheduled_action_iam_role_unique_id",
+    "description": "Stable and unique string identifying the scheduled action IAM role"
+  },
+  {
+    "name": "parameter_group_id",
+    "description": "The name of the Redshift parameter group created"
+  },
+  {
+    "name": "cluster_database_name",
+    "description": "The name of the default database in the Cluster"
+  },
+  {
+    "name": "cluster_preferred_maintenance_window",
+    "description": "The backup window"
+  },
+  {
+    "name": "cluster_endpoint",
+    "description": "The connection endpoint"
+  },
+  {
+    "name": "cluster_encrypted",
+    "description": "Whether the data in the cluster is encrypted"
+  },
+  {
+    "name": "cluster_version",
+    "description": "The version of Redshift engine software"
+  },
+  {
+    "name": "cluster_nodes",
+    "description": "The nodes in the cluster. Each node is a map of the following attributes: `node_role`, `private_ip_address`, and `public_ip_address`"
+  },
+  {
+    "name": "parameter_group_arn",
+    "description": "Amazon Resource Name (ARN) of the parameter group created"
+  },
+  {
+    "name": "cluster_type",
+    "description": "The Redshift cluster type"
+  },
+  {
+    "name": "cluster_node_type",
+    "description": "The type of nodes in the cluster"
+  },
+  {
+    "name": "cluster_dns_name",
+    "description": "The DNS name of the cluster"
+  },
+  {
+    "name": "cluster_public_key",
+    "description": "The public key for the cluster"
+  },
+  {
+    "name": "scheduled_action_iam_role_arn",
+    "description": "Scheduled actions IAM role ARN"
+  },
+  {
+    "name": "cluster_arn",
+    "description": "The Redshift cluster ARN"
+  },
+  {
+    "name": "cluster_identifier",
+    "description": "The Redshift cluster identifier"
+  },
+  {
+    "name": "cluster_subnet_group_name",
+    "description": "The name of a cluster subnet group to be associated with this cluster"
+  },
+  {
+    "name": "subnet_group_id",
+    "description": "The ID of Redshift Subnet group created"
+  },
+  {
+    "name": "endpoint_access",
+    "description": "A map of access endpoints created and their attributes"
+  },
+  {
+    "name": "master_password_secret_arn",
+    "description": "ARN of managed master password secret"
+  },
+  {
+    "name": "cluster_namespace_arn",
+    "description": "The namespace Amazon Resource Name (ARN) of the cluster"
+  },
+  {
+    "name": "cluster_master_password",
+    "description": "The Redshift cluster master password"
+  },
+  {
+    "name": "cluster_master_username",
+    "description": "The Redshift cluster master username"
+  },
+  {
+    "name": "snapshot_schedule_arn",
+    "description": "Amazon Resource Name (ARN) of the Redshift Snapshot Schedule"
+  },
+  {
+    "name": "scheduled_action_iam_role_name",
+    "description": "Scheduled actions IAM role name"
+  }
+]

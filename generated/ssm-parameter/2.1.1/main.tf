@@ -1,0 +1,20 @@
+module "ssm-parameter" {
+  source               = "terraform-aws-modules/ssm-parameter/aws"
+  version              = "2.1.1"
+  create               = var.create
+  region               = var.region
+  allowed_pattern      = var.allowed_pattern
+  data_type            = var.data_type
+  description          = var.description
+  tier                 = var.tier
+  value_wo_version     = var.value_wo_version
+  secure_type          = var.secure_type
+  key_id               = var.key_id
+  name                 = var.name
+  overwrite            = var.overwrite
+  type                 = var.type
+  value                = var.value
+  tags                 = var.tags
+  ignore_value_changes = var.ignore_value_changes
+  values               = var.values
+}

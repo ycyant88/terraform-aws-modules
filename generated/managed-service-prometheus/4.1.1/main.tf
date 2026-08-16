@@ -1,0 +1,22 @@
+module "managed-service-prometheus" {
+  source                                 = "terraform-aws-modules/managed-service-prometheus/aws"
+  version                                = "4.1.1"
+  kms_key_arn                            = var.kms_key_arn
+  retention_period_in_days               = var.retention_period_in_days
+  limits_per_label_set                   = var.limits_per_label_set
+  workspace_alias                        = var.workspace_alias
+  cloudwatch_log_group_name              = var.cloudwatch_log_group_name
+  cloudwatch_log_group_use_name_prefix   = var.cloudwatch_log_group_use_name_prefix
+  cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
+  create_alert_manager                   = var.create_alert_manager
+  rule_group_namespaces                  = var.rule_group_namespaces
+  workspace_id                           = var.workspace_id
+  cloudwatch_log_group_class             = var.cloudwatch_log_group_class
+  cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
+  alert_manager_definition               = var.alert_manager_definition
+  create                                 = var.create
+  region                                 = var.region
+  logging_configuration                  = var.logging_configuration
+  tags                                   = var.tags
+  create_workspace                       = var.create_workspace
+}

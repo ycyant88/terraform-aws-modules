@@ -1,0 +1,19 @@
+module "sqs" {
+  source                            = "terraform-aws-modules/sqs/aws"
+  version                           = "1.2.0"
+  redrive_policy                    = var.redrive_policy
+  content_based_deduplication       = var.content_based_deduplication
+  sqs_queue_with_kms                = var.sqs_queue_with_kms
+  message_retention_seconds         = var.message_retention_seconds
+  fifo_queue                        = var.fifo_queue
+  kms_data_key_reuse_period_seconds = var.kms_data_key_reuse_period_seconds
+  tags                              = var.tags
+  name                              = var.name
+  max_message_size                  = var.max_message_size
+  policy                            = var.policy
+  kms_master_key_id                 = var.kms_master_key_id
+  visibility_timeout_seconds        = var.visibility_timeout_seconds
+  delay_seconds                     = var.delay_seconds
+  create                            = var.create
+  receive_wait_time_seconds         = var.receive_wait_time_seconds
+}

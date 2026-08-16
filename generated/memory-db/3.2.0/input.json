@@ -1,0 +1,331 @@
+[
+  {
+    "name": "port",
+    "type": "number",
+    "description": "The port number on which each of the nodes accepts connections. Defaults to `6379`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "ARN of the KMS key used to encrypt the cluster at rest",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "Set of VPC Security Group ID-s to associate with this cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_name",
+    "type": "string",
+    "description": "The name of a snapshot from which to restore data into the new cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_arns",
+    "type": "list(string)",
+    "description": " List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_window",
+    "type": "string",
+    "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ip_discovery",
+    "type": "string",
+    "description": "Mechanism that the cluster uses to discover IP addresses. Valid values are ipv4 and ipv6. Defaults to ipv4. To specify ipv6, network_type must be ipv6 or dual_stack",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "acl_name",
+    "type": "string",
+    "description": "Name of ACL to be created if `create_acl` is `true`, otherwise its the name of an existing ACL to use if `create_acl` is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created - affects all resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Cluster name - also default name used on all resources if more specific resource names are not provided",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "acl_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `acl_name` is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "parameter_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `parameter_group_name` is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "parameter_group_description",
+    "type": "string",
+    "description": "Description for the parameter group. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_parameters",
+    "type": "list(map(string))",
+    "description": "A list of parameter maps to apply",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnet_group_name",
+    "type": "string",
+    "description": "Name of subnet group to be created if `create_subnet_group` is `true`, otherwise its the name of an existing subnet group to use if `create_subnet_group` is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `subnet_group_name` is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_users",
+    "type": "bool",
+    "description": "Determines whether to create users specified",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to use on all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "num_shards",
+    "type": "number",
+    "description": "The number of shards in the cluster. Defaults to `1`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "num_replicas_per_shard",
+    "type": "number",
+    "description": "The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_window",
+    "type": "string",
+    "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the parameter group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "auto_minor_version_upgrade",
+    "type": "bool",
+    "description": "When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_type",
+    "type": "string",
+    "description": "The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tls_enabled",
+    "type": "bool",
+    "description": "A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_retention_limit",
+    "type": "number",
+    "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "data_tiering",
+    "type": "bool",
+    "description": "Must be set to `true` when using a data tiering node type",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_type",
+    "type": "string",
+    "description": "IP address type for the cluster. Valid values are ipv4, ipv6 and dual_stack. Defaults to ipv4",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_name",
+    "type": "string",
+    "description": "Name of parameter group to be created if `create_parameter_group` is `true`, otherwise its the name of an existing parameter group to use if `create_parameter_group` is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `name` is used as a prefix for the cluster",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "multi_region_cluster_name",
+    "type": "string",
+    "description": "The multi region cluster identifier if part of a multi region cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "acl_user_names",
+    "type": "list(string)",
+    "description": "List of externally created user names to associate with the ACL",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_parameter_group",
+    "type": "bool",
+    "description": "Determines whether to create parameter group specified",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "parameter_group_family",
+    "type": "string",
+    "description": "The engine version that the parameter group can be used with",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_group_description",
+    "type": "string",
+    "description": "Description for the subnet group. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the subnet group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "engine",
+    "type": "string",
+    "description": "The engine that will run on your nodes. Supported values are `redis` and `valkey`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "sns_topic_arn",
+    "type": "string",
+    "description": "ARN of the SNS topic to which cluster notifications are sent",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "final_snapshot_name",
+    "type": "string",
+    "description": "Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_acl",
+    "type": "bool",
+    "description": "Determines whether to create ACL specified",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description for the cluster. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "engine_version",
+    "type": "string",
+    "description": "Version number of the engine to be used for the cluster. Downgrades are not supported",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "users",
+    "type": "map(object({\n    user_name     = string\n    access_string = string\n    type          = optional(string, \"password\")\n    passwords     = optional(list(string))\n    tags          = optional(map(string), {})\n  }))",
+    "description": "A map of user definitions (maps) to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the ACL created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_subnet_group",
+    "type": "bool",
+    "description": "Determines whether to create subnet group specified",
+    "default": "true",
+    "required": false
+  }
+]

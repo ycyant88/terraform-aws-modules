@@ -1,0 +1,569 @@
+[
+  {
+    "name": "maintenance_track_name",
+    "type": "string",
+    "description": "The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. Default value is `current`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "publicly_accessible",
+    "type": "bool",
+    "description": "If true, the cluster can be accessed from a public network",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "default_iam_role_arn",
+    "type": "string",
+    "description": "The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "authentication_profiles",
+    "type": "map(object({\n    name    = optional(string) # Will fall back to key if not set\n    content = any\n  }))",
+    "description": "Map of authentication profiles to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether a CloudWatch log group is created for each `var.logging.log_exports`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "manual_snapshot_retention_period",
+    "type": "number",
+    "description": "The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_password_secret_kms_key_id",
+    "type": "string",
+    "description": "ID of the KMS key used to encrypt the cluster admin credentials secret",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_username",
+    "type": "string",
+    "description": "Username for the master DB user. Defaults to `awsuser`",
+    "default": "\"awsuser\"",
+    "required": false
+  },
+  {
+    "name": "skip_final_snapshot",
+    "type": "bool",
+    "description": "Determines whether a final snapshot of the cluster is created before Redshift deletes the cluster. If true, a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "snapshot_identifier",
+    "type": "string",
+    "description": "The name of the snapshot from which to create the new cluster. Conflicts with `snapshot_arn`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "scheduled_actions",
+    "type": "map(object({\n    name        = optional(string) # Will fall back to key if not set\n    description = optional(string)\n    enable      = optional(bool)\n    start_time  = optional(string)\n    end_time    = optional(string)\n    schedule    = string\n    iam_role    = optional(string)\n    target_action = object({\n      pause_cluster = optional(bool, false)\n      resize_cluster = optional(object({\n        classic         = optional(bool)\n        cluster_type    = optional(string)\n        node_type       = optional(string)\n        number_of_nodes = optional(number)\n      }))\n      resume_cluster = optional(bool, false)\n    })\n  }))",
+    "description": "Map of scheduled action definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "The number of days to retain CloudWatch logs for the redshift cluster",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines whether to create security group for Redshift cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "availability_zone",
+    "type": "string",
+    "description": "The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Can only be changed if `availability_zone_relocation_enabled` is `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "availability_zone_relocation_enabled",
+    "type": "bool",
+    "description": "If `true`, the cluster can be relocated to another availability zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "The ARN for the KMS encryption key. When specifying `kms_key_arn`, `encrypted` needs to be set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "manage_master_password",
+    "type": "bool",
+    "description": "Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password_wo`. One of `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_parameter_group",
+    "type": "bool",
+    "description": "Determines whether to create a parameter group or use existing",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "master_password_rotate_immediately",
+    "type": "bool",
+    "description": "Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    region                       = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(number)\n  }))",
+    "description": "Map of security group egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "snapshot_cluster_identifier",
+    "type": "string",
+    "description": "The name of the cluster the source snapshot was created from",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create, update, and delete timeout configurations for the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the scheduled action IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "The security group name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether to create Redshift cluster and resources (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_identifier",
+    "type": "string",
+    "description": "The Cluster Identifier. Must be a lower case string",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_group_name",
+    "type": "string",
+    "description": "The name of the Redshift subnet group, existing or to be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to add to the subnet group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "usage_limits",
+    "type": "map(object({\n    amount        = number\n    breach_action = optional(string)\n    feature_type  = string\n    limit_type    = optional(string) # Will fall back to key if not set\n    period        = optional(string)\n    tags          = optional(map(string), {})\n  }))",
+    "description": "Map of usage limit definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "apply_immediately",
+    "type": "bool",
+    "description": "Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_family",
+    "type": "string",
+    "description": "The family of the Redshift parameter group",
+    "default": "\"redshift-2.0\"",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "number_of_nodes",
+    "type": "number",
+    "description": "Number of nodes in the cluster. Defaults to 1. Note: values greater than 1 will trigger `cluster_type` to switch to `multi-node`",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "parameter_group_parameters",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "A list of Redshift parameters to apply",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to add to cloudwatch log groups created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "snapshot_copy",
+    "type": "object({\n    destination_region               = string\n    manual_snapshot_retention_period = optional(number)\n    retention_period                 = optional(number)\n    grant_name                       = optional(string)\n  })",
+    "description": "Configuration of automatic copy of snapshots from one region to another",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    region                       = optional(string)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(number)\n  }))",
+    "description": "Map of security group ingress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "The description of the security group. If value is set to empty string it will contain cluster name in the description",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "encrypted",
+    "type": "bool",
+    "description": "If `true`, the data in the cluster is encrypted at rest",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_group_description",
+    "type": "string",
+    "description": "The description of the Redshift Subnet group. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_scheduled_action_iam_role",
+    "type": "bool",
+    "description": "Determines whether a scheduled action IAM role is created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the scheduled action IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "manage_master_password_rotation",
+    "type": "bool",
+    "description": "Whether to manage the master user password rotation. Setting this value to false after previously having been set to true will disable automatic rotation",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "master_password_rotation_duration",
+    "type": "string",
+    "description": "The length of the rotation window in hours. For example, 3h for a three hour window",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_password_rotation_schedule_expression",
+    "type": "string",
+    "description": "A cron() or rate() expression that defines the schedule for rotating your secret. Either `master_user_password_rotation_automatically_after_days` or `master_user_password_rotation_schedule_expression` must be specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "An array of VPC subnet IDs to use in the subnet group",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enhanced_vpc_routing",
+    "type": "bool",
+    "description": "If `true`, enhanced VPC routing is enabled",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_type",
+    "type": "string",
+    "description": "The node type to be provisioned for the cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_subnet_group",
+    "type": "bool",
+    "description": "Determines whether to create a subnet group or use existing",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "string",
+    "description": "Determines whether scheduled action the IAM role name (`iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the scheduled action IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "The ARN of the KMS Key to use when encrypting log data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "allow_version_upgrade",
+    "type": "bool",
+    "description": "If `true`, major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "final_snapshot_identifier",
+    "type": "string",
+    "description": "The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_name",
+    "type": "string",
+    "description": "The name of the Redshift parameter group, existing or to be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_description",
+    "type": "string",
+    "description": "The description of the Redshift parameter group. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "database_name",
+    "type": "string",
+    "description": "The name of the first database to be created when the cluster is created. If you do not provide a name, Amazon Redshift will create a default database called `dev`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_password_wo",
+    "type": "string",
+    "description": "Password for the master DB user. Must contain at least 8 chars, one uppercase letter, one lowercase letter, and one number",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "owner_account",
+    "type": "string",
+    "description": "The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preferred_maintenance_window",
+    "type": "string",
+    "description": "The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: `ddd:hh24:mi-ddd:hh24:mi`",
+    "default": "\"sat:10:00-sat:10:30\"",
+    "required": false
+  },
+  {
+    "name": "iam_role_arns",
+    "type": "list(string)",
+    "description": "A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of the VPC where to create security group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "master_password_wo_version",
+    "type": "string",
+    "description": "Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "multi_az",
+    "type": "bool",
+    "description": "Specifies if the Redshift cluster is multi-AZ",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "port",
+    "type": "number",
+    "description": "The port number on which the cluster accepts incoming connections. Default port is `5439`",
+    "default": "5439",
+    "required": false
+  },
+  {
+    "name": "parameter_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to add to the parameter group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name to use on scheduled action IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "Scheduled action IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "logging",
+    "type": "object({\n    bucket_name          = optional(string)\n    log_destination_type = optional(string)\n    log_exports          = optional(list(string))\n    s3_key_prefix        = optional(string)\n  })",
+    "description": "Logging configuration for the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_skip_destroy",
+    "type": "bool",
+    "description": "Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the Terraform state",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_arn",
+    "type": "string",
+    "description": "The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_schedule",
+    "type": "object({\n    definitions   = list(string)\n    description   = optional(string)\n    force_destroy = optional(bool)\n    use_prefix    = optional(bool, false)\n    identifier    = optional(string)\n    tags          = optional(map(string), {})\n  })",
+    "description": "Configuration for creating a snapshot schedule and associating it with the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "endpoint_access",
+    "type": "map(object({\n    name                   = optional(string) # Will fall back to key if not set\n    resource_owner         = optional(string)\n    subnet_group_name      = string\n    vpc_security_group_ids = optional(list(string))\n  }))",
+    "description": "Map of endpoint access (managed VPC endpoint) definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "master_password_rotation_automatically_after_days",
+    "type": "number",
+    "description": "Specifies the number of days between automatic scheduled rotations of the secret. Either `master_user_password_rotation_automatically_after_days` or `master_user_password_rotation_schedule_expression` must be specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "automated_snapshot_retention_period",
+    "type": "number",
+    "description": "The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "The version of the Amazon Redshift engine software that you want to deploy on the cluster. The version selected runs on all the nodes in the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "elastic_ip",
+    "type": "string",
+    "description": "The Elastic IP (EIP) address for the cluster",
+    "default": "null",
+    "required": false
+  }
+]

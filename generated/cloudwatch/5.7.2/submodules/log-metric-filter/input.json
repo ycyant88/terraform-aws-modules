@@ -1,0 +1,72 @@
+[
+  {
+    "name": "metric_transformation_name",
+    "type": "string",
+    "description": "The name of the CloudWatch metric to which the monitored log information should be published (e.g. ErrorCount)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "metric_transformation_default_value",
+    "type": "string",
+    "description": "The value to emit when a filter pattern does not match a log event. Conflicts with `metric_transformation_dimensions`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_metric_filter",
+    "type": "bool",
+    "description": "Whether to create the Cloudwatch log metric filter",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "metric_transformation_namespace",
+    "type": "string",
+    "description": "The destination namespace of the CloudWatch metric.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "metric_transformation_value",
+    "type": "string",
+    "description": "What to publish to the metric. For example, if you're counting the occurrences of a particular term like 'Error', the value will be '1' for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "metric_transformation_unit",
+    "type": "string",
+    "description": "The unit to assign to the metric. If you omit this, the unit is set as None.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "metric_transformation_dimensions",
+    "type": "map(string)",
+    "description": "The additional dimensions to assign to the metric, in the form `\"name\" = \"$.value\". Conflicts with `metric_transformation_default_value`.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A name for the metric filter.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "pattern",
+    "type": "string",
+    "description": "A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_group_name",
+    "type": "string",
+    "description": "The name of the log group to associate the metric filter with",
+    "default": "",
+    "required": true
+  }
+]

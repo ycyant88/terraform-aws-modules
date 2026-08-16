@@ -1,0 +1,240 @@
+[
+  {
+    "name": "create_bucket",
+    "type": "bool",
+    "description": "Controls if S3 bucket should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "attach_policy",
+    "type": "bool",
+    "description": "Controls if S3 bucket should have bucket policy attached (set to `true` to use value of `policy` as bucket policy)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "lifecycle_rule",
+    "type": "any",
+    "description": "List of maps containing configuration of object lifecycle management.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "control_object_ownership",
+    "type": "bool",
+    "description": "Whether to manage S3 Bucket Ownership Controls on this bucket.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_deny_insecure_transport_policy",
+    "type": "bool",
+    "description": "Controls if S3 bucket should have deny non-SSL transport policy attached",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "website",
+    "type": "any",
+    "description": "Map containing static web-site hosting or redirect configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "object_lock_configuration",
+    "type": "any",
+    "description": "Map containing S3 object locking configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "object_ownership",
+    "type": "string",
+    "description": "Object ownership. Valid values: BucketOwnerEnforced, BucketOwnerPreferred or ObjectWriter. 'BucketOwnerEnforced': ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket. 'BucketOwnerPreferred': Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the bucket-owner-full-control canned ACL. 'ObjectWriter': The uploading account will own the object if the object is uploaded with the bucket-owner-full-control canned ACL.",
+    "default": "\"ObjectWriter\"",
+    "required": false
+  },
+  {
+    "name": "attach_lb_log_delivery_policy",
+    "type": "bool",
+    "description": "Controls if S3 bucket should have ALB/NLB log delivery policy attached",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "(Optional) A valid bucket policy JSON document. Note that if the policy document is not specific enough (but still valid), Terraform may view the policy as constantly changing in a terraform plan. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "block_public_policy",
+    "type": "bool",
+    "description": "Whether Amazon S3 should block public bucket policies for this bucket.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ignore_public_acls",
+    "type": "bool",
+    "description": "Whether Amazon S3 should ignore public ACLs for this bucket.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "versioning",
+    "type": "map(string)",
+    "description": "Map containing versioning configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "server_side_encryption_configuration",
+    "type": "any",
+    "description": "Map containing server-side encryption configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "object_lock_enabled",
+    "type": "bool",
+    "description": "Whether S3 bucket should have an Object Lock configuration enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "restrict_public_buckets",
+    "type": "bool",
+    "description": "Whether Amazon S3 should restrict public bucket policies for this bucket.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "logging",
+    "type": "map(string)",
+    "description": "Map containing access bucket logging configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_public_policy",
+    "type": "bool",
+    "description": "Controls if a user defined public bucket policy will be attached (set to `false` to allow upstream to apply defaults to the bucket)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bucket",
+    "type": "string",
+    "description": "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "bucket_prefix",
+    "type": "string",
+    "description": "(Optional, Forces new resource) Creates a unique bucket name beginning with the specified prefix. Conflicts with bucket.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "(Optional) A mapping of tags to assign to the bucket.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "acceleration_status",
+    "type": "string",
+    "description": "(Optional) Sets the accelerate configuration of an existing bucket. Can be Enabled or Suspended.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cors_rule",
+    "type": "any",
+    "description": "List of maps containing rules for Cross-Origin Resource Sharing.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "attach_require_latest_tls_policy",
+    "type": "bool",
+    "description": "Controls if S3 bucket should require the latest version of TLS",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "(Optional, Default:false ) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "owner",
+    "type": "map(string)",
+    "description": "Bucket owner's display name and ID. Conflicts with `acl`",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "block_public_acls",
+    "type": "bool",
+    "description": "Whether Amazon S3 should block public ACLs for this bucket.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_elb_log_delivery_policy",
+    "type": "bool",
+    "description": "Controls if S3 bucket should have ELB log delivery policy attached",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "request_payer",
+    "type": "string",
+    "description": "(Optional) Specifies who should bear the cost of Amazon S3 data transfer. Can be either BucketOwner or Requester. By default, the owner of the S3 bucket would incur the costs of any data transfer. See Requester Pays Buckets developer guide for more information.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "grant",
+    "type": "any",
+    "description": "An ACL policy grant. Conflicts with `acl`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "expected_bucket_owner",
+    "type": "string",
+    "description": "The account ID of the expected bucket owner",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "replication_configuration",
+    "type": "any",
+    "description": "Map containing cross-region replication configuration.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "acl",
+    "type": "string",
+    "description": "(Optional) The canned ACL to apply. Conflicts with `grant`",
+    "default": "",
+    "required": true
+  }
+]

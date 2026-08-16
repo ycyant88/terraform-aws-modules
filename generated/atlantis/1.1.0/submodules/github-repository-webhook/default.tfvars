@@ -1,0 +1,11 @@
+webhook_secret = ""
+
+create_github_repository_webhook = true
+
+github_token = ""
+
+github_organization = ""
+
+github_repo_names = ""
+
+webhook_url = ""

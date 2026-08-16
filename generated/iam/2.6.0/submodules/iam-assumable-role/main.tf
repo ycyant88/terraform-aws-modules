@@ -1,0 +1,22 @@
+module "iam_iam-assumable-role" {
+  source                        = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  version                       = "2.6.0"
+  max_session_duration          = var.max_session_duration
+  role_name                     = var.role_name
+  role_requires_mfa             = var.role_requires_mfa
+  poweruser_role_policy_arn     = var.poweruser_role_policy_arn
+  trusted_role_arns             = var.trusted_role_arns
+  custom_role_policy_arns       = var.custom_role_policy_arns
+  attach_admin_policy           = var.attach_admin_policy
+  attach_poweruser_policy       = var.attach_poweruser_policy
+  readonly_role_policy_arn      = var.readonly_role_policy_arn
+  trusted_role_services         = var.trusted_role_services
+  role_path                     = var.role_path
+  tags                          = var.tags
+  create_role                   = var.create_role
+  role_permissions_boundary_arn = var.role_permissions_boundary_arn
+  admin_role_policy_arn         = var.admin_role_policy_arn
+  attach_readonly_policy        = var.attach_readonly_policy
+  role_description              = var.role_description
+  mfa_age                       = var.mfa_age
+}

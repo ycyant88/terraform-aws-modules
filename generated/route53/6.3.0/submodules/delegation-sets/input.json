@@ -1,0 +1,16 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Route53 delegation sets",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "delegation_sets",
+    "type": "map(object({\n    reference_name = optional(string)\n  }))",
+    "description": "Map of Route53 delegation set parameters",
+    "default": "{}",
+    "required": false
+  }
+]

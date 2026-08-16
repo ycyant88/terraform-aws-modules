@@ -1,0 +1,25 @@
+module "secrets-manager" {
+  source                         = "terraform-aws-modules/secrets-manager/aws"
+  version                        = "1.0.0"
+  name_prefix                    = var.name_prefix
+  create_policy                  = var.create_policy
+  source_policy_documents        = var.source_policy_documents
+  override_policy_documents      = var.override_policy_documents
+  enable_rotation                = var.enable_rotation
+  tags                           = var.tags
+  description                    = var.description
+  kms_key_id                     = var.kms_key_id
+  replica                        = var.replica
+  version_stages                 = var.version_stages
+  secret_binary                  = var.secret_binary
+  rotation_lambda_arn            = var.rotation_lambda_arn
+  force_overwrite_replica_secret = var.force_overwrite_replica_secret
+  policy_statements              = var.policy_statements
+  block_public_policy            = var.block_public_policy
+  ignore_secret_changes          = var.ignore_secret_changes
+  secret_string                  = var.secret_string
+  create                         = var.create
+  name                           = var.name
+  recovery_window_in_days        = var.recovery_window_in_days
+  rotation_rules                 = var.rotation_rules
+}

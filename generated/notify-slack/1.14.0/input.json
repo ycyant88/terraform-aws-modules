@@ -1,0 +1,72 @@
+[
+  {
+    "name": "slack_username",
+    "type": "string",
+    "description": "The username that will appear on Slack messages",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "slack_emoji",
+    "type": "string",
+    "description": "A custom emoji that will appear on Slack messages",
+    "default": "\":aws:\"",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "string",
+    "description": "Whether to create all resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_with_kms_key",
+    "type": "string",
+    "description": "Whether to create resources with KMS encryption",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "slack_webhook_url",
+    "type": "string",
+    "description": "The URL of Slack webhook",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "slack_channel",
+    "type": "string",
+    "description": "The name of the channel in Slack for notifications",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_sns_topic",
+    "type": "string",
+    "description": "Whether to create new SNS topic",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "lambda_function_name",
+    "type": "string",
+    "description": "The name of the Lambda function to create",
+    "default": "\"notify_slack\"",
+    "required": false
+  },
+  {
+    "name": "sns_topic_name",
+    "type": "string",
+    "description": "The name of the SNS topic to create",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "ARN of the KMS key used for decrypting slack webhook url",
+    "default": "\"\"",
+    "required": false
+  }
+]

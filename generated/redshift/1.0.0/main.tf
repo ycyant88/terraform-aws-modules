@@ -1,0 +1,26 @@
+module "redshift" {
+  source                              = "terraform-aws-modules/redshift/aws"
+  version                             = "1.0.0"
+  cluster_identifier                  = var.cluster_identifier
+  cluster_database_name               = var.cluster_database_name
+  cluster_iam_roles                   = var.cluster_iam_roles
+  parameter_group_name                = var.parameter_group_name
+  automated_snapshot_retention_period = var.automated_snapshot_retention_period
+  tags                                = var.tags
+  cluster_port                        = var.cluster_port
+  cluster_parameter_group             = var.cluster_parameter_group
+  subnets                             = var.subnets
+  cluster_node_type                   = var.cluster_node_type
+  cluster_number_of_nodes             = var.cluster_number_of_nodes
+  vpc_security_group_ids              = var.vpc_security_group_ids
+  skip_final_snapshot                 = var.skip_final_snapshot
+  preferred_maintenance_window        = var.preferred_maintenance_window
+  encrypted                           = var.encrypted
+  cluster_version                     = var.cluster_version
+  cluster_master_username             = var.cluster_master_username
+  cluster_master_password             = var.cluster_master_password
+  publicly_accessible                 = var.publicly_accessible
+  redshift_subnet_group_name          = var.redshift_subnet_group_name
+  wlm_json_configuration              = var.wlm_json_configuration
+  kms_key_id                          = var.kms_key_id
+}

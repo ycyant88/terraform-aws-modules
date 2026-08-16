@@ -1,0 +1,66 @@
+[
+  {
+    "name": "launch_template_arn",
+    "description": "The ARN of the launch template"
+  },
+  {
+    "name": "launch_template_latest_version",
+    "description": "The latest version of the launch template"
+  },
+  {
+    "name": "node_group_resources",
+    "description": "List of objects containing information about underlying resources"
+  },
+  {
+    "name": "node_group_labels",
+    "description": "Map of labels applied to the node group"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "node_group_arn",
+    "description": "Amazon Resource Name (ARN) of the EKS Node Group"
+  },
+  {
+    "name": "node_group_autoscaling_group_names",
+    "description": "List of the autoscaling group names"
+  },
+  {
+    "name": "node_group_status",
+    "description": "Status of the EKS Node Group"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "node_group_taints",
+    "description": "List of objects containing information about taints applied to the node group"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "launch_template_id",
+    "description": "The ID of the launch template"
+  },
+  {
+    "name": "launch_template_name",
+    "description": "The name of the launch template"
+  },
+  {
+    "name": "node_group_id",
+    "description": "EKS Cluster name and EKS Node Group name separated by a colon (`:`)"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  }
+]

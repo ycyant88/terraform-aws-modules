@@ -1,0 +1,9 @@
+module "key-pair" {
+  source          = "terraform-aws-modules/key-pair/aws"
+  version         = "1.0.1"
+  tags            = var.tags
+  create_key_pair = var.create_key_pair
+  key_name        = var.key_name
+  key_name_prefix = var.key_name_prefix
+  public_key      = var.public_key
+}

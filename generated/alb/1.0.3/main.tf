@@ -1,0 +1,27 @@
+module "alb" {
+  source                           = "terraform-aws-modules/alb/aws"
+  version                          = "1.0.3"
+  region                           = var.region
+  backend_port                     = var.backend_port
+  health_check_healthy_threshold   = var.health_check_healthy_threshold
+  security_policy                  = var.security_policy
+  tags                             = var.tags
+  alb_is_internal                  = var.alb_is_internal
+  alb_name                         = var.alb_name
+  backend_protocol                 = var.backend_protocol
+  bucket_policy                    = var.bucket_policy
+  log_bucket                       = var.log_bucket
+  alb_protocols                    = var.alb_protocols
+  alb_security_groups              = var.alb_security_groups
+  force_destroy_log_bucket         = var.force_destroy_log_bucket
+  health_check_interval            = var.health_check_interval
+  health_check_timeout             = var.health_check_timeout
+  health_check_unhealthy_threshold = var.health_check_unhealthy_threshold
+  subnets                          = var.subnets
+  vpc_id                           = var.vpc_id
+  certificate_arn                  = var.certificate_arn
+  cookie_duration                  = var.cookie_duration
+  health_check_path                = var.health_check_path
+  health_check_port                = var.health_check_port
+  log_prefix                       = var.log_prefix
+}

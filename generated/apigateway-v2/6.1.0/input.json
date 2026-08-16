@@ -1,0 +1,303 @@
+[
+  {
+    "name": "subdomains",
+    "type": "list(string)",
+    "description": "An optional list of subdomains to use for API gateway",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "authorizers",
+    "type": "map(object({\n    authorizer_credentials_arn        = optional(string)\n    authorizer_payload_format_version = optional(string)\n    authorizer_result_ttl_in_seconds  = optional(number)\n    authorizer_type                   = optional(string, \"REQUEST\")\n    authorizer_uri                    = optional(string)\n    enable_simple_responses           = optional(bool)\n    identity_sources                  = optional(list(string))\n    jwt_configuration = optional(object({\n      audience = optional(list(string))\n      issuer   = optional(string)\n    }))\n    name = optional(string)\n  }))",
+    "description": "Map of API gateway authorizers to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_domain_records",
+    "type": "bool",
+    "description": "Whether to create Route53 records for the domain name",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "domain_name_certificate_arn",
+    "type": "string",
+    "description": "The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "api_key_selection_expression",
+    "type": "string",
+    "description": "An API key selection expression. Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ip_address_type",
+    "type": "string",
+    "description": "The IP address types that can invoke the API. Valid values: ipv4, dualstack. Use ipv4 to allow only IPv4 addresses to invoke your API, or use dualstack to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to ipv4.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "hosted_zone_name",
+    "type": "string",
+    "description": "Optional domain name of the Hosted Zone where the domain should be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "private_zone",
+    "type": "bool",
+    "description": "Indicates the hosted zone being looked up is private.  Certificate validation will fail if this is set to true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "stage_tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the stage resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "route_key",
+    "type": "string",
+    "description": "Part of quick create. Specifies any route key. Applicable for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_domain_name",
+    "type": "bool",
+    "description": "Whether to create API domain name resource",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_certificate",
+    "type": "bool",
+    "description": "Whether to create a certificate for the domain.  Since certificate validate only works on public domains, this will be ignore if `private_zone` is set to `true`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to API gateway resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "disable_execute_api_endpoint",
+    "type": "bool",
+    "description": "Whether clients can invoke the API by using the default execute-api endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target",
+    "type": "string",
+    "description": "Part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Applicable for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subdomain_record_types",
+    "type": "list(string)",
+    "description": "A list of record types to create for the subdomain(s)",
+    "default": "[\n  \"A\",\n  \"AAAA\"\n]",
+    "required": false
+  },
+  {
+    "name": "stage_name",
+    "type": "string",
+    "description": "The name of the stage. Must be between 1 and 128 characters in length",
+    "default": "\"$default\"",
+    "required": false
+  },
+  {
+    "name": "deploy_stage",
+    "type": "bool",
+    "description": "Whether to deploy the stage. `HTTP` APIs are auto-deployed by default",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vpc_link_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to the VPC Links created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the API. Must be less than or equal to 128 characters in length",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "route_selection_expression",
+    "type": "string",
+    "description": "The route selection expression for the API. Defaults to `$request.method $request.path`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "domain_name",
+    "type": "string",
+    "description": "The domain name to use for API gateway",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "mutual_tls_authentication",
+    "type": "map(string)",
+    "description": "The mutual TLS authentication configuration for the domain name",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "routes",
+    "type": "map(object({\n    # Route\n    authorizer_key             = optional(string)\n    api_key_required           = optional(bool)\n    authorization_scopes       = optional(list(string), [])\n    authorization_type         = optional(string)\n    authorizer_id              = optional(string)\n    model_selection_expression = optional(string)\n    operation_name             = optional(string)\n    request_models             = optional(map(string), {})\n    request_parameter = optional(object({\n      request_parameter_key = optional(string)\n      required              = optional(bool, false)\n    }), {})\n    route_response_selection_expression = optional(string)\n\n    # Route settings\n    data_trace_enabled       = optional(bool)\n    detailed_metrics_enabled = optional(bool)\n    logging_level            = optional(string)\n    throttling_burst_limit   = optional(number)\n    throttling_rate_limit    = optional(number)\n\n    # Stage - Route response\n    route_response = optional(object({\n      create                     = optional(bool, false)\n      model_selection_expression = optional(string)\n      response_models            = optional(map(string))\n      route_response_key         = optional(string, \"$default\")\n    }), {})\n\n    # Integration\n    integration = object({\n      connection_id             = optional(string)\n      vpc_link_key              = optional(string)\n      connection_type           = optional(string)\n      content_handling_strategy = optional(string)\n      credentials_arn           = optional(string)\n      description               = optional(string)\n      method                    = optional(string)\n      subtype                   = optional(string)\n      type                      = optional(string, \"AWS_PROXY\")\n      uri                       = optional(string)\n      passthrough_behavior      = optional(string)\n      payload_format_version    = optional(string)\n      request_parameters        = optional(map(string), {})\n      request_templates         = optional(map(string), {})\n      response_parameters = optional(list(object({\n        mappings    = map(string)\n        status_code = string\n      })))\n      template_selection_expression = optional(string)\n      timeout_milliseconds          = optional(number)\n      tls_config = optional(object({\n        server_name_to_verify = optional(string)\n      }))\n\n      # Integration Response\n      response = optional(object({\n        content_handling_strategy     = optional(string)\n        integration_response_key      = optional(string)\n        response_templates            = optional(map(string))\n        template_selection_expression = optional(string)\n      }), {})\n    })\n  }))",
+    "description": "Map of API gateway routes with integrations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_links",
+    "type": "map(object({\n    name               = optional(string)\n    security_group_ids = optional(list(string))\n    subnet_ids         = optional(list(string))\n    tags               = optional(map(string), {})\n  }))",
+    "description": "Map of VPC Link definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "protocol_type",
+    "type": "string",
+    "description": "The API protocol. Valid values: `HTTP`, `WEBSOCKET`",
+    "default": "\"HTTP\"",
+    "required": false
+  },
+  {
+    "name": "cors_configuration",
+    "type": "object({\n    allow_credentials = optional(bool)\n    allow_headers     = optional(list(string))\n    allow_methods     = optional(list(string))\n    allow_origins     = optional(list(string))\n    expose_headers    = optional(list(string), [])\n    max_age           = optional(number)\n  })",
+    "description": "The cross-origin resource sharing (CORS) configuration. Applicable for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the API. Must be less than or equal to 1024 characters in length",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "fail_on_warnings",
+    "type": "bool",
+    "description": "Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stage_client_certificate_id",
+    "type": "string",
+    "description": "The identifier of a client certificate for the stage. Use the `aws_api_gateway_client_certificate` resource to configure a client certificate. Supported only for WebSocket APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "credentials_arn",
+    "type": "string",
+    "description": "Part of quick create. Specifies any credentials required for the integration. Applicable for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "api_mapping_key",
+    "type": "string",
+    "description": "The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_routes_and_integrations",
+    "type": "bool",
+    "description": "Whether to create routes and integrations resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_stage",
+    "type": "bool",
+    "description": "Whether to create default stage",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "stage_default_route_settings",
+    "type": "object({\n    data_trace_enabled       = optional(bool, true)\n    detailed_metrics_enabled = optional(bool, true)\n    logging_level            = optional(string)\n    throttling_burst_limit   = optional(number, 500)\n    throttling_rate_limit    = optional(number, 1000)\n  })",
+    "description": "The default route settings for the stage",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "stage_variables",
+    "type": "map(string)",
+    "description": "A map that defines the stage variables for the stage",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "body",
+    "type": "string",
+    "description": "An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "api_version",
+    "type": "string",
+    "description": "A version identifier for the API. Must be between 1 and 64 characters in length",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "domain_name_ownership_verification_certificate_arn",
+    "type": "string",
+    "description": "ARN of the AWS-issued certificate used to validate custom domain ownership (when certificate_arn is issued via an ACM Private CA or mutual_tls_authentication is configured with an ACM-imported certificate.)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stage_access_log_settings",
+    "type": "object({\n    create_log_group            = optional(bool, true)\n    destination_arn             = optional(string)\n    format                      = optional(string)\n    log_group_name              = optional(string)\n    log_group_retention_in_days = optional(number, 30)\n    log_group_kms_key_id        = optional(string)\n    log_group_skip_destroy      = optional(bool)\n    log_group_class             = optional(string)\n    log_group_tags              = optional(map(string), {})\n  })",
+    "description": "Settings for logging access in this stage. Use the aws_api_gateway_account resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "stage_description",
+    "type": "string",
+    "description": "The description for the stage. Must be less than or equal to 1024 characters in length",
+    "default": "null",
+    "required": false
+  }
+]

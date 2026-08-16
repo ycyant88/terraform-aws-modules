@@ -1,0 +1,22 @@
+module "security-group_nfs" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/nfs"
+  version                              = "6.0.0"
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  ingress_rules                        = var.ingress_rules
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  region                               = var.region
+  tags                                 = var.tags
+  use_name_prefix                      = var.use_name_prefix
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  preset_ingress_rules                 = var.preset_ingress_rules
+  timeouts                             = var.timeouts
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  egress_rules                         = var.egress_rules
+  vpc_associations                     = var.vpc_associations
+  create                               = var.create
+  name                                 = var.name
+  description                          = var.description
+}

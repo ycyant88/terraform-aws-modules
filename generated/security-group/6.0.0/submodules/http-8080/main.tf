@@ -1,0 +1,22 @@
+module "security-group_http-8080" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/http-8080"
+  version                              = "6.0.0"
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  description                          = var.description
+  vpc_id                               = var.vpc_id
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  vpc_associations                     = var.vpc_associations
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  region                               = var.region
+  tags                                 = var.tags
+  use_name_prefix                      = var.use_name_prefix
+  timeouts                             = var.timeouts
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  create                               = var.create
+  name                                 = var.name
+  preset_ingress_rules                 = var.preset_ingress_rules
+}

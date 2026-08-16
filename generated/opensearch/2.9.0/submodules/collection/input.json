@@ -1,0 +1,233 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "collection_group_name",
+    "type": "string",
+    "description": "Name of the collection group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "collection_group_description",
+    "type": "string",
+    "description": "Description of the collection group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "standby_replicas",
+    "type": "string",
+    "description": "Indicates whether standby replicas should be used for a collection. One of ENABLED or DISABLED. Defaults to ENABLED.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_policy_description",
+    "type": "string",
+    "description": "Description of the network policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy_name",
+    "type": "string",
+    "description": "Name of the access policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy_principals",
+    "type": "list(string)",
+    "description": "Access policy principals",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "encryption_policy_description",
+    "type": "string",
+    "description": "Description of the encryption policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_policy",
+    "type": "any",
+    "description": "Network policy to apply to the collection",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "lifecycle_policy_description",
+    "type": "string",
+    "description": "Description of the lifecycle policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_network_policy",
+    "type": "bool",
+    "description": "Determines whether an network policy will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network_policy_name",
+    "type": "string",
+    "description": "Name of the network policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy_description",
+    "type": "string",
+    "description": "Description of the access policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy_collection_permissions",
+    "type": "list(string)",
+    "description": "Access policy permissions for the collection",
+    "default": "[\n  \"aoss:*\"\n]",
+    "required": false
+  },
+  {
+    "name": "lifecycle_policy_name",
+    "type": "string",
+    "description": "Name of the lifecycle policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of the collection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy_index_permissions",
+    "type": "list(string)",
+    "description": "Access policy permissions for the collection index",
+    "default": "[\n  \"aoss:*\"\n]",
+    "required": false
+  },
+  {
+    "name": "lifecycle_policy_min_index_retention",
+    "type": "string",
+    "description": "The minimum period, in days (d) or hours (h), to retain the document in the index. The lower bound is `24h` and the upper bound is `3650d`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "collection_group_capacity_limits",
+    "type": "object({\n    min_indexing_capacity_in_ocu = optional(number)\n    max_indexing_capacity_in_ocu = optional(number)\n    min_search_capacity_in_ocu   = optional(number)\n    max_search_capacity_in_ocu   = optional(number)\n  })",
+    "description": "Configuration block for the collection group's indexing and search capacity limits",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create and delete timeout configurations for the collection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_lifecycle_policy",
+    "type": "bool",
+    "description": "Determines whether an lifecycle policy will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_collection_group",
+    "type": "bool",
+    "description": "Determines if a collection group is created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the collection",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_encryption_policy",
+    "type": "bool",
+    "description": "Determines whether an encryption policy will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "encryption_policy_name",
+    "type": "string",
+    "description": "Name of the encryption policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_policy",
+    "type": "any",
+    "description": "Access policy to apply to the collection",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "collection_group_standby_replicas",
+    "type": "string",
+    "description": "Indicates whether standby replicas should be used for the collection group. Valid values are `ENABLED` and `DISABLED`",
+    "default": "\"ENABLED\"",
+    "required": false
+  },
+  {
+    "name": "encryption_policy",
+    "type": "any",
+    "description": "Encryption policy to apply to the collection",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_access_policy",
+    "type": "bool",
+    "description": "Determines whether an access policy will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "lifecycle_policy_no_min_index_retention",
+    "type": "bool",
+    "description": "If true, OpenSearch Serverless retains documents indefinitely",
+    "default": "null",
+    "required": false
+  }
+]

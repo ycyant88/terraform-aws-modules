@@ -1,0 +1,19 @@
+module "iam_iam-group" {
+  source                             = "terraform-aws-modules/iam/aws//modules/iam-group"
+  version                            = "6.6.0"
+  policy_name                        = var.policy_name
+  tags                               = var.tags
+  enable_self_management_permissions = var.enable_self_management_permissions
+  policy_use_name_prefix             = var.policy_use_name_prefix
+  policy_description                 = var.policy_description
+  policy_path                        = var.policy_path
+  users                              = var.users
+  create_policy                      = var.create_policy
+  create                             = var.create
+  path                               = var.path
+  permissions                        = var.permissions
+  policies                           = var.policies
+  users_account_id                   = var.users_account_id
+  name                               = var.name
+  enable_mfa_enforcement             = var.enable_mfa_enforcement
+}

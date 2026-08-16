@@ -1,0 +1,149 @@
+[
+  {
+    "name": "default_tags",
+    "type": "map",
+    "description": "",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "private_cidr",
+    "type": "list",
+    "description": "VPC private addressing, used for a security group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "preferred_maintenance_window",
+    "type": "string",
+    "description": "When AWS can run snapshot, can't overlap with maintenance window",
+    "default": "\"sat:10:00-sat:10:30\"",
+    "required": false
+  },
+  {
+    "name": "cluster_parameter_group",
+    "type": "string",
+    "description": "Parameter group, depends on DB engine used",
+    "default": "\"redshift-1.0\"",
+    "required": false
+  },
+  {
+    "name": "publicly_accessible",
+    "type": "bool",
+    "description": "Determines if Cluster can be publicly available (NOT recommended)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "automated_snapshot_retention_period",
+    "type": "string",
+    "description": "How long will we retain backups",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "encrypted",
+    "type": "bool",
+    "description": "(Optional) If true , the data in the cluster is encrypted at rest.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_identifier",
+    "type": "string",
+    "description": "Custom name of the cluster",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_master_password",
+    "type": "string",
+    "description": "",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_iam_roles",
+    "type": "list",
+    "description": "A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_vpc_id",
+    "type": "string",
+    "description": "VPC to connect to, used for a security group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kms_key_id",
+    "type": "string",
+    "description": "(Optional) The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_node_type",
+    "type": "string",
+    "description": "Node Type of Redshift cluster",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_port",
+    "type": "number",
+    "description": "",
+    "default": "5439",
+    "required": false
+  },
+  {
+    "name": "cluster_database_name",
+    "type": "string",
+    "description": "The name of the database to create",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_master_username",
+    "type": "string",
+    "description": "",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnets",
+    "type": "list",
+    "description": "List of subnets DB should be available at. It might be one subnet.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "skip_final_snapshot",
+    "type": "bool",
+    "description": "If true (default), no snapshot will be made before deleting DB",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "wlm_json_configuration",
+    "type": "string",
+    "description": "",
+    "default": "\"[{\\\"query_concurrency\\\": 5}]\"",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "Version of Redshift engine cluster",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "cluster_number_of_nodes",
+    "type": "number",
+    "description": "Number of Node in the cluster",
+    "default": "3",
+    "required": false
+  }
+]

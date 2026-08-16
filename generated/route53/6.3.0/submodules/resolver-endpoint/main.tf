@@ -1,0 +1,22 @@
+module "route53_resolver-endpoint" {
+  source                         = "terraform-aws-modules/route53/aws//modules/resolver-endpoint"
+  version                        = "6.3.0"
+  direction                      = var.direction
+  name                           = var.name
+  type                           = var.type
+  security_group_name            = var.security_group_name
+  security_group_use_name_prefix = var.security_group_use_name_prefix
+  security_group_description     = var.security_group_description
+  protocols                      = var.protocols
+  create_security_group          = var.create_security_group
+  security_group_ingress_rules   = var.security_group_ingress_rules
+  security_group_tags            = var.security_group_tags
+  create                         = var.create
+  ip_address                     = var.ip_address
+  vpc_id                         = var.vpc_id
+  region                         = var.region
+  tags                           = var.tags
+  security_group_ids             = var.security_group_ids
+  security_group_egress_rules    = var.security_group_egress_rules
+  rules                          = var.rules
+}

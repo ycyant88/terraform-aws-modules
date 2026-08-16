@@ -1,0 +1,23 @@
+module "network-firewall_firewall" {
+  source                                   = "terraform-aws-modules/network-firewall/aws//modules/firewall"
+  version                                  = "2.3.0"
+  description                              = var.description
+  encryption_configuration                 = var.encryption_configuration
+  firewall_policy_change_protection        = var.firewall_policy_change_protection
+  create_logging_configuration             = var.create_logging_configuration
+  logging_configuration_destination_config = var.logging_configuration_destination_config
+  enable_monitoring_dashboard              = var.enable_monitoring_dashboard
+  create                                   = var.create
+  delete_protection                        = var.delete_protection
+  enabled_analysis_types                   = var.enabled_analysis_types
+  firewall_policy_arn                      = var.firewall_policy_arn
+  name                                     = var.name
+  subnet_mapping                           = var.subnet_mapping
+  subnet_change_protection                 = var.subnet_change_protection
+  transit_gateway_id                       = var.transit_gateway_id
+  region                                   = var.region
+  availability_zone_mapping                = var.availability_zone_mapping
+  vpc_id                                   = var.vpc_id
+  tags                                     = var.tags
+  availability_zone_change_protection      = var.availability_zone_change_protection
+}

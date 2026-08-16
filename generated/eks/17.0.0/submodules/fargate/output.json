@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aws_auth_roles",
+    "description": "Roles for use in aws-auth ConfigMap"
+  },
+  {
+    "name": "fargate_profile_ids",
+    "description": "EKS Cluster name and EKS Fargate Profile names separated by a colon (:)."
+  },
+  {
+    "name": "fargate_profile_arns",
+    "description": "Amazon Resource Name (ARN) of the EKS Fargate Profiles."
+  },
+  {
+    "name": "iam_role_name",
+    "description": "IAM role name for EKS Fargate pods"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "IAM role ARN for EKS Fargate pods"
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "flow_logs_enabled",
+    "type": "bool",
+    "description": "Indicates whether flow logs are enabled. Defaults to `false`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "flow_logs_s3_prefix",
+    "type": "string",
+    "description": "The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "listeners",
+    "type": "any",
+    "description": "A map of listener defintions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "listeners_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the listeners",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "endpoint_groups_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the endpoint groups",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ip_address_type",
+    "type": "string",
+    "description": "The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`",
+    "default": "\"IPV4\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the accelerator",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ip_addresses",
+    "type": "list(string)",
+    "description": "The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enabled",
+    "type": "bool",
+    "description": "Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "flow_logs_s3_bucket",
+    "type": "string",
+    "description": "The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_listeners",
+    "type": "bool",
+    "description": "Controls if listeners should be created (affects only listeners)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "firewall_policy_arn",
+    "type": "string",
+    "description": "The ARN of the Firewall Policy to use",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_mapping",
+    "type": "any",
+    "description": "Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_logging_configuration",
+    "type": "bool",
+    "description": "Controls if a Logging Configuration should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "logging_configuration_destination_config",
+    "type": "any",
+    "description": "A list of min 1, max 2 configuration blocks describing the destination for the logging configuration",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the firewall",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_change_protection",
+    "type": "bool",
+    "description": "A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `true`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "delete_protection",
+    "type": "bool",
+    "description": "A boolean flag indicating whether it is possible to delete the firewall. Defaults to `true`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the firewall",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "any",
+    "description": "KMS encryption configuration settings",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "firewall_policy_change_protection",
+    "type": "bool",
+    "description": "A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "The unique identifier of the VPC where AWS Network Firewall should create the firewall",
+    "default": "\"\"",
+    "required": false
+  }
+]

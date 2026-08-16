@@ -1,0 +1,27 @@
+module "iam_iam-assumable-roles-with-saml" {
+  source                                  = "terraform-aws-modules/iam/aws//modules/iam-assumable-roles-with-saml"
+  version                                 = "3.15.0"
+  poweruser_role_tags                     = var.poweruser_role_tags
+  readonly_role_name                      = var.readonly_role_name
+  readonly_role_policy_arns               = var.readonly_role_policy_arns
+  aws_saml_endpoint                       = var.aws_saml_endpoint
+  create_admin_role                       = var.create_admin_role
+  max_session_duration                    = var.max_session_duration
+  force_detach_policies                   = var.force_detach_policies
+  admin_role_tags                         = var.admin_role_tags
+  poweruser_role_name                     = var.poweruser_role_name
+  create_readonly_role                    = var.create_readonly_role
+  readonly_role_path                      = var.readonly_role_path
+  readonly_role_permissions_boundary_arn  = var.readonly_role_permissions_boundary_arn
+  provider_id                             = var.provider_id
+  provider_ids                            = var.provider_ids
+  admin_role_permissions_boundary_arn     = var.admin_role_permissions_boundary_arn
+  create_poweruser_role                   = var.create_poweruser_role
+  poweruser_role_path                     = var.poweruser_role_path
+  readonly_role_tags                      = var.readonly_role_tags
+  admin_role_name                         = var.admin_role_name
+  admin_role_path                         = var.admin_role_path
+  admin_role_policy_arns                  = var.admin_role_policy_arns
+  poweruser_role_policy_arns              = var.poweruser_role_policy_arns
+  poweruser_role_permissions_boundary_arn = var.poweruser_role_permissions_boundary_arn
+}

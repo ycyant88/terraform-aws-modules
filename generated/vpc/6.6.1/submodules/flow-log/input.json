@@ -1,0 +1,247 @@
+[
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "eni_id",
+    "type": "string",
+    "description": "Elastic Network Interface ID to attach to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "transit_gateway_id",
+    "type": "string",
+    "description": "Transit Gateway ID to attach to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_class",
+    "type": "string",
+    "description": "Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_tags",
+    "type": "map(string)",
+    "description": "Map of additional tags to add to the CloudWatch log group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "max_aggregation_interval",
+    "type": "number",
+    "description": "The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` must be 60 seconds (1 minute)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC ID to attach to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether to create a CloudWatch log group for the Flow Logs",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Number of days to retain log events. Set to `0` to keep logs indefinitely",
+    "default": "90",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name to use on IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for inline policy permissions",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to use across resources created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "destination_options",
+    "type": "object({\n    file_format                = optional(string)\n    hive_compatible_partitions = optional(bool)\n    per_hour_partition         = optional(bool)\n  })",
+    "description": "Describes the destination options for a flow log",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_destination",
+    "type": "string",
+    "description": "ARN of the logging destination",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_id",
+    "type": "string",
+    "description": "Subnet ID to attach to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Determines whether the ECS service IAM role should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_arn",
+    "type": "string",
+    "description": "Existing IAM role ARN",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "traffic_type",
+    "type": "string",
+    "description": "The type of traffic to capture. Valid values: `ACCEPT`, `REJECT`, `ALL`",
+    "default": "\"ALL\"",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "type": "string",
+    "description": "Name of the created CloudWatch log group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM role name (`iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_trust_policy_permissions",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom trust policy permissions",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deliver_cross_account_role",
+    "type": "string",
+    "description": "ARN of the IAM role in the destination account used for cross-account delivery of flow logs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_format",
+    "type": "string",
+    "description": "The fields to include in the flow log record",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "transit_gateway_attachment_id",
+    "type": "string",
+    "description": "Transit Gateway Attachment ID to attach to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the log group name should be used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kinesis_data_firehose_arn",
+    "type": "string",
+    "description": "ARN of the existing Kinesis Data Firehose delivery stream. Required when `log_destination_type` is `kinesis-data-firehose`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_destination_type",
+    "type": "string",
+    "description": "Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`",
+    "default": "\"cloud-watch-logs\"",
+    "required": false
+  },
+  {
+    "name": "flow_log_tags",
+    "type": "map(string)",
+    "description": "Map of additional tags to add to the flow log ",
+    "default": "{}",
+    "required": false
+  }
+]

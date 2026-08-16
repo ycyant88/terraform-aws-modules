@@ -1,0 +1,27 @@
+module "ecr" {
+  source                                    = "terraform-aws-modules/ecr/aws"
+  version                                   = "1.1.1"
+  tags                                      = var.tags
+  repository_kms_key                        = var.repository_kms_key
+  repository_image_scan_on_push             = var.repository_image_scan_on_push
+  repository_policy                         = var.repository_policy
+  create_registry_policy                    = var.create_registry_policy
+  manage_registry_scanning_configuration    = var.manage_registry_scanning_configuration
+  registry_scan_type                        = var.registry_scan_type
+  repository_name                           = var.repository_name
+  repository_read_access_arns               = var.repository_read_access_arns
+  repository_read_write_access_arns         = var.repository_read_write_access_arns
+  registry_policy                           = var.registry_policy
+  registry_scan_rules                       = var.registry_scan_rules
+  create_registry_replication_configuration = var.create_registry_replication_configuration
+  create                                    = var.create
+  repository_encryption_type                = var.repository_encryption_type
+  create_repository_policy                  = var.create_repository_policy
+  repository_lifecycle_policy               = var.repository_lifecycle_policy
+  registry_replication_rules                = var.registry_replication_rules
+  repository_type                           = var.repository_type
+  create_repository                         = var.create_repository
+  repository_image_tag_mutability           = var.repository_image_tag_mutability
+  public_repository_catalog_data            = var.public_repository_catalog_data
+  registry_pull_through_cache_rules         = var.registry_pull_through_cache_rules
+}

@@ -1,0 +1,20 @@
+module "s3-bucket" {
+  source                                      = "terraform-aws-modules/s3-bucket/aws"
+  version                                     = "0.0.1"
+  bucket_prefix                               = var.bucket_prefix
+  acl                                         = var.acl
+  versioning_inputs                           = var.versioning_inputs
+  bucket                                      = var.bucket
+  policy                                      = var.policy
+  force_destroy                               = var.force_destroy
+  acceleration_status                         = var.acceleration_status
+  request_payer                               = var.request_payer
+  logging_inputs                              = var.logging_inputs
+  server_side_encryption_configuration_inputs = var.server_side_encryption_configuration_inputs
+  tags                                        = var.tags
+  region                                      = var.region
+  website_inputs                              = var.website_inputs
+  cors_rule_inputs                            = var.cors_rule_inputs
+  lifecycle_rule_inputs                       = var.lifecycle_rule_inputs
+  replication_configuration_inputs            = var.replication_configuration_inputs
+}

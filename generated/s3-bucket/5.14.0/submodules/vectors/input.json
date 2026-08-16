@@ -1,0 +1,65 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the S3 Vectors vector bucket",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vector_bucket_name",
+    "type": "string",
+    "description": "Name of the S3 Vectors vector bucket",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the vector bucket will be managed. Defaults to the region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_policy",
+    "type": "bool",
+    "description": "Whether to create the S3 Vectors vector bucket policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "The policy document as a JSON string",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "indexes",
+    "type": "map(object({\n    index_name      = string\n    dimension       = number\n    distance_metric = string\n    data_type       = optional(string, \"float32\")\n    tags            = optional(map(string), {})\n    encryption_configuration = optional(object({\n      sse_type    = string\n      kms_key_arn = optional(string)\n    }), null)\n    metadata_configuration = optional(object({\n      non_filterable_metadata_keys = list(string)\n    }), null)\n  }))",
+    "description": "A map of vector indexes to create in the vector bucket. Each key is an arbitrary index name used for resource naming.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "Boolean that indicates all indexes and vectors should be deleted from the vector bucket when the vector bucket is destroyed",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to the vector bucket",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "object({\n    sse_type    = string\n    kms_key_arn = optional(string)\n  })",
+    "description": "Encryption configuration for the vector bucket",
+    "default": "null",
+    "required": false
+  }
+]

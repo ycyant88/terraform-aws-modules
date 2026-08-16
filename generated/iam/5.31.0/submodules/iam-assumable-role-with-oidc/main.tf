@@ -1,0 +1,22 @@
+module "iam_iam-assumable-role-with-oidc" {
+  source                         = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
+  version                        = "5.31.0"
+  create_role                    = var.create_role
+  role_permissions_boundary_arn  = var.role_permissions_boundary_arn
+  max_session_duration           = var.max_session_duration
+  role_policy_arns               = var.role_policy_arns
+  oidc_fully_qualified_audiences = var.oidc_fully_qualified_audiences
+  provider_urls                  = var.provider_urls
+  tags                           = var.tags
+  role_name                      = var.role_name
+  role_name_prefix               = var.role_name_prefix
+  role_path                      = var.role_path
+  number_of_role_policy_arns     = var.number_of_role_policy_arns
+  oidc_subjects_with_wildcards   = var.oidc_subjects_with_wildcards
+  allow_self_assume_role         = var.allow_self_assume_role
+  role_description               = var.role_description
+  force_detach_policies          = var.force_detach_policies
+  provider_url                   = var.provider_url
+  aws_account_id                 = var.aws_account_id
+  oidc_fully_qualified_subjects  = var.oidc_fully_qualified_subjects
+}

@@ -1,0 +1,26 @@
+module "transit-gateway" {
+  source                                 = "terraform-aws-modules/transit-gateway/aws"
+  version                                = "2.3.0"
+  ram_allow_external_principals          = var.ram_allow_external_principals
+  ram_principals                         = var.ram_principals
+  name                                   = var.name
+  enable_auto_accept_shared_attachments  = var.enable_auto_accept_shared_attachments
+  enable_vpn_ecmp_support                = var.enable_vpn_ecmp_support
+  transit_gateway_route_table_id         = var.transit_gateway_route_table_id
+  tgw_vpc_attachment_tags                = var.tgw_vpc_attachment_tags
+  ram_name                               = var.ram_name
+  create_tgw                             = var.create_tgw
+  enable_default_route_table_propagation = var.enable_default_route_table_propagation
+  tgw_tags                               = var.tgw_tags
+  tgw_route_table_tags                   = var.tgw_route_table_tags
+  share_tgw                              = var.share_tgw
+  ram_tags                               = var.ram_tags
+  enable_default_route_table_association = var.enable_default_route_table_association
+  vpc_attachments                        = var.vpc_attachments
+  ram_resource_share_arn                 = var.ram_resource_share_arn
+  amazon_side_asn                        = var.amazon_side_asn
+  description                            = var.description
+  enable_dns_support                     = var.enable_dns_support
+  tags                                   = var.tags
+  tgw_default_route_table_tags           = var.tgw_default_route_table_tags
+}

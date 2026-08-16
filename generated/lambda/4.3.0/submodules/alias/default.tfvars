@@ -1,0 +1,37 @@
+create_version_async_event_config = true
+
+create_version_allowed_triggers = true
+
+create_qualified_alias_allowed_triggers = true
+
+name = ""
+
+routing_additional_version_weights = {}
+
+refresh_alias = true
+
+maximum_retry_attempts = null
+
+destination_on_success = null
+
+event_source_mapping = {}
+
+function_version = ""
+
+use_existing_alias = false
+
+create_async_event_config = false
+
+create_qualified_alias_async_event_config = true
+
+destination_on_failure = null
+
+allowed_triggers = {}
+
+create = true
+
+function_name = ""
+
+maximum_event_age_in_seconds = null
+
+description = ""

@@ -1,0 +1,27 @@
+module "s3-bucket_object" {
+  source                        = "terraform-aws-modules/s3-bucket/aws//modules/object"
+  version                       = "1.25.0"
+  file_source                   = var.file_source
+  content                       = var.content
+  website_redirect              = var.website_redirect
+  tags                          = var.tags
+  object_lock_legal_hold_status = var.object_lock_legal_hold_status
+  metadata                      = var.metadata
+  object_lock_mode              = var.object_lock_mode
+  object_lock_retain_until_date = var.object_lock_retain_until_date
+  create                        = var.create
+  content_encoding              = var.content_encoding
+  content_language              = var.content_language
+  storage_class                 = var.storage_class
+  kms_key_id                    = var.kms_key_id
+  force_destroy                 = var.force_destroy
+  key                           = var.key
+  acl                           = var.acl
+  content_disposition           = var.content_disposition
+  etag                          = var.etag
+  server_side_encryption        = var.server_side_encryption
+  bucket                        = var.bucket
+  content_base64                = var.content_base64
+  cache_control                 = var.cache_control
+  content_type                  = var.content_type
+}

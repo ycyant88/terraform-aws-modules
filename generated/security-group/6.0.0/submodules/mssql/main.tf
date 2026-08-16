@@ -1,0 +1,22 @@
+module "security-group_mssql" {
+  source                               = "terraform-aws-modules/security-group/aws//modules/mssql"
+  version                              = "6.0.0"
+  preset_ingress_rules                 = var.preset_ingress_rules
+  use_name_prefix                      = var.use_name_prefix
+  ingress_cidr_ipv4                    = var.ingress_cidr_ipv4
+  ingress_cidr_ipv6                    = var.ingress_cidr_ipv6
+  ingress_prefix_list_id               = var.ingress_prefix_list_id
+  ingress_referenced_security_group_id = var.ingress_referenced_security_group_id
+  vpc_associations                     = var.vpc_associations
+  tags                                 = var.tags
+  description                          = var.description
+  revoke_rules_on_delete               = var.revoke_rules_on_delete
+  ingress_rules                        = var.ingress_rules
+  egress_rules                         = var.egress_rules
+  enable_exclusive_rules               = var.enable_exclusive_rules
+  region                               = var.region
+  name                                 = var.name
+  timeouts                             = var.timeouts
+  create                               = var.create
+  vpc_id                               = var.vpc_id
+}

@@ -1,0 +1,373 @@
+[
+  {
+    "name": "repl_config_timeouts",
+    "type": "map(string)",
+    "description": "A map of timeouts for serverless replication config create/update/delete operations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "event_subscriptions",
+    "type": "any",
+    "description": "Map of objects that define the event subscriptions to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_redshift_target_permissions",
+    "type": "bool",
+    "description": "Determines whether `redshift.amazonaws.com` is permitted access to assume the `dms-access-for-endpoint` role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "repl_instance_multi_az",
+    "type": "bool",
+    "description": "Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the replication instance",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repl_instance_timeouts",
+    "type": "map(string)",
+    "description": "A map of timeouts for replication instance create/update/delete operations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "s3_endpoints",
+    "type": "any",
+    "description": "Map of objects that define the S3 endpoints to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_target_s3_bucket_arns",
+    "type": "list(string)",
+    "description": "A list of S3 bucket ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the DMS IAM roles",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_repl_subnet_group",
+    "type": "bool",
+    "description": "Determines whether the replication subnet group will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repl_subnet_group_description",
+    "type": "string",
+    "description": "The description for the subnet group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_class",
+    "type": "string",
+    "description": "The compute and memory capacity of the replication instance as specified by the replication instance class",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "A list of VPC security group IDs to be used with the replication instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "certificates",
+    "type": "map(any)",
+    "description": "Map of objects that define the certificates to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_policies",
+    "type": "map(string)",
+    "description": "Map of IAM role policy ARNs to attach to the IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repl_subnet_group_subnet_ids",
+    "type": "list(string)",
+    "description": "A list of the EC2 subnet IDs for the subnet group",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "repl_instance_availability_zone",
+    "type": "string",
+    "description": "The EC2 Availability Zone that the replication instance will be created in",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_kms_key_arn",
+    "type": "string",
+    "description": "The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_id",
+    "type": "string",
+    "description": "The replication instance identifier. This parameter is stored as a lowercase string",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_access_iam_role",
+    "type": "bool",
+    "description": "Determines whether the ECS task definition IAM role should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_description",
+    "type": "string",
+    "description": "Description of the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_kms_key_arns",
+    "type": "list(string)",
+    "description": "A list of KMS key ARNs the access IAM role is permitted to decrypt",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "access_secret_arns",
+    "type": "list(string)",
+    "description": "A list of SecretManager secret ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_iam_roles",
+    "type": "bool",
+    "description": "Determines whether the required [DMS IAM resources](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole) will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_repl_instance",
+    "type": "bool",
+    "description": "Indicates whether a replication instace should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repl_instance_engine_version",
+    "type": "string",
+    "description": "The [engine version](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReleaseNotes.html) number of the replication instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_publicly_accessible",
+    "type": "bool",
+    "description": "Specifies the accessibility options for the replication instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_path",
+    "type": "string",
+    "description": "IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_source_s3_bucket_arns",
+    "type": "list(string)",
+    "description": "A list of S3 bucket ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "access_target_elasticsearch_arns",
+    "type": "list(string)",
+    "description": "A list of Elasticsearch ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "repl_instance_network_type",
+    "type": "string",
+    "description": "The type of IP address protocol used by a replication instance. Valid values: IPV4, DUAL",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "replication_tasks",
+    "type": "any",
+    "description": "Map of objects that define the replication tasks to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_iam_statements",
+    "type": "any",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_target_kinesis_arns",
+    "type": "list(string)",
+    "description": "A list of Kinesis ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "repl_subnet_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the replication subnet group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repl_instance_allow_major_version_upgrade",
+    "type": "bool",
+    "description": "Indicates that major version upgrades are allowed",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "endpoints",
+    "type": "any",
+    "description": "Map of objects that define the endpoints to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "event_subscription_timeouts",
+    "type": "map(string)",
+    "description": "A map of timeouts for event subscription create/update/delete operations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM role name (`access_iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_access_policy",
+    "type": "bool",
+    "description": "Determines whether the IAM policy should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "access_target_dynamodb_table_arns",
+    "type": "list(string)",
+    "description": "A list of DynamoDB table ARNs the access IAM role is permitted to access",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to use on all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repl_subnet_group_name",
+    "type": "string",
+    "description": "The name for the replication subnet group. Stored as a lowercase string, must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_apply_immediately",
+    "type": "bool",
+    "description": "Indicates whether the changes should be applied immediately or during the next maintenance window",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_preferred_maintenance_window",
+    "type": "string",
+    "description": "The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_name",
+    "type": "string",
+    "description": "Name to use on IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access_iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repl_instance_allocated_storage",
+    "type": "number",
+    "description": "The amount of storage (in gigabytes) to be initially allocated for the replication instance. Min: 5, Max: 6144, Default: 50",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repl_instance_auto_minor_version_upgrade",
+    "type": "bool",
+    "description": "Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repl_instance_subnet_group_id",
+    "type": "string",
+    "description": "An existing subnet group to associate with the replication instance",
+    "default": "null",
+    "required": false
+  }
+]

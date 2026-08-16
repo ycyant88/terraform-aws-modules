@@ -1,0 +1,107 @@
+[
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the rule group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the rule group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "rule_group",
+    "type": "any",
+    "description": "A configuration block that defines the rule group rules. Required unless `rules` is specified",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`",
+    "default": "\"STATELESS\"",
+    "required": false
+  },
+  {
+    "name": "resource_policy_principals",
+    "type": "list(string)",
+    "description": "A list of IAM principals allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_policy",
+    "type": "string",
+    "description": "The policy JSON to use for the resource policy; required when `create_resource_policy` is `false`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ram_resource_associations",
+    "type": "map(string)",
+    "description": "A map of RAM resource associations for the created rule group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if Network Firewall resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "string",
+    "description": "The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "resource_policy_actions",
+    "type": "list(string)",
+    "description": "A list of IAM actions allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "capacity",
+    "type": "number",
+    "description": "The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules",
+    "default": "100",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "any",
+    "description": "KMS encryption configuration settings",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be attached to the rule group",
+    "default": "false",
+    "required": false
+  }
+]

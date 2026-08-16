@@ -1,0 +1,24 @@
+module "network-firewall_policy" {
+  source                             = "terraform-aws-modules/network-firewall/aws//modules/policy"
+  version                            = "2.0.2"
+  resource_policy_principals         = var.resource_policy_principals
+  attach_resource_policy             = var.attach_resource_policy
+  ram_resource_associations          = var.ram_resource_associations
+  encryption_configuration           = var.encryption_configuration
+  stateful_engine_options            = var.stateful_engine_options
+  resource_policy                    = var.resource_policy
+  region                             = var.region
+  policy_variables                   = var.policy_variables
+  stateful_default_actions           = var.stateful_default_actions
+  stateless_fragment_default_actions = var.stateless_fragment_default_actions
+  name                               = var.name
+  resource_policy_actions            = var.resource_policy_actions
+  create                             = var.create
+  description                        = var.description
+  stateful_rule_group_reference      = var.stateful_rule_group_reference
+  stateless_custom_action            = var.stateless_custom_action
+  tags                               = var.tags
+  stateless_default_actions          = var.stateless_default_actions
+  stateless_rule_group_reference     = var.stateless_rule_group_reference
+  create_resource_policy             = var.create_resource_policy
+}

@@ -1,0 +1,27 @@
+module "atlantis" {
+  source                  = "terraform-aws-modules/atlantis/aws"
+  version                 = "5.0.0"
+  create                  = var.create
+  name                    = var.name
+  alb_security_group_id   = var.alb_security_group_id
+  alb                     = var.alb
+  certificate_arn         = var.certificate_arn
+  certificate_domain_name = var.certificate_domain_name
+  validate_certificate    = var.validate_certificate
+  cluster_arn             = var.cluster_arn
+  tags                    = var.tags
+  vpc_id                  = var.vpc_id
+  atlantis                = var.atlantis
+  create_alb              = var.create_alb
+  alb_target_group_arn    = var.alb_target_group_arn
+  service                 = var.service
+  region                  = var.region
+  create_certificate      = var.create_certificate
+  route53_record_name     = var.route53_record_name
+  create_cluster          = var.create_cluster
+  cluster                 = var.cluster
+  enable_efs              = var.enable_efs
+  create_route53_records  = var.create_route53_records
+  route53_zone_id         = var.route53_zone_id
+  efs                     = var.efs
+}

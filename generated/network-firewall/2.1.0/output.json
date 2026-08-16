@@ -1,0 +1,38 @@
+[
+  {
+    "name": "policy_update_token",
+    "description": "A string token used when updating a firewall policy"
+  },
+  {
+    "name": "policy_resource_policy_id",
+    "description": "The Amazon Resource Name (ARN) of the firewall policy associated with the resource policy"
+  },
+  {
+    "name": "id",
+    "description": "The Amazon Resource Name (ARN) that identifies the firewall"
+  },
+  {
+    "name": "update_token",
+    "description": "A string token used when updating a firewall"
+  },
+  {
+    "name": "policy_id",
+    "description": "The Amazon Resource Name (ARN) that identifies the firewall policy"
+  },
+  {
+    "name": "policy_arn",
+    "description": "The Amazon Resource Name (ARN) that identifies the firewall policy"
+  },
+  {
+    "name": "arn",
+    "description": "The Amazon Resource Name (ARN) that identifies the firewall"
+  },
+  {
+    "name": "status",
+    "description": "Nested list of information about the current status of the firewall"
+  },
+  {
+    "name": "logging_configuration_id",
+    "description": "The Amazon Resource Name (ARN) of the associated firewall"
+  }
+]

@@ -1,0 +1,25 @@
+vpc_id = ""
+
+vpc_subnet_route_table_ids = []
+
+tags = {}
+
+vpn_connection_static_routes_only = false
+
+tunnel2_inside_cidr = ""
+
+vpn_gateway_id = ""
+
+vpc_subnet_route_table_count = 0
+
+vpn_connection_static_routes_destinations = []
+
+tunnel1_inside_cidr = ""
+
+tunnel1_preshared_key = ""
+
+tunnel2_preshared_key = ""
+
+customer_gateway_id = ""
+
+create_vpn_connection = true

@@ -1,0 +1,25 @@
+module "apigateway-v2" {
+  source                           = "terraform-aws-modules/apigateway-v2/aws"
+  version                          = "0.1.0"
+  create                           = var.create
+  create_api_gateway               = var.create_api_gateway
+  route_selection_expression       = var.route_selection_expression
+  cors_configuration               = var.cors_configuration
+  target                           = var.target
+  tags                             = var.tags
+  domain_name                      = var.domain_name
+  api_key_selection_expression     = var.api_key_selection_expression
+  route_key                        = var.route_key
+  credentials_arn                  = var.credentials_arn
+  api_version                      = var.api_version
+  integrations                     = var.integrations
+  create_default_stage             = var.create_default_stage
+  create_routes_and_integrations   = var.create_routes_and_integrations
+  name                             = var.name
+  description                      = var.description
+  protocol_type                    = var.protocol_type
+  domain_name_tags                 = var.domain_name_tags
+  create_default_stage_api_mapping = var.create_default_stage_api_mapping
+  create_api_domain_name           = var.create_api_domain_name
+  domain_name_certificate_arn      = var.domain_name_certificate_arn
+}

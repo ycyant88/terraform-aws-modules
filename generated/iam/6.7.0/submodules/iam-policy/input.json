@@ -1,0 +1,51 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the IAM policy",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "IAM policy name prefix",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "The path of the policy in IAM",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "The path of the policy in IAM (tpl file)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources.",
+    "default": "{}",
+    "required": false
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_sns_policy",
+    "type": "bool",
+    "description": "Whether to create a policy for SNS permissions or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_sqs_policy",
+    "type": "bool",
+    "description": "Whether to create a policy for SQS permissions or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_lambda_permission",
+    "type": "bool",
+    "description": "Whether to create Lambda permissions or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "bucket",
+    "type": "string",
+    "description": "Name of S3 bucket to use",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "eventbridge",
+    "type": "bool",
+    "description": "Whether to enable Amazon EventBridge notifications",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "sqs_notifications",
+    "type": "any",
+    "description": "Map of S3 bucket notifications to SQS queue",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_arn",
+    "type": "string",
+    "description": "ARN of S3 bucket to use in policies",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "lambda_notifications",
+    "type": "any",
+    "description": "Map of S3 bucket notifications to Lambda function",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "sns_notifications",
+    "type": "any",
+    "description": "Map of S3 bucket notifications to SNS topic",
+    "default": "{}",
+    "required": false
+  }
+]

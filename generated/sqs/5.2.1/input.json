@@ -1,0 +1,296 @@
+[
+  {
+    "name": "dlq_kms_master_key_id",
+    "type": "string",
+    "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "source_dlq_queue_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "fifo_queue",
+    "type": "bool",
+    "description": "Boolean designating a FIFO queue",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `name` is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sqs_managed_sse_enabled",
+    "type": "bool",
+    "description": "Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_dlq_queue_policy",
+    "type": "bool",
+    "description": "Whether to create SQS queue policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "max_message_size",
+    "type": "number",
+    "description": "The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_tags",
+    "type": "map(string)",
+    "description": "A mapping of additional tags to assign to the dead letter queue",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "redrive_policy",
+    "type": "any",
+    "description": "The JSON policy to set up the Dead Letter Queue, see AWS docs. Note: when specifying maxReceiveCount, you must specify it as an integer (5), and not a string (\"5\")",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "dlq_name",
+    "type": "string",
+    "description": "This is the human-readable name of the queue. If omitted, Terraform will assign a random name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_receive_wait_time_seconds",
+    "type": "number",
+    "description": "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_redrive_allow_policy",
+    "type": "any",
+    "description": "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create SQS queue",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "delay_seconds",
+    "type": "number",
+    "description": "The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "message_retention_seconds",
+    "type": "number",
+    "description": "The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "redrive_allow_policy",
+    "type": "any",
+    "description": "The JSON policy to set up the Dead Letter Queue redrive permission, see AWS docs",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "visibility_timeout_seconds",
+    "type": "number",
+    "description": "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_fifo_throughput_limit",
+    "type": "string",
+    "description": "Specifies whether the Dead Letter Queue FIFO queue throughput quota applies to the entire queue or per message group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_queue_policy_statements",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n    # TODO - remove at next breaking change\n    conditions = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deduplication_scope",
+    "type": "string",
+    "description": "Specifies whether message deduplication occurs at the message group or queue level",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "fifo_throughput_limit",
+    "type": "string",
+    "description": "Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "override_queue_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_dlq_redrive_allow_policy",
+    "type": "bool",
+    "description": "Determines whether to create a redrive allow policy for the dead letter queue",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "dlq_sqs_managed_sse_enabled",
+    "type": "bool",
+    "description": "Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "receive_wait_time_seconds",
+    "type": "number",
+    "description": "The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_content_based_deduplication",
+    "type": "bool",
+    "description": "Enables content-based deduplication for FIFO queues",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_delay_seconds",
+    "type": "number",
+    "description": "The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_message_retention_seconds",
+    "type": "number",
+    "description": "The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "content_based_deduplication",
+    "type": "bool",
+    "description": "Enables content-based deduplication for FIFO queues",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "This is the human-readable name of the queue. If omitted, Terraform will assign a random name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "source_queue_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "queue_policy_statements",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n    # TODO - remove at next breaking change\n    conditions = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_visibility_timeout_seconds",
+    "type": "number",
+    "description": "The visibility timeout for the queue. An integer from 0 to 43200 (12 hours)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "override_dlq_queue_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_dlq",
+    "type": "bool",
+    "description": "Determines whether to create SQS dead letter queue",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "dlq_deduplication_scope",
+    "type": "string",
+    "description": "Specifies whether message deduplication occurs at the message group or queue level",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dlq_kms_data_key_reuse_period_seconds",
+    "type": "number",
+    "description": "The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_data_key_reuse_period_seconds",
+    "type": "number",
+    "description": "The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_master_key_id",
+    "type": "string",
+    "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_queue_policy",
+    "type": "bool",
+    "description": "Whether to create SQS queue policy",
+    "default": "false",
+    "required": false
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "role_unique_id",
+    "description": "The stable and unique string identifying the forwarder lambda role."
+  },
+  {
+    "name": "cloudwatch_log_group_arn",
+    "description": "The ARN of the forwarder lambda function CloudWatch log group"
+  },
+  {
+    "name": "role_policy_arn",
+    "description": "The ARN of the forwarder lambda role policy"
+  },
+  {
+    "name": "role_policy_id",
+    "description": "The ID of the forwarder lambda role policy"
+  },
+  {
+    "name": "role_policy_name",
+    "description": "The name of the forwarder lambda role policy"
+  },
+  {
+    "name": "lambda_arn",
+    "description": "The ARN of the forwarder lambda function"
+  },
+  {
+    "name": "lambda_qualified_arn",
+    "description": "The ARN of the forwarder lambda function (if versioning is enabled via publish = true)"
+  },
+  {
+    "name": "lambda_version",
+    "description": "Latest published version of the forwarder lambda function"
+  },
+  {
+    "name": "lambda_kms_key_arn",
+    "description": "(Optional) The ARN for the KMS encryption key for the forwarder lambda function"
+  },
+  {
+    "name": "lambda_source_code_hash",
+    "description": "Base64-encoded representation of raw SHA-256 sum of the zip file, provided either via filename or s3_* parameters"
+  },
+  {
+    "name": "role_arn",
+    "description": "The forwarder lambda role arn"
+  },
+  {
+    "name": "role_id",
+    "description": "The forwarder lambda role id"
+  },
+  {
+    "name": "role_name",
+    "description": "The forwarder lambda role name"
+  }
+]
