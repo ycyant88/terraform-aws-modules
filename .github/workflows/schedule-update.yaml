@@ -1,13 +1,12 @@
 ---
-name: Run Update Script
+name: Schedule Update
 
 on:
   schedule:
     - cron: '0 5 * * *'
-  workflow_dispatch:
 
 jobs:
-  update-and-commit:
+  update-and-push:
     runs-on: ubuntu-latest
 
     permissions:
@@ -17,13 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make script executable
+      - name: Run install and update script
         run: |
           chmod +x ./src/install.sh
           chmod +x ./src/update.sh
-
-      - name: Run update script
-        run: |
           ./src/install.sh
           ./src/update.sh
 
@@ -31,12 +27,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add -A
-
-          if git diff --staged --quiet; then
-            echo "No changes detected. Skipping commit."
-          else
-            git commit -m "chore: schedule update via update.sh"
-            git push
-          fi
+          git commit -m "chore: schedule update via update.sh" || echo "Nothing to commit"
+          git push
