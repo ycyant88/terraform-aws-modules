@@ -4,6 +4,7 @@ name: Schedule Update
 on:
   schedule:
     - cron: '0 5 * * *'
+  workflow_dispatch: 
 
 jobs:
   update-and-push:
