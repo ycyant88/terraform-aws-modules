@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "eks_node_groups" {
   source                               = "terraform-aws-modules/eks/aws//modules/node_groups"
   version                              = "17.0.3"

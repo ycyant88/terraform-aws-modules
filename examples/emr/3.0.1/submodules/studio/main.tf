@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "emr_studio" {
   source                                 = "terraform-aws-modules/emr/aws//modules/studio"
   version                                = "3.0.1"

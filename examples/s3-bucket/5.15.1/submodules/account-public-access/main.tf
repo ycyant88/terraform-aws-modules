@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "s3-bucket_account-public-access" {
   source                  = "terraform-aws-modules/s3-bucket/aws//modules/account-public-access"
   version                 = "5.15.1"

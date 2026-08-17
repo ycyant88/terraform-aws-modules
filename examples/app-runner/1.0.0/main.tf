@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "app-runner" {
   source                                 = "terraform-aws-modules/app-runner/aws"
   version                                = "1.0.0"

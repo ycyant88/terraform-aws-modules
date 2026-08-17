@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "eks_capability" {
   source                                    = "terraform-aws-modules/eks/aws//modules/capability"
   version                                   = "21.13.0"

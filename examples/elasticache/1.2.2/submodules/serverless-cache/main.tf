@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "elasticache_serverless-cache" {
   source                   = "terraform-aws-modules/elasticache/aws//modules/serverless-cache"
   version                  = "1.2.2"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "network-firewall_policy" {
   source                             = "terraform-aws-modules/network-firewall/aws//modules/policy"
   version                            = "2.0.1"

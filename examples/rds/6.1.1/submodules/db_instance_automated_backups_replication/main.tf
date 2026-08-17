@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "rds_db_instance_automated_backups_replication" {
   source                 = "terraform-aws-modules/rds/aws//modules/db_instance_automated_backups_replication"
   version                = "6.1.1"

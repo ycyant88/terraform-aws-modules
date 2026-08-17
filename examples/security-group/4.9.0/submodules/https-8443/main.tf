@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_https-8443" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/https-8443"
   version                                                  = "4.9.0"

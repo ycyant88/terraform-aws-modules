@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "fsx_openzfs" {
   source                            = "terraform-aws-modules/fsx/aws//modules/openzfs"
   version                           = "1.1.0"

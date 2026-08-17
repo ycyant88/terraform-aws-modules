@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_cassandra" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/cassandra"
   version                                                  = "5.3.1"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "rds_db_option_group" {
   source                   = "terraform-aws-modules/rds/aws//modules/db_option_group"
   version                  = "2.0.0"

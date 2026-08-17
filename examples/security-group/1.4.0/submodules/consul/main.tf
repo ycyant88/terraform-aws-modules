@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_consul" {
   source                                = "terraform-aws-modules/security-group/aws//modules/consul"
   version                               = "1.4.0"

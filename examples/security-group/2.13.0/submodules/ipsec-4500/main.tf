@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_ipsec-4500" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/ipsec-4500"
   version                                                  = "2.13.0"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "iam_iam-group-with-policies" {
   source                                 = "terraform-aws-modules/iam/aws//modules/iam-group-with-policies"
   version                                = "5.42.0"

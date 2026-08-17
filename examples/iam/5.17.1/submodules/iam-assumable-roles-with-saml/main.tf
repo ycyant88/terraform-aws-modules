@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "iam_iam-assumable-roles-with-saml" {
   source                                  = "terraform-aws-modules/iam/aws//modules/iam-assumable-roles-with-saml"
   version                                 = "5.17.1"

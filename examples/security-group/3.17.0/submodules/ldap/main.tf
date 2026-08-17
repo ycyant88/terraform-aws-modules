@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_ldap" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/ldap"
   version                                                  = "3.17.0"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "solutions_cloudwatch-log-retention-manager" {
   source                            = "terraform-aws-modules/solutions/aws//modules/cloudwatch-log-retention-manager"
   version                           = "1.0.0"

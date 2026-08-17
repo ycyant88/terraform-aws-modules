@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "atlantis_gitlab-repository-webhook" {
   source                           = "terraform-aws-modules/atlantis/aws//modules/gitlab-repository-webhook"
   version                          = "2.26.0"

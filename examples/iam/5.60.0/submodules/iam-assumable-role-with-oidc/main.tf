@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "iam_iam-assumable-role-with-oidc" {
   source                           = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
   version                          = "5.60.0"

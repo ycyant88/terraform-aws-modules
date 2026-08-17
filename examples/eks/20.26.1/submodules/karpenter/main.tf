@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "eks_karpenter" {
   source                                  = "terraform-aws-modules/eks/aws//modules/karpenter"
   version                                 = "20.26.1"

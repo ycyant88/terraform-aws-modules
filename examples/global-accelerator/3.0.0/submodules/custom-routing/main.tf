@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "global-accelerator_custom-routing" {
   source                   = "terraform-aws-modules/global-accelerator/aws//modules/custom-routing"
   version                  = "3.0.0"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "s3-bucket_object" {
   source                        = "terraform-aws-modules/s3-bucket/aws//modules/object"
   version                       = "5.15.0"

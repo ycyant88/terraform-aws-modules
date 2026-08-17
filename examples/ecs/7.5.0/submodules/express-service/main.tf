@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "ecs_express-service" {
   source                                       = "terraform-aws-modules/ecs/aws//modules/express-service"
   version                                      = "7.5.0"

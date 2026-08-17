@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "eks_hybrid-node-role" {
   source                                  = "terraform-aws-modules/eks/aws//modules/hybrid-node-role"
   version                                 = "21.25.0"

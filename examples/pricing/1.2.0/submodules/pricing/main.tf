@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "pricing_pricing" {
   source                      = "terraform-aws-modules/pricing/aws//modules/pricing"
   version                     = "1.2.0"

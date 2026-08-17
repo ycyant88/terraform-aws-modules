@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "opensearch_collection" {
   source                                  = "terraform-aws-modules/opensearch/aws//modules/collection"
   version                                 = "1.5.0"

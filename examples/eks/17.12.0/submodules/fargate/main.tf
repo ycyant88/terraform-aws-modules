@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "eks_fargate" {
   source                            = "terraform-aws-modules/eks/aws//modules/fargate"
   version                           = "17.12.0"

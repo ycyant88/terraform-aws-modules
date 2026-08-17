@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "autoscaling_autoscaling_group" {
   source                    = "terraform-aws-modules/autoscaling/aws//modules/autoscaling_group"
   version                   = "1.0.2"

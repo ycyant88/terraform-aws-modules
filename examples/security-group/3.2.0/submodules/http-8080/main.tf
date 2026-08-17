@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_http-8080" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/http-8080"
   version                                                  = "3.2.0"

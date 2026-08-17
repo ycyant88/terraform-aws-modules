@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "ecr_repository-template" {
   source                             = "terraform-aws-modules/ecr/aws//modules/repository-template"
   version                            = "2.4.0"

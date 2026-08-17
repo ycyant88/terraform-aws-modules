@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "vpc_flow-log" {
   source                                 = "terraform-aws-modules/vpc/aws//modules/flow-log"
   version                                = "6.5.1"

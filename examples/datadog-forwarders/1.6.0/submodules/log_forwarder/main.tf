@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "datadog-forwarders_log_forwarder" {
   source                         = "terraform-aws-modules/datadog-forwarders/aws//modules/log_forwarder"
   version                        = "1.6.0"

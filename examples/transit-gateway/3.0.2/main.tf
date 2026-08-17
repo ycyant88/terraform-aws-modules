@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "transit-gateway" {
   source                                 = "terraform-aws-modules/transit-gateway/aws"
   version                                = "3.0.2"

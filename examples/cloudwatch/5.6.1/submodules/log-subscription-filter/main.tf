@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "cloudwatch_log-subscription-filter" {
   source          = "terraform-aws-modules/cloudwatch/aws//modules/log-subscription-filter"
   version         = "5.6.1"

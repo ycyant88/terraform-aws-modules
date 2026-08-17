@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "memory-db" {
   source                          = "terraform-aws-modules/memory-db/aws"
   version                         = "2.3.1"

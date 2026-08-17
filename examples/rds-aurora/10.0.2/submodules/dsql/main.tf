@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "rds-aurora_dsql" {
   source                      = "terraform-aws-modules/rds-aurora/aws//modules/dsql"
   version                     = "10.0.2"

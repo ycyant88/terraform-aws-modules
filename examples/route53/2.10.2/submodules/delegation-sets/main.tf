@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "route53_delegation-sets" {
   source          = "terraform-aws-modules/route53/aws//modules/delegation-sets"
   version         = "2.10.2"

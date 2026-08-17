@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "ecs_container-definition" {
   source                                 = "terraform-aws-modules/ecs/aws//modules/container-definition"
   version                                = "7.1.0"

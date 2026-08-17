@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "fsx_windows" {
   source                                 = "terraform-aws-modules/fsx/aws//modules/windows"
   version                                = "1.3.2"

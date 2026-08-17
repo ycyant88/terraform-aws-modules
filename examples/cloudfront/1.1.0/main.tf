@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "cloudfront" {
   source                        = "terraform-aws-modules/cloudfront/aws"
   version                       = "1.1.0"

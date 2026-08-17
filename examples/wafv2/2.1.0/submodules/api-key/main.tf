@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "wafv2_api-key" {
   source        = "terraform-aws-modules/wafv2/aws//modules/api-key"
   version       = "2.1.0"

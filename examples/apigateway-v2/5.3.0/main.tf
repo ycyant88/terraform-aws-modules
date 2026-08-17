@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "apigateway-v2" {
   source                                             = "terraform-aws-modules/apigateway-v2/aws"
   version                                            = "5.3.0"

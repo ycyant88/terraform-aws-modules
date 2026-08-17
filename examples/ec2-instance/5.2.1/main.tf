@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "ec2-instance" {
   source                               = "terraform-aws-modules/ec2-instance/aws"
   version                              = "5.2.1"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_promtail" {
   source                                                   = "terraform-aws-modules/security-group/aws//modules/promtail"
   version                                                  = "4.17.0"

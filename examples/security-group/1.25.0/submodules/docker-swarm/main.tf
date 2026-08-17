@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "security-group_docker-swarm" {
   source                                = "terraform-aws-modules/security-group/aws//modules/docker-swarm"
   version                               = "1.25.0"

@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "cloudwatch_cis-alarms" {
   source                 = "terraform-aws-modules/cloudwatch/aws//modules/cis-alarms"
   version                = "2.0.0"

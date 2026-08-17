@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "cloudwatch_composite-alarm" {
   source                    = "terraform-aws-modules/cloudwatch/aws//modules/composite-alarm"
   version                   = "5.5.0"

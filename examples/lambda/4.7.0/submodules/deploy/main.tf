@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "lambda_deploy" {
   source                          = "terraform-aws-modules/lambda/aws//modules/deploy"
   version                         = "4.7.0"

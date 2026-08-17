@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "alb_lb_trust_store" {
   source                                   = "terraform-aws-modules/alb/aws//modules/lb_trust_store"
   version                                  = "9.13.0"

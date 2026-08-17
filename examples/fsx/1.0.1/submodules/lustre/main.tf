@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "fsx_lustre" {
   source                                               = "terraform-aws-modules/fsx/aws//modules/lustre"
   version                                              = "1.0.1"

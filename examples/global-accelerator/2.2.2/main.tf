@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "global-accelerator" {
   source                   = "terraform-aws-modules/global-accelerator/aws"
   version                  = "2.2.2"
