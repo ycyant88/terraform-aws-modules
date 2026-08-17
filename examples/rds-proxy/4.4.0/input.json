@@ -1,0 +1,310 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether cluster should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "debug_logging",
+    "type": "bool",
+    "description": "Whether the proxy includes detailed information about SQL statements in its logs",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "init_query",
+    "type": "string",
+    "description": "One or more SQL statements for the proxy to run when opening each new database connection",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "log_group_retention_in_days",
+    "type": "number",
+    "description": "Specifies the number of days you want to retain log events in the log group",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "The path to the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_max_session_duration",
+    "type": "number",
+    "description": "The maximum session duration (in seconds) that you want to set for the specified role",
+    "default": "43200",
+    "required": false
+  },
+  {
+    "name": "require_tls",
+    "type": "bool",
+    "description": "A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "proxy_tags",
+    "type": "map(string)",
+    "description": "A map of tags to apply to the RDS Proxy",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "log_group_tags",
+    "type": "map(string)",
+    "description": "A map of tags to apply to the CloudWatch log group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "The description of the role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "iam_policy_name",
+    "type": "string",
+    "description": "The name of the role policy. If omitted, Terraform will assign a random, unique name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "default_auth_scheme",
+    "type": "string",
+    "description": "Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are NONE and IAM_AUTH. Defaults to NONE",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "endpoint_network_type",
+    "type": "string",
+    "description": "Network type of the DB proxy endpoint. Valid values are IPV4, IPV6 and DUAL. Defaults to IPV4. If IPV6 is specified, the subnets associated with the proxy must be IPv6-only, and target_connection_network_type must be IPV6",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "idle_client_timeout",
+    "type": "number",
+    "description": "The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it",
+    "default": "1800",
+    "required": false
+  },
+  {
+    "name": "target_db_cluster",
+    "type": "bool",
+    "description": "Determines whether DB cluster is targeted by proxy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "endpoints",
+    "type": "map(object({\n    name                   = optional(string)\n    vpc_subnet_ids         = list(string)\n    vpc_security_group_ids = optional(list(string))\n    target_role            = optional(string)\n    tags                   = optional(map(string), {})\n  }))",
+    "description": "Map of DB proxy endpoints to create and their attributes",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "log_group_kms_key_id",
+    "type": "string",
+    "description": "The ARN of the KMS Key to use when encrypting log data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_group_class",
+    "type": "string",
+    "description": "Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auth",
+    "type": "map(object({\n    auth_scheme               = optional(string)\n    client_password_auth_type = optional(string)\n    description               = optional(string)\n    iam_auth                  = optional(string)\n    secret_arn                = optional(string)\n    username                  = optional(string)\n  }))",
+    "description": "Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters",
+    "default": "{\n  \"default\": {\n    \"auth_scheme\": \"SECRETS\"\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "One or more VPC security group IDs to associate with the new proxy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "vpc_subnet_ids",
+    "type": "list(string)",
+    "description": "One or more VPC subnet IDs to associate with the new proxy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "max_connections_percent",
+    "type": "number",
+    "description": "The maximum size of the connection pool for each target in a target group",
+    "default": "90",
+    "required": false
+  },
+  {
+    "name": "max_idle_connections_percent",
+    "type": "number",
+    "description": "Controls how actively the proxy closes idle database connections in the connection pool",
+    "default": "50",
+    "required": false
+  },
+  {
+    "name": "db_instance_identifier",
+    "type": "string",
+    "description": "DB instance identifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_policy_name_prefix",
+    "type": "bool",
+    "description": "Whether to use unique name beginning with the specified `iam_policy_name`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "kms_key_arns",
+    "type": "list(string)",
+    "description": "List of KMS Key ARNs to allow access to decrypt SecretsManager secrets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "target_connection_network_type",
+    "type": "string",
+    "description": "Network type that the proxy uses to connect to the target database. Valid values are IPV4 and IPV6. Defaults to IPV4",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "engine_family",
+    "type": "string",
+    "description": "The kind of database engine that the proxy will connect to. Valid values are `MYSQL` or `POSTGRESQL`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "role_arn",
+    "type": "string",
+    "description": "The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "connection_borrow_timeout",
+    "type": "number",
+    "description": "The number of seconds for a proxy to wait for a connection to become available in the connection pool",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target_db_instance",
+    "type": "bool",
+    "description": "Determines whether DB instance is targeted by proxy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_role_force_detach_policies",
+    "type": "bool",
+    "description": "Specifies to force detaching any policies the role has before destroying it",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to apply to the IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_iam_policy",
+    "type": "bool",
+    "description": "Determines whether an IAM policy is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "manage_log_group",
+    "type": "bool",
+    "description": "Determines whether Terraform will create/manage the CloudWatch log group or not. Note - this will fail if set to true after the log group has been created as the resource will already exist",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "db_cluster_identifier",
+    "type": "string",
+    "description": "DB cluster identifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Determines whether an IAM role is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "The name of the role. If omitted, Terraform will assign a random, unique name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "session_pinning_filters",
+    "type": "list(string)",
+    "description": "Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_role_name_prefix",
+    "type": "bool",
+    "description": "Whether to use unique name beginning with the specified `iam_role_name`",
+    "default": "false",
+    "required": false
+  }
+]

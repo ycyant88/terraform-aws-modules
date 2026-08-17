@@ -1,0 +1,10 @@
+[
+  {
+    "name": "this_route53_zone_zone_id",
+    "description": "Zone ID of Route53 zone"
+  },
+  {
+    "name": "this_route53_zone_name_servers",
+    "description": "Name servers of Route53 zone"
+  }
+]

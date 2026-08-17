@@ -1,0 +1,1106 @@
+[
+  {
+    "name": "vpc_endpoint_ebs_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EBS."
+  },
+  {
+    "name": "private_subnets",
+    "description": "List of IDs of private subnets"
+  },
+  {
+    "name": "database_subnet_arns",
+    "description": "List of ARNs of database subnets"
+  },
+  {
+    "name": "redshift_subnets",
+    "description": "List of IDs of redshift subnets"
+  },
+  {
+    "name": "nat_public_ips",
+    "description": "List of public Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "vgw_id",
+    "description": "The ID of the VPN Gateway"
+  },
+  {
+    "name": "default_vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "database_network_acl_arn",
+    "description": "ARN of the database network ACL"
+  },
+  {
+    "name": "redshift_network_acl_arn",
+    "description": "ARN of the redshift network ACL"
+  },
+  {
+    "name": "database_subnet_group",
+    "description": "ID of database subnet group"
+  },
+  {
+    "name": "elasticache_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of elasticache subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "elasticache_network_acl_id",
+    "description": "ID of the elasticache network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SSMMESSAGES."
+  },
+  {
+    "name": "vpc_endpoint_ec2_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EC2."
+  },
+  {
+    "name": "vpc_endpoint_kinesis_firehose_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Kinesis Firehose."
+  },
+  {
+    "name": "vpc_endpoint_sms_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SMS."
+  },
+  {
+    "name": "vpc_endpoint_ebs_id",
+    "description": "The ID of VPC endpoint for EBS"
+  },
+  {
+    "name": "vpc_endpoint_appmesh_envoy_management_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for AppMesh."
+  },
+  {
+    "name": "vpc_ipv6_cidr_block",
+    "description": "The IPv6 CIDR block"
+  },
+  {
+    "name": "public_network_acl_id",
+    "description": "ID of the public network ACL"
+  },
+  {
+    "name": "vpc_endpoint_kinesis_firehose_id",
+    "description": "The ID of VPC endpoint for Kinesis Firehose"
+  },
+  {
+    "name": "vpc_endpoint_kinesis_firehose_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Kinesis Firehose."
+  },
+  {
+    "name": "vpc_endpoint_sns_id",
+    "description": "The ID of VPC endpoint for SNS"
+  },
+  {
+    "name": "vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "vpc_endpoint_codecommit_id",
+    "description": "The ID of VPC endpoint for codecommit"
+  },
+  {
+    "name": "vpc_endpoint_storagegateway_id",
+    "description": "The ID of VPC endpoint for Storage Gateway"
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_runtime_id",
+    "description": "The ID of VPC endpoint for SageMaker Runtime"
+  },
+  {
+    "name": "nat_ids",
+    "description": "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "vpc_endpoint_states_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Step Function."
+  },
+  {
+    "name": "public_subnets",
+    "description": "List of IDs of public subnets"
+  },
+  {
+    "name": "private_route_table_association_ids",
+    "description": "List of IDs of the private route table association"
+  },
+  {
+    "name": "vpc_endpoint_s3_pl_id",
+    "description": "The prefix list for the S3 VPC endpoint."
+  },
+  {
+    "name": "vpc_endpoint_events_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for CloudWatch Events."
+  },
+  {
+    "name": "default_vpc_default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "vpc_endpoint_kms_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for KMS."
+  },
+  {
+    "name": "vpc_endpoint_kinesis_streams_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Kinesis Streams."
+  },
+  {
+    "name": "redshift_subnet_arns",
+    "description": "List of ARNs of redshift subnets"
+  },
+  {
+    "name": "public_internet_gateway_route_id",
+    "description": "ID of the internet gateway route."
+  },
+  {
+    "name": "vpc_endpoint_transfer_id",
+    "description": "The ID of VPC endpoint for Transfer"
+  },
+  {
+    "name": "vpc_endpoint_athena_id",
+    "description": "The ID of VPC endpoint for Athena"
+  },
+  {
+    "name": "igw_id",
+    "description": "The ID of the Internet Gateway"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_id",
+    "description": "The ID of VPC endpoint for DynamoDB"
+  },
+  {
+    "name": "vpc_endpoint_codepipeline_id",
+    "description": "The ID of VPC endpoint for CodePipeline"
+  },
+  {
+    "name": "vpc_endpoint_codepipeline_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for CodePipeline."
+  },
+  {
+    "name": "vpc_endpoint_acm_pca_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ACM PCA."
+  },
+  {
+    "name": "default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "database_route_table_association_ids",
+    "description": "List of IDs of the database route table association"
+  },
+  {
+    "name": "vpc_endpoint_monitoring_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for CloudWatch Monitoring."
+  },
+  {
+    "name": "name",
+    "description": "The name of the VPC specified as argument to this module"
+  },
+  {
+    "name": "vpc_endpoint_ecr_api_id",
+    "description": "The ID of VPC endpoint for ECR API"
+  },
+  {
+    "name": "vpc_endpoint_sns_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SNS."
+  },
+  {
+    "name": "vpc_endpoint_codepipeline_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for CodePipeline."
+  },
+  {
+    "name": "vpc_endpoint_cloud_directory_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Cloud Directory."
+  },
+  {
+    "name": "vpc_endpoint_acm_pca_id",
+    "description": "The ID of VPC endpoint for ACM PCA"
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SSMMESSAGES."
+  },
+  {
+    "name": "intra_network_acl_id",
+    "description": "ID of the intra network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EC2MESSAGES"
+  },
+  {
+    "name": "vpc_endpoint_kms_id",
+    "description": "The ID of VPC endpoint for KMS"
+  },
+  {
+    "name": "vpc_endpoint_sts_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for STS."
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_health_id",
+    "description": "The ID of VPC endpoint for Elastic Beanstalk Health"
+  },
+  {
+    "name": "vpc_endpoint_auto_scaling_plans_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Auto Scaling Plans."
+  },
+  {
+    "name": "vpc_endpoint_access_analyzer_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Access Analyzer."
+  },
+  {
+    "name": "private_network_acl_id",
+    "description": "ID of the private network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ecr_dkr_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ECR DKR."
+  },
+  {
+    "name": "vpc_endpoint_states_id",
+    "description": "The ID of VPC endpoint for Step Function"
+  },
+  {
+    "name": "vpc_endpoint_codecommit_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for codecommit."
+  },
+  {
+    "name": "private_ipv6_egress_route_ids",
+    "description": "List of IDs of the ipv6 egress route."
+  },
+  {
+    "name": "public_route_table_ids",
+    "description": "List of IDs of public route tables"
+  },
+  {
+    "name": "redshift_route_table_association_ids",
+    "description": "List of IDs of the redshift route table association"
+  },
+  {
+    "name": "elasticache_network_acl_arn",
+    "description": "ARN of the elasticache network ACL"
+  },
+  {
+    "name": "vpc_endpoint_secretsmanager_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for secretsmanager."
+  },
+  {
+    "name": "vpc_endpoint_datasync_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for DataSync."
+  },
+  {
+    "name": "intra_route_table_association_ids",
+    "description": "List of IDs of the intra route table association"
+  },
+  {
+    "name": "public_route_table_association_ids",
+    "description": "List of IDs of the public route table association"
+  },
+  {
+    "name": "vpc_owner_id",
+    "description": "The ID of the AWS account that owns the VPC"
+  },
+  {
+    "name": "database_ipv6_egress_route_id",
+    "description": "ID of the database IPv6 egress route."
+  },
+  {
+    "name": "vpc_endpoint_ecs_agent_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ECS Agent."
+  },
+  {
+    "name": "vpc_endpoint_transfer_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Transfer."
+  },
+  {
+    "name": "vpc_endpoint_appstream_api_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for AppStream API."
+  },
+  {
+    "name": "vpc_endpoint_auto_scaling_plans_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Auto Scaling Plans."
+  },
+  {
+    "name": "public_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of public subnets"
+  },
+  {
+    "name": "intra_subnets",
+    "description": "List of IDs of intra subnets"
+  },
+  {
+    "name": "default_vpc_arn",
+    "description": "The ARN of the VPC"
+  },
+  {
+    "name": "vpc_endpoint_git_codecommit_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for git_codecommit."
+  },
+  {
+    "name": "vpc_endpoint_cloudtrail_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for CloudTrail."
+  },
+  {
+    "name": "vpc_endpoint_servicecatalog_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Service Catalog."
+  },
+  {
+    "name": "vpc_endpoint_athena_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Athena."
+  },
+  {
+    "name": "default_vpc_default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "vpc_endpoint_sqs_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SQS."
+  },
+  {
+    "name": "vpc_endpoint_ecs_agent_id",
+    "description": "The ID of VPC endpoint for ECS Agent"
+  },
+  {
+    "name": "vpc_endpoint_ecs_agent_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ECS Agent."
+  },
+  {
+    "name": "vpc_endpoint_appmesh_envoy_management_id",
+    "description": "The ID of VPC endpoint for AppMesh"
+  },
+  {
+    "name": "vpc_endpoint_transfer_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Transfer."
+  },
+  {
+    "name": "vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "default_vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "vpc_endpoint_secretsmanager_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for secretsmanager."
+  },
+  {
+    "name": "vpc_endpoint_apigw_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for APIGW."
+  },
+  {
+    "name": "redshift_network_acl_id",
+    "description": "ID of the redshift network ACL"
+  },
+  {
+    "name": "vpc_endpoint_config_id",
+    "description": "The ID of VPC endpoint for config"
+  },
+  {
+    "name": "vpc_endpoint_secretsmanager_id",
+    "description": "The ID of VPC endpoint for secretsmanager"
+  },
+  {
+    "name": "vpc_endpoint_sms_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SMS."
+  },
+  {
+    "name": "vpc_endpoint_ses_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SES."
+  },
+  {
+    "name": "vpc_flow_log_cloudwatch_iam_role_arn",
+    "description": "The ARN of the IAM role used when pushing logs to Cloudwatch log group"
+  },
+  {
+    "name": "database_internet_gateway_route_id",
+    "description": "ID of the database internet gateway route."
+  },
+  {
+    "name": "default_vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "vpc_endpoint_config_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for config."
+  },
+  {
+    "name": "vpc_endpoint_ecs_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ECS."
+  },
+  {
+    "name": "vpc_endpoint_sts_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for STS."
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_health_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Elastic Beanstalk Health."
+  },
+  {
+    "name": "default_vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "vpc_endpoint_elasticmapreduce_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EMR."
+  },
+  {
+    "name": "vpc_endpoint_qldb_session_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for QLDB Session."
+  },
+  {
+    "name": "public_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of public subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "database_route_table_ids",
+    "description": "List of IDs of database route tables"
+  },
+  {
+    "name": "vpc_endpoint_transferserver_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for transferserver."
+  },
+  {
+    "name": "vpc_endpoint_ecs_telemetry_id",
+    "description": "The ID of VPC endpoint for ECS Telemetry"
+  },
+  {
+    "name": "vpc_endpoint_sts_id",
+    "description": "The ID of VPC endpoint for STS"
+  },
+  {
+    "name": "vpc_endpoint_appstream_streaming_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for AppStream Streaming."
+  },
+  {
+    "name": "vpc_endpoint_cloud_directory_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Cloud Directory."
+  },
+  {
+    "name": "private_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of private subnets"
+  },
+  {
+    "name": "private_route_table_ids",
+    "description": "List of IDs of private route tables"
+  },
+  {
+    "name": "cgw_ids",
+    "description": "List of IDs of Customer Gateway"
+  },
+  {
+    "name": "vgw_arn",
+    "description": "The ARN of the VPN Gateway"
+  },
+  {
+    "name": "vpc_endpoint_elastic_inference_runtime_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Elastic Inference Runtime."
+  },
+  {
+    "name": "redshift_route_table_ids",
+    "description": "List of IDs of redshift route tables"
+  },
+  {
+    "name": "natgw_ids",
+    "description": "List of NAT Gateway IDs"
+  },
+  {
+    "name": "default_vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "vpc_endpoint_transferserver_id",
+    "description": "The ID of VPC endpoint for transferserver"
+  },
+  {
+    "name": "vpc_endpoint_cloudtrail_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for CloudTrail."
+  },
+  {
+    "name": "vpc_endpoint_storagegateway_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Storage Gateway."
+  },
+  {
+    "name": "vpc_endpoint_efs_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EFS."
+  },
+  {
+    "name": "vpc_endpoint_workspaces_id",
+    "description": "The ID of VPC endpoint for Workspaces"
+  },
+  {
+    "name": "vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "private_network_acl_arn",
+    "description": "ARN of the private network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ecs_telemetry_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ECS Telemetry."
+  },
+  {
+    "name": "vpc_endpoint_datasync_id",
+    "description": "The ID of VPC endpoint for DataSync"
+  },
+  {
+    "name": "vpc_flow_log_destination_arn",
+    "description": "The ARN of the destination for VPC Flow Logs"
+  },
+  {
+    "name": "redshift_public_route_table_association_ids",
+    "description": "List of IDs of the public redshidt route table association"
+  },
+  {
+    "name": "vpc_endpoint_ecs_telemetry_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ECS Telemetry."
+  },
+  {
+    "name": "vpc_flow_log_id",
+    "description": "The ID of the Flow Log resource"
+  },
+  {
+    "name": "database_nat_gateway_route_ids",
+    "description": "List of IDs of the database nat gateway route."
+  },
+  {
+    "name": "vpc_endpoint_servicecatalog_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Service Catalog."
+  },
+  {
+    "name": "default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "elasticache_subnet_group_name",
+    "description": "Name of elasticache subnet group"
+  },
+  {
+    "name": "vpc_endpoint_ec2_autoscaling_id",
+    "description": "The ID of VPC endpoint for EC2 Autoscaling"
+  },
+  {
+    "name": "vpc_endpoint_transferserver_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for transferserver"
+  },
+  {
+    "name": "vpc_endpoint_sqs_id",
+    "description": "The ID of VPC endpoint for SQS"
+  },
+  {
+    "name": "vpc_endpoint_codebuild_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for codebuild."
+  },
+  {
+    "name": "vpc_endpoint_apigw_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for APIGW."
+  },
+  {
+    "name": "vpc_endpoint_auto_scaling_plans_id",
+    "description": "The ID of VPC endpoint for Auto Scaling Plans"
+  },
+  {
+    "name": "vpc_endpoint_ses_id",
+    "description": "The ID of VPC endpoint for SES"
+  },
+  {
+    "name": "vpc_endpoint_appstream_streaming_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for AppStream Streaming."
+  },
+  {
+    "name": "vpc_endpoint_qldb_session_id",
+    "description": "The ID of VPC endpoint for QLDB Session"
+  },
+  {
+    "name": "vpc_endpoint_access_analyzer_id",
+    "description": "The ID of VPC endpoint for Access Analyzer"
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_runtime_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SageMaker Runtime."
+  },
+  {
+    "name": "vpc_endpoint_cloudformation_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Cloudformation."
+  },
+  {
+    "name": "vpc_endpoint_elasticloadbalancing_id",
+    "description": "The ID of VPC endpoint for Elastic Load Balancing"
+  },
+  {
+    "name": "vpc_endpoint_cloudtrail_id",
+    "description": "The ID of VPC endpoint for CloudTrail"
+  },
+  {
+    "name": "elasticache_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of elasticache subnets"
+  },
+  {
+    "name": "vpc_endpoint_events_id",
+    "description": "The ID of VPC endpoint for CloudWatch Events"
+  },
+  {
+    "name": "vpc_endpoint_cloud_directory_id",
+    "description": "The ID of VPC endpoint for Cloud Directory"
+  },
+  {
+    "name": "vpc_arn",
+    "description": "The ARN of the VPC"
+  },
+  {
+    "name": "vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "private_subnet_arns",
+    "description": "List of ARNs of private subnets"
+  },
+  {
+    "name": "vpc_endpoint_sqs_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SQS."
+  },
+  {
+    "name": "vpc_endpoint_glue_id",
+    "description": "The ID of VPC endpoint for Glue"
+  },
+  {
+    "name": "vpc_endpoint_kms_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for KMS."
+  },
+  {
+    "name": "vpc_endpoint_elasticloadbalancing_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Elastic Load Balancing."
+  },
+  {
+    "name": "vpc_endpoint_efs_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EFS."
+  },
+  {
+    "name": "intra_route_table_ids",
+    "description": "List of IDs of intra route tables"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_pl_id",
+    "description": "The prefix list for the DynamoDB VPC endpoint."
+  },
+  {
+    "name": "vpc_endpoint_monitoring_id",
+    "description": "The ID of VPC endpoint for CloudWatch Monitoring"
+  },
+  {
+    "name": "azs",
+    "description": "A list of availability zones specified as argument to this module"
+  },
+  {
+    "name": "elasticache_subnets",
+    "description": "List of IDs of elasticache subnets"
+  },
+  {
+    "name": "vpc_endpoint_ssm_id",
+    "description": "The ID of VPC endpoint for SSM"
+  },
+  {
+    "name": "vpc_endpoint_monitoring_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for CloudWatch Monitoring."
+  },
+  {
+    "name": "intra_network_acl_arn",
+    "description": "ARN of the intra network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ecs_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ECS."
+  },
+  {
+    "name": "vpc_endpoint_ses_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SES."
+  },
+  {
+    "name": "vpc_endpoint_git_codecommit_id",
+    "description": "The ID of VPC endpoint for git_codecommit"
+  },
+  {
+    "name": "vpc_endpoint_elasticloadbalancing_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Elastic Load Balancing."
+  },
+  {
+    "name": "public_internet_gateway_ipv6_route_id",
+    "description": "ID of the IPv6 internet gateway route."
+  },
+  {
+    "name": "vpc_endpoint_codebuild_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for codebuild."
+  },
+  {
+    "name": "vpc_endpoint_logs_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for CloudWatch Logs."
+  },
+  {
+    "name": "vpc_endpoint_logs_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for CloudWatch Logs."
+  },
+  {
+    "name": "vpc_endpoint_servicecatalog_id",
+    "description": "The ID of VPC endpoint for Service Catalog"
+  },
+  {
+    "name": "vpc_endpoint_elastic_inference_runtime_id",
+    "description": "The ID of VPC endpoint for Elastic Inference Runtime"
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_health_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Elastic Beanstalk Health."
+  },
+  {
+    "name": "vpc_endpoint_cloudformation_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Cloudformation."
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_api_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SageMaker API."
+  },
+  {
+    "name": "vpc_endpoint_states_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Step Function."
+  },
+  {
+    "name": "vpc_secondary_cidr_blocks",
+    "description": "List of secondary CIDR blocks of the VPC"
+  },
+  {
+    "name": "database_subnets",
+    "description": "List of IDs of database subnets"
+  },
+  {
+    "name": "elasticache_subnet_arns",
+    "description": "List of ARNs of elasticache subnets"
+  },
+  {
+    "name": "intra_subnet_arns",
+    "description": "List of ARNs of intra subnets"
+  },
+  {
+    "name": "elasticache_route_table_ids",
+    "description": "List of IDs of elasticache route tables"
+  },
+  {
+    "name": "vpc_endpoint_ssm_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SSM."
+  },
+  {
+    "name": "vpc_endpoint_apigw_id",
+    "description": "The ID of VPC endpoint for APIGW"
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Elastic Beanstalk."
+  },
+  {
+    "name": "vpc_endpoint_datasync_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for DataSync."
+  },
+  {
+    "name": "elasticache_route_table_association_ids",
+    "description": "List of IDs of the elasticache route table association"
+  },
+  {
+    "name": "default_vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "vpc_endpoint_sns_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SNS."
+  },
+  {
+    "name": "vpc_endpoint_athena_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Athena."
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Elastic Beanstalk."
+  },
+  {
+    "name": "vpc_endpoint_access_analyzer_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Access Analyzer."
+  },
+  {
+    "name": "private_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of private subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "public_subnet_arns",
+    "description": "List of ARNs of public subnets"
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_id",
+    "description": "The ID of VPC endpoint for EC2MESSAGES"
+  },
+  {
+    "name": "vpc_endpoint_glue_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Glue."
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_runtime_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SageMaker Runtime."
+  },
+  {
+    "name": "vpc_endpoint_elasticbeanstalk_id",
+    "description": "The ID of VPC endpoint for Elastic Beanstalk"
+  },
+  {
+    "name": "vpc_endpoint_appstream_api_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for AppStream API."
+  },
+  {
+    "name": "vpc_endpoint_rekognition_id",
+    "description": "The ID of VPC endpoint for Rekognition"
+  },
+  {
+    "name": "vpc_endpoint_rekognition_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Rekognition."
+  },
+  {
+    "name": "vpc_endpoint_elasticmapreduce_id",
+    "description": "The ID of VPC endpoint for EMR"
+  },
+  {
+    "name": "vpc_endpoint_ebs_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EBS."
+  },
+  {
+    "name": "public_network_acl_arn",
+    "description": "ARN of the public network ACL"
+  },
+  {
+    "name": "vpc_endpoint_codecommit_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for codecommit."
+  },
+  {
+    "name": "vpc_endpoint_appstream_api_id",
+    "description": "The ID of VPC endpoint for AppStream API"
+  },
+  {
+    "name": "vpc_endpoint_config_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for config."
+  },
+  {
+    "name": "vpc_ipv6_association_id",
+    "description": "The association ID for the IPv6 CIDR block"
+  },
+  {
+    "name": "this_customer_gateway",
+    "description": "Map of Customer Gateway attributes"
+  },
+  {
+    "name": "vpc_endpoint_ec2_id",
+    "description": "The ID of VPC endpoint for EC2"
+  },
+  {
+    "name": "vpc_endpoint_ecs_id",
+    "description": "The ID of VPC endpoint for ECS"
+  },
+  {
+    "name": "vpc_endpoint_elasticmapreduce_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EMR."
+  },
+  {
+    "name": "vpc_endpoint_sms_id",
+    "description": "The ID of VPC endpoint for SMS"
+  },
+  {
+    "name": "vpc_endpoint_workspaces_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Workspaces."
+  },
+  {
+    "name": "vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "vpc_endpoint_kinesis_streams_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Kinesis Streams."
+  },
+  {
+    "name": "vpc_endpoint_rekognition_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Rekognition."
+  },
+  {
+    "name": "intra_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of intra subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "vpc_endpoint_ec2_autoscaling_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EC2 Autoscaling."
+  },
+  {
+    "name": "vpc_endpoint_logs_id",
+    "description": "The ID of VPC endpoint for CloudWatch Logs"
+  },
+  {
+    "name": "cgw_arns",
+    "description": "List of ARNs of Customer Gateway"
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_api_id",
+    "description": "The ID of VPC endpoint for SageMaker API"
+  },
+  {
+    "name": "database_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of database subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "vpc_endpoint_s3_id",
+    "description": "The ID of VPC endpoint for S3"
+  },
+  {
+    "name": "vpc_endpoint_efs_id",
+    "description": "The ID of VPC endpoint for EFS"
+  },
+  {
+    "name": "default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "elasticache_subnet_group",
+    "description": "ID of elasticache subnet group"
+  },
+  {
+    "name": "database_network_acl_id",
+    "description": "ID of the database network ACL"
+  },
+  {
+    "name": "private_nat_gateway_route_ids",
+    "description": "List of IDs of the private nat gateway route."
+  },
+  {
+    "name": "vpc_endpoint_ecr_api_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ECR API."
+  },
+  {
+    "name": "vpc_endpoint_cloudformation_id",
+    "description": "The ID of VPC endpoint for Cloudformation"
+  },
+  {
+    "name": "vpc_endpoint_acm_pca_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ACM PCA."
+  },
+  {
+    "name": "intra_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of intra subnets"
+  },
+  {
+    "name": "default_vpc_default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "vpc_endpoint_ecr_dkr_id",
+    "description": "The ID of VPC endpoint for ECR DKR"
+  },
+  {
+    "name": "vpc_endpoint_ec2_autoscaling_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EC2 Autoscaling"
+  },
+  {
+    "name": "vpc_endpoint_qldb_session_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for QLDB Session."
+  },
+  {
+    "name": "redshift_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of redshift subnets"
+  },
+  {
+    "name": "vpc_endpoint_codebuild_id",
+    "description": "The ID of VPC endpoint for codebuild"
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EC2MESSAGES."
+  },
+  {
+    "name": "vpc_endpoint_glue_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Glue."
+  },
+  {
+    "name": "vpc_endpoint_kinesis_streams_id",
+    "description": "The ID of VPC endpoint for Kinesis Streams"
+  },
+  {
+    "name": "vpc_endpoint_storagegateway_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for Storage Gateway."
+  },
+  {
+    "name": "vpc_endpoint_elastic_inference_runtime_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Elastic Inference Runtime."
+  },
+  {
+    "name": "vpc_endpoint_workspaces_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for Workspaces."
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_id",
+    "description": "The ID of VPC endpoint for SSMMESSAGES"
+  },
+  {
+    "name": "vpc_flow_log_destination_type",
+    "description": "The type of the destination for VPC Flow Logs"
+  },
+  {
+    "name": "vpc_endpoint_appstream_streaming_id",
+    "description": "The ID of VPC endpoint for AppStream Streaming"
+  },
+  {
+    "name": "database_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of database subnets"
+  },
+  {
+    "name": "redshift_subnets_ipv6_cidr_blocks",
+    "description": "List of IPv6 cidr_blocks of redshift subnets in an IPv6 enabled VPC"
+  },
+  {
+    "name": "redshift_subnet_group",
+    "description": "ID of redshift subnet group"
+  },
+  {
+    "name": "egress_only_internet_gateway_id",
+    "description": "The ID of the egress only Internet Gateway"
+  },
+  {
+    "name": "vpc_endpoint_ssm_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SSM."
+  },
+  {
+    "name": "vpc_endpoint_ec2_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EC2"
+  },
+  {
+    "name": "vpc_endpoint_ecr_api_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for ECR API."
+  },
+  {
+    "name": "vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "igw_arn",
+    "description": "The ARN of the Internet Gateway"
+  },
+  {
+    "name": "vpc_endpoint_git_codecommit_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for git_codecommit."
+  },
+  {
+    "name": "vpc_endpoint_ecr_dkr_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for ECR DKR."
+  },
+  {
+    "name": "vpc_endpoint_appmesh_envoy_management_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for AppMesh."
+  },
+  {
+    "name": "vpc_endpoint_sagemaker_api_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SageMaker API."
+  },
+  {
+    "name": "vpc_endpoint_events_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for CloudWatch Events."
+  }
+]

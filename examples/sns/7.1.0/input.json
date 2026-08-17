@@ -1,0 +1,198 @@
+[
+  {
+    "name": "kms_master_key_id",
+    "type": "string",
+    "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the SNS topic to create",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "content_based_deduplication",
+    "type": "bool",
+    "description": "Boolean indicating whether or not to enable content-based deduplication for FIFO topics",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "fifo_topic",
+    "type": "bool",
+    "description": "Boolean indicating whether or not to create a FIFO (first-in-first-out) topic",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "firehose_feedback",
+    "type": "object({\n    failure_role_arn    = optional(string)\n    success_role_arn    = optional(string)\n    success_sample_rate = optional(number)\n  })",
+    "description": "Map of IAM role ARNs and sample rate for success and failure feedback",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "source_topic_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "override_topic_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "topic_policy_statements",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "delivery_policy",
+    "type": "string",
+    "description": "The SNS delivery policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "fifo_throughput_scope",
+    "type": "string",
+    "description": "Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, Topic and MessageGroup",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "lambda_feedback",
+    "type": "object({\n    failure_role_arn    = optional(string)\n    success_role_arn    = optional(string)\n    success_sample_rate = optional(number)\n  })",
+    "description": "Map of IAM role ARNs and sample rate for success and failure feedback",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "signature_version",
+    "type": "number",
+    "description": "If SignatureVersion should be `1` (`SHA1`) or `2` (`SHA256`). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_topic_policy",
+    "type": "bool",
+    "description": "Determines whether an SNS topic policy is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_default_topic_policy",
+    "type": "bool",
+    "description": "Specifies whether to enable the default topic policy. Defaults to `true`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "http_feedback",
+    "type": "object({\n    failure_role_arn    = optional(string)\n    success_role_arn    = optional(string)\n    success_sample_rate = optional(number)\n  })",
+    "description": "Map of IAM role ARNs and sample rate for success and failure feedback",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether `name` is used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "application_feedback",
+    "type": "object({\n    failure_role_arn    = optional(string)\n    success_role_arn    = optional(string)\n    success_sample_rate = optional(number)\n  })",
+    "description": "Map of IAM role ARNs and sample rate for success and failure feedback",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "The display name for the SNS topic",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "sqs_feedback",
+    "type": "object({\n    failure_role_arn    = optional(string)\n    success_role_arn    = optional(string)\n    success_sample_rate = optional(number)\n  })",
+    "description": "Map of IAM role ARNs and sample rate for success and failure feedback",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subscriptions",
+    "type": "map(object({\n    confirmation_timeout_in_minutes = optional(number)\n    delivery_policy                 = optional(string)\n    endpoint                        = string\n    endpoint_auto_confirms          = optional(bool)\n    filter_policy                   = optional(string)\n    filter_policy_scope             = optional(string)\n    protocol                        = string\n    raw_message_delivery            = optional(bool)\n    redrive_policy                  = optional(string)\n    replay_policy                   = optional(string)\n    subscription_role_arn           = optional(string)\n  }))",
+    "description": "A map of subscription definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "topic_policy",
+    "type": "string",
+    "description": "An externally created fully-formed AWS policy as JSON",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tracing_config",
+    "type": "string",
+    "description": "Tracing mode of an Amazon SNS topic. Valid values: `PassThrough`, `Active`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "archive_policy",
+    "type": "string",
+    "description": "The message archive policy for FIFO topics",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_subscription",
+    "type": "bool",
+    "description": "Determines whether an SNS subscription is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "data_protection_policy",
+    "type": "string",
+    "description": "A map of data protection policy statements",
+    "default": "null",
+    "required": false
+  }
+]

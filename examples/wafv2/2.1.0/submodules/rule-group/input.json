@@ -1,0 +1,79 @@
+[
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the rule group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "capacity",
+    "type": "number",
+    "description": "The web ACL capacity units (WCUs) required for this rule group. Valid range is 1 to 1500",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the rule group. Conflicts with `name_prefix`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "scope",
+    "type": "string",
+    "description": "Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`",
+    "default": "\"REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "visibility_config",
+    "type": "object({\n    cloudwatch_metrics_enabled = optional(bool, true)\n    metric_name                = optional(string)\n    sampled_requests_enabled   = optional(bool, true)\n  })",
+    "description": "Visibility configuration for the rule group. Defines CloudWatch metrics configuration",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "any",
+    "description": "Map of WAF rule configurations. The key is used as the rule name.\n\nEach rule supports:\n- `priority`          - (Required) Rule priority (lower = evaluated first)\n- `action`            - Action: string (`allow`, `block`, `count`, `captcha`, `challenge`) or object for custom response\n- `statement`         - (Required) Rule statement configuration. See AWS provider docs for statement structure.\n                        NOTE: rule groups cannot reference managed rule groups, rate-based statements,\n                        or other rule groups, so those statement types are not supported here.\n- `visibility_config` - CloudWatch metrics config. Auto-generated from rule key if omitted\n- `captcha_config`    - Optional CAPTCHA configuration\n- `challenge_config`  - Optional challenge configuration\n- `rule_labels`       - Optional list of labels to add to matching requests\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "custom_response_body",
+    "type": "any",
+    "description": "Map of custom response body configurations. Key is the reference key, used in custom responses",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`",
+    "default": "null",
+    "required": false
+  }
+]

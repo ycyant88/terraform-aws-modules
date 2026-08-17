@@ -1,0 +1,14 @@
+[
+  {
+    "name": "aws_route53_vpc_association_authorization_id",
+    "description": "ID of Route53 VPC association authorizations"
+  },
+  {
+    "name": "aws_route53_zone_association_id",
+    "description": "ID of Route53 VPC association"
+  },
+  {
+    "name": "aws_route53_zone_association_owning_account",
+    "description": "The account ID of the account that created the hosted zone."
+  }
+]

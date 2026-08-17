@@ -1,0 +1,82 @@
+[
+  {
+    "name": "cloudwatch_log_group_arn",
+    "description": "ARN of CloudWatch log group created"
+  },
+  {
+    "name": "task_exec_iam_role_name",
+    "description": "Task execution IAM role name"
+  },
+  {
+    "name": "infrastructure_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "node_iam_role_name",
+    "description": "IAM role name"
+  },
+  {
+    "name": "node_iam_instance_profile_arn",
+    "description": "ARN assigned by AWS to the instance profile"
+  },
+  {
+    "name": "cluster_id",
+    "description": "ID that identifies the cluster"
+  },
+  {
+    "name": "cluster_name",
+    "description": "Name that identifies the cluster"
+  },
+  {
+    "name": "node_iam_instance_profile_id",
+    "description": "Instance profile's ID"
+  },
+  {
+    "name": "services",
+    "description": "Map of services created and their attributes"
+  },
+  {
+    "name": "cluster_capacity_providers",
+    "description": "Map of cluster capacity providers attributes"
+  },
+  {
+    "name": "capacity_providers",
+    "description": "Map of autoscaling capacity providers created and their attributes"
+  },
+  {
+    "name": "task_exec_iam_role_arn",
+    "description": "Task execution IAM role ARN"
+  },
+  {
+    "name": "task_exec_iam_role_unique_id",
+    "description": "Stable and unique string identifying the task execution IAM role"
+  },
+  {
+    "name": "infrastructure_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "infrastructure_iam_role_name",
+    "description": "IAM role name"
+  },
+  {
+    "name": "node_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "node_iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "node_iam_instance_profile_unique",
+    "description": "Stable and unique string identifying the IAM instance profile"
+  },
+  {
+    "name": "cluster_arn",
+    "description": "ARN that identifies the cluster"
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "description": "Name of CloudWatch log group created"
+  }
+]

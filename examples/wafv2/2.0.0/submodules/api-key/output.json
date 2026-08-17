@@ -1,0 +1,14 @@
+[
+  {
+    "name": "api_key",
+    "description": "The generated API key. Sensitive — do not log"
+  },
+  {
+    "name": "scope",
+    "description": "The scope (REGIONAL or CLOUDFRONT) of the API key"
+  },
+  {
+    "name": "token_domains",
+    "description": "The token domains the API key is bound to"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "this_iam_instance_profile_id",
+    "description": "ID of the IAM instance profile"
+  },
+  {
+    "name": "this_iam_role_id",
+    "description": "ID of the IAM role"
+  }
+]

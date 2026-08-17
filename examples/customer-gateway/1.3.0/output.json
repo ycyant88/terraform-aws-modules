@@ -1,0 +1,10 @@
+[
+  {
+    "name": "cgw_ids",
+    "description": "List of IDs of Customer Gateway"
+  },
+  {
+    "name": "this_customer_gateway",
+    "description": "Map of Customer Gateway attributes"
+  }
+]

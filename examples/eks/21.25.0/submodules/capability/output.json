@@ -1,0 +1,26 @@
+[
+  {
+    "name": "arn",
+    "description": "The ARN of the EKS Capability"
+  },
+  {
+    "name": "version",
+    "description": "The version of the EKS Capability"
+  },
+  {
+    "name": "argocd_server_url",
+    "description": "URL of the Argo CD server"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  }
+]

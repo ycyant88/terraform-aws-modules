@@ -1,0 +1,30 @@
+[
+  {
+    "name": "iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "id",
+    "description": "The ID of the Flow Log"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN of the Flow Log"
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "description": "Name of CloudWatch log group created"
+  },
+  {
+    "name": "cloudwatch_log_group_arn",
+    "description": "ARN of CloudWatch log group created"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "The name of the IAM role"
+  }
+]

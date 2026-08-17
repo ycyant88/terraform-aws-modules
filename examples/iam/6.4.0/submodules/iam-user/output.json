@@ -1,0 +1,62 @@
+[
+  {
+    "name": "name",
+    "description": "The user's name"
+  },
+  {
+    "name": "unique_id",
+    "description": "The unique ID assigned by AWS"
+  },
+  {
+    "name": "access_key_encrypted_ses_smtp_password_v4",
+    "description": "The encrypted secret access key converted into an SES SMTP password by applying AWS's Sigv4 conversion algorithm"
+  },
+  {
+    "name": "ssh_key_fingerprint",
+    "description": "The MD5 message digest of the SSH public key"
+  },
+  {
+    "name": "login_profile_encrypted_password",
+    "description": "The encrypted password, base64 encoded"
+  },
+  {
+    "name": "access_key_id",
+    "description": "The access key ID"
+  },
+  {
+    "name": "access_key_fingerprint",
+    "description": "The fingerprint of the PGP key used to encrypt the secret"
+  },
+  {
+    "name": "access_key_encrypted_secret",
+    "description": "The encrypted secret, base64 encoded"
+  },
+  {
+    "name": "access_key_status",
+    "description": "Active or Inactive. Keys are initially active, but can be made inactive by other means"
+  },
+  {
+    "name": "login_profile_password",
+    "description": "The user password"
+  },
+  {
+    "name": "login_profile_key_fingerprint",
+    "description": "The fingerprint of the PGP key used to encrypt the password"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN assigned by AWS for this user"
+  },
+  {
+    "name": "access_key_secret",
+    "description": "The access key secret"
+  },
+  {
+    "name": "access_key_ses_smtp_password_v4",
+    "description": "The secret access key converted into an SES SMTP password by applying AWS's Sigv4 conversion algorithm"
+  },
+  {
+    "name": "ssh_key_public_key_id",
+    "description": "The unique identifier for the SSH public key"
+  }
+]

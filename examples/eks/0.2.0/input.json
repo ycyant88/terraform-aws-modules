@@ -1,0 +1,107 @@
+[
+  {
+    "name": "workers_instance_type",
+    "type": "string",
+    "description": "Size of the workers instances.",
+    "default": "\"m4.large\"",
+    "required": false
+  },
+  {
+    "name": "config_output_path",
+    "type": "string",
+    "description": "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory.",
+    "default": "\"./\"",
+    "required": false
+  },
+  {
+    "name": "configure_kubectl_session",
+    "type": "bool",
+    "description": "Configure the current session's kubectl to use the instantiated cluster.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC id where the cluster and other resources will be deployed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "workers_asg_min_size",
+    "type": "string",
+    "description": "Minimum worker capacity in the autoscaling group.",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "cluster_ingress_cidrs",
+    "type": "list",
+    "description": "The CIDRs from which we can execute kubectl commands.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ebs_optimized_workers",
+    "type": "bool",
+    "description": "If left at default of true, will use ebs optimization if available on the given instance type.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map",
+    "description": "A map of tags to add to all resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "workers_ami_id",
+    "type": "string",
+    "description": "AMI ID for the eks workers. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "workers_asg_max_size",
+    "type": "string",
+    "description": "Maximum worker capacity in the autoscaling group.",
+    "default": "\"3\"",
+    "required": false
+  },
+  {
+    "name": "additional_userdata",
+    "type": "string",
+    "description": "Extra lines of userdata (bash) which are appended to the default userdata code.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster which is also used as a prefix in names of related resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "workers_asg_desired_capacity",
+    "type": "string",
+    "description": "Desired worker capacity in the autoscaling group.",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "Kubernetes version to use for the cluster.",
+    "default": "\"1.10\"",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list",
+    "description": "A list of subnets to associate with the cluster's underlying instances.",
+    "default": "",
+    "required": true
+  }
+]

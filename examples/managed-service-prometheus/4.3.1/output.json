@@ -1,0 +1,14 @@
+[
+  {
+    "name": "workspace_prometheus_endpoint",
+    "description": "Prometheus endpoint available for this workspace"
+  },
+  {
+    "name": "workspace_arn",
+    "description": "Amazon Resource Name (ARN) of the workspace"
+  },
+  {
+    "name": "workspace_id",
+    "description": "Identifier of the workspace"
+  }
+]

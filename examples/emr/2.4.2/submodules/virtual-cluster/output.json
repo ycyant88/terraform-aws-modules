@@ -1,0 +1,30 @@
+[
+  {
+    "name": "job_execution_role_arn",
+    "description": "IAM role ARN of the job execution role"
+  },
+  {
+    "name": "job_execution_role_unique_id",
+    "description": "Stable and unique string identifying the job execution IAM role"
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "description": "Name of cloudwatch log group created"
+  },
+  {
+    "name": "cloudwatch_log_group_arn",
+    "description": "Arn of cloudwatch log group created"
+  },
+  {
+    "name": "virtual_cluster_arn",
+    "description": "ARN of the EMR virtual cluster"
+  },
+  {
+    "name": "virtual_cluster_id",
+    "description": "ID of the EMR virtual cluster"
+  },
+  {
+    "name": "job_execution_role_name",
+    "description": "IAM role name of the job execution role"
+  }
+]

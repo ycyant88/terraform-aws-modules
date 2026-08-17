@@ -1,0 +1,16 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to be used on all the resources as identifier",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "include_ssm",
+    "type": "bool",
+    "description": "Whether to include policies needed for AmazonSSM",
+    "default": "false",
+    "required": false
+  }
+]

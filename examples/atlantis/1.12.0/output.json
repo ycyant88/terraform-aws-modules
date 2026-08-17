@@ -1,0 +1,26 @@
+[
+  {
+    "name": "atlantis_allowed_repo_names",
+    "description": "Github repositories where webhook should be created"
+  },
+  {
+    "name": "task_role_arn",
+    "description": "The Atlantis ECS task role arn"
+  },
+  {
+    "name": "vpc_id",
+    "description": "ID of the VPC that was created or passed in"
+  },
+  {
+    "name": "webhook_secret",
+    "description": "Webhook secret"
+  },
+  {
+    "name": "atlantis_url",
+    "description": "URL of Atlantis"
+  },
+  {
+    "name": "atlantis_url_events",
+    "description": "Webhook events URL of Atlantis"
+  }
+]

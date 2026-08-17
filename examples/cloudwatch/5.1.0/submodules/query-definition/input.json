@@ -1,0 +1,30 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the Cloudwatch query definition",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the query.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "query_string",
+    "type": "string",
+    "description": "The The query to save.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_group_names",
+    "type": "list(string)",
+    "description": "Specific log groups to use with the query.",
+    "default": "null",
+    "required": false
+  }
+]

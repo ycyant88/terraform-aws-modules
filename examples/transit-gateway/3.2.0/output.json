@@ -1,0 +1,70 @@
+[
+  {
+    "name": "ec2_transit_gateway_route_ids",
+    "description": "List of EC2 Transit Gateway Route Table identifier combined with destination"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_association_ids",
+    "description": "List of EC2 Transit Gateway Route Table Association identifiers"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_propagation_ids",
+    "description": "List of EC2 Transit Gateway Route Table Propagation identifiers"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_propagation",
+    "description": "Map of EC2 Transit Gateway Route Table Propagation attributes"
+  },
+  {
+    "name": "ram_resource_share_id",
+    "description": "The Amazon Resource Name (ARN) of the resource share"
+  },
+  {
+    "name": "ram_principal_association_id",
+    "description": "The Amazon Resource Name (ARN) of the Resource Share and the principal, separated by a comma"
+  },
+  {
+    "name": "ec2_transit_gateway_id",
+    "description": "EC2 Transit Gateway identifier"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_id",
+    "description": "EC2 Transit Gateway Route Table identifier"
+  },
+  {
+    "name": "ec2_transit_gateway_arn",
+    "description": "EC2 Transit Gateway Amazon Resource Name (ARN)"
+  },
+  {
+    "name": "ec2_transit_gateway_association_default_route_table_id",
+    "description": "Identifier of the default association route table"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_association",
+    "description": "Map of EC2 Transit Gateway Route Table Association attributes"
+  },
+  {
+    "name": "ec2_transit_gateway_propagation_default_route_table_id",
+    "description": "Identifier of the default propagation route table"
+  },
+  {
+    "name": "ec2_transit_gateway_vpc_attachment_ids",
+    "description": "List of EC2 Transit Gateway VPC Attachment identifiers"
+  },
+  {
+    "name": "ec2_transit_gateway_vpc_attachment",
+    "description": "Map of EC2 Transit Gateway VPC Attachment attributes"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_default_propagation_route_table",
+    "description": "Boolean whether this is the default propagation route table for the EC2 Transit Gateway"
+  },
+  {
+    "name": "ec2_transit_gateway_owner_id",
+    "description": "Identifier of the AWS account that owns the EC2 Transit Gateway"
+  },
+  {
+    "name": "ec2_transit_gateway_route_table_default_association_route_table",
+    "description": "Boolean whether this is the default association route table for the EC2 Transit Gateway"
+  }
+]

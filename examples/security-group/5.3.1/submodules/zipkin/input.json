@@ -1,0 +1,513 @@
+[
+  {
+    "name": "auto_egress_rules",
+    "type": "list(string)",
+    "description": "List of egress rules to add automatically",
+    "default": "[\n  \"all-all\"\n]",
+    "required": false
+  },
+  {
+    "name": "auto_number_of_computed_egress_rules",
+    "type": "number",
+    "description": "Number of computed egress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create security group and all rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_source_security_group_id",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'source_security_group_id' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of IPv6 CIDR ranges to use on all computed ingress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use name_prefix or fixed name. Should be true to able to update security group name after initial creation",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'prefix_list_ids' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of IPv6 CIDR ranges to use on all computed egress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of maps defining egress rules with self to add automatically",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "auto_computed_ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of maps defining computed ingress rules with self to add automatically",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_rules",
+    "type": "list(string)",
+    "description": "List of egress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_prefix_list_ids",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'prefix_list_ids' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "ingress_rules",
+    "type": "list(string)",
+    "description": "List of ingress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all egress rules",
+    "default": "[\n  \"::/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of security group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ingress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all computed ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_cidr_blocks",
+    "type": "number",
+    "description": "Number of IPv4 CIDR ranges to use on all computed ingress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "computed_egress_rules",
+    "type": "list(string)",
+    "description": "List of computed egress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_prefix_list_ids",
+    "type": "number",
+    "description": "Number of prefix list IDs (for allowing access to VPC endpoints) to use on all computed egress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of maps defining ingress rules with self to add automatically",
+    "default": "[\n  {\n    \"rule\": \"all-all\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "revoke_rules_on_delete",
+    "type": "bool",
+    "description": "Instruct Terraform to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. Enable for EMR.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ingress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_rules",
+    "type": "list(string)",
+    "description": "List of computed ingress rules to create by name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_ipv6_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_number_of_computed_ingress_with_self",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_number_of_computed_egress_with_self",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "ingress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_prefix_list_ids",
+    "type": "number",
+    "description": "Number of prefix list IDs (for allowing access to VPC endpoints) to use on all computed ingress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all egress rules",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_rules",
+    "type": "number",
+    "description": "Number of computed egress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_computed_egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of maps defining computed egress rules with self to add automatically",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_with_ipv6_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of ingress rules to create where 'ipv6_cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'prefix_list_ids' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all computed ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "auto_computed_egress_rules",
+    "type": "list(string)",
+    "description": "List of computed egress rules to add automatically",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "auto_number_of_computed_ingress_rules",
+    "type": "number",
+    "description": "Number of computed ingress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "ingress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_cidr_blocks",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'cidr_blocks' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'prefix_list_ids' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all computed egress rules",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_prefix_list_ids",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'prefix_list_ids' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_ipv6_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv6 CIDR ranges to use on all computed egress rules",
+    "default": "[\n  \"::/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_prefix_list_ids",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'prefix_list_ids' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_with_source_security_group_id",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'source_security_group_id' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "computed_egress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all computed egress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_cidr_blocks",
+    "type": "number",
+    "description": "Number of IPv4 CIDR ranges to use on all computed egress rules",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_with_self",
+    "type": "list(map(string))",
+    "description": "List of computed ingress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_with_self",
+    "type": "list(map(string))",
+    "description": "List of egress rules to create where 'self' is defined",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_source_security_group_id",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'source_security_group_id' is used",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_ingress_rules",
+    "type": "list(string)",
+    "description": "List of ingress rules to add automatically",
+    "default": "[\n  \"zipkin-admin-tcp\",\n  \"zipkin-admin-query-tcp\",\n  \"zipkin-admin-web-tcp\",\n  \"zipkin-query-tcp\",\n  \"zipkin-web-tcp\"\n]",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of the VPC where to create security group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of security group",
+    "default": "\"Security Group managed by Terraform\"",
+    "required": false
+  },
+  {
+    "name": "computed_ingress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all computed ingress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_with_self",
+    "type": "number",
+    "description": "Number of computed ingress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "computed_egress_with_cidr_blocks",
+    "type": "list(map(string))",
+    "description": "List of computed egress rules to create where 'cidr_blocks' is used",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_egress_with_self",
+    "type": "number",
+    "description": "Number of computed egress rules to create where 'self' is defined",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "auto_computed_ingress_rules",
+    "type": "list(string)",
+    "description": "List of ingress rules to add automatically",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "number_of_computed_ingress_rules",
+    "type": "number",
+    "description": "Number of computed ingress rules to create by name",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "egress_prefix_list_ids",
+    "type": "list(string)",
+    "description": "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules",
+    "default": "[]",
+    "required": false
+  }
+]

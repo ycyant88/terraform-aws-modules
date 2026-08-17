@@ -1,0 +1,100 @@
+[
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "The ID of the VPC in which the endpoint will be used",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "endpoints",
+    "type": "any",
+    "description": "A map of interface and/or gateway endpoints containing their properties and configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "Default subnets IDs to associate with the VPC endpoints",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to use on all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_name_prefix",
+    "type": "string",
+    "description": "Name prefix to use on security group created. Conflicts with `security_group_name`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_rules",
+    "type": "any",
+    "description": "Security group rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration. If a value is provided, `service_endpoint` must be specified due to https://github.com/hashicorp/terraform-provider-aws/issues/42462",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "Default security group IDs to associate with the VPC endpoints",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Define maximum timeout for creating, updating, and deleting VPC endpoint resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created. Conflicts with `security_group_name_prefix`",
+    "default": "null",
+    "required": false
+  }
+]

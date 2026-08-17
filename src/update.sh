@@ -58,10 +58,12 @@ function fetch_terraform_modules()
             submodule_dir="${module_dir}/submodules/${submodule_name}"
 
             echo "      -> Processing submodule ${submodule_name} version ${version}..."
+
             if [ -d "${submodule_dir}" ]; then
               echo "       -> Skipping ${submodule_name} version ${version} (already exists)..."
               continue
             fi
+            
             mkdir -p "${submodule_dir}"
 
             echo "${submodule_json}" | jq -r '.readme // empty' > "${submodule_dir}/README.md"

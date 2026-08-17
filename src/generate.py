@@ -35,11 +35,9 @@ def format_default(val):
 def sanitize_string(val):
     if not isinstance(val, str):
         return val
-
     val = json.dumps(val)[1:-1]
     val = val.replace("`", "")
     val = val.replace("\n", "\\n")
-
     return val
 
 
@@ -50,16 +48,24 @@ def write_file(path, content):
 
 def render_module_inputs(module_env, context, out_dir):
     write_file(
+        os.path.join(out_dir, "backend.tf"),
+        module_env.get_template("backend.tf.j2").render(**context),
+    )
+    write_file(
         os.path.join(out_dir, "main.tf"),
         module_env.get_template("main.tf.j2").render(**context),
     )
     write_file(
-        os.path.join(out_dir, "variables.tf"),
-        module_env.get_template("variables.tf.j2").render(**context),
+        os.path.join(out_dir, "terraform.tfvars"),
+        module_env.get_template("terraform.tfvars.j2").render(**context),
     )
     write_file(
-        os.path.join(out_dir, "default.tfvars"),
-        module_env.get_template("default.tfvars.j2").render(**context),
+        os.path.join(out_dir, "variables_provider.tf"),
+        module_env.get_template("variables_provider.tf.j2").render(**context),
+    )
+    write_file(
+        os.path.join(out_dir, "variables.tf"),
+        module_env.get_template("variables.tf.j2").render(**context),
     )
 
 
@@ -76,12 +82,16 @@ def render_submodule_inputs(submodule_env, context, out_dir):
         submodule_env.get_template("main.tf.j2").render(**context),
     )
     write_file(
-        os.path.join(out_dir, "variables.tf"),
-        submodule_env.get_template("variables.tf.j2").render(**context),
+        os.path.join(out_dir, "terraform.tfvars"),
+        submodule_env.get_template("terraform.tfvars.j2").render(**context),
     )
     write_file(
-        os.path.join(out_dir, "default.tfvars"),
-        submodule_env.get_template("default.tfvars.j2").render(**context),
+        os.path.join(out_dir, "variables_provider.tf"),
+        submodule_env.get_template("variables_provider.tf.j2").render(**context),
+    )
+    write_file(
+        os.path.join(out_dir, "variables.tf"),
+        submodule_env.get_template("variables.tf.j2").render(**context),
     )
 
 

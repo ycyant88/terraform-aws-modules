@@ -1,0 +1,72 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the trust store. If omitted, Terraform will assign a random, unique name. This name must be unique per region, per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_trust_store_revocation",
+    "type": "bool",
+    "description": "Whether to create a trust store revocation for use with an application load balancer.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Map of tags to assign to the resource.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "revocation_lists",
+    "type": "map(object({\n    revocations_s3_bucket         = string\n    revocations_s3_key            = string\n    revocations_s3_object_version = optional(string)\n  }))",
+    "description": "Map of revocation list configurations.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ca_certificates_bundle_s3_bucket",
+    "type": "string",
+    "description": "S3 bucket name holding the client certificate CA bundle.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ca_certificates_bundle_s3_key",
+    "type": "string",
+    "description": "S3 object key holding the client certificate CA bundle.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ca_certificates_bundle_s3_object_version",
+    "type": "string",
+    "description": "Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.",
+    "default": "null",
+    "required": false
+  }
+]

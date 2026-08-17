@@ -1,0 +1,14 @@
+[
+  {
+    "name": "this_ecs_cluster_name",
+    "description": "The name of the ECS cluster"
+  },
+  {
+    "name": "this_ecs_cluster_id",
+    "description": ""
+  },
+  {
+    "name": "this_ecs_cluster_arn",
+    "description": ""
+  }
+]

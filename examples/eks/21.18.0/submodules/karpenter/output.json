@@ -1,0 +1,70 @@
+[
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the controller IAM role"
+  },
+  {
+    "name": "queue_url",
+    "description": "The URL for the created Amazon SQS queue"
+  },
+  {
+    "name": "node_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the node IAM role"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "The name of the controller IAM role"
+  },
+  {
+    "name": "queue_name",
+    "description": "The name of the created Amazon SQS queue"
+  },
+  {
+    "name": "event_rules",
+    "description": "Map of the event rules created and their attributes"
+  },
+  {
+    "name": "node_iam_role_name",
+    "description": "The name of the node IAM role"
+  },
+  {
+    "name": "node_iam_role_unique_id",
+    "description": "Stable and unique string identifying the node IAM role"
+  },
+  {
+    "name": "instance_profile_name",
+    "description": "Name of the instance profile"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the controller IAM role"
+  },
+  {
+    "name": "node_access_entry_arn",
+    "description": "Amazon Resource Name (ARN) of the node Access Entry"
+  },
+  {
+    "name": "instance_profile_arn",
+    "description": "ARN assigned by AWS to the instance profile"
+  },
+  {
+    "name": "instance_profile_id",
+    "description": "Instance profile's ID"
+  },
+  {
+    "name": "instance_profile_unique",
+    "description": "Stable and unique string identifying the IAM instance profile"
+  },
+  {
+    "name": "namespace",
+    "description": "Namespace associated with the Karpenter Pod Identity"
+  },
+  {
+    "name": "queue_arn",
+    "description": "The ARN of the SQS queue"
+  },
+  {
+    "name": "service_account",
+    "description": "Service Account associated with the Karpenter Pod Identity"
+  }
+]

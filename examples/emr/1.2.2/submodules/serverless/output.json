@@ -1,0 +1,18 @@
+[
+  {
+    "name": "arn",
+    "description": "Amazon Resource Name (ARN) of the application"
+  },
+  {
+    "name": "id",
+    "description": "ID of the application"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  }
+]

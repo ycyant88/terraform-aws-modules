@@ -1,0 +1,79 @@
+[
+  {
+    "name": "tags",
+    "type": "map",
+    "description": "A map of tags to add to all resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "workers_group_defaults",
+    "type": "map",
+    "description": "Default values for target groups as defined by the list of maps.",
+    "default": "{\n  \"additional_userdata\": \"\",\n  \"ami_id\": \"\",\n  \"asg_desired_capacity\": \"1\",\n  \"asg_max_size\": \"3\",\n  \"asg_min_size\": \"1\",\n  \"ebs_optimized\": true,\n  \"instance_type\": \"m4.large\",\n  \"name\": \"count.index\"\n}",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster. Also used as a prefix in names of related resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_security_group_id",
+    "type": "string",
+    "description": "If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the workers and provide API access to your current IP/32.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "Kubernetes version to use for the EKS cluster.",
+    "default": "\"1.10\"",
+    "required": false
+  },
+  {
+    "name": "config_output_path",
+    "type": "string",
+    "description": "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory.",
+    "default": "\"./\"",
+    "required": false
+  },
+  {
+    "name": "configure_kubectl_session",
+    "type": "bool",
+    "description": "Configure the current session's kubectl to use the instantiated EKS cluster.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list",
+    "description": "A list of subnets to place the EKS cluster and workers within.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC where the cluster and workers will be deployed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "worker_groups",
+    "type": "list",
+    "description": "A list of maps defining worker group configurations. See workers_group_defaults for valid keys.",
+    "default": "[\n  {\n    \"name\": \"default\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "worker_security_group_id",
+    "type": "string",
+    "description": "If provided, all workers will be attached to this security group. If not given, a security group will be created with necessary ingres/egress to work with the EKS cluster.",
+    "default": "\"\"",
+    "required": false
+  }
+]

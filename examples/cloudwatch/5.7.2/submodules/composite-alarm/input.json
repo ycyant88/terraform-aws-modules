@@ -1,0 +1,72 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the Cloudwatch composite alarm",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "actions_suppressor",
+    "type": "map(any)",
+    "description": "A map of actions suppressor alarm configurations.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "insufficient_data_actions",
+    "type": "list(string)",
+    "description": "The set of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN). Up to 5 actions are allowed.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ok_actions",
+    "type": "list(string)",
+    "description": "The set of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Up to 5 actions are allowed.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "alarm_rule",
+    "type": "string",
+    "description": "An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. The maximum length is 10240 characters.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "alarm_name",
+    "type": "string",
+    "description": "The descriptive name for the composite alarm. This name must be unique within the region.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "alarm_description",
+    "type": "string",
+    "description": "The description for the composite alarm.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "actions_enabled",
+    "type": "bool",
+    "description": "Indicates whether or not actions should be executed during any changes to the composite alarm's state. Defaults to true.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "alarm_actions",
+    "type": "list(string)",
+    "description": "The set of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN). Up to 5 actions are allowed.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to all resources",
+    "default": "{}",
+    "required": false
+  }
+]

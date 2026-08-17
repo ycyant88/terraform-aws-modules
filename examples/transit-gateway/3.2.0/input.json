@@ -1,0 +1,198 @@
+[
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "amazon_side_asn",
+    "type": "string",
+    "description": "The Autonomous System Number (ASN) for the Amazon side of the gateway. By default the TGW is created with the current default Amazon ASN.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_default_route_table_association",
+    "type": "bool",
+    "description": "Whether resource attachments are automatically associated with the default association route table",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tgw_default_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the Default TGW route table",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_attachments",
+    "type": "any",
+    "description": "Maps of maps of VPC details to attach to TGW. Type 'any' to disable type validation by Terraform.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_tgw_routes",
+    "type": "bool",
+    "description": "Controls if TGW Route Table / Routes should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tgw_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the TGW route table",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ram_allow_external_principals",
+    "type": "bool",
+    "description": "Indicates whether principals outside your organization can be associated with a resource share.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to be used on all the resources as identifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of the EC2 Transit Gateway",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_multicast_support",
+    "type": "bool",
+    "description": "Whether multicast support is enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_dns_support",
+    "type": "bool",
+    "description": "Should be true to enable DNS support in the TGW",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "transit_gateway_cidr_blocks",
+    "type": "list(string)",
+    "description": "One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tgw_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the TGW",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tgw_vpc_attachment_tags",
+    "type": "map(string)",
+    "description": "Additional tags for VPC attachments",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_tgw",
+    "type": "bool",
+    "description": "Controls if TGW should be created (it affects almost all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_default_route_table_propagation",
+    "type": "bool",
+    "description": "Whether resource attachments automatically propagate routes to the default propagation route table",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_auto_accept_shared_attachments",
+    "type": "bool",
+    "description": "Whether resource attachment requests are automatically accepted",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_vpn_ecmp_support",
+    "type": "bool",
+    "description": "Whether VPN Equal Cost Multipath Protocol support is enabled",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create, update, and delete timeout configurations for the transit gateway",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_sg_referencing_support",
+    "type": "bool",
+    "description": "Indicates whether to enable security group referencing support",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "share_tgw",
+    "type": "bool",
+    "description": "Whether to share your transit gateway with other accounts",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ram_name",
+    "type": "string",
+    "description": "The name of the resource share of TGW",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "transit_gateway_route_table_id",
+    "type": "string",
+    "description": "Identifier of EC2 Transit Gateway Route Table to use with the Target Gateway when reusing it between multiple TGWs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ram_principals",
+    "type": "list(string)",
+    "description": "A list of principals to share TGW with. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ram_resource_share_arn",
+    "type": "string",
+    "description": "ARN of RAM resource share",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ram_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the RAM",
+    "default": "{}",
+    "required": false
+  }
+]

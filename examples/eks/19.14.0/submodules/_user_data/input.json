@@ -1,0 +1,86 @@
+[
+  {
+    "name": "cluster_auth_base64",
+    "type": "string",
+    "description": "Base64 encoded CA of associated EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "post_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is appended to the user data script after of the EKS bootstrap script. Not used when `platform` = `bottlerocket`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bootstrap_extra_args",
+    "type": "string",
+    "description": "Additional arguments passed to the bootstrap script. When `platform` = `bottlerocket`; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "user_data_template_path",
+    "type": "string",
+    "description": "Path to a local, custom user data template file to use when rendering user data",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether to create user-data or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_bootstrap_user_data",
+    "type": "bool",
+    "description": "Determines whether the bootstrap configurations are populated within the user data template",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "is_eks_managed_node_group",
+    "type": "bool",
+    "description": "Determines whether the user data is used on nodes in an EKS managed node group. Used to determine if user data will be appended or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_service_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pre_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when `platform` = `bottlerocket`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "platform",
+    "type": "string",
+    "description": "Identifies if the OS platform is `bottlerocket`, `linux`, or `windows` based",
+    "default": "\"linux\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Endpoint of associated EKS cluster",
+    "default": "\"\"",
+    "required": false
+  }
+]

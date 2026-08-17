@@ -1,0 +1,44 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "resource_arn",
+    "type": "string",
+    "description": "The ARN of the Web ACL to associate with the logging configuration",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_destination_configs",
+    "type": "list(string)",
+    "description": "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket Amazon Resource Names (ARNs) that you want to associate with the Web ACL",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "redacted_fields",
+    "type": "any",
+    "description": "The parts of the request that you want to keep out of the logs. Each field identifies a single header, query string, method, or URI path",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "logging_filter",
+    "type": "object({\n    default_behavior = string\n    filters = list(object({\n      behavior    = string\n      requirement = string\n      conditions = list(object({\n        action_condition = optional(object({\n          action = string\n        }))\n        label_name_condition = optional(object({\n          label_name = string\n        }))\n      }))\n    }))\n  })",
+    "description": "A configuration block that specifies which web requests are kept in the logs and which are dropped",
+    "default": "null",
+    "required": false
+  }
+]

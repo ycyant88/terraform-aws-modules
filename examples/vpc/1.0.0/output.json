@@ -1,0 +1,74 @@
+[
+  {
+    "name": "natgw_ids",
+    "description": "List of NAT Gateway IDs"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_id",
+    "description": "The ID of VPC endpoint for DynamoDB"
+  },
+  {
+    "name": "vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "public_subnets",
+    "description": "List of IDs of public subnets"
+  },
+  {
+    "name": "elasticache_subnets",
+    "description": "List of IDs of elasticache subnets"
+  },
+  {
+    "name": "nat_ids",
+    "description": "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "igw_id",
+    "description": "The ID of the Internet Gateway"
+  },
+  {
+    "name": "database_subnets",
+    "description": "List of IDs of database subnets"
+  },
+  {
+    "name": "database_subnet_group",
+    "description": "ID of database subnet group"
+  },
+  {
+    "name": "vpc_endpoint_s3_id",
+    "description": "The ID of VPC endpoint for S3"
+  },
+  {
+    "name": "private_subnets",
+    "description": "List of IDs of private subnets"
+  },
+  {
+    "name": "default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "elasticache_subnet_group",
+    "description": "ID of elasticache subnet group"
+  },
+  {
+    "name": "public_route_table_ids",
+    "description": "List of IDs of public route tables"
+  },
+  {
+    "name": "private_route_table_ids",
+    "description": "List of IDs of private route tables"
+  },
+  {
+    "name": "nat_public_ips",
+    "description": "List of public Elastic IPs created for AWS NAT Gateway"
+  }
+]

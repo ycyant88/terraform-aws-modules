@@ -1,0 +1,51 @@
+[
+  {
+    "name": "redacted_fields",
+    "type": "list(object({\n    method        = optional(object({}))\n    query_string  = optional(object({}))\n    uri_path      = optional(object({}))\n    single_header = optional(object({ name = string }))\n  }))",
+    "description": "The parts of the request that you want to keep out of the logs. Each entry must specify exactly one of `method`, `query_string`, `uri_path`, or `single_header`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "logging_filter",
+    "type": "object({\n    default_behavior = string\n    filters = list(object({\n      behavior    = string\n      requirement = string\n      conditions = list(object({\n        action_condition = optional(object({\n          action = string\n        }))\n        label_name_condition = optional(object({\n          label_name = string\n        }))\n      }))\n    }))\n  })",
+    "description": "A configuration block that specifies which web requests are kept in the logs and which are dropped",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the WAF logging configuration will be managed. Defaults to the provider region",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "resource_arn",
+    "type": "string",
+    "description": "The ARN of the Web ACL to associate with the logging configuration",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_destination_configs",
+    "type": "list(string)",
+    "description": "The Amazon Kinesis Data Firehose, CloudWatch Log Group, or S3 Bucket Amazon Resource Names (ARNs) that you want to associate with the Web ACL. Names must be prefixed with `aws-waf-logs-`",
+    "default": "",
+    "required": true
+  }
+]

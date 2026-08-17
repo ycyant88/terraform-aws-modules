@@ -1,0 +1,506 @@
+[
+  {
+    "name": "cluster_ip_family",
+    "type": "string",
+    "description": "The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_additional_rules",
+    "type": "any",
+    "description": "List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM role name (`iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "fargate_profile_defaults",
+    "type": "any",
+    "description": "Map of Fargate Profile default configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "eks_managed_node_group_defaults",
+    "type": "any",
+    "description": "Map of EKS managed node group default configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of subnet IDs where the EKS cluster (ENIs) will be provisioned along with the nodes/node groups. Node groups can be deployed within a different set of subnet IDs from within the node group configuration",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the cluster",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_arn",
+    "type": "string",
+    "description": "Existing IAM role ARN for the cluster. Required if `create_iam_role` is set to `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_addons",
+    "type": "any",
+    "description": "Map of cluster addon configurations to enable for the cluster. Addon name can be the map keys or set with `name`",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of the EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the cluster",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "Cluster IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "aws_auth_node_iam_role_arns_non_windows",
+    "type": "list(string)",
+    "description": "List of non-Windows based node IAM role ARNs to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "attach_cluster_encryption_policy",
+    "type": "bool",
+    "description": "Indicates whether or not to attach an additional policy for the cluster IAM role to utilize the encryption key provided",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "node_security_group_use_name_prefix",
+    "type": "string",
+    "description": "Determines whether node security group name (`node_security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "custom_oidc_thumbprints",
+    "type": "list(string)",
+    "description": "Additional list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_policy_description",
+    "type": "string",
+    "description": "Description of the cluster encryption policy created",
+    "default": "\"Cluster encryption policy to allow cluster role to utilize CMK provided\"",
+    "required": false
+  },
+  {
+    "name": "self_managed_node_groups",
+    "type": "any",
+    "description": "Map of self-managed node group definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "prefix_separator",
+    "type": "string",
+    "description": "The separator to use between the prefix and the generated timestamp for resource names",
+    "default": "\"-\"",
+    "required": false
+  },
+  {
+    "name": "node_security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the node security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "fargate_profiles",
+    "type": "any",
+    "description": "Map of Fargate Profile definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "aws_auth_users",
+    "type": "list(any)",
+    "description": "List of user maps to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_public_access_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks which can access the Amazon EKS public API server endpoint",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_private_access",
+    "type": "bool",
+    "description": "Indicates whether or not the Amazon EKS private API server endpoint is enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "openid_connect_audiences",
+    "type": "list(string)",
+    "description": "List of OpenID Connect audience client IDs to add to the IRSA provider",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "aws_auth_accounts",
+    "type": "list(any)",
+    "description": "List of account maps to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_use_name_prefix",
+    "type": "string",
+    "description": "Determines whether cluster security group name (`cluster_security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_cni_ipv6_iam_policy",
+    "type": "bool",
+    "description": "Determines whether to create an [`AmazonEKS_CNI_IPv6_Policy`](https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html#cni-iam-role-create-ipv6-policy)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "manage_aws_auth_configmap",
+    "type": "bool",
+    "description": "Determines whether to manage the aws-auth configmap",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Number of days to retain log events. Default retention - 90 days",
+    "default": "90",
+    "required": false
+  },
+  {
+    "name": "create_cluster_primary_security_group_tags",
+    "type": "bool",
+    "description": "Indicates whether or not to tag the cluster's primary security group. This security group is created by the EKS service, not the module, and therefore tagging is handled after cluster creation",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of the VPC where the cluster and its nodes will be provisioned",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_description",
+    "type": "string",
+    "description": "Description of the cluster security group created",
+    "default": "\"EKS cluster security group\"",
+    "required": false
+  },
+  {
+    "name": "node_security_group_additional_rules",
+    "type": "any",
+    "description": "List of additional security group rules to add to the node security group created. Set `source_cluster_security_group = true` inside rules to set the `cluster_security_group` as source",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Determines whether a an IAM role is created or to use an existing IAM role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_aws_auth_configmap",
+    "type": "bool",
+    "description": "Determines whether to create the aws-auth configmap. NOTE - this is only intended for scenarios where the configmap does not exist (i.e. - when using only self-managed node groups). Most users should use `manage_aws_auth_configmap`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "aws_auth_roles",
+    "type": "list(any)",
+    "description": "List of role maps to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_service_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_additional_policies",
+    "type": "list(string)",
+    "description": "Additional policies to be added to the IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "eks_managed_node_groups",
+    "type": "any",
+    "description": "Map of EKS managed node group definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_version",
+    "type": "string",
+    "description": "Kubernetes `<major>.<minor>` version to use for the EKS cluster (i.e.: `1.21`)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint_public_access",
+    "type": "bool",
+    "description": "Indicates whether or not the Amazon EKS public API server endpoint is enabled",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_cluster_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created for the cluster or use the existing `cluster_security_group_id`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_name",
+    "type": "string",
+    "description": "Name to use on cluster security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_irsa",
+    "type": "bool",
+    "description": "Determines whether to create an OpenID Connect Provider for EKS to enable IRSA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_enabled_log_types",
+    "type": "list(string)",
+    "description": "A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)",
+    "default": "[\n  \"audit\",\n  \"api\",\n  \"authenticator\"\n]",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name to use on IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_identity_providers",
+    "type": "any",
+    "description": "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_additional_security_group_ids",
+    "type": "list(string)",
+    "description": "List of additional, externally created security group IDs to attach to the cluster control plane",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "node_security_group_name",
+    "type": "string",
+    "description": "Name to use on node security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_iam_role_dns_suffix",
+    "type": "string",
+    "description": "Base DNS domain name for the current partition (e.g., amazonaws.com in AWS Commercial, amazonaws.com.cn in AWS China)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "aws_auth_node_iam_role_arns_windows",
+    "type": "list(string)",
+    "description": "List of Windows based node IAM role ARNs to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "aws_auth_fargate_profile_pod_execution_role_arns",
+    "type": "list(string)",
+    "description": "List of Fargate profile pod execution role ARNs to add to the aws-auth configmap",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "node_security_group_id",
+    "type": "string",
+    "description": "ID of an existing security group to attach to the node groups created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_policy_name",
+    "type": "string",
+    "description": "Name to use on cluster encryption policy created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_policy_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the cluster encryption policy created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_policy_use_name_prefix",
+    "type": "string",
+    "description": "Determines whether cluster encryption policy name (`cluster_encryption_policy_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_id",
+    "type": "string",
+    "description": "Existing security group ID to be attached to the cluster. Required if `create_cluster_security_group` = `false`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_node_security_group",
+    "type": "bool",
+    "description": "Determines whether to create a security group for the node groups or use the existing `node_security_group_id`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "node_security_group_description",
+    "type": "string",
+    "description": "Description of the node security group created",
+    "default": "\"EKS node shared security group\"",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_policy_path",
+    "type": "string",
+    "description": "Cluster encryption policy path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_encryption_config",
+    "type": "list(object({\n    provider_key_arn = string\n    resources        = list(string)\n  }))",
+    "description": "Configuration block with encryption configuration for the cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the cluster security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "self_managed_node_group_defaults",
+    "type": "any",
+    "description": "Map of self-managed node group default configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if EKS resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  }
+]

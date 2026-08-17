@@ -1,0 +1,46 @@
+[
+  {
+    "name": "lambda_iam_role_name",
+    "description": "The name of the IAM role used by Lambda function"
+  },
+  {
+    "name": "notify_slack_lambda_function_name",
+    "description": "The name of the Lambda function"
+  },
+  {
+    "name": "notify_slack_lambda_function_last_modified",
+    "description": "The date Lambda function was last modified"
+  },
+  {
+    "name": "notify_slack_lambda_function_version",
+    "description": "Latest published version of your Lambda function"
+  },
+  {
+    "name": "lambda_cloudwatch_log_group_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the log group"
+  },
+  {
+    "name": "notify_slack_lambda_function_arn",
+    "description": "The ARN of the Lambda function"
+  },
+  {
+    "name": "notify_slack_lambda_function_invoke_arn",
+    "description": "The ARN to be used for invoking Lambda function from API Gateway"
+  },
+  {
+    "name": "sns_topic_feedback_role_arn",
+    "description": "The Amazon Resource Name (ARN) of the IAM role used for SNS delivery status logging"
+  },
+  {
+    "name": "slack_topic_arn",
+    "description": "The ARN of the SNS topic from which messages will be sent to Slack"
+  },
+  {
+    "name": "this_slack_topic_arn",
+    "description": "The ARN of the SNS topic from which messages will be sent to Slack (backward compatibility for version 4.x)"
+  },
+  {
+    "name": "lambda_iam_role_arn",
+    "description": "The ARN of the IAM role used by Lambda function"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "name": "rds_cluster_master_username",
+    "description": "The master username"
+  },
+  {
+    "name": "rds_cluster_instance_ids",
+    "description": "A list of all cluster instance ids"
+  },
+  {
+    "name": "security_group_id",
+    "description": "The security group ID of the cluster"
+  },
+  {
+    "name": "rds_cluster_id",
+    "description": "The ID of the cluster"
+  },
+  {
+    "name": "rds_cluster_endpoint",
+    "description": "The cluster endpoint"
+  },
+  {
+    "name": "rds_cluster_engine_version",
+    "description": "The cluster engine version"
+  },
+  {
+    "name": "rds_cluster_hosted_zone_id",
+    "description": "Route53 hosted zone id of the created cluster"
+  },
+  {
+    "name": "enhanced_monitoring_iam_role_name",
+    "description": "The name of the enhanced monitoring role"
+  },
+  {
+    "name": "rds_cluster_resource_id",
+    "description": "The Resource ID of the cluster"
+  },
+  {
+    "name": "rds_cluster_reader_endpoint",
+    "description": "The cluster reader endpoint"
+  },
+  {
+    "name": "rds_cluster_database_name",
+    "description": "Name for an automatically created database on cluster creation"
+  },
+  {
+    "name": "rds_cluster_arn",
+    "description": "The ID of the cluster"
+  },
+  {
+    "name": "rds_cluster_master_password",
+    "description": "The master password"
+  },
+  {
+    "name": "rds_cluster_port",
+    "description": "The port"
+  },
+  {
+    "name": "rds_cluster_instance_endpoints",
+    "description": "A list of all cluster instance endpoints"
+  },
+  {
+    "name": "enhanced_monitoring_iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the enhanced monitoring role"
+  },
+  {
+    "name": "enhanced_monitoring_iam_role_unique_id",
+    "description": "Stable and unique string identifying the enhanced monitoring role"
+  }
+]

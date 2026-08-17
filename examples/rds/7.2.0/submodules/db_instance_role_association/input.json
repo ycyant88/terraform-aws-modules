@@ -1,0 +1,37 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether to create a DB instance role association",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "feature_name",
+    "type": "string",
+    "description": "Name of the feature for association",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_arn",
+    "type": "string",
+    "description": "Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "db_instance_identifier",
+    "type": "string",
+    "description": "The database instance identifier to associate the role",
+    "default": "null",
+    "required": false
+  }
+]
