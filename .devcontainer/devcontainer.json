@@ -20,17 +20,6 @@
 				"GitHub.copilot",
 				"hashicorp.hcl"
 			]
-		},
-		"codespaces": {
-			"repositories": {
-				"devcontainers/features": {
-					"permissions": {
-						"metadata": "read",
-						"contents": "write",
-						"workflows": "write"
-					}
-				}
-			}
 		}
 	}
 }
