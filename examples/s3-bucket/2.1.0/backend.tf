@@ -3,10 +3,10 @@
 // https://developer.hashicorp.com/terraform/language/settings/backends/s3
 
 # terraform {
-#     backend s3 {
-#         bucket = "<terraform-state-bucket>"
-#         key    = "<terraform-state-key>"
-#         region = "<aws-region>"
+#   backend s3 {
+#     bucket = "<tf-state-bucket>"
+#     key    = "<tf-state-key>"
+#     region = "<aws-region>"
 #         ...
-#    }
+#   }
 # }
