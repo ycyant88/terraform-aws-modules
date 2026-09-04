@@ -2,9 +2,6 @@
 	"name": "Dev Containers terraform-aws-modules",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"args": {
-			"VARIANT": "ubuntu24.04"
-		}
 	},
 	"mounts": [
 		"source=dev-containers-terraform-aws-modules-bashhistory,target=/home/vscode/commandhistory"
