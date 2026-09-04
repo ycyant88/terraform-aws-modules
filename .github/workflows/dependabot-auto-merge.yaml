@@ -10,7 +10,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'ycyant88/docker-alpine-images'
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'ycyant88/terraform-aws-modules'
     steps:
       - id: metadata
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
