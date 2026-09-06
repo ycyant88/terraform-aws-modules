@@ -1,5 +1,0 @@
-count = ""
-
-elb = ""
-
-instances = ""

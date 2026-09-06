@@ -1,6 +1,0 @@
-[
-  {
-    "name": "cloudwatch_log_metric_filter_id",
-    "description": "The name of the metric filter"
-  }
-]
