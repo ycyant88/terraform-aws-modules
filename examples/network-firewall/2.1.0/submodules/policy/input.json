@@ -1,0 +1,142 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "stateful_engine_options",
+    "type": "object({\n    flow_timeouts = optional(object({\n      tcp_idle_timeout_seconds = optional(number)\n    }))\n    rule_order              = optional(string)\n    stream_exception_policy = optional(string)\n  })",
+    "description": "A configuration block that defines options on how the policy handles stateful rules. See [Stateful Engine Options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-engine-options) for details",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stateless_fragment_default_actions",
+    "type": "list(string)",
+    "description": "Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`",
+    "default": "[\n  \"aws:pass\"\n]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the firewall policy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "policy_variables",
+    "type": "object({\n    rule_variables = list(object({\n      ip_set = optional(object({\n        definition = list(string)\n      }))\n      key = string\n    }))\n  })",
+    "description": "Contains variables that you can use to override default Suricata settings in your firewall policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stateful_rule_group_reference",
+    "type": "map(object({\n    deep_threat_inspection = optional(bool)\n    override = optional(object({\n      action = optional(string)\n    }))\n    priority     = optional(number)\n    resource_arn = string\n  }))",
+    "description": "Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See [Stateful Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateful-rule-group-reference) for details",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stateless_custom_action",
+    "type": "map(object({\n    action_definition = object({\n      publish_metric_action = optional(object({\n        dimension = optional(string)\n      }))\n    })\n    action_name = string\n  }))",
+    "description": "Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stateless_default_actions",
+    "type": "list(string)",
+    "description": "Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`",
+    "default": "[\n  \"aws:pass\"\n]",
+    "required": false
+  },
+  {
+    "name": "resource_policy_principals",
+    "type": "list(string)",
+    "description": "A list of IAM principals allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the firewall policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "object({\n    key_id = optional(string)\n    type   = string\n  })",
+    "description": "KMS encryption configuration settings",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stateless_rule_group_reference",
+    "type": "map(object({\n    priority     = number\n    resource_arn = string\n  }))",
+    "description": "Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See [Stateless Rule Group Reference](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy#stateless-rule-group-reference) for details",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be attached to the firewall policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "resource_policy",
+    "type": "string",
+    "description": "The policy JSON to use for the resource policy; required when `create_resource_policy` is `false`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ram_resource_associations",
+    "type": "map(string)",
+    "description": "A map of RAM resource associations for the created firewall policy",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "stateful_default_actions",
+    "type": "list(string)",
+    "description": "Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a rule_order value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_policy_actions",
+    "type": "list(string)",
+    "description": "A list of IAM actions allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  }
+]

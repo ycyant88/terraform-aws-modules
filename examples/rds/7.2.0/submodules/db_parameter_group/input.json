@@ -1,0 +1,65 @@
+[
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the DB parameter group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "family",
+    "type": "string",
+    "description": "The family of the DB parameter group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameters",
+    "type": "list(object({\n    name         = string\n    value        = string\n    apply_method = optional(string)\n  }))",
+    "description": "A list of DB parameter maps to apply",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "skip_destroy",
+    "type": "bool",
+    "description": "Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the DB parameter group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether to use `name` as is or create a unique name beginning with `name` as the specified prefix",
+    "default": "true",
+    "required": false
+  }
+]

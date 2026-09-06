@@ -1,0 +1,26 @@
+[
+  {
+    "name": "arn",
+    "description": "The ARN (Amazon Resource Name) of the rule group"
+  },
+  {
+    "name": "id",
+    "description": "The ID of the rule group"
+  },
+  {
+    "name": "share_status",
+    "description": "Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`"
+  },
+  {
+    "name": "ram_resource_associations",
+    "description": "Map of RAM resource associations created and their attributes"
+  },
+  {
+    "name": "domain_lists",
+    "description": "Map of all domain lists created and their attributes"
+  },
+  {
+    "name": "rules",
+    "description": "Map of all rules created and their attributes"
+  }
+]

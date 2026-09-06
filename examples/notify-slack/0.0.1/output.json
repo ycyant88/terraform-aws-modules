@@ -1,0 +1,10 @@
+[
+  {
+    "name": "this_slack_topic_name",
+    "description": "The name of the created SNS topic for Slack"
+  },
+  {
+    "name": "this_slack_topic_arn",
+    "description": "ARN of the created SNS topic for Slack"
+  }
+]

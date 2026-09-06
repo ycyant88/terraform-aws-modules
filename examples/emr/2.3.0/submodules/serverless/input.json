@@ -1,0 +1,142 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects nearly all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "image_configuration",
+    "type": "any",
+    "description": "The image configuration applied to all worker types",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "maximum_capacity",
+    "type": "any",
+    "description": "The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "release_label_prefix",
+    "type": "string",
+    "description": "Release label prefix used to lookup a release label",
+    "default": "\"emr-6\"",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_rules",
+    "type": "any",
+    "description": "Security group rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "auto_start_configuration",
+    "type": "any",
+    "description": "The configuration for an application to automatically start on job submission",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "auto_stop_configuration",
+    "type": "any",
+    "description": "The configuration for an application to automatically stop after a certain amount of time being idle",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "network_configuration",
+    "type": "any",
+    "description": "The network configuration for customer VPC connectivity",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "release_label",
+    "type": "string",
+    "description": "Release label for the Amazon EMR release",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines whether the security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "architecture",
+    "type": "string",
+    "description": "The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "initial_capacity",
+    "type": "any",
+    "description": "The capacity to initialize when the application is created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "interactive_configuration",
+    "type": "any",
+    "description": "Enables the interactive use cases to use when running an application",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the application",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "The type of application you want to start, such as `spark` or `hive`. Defaults to `spark`",
+    "default": "\"spark\"",
+    "required": false
+  }
+]

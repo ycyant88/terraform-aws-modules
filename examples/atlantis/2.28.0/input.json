@@ -1,0 +1,597 @@
+[
+  {
+    "name": "alb_ingress_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of IPv4 CIDR ranges to use on all ingress rules of the ALB.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "certificate_arn",
+    "type": "string",
+    "description": "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ecs_task_cpu",
+    "type": "number",
+    "description": "The number of cpu units used by the task",
+    "default": "256",
+    "required": false
+  },
+  {
+    "name": "custom_container_definitions",
+    "type": "string",
+    "description": "A list of valid container definitions provided as a single valid JSON document. By default, the standard container definition is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "container_depends_on",
+    "type": "list(object({\n    containerName = string\n    condition     = string\n  }))",
+    "description": "The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. The condition can be one of START, COMPLETE, SUCCESS or HEALTHY",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "user",
+    "type": "string",
+    "description": "The user to run as inside the container. Can be any of these formats: user, user:group, uid, uid:gid, user:gid, uid:group. The default (null) will use the container's configured `USER` directive or root if not set.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "alb_authenticate_cognito",
+    "type": "any",
+    "description": "Map of AWS Cognito authentication parameters to protect ALB (eg, using SAML). See https://www.terraform.io/docs/providers/aws/r/lb_listener.html#authenticate-cognito-action",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "trusted_principals",
+    "type": "list(string)",
+    "description": "A list of principals, in addition to ecs-tasks.amazonaws.com, that can assume the task role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ecs_task_memory",
+    "type": "number",
+    "description": "The amount (in MiB) of memory used by the task",
+    "default": "512",
+    "required": false
+  },
+  {
+    "name": "container_memory_reservation",
+    "type": "number",
+    "description": "The amount of memory (in MiB) to reserve for the container",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "command",
+    "type": "list(string)",
+    "description": "The command that is passed to the container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "working_directory",
+    "type": "string",
+    "description": "The working directory to run commands inside the container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "azs",
+    "type": "list(string)",
+    "description": "A list of availability zones in the region",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "alb_log_location_prefix",
+    "type": "string",
+    "description": "S3 prefix within the log_bucket_name under which logs are stored.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "acm_certificate_domain_name",
+    "type": "string",
+    "description": "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in `route53_zone_name`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ssm_kms_key_arn",
+    "type": "string",
+    "description": "ARN of KMS key to use for encryption and decryption of SSM Parameters. Required only if your key uses a custom KMS key and not the default key",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ecs_service_assign_public_ip",
+    "type": "bool",
+    "description": "Should be true, if ECS service is using public subnets (more info: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_cannot_pull_image.html)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecs_service_deployment_minimum_healthy_percent",
+    "type": "number",
+    "description": "The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment",
+    "default": "50",
+    "required": false
+  },
+  {
+    "name": "atlantis_github_webhook_secret",
+    "type": "string",
+    "description": "GitHub webhook secret of an app that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "List of one or more security groups to be added to the load balancer",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to use on all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "alb_authenticate_oidc",
+    "type": "any",
+    "description": "Map of Authenticate OIDC parameters to protect ALB (eg, using Auth0). See https://www.terraform.io/docs/providers/aws/r/lb_listener.html#authenticate-oidc-action",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "alb_listener_ssl_policy_default",
+    "type": "string",
+    "description": "The security policy if using HTTPS externally on the load balancer. [See](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).",
+    "default": "\"ELBSecurityPolicy-2016-08\"",
+    "required": false
+  },
+  {
+    "name": "policies_arn",
+    "type": "list(string)",
+    "description": "A list of the ARN of the policies you want to apply",
+    "default": "[\n  \"arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy\"\n]",
+    "required": false
+  },
+  {
+    "name": "firelens_configuration",
+    "type": "object({\n    type    = string\n    options = map(string)\n  })",
+    "description": "The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more details, see https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FirelensConfiguration.html",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "atlantis_version",
+    "type": "string",
+    "description": "Verion of Atlantis to run. If not specified latest will be used",
+    "default": "\"latest\"",
+    "required": false
+  },
+  {
+    "name": "alb_http_security_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to put on the http security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "webhook_ssm_parameter_name",
+    "type": "string",
+    "description": "Name of SSM parameter to keep webhook secret",
+    "default": "\"/atlantis/webhook/secret\"",
+    "required": false
+  },
+  {
+    "name": "ecs_service_deployment_maximum_percent",
+    "type": "number",
+    "description": "The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment",
+    "default": "200",
+    "required": false
+  },
+  {
+    "name": "atlantis_hide_prev_plan_comments",
+    "type": "string",
+    "description": "Enables atlantis server --hide-prev-plan-comments hiding previous plan comments on update",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_gitlab_user_token",
+    "type": "string",
+    "description": "Gitlab token of the user that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_subnets",
+    "type": "list(string)",
+    "description": "A list of private subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "alb_log_bucket_name",
+    "type": "string",
+    "description": "S3 bucket (externally created) for storing load balancer access logs. Required if alb_logging_enabled is true.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_retention_in_days",
+    "type": "number",
+    "description": "Retention period of Atlantis CloudWatch logs",
+    "default": "7",
+    "required": false
+  },
+  {
+    "name": "atlantis_port",
+    "type": "number",
+    "description": "Local port Atlantis should be running on. Default value is most likely fine.",
+    "default": "4141",
+    "required": false
+  },
+  {
+    "name": "atlantis_fqdn",
+    "type": "string",
+    "description": "FQDN of Atlantis to use. Set this only to override Route53 and ALB's DNS name.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "atlantis_bitbucket_user_token_ssm_parameter_name",
+    "type": "string",
+    "description": "Name of SSM parameter to keep atlantis_bitbucket_user_token",
+    "default": "\"/atlantis/bitbucket/user/token\"",
+    "required": false
+  },
+  {
+    "name": "extra_container_definitions",
+    "type": "list(any)",
+    "description": "A list of valid container definitions provided as a single valid JSON document. These will be provided as supplimentary to the main Atlantis container definition",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "atlantis_image",
+    "type": "string",
+    "description": "Docker image to run Atlantis with. If not specified, official Atlantis image will be used",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ecs_service_desired_count",
+    "type": "number",
+    "description": "The number of instances of the task definition to place and keep running",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "essential",
+    "type": "bool",
+    "description": "Determines whether all other containers in a task are stopped, if this container fails or stops for any reason. Due to how Terraform type casts booleans in json it is required to double quote this value",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "mount_points",
+    "type": "list",
+    "description": "Container mount points. This is a list of maps, where each map should contain a `containerPath` and `sourceVolume`. The `readOnly` key is optional.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ulimits",
+    "type": "list(object({\n    name      = string\n    hardLimit = number\n    softLimit = number\n  }))",
+    "description": "Container ulimit settings. This is a list of maps, where each map should contain \"name\", \"hardLimit\" and \"softLimit\"",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "custom_environment_variables",
+    "type": "list(object(\n    {\n      name  = string\n      value = string\n    }\n  ))",
+    "description": "List of additional environment variables the container will use (list should contain maps with `name` and `value`)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "atlantis_security_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to put on the atlantis security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "atlantis_github_user_token_ssm_parameter_name",
+    "type": "string",
+    "description": "Name of SSM parameter to keep atlantis_github_user_token",
+    "default": "\"/atlantis/github/user/token\"",
+    "required": false
+  },
+  {
+    "name": "docker_labels",
+    "type": "map(string)",
+    "description": "The configuration options to send to the `docker_labels`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "atlantis_gitlab_hostname",
+    "type": "string",
+    "description": "Gitlab server hostname, defaults to gitlab.com",
+    "default": "\"gitlab.com\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_bitbucket_user_token",
+    "type": "string",
+    "description": "Bitbucket token of the user that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_subnet_ids",
+    "type": "list(string)",
+    "description": "A list of IDs of existing private subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "allow_unauthenticated_access",
+    "type": "bool",
+    "description": "Whether to create ALB listener rule to allow unauthenticated access for certain CIDR blocks (eg. allow GitHub webhooks to bypass OIDC authentication)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "github_webhooks_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of CIDR blocks used by GitHub webhooks",
+    "default": "[\n  \"140.82.112.0/20\",\n  \"185.199.108.0/22\",\n  \"192.30.252.0/22\"\n]",
+    "required": false
+  },
+  {
+    "name": "repository_credentials",
+    "type": "map(string)",
+    "description": "Container repository credentials; required when using a private repo.  This map currently supports a single key; \"credentialsParameter\", which should be the ARN of a Secrets Manager's secret holding the credentials",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "atlantis_allowed_repo_names",
+    "type": "list(string)",
+    "description": "Git repositories where webhook should be created",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "atlantis_bitbucket_user",
+    "type": "string",
+    "description": "Bitbucket username that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to use on all resources created (VPC, ALB, etc)",
+    "default": "\"atlantis\"",
+    "required": false
+  },
+  {
+    "name": "internal",
+    "type": "bool",
+    "description": "Whether the load balancer is internal or external",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cidr",
+    "type": "string",
+    "description": "The CIDR block for the VPC which will be created if `vpc_id` is not specified",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "allow_github_webhooks",
+    "type": "bool",
+    "description": "Whether to allow access for GitHub webhooks",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "route53_zone_name",
+    "type": "string",
+    "description": "Route53 zone name to create ACM certificate in and main A-record, without trailing dot",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ecs_fargate_spot",
+    "type": "bool",
+    "description": "Whether to run ECS Fargate Spot or not",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "atlantis_log_level",
+    "type": "string",
+    "description": "Log level that Atlantis will run with. Accepted values are: <debug|info|warn|error>",
+    "default": "\"debug\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_github_user",
+    "type": "string",
+    "description": "GitHub username that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "allow_unauthenticated_access_priority",
+    "type": "number",
+    "description": "ALB listener rule priority for allow unauthenticated access rule",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "atlantis_gitlab_user_token_ssm_parameter_name",
+    "type": "string",
+    "description": "Name of SSM parameter to keep atlantis_gitlab_user_token",
+    "default": "\"/atlantis/gitlab/user/token\"",
+    "required": false
+  },
+  {
+    "name": "stop_timeout",
+    "type": "number",
+    "description": "Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "atlantis_bitbucket_base_url",
+    "type": "string",
+    "description": "Base URL of Bitbucket Server, use for Bitbucket on prem (Stash)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of an existing VPC where resources will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "public_subnet_ids",
+    "type": "list(string)",
+    "description": "A list of IDs of existing public subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "alb_logging_enabled",
+    "type": "bool",
+    "description": "Controls if the ALB will log requests to S3.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "whitelist_unauthenticated_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of allowed CIDR blocks to bypass authentication",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "route53_record_name",
+    "type": "string",
+    "description": "Name of Route53 record to create ACM certificate in and main A-record. If null is specified, var.name is used instead. Provide empty string to point root domain name to ALB.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_route53_record",
+    "type": "bool",
+    "description": "Whether to create Route53 record for Atlantis",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ecs_container_insights",
+    "type": "bool",
+    "description": "Controls if ECS Cluster has container insights enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "readonly_root_filesystem",
+    "type": "bool",
+    "description": "Determines whether a container is given read-only access to its root filesystem. Due to how Terraform type casts booleans in json it is required to double quote this value",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "alb_https_security_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags to put on the https security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "public_subnets",
+    "type": "list(string)",
+    "description": "A list of public subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "volumes_from",
+    "type": "list(object({\n    sourceContainer = string\n    readOnly        = bool\n  }))",
+    "description": "A list of VolumesFrom maps which contain \"sourceContainer\" (name of the container that has the volumes to mount) and \"readOnly\" (whether the container can write to the volume)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "allow_repo_config",
+    "type": "string",
+    "description": "When true allows the use of atlantis.yaml config files within the source repos.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_gitlab_user",
+    "type": "string",
+    "description": "Gitlab username that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "custom_environment_secrets",
+    "type": "list(object(\n    {\n      name      = string\n      valueFrom = string\n    }\n  ))",
+    "description": "List of additional secrets the container will use (list should contain maps with `name` and `valueFrom`)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "entrypoint",
+    "type": "list(string)",
+    "description": "The entry point that is passed to the container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "start_timeout",
+    "type": "number",
+    "description": "Time duration (in seconds) to wait before giving up on resolving dependencies for a container",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "atlantis_repo_whitelist",
+    "type": "list(string)",
+    "description": "List of allowed repositories Atlantis can be used with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "atlantis_github_user_token",
+    "type": "string",
+    "description": "GitHub token of the user that is running the Atlantis command",
+    "default": "\"\"",
+    "required": false
+  }
+]

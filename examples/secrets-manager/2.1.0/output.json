@@ -1,0 +1,30 @@
+[
+  {
+    "name": "secret_name",
+    "description": "The name of the secret"
+  },
+  {
+    "name": "secret_replica",
+    "description": "Attributes of the replica created"
+  },
+  {
+    "name": "secret_string",
+    "description": "The secret string"
+  },
+  {
+    "name": "secret_binary",
+    "description": "The secret binary"
+  },
+  {
+    "name": "secret_version_id",
+    "description": "The unique identifier of the version of the secret"
+  },
+  {
+    "name": "secret_arn",
+    "description": "The ARN of the secret"
+  },
+  {
+    "name": "secret_id",
+    "description": "The ID of the secret"
+  }
+]

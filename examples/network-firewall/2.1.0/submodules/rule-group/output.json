@@ -1,0 +1,18 @@
+[
+  {
+    "name": "resource_policy_id",
+    "description": "The Amazon Resource Name (ARN) of the rule group associated with the resource policy"
+  },
+  {
+    "name": "id",
+    "description": "The Amazon Resource Name (ARN) that identifies the rule group"
+  },
+  {
+    "name": "arn",
+    "description": "The Amazon Resource Name (ARN) that identifies the rule group"
+  },
+  {
+    "name": "update_token",
+    "description": "A string token used when updating the rule group"
+  }
+]

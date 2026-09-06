@@ -1,0 +1,22 @@
+[
+  {
+    "name": "alb_dns_name",
+    "description": "The DNS name of the ALB presumably to be used with a friendlier CNAME."
+  },
+  {
+    "name": "alb_id",
+    "description": "The ID of the ALB we created."
+  },
+  {
+    "name": "alb_zone_id",
+    "description": "The zone_id of the ALB to assist with creating DNS records."
+  },
+  {
+    "name": "principal_account_id",
+    "description": "The AWS-owned account given permissions to write your ALB logs to S3."
+  },
+  {
+    "name": "target_group_arn",
+    "description": "ARN of the target group. Useful for passing to your Auto Scaling group module."
+  }
+]

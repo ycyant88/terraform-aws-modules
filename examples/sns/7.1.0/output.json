@@ -1,0 +1,26 @@
+[
+  {
+    "name": "topic_id",
+    "description": "The ARN of the SNS topic"
+  },
+  {
+    "name": "topic_name",
+    "description": "The name of the topic"
+  },
+  {
+    "name": "topic_owner",
+    "description": "The AWS Account ID of the SNS topic owner"
+  },
+  {
+    "name": "topic_beginning_archive_time",
+    "description": "The oldest timestamp at which a FIFO topic subscriber can start a replay"
+  },
+  {
+    "name": "subscriptions",
+    "description": "Map of subscriptions created and their attributes"
+  },
+  {
+    "name": "topic_arn",
+    "description": "The ARN of the SNS topic, as a more obvious property (clone of id)"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "iam_role_name",
+    "description": "Name of IAM role"
+  },
+  {
+    "name": "iam_role_path",
+    "description": "Path of IAM role"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Unique ID of IAM role"
+  },
+  {
+    "name": "iam_policy_arn",
+    "description": "The ARN assigned by AWS to this policy"
+  },
+  {
+    "name": "iam_policy_name",
+    "description": "Name of IAM policy"
+  },
+  {
+    "name": "iam_policy_id",
+    "description": "The policy's ID"
+  },
+  {
+    "name": "associations",
+    "description": "Map of Pod Identity associations created"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "ARN of IAM role"
+  }
+]

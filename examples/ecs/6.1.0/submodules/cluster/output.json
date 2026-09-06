@@ -1,0 +1,42 @@
+[
+  {
+    "name": "name",
+    "description": "Name that identifies the cluster"
+  },
+  {
+    "name": "autoscaling_capacity_providers",
+    "description": "Map of autoscaling capacity providers created and their attributes"
+  },
+  {
+    "name": "task_exec_iam_role_name",
+    "description": "Task execution IAM role name"
+  },
+  {
+    "name": "id",
+    "description": "ID that identifies the cluster"
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "description": "Name of CloudWatch log group created"
+  },
+  {
+    "name": "cloudwatch_log_group_arn",
+    "description": "ARN of CloudWatch log group created"
+  },
+  {
+    "name": "cluster_capacity_providers",
+    "description": "Map of cluster capacity providers attributes"
+  },
+  {
+    "name": "task_exec_iam_role_arn",
+    "description": "Task execution IAM role ARN"
+  },
+  {
+    "name": "task_exec_iam_role_unique_id",
+    "description": "Stable and unique string identifying the task execution IAM role"
+  },
+  {
+    "name": "arn",
+    "description": "ARN that identifies the cluster"
+  }
+]

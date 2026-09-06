@@ -1,0 +1,34 @@
+[
+  {
+    "name": "dynamodb_table_id",
+    "description": "ID of the DynamoDB table"
+  },
+  {
+    "name": "dynamodb_table_stream_arn",
+    "description": "The ARN of the Table Stream"
+  },
+  {
+    "name": "dynamodb_table_stream_label",
+    "description": "A timestamp, in ISO 8601 format of the Table Stream"
+  },
+  {
+    "name": "dynamodb_table_replicas",
+    "description": "Map of Table replicas by region"
+  },
+  {
+    "name": "dynamodb_table_replica_arns",
+    "description": "Map of the Table replicas ARNs"
+  },
+  {
+    "name": "dynamodb_table_replica_stream_arns",
+    "description": "Map of the Table replicas stream ARNs"
+  },
+  {
+    "name": "dynamodb_table_replica_stream_labels",
+    "description": "Map of the timestamps of the Table replicas stream"
+  },
+  {
+    "name": "dynamodb_table_arn",
+    "description": "ARN of the DynamoDB table"
+  }
+]

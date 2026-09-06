@@ -1,0 +1,93 @@
+[
+  {
+    "name": "tags",
+    "type": "map(any)",
+    "description": "A map of tags to add to the resources created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Path of IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "IAM Role description",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policies",
+    "type": "map(string)",
+    "description": "Policies to attach to the IAM role in `{'static_name' = 'policy_arn'}` format",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "IAM role name prefix",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "force_detach_policies",
+    "type": "bool",
+    "description": "Whether policies should be detached from this role when destroying",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "max_session_duration",
+    "type": "number",
+    "description": "Maximum CLI/API session duration in seconds between 3600 and 43200",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "audience",
+    "type": "string",
+    "description": "Audience to use for OIDC role. Defaults to `sts.amazonaws.com` for use with the [official AWS GitHub action](https://github.com/aws-actions/configure-aws-credentials)",
+    "default": "\"sts.amazonaws.com\"",
+    "required": false
+  },
+  {
+    "name": "subjects",
+    "type": "list(string)",
+    "description": "List of GitHub OIDC subjects that are permitted by the trust policy. You do not need to prefix with `repo:` as this is provided. Example: `['my-org/my-repo:*', 'octo-org/octo-repo:ref:refs/heads/octo-branch']`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "provider_url",
+    "type": "string",
+    "description": "The URL of the identity provider. Corresponds to the iss claim",
+    "default": "\"token.actions.githubusercontent.com\"",
+    "required": false
+  }
+]

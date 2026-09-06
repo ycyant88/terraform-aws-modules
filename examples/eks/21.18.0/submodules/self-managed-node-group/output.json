@@ -1,0 +1,106 @@
+[
+  {
+    "name": "launch_template_name",
+    "description": "The name of the launch template"
+  },
+  {
+    "name": "autoscaling_group_desired_capacity",
+    "description": "The number of Amazon EC2 instances that should be running in the group"
+  },
+  {
+    "name": "autoscaling_group_default_cooldown",
+    "description": "Time between a scaling activity and the succeeding scaling activity"
+  },
+  {
+    "name": "autoscaling_group_health_check_grace_period",
+    "description": "Time after instance comes into service before checking health"
+  },
+  {
+    "name": "autoscaling_group_availability_zones",
+    "description": "The availability zones of the autoscaling group"
+  },
+  {
+    "name": "iam_instance_profile_arn",
+    "description": "ARN assigned by AWS to the instance profile"
+  },
+  {
+    "name": "image_id",
+    "description": "ID of the image"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "launch_template_latest_version",
+    "description": "The latest version of the launch template"
+  },
+  {
+    "name": "autoscaling_group_id",
+    "description": "The autoscaling group id"
+  },
+  {
+    "name": "autoscaling_group_health_check_type",
+    "description": "EC2 or ELB. Controls how health checking is done"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "iam_instance_profile_unique",
+    "description": "Stable and unique string identifying the IAM instance profile"
+  },
+  {
+    "name": "launch_template_id",
+    "description": "The ID of the launch template"
+  },
+  {
+    "name": "autoscaling_group_name",
+    "description": "The autoscaling group name"
+  },
+  {
+    "name": "autoscaling_group_max_size",
+    "description": "The maximum size of the autoscaling group"
+  },
+  {
+    "name": "autoscaling_group_vpc_zone_identifier",
+    "description": "The VPC zone identifier"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  },
+  {
+    "name": "access_entry_arn",
+    "description": "Amazon Resource Name (ARN) of the Access Entry"
+  },
+  {
+    "name": "user_data",
+    "description": "Base64 encoded user data"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "launch_template_arn",
+    "description": "The ARN of the launch template"
+  },
+  {
+    "name": "autoscaling_group_arn",
+    "description": "The ARN for this autoscaling group"
+  },
+  {
+    "name": "autoscaling_group_min_size",
+    "description": "The minimum size of the autoscaling group"
+  },
+  {
+    "name": "iam_instance_profile_id",
+    "description": "Instance profile's ID"
+  }
+]

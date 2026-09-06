@@ -1,0 +1,86 @@
+[
+  {
+    "name": "log_group_name",
+    "type": "string",
+    "description": "The name of the log group under which the log stream is to be created.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_data_protection_policy_name",
+    "type": "string",
+    "description": "The name of the data protection policy document.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_data_protection_description",
+    "type": "string",
+    "description": "The description of the data protection policy document.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "audit_statement_sid",
+    "type": "string",
+    "description": "Name of the audit statement.",
+    "default": "\"audit-policy\"",
+    "required": false
+  },
+  {
+    "name": "findings_destination_cloudwatch_log_group",
+    "type": "string",
+    "description": "Configures CloudWatch Logs as a findings destination.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "findings_destination_firehose_delivery_stream",
+    "type": "string",
+    "description": "Configures Kinesis Firehose as a findings destination.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the cloudwatch log data protection policy.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_log_data_protection_policy",
+    "type": "bool",
+    "description": "Whether to create the cloudwatch log data protection policy.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy_document",
+    "type": "string",
+    "description": "Specifies the data protection policy in JSON.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deidentify_statement_sid",
+    "type": "string",
+    "description": "Name of the deidentify statement.",
+    "default": "\"redact-policy\"",
+    "required": false
+  },
+  {
+    "name": "data_identifiers",
+    "type": "list(string)",
+    "description": "Set of at least 1 sensitive data identifiers that you want to mask.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "findings_destination_s3_bucket",
+    "type": "string",
+    "description": "Configures S3 as a findings destination.",
+    "default": "null",
+    "required": false
+  }
+]

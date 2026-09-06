@@ -1,0 +1,44 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "retention_period",
+    "type": "number",
+    "description": "The retention period for the replicated automated backups",
+    "default": "7",
+    "required": false
+  },
+  {
+    "name": "source_db_instance_arn",
+    "type": "string",
+    "description": "The ARN of the source DB instance for the replicated automated backups",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "The KMS encryption key ARN in the destination AWS Region",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pre_signed_url",
+    "type": "string",
+    "description": "A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be called in the AWS Region of the source DB instance",
+    "default": "null",
+    "required": false
+  }
+]

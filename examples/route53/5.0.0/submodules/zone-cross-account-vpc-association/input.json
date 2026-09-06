@@ -1,0 +1,16 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Route53 Zone associations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "zone_vpc_associations",
+    "type": "map(object({\n    zone_id    = string\n    vpc_id     = string\n    vpc_region = optional(string)\n  }))",
+    "description": "Map of associations indicating zone_id and vpc_id to associate.",
+    "default": "{}",
+    "required": false
+  }
+]

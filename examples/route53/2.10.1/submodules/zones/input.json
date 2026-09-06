@@ -1,0 +1,23 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Route53 zone",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "zones",
+    "type": "any",
+    "description": "Map of Route53 zone parameters",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(any)",
+    "description": "Tags added to all zones. Will take precedence over tags from the 'zones' variable",
+    "default": "{}",
+    "required": false
+  }
+]

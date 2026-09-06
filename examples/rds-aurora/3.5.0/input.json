@@ -1,0 +1,457 @@
+[
+  {
+    "name": "iam_roles",
+    "type": "list(string)",
+    "description": "A List of ARNs for the IAM roles to associate to the RDS Cluster.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "port",
+    "type": "string",
+    "description": "The port on which to accept connections",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC ID",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Whether to create security group for RDS cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "db_cluster_parameter_group_name",
+    "type": "string",
+    "description": "The name of a DB Cluster parameter group to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "replica_scale_min",
+    "type": "number",
+    "description": "Minimum number of replicas to allow scaling for",
+    "default": "2",
+    "required": false
+  },
+  {
+    "name": "global_cluster_identifier",
+    "type": "string",
+    "description": "The global cluster identifier specified on aws_rds_global_cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "db_subnet_group_name",
+    "type": "string",
+    "description": "The existing subnet group name to use",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "instances_parameters",
+    "type": "list(map(string))",
+    "description": "Customized instance settings. Supported keys: instance_name, instance_type, instance_promotion_tier, publicly_accessible",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "final_snapshot_identifier_prefix",
+    "type": "string",
+    "description": "The prefix name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too.",
+    "default": "\"final\"",
+    "required": false
+  },
+  {
+    "name": "apply_immediately",
+    "type": "bool",
+    "description": "Determines whether or not any DB modifications are applied immediately, or during the maintenance window",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "performance_insights_kms_key_id",
+    "type": "string",
+    "description": "The ARN for the KMS key to encrypt Performance Insights data.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "predefined_metric_type",
+    "type": "string",
+    "description": "The metric type to scale on. Valid values are RDSReaderAverageCPUUtilization and RDSReaderAverageDatabaseConnections.",
+    "default": "\"RDSReaderAverageCPUUtilization\"",
+    "required": false
+  },
+  {
+    "name": "instance_type_replica",
+    "type": "string",
+    "description": "Instance type to use at replica instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "publicly_accessible",
+    "type": "bool",
+    "description": "Whether the DB should have a public IP address",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "username",
+    "type": "string",
+    "description": "Master DB username",
+    "default": "\"root\"",
+    "required": false
+  },
+  {
+    "name": "backup_retention_period",
+    "type": "number",
+    "description": "How long to keep backups for (in days)",
+    "default": "7",
+    "required": false
+  },
+  {
+    "name": "engine_version",
+    "type": "string",
+    "description": "Aurora database engine version.",
+    "default": "\"5.6.10a\"",
+    "required": false
+  },
+  {
+    "name": "replica_scale_in_cooldown",
+    "type": "number",
+    "description": "Cooldown in seconds before allowing further scaling operations after a scale in",
+    "default": "300",
+    "required": false
+  },
+  {
+    "name": "engine_mode",
+    "type": "string",
+    "description": "The database engine mode. Valid values: global, parallelquery, provisioned, serverless, multimaster.",
+    "default": "\"provisioned\"",
+    "required": false
+  },
+  {
+    "name": "skip_final_snapshot",
+    "type": "bool",
+    "description": "Should a final snapshot be created on cluster destroy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "monitoring_interval",
+    "type": "number",
+    "description": "The interval (seconds) between points when Enhanced Monitoring metrics are collected",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "scaling_configuration",
+    "type": "map(string)",
+    "description": "Map of nested attributes with scaling properties. Only valid when engine_mode is set to `serverless`",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "engine",
+    "type": "string",
+    "description": "Aurora database engine type, currently aurora, aurora-mysql or aurora-postgresql",
+    "default": "\"aurora\"",
+    "required": false
+  },
+  {
+    "name": "replica_scale_connections",
+    "type": "number",
+    "description": "Average number of connections to trigger autoscaling at. Default value is 70% of db.r4.large's default max_connections",
+    "default": "700",
+    "required": false
+  },
+  {
+    "name": "iam_partition",
+    "type": "string",
+    "description": "IAM Partition to use when generating ARN's. For most regions this can be left at default. China/Govcloud use different partitions",
+    "default": "\"aws\"",
+    "required": false
+  },
+  {
+    "name": "auto_minor_version_upgrade",
+    "type": "bool",
+    "description": "Determines whether minor engine upgrades will be performed automatically in the maintenance window",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "replica_scale_max",
+    "type": "number",
+    "description": "Maximum number of replicas to allow scaling for",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "replica_scale_out_cooldown",
+    "type": "number",
+    "description": "Cooldown in seconds before allowing further scaling operations after a scale out",
+    "default": "300",
+    "required": false
+  },
+  {
+    "name": "password",
+    "type": "string",
+    "description": "Master DB password",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "performance_insights_enabled",
+    "type": "bool",
+    "description": "Specifies whether Performance Insights is enabled or not.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "replication_source_identifier",
+    "type": "string",
+    "description": "ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "The description of the security group. If value is set to empty string it will contain cluster name in the description.",
+    "default": "\"Managed by Terraform\"",
+    "required": false
+  },
+  {
+    "name": "replica_count",
+    "type": "number",
+    "description": "Number of reader nodes to create.  If `replica_scale_enable` is `true`, the value of `replica_scale_min` is used instead.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "replica_scale_cpu",
+    "type": "number",
+    "description": "CPU usage to trigger autoscaling at",
+    "default": "70",
+    "required": false
+  },
+  {
+    "name": "create_cluster",
+    "type": "bool",
+    "description": "Controls if RDS cluster should be created (it affects almost all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name given resources",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "preferred_maintenance_window",
+    "type": "string",
+    "description": "When to perform DB maintenance",
+    "default": "\"sun:05:00-sun:06:00\"",
+    "required": false
+  },
+  {
+    "name": "create_random_password",
+    "type": "bool",
+    "description": "Whether to create random password for RDS primary cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "db_parameter_group_name",
+    "type": "string",
+    "description": "The name of a DB parameter group to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_encrypted",
+    "type": "bool",
+    "description": "Specifies whether the underlying storage layer should be encrypted",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "permissions_boundary",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the role.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "is_primary_cluster",
+    "type": "bool",
+    "description": "Whether to create a primary cluster (set to false to be a part of a Global database)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_http_endpoint",
+    "type": "bool",
+    "description": "Whether or not to enable the Data API for a serverless Aurora database engine.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "backtrack_window",
+    "type": "number",
+    "description": "The target backtrack window, in seconds. Only available for aurora engine currently. To disable backtracking, set this value to 0. Defaults to 0. Must be between 0 and 259200 (72 hours)",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "allowed_security_groups",
+    "type": "list(string)",
+    "description": "A list of Security Group ID's to allow access to.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "database_name",
+    "type": "string",
+    "description": "Name for an automatically created database on cluster creation",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "preferred_backup_window",
+    "type": "string",
+    "description": "When to perform DB backups",
+    "default": "\"02:00-03:00\"",
+    "required": false
+  },
+  {
+    "name": "copy_tags_to_snapshot",
+    "type": "bool",
+    "description": "Copy all Cluster tags to snapshots.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "monitoring_role_arn",
+    "type": "string",
+    "description": "IAM role for RDS to send enhanced monitoring metrics to CloudWatch",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "allow_major_version_upgrade",
+    "type": "bool",
+    "description": "Determines whether major engine upgrades are allowed when changing engine version",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_database_authentication_enabled",
+    "type": "bool",
+    "description": "Specifies whether IAM Database authentication should be enabled or not. Not all versions and instances are supported. Refer to the AWS documentation to see which versions are supported.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enabled_cloudwatch_logs_exports",
+    "type": "list(string)",
+    "description": "List of log types to export to cloudwatch",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "source_region",
+    "type": "string",
+    "description": "The source region for an encrypted replica DB cluster.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list(string)",
+    "description": "List of subnet IDs to use",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "replica_scale_enabled",
+    "type": "bool",
+    "description": "Whether to enable autoscaling for RDS Aurora (MySQL) read replicas",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ca_cert_identifier",
+    "type": "string",
+    "description": "The identifier of the CA certificate for the DB instance",
+    "default": "\"rds-ca-2019\"",
+    "required": false
+  },
+  {
+    "name": "vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "List of VPC security groups to associate to the cluster in addition to the SG we create in this module",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "allowed_cidr_blocks",
+    "type": "list(string)",
+    "description": "A list of CIDR blocks which are allowed to access the database",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "Instance type to use at master instance. If instance_type_replica is not set it will use the same type for replica instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "If the DB instance should have deletion protection enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_monitoring_role",
+    "type": "bool",
+    "description": "Whether to create the IAM role for RDS enhanced monitoring",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "snapshot_identifier",
+    "type": "string",
+    "description": "DB snapshot to create this database from",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_id",
+    "type": "string",
+    "description": "The ARN for the KMS encryption key if one is set to the cluster.",
+    "default": "\"\"",
+    "required": false
+  }
+]

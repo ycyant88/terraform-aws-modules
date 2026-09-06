@@ -1,0 +1,10 @@
+[
+  {
+    "name": "db_subnet_group_id",
+    "description": "The db subnet group name"
+  },
+  {
+    "name": "db_subnet_group_arn",
+    "description": "The ARN of the db subnet group"
+  }
+]

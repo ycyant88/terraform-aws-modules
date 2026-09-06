@@ -1,0 +1,6 @@
+[
+  {
+    "name": "log_account_policy_name",
+    "description": "Name of Cloudwatch log account policy"
+  }
+]

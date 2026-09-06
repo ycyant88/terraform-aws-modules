@@ -1,0 +1,14 @@
+[
+  {
+    "name": "users",
+    "description": "A map of users created and their attributes"
+  },
+  {
+    "name": "group_arn",
+    "description": "The ARN that identifies the user group"
+  },
+  {
+    "name": "group_id",
+    "description": "The user group identifier"
+  }
+]

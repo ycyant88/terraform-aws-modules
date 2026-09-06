@@ -1,0 +1,86 @@
+[
+  {
+    "name": "use_random_name_prefix",
+    "type": "bool",
+    "description": "Whether to prefix resource names with random prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disabled_controls",
+    "type": "list(string)",
+    "description": "List of IDs of disabled CIS controls",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "actions_enabled",
+    "type": "bool",
+    "description": "Indicates whether or not actions should be executed during any changes to the alarm's state.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "insufficient_data_actions",
+    "type": "list(string)",
+    "description": "List of ARNs to put as Cloudwatch insuficient data actions (eg, ARN of SNS topic)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the Cloudwatch log metric filter and metric alarms",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "A name prefix for the cloudwatch alarm (if use_random_name_prefix is true, this will be ignored)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "control_overrides",
+    "type": "any",
+    "description": "A map of overrides to apply to each control",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "The namespace where metric filter and metric alarm should be cleated",
+    "default": "\"CISBenchmark\"",
+    "required": false
+  },
+  {
+    "name": "log_group_name",
+    "type": "string",
+    "description": "The name of the log group to associate the metric filter with",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "alarm_actions",
+    "type": "list(string)",
+    "description": "List of ARNs to put as Cloudwatch Alarms actions (eg, ARN of SNS topic)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ok_actions",
+    "type": "list(string)",
+    "description": "List of ARNs to put as Cloudwatch OK actions (eg, ARN of SNS topic)",
+    "default": "[]",
+    "required": false
+  }
+]

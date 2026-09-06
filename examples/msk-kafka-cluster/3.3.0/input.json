@@ -1,0 +1,415 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether cluster resources will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_scram_secret_association",
+    "type": "bool",
+    "description": "Determines whether to create SASL/SCRAM secret association",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "broker_node_az_distribution",
+    "type": "string",
+    "description": "The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kafka_version",
+    "type": "string",
+    "description": "Specify the desired Kafka software version",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "s3_logs_bucket",
+    "type": "string",
+    "description": "Name of the S3 bucket to deliver logs to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_connections",
+    "type": "map(object({\n    authentication  = string\n    client_subnets  = list(string)\n    security_groups = list(string)\n    vpc_id          = string\n    tags            = optional(map(string), {})\n  }))",
+    "description": "Map of VPC Connections to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "scram_secret_association_secret_arn_list",
+    "type": "list(string)",
+    "description": "List of AWS Secrets Manager secret ARNs to associate with SCRAM",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "topics",
+    "type": "map(object({\n    configs            = optional(string)\n    name               = optional(string)\n    partition_count    = number\n    replication_factor = number\n  }))",
+    "description": "Map of MSK topics to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to the resources created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "number_of_broker_nodes",
+    "type": "number",
+    "description": "The desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "configuration_server_properties",
+    "type": "map(string)",
+    "description": "Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_override_policy_documents",
+    "type": "list(string)",
+    "description": "Override policy documents for cluster policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_storage_autoscaling",
+    "type": "bool",
+    "description": "Determines whether autoscaling is enabled for storage",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "scaling_role_arn",
+    "type": "string",
+    "description": "The ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "schema_registries",
+    "type": "map(object({\n    name        = string\n    description = optional(string)\n    tags        = optional(map(string), {})\n  }))",
+    "description": "A map of schema registries to be created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_connect_worker_configuration",
+    "type": "bool",
+    "description": "Determines whether to create connect worker configuration",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "broker_node_client_subnets",
+    "type": "list(string)",
+    "description": "A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets))",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "broker_node_security_groups",
+    "type": "list(string)",
+    "description": "A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_logs_enabled",
+    "type": "bool",
+    "description": "Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_cluster_policy",
+    "type": "bool",
+    "description": "Determines whether to create an MSK cluster policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "broker_node_instance_type",
+    "type": "string",
+    "description": "Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "client_authentication",
+    "type": "object({\n    sasl = optional(object({\n      iam   = optional(bool)\n      scram = optional(bool)\n    }))\n    tls = optional(object({\n      certificate_authority_arns = optional(list(string))\n    }))\n    unauthenticated = optional(bool)\n  })",
+    "description": "Configuration block for specifying a client authentication",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_class",
+    "type": "string",
+    "description": "Specifies the log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "scaling_target_value",
+    "type": "number",
+    "description": "The Kafka broker storage utilization at which scaling is initiated",
+    "default": "70",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "rebalancing",
+    "type": "object({\n    status = string\n  })",
+    "description": "Configuration block for intelligent rebalancing",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "configuration_arn",
+    "type": "string",
+    "description": "ARN of an externally created configuration to use",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "type": "string",
+    "description": "Name of the Cloudwatch Log Group to deliver logs to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "connect_worker_config_properties_file_content",
+    "type": "string",
+    "description": "Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "configuration_name",
+    "type": "string",
+    "description": "Name of the configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_exporter_enabled",
+    "type": "bool",
+    "description": "Indicates whether you want to enable or disable the Node Exporter",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "encryption_at_rest_kms_key_arn",
+    "type": "string",
+    "description": "You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "firehose_logs_enabled",
+    "type": "bool",
+    "description": "Indicates whether you want to enable or disable streaming broker logs to Kinesis Data Firehose",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "s3_logs_prefix",
+    "type": "string",
+    "description": "Prefix to append to the folder name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "jmx_exporter_enabled",
+    "type": "bool",
+    "description": "Indicates whether you want to enable or disable the JMX Exporter",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "storage_mode",
+    "type": "string",
+    "description": "Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_source_policy_documents",
+    "type": "list(string)",
+    "description": "Source policy documents for cluster policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether to create a CloudWatch log group",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "broker_node_connectivity_info",
+    "type": "object({\n    vpc_connectivity = optional(object({\n      client_authentication = optional(object({\n        sasl = optional(object({\n          iam   = optional(bool)\n          scram = optional(bool)\n        }))\n        tls = optional(bool)\n      }))\n    }))\n    public_access = optional(object({\n      type = optional(string)\n    }))\n    network_type = optional(string)\n  })",
+    "description": "Information about the cluster access configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_configuration",
+    "type": "bool",
+    "description": "Determines whether to create a configuration",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Specifies the number of days you want to retain log events in the log group",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "connect_custom_plugins",
+    "type": "map(object({\n    name              = string\n    description       = optional(string)\n    content_type      = string\n    s3_bucket_arn     = string\n    s3_file_key       = string\n    s3_object_version = optional(string)\n    timeouts = optional(object({\n      create = optional(string)\n      delete = optional(string)\n    }))\n  }))",
+    "description": "Map of custom plugin configuration details (map of maps)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "configuration_description",
+    "type": "string",
+    "description": "Description of the configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "scaling_max_capacity",
+    "type": "number",
+    "description": "Max storage capacity for Kafka broker autoscaling",
+    "default": "250",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "The ARN of the KMS Key to use when encrypting log data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_schema_registry",
+    "type": "bool",
+    "description": "Determines whether to create a Glue schema registry for managing Avro schemas for the cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "schemas",
+    "type": "map(object({\n    schema_name          = string\n    schema_registry_name = string\n    description          = optional(string)\n    data_format          = optional(string, \"AVRO\")\n    compatibility        = string\n    schema_definition    = string\n    tags                 = optional(map(string), {})\n  }))",
+    "description": "A map schemas to be created within the schema registry",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "connect_worker_config_description",
+    "type": "string",
+    "description": "A summary description of the worker configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the MSK cluster",
+    "default": "\"msk\"",
+    "required": false
+  },
+  {
+    "name": "encryption_in_transit_in_cluster",
+    "type": "bool",
+    "description": "Whether data communication among broker nodes is encrypted. Default value: `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enhanced_monitoring",
+    "type": "string",
+    "description": "Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_statements",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string)\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      values   = list(string)\n      variable = string\n    })))\n  }))",
+    "description": "Map of policy statements for cluster policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "connect_worker_config_name",
+    "type": "string",
+    "description": "The name of the worker configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "broker_node_storage_info",
+    "type": "object({\n    ebs_storage_info = optional(object({\n      provisioned_throughput = optional(object({\n        enabled           = optional(bool)\n        volume_throughput = optional(number)\n      }))\n      volume_size = optional(number, 64)\n    }))\n  })",
+    "description": "A block that contains information about storage volumes attached to MSK broker nodes",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "firehose_delivery_stream",
+    "type": "string",
+    "description": "Name of the Kinesis Data Firehose delivery stream to deliver logs to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "s3_logs_enabled",
+    "type": "bool",
+    "description": "Indicates whether you want to enable or disable streaming broker logs to S3",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "encryption_in_transit_client_broker",
+    "type": "string",
+    "description": "Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create, update, and delete timeout configurations for the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "configuration_revision",
+    "type": "number",
+    "description": "Revision of the externally created configuration to use",
+    "default": "null",
+    "required": false
+  }
+]

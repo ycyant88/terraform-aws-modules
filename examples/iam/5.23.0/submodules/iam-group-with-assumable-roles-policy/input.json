@@ -1,0 +1,37 @@
+[
+  {
+    "name": "group_users",
+    "type": "list(string)",
+    "description": "List of IAM users to have in an IAM group which can assume the role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of IAM policy and IAM group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Path of IAM policy and IAM group",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "assumable_roles",
+    "type": "list(string)",
+    "description": "List of IAM roles ARNs which can be assumed by the group",
+    "default": "[]",
+    "required": false
+  }
+]

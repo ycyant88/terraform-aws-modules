@@ -1,0 +1,86 @@
+[
+  {
+    "name": "table_bucket_name",
+    "type": "string",
+    "description": "Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "any",
+    "description": "Map of encryption configurations",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "table_bucket_policy",
+    "type": "string",
+    "description": "Amazon Web Services resource-based policy document in JSON format",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "table_bucket_override_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Key-value map of resource tags",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "maintenance_configuration",
+    "type": "any",
+    "description": "Map of table bucket maintenance configurations",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_table_bucket_policy",
+    "type": "bool",
+    "description": "Whether to create s3 table bucket policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "table_bucket_source_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "table_bucket_policy_statements",
+    "type": "any",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tables",
+    "type": "any",
+    "description": "Map of table configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create s3 table resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration",
+    "default": "null",
+    "required": false
+  }
+]

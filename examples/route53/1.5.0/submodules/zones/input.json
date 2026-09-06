@@ -1,0 +1,16 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Route53 zone",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "zones",
+    "type": "any",
+    "description": "Map of Route53 zone parameters",
+    "default": "{}",
+    "required": false
+  }
+]

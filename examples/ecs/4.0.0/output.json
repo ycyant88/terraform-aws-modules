@@ -1,0 +1,18 @@
+[
+  {
+    "name": "autoscaling_capacity_providers",
+    "description": "Map of autoscaling capacity providers created and their attributes"
+  },
+  {
+    "name": "cluster_arn",
+    "description": "ARN that identifies the cluster"
+  },
+  {
+    "name": "cluster_id",
+    "description": "ID that identifies the cluster"
+  },
+  {
+    "name": "cluster_capacity_providers",
+    "description": "Map of cluster capacity providers attributes"
+  }
+]

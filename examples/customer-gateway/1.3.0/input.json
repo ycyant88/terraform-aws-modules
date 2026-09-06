@@ -1,0 +1,30 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Customer Gateway resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to be used on all the resources as identifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "customer_gateways",
+    "type": "map(map(any))",
+    "description": "Maps of Customer Gateway's attributes (BGP ASN and Gateway's Internet-routable external IP address)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to all resources",
+    "default": "{}",
+    "required": false
+  }
+]

@@ -1,0 +1,198 @@
+[
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Specifies the number of days you want to retain log events in log group for Lambda.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "iam_role_name_prefix",
+    "type": "string",
+    "description": "A unique role name beginning with the specified prefix",
+    "default": "\"lambda\"",
+    "required": false
+  },
+  {
+    "name": "lambda_description",
+    "type": "string",
+    "description": "The description of the Lambda function",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subscription_filter_policy",
+    "type": "string",
+    "description": "(Optional) A valid filter policy that will be used in the subscription to filter messages seen by the target resource.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "lambda_role",
+    "type": "string",
+    "description": "IAM role attached to the Lambda Function.  If this is set then a role will not be created for you.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "log_events",
+    "type": "bool",
+    "description": "Boolean flag to enabled/disable logging of incoming events",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sns_topic_name",
+    "type": "string",
+    "description": "The name of the SNS topic to create",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "lambda_function_vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "List of security group ids when Lambda Function should run in the VPC.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cloudwatch_log_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the Cloudwatch log group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "slack_emoji",
+    "type": "string",
+    "description": "A custom emoji that will appear on Slack messages",
+    "default": "\":aws:\"",
+    "required": false
+  },
+  {
+    "name": "lambda_function_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the Lambda function",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "lambda_function_store_on_s3",
+    "type": "bool",
+    "description": "Whether to store produced artifacts on S3 or locally.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "slack_channel",
+    "type": "string",
+    "description": "The name of the channel in Slack for notifications",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "iam_role_boundary_policy_arn",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the role",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "slack_username",
+    "type": "string",
+    "description": "The username that will appear on Slack messages",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sns_topic_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the SNS topic",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_sns_topic",
+    "type": "bool",
+    "description": "Whether to create new SNS topic",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "lambda_function_name",
+    "type": "string",
+    "description": "The name of the Lambda function to create",
+    "default": "\"notify_slack\"",
+    "required": false
+  },
+  {
+    "name": "slack_webhook_url",
+    "type": "string",
+    "description": "The URL of Slack webhook",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sns_topic_kms_key_id",
+    "type": "string",
+    "description": "ARN of the KMS key used for enabling SSE on the topic",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "ARN of the KMS key used for decrypting slack webhook url",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "lambda_function_vpc_subnet_ids",
+    "type": "list(string)",
+    "description": "List of subnet ids when Lambda Function should run in the VPC. Usually private or intra subnets.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "reserved_concurrent_executions",
+    "type": "number",
+    "description": "The amount of reserved concurrent executions for this lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations",
+    "default": "-1",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create all resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "The ARN of the KMS Key to use when encrypting log data for Lambda",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "lambda_function_s3_bucket",
+    "type": "string",
+    "description": "S3 bucket to store artifacts",
+    "default": "",
+    "required": true
+  }
+]

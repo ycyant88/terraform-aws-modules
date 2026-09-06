@@ -1,0 +1,58 @@
+[
+  {
+    "name": "appsync_api_key_key",
+    "description": "Map of API Keys"
+  },
+  {
+    "name": "appsync_function_id",
+    "description": "Map of IDs of functions"
+  },
+  {
+    "name": "appsync_domain_name",
+    "description": "The domain name that AppSync provides."
+  },
+  {
+    "name": "appsync_domain_hosted_zone_id",
+    "description": "The ID of your Amazon Route 53 hosted zone."
+  },
+  {
+    "name": "appsync_datasource_arn",
+    "description": "Map of ARNs of datasources"
+  },
+  {
+    "name": "appsync_resolver_arn",
+    "description": "Map of ARNs of resolvers"
+  },
+  {
+    "name": "appsync_function_arn",
+    "description": "Map of ARNs of functions"
+  },
+  {
+    "name": "appsync_function_function_id",
+    "description": "Map of function IDs of functions"
+  },
+  {
+    "name": "appsync_domain_id",
+    "description": "The Appsync Domain Name."
+  },
+  {
+    "name": "appsync_graphql_api_fqdns",
+    "description": "Map of FQDNs associated with the API (no protocol and path)"
+  },
+  {
+    "name": "appsync_graphql_api_id",
+    "description": "ID of GraphQL API"
+  },
+  {
+    "name": "appsync_graphql_api_arn",
+    "description": "ARN of GraphQL API"
+  },
+  {
+    "name": "appsync_graphql_api_uris",
+    "description": "Map of URIs associated with the API"
+  },
+  {
+    "name": "appsync_api_key_id",
+    "description": "Map of API Key ID (Formatted as ApiId:Key)"
+  }
+]

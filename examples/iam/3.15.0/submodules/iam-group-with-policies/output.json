@@ -1,0 +1,14 @@
+[
+  {
+    "name": "this_group_name",
+    "description": "IAM group name"
+  },
+  {
+    "name": "aws_account_id",
+    "description": "IAM AWS account id"
+  },
+  {
+    "name": "this_group_users",
+    "description": "List of IAM users in IAM group"
+  }
+]

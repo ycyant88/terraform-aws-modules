@@ -1,0 +1,12 @@
+module "cloudwatch" {
+  source            = "terraform-aws-modules/cloudwatch/aws"
+  version           = "5.3.1"
+  create            = var.create
+  kms_key_id        = var.kms_key_id
+  log_group_class   = var.log_group_class
+  name              = var.name
+  name_prefix       = var.name_prefix
+  retention_in_days = var.retention_in_days
+  skip_destroy      = var.skip_destroy
+  tags              = var.tags
+}

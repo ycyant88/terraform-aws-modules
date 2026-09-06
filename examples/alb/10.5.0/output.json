@@ -1,0 +1,46 @@
+[
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "dns_name",
+    "description": "The DNS name of the load balancer"
+  },
+  {
+    "name": "target_groups",
+    "description": "Map of target groups created and their attributes"
+  },
+  {
+    "name": "route53_records",
+    "description": "The Route53 records created and attached to the load balancer"
+  },
+  {
+    "name": "id",
+    "description": "The ID and ARN of the load balancer we created"
+  },
+  {
+    "name": "arn",
+    "description": "The ID and ARN of the load balancer we created"
+  },
+  {
+    "name": "arn_suffix",
+    "description": "ARN suffix of our load balancer - can be used with CloudWatch"
+  },
+  {
+    "name": "zone_id",
+    "description": "The zone_id of the load balancer to assist with creating DNS records"
+  },
+  {
+    "name": "listeners",
+    "description": "Map of listeners created and their attributes"
+  },
+  {
+    "name": "listener_rules",
+    "description": "Map of listeners rules created and their attributes"
+  }
+]

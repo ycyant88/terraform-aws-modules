@@ -1,0 +1,90 @@
+[
+  {
+    "name": "this_redshift_cluster_endpoint",
+    "description": "The connection endpoint"
+  },
+  {
+    "name": "this_redshift_cluster_security_groups",
+    "description": "The security groups associated with the cluster"
+  },
+  {
+    "name": "this_redshift_cluster_identifier",
+    "description": "The Redshift cluster identifier"
+  },
+  {
+    "name": "this_redshift_cluster_automated_snapshot_retention_period",
+    "description": "The backup retention period"
+  },
+  {
+    "name": "this_redshift_cluster_preferred_maintenance_window",
+    "description": "The backup window"
+  },
+  {
+    "name": "this_redshift_cluster_vpc_security_group_ids",
+    "description": "The VPC security group ids associated with the cluster"
+  },
+  {
+    "name": "this_redshift_cluster_version",
+    "description": "The version of Redshift engine software"
+  },
+  {
+    "name": "this_redshift_cluster_parameter_group_name",
+    "description": "The name of the parameter group to be associated with this cluster"
+  },
+  {
+    "name": "this_redshift_parameter_group_id",
+    "description": "The ID of Redshift parameter group created by this module"
+  },
+  {
+    "name": "this_redshift_cluster_type",
+    "description": "The Redshift cluster type"
+  },
+  {
+    "name": "this_redshift_cluster_database_name",
+    "description": "The name of the default database in the Cluster"
+  },
+  {
+    "name": "this_redshift_cluster_encrypted",
+    "description": "Whether the data in the cluster is encrypted"
+  },
+  {
+    "name": "this_redshift_cluster_arn",
+    "description": "The Redshift cluster ARN"
+  },
+  {
+    "name": "this_redshift_cluster_node_type",
+    "description": "The type of nodes in the cluster"
+  },
+  {
+    "name": "this_redshift_subnet_group_id",
+    "description": "The ID of Redshift subnet group created by this module"
+  },
+  {
+    "name": "this_redshift_cluster_port",
+    "description": "The port the cluster responds on"
+  },
+  {
+    "name": "this_redshift_cluster_subnet_group_name",
+    "description": "The name of a cluster subnet group to be associated with this cluster"
+  },
+  {
+    "name": "this_redshift_cluster_public_key",
+    "description": "The public key for the cluster"
+  },
+  {
+    "name": "this_redshift_cluster_revision_number",
+    "description": "The specific revision number of the database in the cluster"
+  },
+  {
+    "name": "this_redshift_cluster_id",
+    "description": "The Redshift cluster ID"
+  },
+  {
+    "name": "this_redshift_cluster_availability_zone",
+    "description": "The availability zone of the Cluster"
+  },
+  {
+    "name": "this_redshift_cluster_hostname",
+    "description": "The hostname of the Redshift cluster"
+  }
+]

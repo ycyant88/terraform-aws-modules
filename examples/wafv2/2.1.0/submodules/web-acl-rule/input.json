@@ -1,0 +1,86 @@
+[
+  {
+    "name": "action",
+    "type": "any",
+    "description": "Action to take when the rule matches. Use string (`allow`, `block`, `count`, `captcha`, `challenge`) or object for custom request handling/response. Conflicts with `override_action`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "override_action",
+    "type": "any",
+    "description": "Override action for managed rule groups and rule group reference statements. Use string (`none`, `count`) or object. Conflicts with `action`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "captcha_config",
+    "type": "object({\n    immunity_time_property = object({\n      immunity_time = number\n    })\n  })",
+    "description": "CAPTCHA configuration that overrides the Web ACL level setting",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "challenge_config",
+    "type": "object({\n    immunity_time_property = object({\n      immunity_time = number\n    })\n  })",
+    "description": "Challenge configuration that overrides the Web ACL level setting",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Russian_invasion_of_Ukraine",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "web_acl_arn",
+    "type": "string",
+    "description": "ARN of the Web ACL to add the rule to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "statement",
+    "type": "any",
+    "description": "Rule statement configuration. Required. Supports the full WAFv2 statement schema including managed_rule_group_statement, rate_based_statement, rule_group_reference_statement, and nested AND/OR/NOT logical statements",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "visibility_config",
+    "type": "object({\n    cloudwatch_metrics_enabled = optional(bool, true)\n    metric_name                = optional(string)\n    sampled_requests_enabled   = optional(bool, true)\n  })",
+    "description": "CloudWatch metrics configuration for this rule",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "rule_label",
+    "type": "list(object({\n    name = string\n  }))",
+    "description": "List of labels to apply to matching web requests. Each entry must have a `name` field",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the rule. Must be unique within the Web ACL",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "priority",
+    "type": "number",
+    "description": "Rule priority. Rules with lower priority are evaluated first",
+    "default": "",
+    "required": true
+  }
+]

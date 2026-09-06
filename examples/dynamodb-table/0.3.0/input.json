@@ -1,0 +1,135 @@
+[
+  {
+    "name": "billing_mode",
+    "type": "string",
+    "description": "Controls how you are billed for read/write throughput and how you manage capacity. The valid values are PROVISIONED or PAY_PER_REQUEST",
+    "default": "\"PAY_PER_REQUEST\"",
+    "required": false
+  },
+  {
+    "name": "attributes",
+    "type": "list(map(string))",
+    "description": "List of nested attribute definitions. Only required for hash_key and range_key attributes. Each attribute has two properties: name - (Required) The name of the attribute, type - (Required) Attribute type, which must be a scalar type: S, N, or B for (S)tring, (N)umber or (B)inary data",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ttl_attribute_name",
+    "type": "string",
+    "description": "The name of the table attribute to store the TTL timestamp in",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "range_key",
+    "type": "string",
+    "description": "The attribute to use as the range (sort) key. Must also be defined as an attribute",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "point_in_time_recovery_enabled",
+    "type": "bool",
+    "description": "Whether to enable point-in-time recovery",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "local_secondary_indexes",
+    "type": "list(any)",
+    "description": "Describe an LSI on the table; these can only be allocated at creation so you cannot change this definition after you have created the resource.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "stream_enabled",
+    "type": "bool",
+    "description": "Indicates whether Streams are to be enabled (true) or disabled (false).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "server_side_encryption_enabled",
+    "type": "bool",
+    "description": "Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "server_side_encryption_kms_key_arn",
+    "type": "string",
+    "description": "The ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, alias/aws/dynamodb.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the DynamoDB table",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "hash_key",
+    "type": "string",
+    "description": "The attribute to use as the hash (partition) key. Must also be defined as an attribute",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "write_capacity",
+    "type": "number",
+    "description": "The number of write units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "read_capacity",
+    "type": "number",
+    "description": "The number of read units for this table. If the billing_mode is PROVISIONED, this field should be greater than 0",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ttl_enabled",
+    "type": "bool",
+    "description": "Indicates whether ttl is enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "global_secondary_indexes",
+    "type": "list(any)",
+    "description": "Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "stream_view_type",
+    "type": "string",
+    "description": "When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Updated Terraform resource management timeouts",
+    "default": "{\n  \"create\": \"10m\",\n  \"delete\": \"10m\",\n  \"update\": \"60m\"\n}",
+    "required": false
+  },
+  {
+    "name": "create_table",
+    "type": "bool",
+    "description": "Controls if DynamoDB table and associated resources are created",
+    "default": "true",
+    "required": false
+  }
+]

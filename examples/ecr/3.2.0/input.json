@@ -1,0 +1,212 @@
+[
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where this resource will be managed. Defaults to the Region set in the provider configuration.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_repository",
+    "type": "bool",
+    "description": "Determines whether a repository will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repository_image_scan_on_push",
+    "type": "bool",
+    "description": "Indicates whether images are scanned after being pushed to the repository (`true`) or not scanned (`false`)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "attach_repository_policy",
+    "type": "bool",
+    "description": "Determines whether a repository policy will be attached to the repository",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repository_read_write_access_arns",
+    "type": "list(string)",
+    "description": "The ARNs of the IAM users/roles that have read/write access to the repository",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_registry_replication_configuration",
+    "type": "bool",
+    "description": "Determines whether a registry replication configuration will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "manage_registry_scanning_configuration",
+    "type": "bool",
+    "description": "Determines whether the registry scanning configuration will be managed",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "registry_replication_rules",
+    "type": "list(object({\n    destinations = list(object({\n      region      = string\n      registry_id = string\n    }))\n    repository_filters = optional(list(object({\n      filter      = string\n      filter_type = string\n    })))\n  }))",
+    "description": "The replication rules for a replication configuration. A maximum of 10 are allowed",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_kms_key",
+    "type": "string",
+    "description": "The ARN of the KMS key to use when encryption_type is `KMS`. If not specified, uses the default AWS managed key for ECR",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_policy",
+    "type": "string",
+    "description": "The JSON policy to apply to the repository. If not specified, uses the default policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_lifecycle_policy",
+    "type": "string",
+    "description": "The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "registry_scan_type",
+    "type": "string",
+    "description": "the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`",
+    "default": "\"ENHANCED\"",
+    "required": false
+  },
+  {
+    "name": "repository_type",
+    "type": "string",
+    "description": "The type of repository to create. Either `public` or `private`",
+    "default": "\"private\"",
+    "required": false
+  },
+  {
+    "name": "repository_force_delete",
+    "type": "bool",
+    "description": "If `true`, will delete the repository even if it contains images. Defaults to `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "public_repository_catalog_data",
+    "type": "object({\n    about_text        = optional(string)\n    architectures     = optional(list(string))\n    description       = optional(string)\n    logo_image_blob   = optional(string)\n    operating_systems = optional(list(string))\n    usage_text        = optional(string)\n  })",
+    "description": "Catalog data configuration for the repository",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_registry_policy",
+    "type": "bool",
+    "description": "Determines whether a registry policy will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "registry_pull_through_cache_rules",
+    "type": "map(object({\n    ecr_repository_prefix      = string\n    upstream_registry_url      = string\n    credential_arn             = optional(string)\n    custom_role_arn            = optional(string)\n    upstream_repository_prefix = optional(string)\n    region                     = optional(string)\n  }))",
+    "description": "List of pull through cache rules to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repository_image_tag_mutability",
+    "type": "string",
+    "description": "The tag mutability setting for the repository. Must be one of: `MUTABLE`, `MUTABLE_WITH_EXCLUSION`, `IMMUTABLE`, or `IMMUTABLE_WITH_EXCLUSION`. Defaults to `IMMUTABLE`",
+    "default": "\"IMMUTABLE\"",
+    "required": false
+  },
+  {
+    "name": "repository_encryption_type",
+    "type": "string",
+    "description": "The encryption type for the repository. Must be one of: `KMS` or `AES256`. Defaults to `AES256`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_image_tag_mutability_exclusion_filter",
+    "type": "list(object({\n    filter      = string\n    filter_type = string\n  }))",
+    "description": "Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when image_tag_mutability is set to IMMUTABLE_WITH_EXCLUSION or MUTABLE_WITH_EXCLUSION.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_repository_policy",
+    "type": "bool",
+    "description": "Determines whether a repository policy will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repository_policy_statements",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string)\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    conditions = optional(list(object({\n      test     = string\n      values   = list(string)\n      variable = string\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_name",
+    "type": "string",
+    "description": "The name of the repository",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_lifecycle_policy",
+    "type": "bool",
+    "description": "Determines whether a lifecycle policy will be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "registry_policy",
+    "type": "string",
+    "description": "The policy document. This is a JSON formatted string",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "registry_scan_rules",
+    "type": "list(object({\n    scan_frequency = string\n    filter = list(object({\n      filter      = string\n      filter_type = optional(string)\n    }))\n  }))",
+    "description": "One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repository_read_access_arns",
+    "type": "list(string)",
+    "description": "The ARNs of the IAM users/roles that have read access to the repository",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "repository_lambda_read_access_arns",
+    "type": "list(string)",
+    "description": "The ARNs of the Lambda service roles that have read access to the repository",
+    "default": "[]",
+    "required": false
+  }
+]

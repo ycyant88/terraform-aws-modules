@@ -1,0 +1,758 @@
+[
+  {
+    "name": "metrics_granularity",
+    "type": "string",
+    "description": "The granularity to associate with the metrics to collect. The only valid value is `1Minute`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    delete = optional(string)\n  })",
+    "description": "Timeout configurations for the autoscaling group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "launch_template_description",
+    "type": "string",
+    "description": "Description of the launch template",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ami_type",
+    "type": "string",
+    "description": "Type of Amazon Machine Image (AMI) associated with the node group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values",
+    "default": "\"AL2023_x86_64_STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "instance_initiated_shutdown_behavior",
+    "type": "string",
+    "description": "Shutdown behavior for the instance. Can be `stop` or `terminate`. (Default: `stop`)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "capacity_reservation_specification",
+    "type": "object({\n    capacity_reservation_preference = optional(string)\n    capacity_reservation_target = optional(object({\n      capacity_reservation_id                 = optional(string)\n      capacity_reservation_resource_group_arn = optional(string)\n    }))\n  })",
+    "description": "Targeting for EC2 capacity reservations",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "license_specifications",
+    "type": "list(object({\n    license_configuration_arn = string\n  }))",
+    "description": "A list of license specifications to associate with",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_primary_security_group_id",
+    "type": "string",
+    "description": "The ID of the EKS cluster primary security group to associate with the instance(s). This is the security group that is automatically created by the EKS service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "min_size",
+    "type": "number",
+    "description": "The minimum size of the autoscaling group",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "launch_template_id",
+    "type": "string",
+    "description": "The ID of an existing launch template to use. Required when `create_launch_template` = `false`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "metadata_options",
+    "type": "object({\n    http_endpoint               = optional(string, \"enabled\")\n    http_protocol_ipv6          = optional(string)\n    http_put_response_hop_limit = optional(number, 1)\n    http_tokens                 = optional(string, \"required\")\n    instance_metadata_tags      = optional(string)\n  })",
+    "description": "Customize the metadata options for the instance",
+    "default": "{\n  \"http_endpoint\": \"enabled\",\n  \"http_put_response_hop_limit\": 1,\n  \"http_tokens\": \"required\"\n}",
+    "required": false
+  },
+  {
+    "name": "protect_from_scale_in",
+    "type": "bool",
+    "description": "Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the role",
+    "default": "\"Self managed node group IAM role\"",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the IAM role created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ram_disk_id",
+    "type": "string",
+    "description": "The ID of the ram disk",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instance_market_options",
+    "type": "object({\n    market_type = optional(string)\n    spot_options = optional(object({\n      block_duration_minutes         = optional(number)\n      instance_interruption_behavior = optional(string)\n      max_price                      = optional(string)\n      spot_instance_type             = optional(string)\n      valid_until                    = optional(string)\n    }))\n  })",
+    "description": "The market (purchasing) option for the instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether to use `name` as is or create a unique name beginning with the `name` as the prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "launch_template_version",
+    "type": "string",
+    "description": "Launch template version. Can be version number, `$Latest`, or `$Default`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instance_refresh",
+    "type": "object({\n    preferences = optional(object({\n      alarm_specification = optional(object({\n        alarms = optional(list(string))\n      }))\n      auto_rollback                = optional(bool)\n      checkpoint_delay             = optional(number)\n      checkpoint_percentages       = optional(list(number))\n      instance_warmup              = optional(number)\n      max_healthy_percentage       = optional(number)\n      min_healthy_percentage       = optional(number)\n      scale_in_protected_instances = optional(string)\n      skip_matching                = optional(bool)\n      standby_instances            = optional(string)\n    }))\n    strategy = optional(string)\n    triggers = optional(list(string))\n  })",
+    "description": "If this block is configured, start an Instance Refresh when this Auto Scaling Group is updated",
+    "default": "{\n  \"preferences\": {\n    \"min_healthy_percentage\": 66\n  },\n  \"strategy\": \"Rolling\"\n}",
+    "required": false
+  },
+  {
+    "name": "iam_instance_profile_arn",
+    "type": "string",
+    "description": "Amazon Resource Name (ARN) of an existing IAM instance profile that provides permissions for the node group. Required if `create_iam_instance_profile` = `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "launch_template_default_version",
+    "type": "string",
+    "description": "Default Version of the launch template",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "update_launch_template_default_version",
+    "type": "bool",
+    "description": "Whether to update Default Version each update. Conflicts with `launch_template_default_version`",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cpu_options",
+    "type": "object({\n    amd_sev_snp      = optional(string)\n    core_count       = optional(number)\n    threads_per_core = optional(number)\n  })",
+    "description": "The CPU options for the instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "credit_specification",
+    "type": "object({\n    cpu_credits = optional(string)\n  })",
+    "description": "Customize the credit specification of the instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "max_size",
+    "type": "number",
+    "description": "The maximum size of the autoscaling group",
+    "default": "3",
+    "required": false
+  },
+  {
+    "name": "ignore_failed_scaling_activities",
+    "type": "bool",
+    "description": "Whether to ignore failed Auto Scaling scaling activities while waiting for capacity",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cluster_auth_base64",
+    "type": "string",
+    "description": "Base64 encoded CA of associated EKS cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudinit_post_nodeadm",
+    "type": "list(object({\n    content      = string\n    content_type = optional(string)\n    filename     = optional(string)\n    merge_type   = optional(string)\n  }))",
+    "description": "Array of cloud-init document parts that are created after the nodeadm document part",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "A list of security group IDs to associate",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_efa_only",
+    "type": "bool",
+    "description": "Determines whether to enable EFA (`false`, default) or EFA and EFA-only (`true`) network interfaces. Note: requires vpc-cni version `v1.18.4` or later",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "health_check_type",
+    "type": "string",
+    "description": "`EC2` or `ELB`. Controls how health checking is done",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_iam_instance_profile",
+    "type": "bool",
+    "description": "Determines whether an IAM instance profile is created or to use an existing IAM instance profile",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pre_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is injected into the user data script ahead of the EKS bootstrap script. Not used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "disable_api_termination",
+    "type": "bool",
+    "description": "If true, enables EC2 instance termination protection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ebs_optimized",
+    "type": "bool",
+    "description": "If true, the launched EC2 instance will be EBS-optimized",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ami_id",
+    "type": "string",
+    "description": "The AMI from which to launch the instance",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "The type of the instance to launch",
+    "default": "\"m6i.large\"",
+    "required": false
+  },
+  {
+    "name": "key_name",
+    "type": "string",
+    "description": "The key name that should be used for the instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "context",
+    "type": "string",
+    "description": "Reserved",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_access_entry",
+    "type": "bool",
+    "description": "Determines whether an access entry is created for the IAM role used by the node group",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_service_cidr",
+    "type": "string",
+    "description": "The CIDR block (IPv4 or IPv6) used by the cluster to assign Kubernetes service IP addresses. This is derived from the cluster itself",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_options",
+    "type": "object({\n    auto_recovery = optional(string)\n  })",
+    "description": "The maintenance options for the instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_efa_support",
+    "type": "bool",
+    "description": "Determines whether to enable Elastic Fabric Adapter (EFA) support",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "desired_size_type",
+    "type": "string",
+    "description": "The unit of measurement for the value specified for `desired_size`. Supported for attribute-based instance type selection only. Valid values: `units`, `vcpu`, `memory-mib`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_mixed_instances_policy",
+    "type": "bool",
+    "description": "Determines whether to use a mixed instances policy in the autoscaling group or not",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether cluster IAM role name (`iam_role_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_iam_role_policy",
+    "type": "bool",
+    "description": "Determines whether an IAM role policy is created or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "launch_template_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether to use `launch_template_name` as is or create a unique name beginning with the `launch_template_name` as the prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kernel_id",
+    "type": "string",
+    "description": "The kernel ID",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "block_device_mappings",
+    "type": "map(object({\n    device_name = optional(string)\n    ebs = optional(object({\n      delete_on_termination      = optional(bool)\n      encrypted                  = optional(bool)\n      iops                       = optional(number)\n      kms_key_id                 = optional(string)\n      snapshot_id                = optional(string)\n      throughput                 = optional(number)\n      volume_initialization_rate = optional(number)\n      volume_size                = optional(number)\n      volume_type                = optional(string)\n    }))\n    no_device    = optional(string)\n    virtual_name = optional(string)\n  }))",
+    "description": "Specify volumes to attach to the instance besides the volumes specified by the AMI",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_interfaces",
+    "type": "list(object({\n    associate_carrier_ip_address = optional(bool)\n    associate_public_ip_address  = optional(bool)\n    connection_tracking_specification = optional(object({\n      tcp_established_timeout = optional(number)\n      udp_stream_timeout      = optional(number)\n      udp_timeout             = optional(number)\n    }))\n    delete_on_termination = optional(bool)\n    description           = optional(string)\n    device_index          = optional(number)\n    ena_srd_specification = optional(object({\n      ena_srd_enabled = optional(bool)\n      ena_srd_udp_specification = optional(object({\n        ena_srd_udp_enabled = optional(bool)\n      }))\n    }))\n    interface_type       = optional(string)\n    ipv4_address_count   = optional(number)\n    ipv4_addresses       = optional(list(string))\n    ipv4_prefix_count    = optional(number)\n    ipv4_prefixes        = optional(list(string))\n    ipv6_address_count   = optional(number)\n    ipv6_addresses       = optional(list(string))\n    ipv6_prefix_count    = optional(number)\n    ipv6_prefixes        = optional(list(string))\n    network_card_index   = optional(number)\n    network_interface_id = optional(string)\n    primary_ipv6         = optional(bool)\n    private_ip_address   = optional(string)\n    security_groups      = optional(list(string), [])\n  }))",
+    "description": "Customize network interfaces to be attached at instance boot time",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "health_check_grace_period",
+    "type": "number",
+    "description": "Time (in seconds) after instance comes into service before checking health",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "force_delete",
+    "type": "bool",
+    "description": "Allows deleting the Auto Scaling Group without waiting for all instances in the pool to terminate. You can force an Auto Scaling Group to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the instances before deleting the group. This bypasses that behavior and potentially leaves resources dangling",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "IAM role path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_additional_policies",
+    "type": "map(string)",
+    "description": "Additional policies to be added to the IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "partition",
+    "type": "string",
+    "description": "The AWS partition - pass through value to reduce number of GET requests from data sources",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Name of associated EKS cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_dns_name_options",
+    "type": "object({\n    enable_resource_name_dns_aaaa_record = optional(bool)\n    enable_resource_name_dns_a_record    = optional(bool)\n    hostname_type                        = optional(string)\n  })",
+    "description": "The options for the instance hostname. The default values are inherited from the subnet",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kubernetes_version",
+    "type": "string",
+    "description": "Kubernetes cluster version - used to lookup default AMI ID if one is not provided",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instance_requirements",
+    "type": "object({\n    accelerator_count = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    accelerator_manufacturers = optional(list(string))\n    accelerator_names         = optional(list(string))\n    accelerator_total_memory_mib = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    accelerator_types      = optional(list(string))\n    allowed_instance_types = optional(list(string))\n    bare_metal             = optional(string)\n    baseline_ebs_bandwidth_mbps = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    burstable_performance                                   = optional(string)\n    cpu_manufacturers                                       = optional(list(string))\n    excluded_instance_types                                 = optional(list(string))\n    instance_generations                                    = optional(list(string))\n    local_storage                                           = optional(string)\n    local_storage_types                                     = optional(list(string))\n    max_spot_price_as_percentage_of_optimal_on_demand_price = optional(number)\n    memory_gib_per_vcpu = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    memory_mib = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    network_bandwidth_gbps = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    network_interface_count = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    on_demand_max_price_percentage_over_lowest_price = optional(number)\n    require_hibernate_support                        = optional(bool)\n    spot_max_price_percentage_over_lowest_price      = optional(number)\n    total_local_storage_gb = optional(object({\n      max = optional(number)\n      min = optional(number)\n    }))\n    vcpu_count = optional(object({\n      max = optional(number)\n      min = string\n    }))\n  })",
+    "description": "The attribute requirements for the type of instance. If present then `instance_type` cannot be present",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_autoscaling_group",
+    "type": "bool",
+    "description": "Determines whether to create autoscaling group or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the Self managed Node Group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "max_instance_lifetime",
+    "type": "number",
+    "description": "The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "user_data_template_path",
+    "type": "string",
+    "description": "Path to a local, custom user data template file to use when rendering user data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_launch_template",
+    "type": "bool",
+    "description": "Determines whether to create launch template or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "launch_template_name",
+    "type": "string",
+    "description": "Name of launch template to be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enclave_options",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "Enable Nitro Enclaves on launched instances",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_placement_group",
+    "type": "bool",
+    "description": "Determines whether a placement group is created & used by the node group",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "tag_specifications",
+    "type": "list(string)",
+    "description": "The tags to apply to the resources during launch",
+    "default": "[\n  \"instance\",\n  \"volume\",\n  \"network-interface\"\n]",
+    "required": false
+  },
+  {
+    "name": "availability_zones",
+    "type": "list(string)",
+    "description": "A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `subnet_ids` argument. Conflicts with `subnet_ids`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instance_maintenance_policy",
+    "type": "object({\n    max_healthy_percentage = number\n    min_healthy_percentage = number\n  })",
+    "description": "If this block is configured, add a instance maintenance policy to the specified Auto Scaling group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_ip_family",
+    "type": "string",
+    "description": "The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_monitoring",
+    "type": "bool",
+    "description": "Enables/disables detailed monitoring",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "capacity_rebalance",
+    "type": "bool",
+    "description": "Indicates whether capacity rebalance is enabled",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "termination_policies",
+    "type": "list(string)",
+    "description": "A list of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_arn",
+    "type": "string",
+    "description": "ARN of the IAM role used by the instance profile. Required when `create_access_entry = true` and `create_iam_instance_profile = false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(string)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    self                         = optional(bool, false)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(string)\n  }))",
+    "description": "Security group ingress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(string)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    self                         = optional(bool, false)\n    tags                         = optional(map(string), {})\n    to_port                      = optional(string)\n  }))",
+    "description": "Security group egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "account_id",
+    "type": "string",
+    "description": "The AWS account ID - pass through value to reduce number of GET requests from data sources",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_cluster_dns_ips",
+    "type": "list(string)",
+    "description": "Additional DNS IP addresses to use for the cluster. Only used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloudinit_pre_nodeadm",
+    "type": "list(object({\n    content      = string\n    content_type = optional(string)\n    filename     = optional(string)\n    merge_type   = optional(string)\n  }))",
+    "description": "Array of cloud-init document parts that are created before the nodeadm document part",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "efa_indices",
+    "type": "list(number)",
+    "description": "The indices of the network interfaces that should be EFA-enabled. Only valid when `enable_efa_support` = `true`",
+    "default": "[\n  0\n]",
+    "required": false
+  },
+  {
+    "name": "suspended_processes",
+    "type": "list(string)",
+    "description": "A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`. Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name to use on IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_attach_cni_policy",
+    "type": "bool",
+    "description": "Whether to attach the `AmazonEKS_CNI_Policy`/`AmazonEKS_CNI_IPv6_Policy` IAM policy to the IAM IAM role. WARNING: If set `false` the permissions must be assigned to the `aws-node` DaemonSet pods via another method or nodes will not be able to join the cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Endpoint of associated EKS cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "post_bootstrap_user_data",
+    "type": "string",
+    "description": "User data that is appended to the user data script after of the EKS bootstrap script. Not used when `ami_type` = `BOTTLEROCKET_*`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "launch_template_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the tag_specifications of launch template created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "desired_size",
+    "type": "number",
+    "description": "The number of Amazon EC2 instances that should be running in the autoscaling group",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "default_instance_warmup",
+    "type": "number",
+    "description": "Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "placement_group",
+    "type": "string",
+    "description": "The name of the placement group into which you'll launch your instances",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enabled_metrics",
+    "type": "list(string)",
+    "description": "A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "initial_lifecycle_hooks",
+    "type": "list(object({\n    default_result          = optional(string)\n    heartbeat_timeout       = optional(number)\n    lifecycle_transition    = string\n    name                    = string\n    notification_metadata   = optional(string)\n    notification_target_arn = optional(string)\n    role_arn                = optional(string)\n  }))",
+    "description": "One or more Lifecycle Hooks to attach to the Auto Scaling Group before instances are launched. The syntax is exactly the same as the separate `aws_autoscaling_lifecycle_hook` resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating a new Auto Scaling Group. For all other use-cases, please use `aws_autoscaling_lifecycle_hook` resource",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "mixed_instances_policy",
+    "type": "object({\n    instances_distribution = optional(object({\n      on_demand_allocation_strategy            = optional(string)\n      on_demand_base_capacity                  = optional(number)\n      on_demand_percentage_above_base_capacity = optional(number)\n      spot_allocation_strategy                 = optional(string)\n      spot_instance_pools                      = optional(number)\n      spot_max_price                           = optional(string)\n    }))\n    launch_template = object({\n      override = optional(list(object({\n        instance_requirements = optional(object({\n          accelerator_count = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          accelerator_manufacturers = optional(list(string))\n          accelerator_names         = optional(list(string))\n          accelerator_total_memory_mib = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          accelerator_types      = optional(list(string))\n          allowed_instance_types = optional(list(string))\n          bare_metal             = optional(string)\n          baseline_ebs_bandwidth_mbps = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          burstable_performance                                   = optional(string)\n          cpu_manufacturers                                       = optional(list(string))\n          excluded_instance_types                                 = optional(list(string))\n          instance_generations                                    = optional(list(string))\n          local_storage                                           = optional(string)\n          local_storage_types                                     = optional(list(string))\n          max_spot_price_as_percentage_of_optimal_on_demand_price = optional(number)\n          memory_gib_per_vcpu = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          memory_mib = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          network_bandwidth_gbps = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          network_interface_count = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          on_demand_max_price_percentage_over_lowest_price = optional(number)\n          require_hibernate_support                        = optional(bool)\n          spot_max_price_percentage_over_lowest_price      = optional(number)\n          total_local_storage_gb = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n          vcpu_count = optional(object({\n            max = optional(number)\n            min = optional(number)\n          }))\n        }))\n        instance_type = optional(string)\n        launch_template_specification = optional(object({\n          launch_template_id   = optional(string)\n          launch_template_name = optional(string)\n          version              = optional(string)\n        }))\n        weighted_capacity = optional(string)\n      })))\n    })\n  })",
+    "description": "Configuration block containing settings to define launch targets for Auto Scaling groups",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "autoscaling_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the autoscaling group created. Tags are applied to the autoscaling group only and are NOT propagated to instances",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_policy_statements",
+    "type": "list(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string)\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      values   = list(string)\n      variable = string\n    })))\n  }))",
+    "description": "A list of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) - used for adding specific IAM permissions as needed",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether to create self managed node group or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bootstrap_extra_args",
+    "type": "string",
+    "description": "Additional arguments passed to the bootstrap script. When `ami_type` = `BOTTLEROCKET_*`; these are additional [settings](https://github.com/bottlerocket-os/bottlerocket#settings) that are provided to the Bottlerocket user data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "placement",
+    "type": "object({\n    affinity                = optional(string)\n    availability_zone       = optional(string)\n    group_name              = optional(string)\n    host_id                 = optional(string)\n    host_resource_group_arn = optional(string)\n    partition_number        = optional(number)\n    spread_domain           = optional(string)\n    tenancy                 = optional(string)\n  })",
+    "description": "The placement of the instance",
+    "default": "null",
+    "required": false
+  }
+]

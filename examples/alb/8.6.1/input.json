@@ -1,0 +1,324 @@
+[
+  {
+    "name": "enable_tls_version_and_cipher_suite_headers",
+    "type": "bool",
+    "description": "Indicates whether the two headers (x-amzn-tls-version and x-amzn-tls-cipher-suite), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "http_tcp_listener_rules",
+    "type": "any",
+    "description": "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, http_tcp_listener_index (default to http_tcp_listeners[count.index])",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "load_balancer_create_timeout",
+    "type": "string",
+    "description": "Timeout value when creating the ALB.",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The resource name and Name tag of the load balancer.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_cross_zone_load_balancing",
+    "type": "bool",
+    "description": "Indicates whether cross zone load balancing should be enabled in application load balancers.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "http_tcp_listeners",
+    "type": "any",
+    "description": "A list of maps describing the HTTP listeners or TCP ports for this ALB. Required key/values: port, protocol. Optional key/values: target_group_index (defaults to http_tcp_listeners[count.index])",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ip_address_type",
+    "type": "string",
+    "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack.",
+    "default": "\"ipv4\"",
+    "required": false
+  },
+  {
+    "name": "internal",
+    "type": "bool",
+    "description": "Boolean determining if the load balancer is internal or externally facing.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "load_balancer_update_timeout",
+    "type": "string",
+    "description": "Timeout value when updating the ALB.",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "https_listener_rules_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all https listener rules",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "VPC id where the load balancer and other resources will be deployed.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "putin_khuylo",
+    "type": "bool",
+    "description": "Do you agree that Putin doesn't respect Ukrainian sovereignty and territorial integrity? More info: https://en.wikipedia.org/wiki/Putin_khuylo!",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_lb",
+    "type": "bool",
+    "description": "Controls if the Load Balancer should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "https_listener_rules",
+    "type": "any",
+    "description": "A list of maps describing the Listener Rules for this ALB. Required key/values: actions, conditions. Optional key/values: priority, https_listener_index (default to https_listeners[count.index])",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "access_logs",
+    "type": "map(string)",
+    "description": "Map containing access logging configuration for load balancer.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subnet_mapping",
+    "type": "list(map(string))",
+    "description": "A list of subnet mapping blocks describing subnets to attach to network load balancer",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_groups",
+    "type": "list(string)",
+    "description": "The security groups to attach to the load balancer. e.g. [\"sg-edcd9784\",\"sg-edcd9785\"]",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_deletion_protection",
+    "type": "bool",
+    "description": "If true, deletion of the load balancer will be disabled via the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to false.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_http2",
+    "type": "bool",
+    "description": "Indicates whether HTTP/2 is enabled in application load balancers.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "extra_ssl_certs",
+    "type": "list(map(string))",
+    "description": "A list of maps describing any extra SSL certificates to apply to the HTTPS listeners. Required key/values: certificate_arn, https_listener_index (the index of the listener within https_listeners which the cert applies toward).",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "idle_timeout",
+    "type": "number",
+    "description": "The time in seconds that the connection is allowed to be idle.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "http_tcp_listener_rules_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all http listener rules",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_waf_fail_open",
+    "type": "bool",
+    "description": "Indicates whether to route requests to targets if lb fails to forward the request to AWS WAF",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "drop_invalid_header_fields",
+    "type": "bool",
+    "description": "Indicates whether invalid header fields are dropped in application load balancers. Defaults to false.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "preserve_host_header",
+    "type": "bool",
+    "description": "Indicates whether Host header should be preserve and forward to targets without any change. Defaults to false.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "load_balancer_delete_timeout",
+    "type": "string",
+    "description": "Timeout value when deleting the ALB.",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "target_group_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all target groups",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "https_listeners_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all https listeners",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "http_tcp_listeners_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all http listeners",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "load_balancer_type",
+    "type": "string",
+    "description": "The type of load balancer to create. Possible values are application or network.",
+    "default": "\"application\"",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list(string)",
+    "description": "A list of subnets to associate with the load balancer. e.g. ['subnet-1a2b3c4d','subnet-1a2b3c4e','subnet-1a2b3c4f']",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "lb_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to load balancer",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "xff_header_processing_mode",
+    "type": "string",
+    "description": "Determines how the load balancer modifies the X-Forwarded-For header in the HTTP request before sending the request to the target.",
+    "default": "\"append\"",
+    "required": false
+  },
+  {
+    "name": "security_group_rules",
+    "type": "any",
+    "description": "Security group rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "https_listeners",
+    "type": "any",
+    "description": "A list of maps describing the HTTPS listeners for this ALB. Required key/values: port, certificate_arn. Optional key/values: ssl_policy (defaults to ELBSecurityPolicy-2016-08), target_group_index (defaults to https_listeners[count.index])",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "listener_ssl_policy_default",
+    "type": "string",
+    "description": "The security policy if using HTTPS externally on the load balancer. [See](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html).",
+    "default": "\"ELBSecurityPolicy-2016-08\"",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "The resource name prefix and Name tag of the load balancer. Cannot be longer than 6 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target_groups",
+    "type": "any",
+    "description": "A list of maps containing key/value pairs that define the target groups to be created. Order of these maps is important and the index of these are to be referenced in listener definitions. Required key/values: name, backend_protocol, backend_port",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_xff_client_port",
+    "type": "bool",
+    "description": "Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in application load balancers.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "desync_mitigation_mode",
+    "type": "string",
+    "description": "Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync.",
+    "default": "\"defensive\"",
+    "required": false
+  }
+]

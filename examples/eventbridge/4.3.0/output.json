@@ -1,0 +1,138 @@
+[
+  {
+    "name": "eventbridge_schedule_group_arns",
+    "description": "The EventBridge Schedule Group ARNs"
+  },
+  {
+    "name": "eventbridge_schedule_group_states",
+    "description": "The EventBridge Schedule Group states"
+  },
+  {
+    "name": "eventbridge_pipe_arns",
+    "description": "The EventBridge Pipes ARNs"
+  },
+  {
+    "name": "eventbridge_targets",
+    "description": "The EventBridge Targets created and their attributes"
+  },
+  {
+    "name": "eventbridge_permission_ids",
+    "description": "The EventBridge Permission IDs"
+  },
+  {
+    "name": "eventbridge_schedule_groups",
+    "description": "The EventBridge Schedule Groups created and their attributes"
+  },
+  {
+    "name": "eventbridge_bus_name",
+    "description": "The EventBridge Bus Name"
+  },
+  {
+    "name": "eventbridge_connection_arns",
+    "description": "The EventBridge Connection Arns"
+  },
+  {
+    "name": "eventbridge_schedule_ids",
+    "description": "The EventBridge Schedule IDs created"
+  },
+  {
+    "name": "eventbridge_schedule_arns",
+    "description": "The EventBridge Schedule ARNs created"
+  },
+  {
+    "name": "eventbridge_pipe_role_arns",
+    "description": "The ARNs of the IAM role created for EventBridge Pipes"
+  },
+  {
+    "name": "eventbridge_rules",
+    "description": "The EventBridge Rules created and their attributes"
+  },
+  {
+    "name": "eventbridge_iam_roles",
+    "description": "The EventBridge IAM roles created and their attributes"
+  },
+  {
+    "name": "eventbridge_archive_arns",
+    "description": "The EventBridge Archive ARNs"
+  },
+  {
+    "name": "eventbridge_api_destination_arns",
+    "description": "The EventBridge API Destination ARNs"
+  },
+  {
+    "name": "eventbridge_rule_arns",
+    "description": "The EventBridge Rule ARNs"
+  },
+  {
+    "name": "eventbridge_schedule_group_ids",
+    "description": "The EventBridge Schedule Group IDs"
+  },
+  {
+    "name": "eventbridge_role_name",
+    "description": "The name of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_bus_arn",
+    "description": "The EventBridge Bus ARN"
+  },
+  {
+    "name": "eventbridge_bus",
+    "description": "The EventBridge Bus created and their attributes"
+  },
+  {
+    "name": "eventbridge_archives",
+    "description": "The EventBridge Archives created and their attributes"
+  },
+  {
+    "name": "eventbridge_pipes_iam_roles",
+    "description": "The EventBridge Pipes IAM roles created and their attributes"
+  },
+  {
+    "name": "eventbridge_connection_ids",
+    "description": "The EventBridge Connection IDs"
+  },
+  {
+    "name": "eventbridge_role_arn",
+    "description": "The ARN of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_pipe_role_names",
+    "description": "The names of the IAM role created for EventBridge Pipes"
+  },
+  {
+    "name": "eventbridge_rule_ids",
+    "description": "The EventBridge Rule IDs"
+  },
+  {
+    "name": "eventbridge_pipe_ids",
+    "description": "The EventBridge Pipes IDs"
+  },
+  {
+    "name": "eventbridge_permissions",
+    "description": "The EventBridge Permissions created and their attributes"
+  },
+  {
+    "name": "eventbridge_pipes",
+    "description": "The EventBridge Pipes created and their attributes"
+  },
+  {
+    "name": "eventbridge_log_delivery_source_arn",
+    "description": "The EventBridge Bus CloudWatch Log Delivery Source ARN"
+  },
+  {
+    "name": "eventbridge_log_delivery_source_name",
+    "description": "The EventBridge Bus CloudWatch Log Delivery Source Name"
+  },
+  {
+    "name": "eventbridge_connections",
+    "description": "The EventBridge Connections created and their attributes"
+  },
+  {
+    "name": "eventbridge_api_destinations",
+    "description": "The EventBridge API Destinations created and their attributes"
+  },
+  {
+    "name": "eventbridge_schedules",
+    "description": "The EventBridge Schedules created and their attributes"
+  }
+]

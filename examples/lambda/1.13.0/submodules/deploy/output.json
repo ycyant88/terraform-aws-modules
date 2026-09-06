@@ -1,0 +1,38 @@
+[
+  {
+    "name": "codedeploy_app_name",
+    "description": "Name of CodeDeploy application"
+  },
+  {
+    "name": "codedeploy_deployment_group_name",
+    "description": "CodeDeploy deployment group name"
+  },
+  {
+    "name": "codedeploy_deployment_group_id",
+    "description": "CodeDeploy deployment group id"
+  },
+  {
+    "name": "codedeploy_iam_role_name",
+    "description": "Name of IAM role used by CodeDeploy"
+  },
+  {
+    "name": "appspec_sha256",
+    "description": ""
+  },
+  {
+    "name": "deploy_script",
+    "description": ""
+  },
+  {
+    "name": "appspec",
+    "description": ""
+  },
+  {
+    "name": "appspec_content",
+    "description": ""
+  },
+  {
+    "name": "script",
+    "description": ""
+  }
+]

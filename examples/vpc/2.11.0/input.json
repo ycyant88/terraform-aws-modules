@@ -1,0 +1,1647 @@
+[
+  {
+    "name": "secondary_cidr_blocks",
+    "type": "list(string)",
+    "description": "List of secondary CIDR blocks to associate with the VPC to extend the IP Address pool",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ec2_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an EC2 endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "events_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for CloudWatch Events endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sagemaker_notebook_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Sagemaker Notebook endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "private_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for private subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cidr",
+    "type": "string",
+    "description": "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden",
+    "default": "\"0.0.0.0/0\"",
+    "required": false
+  },
+  {
+    "name": "ecr_dkr_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for ECR dkr endpoint. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_domain_name_servers",
+    "type": "list(string)",
+    "description": "Specify a list of DNS server addresses for DHCP options set, default to AWS provided (requires enable_dhcp_options set to true)",
+    "default": "[\n  \"AmazonProvidedDNS\"\n]",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_netbios_node_type",
+    "type": "string",
+    "description": "Specify netbios node_type for DHCP options set (requires enable_dhcp_options set to true)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_elasticloadbalancing_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Elastic Load Balancing endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "propagate_public_route_tables_vgw",
+    "type": "bool",
+    "description": "Should be true if you want route table propagation",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the public subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "intra_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the intra subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the DHCP option set (requires enable_dhcp_options set to true)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_dns_hostnames",
+    "type": "bool",
+    "description": "Should be true to enable DNS hostnames in the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "single_nat_gateway",
+    "type": "bool",
+    "description": "Should be true if you want to provision a single shared NAT Gateway across all of your private networks",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "codebuild_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Codebuild endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "config_endpoint_security_group_ids",
+    "type": "list",
+    "description": "The ID of one or more security groups to associate with the network interface for config endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ecs_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for ECS endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sns_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for SNS endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_vpn_gateway",
+    "type": "bool",
+    "description": "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "kinesis_firehose_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Kinesis Firehose endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "map_public_ip_on_launch",
+    "type": "bool",
+    "description": "Should be false if you do not want to auto-assign public IP on launch",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ec2_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for EC2 endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "kinesis_streams_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Kinesis Streams endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for redshift subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "codebuild_endpoint_security_group_ids",
+    "type": "list",
+    "description": "The ID of one or more security groups to associate with the network interface for Codebuild endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_git_codecommit_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an Git Codecommit endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudtrail_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for CloudTrail endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "external_nat_ip_ids",
+    "type": "list(string)",
+    "description": "List of EIP IDs to be assigned to the NAT Gateways (used in combination with reuse_nat_ips)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_dhcp_options",
+    "type": "bool",
+    "description": "Should be true if you want to specify a DHCP options set with a custom domain name, DNS servers, NTP servers, netbios servers, and/or netbios server type",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Database subnets inbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "create_vpc",
+    "type": "bool",
+    "description": "Controls if VPC should be created (it affects almost all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_config_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an config endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ssm_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for SSM endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "default_vpc_enable_classiclink",
+    "type": "bool",
+    "description": "Should be true to enable ClassicLink in the Default VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "apigw_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for API GW endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "config_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for config endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_ecr_dkr_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an ecr dkr endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "propagate_private_route_tables_vgw",
+    "type": "bool",
+    "description": "Should be true if you want route table propagation",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_elasticache_subnet_route_table",
+    "type": "bool",
+    "description": "Controls if separate route table for elasticache should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_s3_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an S3 endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "codecommit_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Codecommit endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecr_api_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for ECR API endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 public subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ssm_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an SSM endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "elasticache_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the elasticache subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_ec2messages_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an EC2MESSAGES endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_database_internet_gateway_route",
+    "type": "bool",
+    "description": "Controls if an internet gateway route for public database access should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_apigw_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an api gateway endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "elasticloadbalancing_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Elastic Load Balancing endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for database subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "intra_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Intra subnets outbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "elasticache_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 elasticache subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "database_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to database subnets name",
+    "default": "\"db\"",
+    "required": false
+  },
+  {
+    "name": "ssmmessages_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for SSMMESSAGES endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ec2_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for EC2 endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ecr_api_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an ecr api endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_kms_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a KMS endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to public subnets name",
+    "default": "\"public\"",
+    "required": false
+  },
+  {
+    "name": "enable_sagemaker_notebook_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Sagemaker Notebook endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sts_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for STS endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sts_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for STS endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "nat_eip_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the NAT EIP",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "elasticache_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Elasticache subnets inbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "instance_tenancy",
+    "type": "string",
+    "description": "A tenancy option for instances launched into the VPC",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "secretsmanager_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Secrets Manager endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "secretsmanager_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Secrets Manager endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ec2_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for EC2 endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kms_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for KMS endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 redshift subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on redshift subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "intra_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on intra subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "one_nat_gateway_per_az",
+    "type": "bool",
+    "description": "Should be true if you want only one NAT Gateway per availability zone. Requires `var.azs` to be set, and the number of `public_subnets` created to be greater than or equal to the number of availability zones specified in `var.azs`.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "apigw_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for API GW endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "kms_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for KMS endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "elasticache_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the elasticache route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "private_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Private subnets outbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "enable_ssmmessages_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a SSMMESSAGES endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_ecs_telemetry_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a ECS Telemetry endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "elasticloadbalancing_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Elastic Load Balancing endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kinesis_firehose_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Kinesis Firehose endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sagemaker_notebook_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Sagemaker Notebook endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "private_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the private route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "codebuild_endpoint_subnet_ids",
+    "type": "list",
+    "description": "The ID of one or more subnets in which to create a network interface for Codebuilt endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ecr_api_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for ECR api endpoint. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "intra_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Intra subnets inbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "create_redshift_subnet_route_table",
+    "type": "bool",
+    "description": "Controls if separate route table for redshift should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_nat_gateway",
+    "type": "bool",
+    "description": "Should be true if you want to provision NAT Gateways for each of your private networks",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ec2messages_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for EC2MESSAGES endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_ipv6",
+    "type": "bool",
+    "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "redshift_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to redshift subnets name",
+    "default": "\"redshift\"",
+    "required": false
+  },
+  {
+    "name": "ec2messages_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for EC2MESSAGES endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "vpn_gateway_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the VPN gateway",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ecs_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for ECS endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "elasticache_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on elasticache subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_dns_support",
+    "type": "bool",
+    "description": "Should be true to enable DNS support in the VPC",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_codecommit_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an Codecommit endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecs_telemetry_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for ECS Telemetry endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "manage_default_network_acl",
+    "type": "bool",
+    "description": "Should be true to adopt and manage Default Network ACL",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "intra_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 intra subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_database_subnet_route_table",
+    "type": "bool",
+    "description": "Controls if separate route table for database should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "events_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for CloudWatch Events endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "transferserver_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Transfer Server endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "transferserver_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Transfer Server endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the database route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "public_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Public subnets inbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "private_subnets",
+    "type": "list(string)",
+    "description": "A list of private subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ssm_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for SSM endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecr_api_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for ECR API endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kinesis_streams_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Kinesis Streams endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "reuse_nat_ips",
+    "type": "bool",
+    "description": "Should be true if you don't want EIPs to be created for your NAT Gateways and will instead pass them in via the 'external_nat_ip_ids' variable",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "git_codecommit_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Git Codecommit endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_vpc_name",
+    "type": "string",
+    "description": "Name to be used on the Default VPC",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_redshift_subnet_group",
+    "type": "bool",
+    "description": "Controls if redshift subnet group should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "git_codecommit_endpoint_subnet_ids",
+    "type": "list",
+    "description": "The ID of one or more subnets in which to create a network interface for Git Codecommit endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sqs_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for SQS endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ssm_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for SSM endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_transferserver_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Transer Server endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecs_agent_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for ECS Agent endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sns_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for SNS endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "monitoring_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for CloudWatch Monitoring endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "elasticache_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the elasticache subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "default_vpc_enable_dns_hostnames",
+    "type": "bool",
+    "description": "Should be true to enable DNS hostnames in the Default VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "private_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Private subnets inbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "ecr_dkr_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for ECR DKR endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sagemaker_notebook_endpoint_region",
+    "type": "string",
+    "description": "Region to use for Sagemaker Notebook endpoint",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 private subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_sqs_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an SQS endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "monitoring_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for CloudWatch Monitoring endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudtrail_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for CloudTrail endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_subnet_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the redshift subnet group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "redshift_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the redshift subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_domain_name",
+    "type": "string",
+    "description": "Specifies DNS name for DHCP options set (requires enable_dhcp_options set to true)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_netbios_name_servers",
+    "type": "list(string)",
+    "description": "Specify a list of netbios servers for DHCP options set (requires enable_dhcp_options set to true)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sts_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for STS endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "intra_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for intra subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sns_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for SNS endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "public_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the public subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "elasticloadbalancing_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Elastic Load Balancing endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "default_network_acl_ingress",
+    "type": "list(map(string))",
+    "description": "List of maps of ingress rules to set on the Default Network ACL",
+    "default": "[\n  {\n    \"action\": \"allow\",\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_no\": 100,\n    \"to_port\": 0\n  },\n  {\n    \"action\": \"allow\",\n    \"from_port\": 0,\n    \"ipv6_cidr_block\": \"::/0\",\n    \"protocol\": \"-1\",\n    \"rule_no\": 101,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "elasticache_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Elasticache subnets outbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "private_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to private subnets name",
+    "default": "\"private\"",
+    "required": false
+  },
+  {
+    "name": "ecs_telemetry_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for ECS Telemetry endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudtrail_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for CloudTrail endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_glue_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Glue endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecr_dkr_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for ECR DKR endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kms_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for KMS endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "vpn_gateway_id",
+    "type": "string",
+    "description": "ID of VPN Gateway to attach to the VPC",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "default_vpc_enable_dns_support",
+    "type": "bool",
+    "description": "Should be true to enable DNS support in the Default VPC",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "elasticache_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to elasticache subnets name",
+    "default": "\"elasticache\"",
+    "required": false
+  },
+  {
+    "name": "redshift_subnets",
+    "type": "list(string)",
+    "description": "A list of redshift subnets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ecs_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a ECS endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_events_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a CloudWatch Events endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "logs_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for CloudWatch Logs endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "igw_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the internet gateway",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "private_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on private subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_database_nat_gateway_route",
+    "type": "bool",
+    "description": "Controls if a nat gateway route should be created to give internet access to the database subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sqs_endpoint_subnet_ids",
+    "type": "list",
+    "description": "The ID of one or more subnets in which to create a network interface for SQS endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_logs_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a CloudWatch Logs endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "glue_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Glue endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "glue_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Glue endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "intra_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the intra route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "azs",
+    "type": "list(string)",
+    "description": "A list of availability zones in the region",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "config_endpoint_subnet_ids",
+    "type": "list",
+    "description": "The ID of one or more subnets in which to create a network interface for config endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_sts_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a STS endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_network_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the Default Network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_kinesis_streams_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Kinesis Streams endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_subnet_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the database subnet group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "sqs_endpoint_security_group_ids",
+    "type": "list",
+    "description": "The ID of one or more security groups to associate with the network interface for SQS endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "logs_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for CloudWatch Logs endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to be used on all the resources as identifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_secretsmanager_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an Secrets Manager endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "events_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for CloudWatch Events endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "intra_subnets",
+    "type": "list(string)",
+    "description": "A list of intra subnets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "redshift_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the redshift route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "manage_default_vpc",
+    "type": "bool",
+    "description": "Should be true to adopt and manage Default VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_vpc_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the Default VPC",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "redshift_inbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Redshift subnets inbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "database_subnet_ipv6_prefixes",
+    "type": "list",
+    "description": "Assigns IPv6 database subnet id based on the Amazon provided /56 prefix base 10 integer (0-256). Must be of equal length to the corresponding IPv4 subnet list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "secretsmanager_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for Secrets Manager endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "private_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the private subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "default_network_acl_name",
+    "type": "string",
+    "description": "Name to be used on the Default Network ACL",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_codebuild_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision an Codebuild endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecs_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for ECS endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sagemaker_notebook_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Sagemaker Notebook endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_network_acl_egress",
+    "type": "list(map(string))",
+    "description": "List of maps of egress rules to set on the Default Network ACL",
+    "default": "[\n  {\n    \"action\": \"allow\",\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_no\": 100,\n    \"to_port\": 0\n  },\n  {\n    \"action\": \"allow\",\n    \"from_port\": 0,\n    \"ipv6_cidr_block\": \"::/0\",\n    \"protocol\": \"-1\",\n    \"rule_no\": 101,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "ec2messages_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for EC2MESSAGES endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ecs_agent_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for ECS Agent endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ecs_telemetry_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for ECS Telemetry endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_monitoring_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a CloudWatch Monitoring endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "glue_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for Glue endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "dhcp_options_ntp_servers",
+    "type": "list(string)",
+    "description": "Specify a list of NTP servers for DHCP options set (requires enable_dhcp_options set to true)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_elasticache_subnet_group",
+    "type": "bool",
+    "description": "Controls if elasticache subnet group should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "git_codecommit_endpoint_security_group_ids",
+    "type": "list",
+    "description": "The ID of one or more security groups to associate with the network interface for Git Codecommit endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ecs_agent_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a ECS Agent endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "vpc_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the VPC",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "database_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Database subnets outbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "ssmmessages_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for SSMMESSAGES endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_route_table_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the public route tables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "apigw_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for API GW  endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "public_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on public subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "redshift_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the redshift subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "private_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the private subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ecs_agent_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for ECS Agent endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "logs_endpoint_private_dns_enabled",
+    "type": "bool",
+    "description": "Whether or not to associate a private hosted zone with the specified VPC for CloudWatch Logs endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the database subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_database_subnet_group",
+    "type": "bool",
+    "description": "Controls if database subnet group should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ssmmessages_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for SSMMESSAGES endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kinesis_streams_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Kinesis Streams endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kinesis_firehose_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Kinesis Firehose endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "intra_subnet_suffix",
+    "type": "string",
+    "description": "Suffix to append to intra subnets name",
+    "default": "\"intra\"",
+    "required": false
+  },
+  {
+    "name": "codecommit_endpoint_security_group_ids",
+    "type": "list",
+    "description": "The ID of one or more security groups to associate with the network interface for Codecommit endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "codecommit_endpoint_subnet_ids",
+    "type": "list",
+    "description": "The ID of one or more subnets in which to create a network interface for Codecommit endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "monitoring_endpoint_subnet_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more subnets in which to create a network interface for CloudWatch Monitoring endpoint. Only a single subnet within an AZ is supported. If omitted, private subnets will be used.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_kinesis_firehose_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a Kinesis Firehose endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "database_subnet_assign_ipv6_address_on_creation",
+    "type": "bool",
+    "description": "Assign IPv6 address on database subnet, must be disabled to change IPv6 CIDRs. This is the IPv6 equivalent of map_public_ip_on_launch",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "nat_gateway_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the NAT gateways",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "public_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for public subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "redshift_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Redshift subnets outbound network ACL rules",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "enable_cloudtrail_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a CloudTrail endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_subnets",
+    "type": "list(string)",
+    "description": "A list of public subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "database_acl_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the database subnets network ACL",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "transferserver_endpoint_security_group_ids",
+    "type": "list(string)",
+    "description": "The ID of one or more security groups to associate with the network interface for Transfer Server endpoint",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "elasticache_dedicated_network_acl",
+    "type": "bool",
+    "description": "Whether to use dedicated network ACL (not default) and custom rules for elasticache subnets",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "public_outbound_acl_rules",
+    "type": "list(map(string))",
+    "description": "Public subnets outbound network ACLs",
+    "default": "[\n  {\n    \"cidr_block\": \"0.0.0.0/0\",\n    \"from_port\": 0,\n    \"protocol\": \"-1\",\n    \"rule_action\": \"allow\",\n    \"rule_number\": 100,\n    \"to_port\": 0\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "elasticache_subnets",
+    "type": "list(string)",
+    "description": "A list of elasticache subnets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_dynamodb_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a DynamoDB endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_sns_endpoint",
+    "type": "bool",
+    "description": "Should be true if you want to provision a SNS endpoint to the VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "amazon_side_asn",
+    "type": "string",
+    "description": "The Autonomous System Number (ASN) for the Amazon side of the gateway. By default the virtual private gateway is created with the current default Amazon ASN.",
+    "default": "\"64512\"",
+    "required": false
+  },
+  {
+    "name": "intra_subnet_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the intra subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "database_subnets",
+    "type": "list(string)",
+    "description": "A list of database subnets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_public_redshift",
+    "type": "bool",
+    "description": "Controls if redshift should have public routing table",
+    "default": "false",
+    "required": false
+  }
+]

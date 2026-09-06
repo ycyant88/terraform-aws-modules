@@ -1,0 +1,345 @@
+[
+  {
+    "name": "health_check",
+    "type": "any",
+    "description": "The container health check command and associated configuration parameters for the container. See [HealthCheck](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "pseudo_terminal",
+    "type": "bool",
+    "description": "When this parameter is true, a `TTY` is allocated",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "secrets",
+    "type": "list(object({\n    name      = string\n    valueFrom = string\n  }))",
+    "description": "The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Number of days to retain log events. Default is 30 days",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "docker_labels",
+    "type": "map(string)",
+    "description": "A key/value map of labels to add to the container",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "environment_files",
+    "type": "list(object({\n    value = string\n    type  = string\n  }))",
+    "description": "A list of files containing the environment variables to pass to a container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "hostname",
+    "type": "string",
+    "description": "The hostname to use for your container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "disable_networking",
+    "type": "bool",
+    "description": "When this parameter is true, networking is disabled within the container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "firelens_configuration",
+    "type": "any",
+    "description": "The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the Amazon Elastic Container Service Developer Guide",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "user",
+    "type": "string",
+    "description": "The user to run as inside the container. Can be any of these formats: user, user:group, uid, uid:gid, user:gid, uid:group. The default (null) will use the container's configured `USER` directive or root if not set",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "command",
+    "type": "list(string)",
+    "description": "The command that's passed to the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dns_servers",
+    "type": "list(string)",
+    "description": "Container DNS servers. This is a list of strings specifying the IP addresses of the DNS servers",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "volumes_from",
+    "type": "list(any)",
+    "description": "Data volumes to mount from another container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "linux_parameters",
+    "type": "any",
+    "description": "Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "log_configuration",
+    "type": "any",
+    "description": "Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "dns_search_domains",
+    "type": "list(string)",
+    "description": "Container DNS search domains. A list of DNS search domains that are presented to the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_requirements",
+    "type": "list(object({\n    type  = string\n    value = string\n  }))",
+    "description": "The type and amount of a resource to assign to a container. The only supported resource is a GPU",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the log group name should be used as a prefix",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of a container. If you're linking multiple containers together in a task definition, the name of one container can be entered in the links of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "operating_system_family",
+    "type": "string",
+    "description": "The OS family for task",
+    "default": "\"LINUX\"",
+    "required": false
+  },
+  {
+    "name": "mount_points",
+    "type": "list(any)",
+    "description": "The mount points for data volumes in your container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service",
+    "type": "string",
+    "description": "The name of the service that the container definition is associated with",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cpu",
+    "type": "number",
+    "description": "The number of cpu units to reserve for the container. This is optional for tasks using Fargate launch type and the total amount of `cpu` of all containers in a task will need to be lower than the task-level cpu value",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "interactive",
+    "type": "bool",
+    "description": "When this parameter is `true`, you can deploy containerized applications that require `stdin` or a `tty` to be allocated",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "links",
+    "type": "list(string)",
+    "description": "The links parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is `bridge`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "memory",
+    "type": "number",
+    "description": "The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task `memory` value, if one is specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "repository_credentials",
+    "type": "map(string)",
+    "description": "Container repository credentials; required when using a private repo.  This map currently supports a single key; \"credentialsParameter\", which should be the ARN of a Secrets Manager's secret holding the credentials",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "extra_hosts",
+    "type": "list(object({\n    hostname  = string\n    ipAddress = string\n  }))",
+    "description": "A list of hostnames and IP address mappings to append to the `/etc/hosts` file on the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "image",
+    "type": "string",
+    "description": "The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "port_mappings",
+    "type": "list(any)",
+    "description": "The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic. For task definitions that use the awsvpc network mode, only specify the containerPort. The hostPort can be left blank or it must be the same value as the containerPort",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dependencies",
+    "type": "list(object({\n    condition     = string\n    containerName = string\n  }))",
+    "description": "The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed. The condition can be one of START, COMPLETE, SUCCESS or HEALTHY",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "docker_security_options",
+    "type": "list(string)",
+    "description": "A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems. This field isn't valid for containers in tasks using the Fargate launch type",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "entrypoint",
+    "type": "list(string)",
+    "description": "The entry point that is passed to the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "memory_reservation",
+    "type": "number",
+    "description": "The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the `memory` parameter (if applicable), or all of the available memory on the container instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "readonly_root_filesystem",
+    "type": "bool",
+    "description": "When this parameter is true, the container is given read-only access to its root file system",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "start_timeout",
+    "type": "number",
+    "description": "Time duration (in seconds) to wait before giving up on resolving dependencies for a container",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "system_controls",
+    "type": "list(map(string))",
+    "description": "A list of namespaced kernel parameters to set in the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "privileged",
+    "type": "bool",
+    "description": "When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ulimits",
+    "type": "list(object({\n    hardLimit = number\n    name      = string\n    softLimit = number\n  }))",
+    "description": "A list of ulimits to set in the container. If a ulimit value is specified in a task definition, it overrides the default values set by Docker",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_execute_command",
+    "type": "bool",
+    "description": "Specifies whether to enable Amazon ECS Exec for the tasks within the service",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "environment",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "The environment variables to pass to the container",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "essential",
+    "type": "bool",
+    "description": "If the `essential` parameter of a container is marked as `true`, and that container fails or stops for any reason, all other containers that are part of the task are stopped",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "stop_timeout",
+    "type": "number",
+    "description": "Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own",
+    "default": "120",
+    "required": false
+  },
+  {
+    "name": "working_directory",
+    "type": "string",
+    "description": "The working directory to run commands inside the container",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_cloudwatch_logging",
+    "type": "bool",
+    "description": "Determines whether CloudWatch logging is configured for this container definition. Set to `false` to use other logging drivers",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "type": "string",
+    "description": "Custom name of CloudWatch log group for a service associated with the container definition",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Determines whether a log group is created by this module. If not, AWS will automatically create one if logging is enabled",
+    "default": "true",
+    "required": false
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether cluster should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name used across resources created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_cluster_peering",
+    "type": "bool",
+    "description": "Whether to create cluster peering",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "clusters",
+    "type": "list(string)",
+    "description": "List of DSQL Cluster ARNs to be peered to this cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "witness_region",
+    "type": "string",
+    "description": "Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n  })",
+    "description": "Timeout configuration for the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deletion_protection_enabled",
+    "type": "bool",
+    "description": "Whether deletion protection is enabled in this cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_encryption_key",
+    "type": "string",
+    "description": "The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `AWS_OWNED_KMS_KEY`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "Destroys cluster even if deletion_protection_enabled is set to true. Default value is false",
+    "default": "null",
+    "required": false
+  }
+]

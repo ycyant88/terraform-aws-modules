@@ -1,0 +1,219 @@
+[
+  {
+    "name": "fsx_admin_password",
+    "type": "string",
+    "description": "The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_key_id",
+    "type": "string",
+    "description": "ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "storage_type",
+    "type": "string",
+    "description": "The filesystem storage type. defaults to `SSD`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ha_pairs",
+    "type": "number",
+    "description": "The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the file system",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "storage_capacity",
+    "type": "number",
+    "description": "The storage capacity (GiB) of the file system",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "throughput_capacity",
+    "type": "number",
+    "description": "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Either `throughput_capacity` or `throughput_capacity_per_ha_pair` must be specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "endpoint_ip_address_range",
+    "type": "string",
+    "description": "Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of IDs for the subnets that the file system will be accessible from",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "disk_iops_configuration",
+    "type": "map(string)",
+    "description": "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "preferred_subnet_id",
+    "type": "string",
+    "description": "The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "volumes_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the volumes",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "automatic_backup_retention_days",
+    "type": "number",
+    "description": "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the file system",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "daily_automatic_backup_start_time",
+    "type": "string",
+    "description": "A recurring daily time, in the format `HH:MM`. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, `05:00` specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "route_table_ids",
+    "type": "list(string)",
+    "description": "Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "any",
+    "description": "Security group egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "throughput_capacity_per_ha_pair",
+    "type": "number",
+    "description": "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`, `6144`. This parameter should only be used when specifying the `ha_pairs` parameter. Either `throughput_capacity` or `throughput_capacity_per_ha_pair` must be specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "storage_virtual_machines_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the storage virtual machines",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "any",
+    "description": "Security group ingress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deployment_type",
+    "type": "string",
+    "description": "The filesystem deployment type. One of: `MULTI_AZ_1` or `SINGLE_AZ_1`",
+    "default": "\"MULTI_AZ_1\"",
+    "required": false
+  },
+  {
+    "name": "weekly_maintenance_start_time",
+    "type": "string",
+    "description": "The preferred start time (in d:HH:MM format) to perform weekly maintenance, in the UTC time zone",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "storage_virtual_machines",
+    "type": "any",
+    "description": "A map of ONTAP storage virtual machine definitions to create",
+    "default": "{}",
+    "required": false
+  }
+]

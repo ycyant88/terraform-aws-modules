@@ -1,0 +1,10 @@
+[
+  {
+    "name": "arn",
+    "description": "The ARN assigned by AWS for this provider"
+  },
+  {
+    "name": "url",
+    "description": "The URL of the identity provider. Corresponds to the iss claim"
+  }
+]

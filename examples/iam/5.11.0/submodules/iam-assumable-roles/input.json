@@ -1,0 +1,191 @@
+[
+  {
+    "name": "poweruser_role_name",
+    "type": "string",
+    "description": "IAM role with poweruser access",
+    "default": "\"poweruser\"",
+    "required": false
+  },
+  {
+    "name": "create_admin_role",
+    "type": "bool",
+    "description": "Whether to create admin role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "admin_role_name",
+    "type": "string",
+    "description": "IAM role with admin access",
+    "default": "\"admin\"",
+    "required": false
+  },
+  {
+    "name": "admin_role_path",
+    "type": "string",
+    "description": "Path of admin IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "admin_role_requires_mfa",
+    "type": "bool",
+    "description": "Whether admin role requires MFA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "admin_role_permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for admin role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "readonly_role_requires_mfa",
+    "type": "bool",
+    "description": "Whether readonly role requires MFA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "readonly_role_permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for readonly role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "allow_self_assume_role",
+    "type": "bool",
+    "description": "Determines whether to allow the role to be [assume itself](https://aws.amazon.com/blogs/security/announcing-an-update-to-iam-role-trust-policy-behavior/)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "poweruser_role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to poweruser role resource.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "force_detach_policies",
+    "type": "bool",
+    "description": "Whether policies should be detached from this role when destroying",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "trusted_role_arns",
+    "type": "list(string)",
+    "description": "ARNs of AWS entities who can assume these roles",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mfa_age",
+    "type": "number",
+    "description": "Max age of valid MFA (in seconds) for roles which require MFA",
+    "default": "86400",
+    "required": false
+  },
+  {
+    "name": "admin_role_policy_arns",
+    "type": "list(string)",
+    "description": "List of policy ARNs to use for admin role",
+    "default": "[\n  \"arn:aws:iam::aws:policy/AdministratorAccess\"\n]",
+    "required": false
+  },
+  {
+    "name": "poweruser_role_requires_mfa",
+    "type": "bool",
+    "description": "Whether poweruser role requires MFA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "readonly_role_name",
+    "type": "string",
+    "description": "IAM role with readonly access",
+    "default": "\"readonly\"",
+    "required": false
+  },
+  {
+    "name": "readonly_role_path",
+    "type": "string",
+    "description": "Path of readonly IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "readonly_role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to readonly role resource.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "max_session_duration",
+    "type": "number",
+    "description": "Maximum CLI/API session duration in seconds between 3600 and 43200",
+    "default": "3600",
+    "required": false
+  },
+  {
+    "name": "trusted_role_services",
+    "type": "list(string)",
+    "description": "AWS Services that can assume these roles",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "admin_role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to admin role resource.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_poweruser_role",
+    "type": "bool",
+    "description": "Whether to create poweruser role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "poweruser_role_path",
+    "type": "string",
+    "description": "Path of poweruser IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "poweruser_role_policy_arns",
+    "type": "list(string)",
+    "description": "List of policy ARNs to use for poweruser role",
+    "default": "[\n  \"arn:aws:iam::aws:policy/PowerUserAccess\"\n]",
+    "required": false
+  },
+  {
+    "name": "poweruser_role_permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for poweruser role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_readonly_role",
+    "type": "bool",
+    "description": "Whether to create readonly role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "readonly_role_policy_arns",
+    "type": "list(string)",
+    "description": "List of policy ARNs to use for readonly role",
+    "default": "[\n  \"arn:aws:iam::aws:policy/ReadOnlyAccess\"\n]",
+    "required": false
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "id",
+    "description": "The ID of the WAF rule group"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN of the WAF rule group"
+  },
+  {
+    "name": "lock_token",
+    "description": "Lock token used by AWS to detect concurrent modifications"
+  },
+  {
+    "name": "capacity",
+    "description": "The capacity (WCUs) configured for the rule group"
+  },
+  {
+    "name": "tags_all",
+    "description": "Map of tags assigned to the resource, including those inherited from the provider default_tags configuration block"
+  }
+]

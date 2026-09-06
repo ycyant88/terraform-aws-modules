@@ -1,0 +1,26 @@
+[
+  {
+    "name": "arn",
+    "description": "ARN of IAM role"
+  },
+  {
+    "name": "name",
+    "description": "Name of IAM role"
+  },
+  {
+    "name": "path",
+    "description": "Path of IAM role"
+  },
+  {
+    "name": "unique_id",
+    "description": "Unique ID of IAM role"
+  },
+  {
+    "name": "iam_policy_arn",
+    "description": "The ARN assigned by AWS to this policy"
+  },
+  {
+    "name": "iam_policy",
+    "description": "The policy document"
+  }
+]

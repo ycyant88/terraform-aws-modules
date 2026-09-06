@@ -1,0 +1,114 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "resource_policy_principals",
+    "type": "list(string)",
+    "description": "A list of IAM principals allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if Network Firewall resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "capacity",
+    "type": "number",
+    "description": "The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules",
+    "default": "100",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A friendly description of the rule group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "A friendly name of the rule group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "rule_group",
+    "type": "object({\n    reference_sets = optional(object({\n      ip_set_references = optional(map(object({\n        reference_arn = string\n      })))\n      key = string\n    }))\n    rules_source = optional(object({\n      rules_source_list = optional(object({\n        generated_rules_type = string\n        target_types         = list(string)\n        targets              = list(string)\n      }))\n      rules_string = optional(string)\n      stateful_rule = optional(list(object({\n        action = string\n        header = object({\n          destination      = string\n          destination_port = string\n          direction        = string\n          protocol         = string\n          source           = string\n          source_port      = string\n        })\n        rule_option = list(object({\n          keyword  = string\n          settings = optional(list(string))\n        }))\n      })))\n      stateless_rules_and_custom_actions = optional(object({\n        custom_action = optional(list(object({\n          action_definition = object({\n            publish_metric_action = object({\n              dimension = list(object({\n                value = string\n              }))\n            })\n          })\n          action_name = string\n        })))\n        stateless_rule = list(object({\n          priority = number\n          rule_definition = object({\n            actions = list(string)\n            match_attributes = object({\n              destination = optional(list(object({\n                address_definition = string\n              })))\n              destination_port = optional(list(object({\n                from_port = string\n                to_port   = optional(string)\n              })))\n              protocols = optional(list(string))\n              source = optional(list(object({\n                address_definition = string\n              })))\n              source_port = optional(list(object({\n                from_port = string\n                to_port   = optional(string)\n              })))\n              tcp_flag = optional(list(object({\n                flags = list(string)\n                masks = optional(list(string))\n              })))\n            })\n          })\n          rule_options = optional(list(object({\n            keyword  = string\n            settings = optional(list(string))\n          })))\n        }))\n      }))\n    }))\n    rule_variables = optional(object({\n      ip_sets = optional(list(object({\n        key = string\n        ip_set = object({\n          definition = list(string)\n        })\n      })))\n      port_sets = optional(list(object({\n        key = string\n        port_set = object({\n          definition = list(string)\n        })\n      })))\n    }))\n    stateful_rule_options = optional(object({\n      rule_order = optional(string)\n    }))\n  })",
+    "description": "A configuration block that defines the rule group rules. Required unless `rules` is specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "resource_policy_actions",
+    "type": "list(string)",
+    "description": "A list of IAM actions allowed in the resource policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ram_resource_associations",
+    "type": "map(string)",
+    "description": "A map of RAM resource associations for the created rule group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "string",
+    "description": "The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "attach_resource_policy",
+    "type": "bool",
+    "description": "Controls if a resource policy should be attached to the rule group",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "object({\n    key_id = optional(string)\n    type   = string\n  })",
+    "description": "KMS encryption configuration settings",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`",
+    "default": "\"STATELESS\"",
+    "required": false
+  },
+  {
+    "name": "resource_policy",
+    "type": "string",
+    "description": "The policy JSON to use for the resource policy; required when `create_resource_policy` is `false`",
+    "default": "\"\"",
+    "required": false
+  }
+]

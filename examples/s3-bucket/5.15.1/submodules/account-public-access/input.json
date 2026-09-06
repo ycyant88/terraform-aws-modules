@@ -1,0 +1,44 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "account_id",
+    "type": "string",
+    "description": "AWS account ID",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "block_public_acls",
+    "type": "bool",
+    "description": "Whether Amazon S3 should block public ACLs for buckets in this account.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "block_public_policy",
+    "type": "bool",
+    "description": "Whether Amazon S3 should block public bucket policies for buckets in this account.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ignore_public_acls",
+    "type": "bool",
+    "description": "Whether Amazon S3 should ignore public ACLs for buckets in this account.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "restrict_public_buckets",
+    "type": "bool",
+    "description": "Whether Amazon S3 should restrict public bucket policies for buckets in this account.",
+    "default": "false",
+    "required": false
+  }
+]

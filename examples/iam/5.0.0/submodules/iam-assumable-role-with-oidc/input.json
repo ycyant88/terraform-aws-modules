@@ -1,0 +1,121 @@
+[
+  {
+    "name": "role_name",
+    "type": "string",
+    "description": "IAM role name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_path",
+    "type": "string",
+    "description": "Path of IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "create_role",
+    "type": "bool",
+    "description": "Whether to create a role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "number_of_role_policy_arns",
+    "type": "number",
+    "description": "Number of IAM policies to attach to IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "oidc_subjects_with_wildcards",
+    "type": "set(string)",
+    "description": "The OIDC subject using wildcards to be added to the role policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "oidc_fully_qualified_audiences",
+    "type": "set(string)",
+    "description": "The audience to be added to the role policy. Set to sts.amazonaws.com for cross-account assumable role. Leave empty otherwise.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "max_session_duration",
+    "type": "number",
+    "description": "Maximum CLI/API session duration in seconds between 3600 and 43200",
+    "default": "3600",
+    "required": false
+  },
+  {
+    "name": "role_policy_arns",
+    "type": "list(string)",
+    "description": "List of ARNs of IAM policies to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "provider_urls",
+    "type": "list(string)",
+    "description": "List of URLs of the OIDC Providers",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "role_name_prefix",
+    "type": "string",
+    "description": "IAM role name prefix",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_description",
+    "type": "string",
+    "description": "IAM Role description",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "role_permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for IAM role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "force_detach_policies",
+    "type": "bool",
+    "description": "Whether policies should be detached from this role when destroying",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "aws_account_id",
+    "type": "string",
+    "description": "The AWS account ID where the OIDC provider lives, leave empty to use the account for the AWS provider",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "oidc_fully_qualified_subjects",
+    "type": "set(string)",
+    "description": "The fully qualified OIDC subjects to be added to the role policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "provider_url",
+    "type": "string",
+    "description": "URL of the OIDC Provider. Use provider_urls to specify several URLs.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to IAM role resources",
+    "default": "{}",
+    "required": false
+  }
+]

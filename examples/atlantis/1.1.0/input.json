@@ -1,0 +1,163 @@
+[
+  {
+    "name": "github_repo_names",
+    "type": "list",
+    "description": "Github repositories where webhook should be created",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cidr",
+    "type": "string",
+    "description": "The CIDR block for the VPC which will be created if `vpc_id` is not specified",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "certificate_arn",
+    "type": "string",
+    "description": "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_retention_in_days",
+    "type": "number",
+    "description": "Retention period of Atlantis CloudWatch logs",
+    "default": "7",
+    "required": false
+  },
+  {
+    "name": "atlantis_github_user",
+    "type": "string",
+    "description": "GitHub username of the user that is running the Atlantis command",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ecs_service_assign_public_ip",
+    "type": "bool",
+    "description": "Should be true, if ECS service is using public subnets (more info: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_cannot_pull_image.html)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_github_repository_webhook",
+    "type": "bool",
+    "description": "Whether to create Github repository webhook for Atlantis. This requires valid Github credentials specified as `github_token` and `github_organization`.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "github_organization",
+    "type": "string",
+    "description": "Github organization",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "public_subnet_ids",
+    "type": "list",
+    "description": "A list of IDs of existing public subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "azs",
+    "type": "list",
+    "description": "A list of availability zones in the region",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "public_subnets",
+    "type": "list",
+    "description": "A list of public subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "private_subnets",
+    "type": "list",
+    "description": "A list of private subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to use on all resources created (VPC, ALB, etc)",
+    "default": "\"atlantis\"",
+    "required": false
+  },
+  {
+    "name": "acm_certificate_domain_name",
+    "type": "string",
+    "description": "Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in `route53_zone_name`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "route53_zone_name",
+    "type": "string",
+    "description": "Route53 zone name to create ACM certificate in and main A-record",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "github_token",
+    "type": "string",
+    "description": "Github token",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_version",
+    "type": "string",
+    "description": "Verion of Atlantis to run. If not specified latest will be used",
+    "default": "\"latest\"",
+    "required": false
+  },
+  {
+    "name": "atlantis_github_user_token",
+    "type": "string",
+    "description": "GitHub token of the user that is running the Atlantis command",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "atlantis_repo_whitelist",
+    "type": "list",
+    "description": "List of allowed repositories Atlantis can be used with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "ID of an existing VPC where resources will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_subnet_ids",
+    "type": "list",
+    "description": "A list of IDs of existing private subnets inside the VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_route53_record",
+    "type": "bool",
+    "description": "Whether to create Route53 record for Atlantis",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "atlantis_image",
+    "type": "string",
+    "description": "Docker image to run Atlantis with. If not specified, official Atlantis image will be used",
+    "default": "\"\"",
+    "required": false
+  }
+]

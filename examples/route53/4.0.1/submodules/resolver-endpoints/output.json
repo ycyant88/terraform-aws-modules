@@ -1,0 +1,22 @@
+[
+  {
+    "name": "route53_resolver_endpoint_ip_addresses",
+    "description": "Resolver Endpoint IP Addresses"
+  },
+  {
+    "name": "route53_resolver_endpoint_id",
+    "description": "The ID of the Resolver Endpoint"
+  },
+  {
+    "name": "route53_resolver_endpoint_arn",
+    "description": "The ARN of the Resolver Endpoint"
+  },
+  {
+    "name": "route53_resolver_endpoint_host_vpc_id",
+    "description": "The VPC ID used by the Resolver Endpoint"
+  },
+  {
+    "name": "route53_resolver_endpoint_security_group_ids",
+    "description": "Security Group IDs mapped to Resolver Endpoint"
+  }
+]

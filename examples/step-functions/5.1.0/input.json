@@ -1,0 +1,296 @@
+[
+  {
+    "name": "attach_cloudwatch_logs_policy",
+    "type": "bool",
+    "description": "Controls whether CloudWatch Logs policy should be added to IAM role for Lambda Function",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_permissions_boundary",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the IAM role used by Step Function",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "attach_policy_jsons",
+    "type": "bool",
+    "description": "Controls whether policy_jsons should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_policy",
+    "type": "bool",
+    "description": "Controls whether policy should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "definition",
+    "type": "string",
+    "description": "The Amazon States Language definition of the Step Function",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "role_arn",
+    "type": "string",
+    "description": "The Amazon Resource Name (ARN) of the IAM role to use for this Step Function",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "attach_policies",
+    "type": "bool",
+    "description": "Controls whether list of policies should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "number_of_policy_jsons",
+    "type": "number",
+    "description": "Number of policies JSON to attach to IAM role",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "trusted_entities",
+    "type": "list(string)",
+    "description": "Step Function additional trusted entities for assuming roles (trust relationship)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_json",
+    "type": "string",
+    "description": "An additional policy document as JSON to attach to IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policy_path",
+    "type": "string",
+    "description": "Path of IAM policies to use for Step Function",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "sfn_state_machine_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the step function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_retention_in_days",
+    "type": "number",
+    "description": "Specifies the number of days you want to retain log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_force_detach_policies",
+    "type": "bool",
+    "description": "Specifies to force detaching any policies the IAM role has before destroying it.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "policy_jsons",
+    "type": "list(string)",
+    "description": "List of additional policy documents as JSON to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_existing_role",
+    "type": "bool",
+    "description": "Whether to use an existing IAM role for this Step Function",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_name",
+    "type": "string",
+    "description": "Name of Cloudwatch Logs group name to use.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_name",
+    "type": "string",
+    "description": "Name of IAM role to use for Step Function",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Step Function resource",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "use_existing_cloudwatch_log_group",
+    "type": "bool",
+    "description": "Whether to use an existing CloudWatch log group or create new",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "role_description",
+    "type": "string",
+    "description": "Description of IAM role to use for Step Function",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role_path",
+    "type": "string",
+    "description": "Path of IAM role to use for Step Function",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "attach_policies_for_integrations",
+    "type": "bool",
+    "description": "Whether to attach AWS Service policies to IAM role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "attach_policy_statements",
+    "type": "bool",
+    "description": "Controls whether policy_statements should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "An additional policy document ARN to attach to IAM role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policies",
+    "type": "list(string)",
+    "description": "List of policy statements ARN to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_role",
+    "type": "bool",
+    "description": "Whether to create IAM role for the Step Function",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the Step Function",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "any",
+    "description": "Defines what encryption configuration is used to encrypt data in the State Machine.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "service_integrations",
+    "type": "any",
+    "description": "Map of AWS service integrations to allow in IAM role policy",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_policy_json",
+    "type": "bool",
+    "description": "Controls whether policy_json should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Determines whether a Standard or Express state machine is created. The default is STANDARD. Valid Values: STANDARD | EXPRESS",
+    "default": "\"STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "logging_configuration",
+    "type": "map(string)",
+    "description": "Defines what execution history events are logged and where they are logged",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_kms_key_id",
+    "type": "string",
+    "description": "The ARN of the KMS Key to use when encrypting log data.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "aws_region_assume_role",
+    "type": "string",
+    "description": "Name of AWS regions where IAM role can be assumed by the Step Function",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "number_of_policies",
+    "type": "number",
+    "description": "Number of policies to attach to IAM role",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "policy_statements",
+    "type": "any",
+    "description": "Map of dynamic policy statements to attach to IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Maps of tags to assign to the Step Function",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "publish",
+    "type": "bool",
+    "description": "Determines whether to set a version of the state machine when it is created.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_log_group_tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to the resource.",
+    "default": "{}",
+    "required": false
+  }
+]

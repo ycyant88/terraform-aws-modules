@@ -1,0 +1,100 @@
+[
+  {
+    "name": "listener",
+    "type": "list(map(string))",
+    "description": "A list of listener blocks",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "security_groups",
+    "type": "list(string)",
+    "description": "A list of security group IDs to assign to the ELB",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnets",
+    "type": "list(string)",
+    "description": "A list of subnet IDs to attach to the ELB",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "internal",
+    "type": "bool",
+    "description": "If true, ELB will be an internal ELB",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "connection_draining_timeout",
+    "type": "number",
+    "description": "The time in seconds to allow for connections to drain",
+    "default": "300",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_logs",
+    "type": "map(string)",
+    "description": "An access logs block",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "health_check",
+    "type": "map(string)",
+    "description": "A health check block",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_elb",
+    "type": "bool",
+    "description": "Create the elb or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the ELB",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "The prefix name of the ELB",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cross_zone_load_balancing",
+    "type": "bool",
+    "description": "Enable cross-zone load balancing",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "idle_timeout",
+    "type": "number",
+    "description": "The time in seconds that the connection is allowed to be idle",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "connection_draining",
+    "type": "bool",
+    "description": "Boolean to enable connection draining",
+    "default": "false",
+    "required": false
+  }
+]

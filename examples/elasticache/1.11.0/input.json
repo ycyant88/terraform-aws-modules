@@ -1,0 +1,478 @@
+[
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "notification_topic_arn",
+    "type": "string",
+    "description": "ARN of an SNS topic to send ElastiCache notifications to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auth_token",
+    "type": "string",
+    "description": "The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_names",
+    "type": "list(string)",
+    "description": "Names of one or more Amazon VPC security groups associated with this replication group",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnet_group_description",
+    "type": "string",
+    "description": "Description for the Elasticache subnet group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "Identifier of the VPC where the security group will be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_id",
+    "type": "string",
+    "description": "Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "num_cache_nodes",
+    "type": "number",
+    "description": "The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "One or more VPC security groups associated with the cache cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnet_group_name",
+    "type": "string",
+    "description": "The name of the subnet group. If `create_subnet_group` is `true`, this is the name assigned to the subnet group created. Otherwise, this is the name of an existing subnet group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "snapshot_arns",
+    "type": "list(string)",
+    "description": "(Redis only) Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "snapshot_retention_limit",
+    "type": "number",
+    "description": "(Redis only) Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "at_rest_encryption_enabled",
+    "type": "bool",
+    "description": "Whether to enable encryption at rest",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kms_key_arn",
+    "type": "string",
+    "description": "The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cluster",
+    "type": "bool",
+    "description": "Determines whether an ElastiCache cluster will be created or not",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "automatic_failover_enabled",
+    "type": "bool",
+    "description": "Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preferred_outpost_arn",
+    "type": "string",
+    "description": "(Required if `outpost_mode` is specified) The outpost ARN in which the cache cluster will be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auth_token_update_strategy",
+    "type": "string",
+    "description": "Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "multi_az_enabled",
+    "type": "bool",
+    "description": "Specifies whether to enable Multi-AZ Support for the replication group. If true, `automatic_failover_enabled` must also be enabled. Defaults to `false`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_mode",
+    "type": "string",
+    "description": "Specifies whether cluster mode is enabled or disabled. Valid values are enabled or disabled or compatible",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "user_group_ids",
+    "type": "list(string)",
+    "description": "User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "data_tiering_enabled",
+    "type": "bool",
+    "description": "Enables data tiering. Data tiering is only supported for replication groups using the `r6gd` node type. This parameter must be set to true when using `r6gd` nodes",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "global_replication_group_id_suffix",
+    "type": "string",
+    "description": "The ID suffix of the global replication group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "replication_group_id",
+    "type": "string",
+    "description": "Replication group identifier. When `create_replication_group` is set to `true`, this is the ID assigned to the replication group created. When `create_replication_group` is set to `false`, this is the ID of an externally created replication group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_type",
+    "type": "string",
+    "description": "The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_secondary_global_replication_group",
+    "type": "bool",
+    "description": "Determines whether an secondary ElastiCache global replication group will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_subnet_group",
+    "type": "bool",
+    "description": "Determines whether the Elasticache subnet group will be created or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "engine_version",
+    "type": "string",
+    "description": "Version number of the cache engine to be used. If not set, defaults to the latest version",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_primary_global_replication_group",
+    "type": "bool",
+    "description": "Determines whether an primary ElastiCache global replication group will be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "parameter_group_description",
+    "type": "string",
+    "description": "The description of the ElastiCache parameter group. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_name",
+    "type": "string",
+    "description": "The name of the parameter group. If `create_parameter_group` is `true`, this is the name assigned to the parameter group created. Otherwise, this is the name of an existing parameter group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "engine",
+    "type": "string",
+    "description": "Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis`, or `valkey`",
+    "default": "\"redis\"",
+    "required": false
+  },
+  {
+    "name": "port",
+    "type": "number",
+    "description": "The port number on which each of the cache nodes will accept connections. For Memcached the default is `11211`, and for Redis the default port is `6379`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Define maximum timeout for creating, updating, and deleting cluster resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "replicas_per_node_group",
+    "type": "number",
+    "description": "Number of replica nodes in each node group. Changing this number will trigger a resizing operation before other settings modifications. Valid values are 0 to 5",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parameter_group_family",
+    "type": "string",
+    "description": "The family of the ElastiCache parameter group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "List of VPC Subnet IDs for the Elasticache subnet group",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "maintenance_window",
+    "type": "string",
+    "description": "Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_name",
+    "type": "string",
+    "description": "(Redis only) Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "transit_encryption_enabled",
+    "type": "bool",
+    "description": "Enable encryption in-transit",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "transit_encryption_mode",
+    "type": "string",
+    "description": "A setting that enables clients to migrate to in-transit encryption with no downtime. Valid values are `preferred` and `required`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "global_replication_group_id",
+    "type": "string",
+    "description": "The ID of the global replication group to which this replication group should belong",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "az_mode",
+    "type": "string",
+    "description": "Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_replication_group",
+    "type": "bool",
+    "description": "Determines whether an ElastiCache replication group will be created or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_rules",
+    "type": "any",
+    "description": "Security group ingress and egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ip_discovery",
+    "type": "string",
+    "description": "The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_delivery_configuration",
+    "type": "any",
+    "description": "(Redis OSS or Valkey) Specifies the destination and format of Redis OSS/Valkey SLOWLOG or Redis OSS/Valkey Engine Log",
+    "default": "{\n  \"slow-log\": {\n    \"destination_type\": \"cloudwatch-logs\",\n    \"log_format\": \"json\"\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "outpost_mode",
+    "type": "string",
+    "description": "Specify the outpost mode that will apply to the cache cluster creation. Valid values are `single-outpost` and `cross-outpost`, however AWS currently only supports `single-outpost` mode",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preferred_cache_cluster_azs",
+    "type": "list(string)",
+    "description": "List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "final_snapshot_identifier",
+    "type": "string",
+    "description": "(Redis only) Name of your final cluster snapshot. If omitted, no final snapshot will be made",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_type",
+    "type": "string",
+    "description": "The instance class used. For Memcached, changing this value will re-create the resource",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preferred_availability_zones",
+    "type": "list(string)",
+    "description": "List of the Availability Zones in which cache nodes are created",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "snapshot_window",
+    "type": "string",
+    "description": "(Redis only) Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: `05:00-09:00`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "num_node_groups",
+    "type": "number",
+    "description": "Number of node groups (shards) for this Redis replication group. Changing this number will trigger a resizing operation before other settings modifications",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auto_minor_version_upgrade",
+    "type": "bool",
+    "description": "Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Only supported for engine type `redis` and `valkey` and if the engine version is 6 or higher. Defaults to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "availability_zone",
+    "type": "string",
+    "description": "Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "num_cache_clusters",
+    "type": "number",
+    "description": "Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_mode_enabled",
+    "type": "bool",
+    "description": "Whether to enable Redis [cluster mode https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.Redis-RedisCluster.html]",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_parameter_group",
+    "type": "bool",
+    "description": "Determines whether the ElastiCache parameter group will be created or not",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "parameters",
+    "type": "list(map(string))",
+    "description": "List of ElastiCache parameters to apply",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "apply_immediately",
+    "type": "bool",
+    "description": "Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "User-created description for the replication group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  }
+]

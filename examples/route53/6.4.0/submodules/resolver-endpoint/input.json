@@ -1,0 +1,128 @@
+[
+  {
+    "name": "ip_address",
+    "type": "list(object({\n    ip        = optional(string)\n    ipv6      = optional(string)\n    subnet_id = string\n  }))",
+    "description": "Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "protocols",
+    "type": "list(string)",
+    "description": "Protocols you want to use for the Route 53 Resolver endpoint. Valid values are `DoH`, `Do53`, or `DoH-FIPS`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Endpoint IP type. This endpoint type is applied to all IP addresses. Valid values are `IPV6`, `IPV4` or `DUALSTACK` (both IPv4 and IPv6)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "ID of one or more security groups that you want to use to control access to this VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n  }))",
+    "description": "Security group tcp/udp on port 53 ingress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "map(object({\n    # Rule\n    domain_name = string\n    name        = optional(string)\n    rule_type   = string\n    tags        = optional(map(string), {})\n    target_ip = optional(list(object({\n      ip       = string\n      ipv6     = optional(string)\n      port     = optional(number)\n      protocol = optional(string)\n    })))\n\n    # Association\n    vpc_id = optional(string)\n  }))",
+    "description": "A map of Route 53 Resolver rules & associations to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "direction",
+    "type": "string",
+    "description": " Direction of DNS queries to or from the Route 53 Resolver endpoint. Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC) or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC)",
+    "default": "\"INBOUND\"",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "The VPC ID where the security group will be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string), {})\n  }))",
+    "description": "Security group tcp/udp on port 53 egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Friendly name of the Route 53 Resolver endpoint",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  }
+]

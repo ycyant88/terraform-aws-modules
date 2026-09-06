@@ -1,0 +1,94 @@
+[
+  {
+    "name": "certificates",
+    "description": "A map of maps containing the certificates created and their full output of attributes and values"
+  },
+  {
+    "name": "access_iam_role_arn",
+    "description": "Access IAM role ARN"
+  },
+  {
+    "name": "access_iam_role_unique_id",
+    "description": "Stable and unique string identifying the access IAM role"
+  },
+  {
+    "name": "dms_access_for_endpoint_iam_role_arn",
+    "description": "Amazon Resource Name (ARN) specifying the role"
+  },
+  {
+    "name": "dms_vpc_iam_role_unique_id",
+    "description": "Stable and unique string identifying the role"
+  },
+  {
+    "name": "replication_subnet_group_id",
+    "description": "The ID of the subnet group"
+  },
+  {
+    "name": "replication_instance_arn",
+    "description": "The Amazon Resource Name (ARN) of the replication instance"
+  },
+  {
+    "name": "replication_instance_private_ips",
+    "description": "A list of the private IP addresses of the replication instance"
+  },
+  {
+    "name": "serverless_replication_tasks",
+    "description": "A map of maps containing the serverless replication tasks (replication_config) created and their full output of attributes and values"
+  },
+  {
+    "name": "access_iam_role_name",
+    "description": "Access IAM role name"
+  },
+  {
+    "name": "dms_cloudwatch_logs_iam_role_arn",
+    "description": "Amazon Resource Name (ARN) specifying the role"
+  },
+  {
+    "name": "dms_cloudwatch_logs_iam_role_id",
+    "description": "Name of the IAM role"
+  },
+  {
+    "name": "dms_cloudwatch_logs_iam_role_unique_id",
+    "description": "Stable and unique string identifying the role"
+  },
+  {
+    "name": "dms_vpc_iam_role_id",
+    "description": "Name of the IAM role"
+  },
+  {
+    "name": "replication_instance_public_ips",
+    "description": "A list of the public IP addresses of the replication instance"
+  },
+  {
+    "name": "replication_tasks",
+    "description": "A map of maps containing the replication tasks created and their full output of attributes and values"
+  },
+  {
+    "name": "event_subscriptions",
+    "description": "A map of maps containing the event subscriptions created and their full output of attributes and values"
+  },
+  {
+    "name": "dms_access_for_endpoint_iam_role_id",
+    "description": "Name of the IAM role"
+  },
+  {
+    "name": "dms_vpc_iam_role_arn",
+    "description": "Amazon Resource Name (ARN) specifying the role"
+  },
+  {
+    "name": "replication_instance_tags_all",
+    "description": "A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block"
+  },
+  {
+    "name": "endpoints",
+    "description": "A map of maps containing the endpoints created and their full output of attributes and values"
+  },
+  {
+    "name": "s3_endpoints",
+    "description": "A map of maps containing the S3 endpoints created and their full output of attributes and values"
+  },
+  {
+    "name": "dms_access_for_endpoint_iam_role_unique_id",
+    "description": "Stable and unique string identifying the role"
+  }
+]

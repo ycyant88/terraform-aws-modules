@@ -1,0 +1,34 @@
+[
+  {
+    "name": "this_appsync_api_key_id",
+    "description": "Map of API Key ID (Formatted as ApiId:Key)"
+  },
+  {
+    "name": "this_appsync_api_key_key",
+    "description": "Map of API Keys"
+  },
+  {
+    "name": "this_appsync_datasource_arn",
+    "description": "Map of ARNs of datasources"
+  },
+  {
+    "name": "this_appsync_resolver_arn",
+    "description": "Map of ARNs of resolvers"
+  },
+  {
+    "name": "this_appsync_graphql_api_fqdns",
+    "description": "Map of FQDNs associated with the API (no protocol and path)"
+  },
+  {
+    "name": "this_appsync_graphql_api_id",
+    "description": "ID of GraphQL API"
+  },
+  {
+    "name": "this_appsync_graphql_api_arn",
+    "description": "ARN of GraphQL API"
+  },
+  {
+    "name": "this_appsync_graphql_api_uris",
+    "description": "Map of URIs associated with the API"
+  }
+]

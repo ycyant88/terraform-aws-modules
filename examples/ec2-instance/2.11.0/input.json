@@ -1,0 +1,226 @@
+[
+  {
+    "name": "user_data",
+    "type": "string",
+    "description": "The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see user_data_base64 instead.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ami",
+    "type": "string",
+    "description": "ID of AMI to use for the instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "placement_group",
+    "type": "string",
+    "description": "The Placement Group to start the instance in",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "disable_api_termination",
+    "type": "bool",
+    "description": "If true, enables EC2 Instance Termination Protection",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "key_name",
+    "type": "string",
+    "description": "The key name to use for the instance",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "private_ips",
+    "type": "list(string)",
+    "description": "A list of private IP address to associate with the instance in a VPC. Should match the number of instances.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ephemeral_block_device",
+    "type": "list(map(string))",
+    "description": "Customize Ephemeral (also known as Instance Store) volumes on the instance",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instance_count",
+    "type": "number",
+    "description": "Number of instances to launch",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "associate_public_ip_address",
+    "type": "bool",
+    "description": "If true, the EC2 instance will have associated public IP address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "user_data_base64",
+    "type": "string",
+    "description": "Can be used instead of user_data to pass base64-encoded binary data directly. Use this instead of user_data whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ipv6_address_count",
+    "type": "number",
+    "description": "A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ipv6_addresses",
+    "type": "list(string)",
+    "description": "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "private_ip",
+    "type": "string",
+    "description": "Private IP address to associate with the instance in a VPC",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "volume_tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the devices created by the instance at launch time",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name to be used on all resources as prefix",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "The type of instance to start",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_interface",
+    "type": "list(map(string))",
+    "description": "Customize network interfaces to be attached at instance boot time",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_num_suffix",
+    "type": "bool",
+    "description": "Always append numerical suffix to instance name, even if instance_count is 1",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ebs_block_device",
+    "type": "list(map(string))",
+    "description": "Additional EBS block devices to attach to the instance",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "source_dest_check",
+    "type": "bool",
+    "description": "Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "root_block_device",
+    "type": "list(map(string))",
+    "description": "Customize details about the root block device of the instance. See Block Devices below for details",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "get_password_data",
+    "type": "bool",
+    "description": "If true, wait for password data to become available and retrieve it.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "monitoring",
+    "type": "bool",
+    "description": "If true, the launched EC2 instance will have detailed monitoring enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "vpc_security_group_ids",
+    "type": "list(string)",
+    "description": "A list of security group IDs to associate with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnet_id",
+    "type": "string",
+    "description": "The VPC Subnet ID to launch in",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cpu_credits",
+    "type": "string",
+    "description": "The credit option for CPU usage (unlimited or standard)",
+    "default": "\"standard\"",
+    "required": false
+  },
+  {
+    "name": "tenancy",
+    "type": "string",
+    "description": "The tenancy of the instance (if the instance is running in a VPC). Available values: default, dedicated, host.",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "ebs_optimized",
+    "type": "bool",
+    "description": "If true, the launched EC2 instance will be EBS-optimized",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "instance_initiated_shutdown_behavior",
+    "type": "string",
+    "description": "Shutdown behavior for the instance",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of VPC Subnet IDs to launch in",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_instance_profile",
+    "type": "string",
+    "description": "The IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile.",
+    "default": "\"\"",
+    "required": false
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "secure_type",
+    "description": "Whether SSM parameter is a SecureString or not?"
+  },
+  {
+    "name": "ssm_parameter_arn",
+    "description": "The ARN of the parameter"
+  },
+  {
+    "name": "ssm_parameter_version",
+    "description": "Version of the parameter"
+  },
+  {
+    "name": "ssm_parameter_name",
+    "description": "Name of the parameter"
+  },
+  {
+    "name": "secure_value",
+    "description": "Secure value of the parameter"
+  },
+  {
+    "name": "ssm_parameter_type",
+    "description": "Type of the parameter"
+  },
+  {
+    "name": "raw_value",
+    "description": "Raw value of the parameter (as it is stored in SSM). Use 'value' output to get jsondecode'd value"
+  },
+  {
+    "name": "value",
+    "description": "Parameter value after jsondecode(). Probably this is what you are looking for"
+  },
+  {
+    "name": "insecure_value",
+    "description": "Insecure value of the parameter"
+  }
+]

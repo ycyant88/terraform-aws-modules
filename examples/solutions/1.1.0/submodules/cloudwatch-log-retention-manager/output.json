@@ -1,0 +1,38 @@
+[
+  {
+    "name": "lambda_function_arn_static",
+    "description": "The static ARN of the Lambda Function. Use this to avoid cycle errors between resources (e.g., Step Functions)"
+  },
+  {
+    "name": "lambda_role_name",
+    "description": "The name of the IAM role created for the Lambda Function"
+  },
+  {
+    "name": "eventbridge_schedule_ids",
+    "description": "The EventBridge Schedule IDs created"
+  },
+  {
+    "name": "eventbridge_schedule_arns",
+    "description": "The EventBridge Schedule ARNs created"
+  },
+  {
+    "name": "lambda_function_arn",
+    "description": "The ARN of the Lambda Function"
+  },
+  {
+    "name": "lambda_function_name",
+    "description": "The name of the Lambda Function"
+  },
+  {
+    "name": "lambda_role_arn",
+    "description": "The ARN of the IAM role created for the Lambda Function"
+  },
+  {
+    "name": "lambda_cloudwatch_log_group_arn",
+    "description": "The ARN of the Cloudwatch Log Group"
+  },
+  {
+    "name": "lambda_cloudwatch_log_group_name",
+    "description": "The name of the Cloudwatch Log Group"
+  }
+]

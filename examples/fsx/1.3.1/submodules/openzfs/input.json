@@ -1,0 +1,247 @@
+[
+  {
+    "name": "skip_final_backup",
+    "type": "bool",
+    "description": "When enabled, will skip the default final backup taken when the file system is deleted",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "storage_capacity",
+    "type": "number",
+    "description": "The storage capacity (GiB) of the file system",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "storage_type",
+    "type": "string",
+    "description": "The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_snapshot",
+    "type": "bool",
+    "description": "Determines if a root volume snapshot is created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the security group name (`security_group_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "automatic_backup_retention_days",
+    "type": "number",
+    "description": "The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "endpoint_ip_address_range",
+    "type": "string",
+    "description": "(Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_key_id",
+    "type": "string",
+    "description": "ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ids",
+    "type": "list(string)",
+    "description": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "any",
+    "description": "Security group egress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "disk_iops_configuration",
+    "type": "map(string)",
+    "description": "The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name to use on security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "volumes",
+    "type": "any",
+    "description": "A map of OpenZFS volume definitions to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "snapshot_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the snapshots",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Determines if a security group is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "any",
+    "description": "Security group ingress rules to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "copy_tags_to_volumes",
+    "type": "bool",
+    "description": "A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is `false`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "weekly_maintenance_start_time",
+    "type": "string",
+    "description": "The preferred start time (in d:HH:MM format) to perform weekly maintenance, in the UTC time zone",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "snapshot_name",
+    "type": "string",
+    "description": "The name of the root volume snapshot",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "backup_id",
+    "type": "string",
+    "description": "The ID of the source backup to create the filesystem from",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preferred_subnet_id",
+    "type": "string",
+    "description": "(Multi-AZ only) Required when deployment_type is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deployment_type",
+    "type": "string",
+    "description": "The filesystem deployment type. Only `SINGLE_AZ_1` is supported",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "volumes_timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the volumes",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "root_volume_configuration",
+    "type": "any",
+    "description": "The configuration for the root volume of the file system. All other volumes are children or the root volume",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "daily_automatic_backup_start_time",
+    "type": "string",
+    "description": "The preferred time to take daily automatic backups, in the UTC time zone.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the file system",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnet_ids",
+    "type": "list(string)",
+    "description": "A list of IDs for the subnets that the file system will be accessible from",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "throughput_capacity",
+    "type": "number",
+    "description": "Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Create, update, and delete timeout configurations for the file system",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to add to the security group created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources will be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "copy_tags_to_backups",
+    "type": "bool",
+    "description": "A boolean flag indicating whether tags for the file system should be copied to backups",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "route_table_ids",
+    "type": "list(string)",
+    "description": "(Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located",
+    "default": "[]",
+    "required": false
+  }
+]

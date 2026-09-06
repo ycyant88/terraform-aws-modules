@@ -1,0 +1,79 @@
+[
+  {
+    "name": "oidc_subjects_with_wildcards",
+    "type": "list(string)",
+    "description": "The OIDC subject using wildcards to be added to the role policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "aws_account_id",
+    "type": "string",
+    "description": "The AWS account ID where the OIDC provider lives, leave empty to use the account fo the AWS provider",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "role_name",
+    "type": "string",
+    "description": "IAM role name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "role_permissions_boundary_arn",
+    "type": "string",
+    "description": "Permissions boundary ARN to use for IAM role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_role",
+    "type": "bool",
+    "description": "Whether to create a role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "provider_url",
+    "type": "string",
+    "description": "URL of the OIDC Provider",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to IAM role resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "role_path",
+    "type": "string",
+    "description": "Path of IAM role",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "max_session_duration",
+    "type": "number",
+    "description": "Maximum CLI/API session duration in seconds between 3600 and 43200",
+    "default": "3600",
+    "required": false
+  },
+  {
+    "name": "role_policy_arns",
+    "type": "list(string)",
+    "description": "List of ARNs of IAM policies to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "oidc_fully_qualified_subjects",
+    "type": "list(string)",
+    "description": "The fully qualified OIDC subjects to be added to the role policy",
+    "default": "[]",
+    "required": false
+  }
+]

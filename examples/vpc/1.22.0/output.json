@@ -1,0 +1,182 @@
+[
+  {
+    "name": "elasticache_subnet_group",
+    "description": "ID of elasticache subnet group"
+  },
+  {
+    "name": "private_route_table_ids",
+    "description": "List of IDs of private route tables"
+  },
+  {
+    "name": "vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "elasticache_subnets",
+    "description": "List of IDs of elasticache subnets"
+  },
+  {
+    "name": "vpc_endpoint_s3_id",
+    "description": "The ID of VPC endpoint for S3"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_id",
+    "description": "The ID of VPC endpoint for DynamoDB"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_pl_id",
+    "description": "The prefix list for the DynamoDB VPC endpoint."
+  },
+  {
+    "name": "vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "redshift_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of redshift subnets"
+  },
+  {
+    "name": "default_vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "default_vpc_enable_classiclink",
+    "description": "Whether or not the VPC has Classiclink enabled"
+  },
+  {
+    "name": "public_subnets",
+    "description": "List of IDs of public subnets"
+  },
+  {
+    "name": "default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "natgw_ids",
+    "description": "List of NAT Gateway IDs"
+  },
+  {
+    "name": "default_vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "elasticache_subnet_group_name",
+    "description": "Name of elasticache subnet group"
+  },
+  {
+    "name": "nat_ids",
+    "description": "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "igw_id",
+    "description": "The ID of the Internet Gateway"
+  },
+  {
+    "name": "default_vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "default_vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "public_route_table_ids",
+    "description": "List of IDs of public route tables"
+  },
+  {
+    "name": "private_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of private subnets"
+  },
+  {
+    "name": "default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "vpc_enable_classiclink",
+    "description": "Whether or not the VPC has Classiclink enabled"
+  },
+  {
+    "name": "database_subnets",
+    "description": "List of IDs of database subnets"
+  },
+  {
+    "name": "database_subnet_group",
+    "description": "ID of database subnet group"
+  },
+  {
+    "name": "vpc_endpoint_s3_pl_id",
+    "description": "The prefix list for the S3 VPC endpoint."
+  },
+  {
+    "name": "vgw_id",
+    "description": "The ID of the VPN Gateway"
+  },
+  {
+    "name": "private_subnets",
+    "description": "List of IDs of private subnets"
+  },
+  {
+    "name": "redshift_subnet_group",
+    "description": "ID of redshift subnet group"
+  },
+  {
+    "name": "default_vpc_default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "default_vpc_default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "default_vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "public_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of public subnets"
+  },
+  {
+    "name": "vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "elasticache_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of elasticache subnets"
+  },
+  {
+    "name": "nat_public_ips",
+    "description": "List of public Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "default_vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "database_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of database subnets"
+  },
+  {
+    "name": "redshift_subnets",
+    "description": "List of IDs of redshift subnets"
+  },
+  {
+    "name": "default_vpc_default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  }
+]

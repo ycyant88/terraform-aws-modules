@@ -1,0 +1,22 @@
+[
+  {
+    "name": "trust_store_id",
+    "description": "ARN of the trust store (matches `arn`)."
+  },
+  {
+    "name": "trust_store_name",
+    "description": "Name of the trust store."
+  },
+  {
+    "name": "revocation_lists",
+    "description": "Map of revocation lists and their attributes."
+  },
+  {
+    "name": "trust_store_arn_suffix",
+    "description": "ARN suffix for use with cloudwatch metrics."
+  },
+  {
+    "name": "trust_store_arn",
+    "description": "ARN of the trust store (matches `id`)."
+  }
+]

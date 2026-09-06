@@ -1,0 +1,30 @@
+[
+  {
+    "name": "instance_profile_arn",
+    "description": "ARN assigned by AWS to the instance profile"
+  },
+  {
+    "name": "instance_profile_id",
+    "description": "Instance profile's ID"
+  },
+  {
+    "name": "instance_profile_name",
+    "description": "Name of IAM instance profile"
+  },
+  {
+    "name": "instance_profile_unique_id",
+    "description": "Stable and unique string identifying the IAM instance profile"
+  },
+  {
+    "name": "name",
+    "description": "The name of the IAM role"
+  },
+  {
+    "name": "arn",
+    "description": "The Amazon Resource Name (ARN) specifying the IAM role"
+  },
+  {
+    "name": "unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  }
+]

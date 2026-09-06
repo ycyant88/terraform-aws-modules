@@ -1,0 +1,10 @@
+module "wafv2" {
+  source                  = "terraform-aws-modules/wafv2/aws"
+  version                 = "1.1.1"
+  create                  = var.create
+  log_destination_configs = var.log_destination_configs
+  logging_filter          = var.logging_filter
+  putin_khuylo            = var.putin_khuylo
+  redacted_fields         = var.redacted_fields
+  resource_arn            = var.resource_arn
+}

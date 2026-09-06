@@ -1,0 +1,18 @@
+[
+  {
+    "name": "default_user_arn",
+    "description": "ARN of the default user"
+  },
+  {
+    "name": "group_arn",
+    "description": "The ARN that identifies the user group"
+  },
+  {
+    "name": "group_id",
+    "description": "The user group identifier"
+  },
+  {
+    "name": "users",
+    "description": "A map of users created and their attributes"
+  }
+]

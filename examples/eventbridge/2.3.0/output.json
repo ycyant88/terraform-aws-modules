@@ -1,0 +1,66 @@
+[
+  {
+    "name": "eventbridge_connection_arns",
+    "description": "The EventBridge Connection Arns"
+  },
+  {
+    "name": "eventbridge_schedule_group_ids",
+    "description": "The EventBridge Schedule Group IDs"
+  },
+  {
+    "name": "eventbridge_schedule_group_states",
+    "description": "The EventBridge Schedule Group states"
+  },
+  {
+    "name": "eventbridge_role_arn",
+    "description": "The ARN of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_role_name",
+    "description": "The name of the IAM role created for EventBridge"
+  },
+  {
+    "name": "eventbridge_bus_name",
+    "description": "The EventBridge Bus Name"
+  },
+  {
+    "name": "eventbridge_permission_ids",
+    "description": "The EventBridge Permission IDs"
+  },
+  {
+    "name": "eventbridge_connection_ids",
+    "description": "The EventBridge Connection IDs"
+  },
+  {
+    "name": "eventbridge_api_destination_arns",
+    "description": "The EventBridge API Destination ARNs"
+  },
+  {
+    "name": "eventbridge_rule_ids",
+    "description": "The EventBridge Rule IDs"
+  },
+  {
+    "name": "eventbridge_schedule_group_arns",
+    "description": "The EventBridge Schedule Group ARNs"
+  },
+  {
+    "name": "eventbridge_bus_arn",
+    "description": "The EventBridge Bus ARN"
+  },
+  {
+    "name": "eventbridge_archive_arns",
+    "description": "The EventBridge Archive ARNs"
+  },
+  {
+    "name": "eventbridge_rule_arns",
+    "description": "The EventBridge Rule ARNs"
+  },
+  {
+    "name": "eventbridge_schedule_ids",
+    "description": "The EventBridge Schedule IDs created"
+  },
+  {
+    "name": "eventbridge_schedule_arns",
+    "description": "The EventBridge Schedule ARNs created"
+  }
+]

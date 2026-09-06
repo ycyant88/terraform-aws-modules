@@ -1,0 +1,10 @@
+[
+  {
+    "name": "this_ecs_cluster_id",
+    "description": ""
+  },
+  {
+    "name": "this_ecs_cluster_arn",
+    "description": ""
+  }
+]

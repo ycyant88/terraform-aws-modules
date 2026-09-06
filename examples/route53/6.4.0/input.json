@@ -1,0 +1,149 @@
+[
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Tags added to all zones. Will take precedence over tags from the 'zones' variable",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_zone",
+    "type": "bool",
+    "description": "Determines whether to create the Route53 zone or lookup an existing zone",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ignore_vpc",
+    "type": "bool",
+    "description": "Determines whether to ignore VPC association changes after creation to avoid disruptive diffs when using `aws_route53_zone_association` resource(s). Changing is a destructive action; users should be prepared to use Terraform state move commands/blocks when changing this value",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Timeouts for the Route53 zone operations",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_association_authorizations",
+    "type": "map(object({\n    vpc_id     = string\n    vpc_region = optional(string)\n  }))",
+    "description": "A map of VPC association authorizations to create for the Route53 zone",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dnssec_kms_key_arn",
+    "type": "string",
+    "description": "The ARN of the KMS key to use for DNSSEC signing. Required when `create_dnssec_kms_key` is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Route53 zone",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "private_zone",
+    "type": "bool",
+    "description": "Whether the hosted zone is private. Only applicable when `create_zone = false`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "comment",
+    "type": "string",
+    "description": "A comment for the hosted zone. Defaults to `Managed by Terraform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "Whether to destroy all records (possibly managed outside of Terraform) in the zone when destroying the zone",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_dnssec",
+    "type": "bool",
+    "description": "Whether to enable DNSSEC for the Route53 zone",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "dnssec_kms_key_aliases",
+    "type": "list(string)",
+    "description": "A list of aliases to create. Note - due to the use of `toset()`, values must be static strings and not computed values",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dnssec_kms_key_tags",
+    "type": "map(string)",
+    "description": "Additional tags to apply to the KMS key created for DNSSEC signing",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_id",
+    "type": "string",
+    "description": "The ID of the VPC associated with the existing hosted zone. Only applicable when `create_zone = false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc",
+    "type": "map(object({\n    vpc_id     = string\n    vpc_region = optional(string)\n  }))",
+    "description": " Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the delegation_set_id argument in this resource and any aws_route53_zone_association resource specifying the same zone ID",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_dnssec_kms_key",
+    "type": "bool",
+    "description": "Whether to create a KMS key for DNSSEC signing",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "delegation_set_id",
+    "type": "string",
+    "description": "The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with vpc as delegation sets can only be used for public zones",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_accelerated_recovery",
+    "type": "bool",
+    "description": "Whether to enable Route 53 Accelerated Recovery for the public hosted zone. When enabled, provides a 60-minute RTO for resuming DNS record management if the US East (N. Virginia) Region becomes unavailable. Only applies to public hosted zones",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "This is the name of the hosted zone",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dnssec_kms_key_description",
+    "type": "string",
+    "description": "The description of the key as viewed in AWS console",
+    "default": "\"Route53 DNSSEC KMS Key\"",
+    "required": false
+  },
+  {
+    "name": "records",
+    "type": "map(object({\n    alias = optional(object({\n      evaluate_target_health = optional(bool, false)\n      name                   = string\n      zone_id                = string\n    }))\n    allow_overwrite = optional(bool)\n    cidr_routing_policy = optional(object({\n      collection_id = string\n      location_name = string\n    }))\n    failover_routing_policy = optional(object({\n      type = string\n    }))\n    geolocation_routing_policy = optional(object({\n      continent   = optional(string)\n      country     = optional(string)\n      subdivision = optional(string)\n    }))\n    geoproximity_routing_policy = optional(object({\n      aws_region = optional(string)\n      bias       = optional(number)\n      coordinates = optional(list(object({\n        latitude  = number\n        longitude = number\n      })))\n      local_zone_group = optional(string)\n    }))\n    health_check_id = optional(string)\n    latency_routing_policy = optional(object({\n      region = string\n    }))\n    multivalue_answer_routing_policy = optional(bool)\n    name                             = optional(string)\n    full_name                        = optional(string)\n    records                          = optional(list(string))\n    set_identifier                   = optional(string)\n    ttl                              = optional(number)\n    type                             = string\n    weighted_routing_policy = optional(object({\n      weight = number\n    }))\n    timeouts = optional(object({\n      create = optional(string)\n      update = optional(string)\n      delete = optional(string)\n    }))\n  }))",
+    "description": "A map of Route53 records to create in the zone. The key can be used as the subdomain name, or `name` can be used to specify the full name",
+    "default": "{}",
+    "required": false
+  }
+]

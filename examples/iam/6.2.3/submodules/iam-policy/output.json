@@ -1,0 +1,18 @@
+[
+  {
+    "name": "id",
+    "description": "The policy's ID"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN assigned by AWS to this policy"
+  },
+  {
+    "name": "name",
+    "description": "The name of the policy"
+  },
+  {
+    "name": "policy",
+    "description": "The policy document"
+  }
+]

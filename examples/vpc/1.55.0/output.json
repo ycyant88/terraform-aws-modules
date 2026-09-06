@@ -1,0 +1,254 @@
+[
+  {
+    "name": "default_vpc_default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "private_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of private subnets"
+  },
+  {
+    "name": "default_vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "default_vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EC2MESSAGES"
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SSMMESSAGES."
+  },
+  {
+    "name": "default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "elasticache_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of elasticache subnets"
+  },
+  {
+    "name": "vgw_id",
+    "description": "The ID of the VPN Gateway"
+  },
+  {
+    "name": "default_vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "elasticache_subnet_group",
+    "description": "ID of elasticache subnet group"
+  },
+  {
+    "name": "intra_route_table_ids",
+    "description": "List of IDs of intra route tables"
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EC2MESSAGES."
+  },
+  {
+    "name": "private_route_table_ids",
+    "description": "List of IDs of private route tables"
+  },
+  {
+    "name": "public_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of public subnets"
+  },
+  {
+    "name": "default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "vpc_secondary_cidr_blocks",
+    "description": "List of secondary CIDR blocks of the VPC"
+  },
+  {
+    "name": "default_vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "azs",
+    "description": "A list of availability zones specified as argument to this module"
+  },
+  {
+    "name": "database_subnet_group",
+    "description": "ID of database subnet group"
+  },
+  {
+    "name": "redshift_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of redshift subnets"
+  },
+  {
+    "name": "nat_ids",
+    "description": "List of allocation ID of Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_pl_id",
+    "description": "The prefix list for the DynamoDB VPC endpoint."
+  },
+  {
+    "name": "vpc_endpoint_ec2_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for EC2."
+  },
+  {
+    "name": "vpc_endpoint_ec2messages_id",
+    "description": "The ID of VPC endpoint for EC2MESSAGES"
+  },
+  {
+    "name": "database_subnets",
+    "description": "List of IDs of database subnets"
+  },
+  {
+    "name": "intra_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of intra subnets"
+  },
+  {
+    "name": "default_vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "vpc_endpoint_dynamodb_id",
+    "description": "The ID of VPC endpoint for DynamoDB"
+  },
+  {
+    "name": "vpc_endpoint_ec2_id",
+    "description": "The ID of VPC endpoint for EC2"
+  },
+  {
+    "name": "vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "vpc_main_route_table_id",
+    "description": "The ID of the main route table associated with this VPC"
+  },
+  {
+    "name": "intra_subnets",
+    "description": "List of IDs of intra subnets"
+  },
+  {
+    "name": "database_route_table_ids",
+    "description": "List of IDs of database route tables"
+  },
+  {
+    "name": "vpc_endpoint_ssm_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SSM."
+  },
+  {
+    "name": "igw_id",
+    "description": "The ID of the Internet Gateway"
+  },
+  {
+    "name": "vpc_endpoint_ssm_dns_entry",
+    "description": "The DNS entries for the VPC Endpoint for SSM."
+  },
+  {
+    "name": "redshift_subnet_group",
+    "description": "ID of redshift subnet group"
+  },
+  {
+    "name": "public_route_table_ids",
+    "description": "List of IDs of public route tables"
+  },
+  {
+    "name": "default_vpc_default_security_group_id",
+    "description": "The ID of the security group created by default on VPC creation"
+  },
+  {
+    "name": "default_route_table_id",
+    "description": "The ID of the default route table"
+  },
+  {
+    "name": "default_vpc_default_network_acl_id",
+    "description": "The ID of the default network ACL"
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for SSMMESSAGES."
+  },
+  {
+    "name": "private_subnets",
+    "description": "List of IDs of private subnets"
+  },
+  {
+    "name": "database_subnets_cidr_blocks",
+    "description": "List of cidr_blocks of database subnets"
+  },
+  {
+    "name": "vpc_endpoint_ssm_id",
+    "description": "The ID of VPC endpoint for SSM"
+  },
+  {
+    "name": "vpc_instance_tenancy",
+    "description": "Tenancy of instances spin up within VPC"
+  },
+  {
+    "name": "vpc_enable_dns_support",
+    "description": "Whether or not the VPC has DNS support"
+  },
+  {
+    "name": "elasticache_route_table_ids",
+    "description": "List of IDs of elasticache route tables"
+  },
+  {
+    "name": "default_vpc_enable_dns_hostnames",
+    "description": "Whether or not the VPC has DNS hostname support"
+  },
+  {
+    "name": "vpc_endpoint_ssmmessages_id",
+    "description": "The ID of VPC endpoint for SSMMESSAGES"
+  },
+  {
+    "name": "vpc_id",
+    "description": "The ID of the VPC"
+  },
+  {
+    "name": "nat_public_ips",
+    "description": "List of public Elastic IPs created for AWS NAT Gateway"
+  },
+  {
+    "name": "vpc_endpoint_ec2_network_interface_ids",
+    "description": "One or more network interfaces for the VPC Endpoint for EC2"
+  },
+  {
+    "name": "vpc_cidr_block",
+    "description": "The CIDR block of the VPC"
+  },
+  {
+    "name": "redshift_subnets",
+    "description": "List of IDs of redshift subnets"
+  },
+  {
+    "name": "natgw_ids",
+    "description": "List of NAT Gateway IDs"
+  },
+  {
+    "name": "vpc_endpoint_s3_id",
+    "description": "The ID of VPC endpoint for S3"
+  },
+  {
+    "name": "vpc_endpoint_s3_pl_id",
+    "description": "The prefix list for the S3 VPC endpoint."
+  },
+  {
+    "name": "public_subnets",
+    "description": "List of IDs of public subnets"
+  },
+  {
+    "name": "elasticache_subnets",
+    "description": "List of IDs of elasticache subnets"
+  },
+  {
+    "name": "elasticache_subnet_group_name",
+    "description": "Name of elasticache subnet group"
+  },
+  {
+    "name": "redshift_route_table_ids",
+    "description": "List of IDs of redshift route tables"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "root_block_device",
+    "type": "list",
+    "description": "Customize details about the root block device of the instance",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "count",
+    "type": "string",
+    "description": "Whether to create launch configuration",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "The size of instance to launch",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "user_data",
+    "type": "string",
+    "description": "The user data to provide when launching the instance",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "spot_price",
+    "type": "number",
+    "description": "The price to use for reserving spot instances",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "placement_tenancy",
+    "type": "string",
+    "description": "The tenancy of the instance. Valid values are 'default' or 'dedicated'",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Creates a unique name beginning with the specified prefix",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "image_id",
+    "type": "string",
+    "description": "The EC2 image ID to launch",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ebs_optimized",
+    "type": "bool",
+    "description": "If true, the launched EC2 instance will be EBS-optimized",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ephemeral_block_device",
+    "type": "list",
+    "description": "Customize Ephemeral (also known as 'Instance Store') volumes on the instance",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ebs_block_device",
+    "type": "list",
+    "description": "Additional EBS block devices to attach to the instance",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_instance_profile",
+    "type": "string",
+    "description": "The IAM instance profile to associate with launched instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "key_name",
+    "type": "string",
+    "description": "The key name that should be used for the instance",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "security_groups",
+    "type": "list",
+    "description": "A list of security group IDs to assign to the launch configuration",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "associate_public_ip_address",
+    "type": "bool",
+    "description": "Associate a public ip address with an instance in a VPC",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_monitoring",
+    "type": "bool",
+    "description": "Enables/disables detailed monitoring. This is enabled by default.",
+    "default": "true",
+    "required": false
+  }
+]

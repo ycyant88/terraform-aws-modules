@@ -1,0 +1,366 @@
+[
+  {
+    "name": "policies",
+    "type": "list(string)",
+    "description": "List of policy statements ARN to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_role",
+    "type": "bool",
+    "description": "Controls whether IAM roles should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_name",
+    "type": "string",
+    "description": "Name of IAM role to use for Lambda Function",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "attach_kinesis_firehose_policy",
+    "type": "bool",
+    "description": "Controls whether the Kinesis Firehose policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_ecs_policy",
+    "type": "bool",
+    "description": "Controls whether the ECS policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_policy_json",
+    "type": "bool",
+    "description": "Controls whether policy_json should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "number_of_policies",
+    "type": "number",
+    "description": "Number of policies to attach to IAM role",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "policy_statements",
+    "type": "any",
+    "description": "Map of dynamic policy statements to attach to IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "role_description",
+    "type": "string",
+    "description": "Description of IAM role to use for Lambda Function",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "role_path",
+    "type": "string",
+    "description": "Path of IAM role to use for Lambda Function",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "role_force_detach_policies",
+    "type": "bool",
+    "description": "Specifies to force detaching any policies the IAM role has before destroying it.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "attach_lambda_policy",
+    "type": "bool",
+    "description": "Controls whether the Lambda Function policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudwatch_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the Cloudwatch Log Streams you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "attach_policy_jsons",
+    "type": "bool",
+    "description": "Controls whether policy_jsons should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_rules",
+    "type": "bool",
+    "description": "Controls whether EventBridge Rule resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_connections",
+    "type": "bool",
+    "description": "Controls whether EventBridge Connection resources should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "permissions",
+    "type": "map(any)",
+    "description": "A map of objects with EventBridge Permission definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_cloudwatch_policy",
+    "type": "bool",
+    "description": "Controls whether the Cloudwatch policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_policy",
+    "type": "bool",
+    "description": "Controls whether policy should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "number_of_policy_jsons",
+    "type": "number",
+    "description": "Number of policies JSON to attach to IAM role",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "create_bus",
+    "type": "bool",
+    "description": "Controls whether EventBridge Bus resource should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_permissions",
+    "type": "bool",
+    "description": "Controls whether EventBridge Permission resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "targets",
+    "type": "any",
+    "description": "A map of objects with EventBridge Target definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "archives",
+    "type": "map(any)",
+    "description": "A map of objects with the EventBridge Archive definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "connections",
+    "type": "any",
+    "description": "A map of objects with EventBridge Connection definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "sfn_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the StepFunctions you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "An additional policy document ARN to attach to IAM role",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_api_destinations",
+    "type": "bool",
+    "description": "Controls whether EventBridge Destination resources should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_sfn_policy",
+    "type": "bool",
+    "description": "Controls whether the StepFunction policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_policies",
+    "type": "bool",
+    "description": "Controls whether list of policies should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "trusted_entities",
+    "type": "list(string)",
+    "description": "Step Function additional trusted entities for assuming roles (trust relationship)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_archives",
+    "type": "bool",
+    "description": "Controls whether EventBridge Archive resources should be created",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "map(any)",
+    "description": "A map of objects with EventBridge Rule definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "api_destinations",
+    "type": "map(any)",
+    "description": "A map of objects with EventBridge Destination definitions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "kinesis_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the Kinesis Streams you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_json",
+    "type": "string",
+    "description": "An additional policy document as JSON to attach to IAM role",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_jsons",
+    "type": "list(string)",
+    "description": "List of additional policy documents as JSON to attach to IAM role",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "role_permissions_boundary",
+    "type": "string",
+    "description": "The ARN of the policy that is used to set the permissions boundary for the IAM role used by Lambda Function",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "role_tags",
+    "type": "map(string)",
+    "description": "A map of tags to assign to IAM role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "attach_kinesis_policy",
+    "type": "bool",
+    "description": "Controls whether the Kinesis policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sqs_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the AWS SQS Queues you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ecs_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the AWS ECS Tasks you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "lambda_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the Lambda Functions you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kinesis_firehose_target_arns",
+    "type": "list(string)",
+    "description": "The Amazon Resource Name (ARN) of the Kinesis Firehose Delivery Streams you want to use as EventBridge targets",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "attach_policy_statements",
+    "type": "bool",
+    "description": "Controls whether policy_statements should be added to IAM role",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls whether resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_targets",
+    "type": "bool",
+    "description": "Controls whether EventBridge Target resources should be created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bus_name",
+    "type": "string",
+    "description": "A unique name for your EventBridge Bus",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "attach_sqs_policy",
+    "type": "bool",
+    "description": "Controls whether the SQS policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_api_destination_policy",
+    "type": "bool",
+    "description": "Controls whether the API Destination policy should be added to IAM role for EventBridge Target",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "attach_tracing_policy",
+    "type": "bool",
+    "description": "Controls whether X-Ray tracing policy should be added to IAM role for EventBridge",
+    "default": "false",
+    "required": false
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "iam_role_name",
+    "description": "IAM role name"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "IAM role ARN"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the IAM role"
+  }
+]

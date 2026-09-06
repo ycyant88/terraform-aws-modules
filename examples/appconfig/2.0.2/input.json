@@ -1,0 +1,303 @@
+[
+  {
+    "name": "s3_configuration_object_key",
+    "type": "string",
+    "description": "Name of the configuration object/file stored in the S3 bucket",
+    "default": "\"*\"",
+    "required": false
+  },
+  {
+    "name": "use_s3_configuration",
+    "type": "bool",
+    "description": "Determines whether an S3 configuration is used",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "hosted_config_version_content",
+    "type": "string",
+    "description": "The content of the configuration or the configuration data",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_deployment_duration_in_minutes",
+    "type": "number",
+    "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "config_profile_type",
+    "type": "string",
+    "description": "Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "config_profile_location_uri",
+    "type": "string",
+    "description": "A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object",
+    "default": "\"hosted\"",
+    "required": false
+  },
+  {
+    "name": "config_profile_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the configuration profile",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the configuration retrieval role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_ssm_parameter_configuration",
+    "type": "bool",
+    "description": "Determines whether an SSM parameter configuration is used",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "use_ssm_document_configuration",
+    "type": "bool",
+    "description": "Determines whether an SSM document configuration is used",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_final_bake_time_in_minutes",
+    "type": "number",
+    "description": "Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_growth_factor",
+    "type": "number",
+    "description": "The percentage of targets to receive a deployed configuration during each interval. Minimum value of 1, maximum value of 100",
+    "default": "100",
+    "required": false
+  },
+  {
+    "name": "ssm_parameter_configuration_arn",
+    "type": "string",
+    "description": "ARN of the configuration SSM parameter",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_hosted_configuration",
+    "type": "bool",
+    "description": "Determines whether a hosted configuration is used",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_replicate_to",
+    "type": "string",
+    "description": "Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`",
+    "default": "\"NONE\"",
+    "required": false
+  },
+  {
+    "name": "deployment_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the deployment",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_retrieval_role",
+    "type": "bool",
+    "description": "Determines whether configuration retrieval IAM role is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_growth_type",
+    "type": "string",
+    "description": "The algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deployment_description",
+    "type": "string",
+    "description": "A description of the deployment. Can be at most 1024 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deployment_configuration_version",
+    "type": "string",
+    "description": "The configuration version to deploy. Can be at most 1024 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name for the application. Must be between 1 and 64 characters in length",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "s3_configuration_bucket_arn",
+    "type": "string",
+    "description": "The ARN of the configuration S3 bucket",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_deployment_strategy",
+    "type": "bool",
+    "description": "Determines whether a deployment strategy is created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_description",
+    "type": "string",
+    "description": "A description of the deployment strategy. Can be at most 1024 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "environments",
+    "type": "map(any)",
+    "description": "Map of attributes for AppConfig environment resource(s)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "config_profile_validator",
+    "type": "list(map(any))",
+    "description": "A set of methods for validating the configuration. Maximum of 2",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether to a name or name-prefix strategy is used on the role",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_path",
+    "type": "string",
+    "description": "Path to the configuration retrieval role",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the configuration retrieval role",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_tags",
+    "type": "map(string)",
+    "description": "A map of additional tags to apply to the deployment strategy",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A list of tag blocks. Each element should have keys named key, value, and propagate_at_launch",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the application. Can be at most 1024 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "config_profile_description",
+    "type": "string",
+    "description": "The description of the configuration profile. Can be at most 1024 characters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssm_document_configuration_arn",
+    "type": "string",
+    "description": "ARN of the configuration SSM document",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "hosted_config_version_content_type",
+    "type": "string",
+    "description": "A standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_id",
+    "type": "string",
+    "description": "An existing AppConfig deployment strategy ID",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Determines whether resources are created",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_name",
+    "type": "string",
+    "description": "The name for the configuration retrieval role",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "deployment_strategy_name",
+    "type": "string",
+    "description": "A name for the deployment strategy. Must be between 1 and 64 characters in length",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "hosted_config_version_description",
+    "type": "string",
+    "description": "A description of the configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "config_profile_name",
+    "type": "string",
+    "description": "The name for the configuration profile. Must be between 1 and 64 characters in length",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "config_profile_retrieval_role_arn",
+    "type": "string",
+    "description": "The ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "retrieval_role_description",
+    "type": "string",
+    "description": "Description of the configuration retrieval role",
+    "default": "null",
+    "required": false
+  }
+]

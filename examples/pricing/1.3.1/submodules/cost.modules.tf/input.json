@@ -1,0 +1,30 @@
+[
+  {
+    "name": "enabled",
+    "type": "bool",
+    "description": "Whether to enable this module and call cost.modules.tf",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "content",
+    "type": "string",
+    "description": "Content of tfstate or plan file as json",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "filename_hash",
+    "type": "string",
+    "description": "Extra hash to add to created filenames",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tmp_dir",
+    "type": "string",
+    "description": "Name of local temp directory to create files in",
+    "default": "\"tmp\"",
+    "required": false
+  }
+]

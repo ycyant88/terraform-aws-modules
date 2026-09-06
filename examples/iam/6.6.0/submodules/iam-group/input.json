@@ -1,0 +1,107 @@
+[
+  {
+    "name": "policy_name",
+    "type": "string",
+    "description": "Name to use on IAM policy created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_self_management_permissions",
+    "type": "bool",
+    "description": "Determines whether permissions are added to the policy which allow the groups IAM users to manage their credentials and MFA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "policy_use_name_prefix",
+    "type": "bool",
+    "description": "Determines whether the IAM policy name (`policy_name`) is used as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "policy_description",
+    "type": "string",
+    "description": "Description of the IAM policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policy_path",
+    "type": "string",
+    "description": "The IAM policy path",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "users",
+    "type": "list(string)",
+    "description": "A list of IAM User names to associate with the Group",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_policy",
+    "type": "bool",
+    "description": "Whether to create IAM policy for IAM group",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Controls if resources should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Path in which to create the group",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "permissions",
+    "type": "map(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string, \"Allow\")\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    condition = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permissions",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "policies",
+    "type": "map(string)",
+    "description": "Policies to attach to the IAM role in `{'static_name' = 'policy_arn'}` format",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "users_account_id",
+    "type": "string",
+    "description": "An overriding AWS account ID where the group's users reside; leave empty to use the current account ID for the AWS provider",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_mfa_enforcement",
+    "type": "bool",
+    "description": "Determines whether permissions are added to the policy which requires the groups IAM users to use MFA",
+    "default": "true",
+    "required": false
+  }
+]

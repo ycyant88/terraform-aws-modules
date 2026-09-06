@@ -1,0 +1,42 @@
+[
+  {
+    "name": "domain_dashboard_endpoint",
+    "description": "Domain-specific endpoint for Dashboard without https scheme"
+  },
+  {
+    "name": "package_associations",
+    "description": "Map of package associations created and their attributes"
+  },
+  {
+    "name": "vpc_endpoints",
+    "description": "Map of VPC endpoints created and their attributes"
+  },
+  {
+    "name": "outbound_connections",
+    "description": "Map of outbound connections created and their attributes"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "domain_arn",
+    "description": "The Amazon Resource Name (ARN) of the domain"
+  },
+  {
+    "name": "domain_id",
+    "description": "The unique identifier for the domain"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "domain_endpoint",
+    "description": "Domain-specific endpoint used to submit index, search, and data upload requests"
+  },
+  {
+    "name": "cloudwatch_logs",
+    "description": "Map of CloudWatch log groups created and their attributes"
+  }
+]

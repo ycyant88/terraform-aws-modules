@@ -1,0 +1,10 @@
+[
+  {
+    "name": "this_repository_webhook_secret",
+    "description": "Webhook secret"
+  },
+  {
+    "name": "this_repository_webhook_urls",
+    "description": "Webhook URL"
+  }
+]

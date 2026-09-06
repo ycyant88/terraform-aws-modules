@@ -1,0 +1,102 @@
+[
+  {
+    "name": "task_definition_revision",
+    "description": "Revision of the task in a particular family"
+  },
+  {
+    "name": "task_set_id",
+    "description": "The ID of the task set"
+  },
+  {
+    "name": "task_set_arn",
+    "description": "The Amazon Resource Name (ARN) that identifies the task set"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "Service IAM role name"
+  },
+  {
+    "name": "task_definition_arn",
+    "description": "Full ARN of the Task Definition (including both `family` and `revision`)"
+  },
+  {
+    "name": "task_exec_iam_role_name",
+    "description": "Task execution IAM role name"
+  },
+  {
+    "name": "task_exec_iam_role_unique_id",
+    "description": "Stable and unique string identifying the task execution IAM role"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group"
+  },
+  {
+    "name": "infrastructure_iam_role_arn",
+    "description": "Infrastructure IAM role ARN"
+  },
+  {
+    "name": "container_definitions",
+    "description": "Container definitions"
+  },
+  {
+    "name": "task_definition_family",
+    "description": "The unique name of the task definition"
+  },
+  {
+    "name": "task_set_status",
+    "description": "The status of the task set"
+  },
+  {
+    "name": "autoscaling_scheduled_actions",
+    "description": "Map of autoscaling scheduled actions and their attributes"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "Amazon Resource Name (ARN) of the security group"
+  },
+  {
+    "name": "name",
+    "description": "Name of the service"
+  },
+  {
+    "name": "task_exec_iam_role_arn",
+    "description": "Task execution IAM role ARN"
+  },
+  {
+    "name": "tasks_iam_role_name",
+    "description": "Tasks IAM role name"
+  },
+  {
+    "name": "tasks_iam_role_arn",
+    "description": "Tasks IAM role ARN"
+  },
+  {
+    "name": "tasks_iam_role_unique_id",
+    "description": "Stable and unique string identifying the tasks IAM role"
+  },
+  {
+    "name": "task_set_stability_status",
+    "description": "The stability status. This indicates whether the task set has reached a steady state"
+  },
+  {
+    "name": "autoscaling_policies",
+    "description": "Map of autoscaling policies and their attributes"
+  },
+  {
+    "name": "infrastructure_iam_role_name",
+    "description": "Infrastructure IAM role name"
+  },
+  {
+    "name": "id",
+    "description": "ARN that identifies the service"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "Service IAM role ARN"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Stable and unique string identifying the service IAM role"
+  }
+]

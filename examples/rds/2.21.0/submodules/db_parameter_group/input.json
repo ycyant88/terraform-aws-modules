@@ -1,0 +1,65 @@
+[
+  {
+    "name": "family",
+    "type": "string",
+    "description": "The family of the DB parameter group",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "parameters",
+    "type": "list(map(string))",
+    "description": "A list of DB parameter maps to apply",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A mapping of tags to assign to the resource",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create this resource or not?",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the DB parameter group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "Creates a unique name beginning with the specified prefix",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the DB parameter group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "identifier",
+    "type": "string",
+    "description": "The identifier of the resource",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use name_prefix or not",
+    "default": "true",
+    "required": false
+  }
+]
