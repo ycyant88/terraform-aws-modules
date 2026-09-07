@@ -1,0 +1,30 @@
+[
+  {
+    "name": "multi_region_properties",
+    "description": "Multi-region properties of the DSQL cluster"
+  },
+  {
+    "name": "vpc_endpoint_service_name",
+    "description": "The DSQL cluster's VPC endpoint service name"
+  },
+  {
+    "name": "cluster_policy",
+    "description": "The Aurora DSQL cluster resource-based policy document"
+  },
+  {
+    "name": "cluster_policy_version",
+    "description": "The version of the Aurora DSQL cluster resource-based policy document"
+  },
+  {
+    "name": "arn",
+    "description": "ARN of the cluster"
+  },
+  {
+    "name": "identifier",
+    "description": "Cluster identifier"
+  },
+  {
+    "name": "encryption_details",
+    "description": "Encryption configuration details for the DSQL cluster"
+  }
+]
