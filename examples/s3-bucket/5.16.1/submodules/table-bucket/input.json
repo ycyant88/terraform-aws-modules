@@ -1,0 +1,86 @@
+[
+  {
+    "name": "tables",
+    "type": "map(object({\n    table_name = optional(string)\n    namespace  = string\n    format     = string\n    tags       = optional(map(string), {})\n\n    encryption_configuration = optional(object({\n      kms_key_arn   = optional(string)\n      sse_algorithm = optional(string)\n    }))\n    maintenance_configuration = optional(object({\n      iceberg_compaction = optional(object({\n        settings = optional(object({\n          target_file_size_mb = optional(number)\n        }))\n        status = optional(string)\n      }))\n      iceberg_snapshot_management = optional(object({\n        settings = optional(object({\n          max_snapshot_age_hours = optional(number)\n          min_snapshots_to_keep  = optional(number)\n        }))\n        status = optional(string)\n      }))\n    }))\n    metadata = optional(object({\n      iceberg = optional(object({\n        schema = optional(object({\n          field = optional(map(object({\n            name     = optional(string)\n            type     = string\n            required = optional(bool)\n          })), {})\n        }))\n      }))\n    }))\n\n    create_table_policy = optional(bool, false)\n    policy_statements = optional(list(object({\n      sid           = optional(string)\n      actions       = optional(list(string))\n      not_actions   = optional(list(string))\n      effect        = optional(string)\n      resources     = optional(list(string))\n      not_resources = optional(list(string))\n      principals = optional(list(object({\n        type        = string\n        identifiers = list(string)\n      })))\n      not_principals = optional(list(object({\n        type        = string\n        identifiers = list(string)\n      })))\n      conditions = optional(list(object({\n        test     = string\n        values   = list(string)\n        variable = string\n      })))\n    })), [])\n  }))",
+    "description": "Map of table configurations",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create s3 table resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "table_bucket_name",
+    "type": "string",
+    "description": "Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_table_bucket_policy",
+    "type": "bool",
+    "description": "Whether to create s3 table bucket policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "table_bucket_policy",
+    "type": "string",
+    "description": "Amazon Web Services resource-based policy document in JSON format",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "table_bucket_policy_statements",
+    "type": "list(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string)\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    conditions = optional(list(object({\n      test     = string\n      values   = list(string)\n      variable = string\n    })))\n  }))",
+    "description": "A map of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) for custom permission usage",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Key-value map of resource tags",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "encryption_configuration",
+    "type": "object({\n    kms_key_arn   = optional(string)\n    sse_algorithm = optional(string)\n  })",
+    "description": "Encryption configuration for the table bucket",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_configuration",
+    "type": "object({\n    iceberg_unreferenced_file_removal = optional(object({\n      settings = optional(object({\n        non_current_days  = optional(number)\n        unreferenced_days = optional(number)\n      }))\n      status = optional(string)\n    }))\n  })",
+    "description": "Maintenance configuration for the table bucket",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "table_bucket_source_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "table_bucket_override_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  }
+]

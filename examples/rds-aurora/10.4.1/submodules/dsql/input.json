@@ -1,0 +1,128 @@
+[
+  {
+    "name": "cluster_policy_bypass_lockout_safety_check",
+    "type": "bool",
+    "description": "Whether to bypass the policy lockout safety check when applying the policy. Use with caution, as the policy may lock you out of the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name used across resources created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "clusters",
+    "type": "list(string)",
+    "description": "List of DSQL Cluster ARNs to be peered to this cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Timeout configuration for the DSQL cluster resource-based policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "A map of tags to add to all resources",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_cluster_policy",
+    "type": "bool",
+    "description": "Whether to create the DSQL cluster resource-based policy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_policy",
+    "type": "string",
+    "description": "The Aurora DSQL cluster resource-based policy document as a JSON string. Ignored if cluster_policy_statements, cluster_policy_source_policy_documents, or cluster_policy_override_policy_documents are set.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_source_policy_documents",
+    "type": "list(string)",
+    "description": "List of policy documents to include in the DSQL cluster resource-based policy. Merged with the inline policy.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether cluster should be created (affects all resources)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "Destroys cluster even if deletion_protection_enabled is set to true. Default value is false",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_cluster_peering",
+    "type": "bool",
+    "description": "Whether to create cluster peering",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_statements",
+    "type": "list(object({\n    sid       = optional(string)\n    effect    = optional(string)\n    actions   = optional(list(string))\n    resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    conditions = optional(list(object({\n      test     = string\n      variable = string\n      values   = list(string)\n    })))\n  }))",
+    "description": "List of IAM policy statement objects to include in the DSQL cluster resource-based policy. Each statement should have: sid, actions, effect, principals, not_principals, resources, conditions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "cluster_policy_override_policy_documents",
+    "type": "list(string)",
+    "description": "List of policy documents to override the DSQL cluster resource-based policy. These policies completely replace the inline policy.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "deletion_protection_enabled",
+    "type": "bool",
+    "description": "Whether deletion protection is enabled in this cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_encryption_key",
+    "type": "string",
+    "description": "The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `AWS_OWNED_KMS_KEY`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "witness_region",
+    "type": "string",
+    "description": "Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n  })",
+    "description": "Timeout configuration for the cluster",
+    "default": "null",
+    "required": false
+  }
+]

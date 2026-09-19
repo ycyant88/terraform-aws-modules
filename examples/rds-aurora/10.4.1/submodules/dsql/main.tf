@@ -1,0 +1,22 @@
+module "rds-aurora" {
+  source                                     = "terraform-aws-modules/rds-aurora/aws"
+  version                                    = "10.4.1"
+  cluster_policy                             = var.cluster_policy
+  cluster_policy_bypass_lockout_safety_check = var.cluster_policy_bypass_lockout_safety_check
+  cluster_policy_override_policy_documents   = var.cluster_policy_override_policy_documents
+  cluster_policy_source_policy_documents     = var.cluster_policy_source_policy_documents
+  cluster_policy_statements                  = var.cluster_policy_statements
+  cluster_policy_timeouts                    = var.cluster_policy_timeouts
+  clusters                                   = var.clusters
+  create                                     = var.create
+  create_cluster_peering                     = var.create_cluster_peering
+  create_cluster_policy                      = var.create_cluster_policy
+  deletion_protection_enabled                = var.deletion_protection_enabled
+  force_destroy                              = var.force_destroy
+  kms_encryption_key                         = var.kms_encryption_key
+  name                                       = var.name
+  region                                     = var.region
+  tags                                       = var.tags
+  timeouts                                   = var.timeouts
+  witness_region                             = var.witness_region
+}
