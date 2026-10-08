@@ -1,0 +1,10 @@
+[
+  {
+    "name": "image_uri",
+    "description": "The ECR image URI for deploying lambda"
+  },
+  {
+    "name": "image_id",
+    "description": "The ID of the Docker image"
+  }
+]

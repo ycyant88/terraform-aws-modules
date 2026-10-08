@@ -1,0 +1,30 @@
+[
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create Github repository webhook for Atlantis",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "repositories",
+    "type": "list(string)",
+    "description": "List of names of repositories which belong to the owner specified in `github_owner`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "webhook_url",
+    "type": "string",
+    "description": "Webhook URL",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "webhook_secret",
+    "type": "string",
+    "description": "Webhook secret",
+    "default": "\"\"",
+    "required": false
+  }
+]
