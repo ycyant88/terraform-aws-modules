@@ -1,0 +1,289 @@
+[
+  {
+    "name": "accept_bucket_warning",
+    "type": "bool",
+    "description": "Whether to acknowledge the warning AWS raises when the bucket holds enough objects that renaming a prefix is slow",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_path",
+    "type": "string",
+    "description": "Path of the IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_description",
+    "type": "string",
+    "description": "Description of the IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_name",
+    "type": "string",
+    "description": "Name of the security group created. Falls back to the file system name suffixed with `-s3files`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_ingress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number, 2049)\n    ip_protocol                  = optional(string, \"tcp\")\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string))\n    to_port                      = optional(number, 2049)\n  }))",
+    "description": "Map of ingress rules to add to the security group. Clients reach a mount target over TCP 2049",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "access_points",
+    "type": "map(object({\n    name = optional(string) # Will fall back to map key\n    tags = optional(map(string))\n\n    posix_user = optional(object({\n      gid            = number\n      uid            = number\n      secondary_gids = optional(list(number))\n    }))\n    root_directory = optional(object({\n      path = optional(string)\n      creation_permissions = optional(object({\n        owner_gid   = number\n        owner_uid   = number\n        permissions = string\n      }))\n    }))\n\n    timeouts = optional(object({\n      create = optional(string)\n      delete = optional(string)\n    }))\n\n    # A principal listed here is denied every other way into this file system, including mounting without an access point\n    read_access_arns       = optional(list(string))\n    read_write_access_arns = optional(list(string))\n  }))",
+    "description": "Map of access points to create on the file system. An access point cannot be edited, so any change replaces it",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_arn",
+    "type": "string",
+    "description": "ARN of the general purpose bucket the file system is created on",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "synchronization_configuration",
+    "type": "object({\n    import_data_rule = list(object({\n      prefix         = string\n      size_less_than = number\n      trigger        = string\n    }))\n    # Required: the API takes exactly one expiration rule with every synchronization configuration\n    expiration_data_rule = object({\n      days_after_last_access = number\n    })\n  })",
+    "description": "Synchronization configuration for the file system",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use the IAM role name as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_security_group",
+    "type": "bool",
+    "description": "Whether to create a security group for the mount targets. The group is created even when `security_groups` is set, so set this to `false` to use only the groups you supply",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_vpc_id",
+    "type": "string",
+    "description": "ID of the VPC the security group is created in",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "override_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the file system policy. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "map(string)",
+    "description": "Key-value map of resource tags",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "iam_role_source_assume_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the role's trust policy. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_override_assume_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the role's trust policy. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_override_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the role's permissions policy. In merging, statements with non-blank `sid`s will override statements with the same `sid`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_policy_name",
+    "type": "string",
+    "description": "Name of the role's inline permissions policy. Falls back to the role's own name",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_use_name_prefix",
+    "type": "bool",
+    "description": "Whether to use the security group name as a prefix",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "security_group_description",
+    "type": "string",
+    "description": "Description of the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_tags",
+    "type": "map(string)",
+    "description": "Additional tags for the security group created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_policy",
+    "type": "bool",
+    "description": "Whether to create a file system policy. Required for the access point `read_access_arns` and `read_write_access_arns` grants to take effect",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy_statements",
+    "type": "list(object({\n    sid           = optional(string)\n    actions       = optional(list(string))\n    not_actions   = optional(list(string))\n    effect        = optional(string)\n    resources     = optional(list(string))\n    not_resources = optional(list(string))\n    principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    not_principals = optional(list(object({\n      type        = string\n      identifiers = list(string)\n    })))\n    conditions = optional(list(object({\n      test     = string\n      values   = list(string)\n      variable = string\n    })))\n  }))",
+    "description": "List of IAM policy [statements](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document#statement) to add to the file system policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create",
+    "type": "bool",
+    "description": "Whether to create the file system and its associated resources",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_iam_role",
+    "type": "bool",
+    "description": "Whether to create an IAM role for the file system",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_role_kms_key_arns",
+    "type": "list(string)",
+    "description": "KMS key ARNs the role may use with S3 Files. Defaults to every key in this account and Region, which is the scope AWS's own policy template uses",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_permissions_boundary",
+    "type": "string",
+    "description": "ARN of the policy that is used to set the permissions boundary for the IAM role created",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_group_egress_rules",
+    "type": "map(object({\n    name = optional(string)\n\n    cidr_ipv4                    = optional(string)\n    cidr_ipv6                    = optional(string)\n    description                  = optional(string)\n    from_port                    = optional(number)\n    ip_protocol                  = string\n    prefix_list_id               = optional(string)\n    referenced_security_group_id = optional(string)\n    tags                         = optional(map(string))\n    to_port                      = optional(number)\n  }))",
+    "description": "Map of egress rules to add to the security group",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the file system, used for the `Name` tag and as the prefix of any names this module generates",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix within the bucket the file system is scoped to. The whole bucket when not set",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "kms_key_id",
+    "type": "string",
+    "description": "ARN of the KMS key used to encrypt the file system. A key ID or alias is rejected by the provider. An AWS owned key is used when not set",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "mount_targets",
+    "type": "map(object({\n    subnet_id       = string\n    ip_address_type = optional(string)\n    ipv4_address    = optional(string)\n    ipv6_address    = optional(string)\n    security_groups = optional(list(string), [])\n    timeouts = optional(object({\n      create = optional(string)\n      delete = optional(string)\n      update = optional(string)\n    }))\n  }))",
+    "description": "Map of mount targets to create for the file system, keyed by a value known at plan time such as the Availability Zone. One per Availability Zone at most",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "source_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the file system policy. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Create and delete timeouts for the file system",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_arn",
+    "type": "string",
+    "description": "ARN of an existing IAM role for the file system to assume. Used when `create_iam_role` is `false`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_name",
+    "type": "string",
+    "description": "Name of the IAM role created. Falls back to the file system name suffixed with `-s3files`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "iam_role_source_policy_documents",
+    "type": "list(string)",
+    "description": "List of IAM policy documents that are merged together into the role's permissions policy. Statements must have unique `sid`s",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_role_policies",
+    "type": "map(string)",
+    "description": "Policies to attach to the IAM role this module creates, keyed by a name of your choosing, valued by the policy ARN. Ignored when `create_iam_role` is `false`, since a role brought in must already carry its permissions",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_groups",
+    "type": "list(string)",
+    "description": "Security groups added to every mount target, alongside the group this module creates",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the resource(s) will be managed. Defaults to the Region set in the provider configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "bucket_versioning_status",
+    "type": "string",
+    "description": "Versioning status of the bucket, which must be `Enabled`. Pass the versioning resource's own attribute, which makes the file system wait for versioning on create and be deleted before it is suspended on destroy",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "id",
+    "description": "ID of the file system"
+  },
+  {
+    "name": "status",
+    "description": "Status of the file system"
+  },
+  {
+    "name": "iam_role_arn",
+    "description": "ARN of the IAM role the file system assumes, whether created here or supplied by the caller"
+  },
+  {
+    "name": "iam_role_name",
+    "description": "Name of the IAM role created"
+  },
+  {
+    "name": "iam_role_unique_id",
+    "description": "Unique ID of the IAM role created"
+  },
+  {
+    "name": "security_group_id",
+    "description": "ID of the security group created"
+  },
+  {
+    "name": "access_points",
+    "description": "Map of access points created and their attributes"
+  },
+  {
+    "name": "arn",
+    "description": "ARN of the file system"
+  },
+  {
+    "name": "name",
+    "description": "Name of the file system"
+  },
+  {
+    "name": "mount_targets",
+    "description": "Map of mount targets created and their attributes"
+  },
+  {
+    "name": "security_group_arn",
+    "description": "ARN of the security group created"
+  }
+]
