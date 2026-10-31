@@ -1,0 +1,18 @@
+[
+  {
+    "name": "cloudwatch_metric_stream",
+    "description": "ARN of the metric stream."
+  },
+  {
+    "name": "cloudwatch_metric_stream_creation_date",
+    "description": "Date and time in RFC3339 format that the metric stream was created."
+  },
+  {
+    "name": "cloudwatch_metric_stream_last_update_date",
+    "description": "Date and time in RFC3339 format that the metric stream was last updated."
+  },
+  {
+    "name": "cloudwatch_metric_stream_state",
+    "description": "State of the metric stream. Possible values are running and stopped."
+  }
+]
