@@ -1,0 +1,34 @@
+[
+  {
+    "name": "unique_id",
+    "description": " The unique ID assigned by AWS"
+  },
+  {
+    "name": "users",
+    "description": "List of IAM users in IAM group"
+  },
+  {
+    "name": "policy_arn",
+    "description": "The ARN assigned by AWS for this policy"
+  },
+  {
+    "name": "policy_name",
+    "description": "The policy's name"
+  },
+  {
+    "name": "policy_id",
+    "description": "The policy's ID"
+  },
+  {
+    "name": "id",
+    "description": "The group's ID"
+  },
+  {
+    "name": "arn",
+    "description": "The ARN assigned by AWS for this group"
+  },
+  {
+    "name": "name",
+    "description": "The group's name"
+  }
+]
